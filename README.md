@@ -1,7 +1,7 @@
 Hodnocení stavu předmětů ochrany v české soustavě Natura 2000
 ================
 Sumarizace dat z Nálezové databáze ochrany přírody AOPK ČR a Vrstvy mapování biotopů. Zpřístupnění výsledků hodnocení stavu orgánům ochrany přírody a a dalším uživatelům.
-Zdrojová data vstupující do hodnocení stavu druhů jsou dostupná v Nálezové databázi ochrany přírody AOPK ČR.
+Zdrojová data vstupující do hodnocení stavu druhů jsou dostupná v <a href="https://portal.nature.cz/nd/find.php">Nálezové databázi ochrany přírody AOPK ČR</a>.
 Zdrojová data vstupující do hodnocení stavu přírodních stanovišť jsou dostupná ve Vrstvě mapování biotopů AOPK ČR a je možné je zobrazit v <a href="https://experience.arcgis.com/experience/f53853f23a7241fc8f197b8675a74af2/page/Page/?draft=true&views=View-4">prohlížečce</a>.
 
 ## Jedna příroda
