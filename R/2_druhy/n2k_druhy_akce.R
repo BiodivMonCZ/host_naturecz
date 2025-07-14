@@ -896,7 +896,8 @@ n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
       ),
     POP_TRENDLM = coef(
       lm(
-        POP_POCETMAX ~ ROK)
+        POP_POCETMAX ~ ROK
+        )
       )[2],
     POP_POCETNOSTMAX = max(
       POP_POCETNOST, 
@@ -911,28 +912,56 @@ n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
   dplyr::distinct()
   
 
-# KOMPILACE DO KONECNE TABULKY VSECH INDIKATORU ----
+#--------------------------------------------------#
+## Kompilace konecne tabulky vsech indikatoru ----- 
+#--------------------------------------------------#
 n2k_druhy <- n2k_druhy_pre %>%
-  dplyr::left_join(., n2k_druhy_lokpop, 
-                   by = join_by(ROK, KOD_LOKAL, DRUH)) %>%
-  dplyr::left_join(., n2k_druhy_lokpop_trend, 
-                   by = join_by(KOD_LOKAL, DRUH)) %>%
+  dplyr::left_join(
+    ., 
+    n2k_druhy_lokpop,
+    by = join_by(
+      ROK, 
+      KOD_LOKAL,
+      DRUH
+      )
+    ) %>%
+  dplyr::left_join(
+    ., 
+    n2k_druhy_lokpop_trend, 
+    by = join_by(
+      KOD_LOKAL, 
+      DRUH
+      )
+    ) %>%
   dplyr::distinct() 
 
 #--------------------------------------------------#
 ## Odstraneni dilcich objektu z pameti ----- 
 #--------------------------------------------------#
-rm(n2k_druhy_pre, n2k_druhy_lokpop, n2k_druhy_lokpop_trend)
+rm(
+  n2k_druhy_pre, 
+  n2k_druhy_lokpop, 
+  n2k_druhy_lokpop_trend
+  )
 
 #----------------------------------------------------------#
 # Prevod na long format a napojeni na limity ----- 
 #----------------------------------------------------------#
 n2k_druhy_long <- n2k_druhy %>%
-  dplyr::mutate(across(.cols = ncol_orig:ncol(.), .fns = ~ as.character(.))) %>%
-  tidyr::pivot_longer(.,
-                      cols = c((ncol_orig+9):ncol(.)),
-                      names_to = "ID_IND",
-                      values_to = "HOD_IND") %>%
+  dplyr::mutate(
+    across(
+      .cols = ncol_orig:ncol(.),
+      .fns = ~ as.character(.)
+      )
+    ) %>%
+  tidyr::pivot_longer(
+    .,
+    cols = c(
+      (ncol_orig+9):ncol(.)
+      ),
+    names_to = "ID_IND",
+    values_to = "HOD_IND"
+    ) %>%
   dplyr::select(
     -c(ZDROJ:PRESNOST)
     ) %>%
