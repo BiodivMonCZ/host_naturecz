@@ -211,6 +211,10 @@ n2k_druhy_pre <- n2k_export %>%
         "(?<=<POP_PASTIPOCET>).*(?=</POP_PASTIPOCET>)"
         )
       ),
+    # K DOŘEŠENÍ START !!!!!
+    POP_MONPLOCHA = NA, # ze strukturovane poznamky
+    POP_ABUNDANCE = POP_POCET/POP_MONPLOCHA,
+    # K DOŘEŠENÍ END !!!!!
     # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
     POP_CILJEDNOTKA = NA,
     POP_KOEFICIENT = dplyr::case_when(
@@ -771,6 +775,9 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
     # LOK_OSTATNIBEZ ----
     # LOK_OBOJZIVELNICI ----
     # LOK_RYBY ----
+    POP_ABUNDANCE = NA,
+    POP_ABUNDANCEREF = NA, # 
+    POP_DYN = NA,
     POP_VITALITA = dplyr::n_distinct(
       POP_DELKYJEDINCIKAT, 
       na.rm = TRUE
