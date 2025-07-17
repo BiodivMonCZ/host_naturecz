@@ -778,9 +778,10 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
     # LOK_OSTATNIBEZ ----
     # LOK_OBOJZIVELNICI ----
     # LOK_RYBY ----
-    POP_ABUNDANCE = NA,
-    POP_ABUNDANCEREF = NA, # 
-    POP_DYN = NA,
+    POP_ABUNDANCE = max(
+      POP_ABUNDANCE,
+      na.rm = TRUE
+    ),
     POP_VITALITA = dplyr::n_distinct(
       POP_DELKYJEDINCIKAT, 
       na.rm = TRUE
@@ -884,6 +885,18 @@ n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
     KOD_LOKAL, 
     DRUH
     ) %>%
+  dplyr::arrange(
+    ROK
+  ) %>%
+  dplyr::mutate(
+    POP_ABUNDANCEREF = mean(
+      head(
+        POP_ABUNDANCE[!is.na(POP_ABUNDANCE)],
+        3
+        ),
+      na.rm = TRUE
+      ),
+  ) %>%
   # serazeni sestupne podle roku
   dplyr::arrange(
     desc(ROK)
@@ -912,7 +925,8 @@ n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
     POP_POCETNOSTMAX = max(
       POP_POCETNOST, 
       na.rm = TRUE
-      )
+      ),
+    POP_DYN = POP_ABUNDANCE/POP_ABUNDANCEREF*100,
     ) %>%
   dplyr::ungroup() %>%
   dplyr::left_join(
