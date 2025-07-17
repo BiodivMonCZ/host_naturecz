@@ -211,10 +211,13 @@ n2k_druhy_pre <- n2k_export %>%
         "(?<=<POP_PASTIPOCET>).*(?=</POP_PASTIPOCET>)"
         )
       ),
-    # K DOŘEŠENÍ START !!!!!
-    POP_MONPLOCHA = NA, # ze strukturovane poznamky
-    POP_ABUNDANCE = POP_POCET/POP_MONPLOCHA,
-    # K DOŘEŠENÍ END !!!!!
+    POP_MONPLOCHM2 = readr::parse_number(
+      stringr::str_extract(
+        STRUKT_POZN, 
+        "(?<=<plocha_prolov_pbm>).*(?=</plocha_prolov_pbm>)"
+      )
+    ), 
+    POP_ABUNDANCE = POP_POCET/POP_MONPLOCHM2,
     # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
     POP_CILJEDNOTKA = NA,
     POP_KOEFICIENT = dplyr::case_when(
