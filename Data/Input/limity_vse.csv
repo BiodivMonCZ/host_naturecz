@@ -593,3 +593,33 @@ Zingel zingel,STA_PROUD,val,mírný,NA,ne,lok
 Zingel zingel,STA_PROUD,val,peøeje,NA,ne,lok
 Zingel zingel,STA_PROUD,val,tùnì,NA,ne,lok
 Zingel zingel,STA_PROUDPOCETTYPU,min,2,NA,ne,lok
+Myotis myotis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
+Myotis myotis,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
+Myotis myotis,POP_PRESENCEZIM,val,ano,pøítomnost druhu na zimovišti,ano,chu
+Myotis myotis,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
+Myotis myotis,POP_DIFLET,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,chu
+Myotis myotis,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,chu
+Rhinolophus hipposideros,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
+Rhinolophus hipposideros,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
+Rhinolophus hipposideros,POP_PRESENCEZIM,val,ano,pøítomnost druhu na zimovišti,ano,chu
+Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
+Rhinolophus hipposideros,POP_DIFLET,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,chu
+Rhinolophus hipposideros,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,chu
+Barbastella barbastellus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
+Barbastella barbastellus,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
+Barbastella barbastellus,POP_PRESENCEZIM,val,ano,pøítomnost druhu na zimovišti,ano,chu
+Barbastella barbastellus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
+Barbastella barbastellus,POP_DIFLET,min,0.67,podíl letní abundance k referenèní letní abundanci,ano,chu
+Barbastella barbastellus,POP_DIFZIM,min,0.67,podíl zimní abundance k referenèní zimní abundanci,ano,chu
+Myotis emarginatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
+Myotis emarginatus,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
+Myotis emarginatus,POP_PRESENCEZIM,val,ano,pøítomnost druhu na zimovišti,ano,chu
+Myotis emarginatus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
+Myotis emarginatus,POP_DIFLET,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,chu
+Myotis emarginatus,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,chu
+Myotis bechsteinii,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
+Myotis bechsteinii,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
+Myotis bechsteinii,POP_PRESENCEZIM,val,ano,pøítomnost druhu na zimovišti,ano,chu
+Myotis bechsteinii,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
+Myotis bechsteinii,POP_DIFLET,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,chu
+Myotis bechsteinii,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,chu
