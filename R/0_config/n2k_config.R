@@ -202,6 +202,26 @@ cis_ryby_delky <- readr::read_csv(
 )
 
 #--------------------------------------------------#
+## Ciselnik typu prirodnich stanovist  ---- 
+#--------------------------------------------------#
+cis_habitat <- read.csv2("v_cis_habitat.csv", fileEncoding = "Windows-1250") %>%
+  dplyr::select(KOD_HABITAT, NAZEV_HABITAT, PRIORITA) %>% 
+  dplyr::mutate(KOD_HABITAT = case_when(KOD_HABITAT == "91" ~ "91E0",
+                                        KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
+                                        TRUE ~ KOD_HABITAT)) %>%
+  dplyr::select(KOD_HABITAT, NAZEV_HABITAT)
+
+minimisize <- read.csv("minimisize.csv", fileEncoding = "Windows-1250") %>%
+  group_by(HABITAT) %>%
+  reframe(MINIMISIZE = max(MINIMISIZE)/10000) %>%
+  ungroup()
+
+indikatory <- read.csv("indikatory.csv", fileEncoding = "Windows-1250") %>%
+  filter(nadr == 5)
+
+cis_habitat_ind <- read.csv("cis_stanoviste_ind.csv")
+
+#--------------------------------------------------#
 ## Seznam predmetu ochrany EVL ---- 
 #--------------------------------------------------#
 rn2kcz::load_n2k_sites() 
