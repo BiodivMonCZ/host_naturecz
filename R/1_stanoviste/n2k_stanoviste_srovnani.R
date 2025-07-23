@@ -1,12 +1,25 @@
 # LOAD DATA ----
-results <- read.csv2("results_habitats_A1_20250222.csv",
-                     fileEncoding = "Windows-1250") %>% 
-  dplyr::mutate(HABITAT_CODE = case_when(HABITAT_CODE == "91" ~ "91E0",
-                                         TRUE ~ HABITAT_CODE)) %>%
-  mutate(ROZLOHA = replace_na(ROZLOHA, 0),
-         #KVALITA = replace_na(KVALITA, 0),
-         #KVALITA = round(KVALITA, 2),
-         NAZEV = str_replace_all(NAZEV, "–|—", "-")) %>%
+results <- 
+  read.csv2(
+  "results_habitats_A1_20250222.csv",
+  fileEncoding = "Windows-1250"
+  ) %>%
+  dplyr::mutate(
+    HABITAT_CODE = case_when(
+      HABITAT_CODE == "91" ~ "91E0",
+      TRUE ~ HABITAT_CODE
+      )
+    ) %>%
+  dplyr::mutate(
+    ROZLOHA = replace_na(ROZLOHA, 0),
+    #KVALITA = replace_na(KVALITA, 0),
+    #KVALITA = round(KVALITA, 2),
+    NAZEV = str_replace_all(
+      NAZEV, 
+      "–|—",
+      "-"
+      )
+    ) %>%
   dplyr::distinct()
 
 results_x <- read.csv2("results_habitats_24_20250331.csv",
@@ -19,70 +32,87 @@ results_x <- read.csv2("results_habitats_24_20250331.csv",
          NAZEV = str_replace_all(NAZEV, "–|—", "-")) %>%
   dplyr::distinct()
 
-#write.csv(vyhodnoceni,
-#          paste0("C:/Users/jonas.gaigr/Documents/state_results/vyhodnoceni_kvk.csv"),
-#          row.names = FALSE,
-#          fileEncoding = "Windows-1250")
 
-limity_stan <- read.csv("limity_stanoviste_20250524.csv",
-                        fileEncoding = "Windows-1250") %>% 
-  dplyr::mutate(rowname = rownames(.),
-                HABITAT_CODE = case_when(HABITAT_CODE == "91" ~ "91E0",
-                                         HABITAT_CODE == "9.10E+01" ~ "91E0",
-                                         HABITAT_CODE == "9,10E+01" ~ "91E0",
-                                        TRUE ~ HABITAT_CODE)) %>%
+limity_stan <- 
+  read.csv(
+    "limity_stanoviste_20250524.csv",
+    fileEncoding = "Windows-1250"
+    ) %>% 
+  dplyr::mutate(
+    rowname = as.numeric(
+      rownames(.)
+      ),
+    HABITAT_CODE = dplyr::case_when(
+      HABITAT_CODE == "91" ~ "91E0",
+      HABITAT_CODE == "9.10E+01" ~ "91E0",
+      HABITAT_CODE == "9,10E+01" ~ "91E0",
+      TRUE ~ HABITAT_CODE
+      )
+    ) %>%
   dplyr::rowwise() %>%
-  dplyr::mutate(LIM_IND = dplyr::case_when(ID_IND == "ROZLOHA" ~ floor(LIM_IND * 100) / 100,
-                                           ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10),
-                ZDROJ = dplyr::case_when(ZDROJ == "AVMB2" ~ "VMB3",
-                                         ZDROJ == "AVMB1" ~ "VMB2",
-                                         ZDROJ == "AVMB" ~ "VMB2",
-                                         grepl("SDF", ZDROJ) ~ "SDF",
-                                         TRUE ~ ZDROJ)) %>%
+  dplyr::mutate(
+    LIM_IND = dplyr::case_when(
+      ID_IND == "ROZLOHA" ~ floor(LIM_IND * 100) / 100,
+      ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10
+      ),
+    ZDROJ = dplyr::case_when(
+      ZDROJ == "AVMB2" ~ "VMB3",
+      ZDROJ == "AVMB1" ~ "VMB2",
+      ZDROJ == "AVMB" ~ "VMB2",
+      grepl("SDF", ZDROJ) ~ "SDF",
+      TRUE ~ ZDROJ
+      )
+    ) %>%
   dplyr::distinct()
 
+kval <- 
   limity_stan %>%
-  group_by(SITECODE, HABITAT_CODE, TYP_IND) %>%
-  filter(n() > 1)
+  dplyr::filter(
+    ID_IND == "KVALITA"
+    ) %>%
+  dplyr::group_by(
+    SITECODE, 
+    HABITAT_CODE
+    ) %>%
+  dplyr::arrange(
+    rowname, 
+    LIM_IND
+    ) %>%
+  dplyr::slice(1) %>%
+  dplyr::ungroup() 
 
+rozl <- 
+  limity_stan %>%
+  dplyr::filter(
+    ID_IND == "ROZLOHA"
+    ) %>%
+  dplyr::group_by(
+    SITECODE, 
+    HABITAT_CODE
+    ) %>%
+  dplyr::arrange(
+    rowname,
+    LIM_IND
+    ) %>%
+  dplyr::slice(1) %>%
+  dplyr::ungroup() 
 
-kval <- limity_stan %>%
-  filter(ID_IND == "KVALITA")%>%
-  group_by(SITECODE, HABITAT_CODE) %>%
-  arrange(as.numeric(rowname), LIM_IND) %>%
-  slice(1) %>%
-  ungroup() 
-rozl <- limity_stan %>%
-  filter(ID_IND == "ROZLOHA")%>%
-  group_by(SITECODE, HABITAT_CODE) %>%
-  arrange(as.numeric(rowname), LIM_IND) %>%
-  slice(1) %>%
-  ungroup() 
-lim_new <- bind_rows(rozl, kval)
-lim_new %>%
-  filter(SITECODE == "CZ0720013")
-write.csv(lim_new,
-          "limity_stanoviste_20250524.csv",
-          row.names = FALSE,
-          fileEncoding = "Windows-1250")
+lim_new <- 
+  dplyr::bind_rows(
+    rozl, 
+    kval
+    )
 
-n2k_oop <- readr::read_csv2("n2k_oop_25.csv", locale = readr::locale(encoding = "Windows-1250")) %>%
-  mutate(oop = gsub(";", ",", oop)) %>%
-  dplyr::rename(SITECODE = sitecode) %>%
-  dplyr::select(SITECODE, oop)
+write.csv(
+  lim_new,
+  "limity_stanoviste_20250524.csv",
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+  )
 
 evl <- sf::st_read("https://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?request=GetFeature&service=WFS&typeName=Opendata:Evropsky_vyznamne_lokality") %>%
   dplyr::left_join(., n2k_oop) %>%
   sf::st_transform(., st_crs("+init=epsg:5514"))
-
-rp_code <- read.csv2("n2k_rp_25.csv", fileEncoding = "Windows-1250") %>%
-  dplyr::rename(kod_chu = sitecode) %>%
-  dplyr::select(kod_chu, pracoviste) %>%
-  dplyr::mutate(across(everything(), ~gsub(",,", "", .)))
-
-sites_subjects <- openxlsx::read.xlsx("seznam_predmetolokalit_Natura2000_5_2025_fin.xlsx",
-                                      sheet = 1)
-colnames(sites_subjects) <- c("site_code", "site_name", "site_type", "feature_type", "sdf_code", "feature_code", "nazev_cz", "nazev_lat")
 
 sdo_II_sites <- read.csv2("SDO_II_predmetolokality.csv",
                           header = TRUE,
@@ -106,22 +136,6 @@ write.csv(evl_sdo,
           row.names = FALSE,
 fileEncoding = "Windows-1250")
 
-cis_habitat <- read.csv2("v_cis_habitat.csv", fileEncoding = "Windows-1250") %>%
-  dplyr::select(KOD_HABITAT, NAZEV_HABITAT, PRIORITA) %>% 
-  dplyr::mutate(KOD_HABITAT = case_when(KOD_HABITAT == "91" ~ "91E0",
-                                        KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
-                                        TRUE ~ KOD_HABITAT)) %>%
-  dplyr::select(KOD_HABITAT, NAZEV_HABITAT)
-
-minimisize <- read.csv("minimisize.csv", fileEncoding = "Windows-1250") %>%
-  group_by(HABITAT) %>%
-  reframe(MINIMISIZE = max(MINIMISIZE)/10000) %>%
-  ungroup()
-
-indikatory <- read.csv("indikatory.csv", fileEncoding = "Windows-1250") %>%
-  filter(nadr == 5)
-
-cis_habitat_ind <- read.csv("cis_stanoviste_ind.csv")
 
 # TRANSFORM TO CHARACTER ---- 
 for(i in 4:21) {
