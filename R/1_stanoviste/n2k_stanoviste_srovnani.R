@@ -1,11 +1,11 @@
 # LOAD DATA ----
 results <- 
-  read.csv2(
-  "results_habitats_A1_20250222.csv",
-  fileEncoding = "Windows-1250"
+  readr::read_csv2(
+  "Outputs/Data/results_habitats_A1_20250222.csv",
+  locale = readr::locale(encoding = "Windows-1250")
   ) %>%
   dplyr::mutate(
-    HABITAT_CODE = case_when(
+    HABITAT_CODE = dplyr::case_when(
       HABITAT_CODE == "91" ~ "91E0",
       TRUE ~ HABITAT_CODE
       )
@@ -22,14 +22,23 @@ results <-
     ) %>%
   dplyr::distinct()
 
-results_x <- read.csv2("results_habitats_24_20250331.csv",
-                       fileEncoding = "Windows-1250") %>% 
-  dplyr::mutate(HABITAT_CODE = case_when(HABITAT_CODE == "91" ~ "91E0",
-                                         TRUE ~ HABITAT_CODE)) %>%
-  mutate(ROZLOHA = replace_na(ROZLOHA, 0),
-         #KVALITA = replace_na(KVALITA, 0),
-         #KVALITA = round(KVALITA, 2),
-         NAZEV = str_replace_all(NAZEV, "–|—", "-")) %>%
+results_x <- 
+  readr::read_csv2(
+    "Outputs/Data/results_habitats_24_20250331.csv",
+    locale = readr::locale(encoding = "Windows-1250")
+    ) %>% 
+  dplyr::mutate(
+    HABITAT_CODE = dplyr::case_when(
+      HABITAT_CODE == "91" ~ "91E0",
+      TRUE ~ HABITAT_CODE
+      )
+    ) %>%
+  dplyr::mutate(
+    ROZLOHA = replace_na(ROZLOHA, 0),
+    #KVALITA = replace_na(KVALITA, 0),
+    #KVALITA = round(KVALITA, 2),
+    NAZEV = str_replace_all(NAZEV, "–|—", "-")
+    ) %>%
   dplyr::distinct()
 
 
