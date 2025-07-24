@@ -202,14 +202,29 @@ cis_ryby_delky <- readr::read_csv(
 )
 
 #--------------------------------------------------#
-## Ciselnik typu prirodnich stanovist  ---- 
+## Ciselnik typu prirodnich stanovist ---- 
 #--------------------------------------------------#
-cis_habitat <- read.csv2("v_cis_habitat.csv", fileEncoding = "Windows-1250") %>%
-  dplyr::select(KOD_HABITAT, NAZEV_HABITAT, PRIORITA) %>% 
-  dplyr::mutate(KOD_HABITAT = case_when(KOD_HABITAT == "91" ~ "91E0",
-                                        KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
-                                        TRUE ~ KOD_HABITAT)) %>%
-  dplyr::select(KOD_HABITAT, NAZEV_HABITAT)
+cis_habitat <- 
+  readr::read_csv2(
+    "Data/Input/cis_habitat.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+    ) %>%
+  dplyr::select(
+    KOD_HABITAT, 
+    NAZEV_HABITAT, 
+    PRIORITA
+    ) %>% 
+  dplyr::mutate(
+    KOD_HABITAT = dplyr::case_when(
+      KOD_HABITAT == "91" ~ "91E0",
+      KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
+      TRUE ~ KOD_HABITAT
+      )
+    ) %>%
+  dplyr::select(
+    KOD_HABITAT, 
+    NAZEV_HABITAT
+    )
 
 minimisize <- read.csv("minimisize.csv", fileEncoding = "Windows-1250") %>%
   group_by(HABITAT) %>%
