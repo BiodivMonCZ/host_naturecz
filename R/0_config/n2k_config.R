@@ -202,7 +202,7 @@ cis_ryby_delky <- readr::read_csv(
 )
 
 #--------------------------------------------------#
-## Ciselnik typu prirodnich stanovist ---- 
+## Ciselnik kodu a nazvu typu prirodnich stanovist ---- 
 #--------------------------------------------------#
 cis_habitat <- 
   readr::read_csv2(
@@ -226,10 +226,21 @@ cis_habitat <-
     NAZEV_HABITAT
     )
 
-minimisize <- read.csv("minimisize.csv", fileEncoding = "Windows-1250") %>%
-  group_by(HABITAT) %>%
-  reframe(MINIMISIZE = max(MINIMISIZE)/10000) %>%
-  ungroup()
+#--------------------------------------------------#
+## Ciselnik minimiarealu typu prirodnich stanovist ---- 
+#--------------------------------------------------#
+minimisize <- 
+  readr::read_csv(
+    "Data/Input/minimisize.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+    ) %>%
+  dplyr::group_by(
+    HABITAT
+    ) %>%
+  dplyr::reframe(
+    MINIMISIZE = max(MINIMISIZE)/10000
+    ) %>%
+  dplyr::ungroup()
 
 indikatory <- read.csv("indikatory.csv", fileEncoding = "Windows-1250") %>%
   filter(nadr == 5)
