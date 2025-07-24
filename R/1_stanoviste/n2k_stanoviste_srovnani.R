@@ -196,7 +196,7 @@ results_long <- results %>%
   dplyr::left_join(., limity_stan, by = c("SITECODE" = "SITECODE", "HABITAT_CODE" = "HABITAT_CODE", "parametr_nazev" = "ID_IND" )) %>%
   #dplyr::left_join(., results_1vmb %>% dplyr::select(HABITAT_CODE, SITECODE, DATE_MIN_A1, DATE_MAX_A1)) %>%
   dplyr::left_join(., rp_code, by = c("SITECODE" = "kod_chu")) %>%
-  dplyr::left_join(., cis_habitat_ind, by = c("parametr_nazev" = "parametr_nazev")) %>%
+  dplyr::left_join(., indikatory_id, by = c("parametr_nazev" = "ind_r")) %>%
   dplyr::left_join(., n2k_oop, by = c("SITECODE" = "SITECODE")) %>%
   dplyr::left_join(., minimisize, by = c("HABITAT_CODE" = "HABITAT")) %>%
   #dplyr::group_by(HABITAT_CODE, SITECODE, parametr_nazev) %>%
@@ -332,13 +332,14 @@ results_long <- results %>%
                 parametr_limit = LIM_IND,
                 poznamka = ZDROJ
                 ) %>%
-    dplyr::select(typ_predmetu_hodnoceni, kod_chu, nazev_chu, 
-                  druh, feature_code, 
-                  hodnocene_obdobi_od, hodnocene_obdobi_do, 
-                  parametr_nazev, parametr_hodnota, parametr_limit, parametr_jednotka, 
-                  stav, trend, datum_hodnoceni, oop, pracoviste, poznamka,
-                  par_nazev, stav_toler) %>%
-  dplyr::left_join(., indikatory[,c(1:2)], by = c("par_nazev" = "ID")) %>%
+    dplyr::select(
+      typ_predmetu_hodnoceni, kod_chu, nazev_chu, 
+      druh, feature_code, 
+      hodnocene_obdobi_od, hodnocene_obdobi_do, 
+      parametr_nazev, parametr_hodnota, parametr_limit, parametr_jednotka, 
+      stav, trend, datum_hodnoceni, oop, pracoviste, poznamka
+      ) %>%
+  #dplyr::left_join(., indikatory[,c(1:2)], by = c("par_nazev" = "ID")) %>%
   dplyr::mutate(SDO2 = dplyr::case_when(kod_chu %in% sdo_II_sites$sitecode ~ 1,
                                         TRUE ~ 0),
                 KRAJE2024 = dplyr::case_when(grepl("Správa NP", oop) == TRUE ~ 0,
@@ -349,14 +350,22 @@ results_long <- results %>%
                                              grepl("Král", oop) == TRUE ~ 1,
                                              grepl("Pardu", oop) == TRUE ~ 1,
                                              TRUE ~ 0)) %>%
-  dplyr::mutate(nazev_chu = str_replace_all(nazev_chu, "–|—", "-")) %>%
+  dplyr::mutate(
+    nazev_chu = str_replace_all(nazev_chu, "–|—", "-")
+    ) %>%
   dplyr::distinct()
 
 results_comp <- results_long %>%
-  dplyr::left_join(.,
-                   results_long_x,
-                   by = c("kod_chu" = "SITECODE", "feature_code" = "HABITAT_CODE", "parametr_nazev")) %>%
-  rowwise() %>%
+  dplyr::left_join(
+    .,
+    results_long_x,
+    by = c(
+      "kod_chu" = "SITECODE",
+      "feature_code" = "HABITAT_CODE",
+      "parametr_nazev"
+      )
+    ) %>%
+  dplyr::rowwise() %>%
   mutate(parametr_hodnota.xnum = as.numeric(parametr_hodnota.x),
          parametr_hodnota.ynum = as.numeric(parametr_hodnota.y)) %>%
   dplyr::mutate(trend = dplyr::case_when(parametr_hodnota.xnum == parametr_hodnota.ynum ~ "stabilní",
@@ -405,7 +414,7 @@ nerealne <- results_long %>%
   arrange(-NEREALNE_CILE)
 
 write.csv(results_long,
-          paste0("C:/Users/jonas.gaigr/Documents/state_results/results_long_20250523.csv"),
+          paste0("Outputs/Data/stanoviste_20250724.csv"),
           row.names = FALSE,
           fileEncoding = "Windows-1250") 
 
