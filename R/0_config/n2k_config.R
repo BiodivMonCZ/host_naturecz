@@ -242,11 +242,6 @@ minimisize <-
     ) %>%
   dplyr::ungroup()
 
-indikatory <- read.csv("indikatory.csv", fileEncoding = "Windows-1250") %>%
-  filter(nadr == 5)
-
-cis_habitat_ind <- read.csv("cis_stanoviste_ind.csv")
-
 #--------------------------------------------------#
 ## Seznam predmetu ochrany EVL ---- 
 #--------------------------------------------------#
