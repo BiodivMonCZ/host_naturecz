@@ -119,10 +119,12 @@ rozl <-
 #  fileEncoding = "Windows-1250"
 #  )
 
+sdo_II_sites <- 
+  readr::read_csv2(
+  "Data/Input/SDO_II_predmetolokality.csv",
+  locale = readr::locale(encoding = "Windows-1250")
+  )
 
-sdo_II_sites <- read.csv2("SDO_II_predmetolokality.csv",
-                          header = TRUE,
-                          fileEncoding = "Windows-1250")
 evl_sdo <- evl %>%
   sf::st_drop_geometry() %>%
   dplyr::left_join(sites_subjects, by = c("SITECODE" = "site_code")) %>%
@@ -137,23 +139,32 @@ evl_sdo <- evl %>%
                                              TRUE ~ 0)) %>%
   rowwise() %>%
   dplyr::mutate(rev = sum(SDO2, KRAJE2024))
-write.csv(evl_sdo,
-          "evl_sdo.csv",
-          row.names = FALSE,
-fileEncoding = "Windows-1250")
+#write.csv(evl_sdo,
+#          "evl_sdo.csv",
+#          row.names = FALSE,
+#fileEncoding = "Windows-1250")
 
 
 # TRANSFORM TO CHARACTER ---- 
-for(i in 4:21) {
-  results[,i] <- round(as.numeric(results[,i]), 4)
-}
+results <- results %>%
+  dplyr::mutate(
+    across(
+      where(is.numeric),
+      ~ round(.x, 4)
+      )
+    )
+
 for(i in 4:ncol(results)) {
   results[,i] <- as.character(unlist(results[,i]))
 }
 
-for(i in 4:21) {
-  results_x[,i] <- round(as.numeric(results_x[,i]), 4)
-}
+results_x <- results_x %>%
+  dplyr::mutate(
+    across(
+      where(is.numeric),
+      ~ round(.x, 4)
+    )
+  )
 for(i in 4:ncol(results_x)) {
   results_x[,i] <- as.character(unlist(results_x[,i]))
 }
