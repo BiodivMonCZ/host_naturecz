@@ -43,9 +43,9 @@ results_x <-
 
 
 limity_stan <- 
-  read.csv(
-    "limity_stanoviste_20250524.csv",
-    fileEncoding = "Windows-1250"
+  readr::read_csv(
+    "Data/Input/limity_stanoviste.csv",
+    locale = readr::locale(encoding = "Windows-1250")
     ) %>% 
   dplyr::mutate(
     rowname = as.numeric(
@@ -106,22 +106,19 @@ rozl <-
   dplyr::slice(1) %>%
   dplyr::ungroup() 
 
-lim_new <- 
-  dplyr::bind_rows(
-    rozl, 
-    kval
-    )
+#lim_new <- 
+#  dplyr::bind_rows(
+#    rozl, 
+#    kval
+#    )
 
-write.csv(
-  lim_new,
-  "limity_stanoviste_20250524.csv",
-  row.names = FALSE,
-  fileEncoding = "Windows-1250"
-  )
+#write.csv(
+#  lim_new,
+#  "limity_stanoviste_20250524.csv",
+#  row.names = FALSE,
+#  fileEncoding = "Windows-1250"
+#  )
 
-evl <- sf::st_read("https://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?request=GetFeature&service=WFS&typeName=Opendata:Evropsky_vyznamne_lokality") %>%
-  dplyr::left_join(., n2k_oop) %>%
-  sf::st_transform(., st_crs("+init=epsg:5514"))
 
 sdo_II_sites <- read.csv2("SDO_II_predmetolokality.csv",
                           header = TRUE,
