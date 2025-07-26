@@ -418,18 +418,6 @@ write.csv(results_long,
           row.names = FALSE,
           fileEncoding = "Windows-1250") 
 
-kuk <- results_long  %>%
-  group_by(kod_chu, feature_code) %>%
-  dplyr::mutate(stav_count_toler = dplyr::case_when(stav_toler == "dobrý" ~ 1),
-                glob_stav_toler = case_when(feature_code %in% c("91T0", "3140", "8310") ~ "nehodnocen",
-                                            sum(stav_count_toler, na.rm = TRUE) == 0 ~ "špatný",
-                                            sum(stav_count_toler, na.rm = TRUE) == 1 ~ "zhoršený",
-                                            sum(stav_count_toler, na.rm = TRUE) == 2 ~ "dobrý")) %>%
-  dplyr::filter(parametr_nazev %in% c(#"KVALITA", 
-                                      "CELKOVE_HODNOCENI")) %>%
-  dplyr::filter(stav == "špatný" ) %>%
-  group_by(glob_stav_toler) %>%
-  reframe(n())
 
 # Set chunk size
 chunk_size <- 10000
