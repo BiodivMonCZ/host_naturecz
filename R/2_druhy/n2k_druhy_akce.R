@@ -244,7 +244,9 @@ n2k_druhy_pre <- n2k_export %>%
       )
     ) %>%
   dplyr::mutate(
-      # NALEZ_HMYZ ----
+    # ------------------------------------------#
+    ### Hmyz ----- 
+    # ------------------------------------------#
       STA_SECCAS = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
@@ -363,8 +365,12 @@ n2k_druhy_pre <- n2k_export %>%
                                        STA_SECCAS == 0 ~ "zaznamenána",
                                        STA_MAN == 0 & DRUH == "Phengaris teleius" ~ "nezaznamenána",
                                       CILMON == 1 ~ "nezaznamenána"),
-      # NALEZ_OSTATNIBEZ ----
-      # NALEZ_OBOJZIVELNICI ----
+      # ------------------------------------------#
+      ### Ostatní bezobratlí ----- 
+      # ------------------------------------------#
+      # ------------------------------------------#
+      ### Obojživelníci a plazi ----- 
+      # ------------------------------------------#
       STA_STAVVODARYBNIK = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
@@ -464,14 +470,18 @@ n2k_druhy_pre <- n2k_export %>%
       STA_ZASTINENIHLADINA = dplyr::case_when(
         STA_ZASTINENIHLADINA <= STA_ZASTINENILITORAL ~ STA_ZASTINENILITORAL,
         TRUE ~ STA_ZASTINENIHLADINA),
-      # NALEZ_RYBY ----
+      # ------------------------------------------#
+      ### Ryby a mihule ----- 
+      # ------------------------------------------#
       POP_DELKYJEDINCI = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
       ),
-      # NALEZ_SAVCI ----
+      # ------------------------------------------#
+      ### Savci ----- 
+      # ------------------------------------------#
       POP_PRESENCE_ZIMNI = max(
         POP_PRESENCE[(ROK == ROK & 
                         MESIC < 5) | 
@@ -484,7 +494,9 @@ n2k_druhy_pre <- n2k_export %>%
                         MESIC >= 5 &
                         MESIC <= 9)],
         na.rm = TRUE),
-      # NALEZ MECHOROSTY ----
+      # ------------------------------------------#
+      ### Mechorosty ----- 
+      # ------------------------------------------#
       POP_POCETMIKROLOK = readr::parse_number(
         stringr::str_extract(
           STRUKT_POZN, 
@@ -533,7 +545,9 @@ n2k_druhy_pre <- n2k_export %>%
           "(?<=<druh_strom>).*(?=</druh_strom>)"
           )
         ),
-      # NALEZ_CEVNATE ----
+      # ------------------------------------------#
+      ### Cévnaté rostliny ----- 
+      # ------------------------------------------#
       POP_POCETLODYH = dplyr::case_when(
         POP_PRESENCE == "ne" ~ 0,
         POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
@@ -750,6 +764,9 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
     DRUH
     ) %>%
   dplyr::reframe(
+    # ------------------------------------------#
+    ### Společné indikátory ----- 
+    # ------------------------------------------#
     CELKOVE = NA,
     POP_POCETSUMLOKAL = sum(
       POP_POCET, 
@@ -771,10 +788,18 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
     POP_POCETNOSTMAX = NA,
     #POP_POCETSUM = sum(POP_POCET, na.rm = TRUE),
     #CILMON = max(CILMON, na.rm = TRUE),
-    # LOK_HMYZ ----
-    # LOK_OSTATNIBEZ ----
-    # LOK_OBOJZIVELNICI ----
-    # LOK_RYBY ----
+    # ------------------------------------------#
+    ### Hmyz ----- 
+    # ------------------------------------------#
+    # ------------------------------------------#
+    ### Ostatní bezobratlí ----- 
+    # ------------------------------------------#
+    # ------------------------------------------#
+    ### Obojživelníci a plazi ----- 
+    # ------------------------------------------#
+    # ------------------------------------------#
+    ### Ryby a mihule ----- 
+    # ------------------------------------------#
     POP_ABUNDANCE = NA,
     POP_ABUNDANCEREF = NA, # 
     POP_DYN = NA,
@@ -782,7 +807,9 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
       POP_DELKYJEDINCIKAT, 
       na.rm = TRUE
       ),
-    # LOK_SAVCI ----
+    # ------------------------------------------#
+    ### Savci ----- 
+    # ------------------------------------------#
     POP_POCETZIM = max(
       POP_POCET[(ROK == current_year & 
                    MESIC < 5) |
@@ -995,7 +1022,9 @@ n2k_druhy_long <- n2k_druhy %>%
       )
     ) 
 
-# POROVNANI  NA LONG FORMAT A  NAPOJENI NA LIMITY ----
+# ------------------------------------------#
+# Porovnani s limity ----- 
+# ------------------------------------------#
 n2k_druhy_lim_pre <- n2k_druhy_long %>%
   dplyr::mutate(
     STAV_IND = dplyr::case_when(
@@ -1039,7 +1068,9 @@ n2k_druhy_lim_pre <- n2k_druhy_long %>%
   dplyr::slice(1) %>%
   dplyr::ungroup()
 
-# NAPOJENI NA LIMITY ----
+# ------------------------------------------#
+# Hodnoceni nalezu ----- 
+# ------------------------------------------#
 n2k_druhy_lim <- n2k_druhy_lim_pre %>%
   dplyr::group_by(ID_ND_NALEZ) %>%
   dplyr::mutate(
