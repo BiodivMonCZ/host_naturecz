@@ -80,7 +80,7 @@ ncol_orig <- ncol(n2k_export)
 ## Zdroj cileného monitoringu ---- 
 #--------------------------------------------------#
 CIS_CILMON <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/cil_mon_zdroj.csv", 
+  "Data/Input/cil_mon_zdroj.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 )
 
@@ -97,7 +97,7 @@ current_year <- as.numeric(format(Sys.Date(), "%Y")) - 1
 ### Limity - cévnaté rostliny ---- 
 #------------------------------------------#
 limity_cev <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/limity_cevky.csv", 
+  "Data/Input/limity_cevky.csv", 
   locale = readr::locale(encoding = "Windows-1250")
   )
 
@@ -105,7 +105,7 @@ limity_cev <- readr::read_csv(
 ### Limity - hlavní soubor ---- 
 #------------------------------------------#
 limity <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/limity_vse.csv", 
+  "Data/Input/limity_vse.csv", 
   locale = readr::locale(encoding = "Windows-1250")
   ) %>%
   dplyr::bind_rows(
@@ -157,7 +157,7 @@ limity <- readr::read_csv(
 ## Ciselnik poctu navazanych na relativni kategorii pocetnost ---- 
 #--------------------------------------------------#
 cis_pocet_kat <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/cis_pocet_kat.csv", 
+  "Data/Input/cis_pocet_kat.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 )
 
@@ -165,7 +165,7 @@ cis_pocet_kat <- readr::read_csv(
 ## Ciselnik indikatoru hodnoceni stavu ---- 
 #--------------------------------------------------#
 indikatory_id <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/cis_indikatory_popis.csv", 
+  "Data/Input/cis_indikatory_popis.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 )
 
@@ -173,7 +173,7 @@ indikatory_id <- readr::read_csv(
 ## Ciselnik periody hodnoceni stavu ---- 
 #--------------------------------------------------#
 cis_evd_perioda <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/cis_evd_perioda.csv", 
+  "Data/Input/cis_evd_perioda.csv", 
   locale = readr::locale(encoding = "Windows-1250")
   ) %>%
   dplyr::select(
@@ -185,7 +185,7 @@ cis_evd_perioda <- readr::read_csv(
 ## Ciselnik metodiky hodnoceni stavu ---- 
 #--------------------------------------------------#
 cis_metodika <- readr::read_csv(
-  "https://github.com/jonasgaigr/host_naturecz/raw/refs/heads/main/Data/Input/cis_metodika.csv", 
+  "Data/Input/cis_metodika.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 ) %>%
   dplyr::select(
@@ -197,7 +197,7 @@ cis_metodika <- readr::read_csv(
 ## Ciselnik kategorii delkovych struktur ryb a mihuli ---- 
 #--------------------------------------------------#
 cis_ryby_delky <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/cis_ryby_delky_strukt.csv", 
+  "Data/Input/cis_ryby_delky_strukt.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 )
 
@@ -245,13 +245,17 @@ minimisize <-
 #--------------------------------------------------#
 ## Seznam predmetu ochrany EVL ---- 
 #--------------------------------------------------#
-rn2kcz::load_n2k_sites() 
+sites_subjects <- openxlsx::read.xlsx(
+  "Data/Input/seznam_predmetolokalit_Natura2000_2_2025.xlsx",
+  sheet = 1
+  )
+colnames(sites_subjects) <- c("site_code", "site_name", "site_type", "feature_type", "sdf_code", "feature_code", "nazev_cz", "nazev_lat")
 
 #--------------------------------------------------#
 ## Ciselnik OOP ---- 
 #--------------------------------------------------#
 n2k_oop <- readr::read_csv2(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/n2k_oop_25.csv", 
+  "Data/Input/n2k_oop_25.csv", 
   locale = readr::locale(encoding = "Windows-1250")
   ) %>%
   mutate(oop = gsub(";", ",", oop)) %>%
@@ -262,7 +266,7 @@ n2k_oop <- readr::read_csv2(
 ## Ciselnik RP AOPK CR ---- 
 #--------------------------------------------------#
 rp_code <- readr::read_csv2(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/n2k_rp_25.csv", 
+  "Data/Input/n2k_rp_25.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 ) %>%
   dplyr::rename(
@@ -318,7 +322,7 @@ n2k_union <- sf::st_join(
 ## Ciselnik biotopu EVD hmyzu ---- 
 #--------------------------------------------------#
 biotop_evd <- readr::read_csv(
-  "https://raw.githubusercontent.com/jonasgaigr/host_naturecz/main/Data/Input/biotopy_evd_hmyz.csv"
+  "Data/Input/biotopy_evd_hmyz.csv"
   )
 
 #----------------------------------------------------------#
