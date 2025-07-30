@@ -320,10 +320,24 @@ po <- sf::st_read(getfeature_url_po) %>%
 biotop_zvld <- sf::st_read(getfeature_url_biotopzvld) %>%
   sf::st_transform(., st_crs("+init=epsg:5514"))
 
+sf::st_write(
+  evl,
+  "EvVyzLok.shp",
+  options = "ENCODING=Windows-1250"
+)
+
+evl <- sf::st_read("Data/Input/EvVyzLok.shp") %>%
+  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
+  dplyr::left_join(., n2k_oop, by = "SITECODE")
+po <- sf::st_read("Data/Input/PtaciObl.shp") %>%
+  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
+  dplyr::left_join(., n2k_oop, by = "SITECODE")
+
 n2k_union <- sf::st_join(
   evl, 
   po
   )
+
 
 #----------------------------------------------------------#
 # KONEC ----
