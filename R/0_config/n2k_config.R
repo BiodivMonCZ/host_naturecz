@@ -283,6 +283,13 @@ rp_code <- readr::read_csv2(
   )
 
 #--------------------------------------------------#
+## Ciselnik biotopu EVD hmyzu ---- 
+#--------------------------------------------------#
+biotop_evd <- readr::read_csv(
+  "Data/Input/biotopy_evd_hmyz.csv"
+)
+
+#--------------------------------------------------#
 ## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
@@ -316,13 +323,6 @@ biotop_zvld <- sf::st_read(getfeature_url_biotopzvld) %>%
 n2k_union <- sf::st_join(
   evl, 
   po
-  )
-
-#--------------------------------------------------#
-## Ciselnik biotopu EVD hmyzu ---- 
-#--------------------------------------------------#
-biotop_evd <- readr::read_csv(
-  "Data/Input/biotopy_evd_hmyz.csv"
   )
 
 #----------------------------------------------------------#
