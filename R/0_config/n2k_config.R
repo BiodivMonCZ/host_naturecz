@@ -248,8 +248,17 @@ minimisize <-
 sites_subjects <- openxlsx::read.xlsx(
   "Data/Input/seznam_predmetolokalit_Natura2000_2_2025.xlsx",
   sheet = 1
+  ) %>%
+  dplyr::rename(
+    site_code = `Kód.lokality`,
+    site_name = `Název.lokality`,
+    site_type = `Typ.lokality`,
+    feature_type = `Typ.předmětu.ochrany`,
+    sdf_code = `Kód.SDF`,
+    feature_code = `Kód.ISOP`,
+    nazev_cz = `Název.česky`,
+    nazev_lat = `Název.latinsky.(druh)`
   )
-colnames(sites_subjects) <- c("site_code", "site_name", "site_type", "feature_type", "sdf_code", "feature_code", "nazev_cz", "nazev_lat")
 
 #--------------------------------------------------#
 ## Ciselnik OOP ---- 
