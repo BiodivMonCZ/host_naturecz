@@ -302,8 +302,9 @@ n2k_druhy_chu_lok_long <- n2k_druhy_chu_lok %>%
   dplyr::mutate(
     HOD_IND = as.character(HOD_IND)
     )
-
-# Combine the long format datasets
+#--------------------------------------------------#
+# Komninace pole + lokalita  ----
+#--------------------------------------------------#
 n2k_druhy_chu_komb_long <- 
   dplyr::bind_rows(
     n2k_druhy_chu_pole1_long, 
