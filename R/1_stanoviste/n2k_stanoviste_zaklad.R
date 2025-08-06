@@ -546,17 +546,16 @@ cat("Removed", length(files_to_delete), "files from", temp_path, "\n")
 
 # Results to long ----
 
-results_habitats_l <- results_habitats  %>%
-  dplyr::mutate(across(c(4:20, 25:41),
-                       round, 3))%>%
-  rowwise() %>%
-  dplyr::mutate(NAZEV_HABITATU = find_habitat_NAME_CZ(HABITAT_CODE))
+results_habitats_l <- results_habitats_x %>%
+  mutate(
+    across(where(is.numeric), ~ round(.x, 3))
+  ) %>%
+  mutate(
+    across(where(is.numeric) | where(is.Date) & !c("HABITAT_CODE"), ~ as.character(as.numeric(.x)))
+    )
 
-for(i in c(4:21, 25:41)) {
-  results_habitats_l[,i] <- as.character(as.numeric(unlist(results_habitats_l[,i])))
-}
 results_habitats_long <- tidyr::pivot_longer(results_habitats_l,
-                                             cols = c(4:41),
+                                             cols = c(4:(ncol(results_habitats_l)-4)),
                                              names_to = "PAR_NAZEV",
                                              values_to = "PAR_HODNOTA") %>%
   dplyr::mutate(ROK_HODNOCENI = 2024) %>%
@@ -564,21 +563,27 @@ results_habitats_long <- tidyr::pivot_longer(results_habitats_l,
   dplyr::select(SITECODE,
                 NAZEV,
                 HABITAT_CODE,
-                NAZEV_HABITATU,
                 DATE_MIN, 
                 DATE_MAX,
                 PAR_NAZEV,
                 PAR_HODNOTA,
-                ROK_HODNOCENI) %>%
-  dplyr::mutate(REVIZE = "",
-                POZN_REV = "")
+                ROK_HODNOCENI)
   
-write.csv2(results_habitats_long, 
-           paste0(
-           "S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/results_habitats_long_23_", 
-           gsub('-','',Sys.Date()), 
-           ".csv"),
-           row.names = FALSE)
+write.csv2(
+  results_habitats_long, 
+  paste0(
+  temp_path,
+  "results_habitats_long_24_", 
+  gsub(
+    '-',
+    '',
+    Sys.Date()
+    ),
+  ".csv"
+  ),
+  row.names = FALSE
+  )
+
 openxlsx::write.xlsx(results_habitats_long, 
                      paste0(
                        "S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/results_habitats_long_22_", 
