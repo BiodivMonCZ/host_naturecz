@@ -532,6 +532,20 @@ write.csv2(
   fileEncoding = "Windows-1250"
   )
 
+## Clear temp files ----
+# Define path to the Temp folder
+temp_path <- "Data/Temp"   # or "C:/full/path/to/Data/Temp"
+
+# List all files in the folder
+files_to_delete <- list.files(temp_path, full.names = TRUE)
+
+# Remove files
+file.remove(files_to_delete)
+
+cat("Removed", length(files_to_delete), "files from", temp_path, "\n")
+
+# Results to long ----
+
 results_habitats_l <- results_habitats  %>%
   dplyr::mutate(across(c(4:20, 25:41),
                        round, 3))%>%
