@@ -584,15 +584,6 @@ write.csv2(
   row.names = FALSE
   )
 
-openxlsx::write.xlsx(results_habitats_long, 
-                     paste0(
-                       "S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/results_habitats_long_22_", 
-                       gsub('-','',Sys.Date()), 
-                       ".xlsx"))
-
-results_habitats_read <-read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/results_habitats_22_20230127.csv")
-results_habitats_read[is.na(results_habitats_read)] <- 0
-
 # AKTUALIZACE EVL ----
 okrsky <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/AktualizacniOkrsek")
 st_filter(evl_sjtsk, okrsky %>%
