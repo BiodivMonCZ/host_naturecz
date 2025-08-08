@@ -116,9 +116,11 @@ n2k_druhy_chu_lok <-
       na.rm = TRUE
       ),
     CELKOVE_HODNOCENI = NA,
-    POP_PRESENCE = dplyr::case_when(ID_IND == "POP_PRESENCE" & grepl("ano", HOD_IND) == TRUE ~ "ano", 
-                                    ID_IND == "POP_PRESENCE" & grepl("ne", HOD_IND) == TRUE ~ "ne", 
-                                    TRUE ~ NA_character_), 
+    POP_PRESENCE = dplyr::case_when(
+      ID_IND == "POP_PRESENCE" & grepl("ano", HOD_IND) == TRUE ~ "ano", 
+      ID_IND == "POP_PRESENCE" & grepl("ne", HOD_IND) == TRUE ~ "ne", 
+      TRUE ~ NA_character_
+      ), 
     POP_POCETMAX = sum(
       dplyr::case_when(
         ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), 
@@ -241,7 +243,8 @@ n2k_druhy_chu_lok <-
       POP_POCETLET1, 
       POP_POCETLET2, 
       POP_POCETLET3, 
-      na.rm = TRUE),
+      na.rm = TRUE
+      ),
     POP_VITALLET = round(
       POP_POCETLET/POP_POCETLETREF,
       3
