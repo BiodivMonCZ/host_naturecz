@@ -222,21 +222,24 @@ n2k_druhy_chu_lok <-
       na.rm = TRUE
       ), 
     POP_POCETLET1 = sum(
-      case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-                TRUE ~ NA
-                ), 
+      case_when(
+        ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
+        TRUE ~ NA
+        ), 
       na.rm = TRUE
       ), 
     POP_POCETLET2 = sum(
-      case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-                TRUE ~ NA
-                ), 
+      case_when(
+        ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
+        TRUE ~ NA
+        ), 
       na.rm = TRUE
       ), 
     POP_POCETLET3 = sum(
-      case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-                TRUE ~ NA
-                ), 
+      case_when(
+        ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
+        TRUE ~ NA
+        ), 
       na.rm = TRUE
       ), 
     POP_POCETLETREF = mean(
