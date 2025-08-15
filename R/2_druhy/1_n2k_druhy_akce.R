@@ -1038,7 +1038,7 @@ nal_export <-
     
     write.table(
       n2k_druhy_lim_write,
-      paste0("Outputs/Data/",
+      paste0("Outputs/Data/druhy/",
              "n2k_druhy_nal",
              "_",
              current_year,

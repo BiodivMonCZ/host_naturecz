@@ -6,7 +6,7 @@
 #--------------------------------------------------#
 results <- 
   readr::read_csv2(
-  "Outputs/Data/results_habitats_A1_20250222.csv",
+  "Outputs/Data/stanoviste/results_habitats_A1_20250222.csv",
   locale = readr::locale(encoding = "Windows-1250"),
   col_types = cols(
     DATE_MIN = col_date(format = "%Y-%m-%d"),
@@ -38,7 +38,7 @@ results <-
 #--------------------------------------------------#
 results_x <- 
   readr::read_csv2(
-    "Outputs/Data/results_habitats_24_20250806.csv",
+    "Outputs/Data/stanoviste/results_habitats_24_20250806.csv",
     locale = readr::locale(encoding = "Windows-1250"),
     col_types = cols(
       DATE_MIN = col_date(format = "%Y-%m-%d"),
@@ -596,7 +596,7 @@ write.csv(
     dplyr::select(-ind_popis) %>%
     dplyr::filter(is.na(parametr_nazev) == FALSE),
   paste0(
-    "Outputs/Data/stanoviste_",
+    "Outputs/Data/stanoviste/stanoviste_",
     gsub('-','', Sys.Date()), 
     ".csv"
     ),

@@ -664,7 +664,7 @@ chu_export <-
     
     write.table(
       n2k_druhy_chu,
-      paste0("Outputs/Data/",
+      paste0("Outputs/Data/druhy/",
              "n2k_druhy_chu",
              "_",
              current_year,
@@ -686,7 +686,7 @@ chu_export <-
     
     write.table(
       n2k_druhy_chu,
-      paste0("Outputs/Data/",
+      paste0("Outputs/Data/druhy/",
              "n2k_druhy_chu",
              "_",
              current_year,
