@@ -30,12 +30,16 @@ poèet dílèích lokalit v dobrém stavu,130,LOK_DILCDOBRE,
 poèet hodnocených dílèích lokalit,131,LOK_DILCPOCET,
 ,131,POP_POCETPOLE1,
 ,189,POP_PROCPOLE1D,
-rozloha,128,,5
-kvalita,129,,5
-minimiareál,133,,5
-okrajový efekt,135,,5
-typické druhy,132,,5
-mozaikovitost,134,,5
-pøítomost invazních druhù,137,,5
-druhy èerveného seznamu,136,,5
-pøítomost expanzivních druhù,138,,5
+rozloha,128,ROZLOHA,5
+kvalita,129,KVALITA,5
+minimiareál,133,MINIMIAREAL,5
+okrajový efekt,135,MOZAIKA_VNEJSI,5
+typické druhy,132,TYPICKE_DRUHY,5
+mozaikovitost,134,MOZAIKA_VNITRNI,5
+pøítomost invazních druhù,137,INVASIVE,5
+druhy èerveného seznamu,136,RED_LIST,5
+pøítomost expanzivních druhù,138,EXPANSIVE,5
+minimiareál (poèet jader),,MINIMIAREAL_JADRA,5
+minimiareál (hodnota),,MINIMIAREAL_HODNOTA,5
+mrtvé døevo,,MRTVE_DREVO,5
+mrtvé døevo (potenciál),,KALAMITA_POLOM,5
