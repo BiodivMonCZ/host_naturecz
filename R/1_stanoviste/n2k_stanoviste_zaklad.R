@@ -1,4 +1,3 @@
-
 # LOAD DATA ----
 # VRSTVA EVL 
 n2k_oop <- read.csv2("n2k_oop_24.csv", fileEncoding = "Windows-1250")
