@@ -1,8 +1,19 @@
-# LOAD DATA ----
+#----------------------------------------------------------#
+# Nacteni napoctu z VMB -----
+#----------------------------------------------------------#
+#--------------------------------------------------#
+## Nacteni VMB2 -----
+#--------------------------------------------------#
 results <- 
   readr::read_csv2(
   "Outputs/Data/results_habitats_A1_20250222.csv",
-  locale = readr::locale(encoding = "Windows-1250")
+  locale = readr::locale(encoding = "Windows-1250"),
+  col_types = cols(
+    DATE_MIN = col_date(format = "%Y-%m-%d"),
+    DATE_MAX = col_date(format = "%Y-%m-%d"),
+    DATE_MEAN = col_date(format = "%Y-%m-%d"),
+    DATE_MEDIAN = col_date(format = "%Y-%m-%d")
+  )
   ) %>%
   dplyr::mutate(
     HABITAT_CODE = dplyr::case_when(
@@ -22,10 +33,19 @@ results <-
     ) %>%
   dplyr::distinct()
 
+#--------------------------------------------------#
+## Nacteni aktualni VMBX -----
+#--------------------------------------------------#
 results_x <- 
   readr::read_csv2(
     "Outputs/Data/results_habitats_24_20250806.csv",
-    locale = readr::locale(encoding = "Windows-1250")
+    locale = readr::locale(encoding = "Windows-1250"),
+    col_types = cols(
+      DATE_MIN = col_date(format = "%Y-%m-%d"),
+      DATE_MAX = col_date(format = "%Y-%m-%d"),
+      DATE_MEAN = col_date(format = "%Y-%m-%d"),
+      DATE_MEDIAN = col_date(format = "%Y-%m-%d")
+    )
     ) %>% 
   dplyr::mutate(
     HABITAT_CODE = dplyr::case_when(
@@ -119,12 +139,6 @@ rozl <-
 #  fileEncoding = "Windows-1250"
 #  )
 
-sdo_II_sites <- 
-  readr::read_csv2(
-  "Data/Input/SDO_II_predmetolokality.csv",
-  locale = readr::locale(encoding = "Windows-1250")
-  )
-
 evl_sdo <- evl %>%
   sf::st_drop_geometry() %>%
   dplyr::left_join(sites_subjects, by = c("SITECODE" = "site_code")) %>%
@@ -139,66 +153,121 @@ evl_sdo <- evl %>%
                                              TRUE ~ 0)) %>%
   rowwise() %>%
   dplyr::mutate(rev = sum(SDO2, KRAJE2024))
-#write.csv(evl_sdo,
-#          "evl_sdo.csv",
-#          row.names = FALSE,
-#fileEncoding = "Windows-1250")
 
-
-# TRANSFORM TO CHARACTER ---- 
-results <- results %>%
-  dplyr::mutate(
+#----------------------------------------------------------#
+# Prevod na long format -----
+#----------------------------------------------------------#
+#--------------------------------------------------#
+## Prevod na as.character() -----
+#--------------------------------------------------#
+results <- results  %>%
+  mutate(
+    across(where(is.numeric), ~ round(.x, 4)),
     across(
-      where(is.numeric),
-      ~ round(.x, 4)
-      )
-    )
-
-for(i in 4:ncol(results)) {
-  results[,i] <- as.character(unlist(results[,i]))
-}
-
-results_x <- results_x %>%
-  dplyr::mutate(
-    across(
-      where(is.numeric),
-      ~ round(.x, 4)
+      where(~ is.numeric(.x) && !inherits(.x, "Date")),
+      as.character
     )
   )
-for(i in 4:ncol(results_x)) {
-  results_x[,i] <- as.character(unlist(results_x[,i]))
-}
+
+results_x <- results_x %>%
+  mutate(
+    across(where(is.numeric), ~ round(.x, 4)),
+    across(
+      where(~ is.numeric(.x) && !inherits(.x, "Date")),
+      as.character
+    )
+  )
 
 
-# TRANSPOSE TO LONG FORMAT ----
+#--------------------------------------------------#
+## Long VMBX -----
+#--------------------------------------------------#
 results_long_x <- results_x %>%
-  dplyr::mutate(CELKOVE_HODNOCENI = NA) %>%
-  dplyr::mutate(datum_hodnoceni_od = DATE_MIN,
-                datum_hodnoceni_do = DATE_MAX) %>%
+  dplyr::mutate(
+    CELKOVE_HODNOCENI = NA
+    ) %>%
+  dplyr::mutate(
+    datum_hodnoceni_od = DATE_MIN,
+    datum_hodnoceni_do = DATE_MAX
+    ) %>%
   #dplyr::rename(parametr_nazev = PAR_NAZEV,
   #              parametr_hodnota = PAR_HODNOTA) %>%
-  dplyr::select(-c(DATE_MIN, DATE_MAX, DATE_MEAN, DATE_MEDIAN)) %>%
-  tidyr::pivot_longer(cols = c(4:(ncol(.)-2)),
-                      names_to = "parametr_nazev",
-                      values_to = "parametr_hodnota") 
+  dplyr::select(
+    -c(
+      DATE_MIN, 
+      DATE_MAX, 
+      DATE_MEAN, 
+      DATE_MEDIAN
+      )
+    ) %>%
+  tidyr::pivot_longer(
+    cols = c(4:(ncol(.)-2)),
+    names_to = "parametr_nazev",
+    values_to = "parametr_hodnota"
+    ) 
 
+#--------------------------------------------------#
+## Long VMB2 -----
+#--------------------------------------------------#
 results_long <- results %>%
-  dplyr::mutate(CELKOVE_HODNOCENI = NA) %>%
-  dplyr::mutate(datum_hodnoceni_od = DATE_MIN,
-                datum_hodnoceni_do = DATE_MAX) %>%
+  dplyr::mutate(
+    CELKOVE_HODNOCENI = NA
+    ) %>%
+  dplyr::mutate(
+    datum_hodnoceni_od = DATE_MIN,
+    datum_hodnoceni_do = DATE_MAX
+    ) %>%
   #dplyr::rename(parametr_nazev = PAR_NAZEV,
   #              parametr_hodnota = PAR_HODNOTA) %>%
-  dplyr::select(-c(DATE_MIN, DATE_MAX, DATE_MEAN, DATE_MEDIAN)) %>%
-  tidyr::pivot_longer(cols = c(4:(ncol(.)-2)),
-                      names_to = "parametr_nazev",
-                      values_to = "parametr_hodnota") %>%
-  dplyr::left_join(., cis_habitat, by = c("HABITAT_CODE" = "KOD_HABITAT")) %>%
-  dplyr::left_join(., limity_stan, by = c("SITECODE" = "SITECODE", "HABITAT_CODE" = "HABITAT_CODE", "parametr_nazev" = "ID_IND" )) %>%
-  #dplyr::left_join(., results_1vmb %>% dplyr::select(HABITAT_CODE, SITECODE, DATE_MIN_A1, DATE_MAX_A1)) %>%
-  dplyr::left_join(., rp_code, by = c("SITECODE" = "kod_chu")) %>%
-  dplyr::left_join(., indikatory_id, by = c("parametr_nazev" = "ind_r")) %>%
-  dplyr::left_join(., n2k_oop, by = c("SITECODE" = "SITECODE")) %>%
-  dplyr::left_join(., minimisize, by = c("HABITAT_CODE" = "HABITAT")) %>%
+  dplyr::select(
+    -c(
+      DATE_MIN, 
+      DATE_MAX, 
+      DATE_MEAN, 
+      DATE_MEDIAN
+      )
+    ) %>%
+  tidyr::pivot_longer(
+    cols = c(4:(ncol(.)-2)),
+    names_to = "parametr_nazev",
+    values_to = "parametr_hodnota"
+    ) %>%
+  dplyr::left_join(
+    ., 
+    cis_habitat, 
+    by = c("HABITAT_CODE" = "KOD_HABITAT"
+           )
+    ) %>%
+  dplyr::left_join(
+    ., 
+    limity_stan, 
+    by = c(
+      "SITECODE" = "SITECODE",
+      "HABITAT_CODE" = "HABITAT_CODE",
+      "parametr_nazev" = "ID_IND"
+      )
+    ) %>%
+  dplyr::left_join(
+    ., 
+    rp_code, 
+    by = c("SITECODE" = "kod_chu"
+           )
+    ) %>%
+  dplyr::left_join(
+    .,
+    indikatory_id, 
+    by = c("parametr_nazev" = "ind_r")
+    ) %>%
+  dplyr::left_join(
+    ., 
+    n2k_oop, 
+    by = c("SITECODE" = "SITECODE")
+    ) %>%
+  dplyr::left_join(
+    ., 
+    minimisize, 
+    by = c("HABITAT_CODE" = "HABITAT")
+    ) %>%
   #dplyr::group_by(HABITAT_CODE, SITECODE, parametr_nazev) %>%
   rowwise() %>%
   dplyr::mutate(
@@ -405,6 +474,9 @@ results_long <- results %>%
     ) %>%
   dplyr::distinct()
 
+#--------------------------------------------------#
+## Srovnani VMBX a VMB2 -----
+#--------------------------------------------------#
 results_comp <- results_long %>%
   dplyr::left_join(
     .,
@@ -422,18 +494,62 @@ results_comp <- results_long %>%
     ) %>%
   dplyr::mutate(
     trend = dplyr::case_when(
-      parametr_hodnota.xnum == parametr_hodnota.ynum ~ "stabilní",
-      parametr_hodnota.xnum <= parametr_hodnota.ynum*1.05 &
-      parametr_hodnota.xnum >= parametr_hodnota.ynum*0.95 ~ "stabilní",
+      parametr_hodnota.y == parametr_hodnota.x ~ "stabilní",
+      parametr_nazev == "CELKOVE_HODNOCENI" &
+        parametr_hodnota.y %in% c("zhoršený", "špatný") &
+        parametr_hodnota.x == "dobrý" ~ "zhoršující se",
+      parametr_nazev == "CELKOVE_HODNOCENI" &
+        parametr_hodnota.y == "špatný" &
+        parametr_hodnota.x %in% c("dobrý", "zhoršený") ~ "zhoršující se",
+      parametr_nazev == "CELKOVE_HODNOCENI" &
+        parametr_hodnota.y %in% c("dobrý", "zhoršený") &
+        parametr_hodnota.x == "špatný" ~ "zlepšující se",
+      parametr_nazev == "CELKOVE_HODNOCENI" &
+        parametr_hodnota.y == "dobrý" &
+        parametr_hodnota.x %in% c("zhoršený", "špatný") ~ "zlepšující se",
+      parametr_hodnota.ynum == parametr_hodnota.xnum ~ "stabilní",
+      parametr_hodnota.ynum <= parametr_hodnota.xnum*1.05 &
+        parametr_hodnota.ynum >= parametr_hodnota.xnum*0.95 ~ "stabilní",
       parametr_nazev == "KVALITA" & 
-      parametr_hodnota.xnum > parametr_hodnota.ynum*1.05 ~ "klesající",
+        parametr_hodnota.ynum > parametr_hodnota.xnum*1.05 ~ "zhoršující se",
       parametr_nazev == "KVALITA" & 
-      parametr_hodnota.xnum < parametr_hodnota.ynum*0.95 ~ "vzrůstající",
+        parametr_hodnota.ynum < parametr_hodnota.xnum*0.95 ~ "zlepšující se",
       parametr_nazev == "ROZLOHA" & 
-      parametr_hodnota.xnum < parametr_hodnota.ynum*0.95 ~ "klesající",
+        parametr_hodnota.ynum < parametr_hodnota.xnum*0.95 ~ "zhoršující se",
       parametr_nazev == "ROZLOHA" & 
-      parametr_hodnota.xnum > parametr_hodnota.ynum*1.05 ~ "vzrůstající")
-    )
+        parametr_hodnota.ynum > parametr_hodnota.xnum*1.05 ~ "zlepšující se")
+    ) %>%
+  dplyr::mutate(
+    parametr_hodnota = parametr_hodnota.ynum
+  ) %>%
+  dplyr::select(
+    typ_predmetu_hodnoceni,
+    kod_chu,
+    nazev_chu,
+    druh,
+    feature_code,
+    datum_hodnoceni_od,
+    datum_hodnoceni_do,
+    parametr_nazev,
+    parametr_hodnota,
+    parametr_limit,
+    parametr_jednotka,
+    stav,
+    trend,
+    datum_hodnoceni,
+    oop,
+    pracoviste,
+    poznamka,
+    ) %>%
+  dplyr::left_join(
+    .,
+    indikatory_id %>%
+      dplyr::select(
+        ind_r,
+        ind_popis
+      ),
+    by = c("parametr_nazev" = "ind_r")
+  ) 
 
 nerealne <- results_long %>%
   dplyr::filter(
@@ -473,7 +589,12 @@ nerealne <- results_long %>%
   arrange(-NEREALNE_CILE)
 
 write.csv(
-  results_long,
+  results_comp %>%
+    dplyr::mutate(
+      parametr_nazev = ind_popis
+    ) %>%
+    dplyr::select(-ind_popis) %>%
+    dplyr::filter(is.na(parametr_nazev) == FALSE),
   paste0(
     "Outputs/Data/stanoviste_",
     gsub('-','', Sys.Date()), 
@@ -516,25 +637,3 @@ write.csv(results_kvk,
           row.names = FALSE,
           fileEncoding = "Windows-1250")
 
-kuk <- results_long %>%
-  mutate(kuk = parametr_nazev == "ROZLOHA" & parametr_hodnota < LIM_IND)
-
-# sitmap ----
-sitmap_geo <- sf::st_read("https://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?request=GetFeature&service=WFS&typeName=Opendata:Mapovaci_sit_-_deleni_1.radu")
-rp_geo <- sf::st_read("https://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?request=GetFeature&service=WFS&typeName=Opendata:Uzemni_obvody_regionalnich_pracovist")
-inter_rp <- rp_geo %>%
-  sf::st_intersection(., sitmap_geo)
-intersect_rp <- inter_rp %>%
-  mutate(ROZLOHA = st_area(SHAPE) %>% units::drop_units()) %>%
-  group_by(POLE) %>%
-  arrange(-ROZLOHA) %>%
-  slice(1) %>%
-  ungroup() %>%
-  st_drop_geometry()
-
-write.csv(intersect_rp,
-           "intersect_rp.csv",
-           fileEncoding = "Windows-1250")
-
-kukmal <- limity_stan %>%
-  filter(SITECODE %in% sdo_II_sites$sitecode) 
