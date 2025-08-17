@@ -441,8 +441,15 @@ n2k_druhy_pre <- n2k_load %>%
           "(?<=<MAN_POTREBAVLIV>).*(?=</MAN_POTREBAVLIV>)"
           )
         ),
-      STA_MANPOTREBA = NA,
-      STA_MANVLIV = NA,
+      STA_MANPOTREBA = dplyr::case_when(
+        grepl("je zapotřebí", STA_MANPOTREBAVLIV) ~ "je zapotřebí",
+        grepl("není zapotřebí", STA_MANPOTREBAVLIV) ~ "není zapotřebí",
+      ),
+      STA_MANVLIV = dplyr::case_when(
+        grepl("neutrální", STA_MANPOTREBAVLIV) ~ "neutrální",
+        grepl("negativní", STA_MANPOTREBAVLIV) ~ "negativní",
+        grepl("pozitivní", STA_MANPOTREBAVLIV) ~ "pozitivní"
+      ),
       STA_POKRYVNOSTINVAZNI = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
