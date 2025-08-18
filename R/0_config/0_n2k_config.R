@@ -273,14 +273,16 @@ rp_code <- readr::read_csv2(
   )
 
 #--------------------------------------------------#
-## Stazeni GIS vrstev AOPK CR ---- 
+## Stažení GIS vrstev AOPK ČR ---- 
 #--------------------------------------------------#
-endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
-caps_url <- base::paste0(endpoint, "request=GetCapabilities&service=WFS")
 
-layer_name_evl <- "Opendata:Evropsky_vyznamne_lokality"
-layer_name_po <- "Opendata:Ptaci_oblasti"
+endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
+caps_url <- paste0(endpoint, "request=GetCapabilities&service=WFS")
+
+layer_name_evl      <- "Opendata:Evropsky_vyznamne_lokality"
+layer_name_po       <- "Opendata:Ptaci_oblasti"
 layer_name_biotopzvld <- "Opendata:Biotop_zvlaste_chranenych_druhu_velkych_savcu"
+
 getfeature_url_evl <- paste0(
   endpoint,
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_evl
@@ -294,45 +296,44 @@ getfeature_url_biotopzvld <- paste0(
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_biotopzvld
 )
 
+#--------------------------------------------------#
+## Funkce pro načtení vrstvy: nejprve lokálně, jinak z WFS ----
+#--------------------------------------------------#
 
-evl <- sf::st_read(
-  "Data/Input/EvVyzLok.shp",
-  options = "ENCODING=WINDOWS-1250"   # Windows-1250
-) %>%
-  sf::st_transform(
+read_layer <- function(local_path, wfs_url, n2k = NULL) {
+  if (file.exists(local_path)) {
+    message("Reading local file: ", local_path)
+    shp <- sf::st_read(local_path, options = "ENCODING=CP1250", quiet = TRUE)
+  } else {
+    message("Local file not found, downloading from WFS: ", wfs_url)
+    shp <- sf::st_read(wfs_url, quiet = TRUE)
+  }
+  
+  shp <- sf::st_transform(
+    shp, 
     st_crs("+init=epsg:5514")
-    ) %>%
-  dplyr::left_join(
-    .,
-    n2k_oop, 
-    by = "SITECODE"
     )
+  
+  if (!is.null(n2k)) {
+    shp <- dplyr::left_join(shp, n2k, by = "SITECODE")
+  }
+  
+  return(shp)
+}
 
-po <- sf::st_read(
-  "Data/Input/PtaciObl.shp",
-  options = "ENCODING=WINDOWS-1250"   # Windows-1250
-) %>%
-  sf::st_transform(
-    st_crs("+init=epsg:5514")
-  ) %>%
-  dplyr::left_join(
-    .,
-    n2k_oop, 
-    by = "SITECODE"
-  )
-#evl <- sf::st_read(getfeature_url_evl) %>%
-#  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
-#  dplyr::left_join(., n2k_oop, by = "SITECODE") 
-#po <- sf::st_read(getfeature_url_po) %>%
-#  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
-#  dplyr::left_join(., n2k_oop, by = "SITECODE") 
-biotop_zvld <- sf::st_read(getfeature_url_biotopzvld) %>%
-  sf::st_transform(., st_crs("+init=epsg:5514"))
+#--------------------------------------------------#
+## Načtení vrstev ----
+#--------------------------------------------------#
 
-n2k_union <- sf::st_join(
-  evl, 
-  po
-  )
+evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
+po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
+biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
+
+#--------------------------------------------------#
+## Spojení EVL a PO ----
+#--------------------------------------------------#
+
+n2k_union <- sf::st_join(evl, po)
 
 #----------------------------------------------------------#
 # Nacteni lokalnich dat -----
