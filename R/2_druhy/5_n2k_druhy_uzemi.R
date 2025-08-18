@@ -468,19 +468,18 @@ n2k_druhy_chu <-
         ),
       na.rm = TRUE
       ),
-    LENIND_SUM = length(unique(ID_IND[UROVEN == "chu" &
-                                        !is.na(LIM_IND)]) %>% 
-                          na.omit()),
-    LENIND_SUMKLIC = length(unique(ID_IND[KLIC == "ano" &
-                                            UROVEN == "chu" &
-                                            !is.na(LIM_IND) &
-                                            !is.na(STAV_IND)]) %>%
-                              na.omit()),
-    LENIND_SUMOST = length(unique(ID_IND[KLIC == "ne" &
-                                           UROVEN == "chu" &
-                                           !is.na(LIM_IND) &
-                                           !is.na(STAV_IND)]) %>%
-                             na.omit()),
+    LENIND_SUM = ID_IND[UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
+    LENIND_SUMKLIC = ID_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
+    LENIND_SUMOST = ID_IND[KLIC == "ne" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
     LENIND_NAKLIC = sum(
       KLIC == "ano" &
         UROVEN == "chu" &
