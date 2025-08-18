@@ -294,12 +294,38 @@ getfeature_url_biotopzvld <- paste0(
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_biotopzvld
 )
 
-evl <- sf::st_read(getfeature_url_evl) %>%
-  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
-  dplyr::left_join(., n2k_oop, by = "SITECODE") 
-po <- sf::st_read(getfeature_url_po) %>%
-  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
-  dplyr::left_join(., n2k_oop, by = "SITECODE") 
+
+evl <- sf::st_read(
+  "Data/Input/EvVyzLok.shp",
+  options = "ENCODING=WINDOWS-1250"   # Windows-1250
+) %>%
+  sf::st_transform(
+    st_crs("+init=epsg:5514")
+    ) %>%
+  dplyr::left_join(
+    .,
+    n2k_oop, 
+    by = "SITECODE"
+    )
+
+po <- sf::st_read(
+  "Data/Input/PtaciObl.shp",
+  options = "ENCODING=WINDOWS-1250"   # Windows-1250
+) %>%
+  sf::st_transform(
+    st_crs("+init=epsg:5514")
+  ) %>%
+  dplyr::left_join(
+    .,
+    n2k_oop, 
+    by = "SITECODE"
+  )
+#evl <- sf::st_read(getfeature_url_evl) %>%
+#  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
+#  dplyr::left_join(., n2k_oop, by = "SITECODE") 
+#po <- sf::st_read(getfeature_url_po) %>%
+#  sf::st_transform(., st_crs("+init=epsg:5514")) %>%
+#  dplyr::left_join(., n2k_oop, by = "SITECODE") 
 biotop_zvld <- sf::st_read(getfeature_url_biotopzvld) %>%
   sf::st_transform(., st_crs("+init=epsg:5514"))
 
