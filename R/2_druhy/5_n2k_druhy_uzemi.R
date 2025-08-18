@@ -392,31 +392,10 @@ n2k_druhy_chu <-
     LIM_INDLIST = unique(LIM_INDLIST),
     STAV_IND = dplyr::case_when(
       is.na(HOD_IND) == TRUE ~ NA_real_,
-      IND_GRP == "minmax" & 
-        grepl(
-          "POP_", 
-          ID_IND
-          )
-      == TRUE
-      ~ max(
-        as.numeric(STAV_IND), 
-        na.rm = TRUE
-        ),
-      IND_GRP == "minmax" & 
-        grepl(
-          "POP_", 
-          ID_IND
-          )
-      == FALSE
-      ~ min(
-        as.numeric(STAV_IND),
-        na.rm = TRUE
-        ),
-      IND_GRP == "val" 
-      ~ max(
-        as.numeric(STAV_IND),
-        na.rm = TRUE
-        )
+      IND_GRP == "minmax" & grepl("POP_POSK", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == TRUE ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
       ),
     KLIC = unique(KLIC),
     UROVEN = unique(UROVEN),
