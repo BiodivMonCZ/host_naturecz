@@ -428,13 +428,14 @@ n2k_druhy_chu <-
   ) %>%
   dplyr::distinct() %>%
   dplyr::ungroup() %>%
-  dplyr::left_join(., 
-                   n2k_druhy_obdobi_chu,
-                   by = join_by(
-                     "kod_chu",
-                     "DRUH"
-                     )
-                   ) %>%
+  dplyr::left_join(
+    ., 
+    n2k_druhy_obdobi_chu,
+    by = join_by(
+      "kod_chu",
+      "DRUH"
+      )
+    ) %>%
   dplyr::mutate(
     STAV_IND = ifelse(
       is.infinite(STAV_IND),
