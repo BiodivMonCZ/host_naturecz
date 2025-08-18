@@ -458,7 +458,7 @@ n2k_load <- n2k_export %>%
                           "amp53", "amp252", "amp281", "amp280", "amp22",
                           "amp81", "amp25", "CZ0813450", "CZ0713397") ~ NA_character_,
       kod_chu == "CZ0623367" ~ "CZ0623367",
-      is.na(KOD_LOKALITY) == TRUE ~ kod_chu,
+      is.na(KOD_LOKALITY) == TRUE & SKUPINA != "Cévnaté rostliny" ~ kod_chu,
       TRUE ~ NA_character_)
   ) %>%
   dplyr::mutate(
