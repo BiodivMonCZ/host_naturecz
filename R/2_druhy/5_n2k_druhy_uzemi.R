@@ -309,7 +309,7 @@ n2k_druhy_chu_lok_long <- n2k_druhy_chu_lok %>%
     HOD_IND = as.character(HOD_IND)
     )
 #--------------------------------------------------#
-# Komninace pole + lokalita  ----
+# Kombinace pole + lokalita  ----
 #--------------------------------------------------#
 n2k_druhy_chu_komb_long <- 
   dplyr::bind_rows(
