@@ -546,10 +546,33 @@ results_comp <- results_long %>%
     indikatory_id %>%
       dplyr::select(
         ind_r,
-        ind_popis
+        ind_popis,
+        ind_id
       ),
     by = c("parametr_nazev" = "ind_r")
-  ) 
+  ) %>%
+  dplyr::mutate(
+    stav = dplyr::case_when(
+      stav == "dobrý" ~ 11,
+      stav == "zhoršený" ~ 12,
+      stav == "špatný" ~ 13,
+      stav == "neznámý" ~ 1,
+      stav == "nehodnocen" ~ 8,
+      ),
+    trend = dplyr::case_when(
+      trend == "zhoršující se" ~ 4,
+      trend == "zlepšující se" ~ 2,
+      trend == "stabilní" ~ 3,
+      trend == "neznámý" ~ 1,
+    ),
+    parametr_jednotka = dplyr::case_when(
+      parametr_jednotka == "ha" ~ 7,
+      arametr_jednotka == "kvalita" ~ 140,
+      arametr_jednotka == "martvé dřevo" ~ 140,
+      arametr_jednotka == "typické druhy" ~ 140,
+      TRUE ~ parametr_jednotka
+    )
+  )
 
 nerealne <- results_long %>%
   dplyr::filter(
@@ -591,7 +614,7 @@ nerealne <- results_long %>%
 write.csv(
   results_comp %>%
     dplyr::mutate(
-      parametr_nazev = ind_popis
+      parametr_nazev = ind_id
     ) %>%
     dplyr::select(-ind_popis) %>%
     dplyr::filter(is.na(parametr_nazev) == FALSE),
