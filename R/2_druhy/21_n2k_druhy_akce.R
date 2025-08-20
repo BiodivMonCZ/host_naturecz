@@ -551,10 +551,11 @@ n2k_druhy_pre <- n2k_load %>%
     ) %>%
   dplyr::distinct() %>%
   dplyr::mutate(
-    POP_POSKPOC = dplyr::case_when(is.na(SP_POSKOZENI_ROSTLIN) == TRUE ~ NA,
-                                   SP_POSKOZENI_ROSTLIN == "Nezjištěno" ~ 0,
-                                   TRUE ~ sum(!is.na(POSKOZENI_ROSTLIN) & 
-                                                POSKOZENI_ROSTLIN != "Nezjištěno")),
+    POP_POSKPOC = dplyr::case_when(
+      is.na(SP_POSKOZENI_ROSTLIN) == TRUE ~ 0,
+      SP_POSKOZENI_ROSTLIN == "Nezjištěno" ~ 0,
+      TRUE ~ sum(!is.na(POSKOZENI_ROSTLIN) & POSKOZENI_ROSTLIN != "Nezjištěno")
+      ),
     POCET_POSKOZENYCH = readr::parse_number(POSKOZENI_ROSTLIN),
     POCET_POSKOZENYCHSUM = sum(POCET_POSKOZENYCH, na.rm = TRUE),
     PROCENTO_POSKOZENYCH = POCET_POSKOZENYCHSUM/unique(POP_POCETLODYHSUM),

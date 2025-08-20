@@ -309,7 +309,7 @@ n2k_druhy_chu_lok_long <- n2k_druhy_chu_lok %>%
     HOD_IND = as.character(HOD_IND)
     )
 #--------------------------------------------------#
-# Komninace pole + lokalita  ----
+# Kombinace pole + lokalita  ----
 #--------------------------------------------------#
 n2k_druhy_chu_komb_long <- 
   dplyr::bind_rows(
@@ -392,31 +392,10 @@ n2k_druhy_chu <-
     LIM_INDLIST = unique(LIM_INDLIST),
     STAV_IND = dplyr::case_when(
       is.na(HOD_IND) == TRUE ~ NA_real_,
-      IND_GRP == "minmax" & 
-        grepl(
-          "POP_", 
-          ID_IND
-          )
-      == TRUE
-      ~ max(
-        as.numeric(STAV_IND), 
-        na.rm = TRUE
-        ),
-      IND_GRP == "minmax" & 
-        grepl(
-          "POP_", 
-          ID_IND
-          )
-      == FALSE
-      ~ min(
-        as.numeric(STAV_IND),
-        na.rm = TRUE
-        ),
-      IND_GRP == "val" 
-      ~ max(
-        as.numeric(STAV_IND),
-        na.rm = TRUE
-        )
+      IND_GRP == "minmax" & grepl("POP_POSK", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == TRUE ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
       ),
     KLIC = unique(KLIC),
     UROVEN = unique(UROVEN),
@@ -428,13 +407,14 @@ n2k_druhy_chu <-
   ) %>%
   dplyr::distinct() %>%
   dplyr::ungroup() %>%
-  dplyr::left_join(., 
-                   n2k_druhy_obdobi_chu,
-                   by = join_by(
-                     "kod_chu",
-                     "DRUH"
-                     )
-                   ) %>%
+  dplyr::left_join(
+    ., 
+    n2k_druhy_obdobi_chu,
+    by = join_by(
+      "kod_chu",
+      "DRUH"
+      )
+    ) %>%
   dplyr::mutate(
     STAV_IND = ifelse(
       is.infinite(STAV_IND),
@@ -468,19 +448,18 @@ n2k_druhy_chu <-
         ),
       na.rm = TRUE
       ),
-    LENIND_SUM = length(unique(ID_IND[UROVEN == "chu" &
-                                        !is.na(LIM_IND)]) %>% 
-                          na.omit()),
-    LENIND_SUMKLIC = length(unique(ID_IND[KLIC == "ano" &
-                                            UROVEN == "chu" &
-                                            !is.na(LIM_IND) &
-                                            !is.na(STAV_IND)]) %>%
-                              na.omit()),
-    LENIND_SUMOST = length(unique(ID_IND[KLIC == "ne" &
-                                           UROVEN == "chu" &
-                                           !is.na(LIM_IND) &
-                                           !is.na(STAV_IND)]) %>%
-                             na.omit()),
+    LENIND_SUM = ID_IND[UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
+    LENIND_SUMKLIC = ID_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
+    LENIND_SUMOST = ID_IND[KLIC == "ne" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
     LENIND_NAKLIC = sum(
       KLIC == "ano" &
         UROVEN == "chu" &

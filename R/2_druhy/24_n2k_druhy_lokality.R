@@ -35,22 +35,10 @@ n2k_druhy_lok_pre <-
     JEDNOTKA = unique(JEDNOTKA),
     LIM_INDLIST = unique(LIM_INDLIST),
     STAV_IND = dplyr::case_when(
-      IND_GRP == "minmax" & 
-        grepl("POP_", ID_IND) == TRUE
-      ~ max(
-        as.numeric(STAV_IND), 
-        na.rm = TRUE
-        ),
-      IND_GRP == "minmax" & 
-        grepl("POP_", ID_IND) == FALSE 
-      ~ min(
-        as.numeric(STAV_IND), 
-        na.rm = TRUE
-        ),
-      IND_GRP == "val" ~ max(
-        as.numeric(STAV_IND),
-        na.rm = TRUE
-        )
+      IND_GRP == "minmax" & grepl("POP_POSK", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == TRUE ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "minmax" & grepl("POP_", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+      IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
       ),
     KLIC = unique(KLIC),
     IND_GRP = unique(IND_GRP),
@@ -292,7 +280,7 @@ lok_export <-
     write.table(
       n2k_druhy_lok_write,
       paste0(
-        "Outputs/Data/",
+        "Outputs/Data/druhy/",
         "n2k_druhy_lok",
         "_",
         current_year,
