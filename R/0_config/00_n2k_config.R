@@ -1,50 +1,29 @@
 #----------------------------------------------------------#
 # Nacteni knihoven -----
 #----------------------------------------------------------#
-if(!isTRUE(require(tidyverse, quietly = TRUE))) {
-  install.packages("tidyverse", dependencies = TRUE); library(tidyverse)
-} else {
-  require(tidyverse)}
+packages <- c(
+  "tidyverse", 
+  "sf", 
+  "sp", 
+  "proj4", 
+  "openxlsx",
+  "fuzzyjoin", 
+  "remotes"
+)
 
-if(!isTRUE(require(sf, quietly = TRUE))) {
-  install.packages("sf", dependencies = TRUE); library(sf)
-} else {
-  require(sf)}
+# Standardni package
+for (pkg in packages) {
+  if (!require(pkg, character.only = TRUE, quietly = TRUE)) {
+    install.packages(pkg, dependencies = TRUE)
+    library(pkg, character.only = TRUE)
+  }
+}
 
-if(!isTRUE(require(sp, quietly = TRUE))) {
-  install.packages("sp", dependencies = TRUE); library(sp)
-} else {
-  require(sp)}
-
-if(!isTRUE(require(proj4, quietly = TRUE))) {
-  install.packages("proj4", dependencies = TRUE); library(proj4)
-} else {
-  require(proj4)}
-
-if(!isTRUE(require(leaflet, quietly = TRUE))) {
-  install.packages("leaflet", dependencies = TRUE); library(leaflet)
-} else {
-  require(leaflet)}
-
-if(!isTRUE(require(openxlsx, quietly = TRUE))) {
-  install.packages("openxlsx", dependencies = TRUE); library(openxlsx)
-} else {
-  require(openxlsx)}
-
-if(!isTRUE(require(fuzzyjoin, quietly = TRUE))) {
-  install.packages("fuzzyjoin", dependencies = TRUE); library(fuzzyjoin)
-} else {
-  require(fuzzyjoin)}
-
-if(!isTRUE(require(remotes, quietly = TRUE))) {
-  install.packages("remotes", dependencies = TRUE); library(remotes)
-} else {
-  require(remotes)}
-
-if(!isTRUE(require(rn2kcz, quietly = TRUE))) {
-  remotes::install_github("jonasgaigr/rn2kcz", force = TRUE); library(rn2kcz)
-} else {
-  require(rn2kcz)}
+# GitHub remotes
+if (!require("rn2kcz", quietly = TRUE)) {
+  remotes::install_github("jonasgaigr/rn2kcz", force = TRUE)
+  library(rn2kcz)
+}
 
 #----------------------------------------------------------#
 # Nacteni remote dat -----
