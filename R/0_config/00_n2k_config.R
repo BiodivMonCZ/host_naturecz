@@ -221,6 +221,14 @@ sites_subjects <- openxlsx::read.xlsx(
   )
 
 #--------------------------------------------------#
+## Seznam EVL SDO II ---- 
+#--------------------------------------------------#
+sdo_II_sites <- readr::read_csv2(
+  "Data/Input/SDO_II_predmetolokality.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+) 
+
+#--------------------------------------------------#
 ## Ciselnik OOP ---- 
 #--------------------------------------------------#
 n2k_oop <- readr::read_csv2(
