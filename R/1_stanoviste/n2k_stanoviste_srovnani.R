@@ -566,10 +566,10 @@ results_comp <- results_long %>%
       trend == "neznámý" ~ 1,
     ),
     parametr_jednotka = dplyr::case_when(
-      parametr_jednotka == "ha" ~ 7,
-      arametr_jednotka == "kvalita" ~ 140,
-      arametr_jednotka == "martvé dřevo" ~ 140,
-      arametr_jednotka == "typické druhy" ~ 140,
+      parametr_jednotka == "ha" ~ "7",
+      parametr_jednotka == "kvalita" ~ "140",
+      parametr_jednotka == "martvé dřevo" ~ "140",
+      parametr_jednotka == "typické druhy" ~ "140",
       TRUE ~ parametr_jednotka
     )
   )
@@ -641,7 +641,13 @@ for (i in seq_len(num_chunks)) {
   
   chunk <- results_long[start_row:end_row, ]
   
-  file_name <- paste0("C:/Users/jonas.gaigr/Documents/state_results/results_long_20250225_UTF_part", i, ".csv")
+  file_name <- paste0(
+    "Outputs/Data/stanoviste/stanoviste_",
+    gsub('-','', Sys.Date()), 
+    "UTF_part", 
+    i, 
+    ".csv"
+    )
   
   write.csv2(chunk, file_name, row.names = FALSE, fileEncoding = "UTF-8", sep = ";", quote = FALSE)
   
@@ -660,3 +666,6 @@ write.csv(results_kvk,
           row.names = FALSE,
           fileEncoding = "Windows-1250")
 
+#----------------------------------------------------------#
+# KONEC ----
+#----------------------------------------------------------#
