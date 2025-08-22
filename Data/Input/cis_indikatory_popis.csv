@@ -1,32 +1,45 @@
-ind_popis,ind_id,ind_r
-vývoj poèetnosti populace,80,POP_ZMENARAD
-minimální odhadovaná velikost populace,21,POP_POCETMIN
-maximální odhadovaná velikost populace,22,POP_POCETMAX
-pøítomnost druhu,27,POP_PRESENCE
-pøítomnost druhu na zimovišti,28,POP_PRESENCE_ZIM
-pøítomnost druhu v letní kolonii,29,POP_PRESENCE_LET
-rozmnožování druhu,30,POP_REPRO
-ztráty vodních biotopù,31,STA_ZTRATABIO
-nadmìrný tlak ryb,32,STA_RYBY
-manipulace s vodní hladinou,33,STA_MANIPULACE
-vysychání vodních ploch,34,STA_VYSYCHANI
-pokryvnost vodní vegetace,35,STA_POKRVEGETACE
-prùhlednost vody,36,STA_PRUHLEDNOSTVODA
-zastínìní hladiny okolní vegetací,37,STA_ZASTINENIHLADINA
-úhyn obojživelníkù,38,STA_UHYNOBOJZIVELNIK
-poèet hodnocených dílèích lokalit,131,LOK_DILCPOCET
-poèet dílèích lokalit v dobrém stavu,130,LOK_DILCDOBRE
-celkové hodnocení,10,CELKOVE_HODNOCENI
-,61,STA_PRITOMNOSTROSTLIN
-,65,STA_LIKVIDACE
-,63,STA_HABPOKRYV
-,69,VLV_VLIVY
-,131,POP_POCETPOLE1
-,130,POP_POCETPOLE1D
-,43,STA_JASANOKOLI
-,42,STA_MIKRPROSTLINA
-,39,STA_VHSTROMN
-,40,STA_VHSTROMK
-,47,STA_POKRYVNOSTDREVIN
-,46,STA_ZAZEMNENI
-,189,POP_PROCPOLE1D
+ind_popis,ind_id,ind_r,ind_nadr
+celkové hodnocení,10,CELKOVE_HODNOCENI,
+minimální odhadovaná velikost populace,21,POP_POCETMIN,
+maximální odhadovaná velikost populace,22,POP_POCETMAX,
+pøítomnost druhu,27,POP_PRESENCE,
+pøítomnost druhu na zimovišti,28,POP_PRESENCE_ZIM,
+pøítomnost druhu v letní kolonii,29,POP_PRESENCE_LET,
+rozmnožování druhu,30,POP_REPRO,
+ztráty vodních biotopù,31,STA_ZTRATABIO,
+nadmìrný tlak ryb,32,STA_RYBY,
+manipulace s vodní hladinou,33,STA_MANIPULACE,
+vysychání vodních ploch,34,STA_VYSYCHANI,
+pokryvnost vodní vegetace,35,STA_POKRVEGETACE,
+prùhlednost vody,36,STA_PRUHLEDNOSTVODA,
+zastínìní hladiny okolní vegetací,37,STA_ZASTINENIHLADINA,
+úhyn obojživelníkù,38,STA_UHYNOBOJZIVELNIK,
+,39,STA_VHSTROMN,
+,40,STA_VHSTROMK,
+,42,STA_MIKRPROSTLINA,
+,43,STA_JASANOKOLI,
+,46,STA_ZAZEMNENI,
+,47,STA_POKRYVNOSTDREVIN,
+,61,STA_PRITOMNOSTROSTLIN,
+,63,STA_HABPOKRYV,
+,65,STA_LIKVIDACE,
+,69,VLV_VLIVY,
+vývoj poèetnosti populace,80,POP_ZMENARAD,
+poèet dílèích lokalit v dobrém stavu,130,LOK_DILCDOBRE,
+,130,POP_POCETPOLE1D,
+poèet hodnocených dílèích lokalit,131,LOK_DILCPOCET,
+,131,POP_POCETPOLE1,
+,189,POP_PROCPOLE1D,
+rozloha,128,ROZLOHA,5
+kvalita,129,KVALITA,5
+minimiareál,133,MINIMIAREAL,5
+okrajový efekt,135,MOZAIKA_VNEJSI,5
+typické druhy,132,TYPICKE_DRUHY,5
+mozaikovitost,134,MOZAIKA_VNITRNI,5
+pøítomost invazních druhù,137,INVASIVE,5
+druhy èerveného seznamu,136,RED_LIST,5
+pøítomost expanzivních druhù,138,EXPANSIVE,5
+minimiareál (poèet jader),,MINIMIAREAL_JADRA,5
+minimiareál (hodnota),,MINIMIAREAL_HODNOTA,5
+mrtvé døevo,,MRTVE_DREVO,5
+mrtvé døevo (potenciál),,KALAMITA_POLOM,5
