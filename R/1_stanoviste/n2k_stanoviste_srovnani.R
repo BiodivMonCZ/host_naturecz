@@ -493,6 +493,16 @@ results_comp <- results_long %>%
     parametr_hodnota.ynum = as.numeric(parametr_hodnota.y)
     ) %>%
   dplyr::mutate(
+    stav = dplyr::case_when(
+      is.na(parametr_limit) == TRUE ~ "nehodnocen",
+      parametr_nazev == "KVALITA" & is.na(parametr_hodnota.ynum) ~ "špatný",
+      parametr_nazev == "ROZLOHA" & parametr_hodnota.ynum < parametr_limit ~ "špatný",
+      parametr_nazev == "ROZLOHA" & parametr_hodnota.ynum >= parametr_limit ~ "dobrý",
+      parametr_nazev == "KVALITA" & parametr_hodnota.ynum > parametr_limit ~ "špatný",
+      parametr_nazev == "KVALITA" & parametr_hodnota.ynum <= parametr_limit ~ "dobrý"
+      )
+    )%>%
+  dplyr::mutate(
     trend = dplyr::case_when(
       parametr_hodnota.y == parametr_hodnota.x ~ "stabilní",
       parametr_nazev == "CELKOVE_HODNOCENI" &
@@ -568,7 +578,7 @@ results_comp <- results_long %>%
     parametr_jednotka = dplyr::case_when(
       parametr_jednotka == "ha" ~ "7",
       parametr_jednotka == "kvalita" ~ "140",
-      parametr_jednotka == "martvé dřevo" ~ "140",
+      parametr_jednotka == "mrtvé dřevo" ~ "140",
       parametr_jednotka == "typické druhy" ~ "140",
       TRUE ~ parametr_jednotka
     )
@@ -614,7 +624,7 @@ nerealne <- results_long %>%
 write.csv(
   results_comp %>%
     dplyr::mutate(
-      parametr_nazev = ind_id
+      parametr_nazev = ind_popis
     ) %>%
     dplyr::select(-ind_popis) %>%
     dplyr::filter(is.na(parametr_nazev) == FALSE),
