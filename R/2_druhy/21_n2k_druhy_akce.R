@@ -9,11 +9,11 @@ n2k_druhy_pre <- n2k_load %>%
     DRUH %in% sites_subjects$nazev_lat & 
       kod_chu %in% sites_subjects$site_code
   ) %>%
-  dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
+  #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
   #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
   #dplyr::filter(SKUPINA == "Obojživelníci") %>%
   #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
-  #filter(SKUPINA %in% c("Letouni", "Savci")) %>%
+  filter(SKUPINA %in% c("Letouni", "Savci")) %>%
 #--------------------------------------------------#
 ## Spolecne indikatory ----- 
 #--------------------------------------------------#
@@ -351,11 +351,13 @@ n2k_druhy_pre <- n2k_load %>%
           STRUKT_POZN, 
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
-      ),
+      )
+    ) %>%
       # ------------------------------------------#
-      ### Savci ----- 
+      ### Letouni ----- 
       # ------------------------------------------#
-      POP_PRESENCE_ZIMNI = max(
+dplyr::mutate(
+  POP_PRESENCE_ZIMNI = max(
         POP_PRESENCE[(ROK == ROK & 
                         MESIC < 5) | 
                        (ROK == ROK - 1 & 
@@ -366,11 +368,33 @@ n2k_druhy_pre <- n2k_load %>%
         POP_PRESENCE[(ROK == ROK &
                         MESIC >= 5 &
                         MESIC <= 9)],
-        na.rm = TRUE),
+        na.rm = TRUE)
+  ) %>%
+    
+      # ------------------------------------------#
+      ### Savci ----- 
+      # ------------------------------------------#
+dplyr::mutate(
+  POP_SCALP = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<SCALP>).*(?=</SCALP>)"
+    )
+  ), 
+  POP_POBYT = dplyr::case_when(
+    POP_SCALP == "C1" ~ 1,
+    POP_SCALP == "C2" ~ 1,
+    TRUE ~ 0
+  ),
+  POP_PYTLAK = NA,
+  STA_FRAGMENT = NA,
+) %>%
+    
       # ------------------------------------------#
       ### Mechorosty ----- 
       # ------------------------------------------#
-      POP_POCETMIKROLOK = readr::parse_number(
+dplyr::mutate(
+  POP_POCETMIKROLOK = readr::parse_number(
         stringr::str_extract(
           STRUKT_POZN, 
           "(?<=<pocet_ml>).*(?=</pocet_ml>)"
