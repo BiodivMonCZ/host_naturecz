@@ -9,10 +9,10 @@ n2k_druhy_pre <- n2k_load %>%
     DRUH %in% sites_subjects$nazev_lat & 
       kod_chu %in% sites_subjects$site_code
   ) %>%
-  dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
+  #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
   #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
   #dplyr::filter(SKUPINA == "Obojživelníci") %>%
-  #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
+  dplyr::filter(SKUPINA == "Ryby a mihule") %>%
   #filter(SKUPINA %in% c("Letouni", "Savci")) %>%
 #--------------------------------------------------#
 ## Spolecne indikatory ----- 
@@ -352,20 +352,27 @@ n2k_druhy_pre <- n2k_load %>%
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
       ),
+    STA_BARIERAPOC = readr::parse_number(
+      str_extract(
+        STRUKT_POZN, 
+        "(?<=<pocet_bar>)\\d+(?=</pocet_bar>)"
+        )
+      ),
+    STA_BARIERAVYS = readr::parse_number(
+      str_extract(
+        STRUKT_POZN, 
+        "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
+      )
+    ),
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
       POP_PRESENCE_ZIMNI = max(
-        POP_PRESENCE[(ROK == ROK & 
-                        MESIC < 5) | 
-                       (ROK == ROK - 1 & 
-                          MESIC > 9)],
+        POP_PRESENCE[(ROK == ROK & MESIC < 5) | (ROK == ROK - 1 & MESIC > 9)],
         na.rm = TRUE
         ),
       POP_PRESENCE_LETNI = max(
-        POP_PRESENCE[(ROK == ROK &
-                        MESIC >= 5 &
-                        MESIC <= 9)],
+        POP_PRESENCE[(ROK == ROK & MESIC >= 5 & MESIC <= 9)],
         na.rm = TRUE),
       # ------------------------------------------#
       ### Mechorosty ----- 
