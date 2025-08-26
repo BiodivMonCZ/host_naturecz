@@ -642,9 +642,13 @@ write.csv(
       `jednotka` = parametr_jednotka,
       `datum hodnocení` = datum_hodnoceni,
       `OOP` = oop,
-      `pracoviště AOPK` = pracoviste
+      `pracoviště AOPK` = pracoviste,
+      `Způsob určení limitu` = poznamka,
       # `ID akcí` = ID_ND_AKCE
-    ),
+    ) %>%
+    mutate(
+      `Poznámka` = NA_character_
+      ),
   paste0(
     "Outputs/Data/stanoviste/stanoviste_",
     gsub("-", "", Sys.Date()),
