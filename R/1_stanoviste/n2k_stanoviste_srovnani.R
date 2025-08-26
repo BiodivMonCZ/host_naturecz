@@ -493,6 +493,16 @@ results_comp <- results_long %>%
     parametr_hodnota.ynum = as.numeric(parametr_hodnota.y)
     ) %>%
   dplyr::mutate(
+    stav = dplyr::case_when(
+      is.na(parametr_limit) == TRUE ~ "nehodnocen",
+      parametr_nazev == "KVALITA" & is.na(parametr_hodnota.ynum) ~ "špatný",
+      parametr_nazev == "ROZLOHA" & parametr_hodnota.ynum < parametr_limit ~ "špatný",
+      parametr_nazev == "ROZLOHA" & parametr_hodnota.ynum >= parametr_limit ~ "dobrý",
+      parametr_nazev == "KVALITA" & parametr_hodnota.ynum > parametr_limit ~ "špatný",
+      parametr_nazev == "KVALITA" & parametr_hodnota.ynum <= parametr_limit ~ "dobrý"
+      )
+    )%>%
+  dplyr::mutate(
     trend = dplyr::case_when(
       parametr_hodnota.y == parametr_hodnota.x ~ "stabilní",
       parametr_nazev == "CELKOVE_HODNOCENI" &
@@ -568,7 +578,7 @@ results_comp <- results_long %>%
     parametr_jednotka = dplyr::case_when(
       parametr_jednotka == "ha" ~ "7",
       parametr_jednotka == "kvalita" ~ "140",
-      parametr_jednotka == "martvé dřevo" ~ "140",
+      parametr_jednotka == "mrtvé dřevo" ~ "140",
       parametr_jednotka == "typické druhy" ~ "140",
       TRUE ~ parametr_jednotka
     )
@@ -614,18 +624,36 @@ nerealne <- results_long %>%
 write.csv(
   results_comp %>%
     dplyr::mutate(
-      parametr_nazev = ind_id
+      parametr_nazev = ind_popis
     ) %>%
-    dplyr::select(-ind_popis) %>%
-    dplyr::filter(is.na(parametr_nazev) == FALSE),
+    dplyr::select(-ind_popis, -ind_id) %>%
+    dplyr::filter(!is.na(parametr_nazev)) %>%
+    dplyr::rename(
+      `kód EVL` = kod_chu,
+      `název EVL` = nazev_chu,
+      `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+      `předmět hodnocení` = druh,
+      `kód předmětu hodn.` = feature_code,
+      `počátek hodnoceného období` = datum_hodnoceni_od,
+      `konec hodnoceného období` = datum_hodnoceni_do,
+      `indikátor` = parametr_nazev,
+      `hodnota` = parametr_hodnota,
+      `limit` = parametr_limit,
+      `jednotka` = parametr_jednotka,
+      `datum hodnocení` = datum_hodnoceni,
+      `OOP` = oop,
+      `pracoviště AOPK` = pracoviste
+      # `ID akcí` = ID_ND_AKCE
+    ),
   paste0(
     "Outputs/Data/stanoviste/stanoviste_",
-    gsub('-','', Sys.Date()), 
+    gsub("-", "", Sys.Date()),
     ".csv"
-    ),
+  ),
   row.names = FALSE,
   fileEncoding = "Windows-1250"
-  ) 
+)
+
 
 
 # Set chunk size
