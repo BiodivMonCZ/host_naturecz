@@ -626,16 +626,34 @@ write.csv(
     dplyr::mutate(
       parametr_nazev = ind_popis
     ) %>%
-    dplyr::select(-ind_popis) %>%
-    dplyr::filter(is.na(parametr_nazev) == FALSE),
+    dplyr::select(-ind_popis, -ind_id) %>%
+    dplyr::filter(!is.na(parametr_nazev)) %>%
+    dplyr::rename(
+      `kód EVL` = kod_chu,
+      `název EVL` = nazev_chu,
+      `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+      `předmět hodnocení` = druh,
+      `kód předmětu hodn.` = feature_code,
+      `počátek hodnoceného období` = datum_hodnoceni_od,
+      `konec hodnoceného období` = datum_hodnoceni_do,
+      `indikátor` = parametr_nazev,
+      `hodnota` = parametr_hodnota,
+      `limit` = parametr_limit,
+      `jednotka` = parametr_jednotka,
+      `datum hodnocení` = datum_hodnoceni,
+      `OOP` = oop,
+      `pracoviště AOPK` = pracoviste
+      # `ID akcí` = ID_ND_AKCE
+    ),
   paste0(
     "Outputs/Data/stanoviste/stanoviste_",
-    gsub('-','', Sys.Date()), 
+    gsub("-", "", Sys.Date()),
     ".csv"
-    ),
+  ),
   row.names = FALSE,
   fileEncoding = "Windows-1250"
-  ) 
+)
+
 
 
 # Set chunk size
