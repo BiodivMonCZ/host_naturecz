@@ -352,13 +352,13 @@ n2k_druhy_pre <- n2k_load %>%
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
       ),
-    STA_BARIERAPOC = readr::parse_number(
+    STA_MIGBARPOCET = readr::parse_number(
       str_extract(
         STRUKT_POZN, 
         "(?<=<pocet_bar>)\\d+(?=</pocet_bar>)"
         )
       ),
-    STA_BARIERAVYS = readr::parse_number(
+    STA_MIGBARVYS = readr::parse_number(
       str_extract(
         STRUKT_POZN, 
         "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
