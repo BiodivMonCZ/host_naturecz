@@ -13,7 +13,8 @@ n2k_druhy_pre <- n2k_load %>%
   #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
   #dplyr::filter(SKUPINA == "Obojživelníci") %>%
   #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
-  filter(SKUPINA %in% c("Letouni", "Savci")) %>%
+  #filter(SKUPINA == "Savci") %>%
+  filter(SKUPINA == "Letouni") %>%
 #--------------------------------------------------#
 ## Spolecne indikatory ----- 
 #--------------------------------------------------#
