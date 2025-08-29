@@ -12,8 +12,8 @@ n2k_druhy_pre <- n2k_load %>%
   #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
   #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
   #dplyr::filter(SKUPINA == "Obojživelníci") %>%
-  dplyr::filter(SKUPINA == "Ryby a mihule") %>%
-  #filter(SKUPINA %in% c("Letouni", "Savci")) %>%
+  #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
+  filter(SKUPINA %in% c("Letouni", "Savci")) %>%
 #--------------------------------------------------#
 ## Spolecne indikatory ----- 
 #--------------------------------------------------#
@@ -351,6 +351,7 @@ n2k_druhy_pre <- n2k_load %>%
           STRUKT_POZN, 
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
+) %>%
       ),
     STA_MIGBARPOCET = readr::parse_number(
       str_extract(
@@ -367,17 +368,34 @@ n2k_druhy_pre <- n2k_load %>%
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
+dplyr::mutate(
+  POP_SCALP = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<SCALP>).*(?=</SCALP>)"
+    )
+  ), 
+  POP_POBYT = dplyr::case_when(
+    POP_SCALP == "C1" ~ 1,
+    POP_SCALP == "C2" ~ 1,
+    TRUE ~ 0
+  ),
+      # ------------------------------------------#
+      ### Letouni ----- 
+      # ------------------------------------------#
       POP_PRESENCE_ZIMNI = max(
         POP_PRESENCE[(ROK == ROK & MESIC < 5) | (ROK == ROK - 1 & MESIC > 9)],
         na.rm = TRUE
         ),
       POP_PRESENCE_LETNI = max(
         POP_PRESENCE[(ROK == ROK & MESIC >= 5 & MESIC <= 9)],
-        na.rm = TRUE),
+        na.rm = TRUE)
+  ) %>%
       # ------------------------------------------#
       ### Mechorosty ----- 
       # ------------------------------------------#
-      POP_POCETMIKROLOK = readr::parse_number(
+dplyr::mutate(
+  POP_POCETMIKROLOK = readr::parse_number(
         stringr::str_extract(
           STRUKT_POZN, 
           "(?<=<pocet_ml>).*(?=</pocet_ml>)"
