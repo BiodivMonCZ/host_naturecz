@@ -386,8 +386,6 @@ dplyr::mutate(
     POP_SCALP == "C2" ~ 1,
     TRUE ~ 0
   ),
-  POP_PYTLAK = NA,
-  STA_FRAGMENT = NA,
 ) %>%
     
       # ------------------------------------------#
