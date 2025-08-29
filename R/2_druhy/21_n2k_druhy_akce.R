@@ -237,14 +237,16 @@ n2k_druhy_pre <- n2k_load %>%
                                          ignore.case = TRUE) ~ "zaznamenána",
                                        STA_SECCAS == 0 ~ "zaznamenána",
                                        STA_MAN == 0 & DRUH == "Phengaris teleius" ~ "nezaznamenána",
-                                      CILMON == 1 ~ "nezaznamenána"),
+                                      CILMON == 1 ~ "nezaznamenána")
+    ) %>%
       # ------------------------------------------#
       ### Ostatní bezobratlí ----- 
       # ------------------------------------------#
       # ------------------------------------------#
       ### Obojživelníci a plazi ----- 
       # ------------------------------------------#
-      STA_STAVVODARYBNIK = readr::parse_character(
+dplyr::mutate(
+  STA_STAVVODARYBNIK = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
           "(?<=<STA_STAVVODARYBNIK>).*(?=</STA_STAVVODARYBNIK>)"
@@ -342,16 +344,17 @@ n2k_druhy_pre <- n2k_load %>%
         ),
       STA_ZASTINENIHLADINA = dplyr::case_when(
         STA_ZASTINENIHLADINA <= STA_ZASTINENILITORAL ~ STA_ZASTINENILITORAL,
-        TRUE ~ STA_ZASTINENIHLADINA),
+        TRUE ~ STA_ZASTINENIHLADINA)
+  ) %>%
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
-      POP_DELKYJEDINCI = readr::parse_character(
+dplyr::mutate(
+  POP_DELKYJEDINCI = readr::parse_character(
         stringr::str_extract(
           STRUKT_POZN, 
           "(?<=<velikosti>).*(?=</velikosti>)"
-        )
-) %>%
+          )
       ),
     STA_MIGBARPOCET = readr::parse_number(
       str_extract(
@@ -364,7 +367,8 @@ n2k_druhy_pre <- n2k_load %>%
         STRUKT_POZN, 
         "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
       )
-    ),
+    )
+) %>%
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
@@ -379,10 +383,12 @@ dplyr::mutate(
     POP_SCALP == "C1" ~ 1,
     POP_SCALP == "C2" ~ 1,
     TRUE ~ 0
-  ),
+  )
+) %>%
       # ------------------------------------------#
       ### Letouni ----- 
       # ------------------------------------------#
+dplyr::mutate(
       POP_PRESENCE_ZIMNI = max(
         POP_PRESENCE[(ROK == ROK & MESIC < 5) | (ROK == ROK - 1 & MESIC > 9)],
         na.rm = TRUE
@@ -442,51 +448,55 @@ dplyr::mutate(
           STRUKT_POZN, 
           "(?<=<druh_strom>).*(?=</druh_strom>)"
           )
-        ),
+        )
+) %>%
       # ------------------------------------------#
       ### Cévnaté rostliny ----- 
       # ------------------------------------------#
-      POP_POCETLODYH = dplyr::case_when(
-        POP_PRESENCE == "ne" ~ 0,
-        POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
-        TRUE ~ NA_real_),
-      POP_POCETVITAL = dplyr::case_when(
-        POP_PRESENCE == "ne" ~ 0,
-        POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_VITAL"] ~ POCET,
-        TRUE ~ NA_real_),
-      STA_MAN = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<MAN>).*(?=</MAN>)"
-          )
-        ),
-      STA_MANPOTREBAVLIV = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<MAN_POTREBAVLIV>).*(?=</MAN_POTREBAVLIV>)"
-          )
-        ),
-      STA_MANPOTREBA = dplyr::case_when(
-        grepl("je zapotřebí", STA_MANPOTREBAVLIV) ~ "je zapotřebí",
-        grepl("není zapotřebí", STA_MANPOTREBAVLIV) ~ "není zapotřebí",
-      ),
-      STA_MANVLIV = dplyr::case_when(
-        grepl("neutrální", STA_MANPOTREBAVLIV) ~ "neutrální",
-        grepl("negativní", STA_MANPOTREBAVLIV) ~ "negativní",
-        grepl("pozitivní", STA_MANPOTREBAVLIV) ~ "pozitivní"
-      ),
-      STA_POKRYVNOSTINVAZNI = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<STA_POKRYVNOSTINVAZNI>).*(?=</STA_POKRYVNOSTINVAZNI>)"
-          )
-        ),
-      STA_POKRYVNOSTEXPANZNI = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<STA_POKRYVNOSTEXPANZNI>).*(?=</STA_POKRYVNOSTEXPANZNI>)"
-          )
-        ),
+dplyr::mutate(
+  POP_POCETLODYH = dplyr::case_when(
+    POP_PRESENCE == "ne" ~ 0,
+    POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
+    TRUE ~ NA_real_
+    ),
+  POP_POCETVITAL = dplyr::case_when(
+    POP_PRESENCE == "ne" ~ 0,
+    POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_VITAL"] ~ POCET,
+    TRUE ~ NA_real_
+    ),
+  STA_MAN = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<MAN>).*(?=</MAN>)"
+      )
+    ),
+  STA_MANPOTREBAVLIV = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<MAN_POTREBAVLIV>).*(?=</MAN_POTREBAVLIV>)"
+      )
+    ),
+  STA_MANPOTREBA = dplyr::case_when(
+    grepl("je zapotřebí", STA_MANPOTREBAVLIV) ~ "je zapotřebí",
+    grepl("není zapotřebí", STA_MANPOTREBAVLIV) ~ "není zapotřebí"
+    ),
+  STA_MANVLIV = dplyr::case_when(
+    grepl("neutrální", STA_MANPOTREBAVLIV) ~ "neutrální",
+    grepl("negativní", STA_MANPOTREBAVLIV) ~ "negativní",
+    grepl("pozitivní", STA_MANPOTREBAVLIV) ~ "pozitivní"
+    ),
+  STA_POKRYVNOSTINVAZNI = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<STA_POKRYVNOSTINVAZNI>).*(?=</STA_POKRYVNOSTINVAZNI>)"
+      )
+    ),
+  STA_POKRYVNOSTEXPANZNI = readr::parse_character(
+    stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<STA_POKRYVNOSTEXPANZNI>).*(?=</STA_POKRYVNOSTEXPANZNI>)"
+      )
+    ),
       STA_POKRSTAR = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)")),
       STA_POKRDREV = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)")),
       STA_POKRDREVNIZ = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)")),
