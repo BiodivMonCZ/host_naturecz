@@ -70,56 +70,45 @@ n2k_druhy_lok <- n2k_druhy_lok_pre %>%
     ROK
     ) %>%
   dplyr::mutate(
-    IND_SUM = sum(
-      as.numeric(
-        STAV_IND[limity$UROVEN %in% c("lok") &
-                   is.na(LIM_IND) == FALSE]
-      ),
-      na.rm = TRUE
-      ) %>%
+    IND_SUM = STAV_IND[limity$UROVEN %in% c("lok") &
+                         is.na(LIM_IND) == FALSE] %>%
+      na.omit() %>%
+      as.numeric() %>%
+      sum() %>%
       as.character(),
-    IND_SUMKLIC = sum(
-      as.numeric(
-        STAV_IND[KLIC == "ano" &
+    IND_SUMKLIC = STAV_IND[KLIC == "ano" &
                             limity$UROVEN %in% c("lok") &
-                            is.na(LIM_IND) == FALSE]),
-      na.rm = TRUE
-      ) %>%
+                            is.na(LIM_IND) == FALSE] %>%
+      na.omit() %>%
+      as.numeric() %>%
+      sum() %>%
       as.character(),
-    IND_SUMOST = sum(
-      as.numeric(
-        STAV_IND[KLIC == "ne" &
-                   limity$UROVEN %in% c("lok") &
-                   is.na(LIM_IND) == FALSE]
-        ), 
-      na.rm = TRUE
-      ) %>%
+    IND_SUMOST = STAV_IND[KLIC == "ne" &
+                            limity$UROVEN %in% c("lok") &
+                            is.na(LIM_IND) == FALSE] %>%
+      na.omit() %>%
+      as.numeric() %>%
+      sum() %>%
       as.character(),
-    IND_LEN = unique(
-        limity$ID_IND[limity$DRUH %in% DRUH &
-                        limity$UROVEN %in% c("lok") &
-                        is.na(limity$LIM_IND) == FALSE],
-        na.rm = TRUE
-        ) %>% 
-        na.omit() %>%
-      length(),
-    IND_LENKLIC = unique(
-      limity$ID_IND[limity$DRUH %in% DRUH & 
-                      limity$KLIC == "ano" &
-                      limity$UROVEN %in% c("lok") &
-                      is.na(limity$LIM_IND) == FALSE],
-                    na.rm = TRUE
-      ) %>%
+    IND_LEN = limity$ID_IND[limity$DRUH %in% DRUH &
+                              limity$UROVEN %in% c("lok") &
+                              is.na(limity$LIM_IND) == FALSE] %>%
+      unique() %>% 
       na.omit() %>%
       length(),
-    IND_LENOST = unique(
-      limity$ID_IND[limity$DRUH %in% DRUH &
-                        limity$KLIC == "ne" &
-                        limity$UROVEN %in% c("lok") &
-                        is.na(limity$LIM_IND) == FALSE],
-        na.rm = TRUE
-        ) %>% 
-        na.omit() %>%
+    IND_LENKLIC = limity$ID_IND[limity$DRUH %in% DRUH & 
+                                  limity$KLIC == "ano" &
+                                  limity$UROVEN %in% c("lok") &
+                                  is.na(limity$LIM_IND) == FALSE] %>%
+      unique() %>%
+      na.omit() %>%
+      length(),
+    IND_LENOST = limity$ID_IND[limity$DRUH %in% DRUH & 
+                                 limity$KLIC == "ne" &
+                                 limity$UROVEN %in% c("lok") &
+                                 is.na(limity$LIM_IND) == FALSE] %>%
+      unique() %>% 
+      na.omit() %>%
       length()
     ) %>%
   # pokud sumklic spatny tak spatny, pokud sum ost tak spatny, pokud sumost tak zhorseny, pokud nic z toho tak dobry, TRUE ~ neznamy pres napojeni na limity
@@ -162,17 +151,26 @@ n2k_druhy_lok <- n2k_druhy_lok_pre %>%
 #----------------------------------------------------------#
 # Vyber ID_AKCE reprezentujici SITMAP_1RAD ----
 #----------------------------------------------------------#
-n2k_druhy_pole1_idakce <- n2k_druhy_lok %>%
+n2k_druhy_pole1_idakce <- 
+  n2k_druhy_lok %>%
   dplyr::group_by(
     kod_chu, 
     DRUH, 
     POLE
     ) %>%
   dplyr::arrange(
-    desc(CILMON),
-    desc(ROK), 
-    desc(CELKOVE), 
-    desc(DATUM)
+    desc(
+      CILMON
+      ),
+    desc(
+      ROK
+      ), 
+    desc(
+      CELKOVE
+      ), 
+    desc(
+      DATUM
+      )
     ) %>%
   dplyr::slice(1) %>%
   dplyr::ungroup() %>%

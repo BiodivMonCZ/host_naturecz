@@ -351,26 +351,20 @@ n2k_druhy_pre <- n2k_load %>%
           STRUKT_POZN, 
           "(?<=<velikosti>).*(?=</velikosti>)"
         )
+) %>%
+      ),
+    STA_MIGBARPOCET = readr::parse_number(
+      str_extract(
+        STRUKT_POZN, 
+        "(?<=<pocet_bar>)\\d+(?=</pocet_bar>)"
+        )
+      ),
+    STA_MIGBARVYS = readr::parse_number(
+      str_extract(
+        STRUKT_POZN, 
+        "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
       )
-    ) %>%
-      # ------------------------------------------#
-      ### Letouni ----- 
-      # ------------------------------------------#
-dplyr::mutate(
-  POP_PRESENCE_ZIMNI = max(
-        POP_PRESENCE[(ROK == ROK & 
-                        MESIC < 5) | 
-                       (ROK == ROK - 1 & 
-                          MESIC > 9)],
-        na.rm = TRUE
-        ),
-      POP_PRESENCE_LETNI = max(
-        POP_PRESENCE[(ROK == ROK &
-                        MESIC >= 5 &
-                        MESIC <= 9)],
-        na.rm = TRUE)
-  ) %>%
-    
+    ),
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
@@ -386,8 +380,17 @@ dplyr::mutate(
     POP_SCALP == "C2" ~ 1,
     TRUE ~ 0
   ),
-) %>%
-    
+      # ------------------------------------------#
+      ### Letouni ----- 
+      # ------------------------------------------#
+      POP_PRESENCE_ZIMNI = max(
+        POP_PRESENCE[(ROK == ROK & MESIC < 5) | (ROK == ROK - 1 & MESIC > 9)],
+        na.rm = TRUE
+        ),
+      POP_PRESENCE_LETNI = max(
+        POP_PRESENCE[(ROK == ROK & MESIC >= 5 & MESIC <= 9)],
+        na.rm = TRUE)
+  ) %>%
       # ------------------------------------------#
       ### Mechorosty ----- 
       # ------------------------------------------#

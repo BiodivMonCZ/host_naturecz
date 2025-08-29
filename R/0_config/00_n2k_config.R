@@ -55,6 +55,15 @@ limity_cev <- readr::read_csv(
   )
 
 #------------------------------------------#
+### Limity - ryby ---- 
+#------------------------------------------#
+limity_ryb <- readr::read_csv2(
+  "Data/Input/limity_ryby.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+)
+
+
+#------------------------------------------#
 ### Limity - hlavní soubor ---- 
 #------------------------------------------#
 limity <- readr::read_csv(
@@ -63,7 +72,8 @@ limity <- readr::read_csv(
   ) %>%
   dplyr::bind_rows(
     ., 
-    limity_cev
+    limity_cev,
+    limity_ryb
     ) %>%
   dplyr::group_by(
     DRUH, 
