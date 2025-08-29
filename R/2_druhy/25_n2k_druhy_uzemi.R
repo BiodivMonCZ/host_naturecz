@@ -5,7 +5,6 @@
 ## Agregace po poli 1. radu -----
 # group_by UZEMI a DRUH
 #--------------------------------------------------#
-
 n2k_druhy_chu_pole1 <- 
   n2k_druhy_pole1eval %>%
   dplyr::group_by(
