@@ -10,11 +10,11 @@ n2k_druhy_pre <- n2k_load %>%
       kod_chu %in% sites_subjects$site_code
   ) %>%
   #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
-  #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
+  dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
   #dplyr::filter(SKUPINA == "Obojživelníci") %>%
   #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
   #filter(SKUPINA == "Savci") %>%
-  filter(SKUPINA == "Letouni") %>%
+  #filter(SKUPINA == "Letouni") %>%
 #--------------------------------------------------#
 ## Spolecne indikatory ----- 
 #--------------------------------------------------#
