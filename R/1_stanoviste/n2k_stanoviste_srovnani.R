@@ -501,7 +501,27 @@ results_comp <- results_long %>%
       parametr_nazev == "KVALITA" & parametr_hodnota.ynum > parametr_limit ~ "špatný",
       parametr_nazev == "KVALITA" & parametr_hodnota.ynum <= parametr_limit ~ "dobrý"
       )
-    )%>%
+    ) %>%
+  dplyr::group_by(
+    kod_chu, 
+    feature_code
+  ) %>%
+  dplyr::mutate(
+    stav_count = dplyr::case_when(
+      stav == "dobrý" ~ 1
+    ),
+    glob_stav = case_when(
+      feature_code %in% c("91T0", "3140", "8310") ~ "nehodnocen",
+      sum(stav_count, na.rm = TRUE) == 0 ~ "špatný",
+      sum(stav_count, na.rm = TRUE) == 1 ~ "zhoršený",
+      sum(stav_count, na.rm = TRUE) == 2 ~ "dobrý"
+    ),
+    stav = dplyr::case_when(
+      parametr_nazev == "CELKOVE_HODNOCENI" ~ unique(glob_stav),
+      TRUE ~ stav
+    )
+  ) %>%
+  dplyr::ungroup() %>%
   dplyr::mutate(
     trend = dplyr::case_when(
       parametr_hodnota.y == parametr_hodnota.x ~ "stabilní",
