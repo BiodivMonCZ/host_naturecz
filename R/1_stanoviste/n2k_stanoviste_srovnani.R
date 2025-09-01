@@ -679,6 +679,53 @@ write.csv(
   fileEncoding = "Windows-1250"
 )
 
+## Zapis .xlsx ----
+ind_order <- c("celkové hodnocení", "rozloha", "kvalita")
+
+export_data <- results_comp %>%
+  mutate(
+    parametr_nazev = ind_popis,
+    feature_code = as.character(feature_code)
+  ) %>%
+  select(-ind_popis, -ind_id) %>%
+  filter(!is.na(parametr_nazev)) %>%
+  rename(
+    `kód EVL` = kod_chu,
+    `název EVL` = nazev_chu,
+    `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+    `předmět hodnocení` = druh,
+    `kód předmětu hodn.` = feature_code,
+    `počátek hodnoceného období` = datum_hodnoceni_od,
+    `konec hodnoceného období` = datum_hodnoceni_do,
+    `indikátor` = parametr_nazev,
+    `hodnota` = parametr_hodnota,
+    `limit` = parametr_limit,
+    `jednotka` = parametr_jednotka,
+    `datum hodnocení` = datum_hodnoceni,
+    `OOP` = oop,
+    `pracoviště AOPK` = pracoviste,
+    `Způsob určení limitu` = poznamka
+  ) %>%
+  mutate(
+    `Poznámka` = NA_character_,
+    ind_order = match(`indikátor`, ind_order, nomatch = length(ind_order) + 1)
+  ) %>%
+  arrange(`kód předmětu hodn.`, `název EVL`, ind_order) %>%
+  select(-ind_order)   # pomocný sloupec odstranit
+
+# pokud chceš pro KÚ export jen těch tří indikátorů:
+export_data_ku <- export_data %>%
+  filter(`indikátor` %in% ind_order)
+
+# zápis do Excelu
+openxlsx::write.xlsx(
+  export_data_ku,   # nebo export_data, pokud chceš i ostatní indikátory
+  file = paste0(
+    "Outputs/Data/stanoviste/stanoviste_",
+    gsub("-", "", Sys.Date()),
+    ".xlsx"
+  )
+)
 
 
 # Set chunk size
