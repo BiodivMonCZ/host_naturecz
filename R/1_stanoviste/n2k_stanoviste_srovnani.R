@@ -644,7 +644,8 @@ nerealne <- results_long %>%
 write.csv(
   results_comp %>%
     dplyr::mutate(
-      parametr_nazev = ind_popis
+      parametr_nazev = ind_popis,
+      feature_code = as.character(feature_code)
     ) %>%
     dplyr::select(-ind_popis, -ind_id) %>%
     dplyr::filter(!is.na(parametr_nazev)) %>%
