@@ -235,8 +235,9 @@ results_long <- results %>%
   dplyr::left_join(
     ., 
     cis_habitat, 
-    by = c("HABITAT_CODE" = "KOD_HABITAT"
-           )
+    by = c(
+      "HABITAT_CODE" = "KOD_HABITAT"
+      )
     ) %>%
   dplyr::left_join(
     ., 
@@ -250,23 +251,30 @@ results_long <- results %>%
   dplyr::left_join(
     ., 
     rp_code, 
-    by = c("SITECODE" = "kod_chu"
-           )
+    by = c(
+      "SITECODE" = "kod_chu"
+      )
     ) %>%
   dplyr::left_join(
     .,
     indikatory_id, 
-    by = c("parametr_nazev" = "ind_r")
+    by = c(
+      "parametr_nazev" = "ind_r"
+      )
     ) %>%
   dplyr::left_join(
     ., 
     n2k_oop, 
-    by = c("SITECODE" = "SITECODE")
+    by = c(
+      "SITECODE" = "SITECODE"
+      )
     ) %>%
   dplyr::left_join(
     ., 
     minimisize, 
-    by = c("HABITAT_CODE" = "HABITAT")
+    by = c(
+      "HABITAT_CODE" = "HABITAT"
+      )
     ) %>%
   #dplyr::group_by(HABITAT_CODE, SITECODE, parametr_nazev) %>%
   rowwise() %>%
@@ -277,13 +285,11 @@ results_long <- results %>%
       ZDROJ == "VMB3" ~ ZDROJ,
       SITECODE %in% sdo_II_sites$sitecode ~ ZDROJ,
       grepl("Karlo", oop) == TRUE ~ ZDROJ,
-      grepl("Libereckého", oop) == TRUE ~ ZDROJ,
-      grepl("Plz", oop) == TRUE ~ ZDROJ,
+      grepl("Libereckého", oop) == TRUE & grepl("Správa KRNAP", oop) == FALSE ~ ZDROJ,
+      grepl("Plz", oop) == TRUE & grepl("Správa NP", oop) == FALSE ~ ZDROJ,
       grepl("Král", oop) == TRUE ~ ZDROJ,
       grepl("Pardu", oop) == TRUE ~ ZDROJ,
-      grepl("Jihočeského", oop) == TRUE ~ ZDROJ,
-      grepl("Správa NP", oop) == FALSE ~ ZDROJ,
-      grepl("Správa KRNAP", oop) == FALSE ~ ZDROJ,
+      grepl("Jihočeského", oop) == TRUE & grepl("Správa NP", oop) == FALSE ~ ZDROJ,
       parametr_nazev == "KVALITA" & 
         ZDROJ %in% c("SDF", "VMB2", "VMB3") & 
         LIM_IND <= 2 ~ ZDROJ,
@@ -303,10 +309,13 @@ results_long <- results %>%
         LIM_IND < MINIMISIZE ~ "MINIMI",
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
-        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
+        as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
-        as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
+        LIM_IND < MINIMISIZE ~ "MINIMI",
+      parametr_nazev == "ROZLOHA" &
+        ZDROJ == "VMB2" &
+        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       (is.na(ZDROJ)  == TRUE | ZDROJ == "NA") &
@@ -318,7 +327,9 @@ results_long <- results %>%
       parametr_nazev == "KVALITA" &
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ "MINIMI",
       TRUE ~ ZDROJ
-      ),
+      )
+    ) %>%
+  dplyr::mutate(
     LIM_IND = dplyr::case_when(
       HABITAT_CODE %in% c("91T0", "3140", "8310") ~ NA,
       parametr_nazev == "ROZLOHA" &
@@ -329,13 +340,14 @@ results_long <- results %>%
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB3" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
-        SITECODE %in% sdo_II_sites$sitecode |
-        (grepl("Karlo", oop) == TRUE &
-           grepl("Libereckého", oop) == TRUE &
-           grepl("Plz", oop) == TRUE &
-           grepl("Král", oop) == TRUE &
-           grepl("Pardu", oop) == TRUE &
-           grepl("Správa NP", oop) == FALSE &
+        SITECODE %in% sdo_II_sites$sitecode ~ LIM_IND,
+      (grepl("Karlo", oop) == TRUE |
+         grepl("Libereckého", oop) == TRUE |
+         grepl("Plz", oop) == TRUE |
+         grepl("Král", oop) == TRUE |
+         grepl("Pardu", oop) == TRUE
+       ) &
+        (grepl("Správa NP", oop) == FALSE &
            grepl("Správa KRNAP", oop) == FALSE) ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "MINIMI" ~ MINIMISIZE,
