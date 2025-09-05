@@ -9,10 +9,10 @@ results <-
   "Outputs/Data/stanoviste/results_habitats_A1_20250222.csv",
   locale = readr::locale(encoding = "Windows-1250"),
   col_types = cols(
-    DATE_MIN = col_date(format = "%Y-%m-%d"),
-    DATE_MAX = col_date(format = "%Y-%m-%d"),
-    DATE_MEAN = col_date(format = "%Y-%m-%d"),
-    DATE_MEDIAN = col_date(format = "%Y-%m-%d")
+    DATE_MIN = readr::col_date(format = "%Y-%m-%d"),
+    DATE_MAX = readr::col_date(format = "%Y-%m-%d"),
+    DATE_MEAN = readr::col_date(format = "%Y-%m-%d"),
+    DATE_MEDIAN = readr::col_date(format = "%Y-%m-%d")
   )
   ) %>%
   dplyr::mutate(
@@ -41,10 +41,10 @@ results_x <-
     "Outputs/Data/stanoviste/results_habitats_24_20250806.csv",
     locale = readr::locale(encoding = "Windows-1250"),
     col_types = cols(
-      DATE_MIN = col_date(format = "%Y-%m-%d"),
-      DATE_MAX = col_date(format = "%Y-%m-%d"),
-      DATE_MEAN = col_date(format = "%Y-%m-%d"),
-      DATE_MEDIAN = col_date(format = "%Y-%m-%d")
+      DATE_MIN = readr::col_date(format = "%Y-%m-%d"),
+      DATE_MAX = readr::col_date(format = "%Y-%m-%d"),
+      DATE_MEAN = readr::col_date(format = "%Y-%m-%d"),
+      DATE_MEDIAN = readr::col_date(format = "%Y-%m-%d")
     )
     ) %>% 
   dplyr::mutate(
@@ -563,6 +563,10 @@ results_comp <- results_long %>%
     ) %>%
   dplyr::mutate(
     parametr_hodnota = parametr_hodnota.ynum
+  ) %>%
+  dplyr::mutate(
+    datum_hodnoceni_od = base::format(lubridate::ymd(datum_hodnoceni_od), "%Y-%m-%d"),
+    datum_hodnoceni_do = base::format(lubridate::ymd(datum_hodnoceni_do), "%Y-%m-%d")
   ) %>%
   dplyr::select(
     typ_predmetu_hodnoceni,
