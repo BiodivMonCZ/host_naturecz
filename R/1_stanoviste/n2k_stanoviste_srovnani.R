@@ -487,7 +487,7 @@ results_long <- results %>%
   dplyr::distinct()
 
 #--------------------------------------------------#
-## Srovnani VMBX a VMB2 -----
+# Srovnani VMBX a VMB2 -----
 #--------------------------------------------------#
 results_comp <- results_long %>%
   dplyr::left_join(
@@ -657,6 +657,8 @@ nerealne <- results_long %>%
     ) %>%
   arrange(-NEREALNE_CILE)
 
+# Zapis vysledku ----
+## Zapis .csv ----
 write.csv(
   results_comp %>%
     dplyr::mutate(
