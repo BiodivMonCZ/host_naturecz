@@ -280,7 +280,7 @@ results_long <- results %>%
   rowwise() %>%
   dplyr::mutate(
     ZDROJ = dplyr::case_when(
-      HABITAT_CODE %in% c("91T0", "3140", "8310") ~ NA,
+      HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ NA,
       ZDROJ == "EXPERT" ~ ZDROJ,
       ZDROJ == "VMB3" ~ ZDROJ,
       SITECODE %in% sdo_II_sites$sitecode ~ ZDROJ,
@@ -331,7 +331,7 @@ results_long <- results %>%
     ) %>%
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
-      HABITAT_CODE %in% c("91T0", "3140", "8310") ~ NA,
+      HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ NA,
       parametr_nazev == "ROZLOHA" &
         SITECODE == "CZ0514672" ~ floor(as.numeric(LIM_IND) * 100) / 100,
       ZDROJ == "EXPERT" ~ LIM_IND,
@@ -413,13 +413,13 @@ results_long <- results %>%
       stav_toler == "dobrý" ~ 1
       ),
     glob_stav = case_when(
-      HABITAT_CODE %in% c("91T0", "3140", "8310") ~ "nehodnocen",
+      HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ "nehodnocen",
       sum(stav_count, na.rm = TRUE) == 0 ~ "špatný",
       sum(stav_count, na.rm = TRUE) == 1 ~ "zhoršený",
       sum(stav_count, na.rm = TRUE) == 2 ~ "dobrý"
       ),
     glob_stav_toler = case_when(
-      HABITAT_CODE %in% c("91T0", "3140", "8310") ~ "nehodnocen",
+      HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ "nehodnocen",
       sum(stav_count_toler, na.rm = TRUE) == 0 ~ "špatný",
       sum(stav_count_toler, na.rm = TRUE) == 1 ~ "zhoršený",
       sum(stav_count_toler, na.rm = TRUE) == 2 ~ "dobrý"
@@ -523,7 +523,7 @@ results_comp <- results_long %>%
       stav == "dobrý" ~ 1
     ),
     glob_stav = case_when(
-      feature_code %in% c("91T0", "3140", "8310") ~ "nehodnocen",
+      feature_code %in% c("91T0", "3140", "3130", "8310") ~ "nehodnocen",
       sum(stav_count, na.rm = TRUE) == 0 ~ "špatný",
       sum(stav_count, na.rm = TRUE) == 1 ~ "zhoršený",
       sum(stav_count, na.rm = TRUE) == 2 ~ "dobrý"
