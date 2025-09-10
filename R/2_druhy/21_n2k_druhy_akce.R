@@ -1105,46 +1105,5 @@ nal_export <-
   }
 
 #----------------------------------------------------------#
-# Mapovaci tabulka ----
-#----------------------------------------------------------#
-# získání ID_IND ze struktury n2k_druhy
-indikatory_id <- n2k_druhy %>%
-  dplyr::mutate(
-    dplyr::across(
-      .cols = ncol_orig:ncol(.),
-      .fns = as.character
-    )
-  ) %>%
-  colnames() %>%
-  .[ (ncol_orig):length(.) ]   # jen sloupce indikátorů
-
-# ručně sestavená tabulka s mapováním ID_IND -> KOMPILACE
-n2k_druhy_kompilace_def <- tibble::tibble(
-  ID_IND = indikatory_id,
-  KOMPILACE = c(
-    # sem dosadíš řetězce, jak se který indikátor počítá
-    'readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)"))',
-    'dplyr::case_when(
-        is.na(REL_POC) ~ NA_real_,
-        REL_POC == "1-10" ~ 1,
-        ...
-     )',
-    # ... atd. ve stejném pořadí jako ID_IND
-  )
-)
-
-# spojení s druhy a limity
-n2k_druhy_kompilace <- n2k_druhy %>%
-  dplyr::select(DRUH) %>%
-  dplyr::distinct() %>%
-  dplyr::crossing(n2k_druhy_kompilace_def) %>%
-  dplyr::right_join(
-    limity %>%
-      dplyr::filter(UROVEN == "lok", !is.na(LIM_IND)),
-    by = c("DRUH" = "DRUH", "ID_IND" = "ID_IND")
-  )
-
-
-#----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
