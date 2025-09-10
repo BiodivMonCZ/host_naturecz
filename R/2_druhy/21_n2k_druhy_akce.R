@@ -695,6 +695,92 @@ n2k_druhy_lokpop <- n2k_druhy_pre %>%
       POP_DELKYJEDINCIKAT, 
       na.rm = TRUE
       ),
+    
+    STA_MANPOTREBAVLIV = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN, 
+        "(?<=<MAN_POTREBAVLIV>).*(?=</MAN_POTREBAVLIV>)"
+      )
+    ),
+    
+     STA_DNOTYP = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<sub_dno>).*(?=</sub_dno>)"
+      )
+    ),
+    
+    STA_PROUD = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<char_prou>).*(?=</char_prou>)"
+      )
+    ),
+    
+    STA_VEGETACE = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<veg_tok>).*(?=</veg_tok>)"
+      )
+    ),
+    
+    STA_JEMNENAPLAVY = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<odhad_j_n>).*(?=</odhad_j_n>)"
+      )
+    ),
+    
+    STA_PROUDNEUSEKY = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<ohad_p_u>).*(?=</ohad_p_u>)"
+      )
+    ),
+    
+    STA_TRASATOKU = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<tr_tok_char>).*(?=</tr_tok_char>)"
+      )
+    ),
+ #STA_UPRAVABREHU....rozsah brehu bez uprav
+    STA_UPRAVABREHU = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<breh_upr_bu>).*(?=</breh_upr_bu>)"
+      )
+    ),
+    # STA_UPRAVADNA...rozsah dna bez uprav
+    STA_UPRAVADNA = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<upr_dno_r_b_u>).*(?=</upr_dno_r_b_u>)"
+      )
+    ),
+    
+    STA_VARIABILITAHLOUBEK = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<var_hl_pr>).*(?=</var_hl_pr>)"
+      )
+    ),
+    
+    STA_ANODONTA = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<prit_host_mlz>).*(?=</prit_host_mlz>)"
+      )
+    ),
+    
+    STA_ZAHLOUBENIKORYTA = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<zahl_kor>).*(?=</zahl_kor>)"
+      )
+    )
+    
+    
     # ------------------------------------------#
     ### Savci ----- 
     # ------------------------------------------#
