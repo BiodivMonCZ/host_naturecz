@@ -9,9 +9,9 @@ n2k_druhy_pre <- n2k_load %>%
     DRUH %in% sites_subjects$nazev_lat & 
       kod_chu %in% sites_subjects$site_code
   ) %>%
-  dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
+  #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
   #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
-  #dplyr::filter(SKUPINA == "Obojživelníci") %>%
+  dplyr::filter(SKUPINA == "Obojživelníci") %>%
   #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
   #filter(SKUPINA == "Savci") %>%
   #filter(SKUPINA == "Letouni") %>%
@@ -942,48 +942,58 @@ n2k_druhy_long <- n2k_druhy %>%
 # ------------------------------------------#
 # Porovnani s limity ----- 
 # ------------------------------------------#
-n2k_druhy_lim_pre <- n2k_druhy_long %>%
-  dplyr::mutate(
-    STAV_IND = dplyr::case_when(
-      TYP_IND == "min" & as.numeric(HOD_IND) < as.numeric(LIM_IND) ~ 0,
-      TYP_IND == "min" & as.numeric(HOD_IND) >= as.numeric(LIM_IND) ~ 1,
-      TYP_IND == "max" & as.numeric(HOD_IND) > as.numeric(LIM_IND) ~ 0,
-      TYP_IND == "max" & as.numeric(HOD_IND) <= as.numeric(LIM_IND) ~ 1,
-      TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
-      TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
+# ⚑ Split by species
+species_list <- unique(n2k_druhy_long$DRUH)
+
+n2k_druhy_lim_pre <- purrr::map_df(species_list, function(sp) {
+  n2k_druhy_long %>%
+    dplyr::filter(DRUH == sp) %>%   # ⚑ filter per species
+    dplyr::mutate(
+      HOD_IND_num = suppressWarnings(as.numeric(HOD_IND)), 
+      LIM_IND_num = suppressWarnings(as.numeric(LIM_IND))
+    ) %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        TYP_IND == "min" & HOD_IND_num < LIM_IND_num ~ 0,
+        TYP_IND == "min" & HOD_IND_num >= LIM_IND_num ~ 1,
+        TYP_IND == "max" & HOD_IND_num > LIM_IND_num ~ 0,
+        TYP_IND == "max" & HOD_IND_num <= LIM_IND_num ~ 1,
+        TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
+        TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
       )
     ) %>%
-  dplyr::group_by(
-    ID_ND_NALEZ, 
-    ID_IND, 
-    IND_GRP
+    dplyr::select(-c(HOD_IND_num, LIM_IND_num)) %>%
+    dplyr::group_by(
+      ID_ND_NALEZ, 
+      ID_IND, 
+      IND_GRP
     ) %>%
-  dplyr::mutate(
-    STAV_IND = dplyr::case_when(
-      IND_GRP == "minmax" & grepl("POP_", ID_IND) == TRUE ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-      IND_GRP == "minmax" & grepl("POP_", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
-      IND_GRP == "val" ~ max(as.numeric(STAV_IND), 
-                             na.rm = TRUE)
+    dplyr::mutate(
+      is_POP = stringr::str_starts(ID_IND, "POP_")
+    ) %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        IND_GRP == "minmax" & is_POP ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+        IND_GRP == "minmax" & !is_POP ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+        IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
       )
     ) %>%
-  dplyr::ungroup() %>%
-  dplyr::mutate(
-    STAV_IND = dplyr::case_when(
-      is.infinite(STAV_IND) ~ NA,
-      TRUE ~ STAV_IND
+    dplyr::select(-is_POP) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        is.infinite(STAV_IND) ~ NA,
+        TRUE ~ STAV_IND
       )
     ) %>%
-  dplyr::group_by(
-    ID_ND_NALEZ, 
-    ID_IND
+    dplyr::group_by(
+      ID_ND_NALEZ, 
+      ID_IND
     ) %>%
-  dplyr::arrange(
-    dplyr::desc(
-      STAV_IND
-      )
-    ) %>%
-  dplyr::slice(1) %>%
-  dplyr::ungroup()
+    dplyr::arrange(dplyr::desc(STAV_IND)) %>%
+    dplyr::slice(1) %>%
+    dplyr::ungroup()
+})
 
 # ------------------------------------------#
 # Hodnoceni nalezu ----- 
@@ -1111,7 +1121,7 @@ source("R/0_Config/01_n2k_map_ind.R")
 map <- build_indicator_map(
   n2k_druhy,
   limity,
-  script = "R/2_druhy/21_n2k_druhy_akce.R",  # cesta ke zdrojáku, ze kterého taháme mutate
+  script = "R/2_druhy/21_n2k_druhy_akce.R",
   out_file = "Outputs/indicator_map_n2k.csv"
 )
 
