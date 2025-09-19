@@ -1,11 +1,11 @@
 # Hodnocení stavu předmětů ochrany v české soustavě Natura 2000
 
-Tento repozitář slouží k sumarizaci dat z:
+Hodnocení je založené na principu sumarizace dat a z**Nálezové databáze ochrany přírody AOPK ČR** či
+**Vrstvy mapování biotopů AOPK ČR** a jejich následného porovnání s cílovým stavem stanoveným pro daný 
+druh či typ přírodního stanoviště v chráněném území.
 
--   **Nálezové databáze ochrany přírody AOPK ČR**
--   **Vrstvy mapování biotopů AOPK ČR**
-
-Cílem je zpřístupnit výsledky hodnocení stavu předmětů ochrany (druhy a stanoviště) orgánům ochrany přírody a dalším uživatelům.
+Cílem je zpřístupnit výsledky hodnocení stavu předmětů ochrany (druhy a stanoviště) orgánům ochrany přírody
+a dalším uživatelům.
 
 ### Zdrojová data
 
