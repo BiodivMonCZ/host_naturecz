@@ -25,10 +25,6 @@ Projekt přispívá k: - zachování biodiverzity,
 
 Hodnocení stavu druhů se schváleným záchranným programem nebo regionálním akčním plánem je připravováno v rámci projektu [PROSPECTIVE LIFE](https://aopk.gov.cz/life-prospective).
 
-------------------------------------------------------------------------
-
-## Partneři
-
 <p align="center">
 
 <a href="https://www.jednapriroda.cz/"> <img src="https://www.jednapriroda.cz/wp-content/uploads/2020/02/logaJednaPriroda_183x100.png" alt="Jedna příroda" width="15%"/> </a> <a href="https://ec.europa.eu/easme/en/section/life"> <img src="https://www.jednapriroda.cz/wp-content/uploads/2023/04/logaLifeFooter2.png" alt="LIFE" width="7%"/> </a> <a href="https://natura2000.cz/"> <img src="https://www.jednapriroda.cz/wp-content/uploads/2020/01/logoNatura2000Footer.png" alt="Natura 2000" width="10%"/> </a>
