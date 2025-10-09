@@ -81,7 +81,7 @@ limity_stan <-
   dplyr::rowwise() %>%
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
-      ID_IND == "ROZLOHA" ~ floor(LIM_IND * 100) / 100,
+      ID_IND == "ROZLOHA" ~ safe_floor(parametr_hodnota, 2),
       ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10
       ),
     ZDROJ = dplyr::case_when(
@@ -333,10 +333,10 @@ results_long <- results %>%
     LIM_IND = dplyr::case_when(
       HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ NA,
       parametr_nazev == "ROZLOHA" &
-        SITECODE == "CZ0514672" ~ floor(as.numeric(LIM_IND) * 100) / 100,
+        SITECODE == "CZ0514672" ~ safe_floor(parametr_hodnota, 2),
       ZDROJ == "EXPERT" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" & 
-        ZDROJ == "SDF" ~ floor(as.numeric(LIM_IND) * 100) / 100,
+        ZDROJ == "SDF" ~ safe_floor(parametr_hodnota, 2),
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB3" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
@@ -352,7 +352,7 @@ results_long <- results %>%
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "MINIMI" ~ MINIMISIZE,
       parametr_nazev == "ROZLOHA" &
-        ZDROJ == "VMB2" ~ floor(as.numeric(parametr_hodnota) * 100) / 100,
+        ZDROJ == "VMB2" ~ safe_floor(parametr_hodnota, 2),
       parametr_nazev == "KVALITA" &
         is.na(LIM_IND) == TRUE &
         parametr_hodnota <= 2 ~ ceiling(as.numeric(parametr_hodnota) * 10) / 10,
