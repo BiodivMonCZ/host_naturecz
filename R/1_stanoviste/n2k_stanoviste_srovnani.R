@@ -15,6 +15,7 @@ results <-
     DATE_MEDIAN = readr::col_date(format = "%Y-%m-%d")
   )
   ) %>%
+  # Kontrola nacteni habitatu 91E0
   dplyr::mutate(
     HABITAT_CODE = dplyr::case_when(
       HABITAT_CODE == "91" ~ "91E0",
@@ -47,6 +48,7 @@ results_x <-
       DATE_MEDIAN = readr::col_date(format = "%Y-%m-%d")
     )
     ) %>% 
+  # Kontrola nacteni habitatu 91E0
   dplyr::mutate(
     HABITAT_CODE = dplyr::case_when(
       HABITAT_CODE == "91" ~ "91E0",
@@ -68,9 +70,11 @@ limity_stan <-
     locale = readr::locale(encoding = "Windows-1250")
     ) %>% 
   dplyr::mutate(
+    # Urceni posloupnosti ciloveho stavu
     rowname = as.numeric(
       rownames(.)
       ),
+    # Kontrola nacteni habitatu 91E0
     HABITAT_CODE = dplyr::case_when(
       HABITAT_CODE == "91" ~ "91E0",
       HABITAT_CODE == "9.10E+01" ~ "91E0",
@@ -159,6 +163,7 @@ evl_sdo <- evl %>%
 #----------------------------------------------------------#
 #--------------------------------------------------#
 ## Prevod na as.character() -----
+## Nutnost pro prevedeni na long format a kombinaci ruznych sloupcu
 #--------------------------------------------------#
 results <- results  %>%
   mutate(
@@ -192,6 +197,7 @@ results_long_x <- results_x %>%
     ) %>%
   #dplyr::rename(parametr_nazev = PAR_NAZEV,
   #              parametr_hodnota = PAR_HODNOTA) %>%
+  # Odstraneni puvodnich sloupcu s casovou informaci o mapavani
   dplyr::select(
     -c(
       DATE_MIN, 
