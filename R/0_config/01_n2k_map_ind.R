@@ -1,8 +1,3 @@
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(readr)
-
 build_indicator_map <- function(n2k_druhy, limity, script = NULL,
                                 out_file = NULL) {
   
