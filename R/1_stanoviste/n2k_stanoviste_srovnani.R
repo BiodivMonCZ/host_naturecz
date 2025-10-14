@@ -665,7 +665,7 @@ nerealne <- results_long %>%
 
 # Zapis vysledku ----
 ## Zapis .csv ----
-n2k_stanoviste_write <-
+write.csv(
   results_comp %>%
     dplyr::mutate(
       parametr_nazev = ind_popis,
@@ -673,9 +673,69 @@ n2k_stanoviste_write <-
     ) %>%
     dplyr::select(-ind_popis, -ind_id) %>%
     dplyr::filter(!is.na(parametr_nazev)) %>%
+    dplyr::rename(
+      `kód EVL` = kod_chu,
+      `název EVL` = nazev_chu,
+      `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+      `předmět hodnocení` = druh,
+      `kód předmětu hodn.` = feature_code,
+      `počátek hodnoceného období` = datum_hodnoceni_od,
+      `konec hodnoceného období` = datum_hodnoceni_do,
+      `indikátor` = parametr_nazev,
+      `hodnota` = parametr_hodnota,
+      `limit` = parametr_limit,
+      `jednotka` = parametr_jednotka,
+      `datum hodnocení` = datum_hodnoceni,
+      `OOP` = oop,
+      `pracoviště AOPK` = pracoviste,
+      `Způsob určení limitu` = poznamka,
+      # `ID akcí` = ID_ND_AKCE
+    ) %>%
     mutate(
       `Poznámka` = NA_character_
-    )
+      ),
+  paste0(
+    "Outputs/Data/stanoviste/stanoviste_",
+    gsub("-", "", Sys.Date()),
+    ".csv"
+  ),
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+hab_export <-
+  function() {
+    
+    n2k_druhy_lim_write <-
+      results_comp %>%
+      dplyr::mutate(
+        parametr_nazev = ind_popis,
+        feature_code = as.character(feature_code)
+      ) %>%
+      dplyr::select(-ind_popis, -ind_id) %>%
+      dplyr::filter(!is.na(parametr_nazev)) %>%
+      dplyr::rename(
+        `kód EVL` = kod_chu,
+        `název EVL` = nazev_chu,
+        `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+        `předmět hodnocení` = druh,
+        `kód předmětu hodn.` = feature_code,
+        `počátek hodnoceného období` = datum_hodnoceni_od,
+        `konec hodnoceného období` = datum_hodnoceni_do,
+        `indikátor` = parametr_nazev,
+        `hodnota` = parametr_hodnota,
+        `limit` = parametr_limit,
+        `jednotka` = parametr_jednotka,
+        `datum hodnocení` = datum_hodnoceni,
+        `OOP` = oop,
+        `pracoviště AOPK` = pracoviste,
+        `Způsob určení limitu` = poznamka,
+        # `ID akcí` = ID_ND_AKCE
+      ) %>%
+      mutate(
+        `Poznámka` = NA_character_
+      )
+      
     
     sep_isop <- ";"
     quote_env_isop <- FALSE
@@ -686,9 +746,9 @@ n2k_stanoviste_write <-
     encoding <- "Windows-1250"
     
     write.table(
-      n2k_stanoviste_write,
+      n2k_druhy_lim_write,
       paste0("Outputs/Data/",
-             "n2k_stanoviste",
+             "n2k_druhy_nal",
              "_",
              current_year,
              "_",
@@ -708,9 +768,9 @@ n2k_stanoviste_write <-
     )  
     
     write.table(
-      n2k_stanoviste_write,
+      n2k_druhy_lim_write,
       paste0("Outputs/Data/druhy/",
-             "n2k_stanoviste",
+             "n2k_druhy_nal",
              "_",
              current_year,
              "_",
