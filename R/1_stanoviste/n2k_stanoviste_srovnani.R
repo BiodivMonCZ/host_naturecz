@@ -664,45 +664,6 @@ nerealne <- results_long %>%
   arrange(-NEREALNE_CILE)
 
 # Zapis vysledku ----
-## Zapis .csv ----
-write.csv(
-  results_comp %>%
-    dplyr::mutate(
-      parametr_nazev = ind_popis,
-      feature_code = as.character(feature_code)
-    ) %>%
-    dplyr::select(-ind_popis, -ind_id) %>%
-    dplyr::filter(!is.na(parametr_nazev)) %>%
-    dplyr::rename(
-      `kód EVL` = kod_chu,
-      `název EVL` = nazev_chu,
-      `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
-      `předmět hodnocení` = druh,
-      `kód předmětu hodn.` = feature_code,
-      `počátek hodnoceného období` = datum_hodnoceni_od,
-      `konec hodnoceného období` = datum_hodnoceni_do,
-      `indikátor` = parametr_nazev,
-      `hodnota` = parametr_hodnota,
-      `limit` = parametr_limit,
-      `jednotka` = parametr_jednotka,
-      `datum hodnocení` = datum_hodnoceni,
-      `OOP` = oop,
-      `pracoviště AOPK` = pracoviste,
-      `Způsob určení limitu` = poznamka,
-      # `ID akcí` = ID_ND_AKCE
-    ) %>%
-    mutate(
-      `Poznámka` = NA_character_
-      ),
-  paste0(
-    "Outputs/Data/stanoviste/stanoviste_",
-    gsub("-", "", Sys.Date()),
-    ".csv"
-  ),
-  row.names = FALSE,
-  fileEncoding = "Windows-1250"
-)
-
 hab_export <-
   function() {
     
@@ -723,6 +684,34 @@ hab_export <-
         `Poznámka` = NA_character_
       )
     
+    ind_order_xlsx <- c("celkové hodnocení", "rozloha", "kvalita")
+    
+    export_data_xlsx <- 
+      n2k_stanoviste_write %>%
+      dplyr::rename(
+        `kód EVL` = kod_chu,
+        `název EVL` = nazev_chu,
+        `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
+        `předmět hodnocení` = druh,
+        `kód předmětu hodn.` = feature_code,
+        `počátek hodnoceného období` = datum_hodnoceni_od,
+        `konec hodnoceného období` = datum_hodnoceni_do,
+        `indikátor` = parametr_nazev,
+        `hodnota` = parametr_hodnota,
+        `limit` = parametr_limit,
+        `jednotka` = parametr_jednotka,
+        `datum hodnocení` = datum_hodnoceni,
+        `OOP` = oop,
+        `pracoviště AOPK` = pracoviste,
+        `Způsob určení limitu` = poznamka
+      ) %>%
+      dplyr::mutate(
+        ind_order_xlsx = match(`indikátor`, ind_order_xlsx, nomatch = length(ind_order_xlsx) + 1)
+      ) %>%
+      dplyr::arrange(`kód předmětu hodn.`, `název EVL`, ind_order_xlsx) %>%
+      dplyr::select(-ind_order_xlsx) %>%   # pomocný sloupec odstranit
+      dplyr::filter(`indikátor` %in% ind_order_xlsx)
+    
     sep_isop <- ";"
     quote_env_isop <- FALSE
     encoding_isop <- "UTF-8"
@@ -730,6 +719,19 @@ hab_export <-
     sep <- ","
     quote_env <- TRUE
     encoding <- "Windows-1250"
+    
+    
+    # --- export .xlsx verze ---
+    openxlsx::write.xlsx(
+      export_data_xlsx,   # nebo export_data, pokud chceš i ostatní indikátory
+      file = paste0(
+        "Outputs/Data/stanoviste/stanoviste_",
+        gsub("-", "", Sys.Date()),
+        ".xlsx"
+      )
+    )
+    
+    cat("Export kompletní: ", " .xlsx soubor vytvořen\n")
     
     # --- export Windows-1250 verze ---
     write.table(
@@ -789,55 +791,6 @@ hab_export <-
     cat("Export kompletní: ", num_chunks, " UTF-8 soubory vytvořeny\n")
     
   }
-
-
-## Zapis .xlsx ----
-ind_order <- c("celkové hodnocení", "rozloha", "kvalita")
-
-export_data <- results_comp %>%
-  mutate(
-    parametr_nazev = ind_popis,
-    feature_code = as.character(feature_code)
-  ) %>%
-  select(-ind_popis, -ind_id) %>%
-  filter(!is.na(parametr_nazev)) %>%
-  rename(
-    `kód EVL` = kod_chu,
-    `název EVL` = nazev_chu,
-    `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
-    `předmět hodnocení` = druh,
-    `kód předmětu hodn.` = feature_code,
-    `počátek hodnoceného období` = datum_hodnoceni_od,
-    `konec hodnoceného období` = datum_hodnoceni_do,
-    `indikátor` = parametr_nazev,
-    `hodnota` = parametr_hodnota,
-    `limit` = parametr_limit,
-    `jednotka` = parametr_jednotka,
-    `datum hodnocení` = datum_hodnoceni,
-    `OOP` = oop,
-    `pracoviště AOPK` = pracoviste,
-    `Způsob určení limitu` = poznamka
-  ) %>%
-  mutate(
-    `Poznámka` = NA_character_,
-    ind_order = match(`indikátor`, ind_order, nomatch = length(ind_order) + 1)
-  ) %>%
-  arrange(`kód předmětu hodn.`, `název EVL`, ind_order) %>%
-  select(-ind_order)   # pomocný sloupec odstranit
-
-# pokud chceš pro KÚ export jen těch tří indikátorů:
-export_data_ku <- export_data %>%
-  filter(`indikátor` %in% ind_order)
-
-# zápis do Excelu
-openxlsx::write.xlsx(
-  export_data_ku,   # nebo export_data, pokud chceš i ostatní indikátory
-  file = paste0(
-    "Outputs/Data/stanoviste/stanoviste_",
-    gsub("-", "", Sys.Date()),
-    ".xlsx"
-  )
-)
 
 #----------------------------------------------------------#
 # KONEC ----
