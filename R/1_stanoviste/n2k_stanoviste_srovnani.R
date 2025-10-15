@@ -5,10 +5,10 @@
 ## Nacteni VMB2 -----
 #--------------------------------------------------#
 results <- 
-  readr::read_csv2(
+  readr::read_csv2( # Nacteni CSV souboru s vysledky VMB2
   "Outputs/Data/stanoviste/results_habitats_A1_20250222.csv",
-  locale = readr::locale(encoding = "Windows-1250"),
-  col_types = cols(
+  locale = readr::locale(encoding = "Windows-1250"), # Nasteveni ceskeho kodovani
+  col_types = cols( # Urceni formatu datumu
     DATE_MIN = readr::col_date(format = "%Y-%m-%d"),
     DATE_MAX = readr::col_date(format = "%Y-%m-%d"),
     DATE_MEAN = readr::col_date(format = "%Y-%m-%d"),
@@ -22,6 +22,7 @@ results <-
       TRUE ~ HABITAT_CODE
       )
     ) %>%
+  # Nahrazeni NA v rozloze nulou, cisteni nazvu od ruznych pomlcek
   dplyr::mutate(
     ROZLOHA = replace_na(ROZLOHA, 0),
     #KVALITA = replace_na(KVALITA, 0),
@@ -32,13 +33,13 @@ results <-
       "-"
       )
     ) %>%
-  dplyr::distinct()
+  dplyr::distinct() # Odstraneni duplicitnich radku
 
 #--------------------------------------------------#
 ## Nacteni aktualni VMBX -----
 #--------------------------------------------------#
 results_x <- 
-  readr::read_csv2(
+  readr::read_csv2( # Nacteni novejsiho datasetu s vysledky VMBX
     "Outputs/Data/stanoviste/results_habitats_24_20250806.csv",
     locale = readr::locale(encoding = "Windows-1250"),
     col_types = cols(
@@ -55,17 +56,20 @@ results_x <-
       TRUE ~ HABITAT_CODE
       )
     ) %>%
+  # Nahrazeni NA v rozloze nulou a sjednoceni pomlcek
   dplyr::mutate(
     ROZLOHA = replace_na(ROZLOHA, 0),
     #KVALITA = replace_na(KVALITA, 0),
     #KVALITA = round(KVALITA, 2),
     NAZEV = str_replace_all(NAZEV, "–|—", "-")
     ) %>%
-  dplyr::distinct()
+  dplyr::distinct() # Odstraneni duplicit
 
-
+#--------------------------------------------------#
+# Nacteni cilovych stavu ----
+#--------------------------------------------------#
 limity_stan <- 
-  readr::read_csv(
+  readr::read_csv( # Nacteni CSV s limity indikatoru
     "Data/Input/limity_stanoviste.csv",
     locale = readr::locale(encoding = "Windows-1250")
     ) %>% 
@@ -83,11 +87,13 @@ limity_stan <-
       )
     ) %>%
   dplyr::rowwise() %>%
+  # Zaokrouhleni limitnich hodnot
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
       ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
       ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10
       ),
+    # Sjednoceni zdrojovych oznaceni na jednotne verze
     ZDROJ = dplyr::case_when(
       ZDROJ == "AVMB2" ~ "VMB3",
       ZDROJ == "AVMB1" ~ "VMB2",
@@ -96,7 +102,7 @@ limity_stan <-
       TRUE ~ ZDROJ
       )
     ) %>%
-  dplyr::distinct()
+  dplyr::distinct() # Odstraneni duplicitnich zaznamu
 
 kval <- 
   limity_stan %>%
@@ -143,6 +149,9 @@ rozl <-
 #  fileEncoding = "Windows-1250"
 #  )
 
+#--------------------------------------------------#
+# Nacteni informaci o SDO II ----
+#--------------------------------------------------#
 evl_sdo <- evl %>%
   sf::st_drop_geometry() %>%
   dplyr::left_join(sites_subjects, by = c("SITECODE" = "site_code")) %>%
@@ -176,9 +185,11 @@ results <- results  %>%
 
 results_x <- results_x %>%
   mutate(
-    across(where(is.numeric), ~ round(.x, 4)),
-    across(
-      where(~ is.numeric(.x) && !inherits(.x, "Date")),
+    across( # Zaokrouhleni cisel na 4 desetinna mista
+      where(is.numeric), ~ round(.x, 4)
+      ), 
+    across( # Prevod cisel na text
+      where(~ is.numeric(.x) && !inherits(.x, "Date")), 
       as.character
     )
   )
@@ -189,11 +200,11 @@ results_x <- results_x %>%
 #--------------------------------------------------#
 results_long_x <- results_x %>%
   dplyr::mutate(
-    CELKOVE_HODNOCENI = NA
+    CELKOVE_HODNOCENI = NA # Pridani sloupce pro celkove hodnoceni
     ) %>%
   dplyr::mutate(
-    datum_hodnoceni_od = DATE_MIN,
-    datum_hodnoceni_do = DATE_MAX
+    datum_hodnoceni_od = DATE_MIN, # Kopie nejstarsiho data mapovani
+    datum_hodnoceni_do = DATE_MAX # Kopie nejmladsiho data mapovani
     ) %>%
   #dplyr::rename(parametr_nazev = PAR_NAZEV,
   #              parametr_hodnota = PAR_HODNOTA) %>%
@@ -206,6 +217,7 @@ results_long_x <- results_x %>%
       DATE_MEDIAN
       )
     ) %>%
+  # Prevod z wide do long formatu
   tidyr::pivot_longer(
     cols = c(4:(ncol(.)-2)),
     names_to = "parametr_nazev",
@@ -217,11 +229,11 @@ results_long_x <- results_x %>%
 #--------------------------------------------------#
 results_long <- results %>%
   dplyr::mutate(
-    CELKOVE_HODNOCENI = NA
+    CELKOVE_HODNOCENI = NA # Pridani sloupce pro celkove hodnoceni
     ) %>%
   dplyr::mutate(
-    datum_hodnoceni_od = DATE_MIN,
-    datum_hodnoceni_do = DATE_MAX
+    datum_hodnoceni_od = DATE_MIN, # Kopie nejstarsiho data mapovani
+    datum_hodnoceni_do = DATE_MAX # Kopie nejmladsiho data mapovani
     ) %>%
   #dplyr::rename(parametr_nazev = PAR_NAZEV,
   #              parametr_hodnota = PAR_HODNOTA) %>%
@@ -495,7 +507,12 @@ results_long <- results %>%
 #--------------------------------------------------#
 # Srovnani VMBX a VMB2 -----
 #--------------------------------------------------#
-results_comp <- results_long %>%
+results_comp <- 
+  results_long %>%
+  # 1) Pripojeni dat z VMBX (results_long_x) k datovemu ramci z VMB2 (results_long)
+  #    - join dle kodu EVL (kod_chu -> SITECODE), kodu habitat (feature_code -> HABITAT_CODE)
+  #      a nazvu parametru (parametr_nazev)
+  #    - tecka '.' v left_join oznacuje, ze se leva tabulka bere jako aktualni data (results_long)
   dplyr::left_join(
     .,
     results_long_x,
@@ -505,11 +522,23 @@ results_comp <- results_long %>%
       "parametr_nazev"
       )
     ) %>%
+  # 2) rowwise() zajisti, ze dalsi operace v mutate budou provadeny radek po radku,
+  #    coz je dulezite pro pripady, kdy v mutates pouzivame funkce citlive na jednotlive raadky
   dplyr::rowwise() %>%
+  # 3) prevod sloupcu s hodnotami na cisla pro porovnani a vypocet trendu
+  #    - vytvori se dva sloupce: parametr_hodnota.xnum (hodnota z VMB2) a
+  #      parametr_hodnota.ynum (hodnota z VMBX)
+  #    - as.numeric prevede NA nebo texty na NA_real_ pokud prevod neni mozne
   mutate(
     parametr_hodnota.xnum = as.numeric(parametr_hodnota.x),
     parametr_hodnota.ynum = as.numeric(parametr_hodnota.y)
     ) %>%
+  # 4) urceni stavu (stav) na urovni jednotlivych radku podle pravidel
+  #    - pokud neexistuje limit (parametr_limit je NA) => "nehodnocen"
+  #    - pro indikator KVALITA: pokud neni hodnota v Y (VMBX) => "spatny"
+  #    - pro ROZLOHA porovnani cisel vynuti "spatny" nebo "dobry" podle limitu
+  #    - pro KVALITA porovnani numericke hodnoty s limitem (vyska kvality)
+  #    POZOR: poradi vetvi v case_when je dulezite — prvni splnena veta se pouzije.
   dplyr::mutate(
     stav = dplyr::case_when(
       is.na(parametr_limit) == TRUE ~ "nehodnocen",
@@ -520,26 +549,49 @@ results_comp <- results_long %>%
       parametr_nazev == "KVALITA" & parametr_hodnota.ynum <= parametr_limit ~ "dobrý"
       )
     ) %>%
+  # 5) Skupinove zpracovani po kod_chu a feature_code (tj. po EVL a konkr. predmetu/habitatu)
   dplyr::group_by(
     kod_chu, 
     feature_code
   ) %>%
   dplyr::mutate(
+    # 5a) stav_count: pomocna promenna pro spocitani, zda dany radek prispi jako "dobry" (1) nebo ne (NA)
     stav_count = dplyr::case_when(
       stav == "dobrý" ~ 1
     ),
+    # 5b) glob_stav: agregovane celkove hodnoceni pro dany predmet (habitat) v ramci konkretniho EVL
+    #     - pokud je druh specificky nevhodny pro hodnoceni (feature_code v uvedenem seznamu) => "nehodnocen"
+    #     - jinak se spocita soucet 'dobrych' parametru:
+    #         0 => "spatny", 1 => "zhorseny", 2 => "dobry"
+    #     - pouziva se sum(..., na.rm = TRUE), aby NA v stav_count nezkreslily soucet
     glob_stav = case_when(
       feature_code %in% c("91T0", "3140", "3130", "8310") ~ "nehodnocen",
       sum(stav_count, na.rm = TRUE) == 0 ~ "špatný",
       sum(stav_count, na.rm = TRUE) == 1 ~ "zhoršený",
       sum(stav_count, na.rm = TRUE) == 2 ~ "dobrý"
     ),
+    # 5c) pro radky, ktere reprezentuji 'CELKOVE_HODNOCENI', nahradime hodnotu 'stav' agregovanym glob_stav
+    #     - unique(glob_stav) vraci jedinecny prvek glob_stav v ramci skupiny (ocekavane jednouchy prvek)
+    #     - jinak zustane povodni stav
     stav = dplyr::case_when(
       parametr_nazev == "CELKOVE_HODNOCENI" ~ unique(glob_stav),
       TRUE ~ stav
     )
   ) %>%
+  # 6) ukonceni grupovani, vratime se k rizenemu (nekontrolovanemu) rezimu
   dplyr::ungroup() %>%
+  # 7) urceni trendu mezi predchozim (x) a aktualnim (y) merenim
+  #    - nejprve se kontroluje mnozstvi mozných scenaru pro kategorie ('CELKOVE_HODNOCENI'):
+  #        * pokud textove hodnoty odpovidaji, => "stabilni"
+  #        * nasledne jsou vzdy vyhodnoceny vety typu "zhoršujici se" / "zlepsujici se"
+  #          vychodzici z porovnani kategorii "dobry", "zhoršený", "špatný"
+  #    - pokud neni CELKOVE_HODNOCENI, porovnavaji se cisla (xnum, ynum):
+  #        * presna shoda => "stabilni"
+  #        * pokud se y lezi v rozsahu +-5% od x => "stabilni" (tolerancni pasmo)
+  #        * pro hodnoty KVALITA je zvyseni nad +5% interpretovano jako "zhoršujici se"
+  #          (pozor: logika je zavisla na tom, jake znamena smer zmeny pro dany indikator)
+  #        * analogicky pro ROZLOHA: pokles pod -5% => "zhoršující se"; vzrust nad +5% => "zlepšující se"
+  #    - POZOR NA: poradi vetvi je dulezite, prvni splnena veta je pouzita.
   dplyr::mutate(
     trend = dplyr::case_when(
       parametr_hodnota.y == parametr_hodnota.x ~ "stabilní",
@@ -567,13 +619,18 @@ results_comp <- results_long %>%
       parametr_nazev == "ROZLOHA" & 
         parametr_hodnota.ynum > parametr_hodnota.xnum*1.05 ~ "zlepšující se")
     ) %>%
+  # 8) do sloupce parametr_hodnota ulozime ciselnou verzi z VMBX (ynum),
+  #    timto se sjednoti typ sloupce pro nasledne exporty
   dplyr::mutate(
     parametr_hodnota = parametr_hodnota.ynum
   ) %>%
+  # 9) Formatovani datovych sloupcu s daty hodnoceni do standardniho retezce "YYYY-MM-DD"
+  #    - pouziva se lubridate::ymd pro spolehlivy prevod (i z faktor/text), nasledne base::format
   dplyr::mutate(
     datum_hodnoceni_od = base::format(lubridate::ymd(datum_hodnoceni_od), "%Y-%m-%d"),
     datum_hodnoceni_do = base::format(lubridate::ymd(datum_hodnoceni_do), "%Y-%m-%d")
   ) %>%
+  # 10) Vyber finalnich sloupcu pro dalsi zpracovani / export
   dplyr::select(
     typ_predmetu_hodnoceni,
     kod_chu,
@@ -593,6 +650,8 @@ results_comp <- results_long %>%
     pracoviste,
     poznamka,
     ) %>%
+  # 11) Pripojeni popisu indikatoru z tabulky indikatory_id
+  #     - pripojujeme podle parametru (parametr_nazev == ind_r)
   dplyr::left_join(
     .,
     indikatory_id %>%
@@ -603,6 +662,9 @@ results_comp <- results_long %>%
       ),
     by = c("parametr_nazev" = "ind_r")
   ) %>%
+  # 12) Kodovani slovnich hodnot 'stav' a 'trend' na ciselne kody pro systemovy export
+  #     - nastaveni hodnot podle domluvenych ciselnych kodu (napr. 11 = dobry)
+  #     - take se mapuji jednotky na ciselne kody pro vystup (napr. "ha" -> "7")
   dplyr::mutate(
     stav = dplyr::case_when(
       stav == "dobrý" ~ 11,
