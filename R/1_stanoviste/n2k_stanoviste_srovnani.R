@@ -706,36 +706,22 @@ write.csv(
 hab_export <-
   function() {
     
-    n2k_druhy_lim_write <-
+    n2k_stanoviste_write <-
       results_comp %>%
       dplyr::mutate(
-        parametr_nazev = ind_popis,
+        parametr_nazev = ind_id,
         feature_code = as.character(feature_code)
       ) %>%
       dplyr::select(-ind_popis, -ind_id) %>%
       dplyr::filter(!is.na(parametr_nazev)) %>%
-      dplyr::rename(
-        `kód EVL` = kod_chu,
-        `název EVL` = nazev_chu,
-        `typ předmětu hodnocení` = typ_predmetu_hodnoceni,
-        `předmět hodnocení` = druh,
-        `kód předmětu hodn.` = feature_code,
-        `počátek hodnoceného období` = datum_hodnoceni_od,
-        `konec hodnoceného období` = datum_hodnoceni_do,
-        `indikátor` = parametr_nazev,
-        `hodnota` = parametr_hodnota,
-        `limit` = parametr_limit,
-        `jednotka` = parametr_jednotka,
-        `datum hodnocení` = datum_hodnoceni,
-        `OOP` = oop,
-        `pracoviště AOPK` = pracoviste,
-        `Způsob určení limitu` = poznamka,
-        # `ID akcí` = ID_ND_AKCE
-      ) %>%
       mutate(
+        parametr_hodnota = ifelse(
+          !is.na(parametr_hodnota),
+          gsub("\\.", ",", as.character(parametr_hodnota)),
+          NA_character_
+        ),
         `Poznámka` = NA_character_
       )
-      
     
     sep_isop <- ";"
     quote_env_isop <- FALSE
@@ -745,18 +731,15 @@ hab_export <-
     quote_env <- TRUE
     encoding <- "Windows-1250"
     
+    # --- export Windows-1250 verze ---
     write.table(
-      n2k_druhy_lim_write,
-      paste0("Outputs/Data/",
-             "n2k_druhy_nal",
+      n2k_stanoviste_write,
+      paste0("Outputs/Data/stanoviste/",
+             "n2k_stanoviste",
              "_",
              current_year,
              "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
+             gsub("-", "", Sys.Date()),
              "_",
              encoding,
              ".csv"
@@ -767,29 +750,46 @@ hab_export <-
       fileEncoding = encoding
     )  
     
-    write.table(
-      n2k_druhy_lim_write,
-      paste0("Outputs/Data/druhy/",
-             "n2k_druhy_nal",
-             "_",
-             current_year,
-             "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
-             "_",
-             encoding_isop,
-             ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep_isop,
-      quote = quote_env_isop,
-      fileEncoding = encoding_isop
-    )  
+    cat("Export kompletní: ", " Windows-1250 soubor vytvořen\n")
+    
+    # --- export UTF-8 verze po částech ---
+    chunk_size <- 10000
+    num_chunks <- ceiling(nrow(n2k_stanoviste_write) / chunk_size)
+    
+    for (i in seq_len(num_chunks)) {
+      start_row <- ((i - 1) * chunk_size) + 1
+      end_row <- min(i * chunk_size, nrow(n2k_stanoviste_write))
+      
+      chunk <- n2k_stanoviste_write[start_row:end_row, ]
+      
+      file_name <- paste0(
+        "Outputs/Data/stanoviste/",
+        "n2k_stanoviste",
+        "_",
+        current_year,
+        "_",
+        gsub("-", "", Sys.Date()),
+        "_",
+        encoding_isop,
+        "_part",
+        i,
+        ".csv"
+      )
+      
+      write.table(
+        chunk,
+        file_name,
+        row.names = FALSE,
+        sep = sep_isop,
+        quote = quote_env_isop,
+        fileEncoding = encoding_isop
+      )
+    }
+    
+    cat("Export kompletní: ", num_chunks, " UTF-8 soubory vytvořeny\n")
     
   }
+
 
 ## Zapis .xlsx ----
 ind_order <- c("celkové hodnocení", "rozloha", "kvalita")
@@ -838,45 +838,6 @@ openxlsx::write.xlsx(
     ".xlsx"
   )
 )
-
-
-# Set chunk size
-chunk_size <- 10000
-
-# Calculate the number of chunks
-num_chunks <- ceiling(nrow(results_long) / chunk_size)
-
-# Loop to split and export data
-for (i in seq_len(num_chunks)) {
-  start_row <- ((i - 1) * chunk_size) + 1
-  end_row <- min(i * chunk_size, nrow(results_long))
-  
-  chunk <- results_long[start_row:end_row, ]
-  
-  file_name <- paste0(
-    "Outputs/Data/stanoviste/stanoviste_",
-    gsub('-','', Sys.Date()), 
-    "UTF_part", 
-    i, 
-    ".csv"
-    )
-  
-  write.csv2(chunk, file_name, row.names = FALSE, fileEncoding = "UTF-8", sep = ";", quote = FALSE)
-  
-}
-
-cat("Export complete: ", num_chunks, "files created.")
-
-results_kvk <- results_long %>%
-  filter(grepl("Karl", oop)) %>%
-  filter(NAZEV != "Hradiště") %>%
-  filter(parametr_nazev %in% (limity %>% filter(DRUH == "stanoviste") %>% pull(ID_IND)) | parametr_nazev == "CELKOVE_HODNOCENI") %>%
-  distinct()
-
-write.csv(results_kvk,
-          paste0("C:/Users/jonas.gaigr/Documents/state_results/stanoviste_kvk.csv"),
-          row.names = FALSE,
-          fileEncoding = "Windows-1250")
 
 #----------------------------------------------------------#
 # KONEC ----
