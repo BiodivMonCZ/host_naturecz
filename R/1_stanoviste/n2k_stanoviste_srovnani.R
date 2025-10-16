@@ -92,7 +92,7 @@ limity_stan <-
     LIM_IND = dplyr::case_when(
       ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND,
       ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
-      ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10
+      ID_IND == "KVALITA" ~ ceiling(as.numeric(LIM_IND) * 10) / 10
       ),
     # Sjednoceni zdrojovych oznaceni na jednotne verze
     ZDROJ = dplyr::case_when(
