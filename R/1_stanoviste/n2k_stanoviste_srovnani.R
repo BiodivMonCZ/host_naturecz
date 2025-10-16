@@ -314,12 +314,12 @@ results_long <- results %>%
         LIM_IND <= 2 ~ ZDROJ,
       parametr_nazev == "KVALITA" & 
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") &
-        parametr_hodnota %>% as.numeric() <= 2 ~ "VMB2",
+        as.numeric(parametr_hodnota) <= 2 ~ "VMB2",
       parametr_nazev == "KVALITA" &
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") &
-        parametr_hodnota %>% as.numeric() > 2 ~ "MINIMI",
+        as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "KVALITA" &
-        parametr_hodnota %>% as.numeric() > 2 ~ "MINIMI",
+        as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
         LIM_IND >= MINIMISIZE ~ ZDROJ,
