@@ -90,6 +90,7 @@ limity_stan <-
   # Zaokrouhleni limitnich hodnot
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
+      ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND,
       ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
       ID_IND == "KVALITA" ~ ceiling(LIM_IND * 10) / 10
       ),
@@ -354,7 +355,7 @@ results_long <- results %>%
         SITECODE == "CZ0514672" ~ safe_floor(parametr_hodnota, 2),
       ZDROJ == "EXPERT" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" & 
-        ZDROJ == "SDF" ~ safe_floor(parametr_hodnota, 2),
+        ZDROJ == "SDF" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB3" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
@@ -749,7 +750,37 @@ hab_export <-
     ind_order_xlsx <- c("celkové hodnocení", "rozloha", "kvalita")
     
     export_data_xlsx <- 
-      n2k_stanoviste_write %>%
+      results_comp %>%
+      # Reverzní dekódování: převod číselných kódů zpět na slovní hodnoty
+      dplyr::mutate(
+        parametr_hodnota = as.numeric(parametr_hodnota),
+        stav = dplyr::case_when(
+          stav == 11 ~ "dobrý",
+          stav == 12 ~ "zhoršený",
+          stav == 13 ~ "špatný",
+          stav == 1  ~ "neznámý",
+          stav == 8  ~ "nehodnocen",
+          TRUE ~ as.character(stav)
+        ),
+        trend = dplyr::case_when(
+          trend == 4 ~ "zhoršující se",
+          trend == 2 ~ "zlepšující se",
+          trend == 3 ~ "stabilní",
+          trend == 1 ~ "neznámý",
+          TRUE ~ as.character(trend)
+        ),
+        parametr_jednotka = dplyr::case_when(
+          parametr_jednotka == "7" ~ "ha",
+          parametr_jednotka == "140" ~ "kvalita",
+          TRUE ~ as.character(parametr_jednotka)
+          )
+        ) %>%
+      dplyr::mutate(
+        parametr_nazev = ind_popis,
+        feature_code = as.character(feature_code)
+      ) %>%
+      dplyr::select(-ind_popis, -ind_id) %>%
+      dplyr::filter(!is.na(parametr_nazev)) %>%
       dplyr::rename(
         `kód EVL` = kod_chu,
         `název EVL` = nazev_chu,
@@ -768,11 +799,13 @@ hab_export <-
         `Způsob určení limitu` = poznamka
       ) %>%
       dplyr::mutate(
-        ind_order_xlsx = match(`indikátor`, ind_order_xlsx, nomatch = length(ind_order_xlsx) + 1)
+        `Poznámka` = NA_character_,
+        ind_order_tmp = match(`indikátor`, ind_order_xlsx, nomatch = length(ind_order_xlsx) + 1)
       ) %>%
-      dplyr::arrange(`kód předmětu hodn.`, `název EVL`, ind_order_xlsx) %>%
-      dplyr::select(-ind_order_xlsx) %>%   # pomocný sloupec odstranit
-      dplyr::filter(`indikátor` %in% ind_order_xlsx)
+      dplyr::arrange(`kód předmětu hodn.`, `název EVL`, ind_order_tmp) %>%
+      dplyr::filter(`indikátor` %in% ind_order_xlsx) %>%
+      dplyr::select(-ind_order_tmp)
+  
     
     sep_isop <- ";"
     quote_env_isop <- FALSE
