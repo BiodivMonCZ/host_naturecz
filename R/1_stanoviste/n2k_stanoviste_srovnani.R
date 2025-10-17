@@ -72,7 +72,10 @@ limity_stan <-
   readr::read_csv( # Nacteni CSV s limity indikatoru
     "Data/Input/limity_stanoviste.csv",
     locale = readr::locale(encoding = "Windows-1250")
-    ) %>% 
+    ) %>%
+  dplyr::mutate(
+    LIM_IND = as.numeric(LIM_IND)
+  ) %>% 
   dplyr::mutate(
     # Urceni posloupnosti ciloveho stavu
     rowname = as.numeric(
@@ -90,8 +93,10 @@ limity_stan <-
   # Zaokrouhleni limitnich hodnot
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
-      ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND,
-      ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
+      ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND, # bez zaokrouhleni
+      ID_IND == "ROZLOHA" & ZDROJ == "EXPERT" ~ LIM_IND, # bez zaokrouhleni
+      ID_IND == "ROZLOHA" & ZDROJ == "SDF" ~ LIM_IND, # bez zaokrouhleni
+      ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2), # zaokrouhleni dolu
       ID_IND == "KVALITA" ~ ceiling(as.numeric(LIM_IND) * 10) / 10
       ),
     # Sjednoceni zdrojovych oznaceni na jednotne verze
@@ -314,27 +319,32 @@ results_long <- results %>%
         LIM_IND <= 2 ~ ZDROJ,
       parametr_nazev == "KVALITA" & 
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") &
-        parametr_hodnota %>% as.numeric() <= 2 ~ "VMB2",
+        as.numeric(parametr_hodnota) <= 2 ~ "VMB2",
       parametr_nazev == "KVALITA" &
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") &
-        parametr_hodnota %>% as.numeric() > 2 ~ "MINIMI",
+        as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "KVALITA" &
-        parametr_hodnota %>% as.numeric() > 2 ~ "MINIMI",
+        as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
+      # rozloha SDF
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
         LIM_IND >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
         LIM_IND < MINIMISIZE ~ "MINIMI",
+      # rozloha VMB2
+      parametr_nazev == "ROZLOHA" &
+        ZDROJ == "VMB2" &
+        LIM_IND >= MINIMISIZE ~ ZDROJ,
+      parametr_nazev == "ROZLOHA" &
+        ZDROJ == "VMB2" &
+        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
         as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
         LIM_IND < MINIMISIZE ~ "MINIMI",
-      parametr_nazev == "ROZLOHA" &
-        ZDROJ == "VMB2" &
-        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       (is.na(ZDROJ)  == TRUE | ZDROJ == "NA") &
