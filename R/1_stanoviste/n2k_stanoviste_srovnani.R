@@ -72,7 +72,10 @@ limity_stan <-
   readr::read_csv( # Nacteni CSV s limity indikatoru
     "Data/Input/limity_stanoviste.csv",
     locale = readr::locale(encoding = "Windows-1250")
-    ) %>% 
+    ) %>%
+  dplyr::mutate(
+    LIM_IND = as.numeric(LIM_IND)
+  ) %>% 
   dplyr::mutate(
     # Urceni posloupnosti ciloveho stavu
     rowname = as.numeric(
@@ -91,6 +94,7 @@ limity_stan <-
   dplyr::mutate(
     LIM_IND = dplyr::case_when(
       ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND,
+      ID_IND == "ROZLOHA" & ZDROJ == "EXPERT" ~ LIM_IND,
       ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
       ID_IND == "KVALITA" ~ ceiling(as.numeric(LIM_IND) * 10) / 10
       ),
@@ -320,21 +324,26 @@ results_long <- results %>%
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "KVALITA" &
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
+      # rozloha SDF
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
         LIM_IND >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
         LIM_IND < MINIMISIZE ~ "MINIMI",
+      # rozloha VMB2
+      parametr_nazev == "ROZLOHA" &
+        ZDROJ == "VMB2" &
+        LIM_IND >= MINIMISIZE ~ ZDROJ,
+      parametr_nazev == "ROZLOHA" &
+        ZDROJ == "VMB2" &
+        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
         as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" &
         LIM_IND < MINIMISIZE ~ "MINIMI",
-      parametr_nazev == "ROZLOHA" &
-        ZDROJ == "VMB2" &
-        as.numeric(parametr_hodnota) >= MINIMISIZE ~ ZDROJ,
       parametr_nazev == "ROZLOHA" &
         as.numeric(parametr_hodnota) < MINIMISIZE ~ "MINIMI",
       (is.na(ZDROJ)  == TRUE | ZDROJ == "NA") &
