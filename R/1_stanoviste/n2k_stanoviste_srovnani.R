@@ -95,6 +95,7 @@ limity_stan <-
     LIM_IND = dplyr::case_when(
       ID_IND == "ROZLOHA" & ZDROJ == "MINIMI" ~ LIM_IND,
       ID_IND == "ROZLOHA" & ZDROJ == "EXPERT" ~ LIM_IND,
+      ID_IND == "ROZLOHA" & ZDROJ == "SDF" ~ LIM_IND,
       ID_IND == "ROZLOHA" ~ safe_floor(LIM_IND, 2),
       ID_IND == "KVALITA" ~ ceiling(as.numeric(LIM_IND) * 10) / 10
       ),
