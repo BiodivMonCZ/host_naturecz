@@ -107,21 +107,22 @@ prepare_n2k_nal <- function(
       POP_CILJEDNOTKA == "dm2" & POCITANO == "m2" ~ 100,
       POP_CILJEDNOTKA == "m2" & POCITANO == "cm2" ~ 0.0001,
       POP_CILJEDNOTKA == "m2" & POCITANO == "dm2" ~ 0.01),
-    vliv = stringr::str_extract(
+    vliv1 = stringr::str_extract(
       STRUKT_POZN,
       "(?<=<vliv>).*(?=</vliv>)"
-    )
+    ),
+    vliv2 = stringr::str_extract(
+      STRUKT_POZN, 
+      "(?<=<VLV_VLIVY>).*(?=</VLV_VLIVY>)"
+    
   ) %>%
     dplyr::mutate(
       VLV_VLIVY = dplyr::case_when(
-        is.na(vliv) == FALSE ~ vliv,
-        TRUE ~ stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<VLV_VLIVY>).*(?=</VLV_VLIVY>)"
-        )
+        is.na(vliv1) == FALSE ~ vliv1,
+        TRUE ~ vliv2
       ),
       VLV_VLIVY_NUM = stringr::str_count(
-        STRUKT_POZN,
+        VLV_VLIVY,
         ","
       )
     ) %>%
