@@ -1,4 +1,4 @@
-prepare_n2k_nal <- function(
+run_n2k_druhy_akce <- function(
     n2k_load,
     species_name,
     sites_subjects,
@@ -1027,21 +1027,23 @@ prepare_n2k_nal <- function(
       ., 
       n2k_druhy_lim_pre
     ) %>%
-    dplyr::arrange(ID_ND_NALEZ)
+    dplyr::arrange(ID_ND_NALEZ) %>%
+    dplyr::filter(is.na(ID_ND_NALEZ) == FALSE)
   
   return(n2k_druhy_lim)
   
 }
 
-species_list <- unique(n2k_load$DRUH)
-species_list <- unique(n2k_load %>% filter(SKUPINA == "Obojživelníci") %>% pull(DRUH))
-species_list <- "Triturus cristatus"
+#----------------------------------------------------------#
+# Napocet ----- 
+#----------------------------------------------------------#
+
 species_list <- "Triturus cristatus"
 
-n2k_all <- lapply(species_list, function(sp) {
-  prepare_n2k_lim(n2k_load, sp, sites_subjects, limity, current_year = 2025)
+n2k_druhy_lim <- lapply(species_list, function(sp) {
+  prepare_n2k_nal(n2k_load, sp, sites_subjects, limity, current_year = 2025)
 }) %>%
-  dplyr::bind_rows()
+  dplyr::bind_rows() 
 
 
 ncol_druhy_lim <- 
