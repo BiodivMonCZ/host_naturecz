@@ -113,8 +113,7 @@ prepare_n2k_nal <- function(
     ),
     vliv2 = stringr::str_extract(
       STRUKT_POZN, 
-      "(?<=<VLV_VLIVY>).*(?=</VLV_VLIVY>)"
-    
+      "(?<=<VLV_VLIVY>).*(?=</VLV_VLIVY>)")
   ) %>%
     dplyr::mutate(
       VLV_VLIVY = dplyr::case_when(
@@ -824,7 +823,7 @@ prepare_n2k_nal <- function(
         na.rm = TRUE
       ),
       POP_VITALLET = POP_POCETLET/POP_POCETLETREF,
-      POP_REPROCHI = POP_POCETLETS2/POP_POCETLETS1,
+      POP_REPROCHI = POP_POCETLETS2/POP_POCETLETS1
     ) %>%
     dplyr::ungroup()
   
