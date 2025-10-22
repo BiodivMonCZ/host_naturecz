@@ -600,7 +600,7 @@ run_n2k_druhy_akce <- function(
         SP_POSKOZENI_ROSTLIN == "Nezjištěno" ~ 0,
         TRUE ~ sum(!is.na(POSKOZENI_ROSTLIN) & POSKOZENI_ROSTLIN != "Nezjištěno")
       ),
-      POCET_POSKOZENYCH = readr::parse_number(POSKOZENI_ROSTLIN),
+      POCET_POSKOZENYCH = readr::parse_number(as.character(POSKOZENI_ROSTLIN)),
       POCET_POSKOZENYCHSUM = sum(POCET_POSKOZENYCH, na.rm = TRUE),
       PROCENTO_POSKOZENYCH = POCET_POSKOZENYCHSUM/unique(POP_POCETLODYHSUM),
       POSKOZENI_KAT = dplyr::case_when(
@@ -643,9 +643,7 @@ run_n2k_druhy_akce <- function(
         nchar(STA_ZAPOJENICELK) > 15 ~ str_match(STA_ZAPOJENICELK, 
                                                  "zapojený::\\s*(.*?)\\s*%")[,2],
         TRUE ~ "0"),
-      STA_ZAPOJENIDRN = readr::parse_number(
-        STA_ZAPOJENICELK
-      )
+      STA_ZAPOJENIDRN = readr::parse_number(as.character(STA_ZAPOJENICELK))
     ) %>%
     tidyr::separate_rows(
       POP_DELKYJEDINCI,
@@ -853,11 +851,11 @@ run_n2k_druhy_akce <- function(
         POP_TREND2, 
         na.rm = TRUE
       ),
-      POP_TRENDLM = coef(
-        lm(
-          POP_POCETMAX ~ ROK
-        )
-      )[2],
+      POP_TRENDLM = if (sum(!is.na(POP_POCETMAX)) > 1) {
+        coef(lm(POP_POCETMAX ~ ROK))[2]
+      } else {
+        NA_real_
+      },
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
@@ -874,7 +872,7 @@ run_n2k_druhy_akce <- function(
   #--------------------------------------------------#
   ## Kompilace konecne tabulky vsech indikatoru ----- 
   #--------------------------------------------------#
-  n2k_druhy <- n2k_druhy_pre %>%
+  n2k_druhy <<- n2k_druhy_pre %>%
     dplyr::left_join(
       ., 
       n2k_druhy_lokpop,
@@ -950,8 +948,6 @@ run_n2k_druhy_akce <- function(
   # ------------------------------------------#
   # Porovnani s limity ----- 
   # ------------------------------------------#
-  # ⚑ Split by species
-  species_list <- unique(n2k_druhy_long$DRUH)
   
   n2k_druhy_lim_pre <- 
     n2k_druhy_long %>%
@@ -1036,8 +1032,6 @@ run_n2k_druhy_akce <- function(
 # Napocet ----- 
 #----------------------------------------------------------#
 
-species_list <- "Triturus cristatus"
-species_list <- "Lissotriton montandoni"
 species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 
 n2k_druhy_lim <- lapply(species_list, function(sp) {
@@ -1045,6 +1039,10 @@ n2k_druhy_lim <- lapply(species_list, function(sp) {
 }) %>%
   dplyr::bind_rows() 
 
+readr::write_csv(
+  n2k_druhy_lim,
+  paste0("Data/Processed/n2k_druhy_lim_", Sys.Date(), ".csv")
+)
 
 ncol_druhy_lim <- 
   ncol(
