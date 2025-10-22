@@ -25,6 +25,11 @@ build_indicator_map <- function(n2k_druhy, limity, script = NULL,
   
   # 5. Pivot původní n2k_druhy do long form pro join
   n2k_long <- n2k_druhy %>%
+    dplyr::mutate(
+      across(
+        .fns = ~ as.character(.)
+      )
+    )  %>%
     pivot_longer(cols = all_of(all_inds),
                  names_to = "ID_IND",
                  values_to = "HODNOTA") %>%
