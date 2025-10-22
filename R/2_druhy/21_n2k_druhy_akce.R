@@ -19,7 +19,7 @@ run_n2k_druhy_akce <- function(
     ) %>%
     #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
     #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
-    dplyr::filter(SKUPINA == "Obojživelníci") %>%
+    dplyr::filter(DRUH == species_name) %>%
     #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
     #filter(SKUPINA == "Savci") %>%
     #filter(SKUPINA == "Letouni") %>%
@@ -953,9 +953,8 @@ run_n2k_druhy_akce <- function(
   # ⚑ Split by species
   species_list <- unique(n2k_druhy_long$DRUH)
   
-  n2k_druhy_lim_pre <- purrr::map_df(species_list, function(sp) {
+  n2k_druhy_lim_pre <- 
     n2k_druhy_long %>%
-      dplyr::filter(DRUH == sp) %>%   # ⚑ filter per species
       dplyr::mutate(
         HOD_IND_num = suppressWarnings(as.numeric(HOD_IND)), 
         LIM_IND_num = suppressWarnings(as.numeric(LIM_IND))
@@ -1001,7 +1000,6 @@ run_n2k_druhy_akce <- function(
       dplyr::arrange(dplyr::desc(STAV_IND)) %>%
       dplyr::slice(1) %>%
       dplyr::ungroup()
-  })
   
   # ------------------------------------------#
   # Hodnoceni nalezu ----- 
@@ -1039,9 +1037,11 @@ run_n2k_druhy_akce <- function(
 #----------------------------------------------------------#
 
 species_list <- "Triturus cristatus"
+species_list <- "Lissotriton montandoni"
+species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 
 n2k_druhy_lim <- lapply(species_list, function(sp) {
-  prepare_n2k_nal(n2k_load, sp, sites_subjects, limity, current_year = 2025)
+  run_n2k_druhy_akce(n2k_load, sp, sites_subjects, limity, current_year = 2025)
 }) %>%
   dplyr::bind_rows() 
 
