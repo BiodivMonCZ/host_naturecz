@@ -116,6 +116,7 @@ Epidalea calamita,POP_REPRO,val,NA,snùšky dm2,ano,lok
 Epidalea calamita,POP_REPRO,val,NA,snùšky cm2,ano,lok
 Epidalea calamita,POP_REPRO,val,NA,amplexus,ano,lok
 Epidalea calamita,POP_REPRO,val,NA,metamorf. ex,ano,lok
+Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Epidea calamita,LOK_DILCDOBRE,NA,NA,NA,ne,chu
 Epidea calamita,LOK_DILCPOCET,NA,NA,NA,ne,chu
 Epidea calamita,POP_POCET,NA,NA,samci,NA,lok
@@ -128,7 +129,6 @@ Epidea calamita,STA_POKRVEGETACE,val,0,NA,ne,lok
 Epidea calamita,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
 Epidea calamita,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
 Epidea calamita,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
 Epidea calamita,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
 Epidea calamita,STA_POKRVEGETACE,max,50,NA,ne,lok
 Epidea calamita,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
@@ -136,6 +136,8 @@ Epidea calamita,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
 Epidea calamita,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
 Epidea calamita,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
 Epidea calamita,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
+Epidea calamita,STA_VYSYCHANI,val,76-90 %,NA,ne,lok
+Epidea calamita,STA_VYSYCHANI,val,91-100 %,NA,ne,lok
 Epidea calamita,STA_VYSYCHANI,min,25,NA,ne,lok
 Epidea calamita,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Epidea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
