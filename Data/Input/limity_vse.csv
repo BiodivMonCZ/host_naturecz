@@ -201,60 +201,67 @@ Phengaris nausithous,POP_PROCPOLE1D,min,50,procento mapovacích polí 1. øádu v do
 Phengaris teleius,POP_PROCPOLE1D,min,50,procento mapovacích polí 1. øádu v dobré stavu,ano,chu
 Rhysodes sulcatus,POP_PROCPOLE1D,min,50,procento mapovacích polí 1. øádu v dobré stavu,ano,chu
 Rosalia alpina,POP_PROCPOLE1D,min,50,procento mapovacích polí 1. øádu v dobré stavu,ano,chu
-Bombina bombina,POP_REPRO,val,NA,larvy,ano,lok
-Bombina bombina,POP_REPRO,val,NA,juvenilové,ano,lok
-Bombina bombina,POP_REPRO,val,NA,snùšky,ano,lok
-Bombina bombina,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Bombina variegata,POP_REPRO,val,NA,larvy,ano,lok
-Bombina variegata,POP_REPRO,val,NA,juvenilové,ano,lok
-Bombina variegata,POP_REPRO,val,NA,snùšky,ano,lok
-Bombina variegata,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,larvy,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,juvenilové,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,snùšky,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,snùšky m2,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,snùšky m3,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,snùšky dm2,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,snùšky cm2,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,amplexus,ano,lok
-Epidalea calamita,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,larvy,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,juvenilové,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,snùšky,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,snùšky m2,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,snùšky m3,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,snùšky dm2,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,snùšky cm2,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,amplexus,ano,lok
-Lissotriton montandoni,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,larvy,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,juvenilové,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,snùšky,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,snùšky m2,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,snùšky m3,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,snùšky dm2,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,snùšky cm2,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,amplexus,ano,lok
-Triturus carnifex,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,larvy,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,juvenilové,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,snùšky,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,snùšky m2,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,snùšky m3,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,snùšky dm2,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,snùšky cm2,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,amplexus,ano,lok
-Triturus cristatus,POP_REPRO,val,NA,metamorf. ex,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,larvy,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,juvenilové,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,snùšky,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,snùšky m2,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,snùšky m3,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,snùšky dm2,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,snùšky cm2,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,amplexus,ano,lok
-Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex,ano,lok
+Bombina bombina,POP_REPRO,val,NA,larvy,NA,lok
+Bombina bombina,POP_REPRO,val,NA,juvenilové,NA,lok
+Bombina bombina,POP_REPRO,val,NA,snùšky,NA,lok
+Bombina bombina,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Bombina variegata,POP_REPRO,val,NA,larvy,NA,lok
+Bombina variegata,POP_REPRO,val,NA,juvenilové,NA,lok
+Bombina variegata,POP_REPRO,val,NA,snùšky,NA,lok
+Bombina variegata,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,larvy,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,juvenilové,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,snùšky,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,snùšky m2,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,snùšky m3,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,snùšky dm2,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,snùšky cm2,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,amplexus,NA,lok
+Epidalea calamita,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,larvy,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,juvenilové,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,snùšky,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,snùšky m2,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,snùšky m3,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,snùšky dm2,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,snùšky cm2,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,amplexus,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,larvy,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,juvenilové,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,snùšky,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,snùšky m2,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,snùšky m3,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,snùšky dm2,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,snùšky cm2,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,amplexus,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,larvy,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,juvenilové,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,snùšky,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,snùšky m2,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,snùšky m3,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,snùšky dm2,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,snùšky cm2,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,amplexus,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,larvy,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,juvenilové,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,snùšky,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,snùšky m2,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,snùšky m3,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,snùšky dm2,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,snùšky cm2,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,amplexus,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex,NA,lok
 Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Bombina bombina,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Bombina variegata,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Epidea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Lissotriton montandoni,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus carnifex,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus cristatus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus dobrogicus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Barbastella barbastellus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
 Barbastella barbastellus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
 Myotis bechsteinii,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
