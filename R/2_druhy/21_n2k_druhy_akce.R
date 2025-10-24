@@ -1033,6 +1033,7 @@ run_n2k_druhy_akce <- function(
 #----------------------------------------------------------#
 
 species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
+species_list <- "Bombina variegata"
 
 n2k_druhy_lim <- lapply(species_list, function(sp) {
   run_n2k_druhy_akce(n2k_load, sp, sites_subjects, limity, current_year = 2025)
