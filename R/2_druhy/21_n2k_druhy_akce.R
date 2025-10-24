@@ -1041,7 +1041,7 @@ n2k_druhy_lim <- lapply(species_list, function(sp) {
 
 readr::write_csv(
   n2k_druhy_lim,
-  paste0("Data/Processed/n2k_druhy_lim_", Sys.Date(), ".csv")
+  paste0("Data/Temp/n2k_druhy_lim", ".csv")
 )
 
 ncol_druhy_lim <- 
