@@ -719,6 +719,10 @@ run_n2k_druhy_akce <- function(
       # ------------------------------------------#
       ### Obojživelníci a plazi ----- 
       # ------------------------------------------#
+      POP_REPROMAX = max(
+        POP_REPRO,
+        na.rm = TRUE
+      ),
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
@@ -858,6 +862,12 @@ run_n2k_druhy_akce <- function(
       },
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
+        na.rm = TRUE
+      ),
+      POP_REPROPERIOD3 = sum(
+        POP_REPROMAX[1],
+        POP_REPROMAX[2],
+        POP_REPROMAX[3],
         na.rm = TRUE
       )
     ) %>%
