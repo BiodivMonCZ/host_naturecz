@@ -824,6 +824,7 @@ run_n2k_druhy_akce <- function(
     ) %>%
     dplyr::ungroup()
   
+  # Lokalita - trendy ----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
     dplyr::group_by(
@@ -869,7 +870,7 @@ run_n2k_druhy_akce <- function(
   
   
   #--------------------------------------------------#
-  ## Kompilace konecne tabulky vsech indikatoru ----- 
+  # Kompilace konecne tabulky vsech indikatoru ----- 
   #--------------------------------------------------#
   n2k_druhy <<- n2k_druhy_pre %>%
     dplyr::left_join(
