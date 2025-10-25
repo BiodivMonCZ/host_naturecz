@@ -277,11 +277,10 @@ run_n2k_druhy_akce <- function(
       is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
       is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
       is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
-    STA_ZTRATABIO = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_ZOOPLANKTON>).*(?=</STA_ZOOPLANKTON>)"
-      )
+    STA_ZTRATABIO = dplyr::case_when(
+      STA_STAVVODA == "zazeměná" ~ "ano",
+      STA_STAVVODA == "zaniklá" ~ "ano",
+      TRUE ~ "ne"
     ),
     STA_KACHNAPRITOMNOST = readr::parse_character(
       stringr::str_extract(
