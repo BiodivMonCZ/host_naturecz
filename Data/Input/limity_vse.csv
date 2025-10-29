@@ -450,13 +450,13 @@ Triturus cristatus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Triturus dobrogicus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Graphoderus bilineatus,STA_ZASTIN,val,ano,stupnice relativní škály,ano,lok
 Bombina bombina,STA_ZASTINENIHLADINA,val,0-25 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENIHLADINA,val,26-50 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENIHLADINA,val,51-75 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENIHLADINA,max,75,NA,ne,lok
-Bombina variegata,STA_ZASTINENIHLADINA,val,0-25 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENIHLADINA,val,26-50 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENIHLADINA,val,51-75 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENIHLADINA,max,75,NA,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,26-50 %,NA,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,max,75,NA,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,0-25 %,NA,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,26-50 %,NA,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,max,75,NA,ne,lok
 Leucorrhinia pectoralis,STA_ZAZEMNENI,max,60,%,ne,lok
 Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,NA,ne,lok
 Bombina bombina,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
