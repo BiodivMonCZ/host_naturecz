@@ -316,8 +316,9 @@ run_n2k_druhy <- function(
       TRUE ~ NA_integer_
     ),
     STA_VYSYCHANI = dplyr::case_when(
-      STA_STAVVODA == "vyschlá" ~ 1L,
       STA_STAVVODA == "zaniklá" ~ 1L,
+      STA_STAVVODA == "vyschlá" ~ 1L,
+      STA_STAVVODA == "1-25 %" ~ 1L,
       is.na(STA_STAVVODA) == FALSE ~ 0L,
       TRUE ~ NA_integer_
     ),
