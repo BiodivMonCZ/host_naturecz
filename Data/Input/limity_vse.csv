@@ -310,11 +310,11 @@ Lycaena dispar,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Phengaris nausithous,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Phengaris teleius,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Graphoderus bilineatus,STA_LITVEGET,min,70,procento pokryvnosti litorální vegetace,ano,lok
-Bombina bombina,STA_MANIPULACE,val,ne,NA,ne,lok
-Lissotriton montandoni,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus carnifex,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus cristatus,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus dobrogicus,STA_MANIPULACE,val,ne,NA,ne,lok
+Bombina bombina,STA_VODAMANIPULACE,val,ne,NA,ne,lok
+Lissotriton montandoni,STA_VODAMANIPULACE,val,ne,NA,ne,lok
+Triturus carnifex,STA_VODAMANIPULACE,val,ne,NA,ne,lok
+Triturus cristatus,STA_VODAMANIPULACE,val,ne,NA,ne,lok
+Triturus dobrogicus,STA_VODAMANIPULACE,val,ne,NA,ne,lok
 Euphydryas maturna,STA_MIKRPROSTLINA,val,dominantnì,kategorie relativní poèetnosti,ne,lok
 Carabus variolosus,STA_MRTDREVO,val,jednotlivé kmeny,stupnice relativní škály,ano,lok
 Carabus variolosus,STA_MRTDREVO,val,hojnì,stupnice relativní škály,ano,lok
