@@ -39,6 +39,7 @@ n2k_druhy_lok_pre <-
     DATUM = max(DATUM, na.rm = TRUE),
     HOD_IND = toString(na.omit(unique(HOD_IND))),        
     TYP_IND = toString(unique(TYP_IND)),
+    TYP_IND = ifelse(grepl("val", TYP_IND) == TRUE, "val", TYP_IND),
     LIM_IND = dplyr::first(na.omit(unique(LIM_IND))),
     JEDNOTKA = dplyr::first(na.omit(unique(JEDNOTKA))),
     LIM_INDLIST = dplyr::first(na.omit(unique(LIM_INDLIST))),
