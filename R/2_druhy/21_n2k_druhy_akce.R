@@ -3,7 +3,7 @@ run_n2k_druhy <- function(
     species_name,
     sites_subjects,
     limity,
-    current_year = 2025
+    current_year = 2024
 ) {
   
   lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique()
@@ -1106,7 +1106,7 @@ run_n2k_druhy_lim <- function(
 species_list <- "Bombina variegata"
 
 n2k_druhy <- lapply(species_list, function(sp) {
-  run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2025)
+  run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
 }) %>%
   dplyr::bind_rows() 
 readr::write_csv(
@@ -1115,7 +1115,7 @@ readr::write_csv(
 )
 
 n2k_druhy_lim <- lapply(species_list, function(sp) {
-  run_n2k_druhy_lim(n2k_druhy, sp, sites_subjects, limity, current_year = 2025)
+  run_n2k_druhy_lim(n2k_druhy, sp, sites_subjects, limity, current_year = 2024)
 }) %>%
   dplyr::bind_rows()
 readr::write_csv(
