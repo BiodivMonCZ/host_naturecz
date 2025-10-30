@@ -294,14 +294,8 @@ run_n2k_druhy <- function(
       )
     ),
     STA_RYBY = dplyr::case_when(
-      grepl(
-        "akvakultur", 
-        STRUKT_POZN, 
-        ignore.case = TRUE) | 
-        grepl("rybolov", 
-              STRUKT_POZN, 
-              ignore.case = TRUE
-        ) 
+      grepl("akvakultur", STRUKT_POZN, ignore.case = TRUE) | 
+        grepl("rybolov", STRUKT_POZN, ignore.case = TRUE) 
       ~ "ano",
       TRUE ~ "ne"),
     STA_ZOOPLANKTON = readr::parse_character(
@@ -1067,6 +1061,15 @@ n2k_druhy <- lapply(species_list, function(sp) {
   run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2025)
 }) %>%
   dplyr::bind_rows() 
+<<<<<<< HEAD
+=======
+
+n2k_druhy_lim <- lapply(species_list, function(sp) {
+  run_n2k_druhy_lim(n2k_druhy, sp, sites_subjects, limity, current_year = 2025)
+}) %>%
+  dplyr::bind_rows() 
+
+>>>>>>> f0a71f394d40336d76677be9e02b6c0515dca127
 readr::write_csv(
   n2k_druhy,
   paste0("Data/Temp/n2k_druhy", ".csv")
