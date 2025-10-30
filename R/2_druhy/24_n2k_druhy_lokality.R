@@ -9,9 +9,6 @@ ncol_druhy_lim <-
     n2k_druhy_lim
   )
 
-#----------------------------------------------------------#
-# Priprava agregovanych indikatoru ----
-#----------------------------------------------------------#
 bad_groups <- n2k_druhy_lim %>%
   dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, POLE, ROK, ID_IND) %>%
   dplyr::summarise(
@@ -22,6 +19,9 @@ bad_groups <- n2k_druhy_lim %>%
   ) %>%
   dplyr::filter(n_typ_ind > 1 | n_klic > 1 | n_urowen > 1)
 
+#----------------------------------------------------------#
+# Priprava agregovanych indikatoru ----
+#----------------------------------------------------------#
 n2k_druhy_lok_pre <- 
   n2k_druhy_lim %>%
   dplyr::group_by(
