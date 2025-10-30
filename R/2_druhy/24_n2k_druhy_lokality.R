@@ -243,7 +243,7 @@ run_n2k_druhy_lok <- function(
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 #species_list <- unique(n2k_load$DRUH)
-species_list <- "Bombina variegata"
+species_list <- c("Bombina variegata", "Osmoderma barnabita")
 
 n2k_druhy_lok <- lapply(species_list, function(sp) {
   run_n2k_druhy_lok(n2k_druhy_lim, sp, sites_subjects, limity, current_year = 2024)
