@@ -305,6 +305,16 @@ run_n2k_druhy <- function(
       is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
       is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
       is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
+    STA_STAVVODAKAT = dplyr::case_when(
+      STA_STAVVODA == "zaniklá" ~ 0L,
+      STA_STAVVODA == "vyschlá" ~ 0L,
+      STA_STAVVODA == "1-25 %" ~ 1L,
+      STA_STAVVODA == "26-50 %" ~ 2L,
+      STA_STAVVODA == "51-75 %" ~ 3L,
+      STA_STAVVODA == "76-90 %" ~ 4L,
+      STA_STAVVODA == "91-100 %" ~ 5L,
+      TRUE ~ NA_integer_
+    ),
     STA_VYSYCHANI = dplyr::case_when(
       STA_STAVVODA == "vyschlá" ~ 1L,
       STA_STAVVODA == "zaniklá" ~ 1L,
@@ -331,12 +341,6 @@ run_n2k_druhy <- function(
       stringr::str_extract(
         STRUKT_POZN, 
         "(?<=<STA_ZOOPLANKTON>).*(?=</STA_ZOOPLANKTON>)"
-      )
-    ),
-    STA_MANIPULACE = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
       )
     ),
     STA_POKRVEGETACE = readr::parse_character(
