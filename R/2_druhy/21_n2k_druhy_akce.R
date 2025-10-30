@@ -1,10 +1,34 @@
-run_n2k_druhy_akce <- function(
+run_n2k_druhy <- function(
     n2k_load,
     species_name,
     sites_subjects,
     limity,
     current_year = 2025
 ) {
+  
+  lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_POCET' limit for species found"))
+    
+  }
+  
+  lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_POCETSUM' limit for species found"))
+    
+  }
+  
+  lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_REPRO' limit for species found"))
+    
+  }
   
   #----------------------------------------------------------#
   # Nalez - priprava indikatoru na urovni nalezu ----- 
@@ -25,7 +49,7 @@ run_n2k_druhy_akce <- function(
     #filter(SKUPINA == "Letouni") %>%
     #--------------------------------------------------#
     ## Spolecne indikatory ----- 
-  #--------------------------------------------------#
+    #--------------------------------------------------#
   dplyr::mutate(
     POP_PRESENCE_N = dplyr::case_when(
       NEGATIVNI == 1 ~ 0,
@@ -54,10 +78,14 @@ run_n2k_druhy_akce <- function(
     ),
     POP_REPRO = dplyr::case_when(
       POP_PRESENCE == "ne" ~ "ne",
-      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$ID_IND == "POP_REPRO" & limity$druh == DRUH] ~ "ano",
-      POP_PRESENCE == "ano" & POCITANO %in% !limity$JEDNOTKA[limity$ID_IND == "POP_REPRO" & limity$druh == DRUH] ~ "ano",
+      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$DRUH == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
       TRUE ~ NA_character_
     ),
+    POP_REPRONUM = dplyr::case_when(
+      POP_REPRO == "ne" ~ 0L,
+      POP_REPRO == "ano" ~ 1L,
+      TRUE ~ NA_integer_
+    ) %>% as.integer(),
     POP_POCETNOSTNAL = dplyr::case_when(
       POP_PRESENCE == 0 ~ 0,
       POP_POCET > 1000000 ~ 8,
@@ -277,11 +305,31 @@ run_n2k_druhy_akce <- function(
       is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
       is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
       is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
-    STA_ZTRATABIO = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_ZOOPLANKTON>).*(?=</STA_ZOOPLANKTON>)"
-      )
+    STA_STAVVODAKAT = dplyr::case_when(
+      STA_STAVVODA == "zaniklá" ~ 0L,
+      STA_STAVVODA == "vyschlá" ~ 0L,
+      STA_STAVVODA == "1-25 %" ~ 1L,
+      STA_STAVVODA == "26-50 %" ~ 2L,
+      STA_STAVVODA == "51-75 %" ~ 3L,
+      STA_STAVVODA == "76-90 %" ~ 4L,
+      STA_STAVVODA == "91-100 %" ~ 5L,
+      TRUE ~ NA_integer_
+    ),
+    STA_VYSYCHANI = dplyr::case_when(
+      STA_STAVVODA == "zaniklá" ~ 1L,
+      STA_STAVVODA == "vyschlá" ~ 1L,
+      STA_STAVVODA == "1-25 %" ~ 1L,
+      is.na(STA_STAVVODA) == FALSE ~ 0L,
+      TRUE ~ NA_integer_
+    ),
+    STA_VODAMANIPULACE = dplyr::case_when(
+      grepl("manipulace s vodní hladinou", STRUKT_POZN, ignore.case = TRUE) ~ "ano",
+      TRUE ~ "ne"
+      ),
+    STA_ZTRATABIO = dplyr::case_when(
+      STA_STAVVODA == "zazeměná" ~ "ano",
+      STA_STAVVODA == "zaniklá" ~ "ano",
+      TRUE ~ "ne"
     ),
     STA_KACHNAPRITOMNOST = readr::parse_character(
       stringr::str_extract(
@@ -290,26 +338,14 @@ run_n2k_druhy_akce <- function(
       )
     ),
     STA_RYBY = dplyr::case_when(
-      grepl(
-        "akvakultur", 
-        STRUKT_POZN, 
-        ignore.case = TRUE) | 
-        grepl("rybolov", 
-              STRUKT_POZN, 
-              ignore.case = TRUE
-        ) 
+      grepl("akvakultur", STRUKT_POZN, ignore.case = TRUE) | 
+        grepl("rybolov", STRUKT_POZN, ignore.case = TRUE) 
       ~ "ano",
       TRUE ~ "ne"),
     STA_ZOOPLANKTON = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
         "(?<=<STA_ZOOPLANKTON>).*(?=</STA_ZOOPLANKTON>)"
-      )
-    ),
-    STA_MANIPULACE = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
       )
     ),
     STA_POKRVEGETACE = readr::parse_character(
@@ -686,6 +722,10 @@ run_n2k_druhy_akce <- function(
       ROK, 
       DRUH
     ) %>%
+    dplyr::arrange(
+      desc(MESIC),
+      desc(DEN)
+    ) %>%
     dplyr::reframe(
       # ------------------------------------------#
       ### Společné indikátory ----- 
@@ -720,6 +760,12 @@ run_n2k_druhy_akce <- function(
       # ------------------------------------------#
       ### Obojživelníci a plazi ----- 
       # ------------------------------------------#
+      POP_REPROMAX = max(POP_REPRONUM, na.rm = TRUE),
+      POP_REPROMAX = ifelse(is.infinite(POP_REPROMAX), NA_real_, POP_REPROMAX),
+      STA_VYSYCHMAX  = max(STA_VYSYCHANI, na.rm = TRUE),
+      STA_VYSYCHMAX = ifelse(is.infinite(STA_VYSYCHMAX), NA_real_, STA_VYSYCHMAX),
+      STA_STAVVODAKAT1 = STA_STAVVODAKAT[1],
+      STA_STAVVODAKAT2 = STA_STAVVODAKAT[2],
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
@@ -825,6 +871,7 @@ run_n2k_druhy_akce <- function(
     ) %>%
     dplyr::ungroup()
   
+  # Lokalita - trendy ----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
     dplyr::group_by(
@@ -859,7 +906,17 @@ run_n2k_druhy_akce <- function(
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
-      )
+      ),
+      POP_REPROPERIOD3 = {
+        v <- as.numeric(POP_REPROMAX[1:3])
+        v[is.infinite(v)] <- NA_real_
+        sum(v, na.rm = TRUE)
+      },
+      STA_VYSYCHANIPERIOD3 = {
+        v <- as.numeric(STA_VYSYCHMAX[1:3])
+        v[is.infinite(v)] <- NA_real_
+        sum(v, na.rm = TRUE)
+      }
     ) %>%
     dplyr::ungroup() %>%
     dplyr::left_join(
@@ -868,9 +925,9 @@ run_n2k_druhy_akce <- function(
     ) %>%
     dplyr::distinct()
   
-  
+
   #--------------------------------------------------#
-  ## Kompilace konecne tabulky vsech indikatoru ----- 
+  # Kompilace konecne tabulky vsech indikatoru ----- 
   #--------------------------------------------------#
   n2k_druhy <<- n2k_druhy_pre %>%
     dplyr::left_join(
@@ -901,6 +958,18 @@ run_n2k_druhy_akce <- function(
     n2k_druhy_lokpop_trend
   )
   
+  return(n2k_druhy)
+  
+}
+
+run_n2k_druhy_lim <- function(
+    n2k_druhy,
+    species_name,
+    sites_subjects,
+    limity,
+    current_year = 2025
+) {
+ 
   #----------------------------------------------------------#
   # Prevod na long format a napojeni na limity ----- 
   #----------------------------------------------------------#
@@ -951,51 +1020,51 @@ run_n2k_druhy_akce <- function(
   
   n2k_druhy_lim_pre <- 
     n2k_druhy_long %>%
-      dplyr::mutate(
-        HOD_IND_num = suppressWarnings(as.numeric(HOD_IND)), 
-        LIM_IND_num = suppressWarnings(as.numeric(LIM_IND))
-      ) %>%
-      dplyr::mutate(
-        STAV_IND = dplyr::case_when(
-          TYP_IND == "min" & HOD_IND_num < LIM_IND_num ~ 0,
-          TYP_IND == "min" & HOD_IND_num >= LIM_IND_num ~ 1,
-          TYP_IND == "max" & HOD_IND_num > LIM_IND_num ~ 0,
-          TYP_IND == "max" & HOD_IND_num <= LIM_IND_num ~ 1,
-          TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
-          TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
-        )
-      ) %>%
-      dplyr::select(-c(HOD_IND_num, LIM_IND_num)) %>%
-      dplyr::group_by(
-        ID_ND_NALEZ, 
-        ID_IND, 
-        IND_GRP
-      ) %>%
-      dplyr::mutate(
-        is_POP = stringr::str_starts(ID_IND, "POP_")
-      ) %>%
-      dplyr::mutate(
-        STAV_IND = dplyr::case_when(
-          IND_GRP == "minmax" & is_POP ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-          IND_GRP == "minmax" & !is_POP ~ min(as.numeric(STAV_IND), na.rm = TRUE),
-          IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
-        )
-      ) %>%
-      dplyr::select(-is_POP) %>%
-      dplyr::ungroup() %>%
-      dplyr::mutate(
-        STAV_IND = dplyr::case_when(
-          is.infinite(STAV_IND) ~ NA,
-          TRUE ~ STAV_IND
-        )
-      ) %>%
-      dplyr::group_by(
-        ID_ND_NALEZ, 
-        ID_IND
-      ) %>%
-      dplyr::arrange(dplyr::desc(STAV_IND)) %>%
-      dplyr::slice(1) %>%
-      dplyr::ungroup()
+    dplyr::mutate(
+      HOD_IND_num = suppressWarnings(as.numeric(HOD_IND)), 
+      LIM_IND_num = suppressWarnings(as.numeric(LIM_IND))
+    ) %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        TYP_IND == "min" & HOD_IND_num < LIM_IND_num ~ 0,
+        TYP_IND == "min" & HOD_IND_num >= LIM_IND_num ~ 1,
+        TYP_IND == "max" & HOD_IND_num > LIM_IND_num ~ 0,
+        TYP_IND == "max" & HOD_IND_num <= LIM_IND_num ~ 1,
+        TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
+        TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
+      )
+    ) %>%
+    dplyr::select(-c(HOD_IND_num, LIM_IND_num)) %>%
+    dplyr::group_by(
+      ID_ND_NALEZ, 
+      ID_IND, 
+      IND_GRP
+    ) %>%
+    dplyr::mutate(
+      is_POP = stringr::str_starts(ID_IND, "POP_")
+    ) %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        IND_GRP == "minmax" & is_POP ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+        IND_GRP == "minmax" & !is_POP ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+        IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
+      )
+    ) %>%
+    dplyr::select(-is_POP) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      STAV_IND = dplyr::case_when(
+        is.infinite(STAV_IND) ~ NA,
+        TRUE ~ STAV_IND
+      )
+    ) %>%
+    dplyr::group_by(
+      ID_ND_NALEZ, 
+      ID_IND
+    ) %>%
+    dplyr::arrange(dplyr::desc(STAV_IND)) %>%
+    dplyr::slice(1) %>%
+    dplyr::ungroup()
   
   # ------------------------------------------#
   # Hodnoceni nalezu ----- 
@@ -1029,25 +1098,30 @@ run_n2k_druhy_akce <- function(
 }
 
 #----------------------------------------------------------#
-# Napocet ----- 
+# Napocet a temp zapis----- 
 #----------------------------------------------------------#
 
-species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
+#species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
+#species_list <- unique(n2k_load$DRUH)
+species_list <- "Bombina variegata"
 
-n2k_druhy_lim <- lapply(species_list, function(sp) {
-  run_n2k_druhy_akce(n2k_load, sp, sites_subjects, limity, current_year = 2025)
+n2k_druhy <- lapply(species_list, function(sp) {
+  run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2025)
 }) %>%
   dplyr::bind_rows() 
-
 readr::write_csv(
-  n2k_druhy_lim,
-  paste0("Data/Processed/n2k_druhy_lim_", Sys.Date(), ".csv")
+  n2k_druhy,
+  paste0("Data/Temp/n2k_druhy", ".csv")
 )
 
-ncol_druhy_lim <- 
-  ncol(
-    n2k_druhy_lim
-    )
+n2k_druhy_lim <- lapply(species_list, function(sp) {
+  run_n2k_druhy_lim(n2k_druhy, sp, sites_subjects, limity, current_year = 2025)
+}) %>%
+  dplyr::bind_rows()
+readr::write_csv(
+  n2k_druhy_lim,
+  paste0("Data/Temp/n2k_druhy_lim", ".csv")
+)
 
 #----------------------------------------------------------#
 # Zapis dat -----

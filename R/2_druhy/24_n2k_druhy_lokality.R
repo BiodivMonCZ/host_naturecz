@@ -1,3 +1,24 @@
+# nacteni temp dat ----
+n2k_druhy_lim <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy_lim.csv"
+  )
+
+ncol_druhy_lim <- 
+  ncol(
+    n2k_druhy_lim
+  )
+
+bad_groups <- n2k_druhy_lim %>%
+  dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, POLE, ROK, ID_IND) %>%
+  dplyr::summarise(
+    n_typ_ind = n_distinct(TYP_IND),
+    n_klic    = n_distinct(KLIC),
+    n_urowen  = n_distinct(UROVEN),
+    .groups = "drop"
+  ) %>%
+  dplyr::filter(n_typ_ind > 1 | n_klic > 1 | n_urowen > 1)
+
 #----------------------------------------------------------#
 # Priprava agregovanych indikatoru ----
 #----------------------------------------------------------#
@@ -12,49 +33,30 @@ n2k_druhy_lok_pre <-
     ID_IND
     ) %>%
   dplyr::reframe(
-    SKUPINA = unique(
-      SKUPINA
-      ),
-    NAZEV_LOK = toString(
-      unique(
-        LOKALITA
-        )
-      ),
-    ID_ND_AKCE = toString(
-      unique(
-        IDX_ND_AKCE
-        )
-      ),
-    DATUM = max(
-      DATUM, 
-      na.rm = TRUE
-      ),
+    SKUPINA = unique(SKUPINA),
+    NAZEV_LOK = toString(unique(LOKALITA)),
+    ID_ND_AKCE = toString(unique(IDX_ND_AKCE)),
+    DATUM = max(DATUM, na.rm = TRUE),
     HOD_IND = toString(na.omit(unique(HOD_IND))),        
-    TYP_IND = unique(TYP_IND),
-    LIM_IND = unique(LIM_IND),
-    JEDNOTKA = unique(JEDNOTKA),
-    LIM_INDLIST = unique(LIM_INDLIST),
+    TYP_IND = toString(unique(TYP_IND)),
+    TYP_IND = ifelse(grepl("val", TYP_IND) == TRUE, "val", TYP_IND),
+    LIM_IND = dplyr::first(na.omit(unique(LIM_IND))),
+    JEDNOTKA = dplyr::first(na.omit(unique(JEDNOTKA))),
+    LIM_INDLIST = dplyr::first(na.omit(unique(LIM_INDLIST))),
     STAV_IND = dplyr::case_when(
       IND_GRP == "minmax" & grepl("POP_POSK", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
       IND_GRP == "minmax" & grepl("POP_", ID_IND) == TRUE ~ max(as.numeric(STAV_IND), na.rm = TRUE),
       IND_GRP == "minmax" & grepl("POP_", ID_IND) == FALSE ~ min(as.numeric(STAV_IND), na.rm = TRUE),
-      IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE)
+      IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+      TRUE ~ NA_real_
       ),
-    KLIC = unique(KLIC),
-    IND_GRP = unique(IND_GRP),
-    UROVEN = unique(UROVEN),
-    CILMON = max(
-      CILMON, 
-      na.rm = TRUE
-      )
+    KLIC = dplyr::first(na.omit(unique(KLIC))),
+    IND_GRP = dplyr::first(na.omit(unique(IND_GRP))),
+    UROVEN = dplyr::first(na.omit(unique(UROVEN))),
+    CILMON = max(CILMON, na.rm = TRUE)
   ) %>%
   dplyr::mutate_all(
-    ~ ifelse(
-      is.infinite(
-        .
-        ),
-      NA,
-      .)
+    ~ ifelse(is.infinite(.), NA, .)
     ) %>% 
   dplyr::ungroup() %>%
   dplyr::distinct()
@@ -70,15 +72,14 @@ n2k_druhy_lok <- n2k_druhy_lok_pre %>%
     ROK
     ) %>%
   dplyr::mutate(
-    IND_SUM = STAV_IND[limity$UROVEN %in% c("lok") &
-                         is.na(LIM_IND) == FALSE] %>%
+    IND_SUM = STAV_IND[limity$UROVEN %in% c("lok") & is.na(LIM_IND) == FALSE] %>%
       na.omit() %>%
       as.numeric() %>%
       sum() %>%
       as.character(),
-    IND_SUMKLIC = STAV_IND[KLIC == "ano" &
-                            limity$UROVEN %in% c("lok") &
-                            is.na(LIM_IND) == FALSE] %>%
+    IND_SUMKLIC = STAV_IND[KLIC == "ano" & 
+                             limity$UROVEN %in% c("lok") & 
+                             is.na(LIM_IND) == FALSE] %>%
       na.omit() %>%
       as.numeric() %>%
       sum() %>%
@@ -159,18 +160,10 @@ n2k_druhy_pole1_idakce <-
     POLE
     ) %>%
   dplyr::arrange(
-    desc(
-      CILMON
-      ),
-    desc(
-      ROK
-      ), 
-    desc(
-      CELKOVE
-      ), 
-    desc(
-      DATUM
-      )
+    desc(CILMON),
+    desc(ROK), 
+    desc(CELKOVE), 
+    desc(DATUM)
     ) %>%
   dplyr::slice(1) %>%
   dplyr::ungroup() %>%
@@ -197,18 +190,10 @@ n2k_druhy_lok_idakce <-
     KOD_LOKAL
     ) %>%
   dplyr::arrange(
-    dplyr::desc(
-      CILMON
-      ),
-    dplyr::desc(
-      ROK
-      ), 
-    dplyr::desc(
-      CELKOVE
-      ), 
-    dplyr::desc(
-      DATUM
-      )
+    dplyr::desc(CILMON),
+    dplyr::desc(ROK), 
+    dplyr::desc(CELKOVE), 
+    dplyr::desc(DATUM)
     ) %>%
   dplyr::slice(1) %>%
   dplyr::ungroup() %>%
@@ -265,7 +250,8 @@ lok_export <-
         .,
         n2k_oop,
         by = c("kod_chu" = "SITECODE")
-      )
+      ) %>%
+      dplyr::distinct()
     
     sep_isop <- ";"
     quote_env_isop <- FALSE

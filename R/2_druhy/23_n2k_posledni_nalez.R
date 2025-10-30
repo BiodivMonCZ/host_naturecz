@@ -1,3 +1,9 @@
+# nacteni temp dat ----
+n2k_druhy <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy.csv"
+  )
+
 # posledni nalez - chu - druh - lokalita - pole ----
 n2k_druhy_posledni_lok <- n2k_druhy %>%
   dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, POLE) %>%
