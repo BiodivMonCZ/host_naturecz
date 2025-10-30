@@ -6,6 +6,30 @@ run_n2k_druhy <- function(
     current_year = 2025
 ) {
   
+  lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_POCET' limit for species found"))
+    
+  }
+  
+  lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_POCETSUM' limit for species found"))
+    
+  }
+  
+  lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique()
+  if (length(lim_repro) == 0) {
+    warning(glue::glue("No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations."))
+  } else {
+    warning(glue::glue("'POP_REPRO' limit for species found"))
+    
+  }
+  
   #----------------------------------------------------------#
   # Nalez - priprava indikatoru na urovni nalezu ----- 
   #----------------------------------------------------------#
@@ -54,15 +78,14 @@ run_n2k_druhy <- function(
     ),
     POP_REPRO = dplyr::case_when(
       POP_PRESENCE == "ne" ~ "ne",
-      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$druh == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
+      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$DRUH == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
       TRUE ~ NA_character_
     ),
     POP_REPRONUM = dplyr::case_when(
-      POP_REPRO == "ne" ~ 0,
-      POP_REPRO == "ano" ~ 1,
+      POP_REPRO == "ne" ~ 0L,
+      POP_REPRO == "ano" ~ 1L,
       TRUE ~ NA_integer_
-    ) %>% 
-      as.numeric(),
+    ) %>% as.integer(),
     POP_POCETNOSTNAL = dplyr::case_when(
       POP_PRESENCE == 0 ~ 0,
       POP_POCET > 1000000 ~ 8,
@@ -718,11 +741,8 @@ run_n2k_druhy <- function(
       # ------------------------------------------#
       ### Obojživelníci a plazi ----- 
       # ------------------------------------------#
-      POP_REPROMAX = max(
-        POP_REPRONUM,
-        na.rm = TRUE
-      ) %>%
-        as.numeric(),
+      POP_REPROMAX = max(POP_REPRONUM, na.rm = TRUE),
+      POP_REPROMAX = ifelse(is.infinite(POP_REPROMAX), NA_real_, POP_REPROMAX),
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
@@ -864,7 +884,11 @@ run_n2k_druhy <- function(
         POP_POCETNOST, 
         na.rm = TRUE
       ),
-      POP_REPROPERIOD3 = sum(as.numeric(POP_REPROMAX[1:3]), na.rm = TRUE)
+      POP_REPROPERIOD3 = {
+        v <- as.numeric(POP_REPROMAX[1:3])
+        v[is.infinite(v)] <- NA_real_
+        sum(v, na.rm = TRUE)
+      }
     ) %>%
     dplyr::ungroup() %>%
     dplyr::left_join(
@@ -1046,10 +1070,11 @@ run_n2k_druhy_lim <- function(
 }
 
 #----------------------------------------------------------#
-# Napocet ----- 
+# Napocet a temp zapis----- 
 #----------------------------------------------------------#
 
-species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
+#species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
+#species_list <- unique(n2k_load$DRUH)
 species_list <- "Bombina variegata"
 
 n2k_druhy <- lapply(species_list, function(sp) {
