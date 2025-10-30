@@ -321,6 +321,10 @@ run_n2k_druhy <- function(
       is.na(STA_STAVVODA) == FALSE ~ 0L,
       TRUE ~ NA_integer_
     ),
+    STA_VODAMANIPULACE = dplyr::case_when(
+      grepl("manipulace s vodní hladinou", STRUKT_POZN, ignore.case = TRUE) ~ "ano",
+      TRUE ~ "ne"
+      ),
     STA_ZTRATABIO = dplyr::case_when(
       STA_STAVVODA == "zazeměná" ~ "ano",
       STA_STAVVODA == "zaniklá" ~ "ano",
