@@ -25,7 +25,7 @@ run_n2k_druhy <- function(
     #filter(SKUPINA == "Letouni") %>%
     #--------------------------------------------------#
     ## Spolecne indikatory ----- 
-  #--------------------------------------------------#
+    #--------------------------------------------------#
   dplyr::mutate(
     POP_PRESENCE_N = dplyr::case_when(
       NEGATIVNI == 1 ~ 0,
@@ -54,7 +54,7 @@ run_n2k_druhy <- function(
     ),
     POP_REPRO = dplyr::case_when(
       POP_PRESENCE == "ne" ~ "ne",
-      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$ID_IND == "POP_REPRO" & limity$druh == DRUH] ~ "ano",
+      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$druh == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
       TRUE ~ NA_character_
     ),
     POP_REPRONUM = dplyr::case_when(
