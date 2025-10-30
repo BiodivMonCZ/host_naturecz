@@ -717,6 +717,10 @@ run_n2k_druhy <- function(
       ROK, 
       DRUH
     ) %>%
+    dplyr::arrange(
+      desc(MESIC),
+      desc(DEN)
+    ) %>%
     dplyr::reframe(
       # ------------------------------------------#
       ### Společné indikátory ----- 
@@ -755,6 +759,8 @@ run_n2k_druhy <- function(
       POP_REPROMAX = ifelse(is.infinite(POP_REPROMAX), NA_real_, POP_REPROMAX),
       STA_VYSYCHMAX  = max(STA_VYSYCHANI, na.rm = TRUE),
       STA_VYSYCHMAX = ifelse(is.infinite(STA_VYSYCHMAX), NA_real_, STA_VYSYCHMAX),
+      STA_STAVVODAKAT1 = STA_STAVVODAKAT[1],
+      STA_STAVVODAKAT2 = STA_STAVVODAKAT[2],
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
