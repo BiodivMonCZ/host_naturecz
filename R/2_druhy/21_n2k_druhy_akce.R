@@ -305,6 +305,12 @@ run_n2k_druhy <- function(
       is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
       is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
       is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
+    STA_VYSYCHANI = dplyr::case_when(
+      STA_STAVVODA == "vyschlá" ~ 1L,
+      STA_STAVVODA == "zaniklá" ~ 1L,
+      is.na(STA_STAVVODA) == FALSE ~ 0L,
+      TRUE ~ NA_integer_
+    ),
     STA_ZTRATABIO = dplyr::case_when(
       STA_STAVVODA == "zazeměná" ~ "ano",
       STA_STAVVODA == "zaniklá" ~ "ano",
@@ -743,6 +749,8 @@ run_n2k_druhy <- function(
       # ------------------------------------------#
       POP_REPROMAX = max(POP_REPRONUM, na.rm = TRUE),
       POP_REPROMAX = ifelse(is.infinite(POP_REPROMAX), NA_real_, POP_REPROMAX),
+      STA_VYSYCHMAX  = max(STA_VYSYCHANI, na.rm = TRUE),
+      STA_VYSYCHMAX = ifelse(is.infinite(STA_VYSYCHMAX), NA_real_, STA_VYSYCHMAX),
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
@@ -886,6 +894,11 @@ run_n2k_druhy <- function(
       ),
       POP_REPROPERIOD3 = {
         v <- as.numeric(POP_REPROMAX[1:3])
+        v[is.infinite(v)] <- NA_real_
+        sum(v, na.rm = TRUE)
+      },
+      STA_VYSYCHANIPERIOD3 = {
+        v <- as.numeric(STA_VYSYCHMAX[1:3])
         v[is.infinite(v)] <- NA_real_
         sum(v, na.rm = TRUE)
       }
