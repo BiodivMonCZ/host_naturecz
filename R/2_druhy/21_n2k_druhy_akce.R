@@ -60,7 +60,7 @@ run_n2k_druhy <- function(
     POP_REPRONUM = dplyr::case_when(
       POP_REPRO == "ne" ~ 0,
       POP_REPRO == "ano" ~ 1,
-      TRUE ~ NA_real_
+      TRUE ~ NA_integer_
     ) %>% 
       as.numeric(),
     POP_POCETNOSTNAL = dplyr::case_when(
@@ -864,12 +864,7 @@ run_n2k_druhy <- function(
         POP_POCETNOST, 
         na.rm = TRUE
       ),
-      POP_REPROPERIOD3 = sum(
-        as.numeric(POP_REPROMAX[1]),
-        as.numeric(POP_REPROMAX[2]),
-        as.numeric(POP_REPROMAX[3]),
-        na.rm = TRUE
-      )
+      POP_REPROPERIOD3 = sum(as.numeric(POP_REPROMAX[1:3]), na.rm = TRUE)
     ) %>%
     dplyr::ungroup() %>%
     dplyr::left_join(
@@ -878,7 +873,7 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::distinct()
   
-  
+
   #--------------------------------------------------#
   # Kompilace konecne tabulky vsech indikatoru ----- 
   #--------------------------------------------------#
