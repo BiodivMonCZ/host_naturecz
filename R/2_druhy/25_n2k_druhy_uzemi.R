@@ -1,3 +1,14 @@
+# nacteni temp dat ----
+n2k_druhy_lok <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy_lok.csv"
+  )
+
+ncol_druhy_lok <- 
+  ncol(
+    n2k_druhy_lok
+  )
+
 #----------------------------------------------------------#
 # Priprava dilcich objektu -----
 #----------------------------------------------------------#
