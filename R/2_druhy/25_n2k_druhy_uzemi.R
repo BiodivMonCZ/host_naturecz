@@ -9,6 +9,16 @@ ncol_druhy_lok <-
     n2k_druhy_lok
   )
 
+n2k_druhy_obdobi_chu <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy_obdobi_chu.csv"
+  )
+
+n2k_druhy_posledni_chu <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy_posledni_chu.csv"
+  )
+
 run_n2k_druhy_uzemi <- function(
     n2k_druhy_lim,
     species_name,
