@@ -24,5 +24,21 @@ n2k_druhy_posledni_chu <- n2k_druhy %>%
   )
 
 #----------------------------------------------------------#
+# Zapis temp dat ----
+#----------------------------------------------------------#
+readr::write_csv(
+  n2k_druhy_posledni_lok,
+  paste0("Data/Temp/n2k_druhy_posledni_lok", ".csv")
+)
+readr::write_csv(
+  n2k_druhy_posledni_pol,
+  paste0("Data/Temp/n2k_druhy_posledni_pol", ".csv")
+)
+readr::write_csv(
+  n2k_druhy_posledni_chu,
+  paste0("Data/Temp/n2k_druhy_posledni_chu", ".csv")
+)
+
+#----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
