@@ -27,5 +27,21 @@ n2k_druhy_obdobi_chu <- n2k_druhy %>%
   )
 
 #----------------------------------------------------------#
+# Zapis temp dat ----
+#----------------------------------------------------------#
+readr::write_csv(
+  n2k_druhy_obdobi_lok,
+  paste0("Data/Temp/n2k_druhy_obdobi_lok", ".csv")
+)
+readr::write_csv(
+  n2k_druhy_obdobi_pol,
+  paste0("Data/Temp/n2k_druhy_obdobi_pol", ".csv")
+)
+readr::write_csv(
+  n2k_druhy_obdobi_chu,
+  paste0("Data/Temp/n2k_druhy_obdobi_chu", ".csv")
+)
+
+#----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
