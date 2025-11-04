@@ -33,7 +33,7 @@ barvy_stav <- c(
   "dobrý"    = "#94f204"
 )
 
-ggplot(data_val_n, aes(x = validace, y = pocet_lokalit, fill = validace)) +
+p_val_n <- ggplot(data_val_n, aes(x = validace, y = pocet_lokalit, fill = validace)) +
   geom_col(show.legend = FALSE, width = 0.7) +
   geom_text(aes(label = pocet_lokalit), vjust = -0.3, size = 4.2) +
   scale_fill_manual(values = c("#5DA5DA", "#FAA43A", "#60BD68", "#94f204")) +
@@ -48,7 +48,7 @@ ggplot(data_val_n, aes(x = validace, y = pocet_lokalit, fill = validace)) +
     plot.title = element_text(face = "bold")
   )
 
-ggplot(data_val_rp_n, aes(x = RP, y = pocet_lokalit, fill = validace)) +
+p_val_rp_n <- ggplot(data_val_rp_n, aes(x = RP, y = pocet_lokalit, fill = validace)) +
   geom_col(position = position_dodge(width = 0.8), width = 0.7) +
   geom_text(aes(label = pocet_lokalit),
             position = position_dodge(width = 0.8),
@@ -67,7 +67,7 @@ ggplot(data_val_rp_n, aes(x = RP, y = pocet_lokalit, fill = validace)) +
     plot.title = element_text(face = "bold")
   )
 
-ggplot(data_val_hod_n, aes(x = druh, y = pocet_lokalit, fill = stav)) +
+p_val_hod_n <- ggplot(data_val_hod_n, aes(x = druh, y = pocet_lokalit, fill = stav)) +
   geom_col(position = "stack", width = 0.7) +
   scale_fill_manual(values = barvy_stav) +
   geom_text(aes(label = pocet_lokalit),
@@ -86,3 +86,6 @@ ggplot(data_val_hod_n, aes(x = druh, y = pocet_lokalit, fill = stav)) +
     plot.title = element_text(face = "bold")
   )
 
+ggsave("Outputs/Grafy/Validace/graf_validace_pocet.png", plot = p_val_n, width = 7, height = 5, dpi = 300)
+ggsave("Outputs/Grafy/Validace/graf_validace_RP.png", plot = p_val_rp_n, width = 8, height = 5.5, dpi = 300)
+ggsave("Outputs/Grafy/Validace/graf_stav_druh.png", plot = p_val_hod_n, width = 8, height = 5.5, dpi = 300)
