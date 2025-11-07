@@ -325,6 +325,8 @@ results_long <- results %>%
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "KVALITA" &
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
+      parametr_nazev == "KVALITA" &
+        (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ "MINIMI",
       # rozloha SDF
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
@@ -353,8 +355,6 @@ results_long <- results %>%
         as.numeric(parametr_hodnota) == NA ~ "MINIMI",
       (is.na(ZDROJ) == TRUE | ZDROJ == "NA") &
         parametr_hodnota == "NA" ~ "MINIMI",
-      parametr_nazev == "KVALITA" &
-        (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ "MINIMI",
       TRUE ~ ZDROJ
       )
     ) %>%
