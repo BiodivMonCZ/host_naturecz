@@ -8,7 +8,8 @@ packages <- c(
   "proj4", 
   "openxlsx",
   "fuzzyjoin", 
-  "remotes"
+  "remotes",
+  "ggplot2"
 )
 
 # Standardni package
