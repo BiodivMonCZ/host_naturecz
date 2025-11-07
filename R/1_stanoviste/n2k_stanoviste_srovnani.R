@@ -307,13 +307,13 @@ results_long <- results %>%
       HABITAT_CODE %in% c("91T0", "3140", "3130", "8310") ~ NA,
       ZDROJ == "EXPERT" ~ ZDROJ,
       ZDROJ == "VMB3" ~ ZDROJ,
-      SITECODE %in% sdo_II_sites$sitecode ~ ZDROJ,
-      grepl("Karlo", oop) == TRUE ~ ZDROJ,
-      grepl("Libereckého", oop) == TRUE & grepl("Správa KRNAP", oop) == FALSE ~ ZDROJ,
-      grepl("Plz", oop) == TRUE & grepl("Správa NP", oop) == FALSE ~ ZDROJ,
-      grepl("Král", oop) == TRUE ~ ZDROJ,
-      grepl("Pardu", oop) == TRUE ~ ZDROJ,
-      grepl("Jihočeského", oop) == TRUE & grepl("Správa NP", oop) == FALSE ~ ZDROJ,
+      SITECODE %in% sdo_II_sites$sitecode & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Karlo", oop) == TRUE & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Libereckého", oop) == TRUE & grepl("Správa KRNAP", oop) == FALSE & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Plz", oop) == TRUE & grepl("Správa NP", oop) == FALSE & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Král", oop) == TRUE & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Pardu", oop) == TRUE & is.na(ZDROJ) == FALSE ~ ZDROJ,
+      grepl("Jihočeského", oop) == TRUE & grepl("Správa NP", oop) == FALSE & is.na(ZDROJ) == FALSE ~ ZDROJ,
       parametr_nazev == "KVALITA" & 
         ZDROJ %in% c("SDF", "VMB2", "VMB3") & 
         LIM_IND <= 2 ~ ZDROJ,
@@ -325,6 +325,8 @@ results_long <- results %>%
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
       parametr_nazev == "KVALITA" &
         as.numeric(parametr_hodnota) > 2 ~ "MINIMI",
+      parametr_nazev == "KVALITA" &
+        (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ "MINIMI",
       # rozloha SDF
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "SDF" &
@@ -353,8 +355,6 @@ results_long <- results %>%
         as.numeric(parametr_hodnota) == NA ~ "MINIMI",
       (is.na(ZDROJ) == TRUE | ZDROJ == "NA") &
         parametr_hodnota == "NA" ~ "MINIMI",
-      parametr_nazev == "KVALITA" &
-        (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ "MINIMI",
       TRUE ~ ZDROJ
       )
     ) %>%
@@ -370,12 +370,13 @@ results_long <- results %>%
         ZDROJ == "VMB3" ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
         SITECODE %in% sdo_II_sites$sitecode ~ LIM_IND,
-      (grepl("Karlo", oop) == TRUE |
-         grepl("Libereckého", oop) == TRUE |
-         grepl("Plz", oop) == TRUE |
-         grepl("Král", oop) == TRUE |
-         grepl("Pardu", oop) == TRUE
-       ) &
+      parametr_nazev == "ROZLOHA"  &
+        (is.na(LIM_IND) == FALSE | LIM_IND != "NA" | LIM_IND != " ") &
+        (grepl("Karlo", oop) == TRUE |
+           grepl("Libereckého", oop) == TRUE |
+           grepl("Plz", oop) == TRUE |
+           grepl("Král", oop) == TRUE |
+           grepl("Pardu", oop) == TRUE) &
         (grepl("Správa NP", oop) == FALSE &
            grepl("Správa KRNAP", oop) == FALSE) ~ LIM_IND,
       parametr_nazev == "ROZLOHA" &
@@ -383,10 +384,12 @@ results_long <- results %>%
       parametr_nazev == "ROZLOHA" &
         ZDROJ == "VMB2" ~ safe_floor(parametr_hodnota, 2),
       parametr_nazev == "KVALITA" &
+        ZDROJ == "MINIMI" ~ 2,
+      parametr_nazev == "KVALITA" &
+        ZDROJ == "VMB2" ~ ceiling(as.numeric(parametr_hodnota) * 10) / 10,
+      parametr_nazev == "KVALITA" &
         is.na(LIM_IND) == TRUE &
         parametr_hodnota <= 2 ~ ceiling(as.numeric(parametr_hodnota) * 10) / 10,
-      parametr_nazev == "KVALITA" &
-        ZDROJ == "MINIMI" ~ 2,
       parametr_nazev == "KVALITA" &
         (is.na(LIM_IND) == TRUE | LIM_IND == "NA") ~ 2,
       TRUE ~ LIM_IND
