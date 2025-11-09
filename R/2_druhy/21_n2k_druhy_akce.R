@@ -7,7 +7,7 @@ run_n2k_druhy <- function(
 ) {
   
   lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique()
-  if (length(lim_repro) == 0) {
+  if (length(lim_pocet) == 0) {
     warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
   } else {
     warning(glue::glue("'POP_POCET' limit for species found"))
@@ -15,7 +15,7 @@ run_n2k_druhy <- function(
   }
   
   lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique()
-  if (length(lim_repro) == 0) {
+  if (length(lim_pocetsum) == 0) {
     warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
   } else {
     warning(glue::glue("'POP_POCETSUM' limit for species found"))
@@ -1103,7 +1103,7 @@ run_n2k_druhy_lim <- function(
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 #species_list <- unique(n2k_load$DRUH)
-species_list <- "Bombina variegata"
+species_list <- c("Bombina variegata", "Osmoderma barnabita")
 
 n2k_druhy <- lapply(species_list, function(sp) {
   run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
