@@ -524,7 +524,8 @@ run_n2k_druhy_uzemi <- function(
       DRUH, 
       kod_chu, 
       POLE
-    ) 
+    ) %>%
+    dplyr::filter(is.na(ROK) == FALSE & ROK != "NA") 
    
   return(n2k_druhy_chu)
   
@@ -537,10 +538,13 @@ run_n2k_druhy_uzemi <- function(
 #species_list <- unique(n2k_load$DRUH)
 species_list <- c("Bombina variegata", "Osmoderma barnabita")
 
-n2k_druhy_uzemi <- lapply(species_list, function(sp) {
+n2k_druhy_uzemi <- 
+  lapply(species_list, function(sp) {
   run_n2k_druhy_uzemi(n2k_druhy_lok, sp, sites_subjects, limity, current_year = 2024)
-}) %>%
-  dplyr::bind_rows() 
+    }
+  ) %>%
+  dplyr::bind_rows()
+
 readr::write_csv(
   n2k_druhy_uzemi,
   paste0("Data/Temp/n2k_druhy_uzemi", ".csv")
@@ -548,7 +552,7 @@ readr::write_csv(
 
 
 n2k_druhy_chu_write <-
-  n2k_druhy_chu %>%
+  n2k_druhy_uzemi %>%
   dplyr::left_join(
     .,
     evl %>%
