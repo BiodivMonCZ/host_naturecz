@@ -20,7 +20,7 @@ n2k_druhy_posledni_chu <-
   )
 
 run_n2k_druhy_uzemi <- function(
-    n2k_druhy_lim,
+    n2k_druhy_lok,
     species_name,
     sites_subjects,
     limity,
