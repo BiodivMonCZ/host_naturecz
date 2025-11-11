@@ -19,6 +19,7 @@ n2k_druhy_posledni_chu <-
     "Data/Temp/n2k_druhy_posledni_chu.csv"
   )
 
+# Funkce napoctu ----
 run_n2k_druhy_uzemi <- function(
     n2k_druhy_lok,
     species_name,
@@ -537,6 +538,7 @@ run_n2k_druhy_uzemi <- function(
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 #species_list <- unique(n2k_load$DRUH)
 species_list <- c("Bombina variegata", "Osmoderma barnabita")
+species_list <- "Bombina variegata"
 
 n2k_druhy_uzemi <- 
   lapply(species_list, function(sp) {
