@@ -492,14 +492,29 @@ n2k_load <- n2k_export %>%
 # Vlastní funkce na úpravu dat ----
 #----------------------------------------------------------#
 #--------------------------------------------------#
-## Zaokrouhlení na dvě desetinná místa - vždy dolů ----
+## Zaokrouhlení na dve desetinna mista - vzdy dolu ----
 #--------------------------------------------------#
 safe_floor <- function(x, decimals = 2) {
   x_num <- round(as.numeric(x), 10)  # normalize precision
   factor <- 10^decimals
   floor(x_num * factor - 1e-9) / factor
 }
-
+#--------------------------------------------------#
+## Prace s agregaci nalezu ----
+#--------------------------------------------------#
+safe_max <- function(x) {
+  x <- x[!is.infinite(x)]
+  if (all(is.na(x))) return(NA_real_)
+  max(x, na.rm = TRUE)
+}
+safe_sum_num <- function(x) {
+  # x muze obsahovat text; prevet robustně (carka -> tecka)
+  num <- suppressWarnings(as.numeric(gsub(",", ".", as.character(x))))
+  sum(num, na.rm = TRUE)
+}
+to_num <- function(x) {
+  suppressWarnings(as.numeric(gsub(",", ".", as.character(x))))
+}
 #----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
