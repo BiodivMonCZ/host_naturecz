@@ -125,8 +125,8 @@ run_n2k_druhy_uzemi <- function(
       ),
       CELKOVE_HODNOCENI = NA,
       POP_PRESENCE = dplyr::case_when(
-        ID_IND == "POP_PRESENCE" & grepl("ano", HOD_IND) == TRUE ~ "ano", 
-        ID_IND == "POP_PRESENCE" & grepl("ne", HOD_IND) == TRUE ~ "ne", 
+        any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ano",
+        any(ID_IND == "POP_PRESENCE" & STAV_IND == 0, na.rm = TRUE) & !any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ne",
         TRUE ~ NA_character_
       ), 
       POP_POCETMAX = sum(
@@ -136,7 +136,7 @@ run_n2k_druhy_uzemi <- function(
         ), 
         na.rm = TRUE
       ), 
-      POP_POCETMAX = sum(
+      POP_POCETMIN = sum(
         dplyr::case_when(
           ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), 
           TRUE ~ NA
