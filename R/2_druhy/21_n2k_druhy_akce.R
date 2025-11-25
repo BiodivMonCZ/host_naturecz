@@ -902,7 +902,7 @@ run_n2k_druhy <- function(
         NA_real_
       },
       POP_ABUNDANCEREF = NA,  
-      POP_DYN = POP_POCET/POP_ABUNDANCEREF,
+      POP_DYN = POP_ABUNDANCE/POP_ABUNDANCEREF,
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
