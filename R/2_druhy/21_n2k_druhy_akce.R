@@ -48,7 +48,7 @@ run_n2k_druhy <- function(
     #filter(SKUPINA == "Savci") %>%
     #filter(SKUPINA == "Letouni") %>%
     #--------------------------------------------------#
-    ## Spolecne indikatory ----- 
+    ## Populacni indikatory ----- 
     #--------------------------------------------------#
   dplyr::mutate(
     POP_PRESENCE_N = dplyr::case_when(
@@ -135,6 +135,7 @@ run_n2k_druhy <- function(
       POP_CILJEDNOTKA == "dm2" & POCITANO == "m2" ~ 100,
       POP_CILJEDNOTKA == "m2" & POCITANO == "cm2" ~ 0.0001,
       POP_CILJEDNOTKA == "m2" & POCITANO == "dm2" ~ 0.01),
+    ## Vlivy ----
     vliv1 = stringr::str_extract(
       STRUKT_POZN,
       "(?<=<vliv>).*(?=</vliv>)"
@@ -155,7 +156,7 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::mutate(
       # ------------------------------------------#
-      ### Hmyz ----- 
+      ## Hmyz ----- 
       # ------------------------------------------#
       STA_SECCAS = readr::parse_character(
         stringr::str_extract(
@@ -277,10 +278,10 @@ run_n2k_druhy <- function(
                                        CILMON == 1 ~ "nezaznamenána")
     ) %>%
     # ------------------------------------------#
-    ### Ostatní bezobratlí ----- 
+    ## Ostatní bezobratlí ----- 
   # ------------------------------------------#
   # ------------------------------------------#
-  ### Obojživelníci a plazi ----- 
+  ## Obojživelníci a plazi ----- 
   # ------------------------------------------#
   dplyr::mutate(
     STA_STAVVODARYBNIK = readr::parse_character(
@@ -392,7 +393,7 @@ run_n2k_druhy <- function(
       TRUE ~ STA_ZASTINENIHLADINA)
   ) %>%
     # ------------------------------------------#
-    ### Ryby a mihule ----- 
+    ## Ryby a mihule ----- 
   # ------------------------------------------#
   dplyr::mutate(
     POP_DELKYJEDINCI = readr::parse_character(
@@ -415,7 +416,7 @@ run_n2k_druhy <- function(
     )
   ) %>%
     # ------------------------------------------#
-    ### Savci ----- 
+    ## Savci ----- 
   # ------------------------------------------#
   dplyr::mutate(
     POP_SCALP = readr::parse_character(
@@ -431,7 +432,7 @@ run_n2k_druhy <- function(
     )
   ) %>%
     # ------------------------------------------#
-    ### Letouni ----- 
+    ## Letouni ----- 
   # ------------------------------------------#
   dplyr::mutate(
     POP_PRESENCE_ZIMNI = max(
@@ -443,7 +444,7 @@ run_n2k_druhy <- function(
       na.rm = TRUE)
   ) %>%
     # ------------------------------------------#
-    ### Mechorosty ----- 
+    ## Mechorosty ----- 
   # ------------------------------------------#
   dplyr::mutate(
     POP_POCETMIKROLOK = readr::parse_number(
@@ -496,7 +497,7 @@ run_n2k_druhy <- function(
     )
   ) %>%
     # ------------------------------------------#
-    ### Cévnaté rostliny ----- 
+    ## Cévnaté rostliny ----- 
   # ------------------------------------------#
   dplyr::mutate(
     POP_POCETLODYH = dplyr::case_when(
@@ -900,9 +901,8 @@ run_n2k_druhy <- function(
       } else {
         NA_real_
       },
-      POP_ABUNDANCE = NA, 
       POP_ABUNDANCEREF = NA,  
-      POP_DYN = NA,
+      POP_DYN = POP_POCET/POP_ABUNDANCEREF,
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
