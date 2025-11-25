@@ -11,7 +11,6 @@ run_n2k_druhy <- function(
     warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
   } else {
     warning(glue::glue("'POP_POCET' limit for species found"))
-    
   }
   
   lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique()
@@ -19,7 +18,6 @@ run_n2k_druhy <- function(
     warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
   } else {
     warning(glue::glue("'POP_POCETSUM' limit for species found"))
-    
   }
   
   lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique()
@@ -27,7 +25,6 @@ run_n2k_druhy <- function(
     warning(glue::glue("No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations."))
   } else {
     warning(glue::glue("'POP_REPRO' limit for species found"))
-    
   }
   
   #----------------------------------------------------------#
