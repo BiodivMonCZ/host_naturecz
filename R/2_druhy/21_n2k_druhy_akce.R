@@ -769,9 +769,6 @@ run_n2k_druhy <- function(
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
-      POP_ABUNDANCE = NA,
-      POP_ABUNDANCEREF = NA, # 
-      POP_DYN = NA,
       POP_VITALITA = dplyr::n_distinct(
         POP_DELKYJEDINCIKAT, 
         na.rm = TRUE
@@ -903,6 +900,9 @@ run_n2k_druhy <- function(
       } else {
         NA_real_
       },
+      POP_ABUNDANCE = NA, 
+      POP_ABUNDANCEREF = NA,  
+      POP_DYN = NA,
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
@@ -1103,7 +1103,7 @@ run_n2k_druhy_lim <- function(
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 #species_list <- unique(n2k_load$DRUH)
-species_list <- c("Bombina variegata", "Osmoderma barnabita")
+species_list <- c("Bombina variegata", "Osmoderma barnabita", "Lampetra planeri")
 
 n2k_druhy <- lapply(species_list, function(sp) {
   run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
