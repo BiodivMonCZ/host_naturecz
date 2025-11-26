@@ -7,14 +7,14 @@ stanoviste,KALAMITA_POLOM,,NA,NA,ne,lok
 stanoviste,KVALITA,,NA,NA,ne,lok
 Bombina bombina,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Bombina variegata,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Epidea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
+Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Lissotriton montandoni,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Triturus carnifex,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Triturus cristatus,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Triturus dobrogicus,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Bombina bombina,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Bombina variegata,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Epidea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
+Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Lissotriton montandoni,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Triturus carnifex,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Triturus cristatus,LOK_POCETDOBR,NA,NA,NA,ne,chu
@@ -50,9 +50,9 @@ Bombina bombina,POP_POCET,NA,NA,samci,NA,lok
 Bombina variegata,POP_POCET,NA,NA,samci,NA,lok
 Bombina variegata,POP_POCET,NA,NA,jedinci,NA,lok
 Bombina variegata,POP_POCET,NA,NA,adulti,NA,lok
-Epidea calamita,POP_POCET,NA,NA,samci,NA,lok
-Epidea calamita,POP_POCET,NA,NA,jedinci,NA,lok
-Epidea calamita,POP_POCET,NA,NA,adulti,NA,lok
+Epidalea calamita,POP_POCET,NA,NA,samci,NA,lok
+Epidalea calamita,POP_POCET,NA,NA,jedinci,NA,lok
+Epidalea calamita,POP_POCET,NA,NA,adulti,NA,lok
 Eriogaster catax,POP_POCET,NA,NA,hnízda housenek,NA,lok
 Euphydryas aurinia,POP_POCET,NA,NA,hnízda housenek,NA,lok
 Euphydryas maturna,POP_POCET,NA,NA,hnízda housenek,ne,lok
@@ -66,14 +66,14 @@ Triturus dobrogicus,POP_POCET,NA,NA,adulti,NA,lok
 Triturus dobrogicus,POP_POCET,NA,NA,jedinci,NA,lok
 Bombina bombina,POP_POCETMAX,NA,NA,NA,ne,lok
 Bombina variegata,POP_POCETMAX,NA,NA,NA,ne,lok
-Epidea calamita,POP_POCETMAX,NA,NA,NA,ne,lok
+Epidalea calamita,POP_POCETMAX,NA,NA,NA,ne,lok
 Lissotriton montandoni,POP_POCETMAX,NA,NA,NA,ne,lok
 Triturus carnifex,POP_POCETMAX,NA,NA,NA,ne,lok
 Triturus cristatus,POP_POCETMAX,NA,NA,NA,ne,lok
 Triturus dobrogicus,POP_POCETMAX,NA,NA,NA,ne,lok
 Bombina bombina,POP_POCETMIN,NA,NA,NA,ne,lok
 Bombina variegata,POP_POCETMIN,NA,NA,NA,ne,lok
-Epidea calamita,POP_POCETMIN,NA,NA,NA,ne,lok
+Epidalea calamita,POP_POCETMIN,NA,NA,NA,ne,lok
 Lissotriton montandoni,POP_POCETMIN,NA,NA,NA,ne,lok
 Triturus carnifex,POP_POCETMIN,NA,NA,NA,ne,lok
 Triturus cristatus,POP_POCETMIN,NA,NA,NA,ne,lok
@@ -257,7 +257,7 @@ Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex,NA,lok
 Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Bombina bombina,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Bombina variegata,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
-Epidea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Lissotriton montandoni,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Triturus carnifex,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Triturus cristatus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
@@ -274,7 +274,7 @@ Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní 
 Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
 Bombina bombina,POP_ZMENARAD,max,-1,NA,ano,lok
 Bombina variegata,POP_ZMENARAD,max,-1,NA,ano,lok
-Epidea calamita,POP_ZMENARAD,max,-1,NA,ano,lok
+Epidalea calamita,POP_ZMENARAD,max,-1,NA,ano,lok
 Lissotriton montandoni,POP_ZMENARAD,max,-1,NA,ano,lok
 Triturus carnifex,POP_ZMENARAD,max,-1,NA,ano,lok
 Triturus cristatus,POP_ZMENARAD,max,-1,NA,ano,lok
@@ -325,12 +325,12 @@ Bombina variegata,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,max,50,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,0,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
-Epidea calamita,STA_POKRVEGETACE,max,50,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,0,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,max,50,NA,ne,lok
 Triturus carnifex,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
 Triturus carnifex,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
 Triturus carnifex,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
@@ -380,7 +380,7 @@ Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
 Triturus dobrogicus,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
 Bombina bombina,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Bombina variegata,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
-Epidea calamita,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Epidalea calamita,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Lissotriton montandoni,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus carnifex,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus cristatus,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
@@ -390,7 +390,7 @@ Rosalia alpina,STA_SKLADREVO,val,ne,NA,ne,lok
 Carabus variolosus,STA_TEKVODA,val,ano,ano/ne,ano,lok
 Bombina bombina,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
 Bombina variegata,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Epidea calamita,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
+Epidalea calamita,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
 Lissotriton montandoni,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
 Triturus carnifex,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
 Triturus cristatus,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
@@ -419,12 +419,12 @@ Bombina variegata,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
 Bombina variegata,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
 Bombina variegata,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
 Bombina variegata,STA_VYSYCHANI,min,25,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,val,76-90 %,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,val,91-100 %,NA,ne,lok
-Epidea calamita,STA_VYSYCHANI,min,25,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,76-90 %,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,91-100 %,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANI,min,25,NA,ne,lok
 Lissotriton montandoni,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
 Lissotriton montandoni,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
 Lissotriton montandoni,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
@@ -443,7 +443,7 @@ Triturus dobrogicus,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
 Triturus dobrogicus,STA_VYSYCHANI,min,25,NA,ne,lok
 Bombina bombina,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Bombina variegata,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Epidea calamita,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
+Epidalea calamita,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Lissotriton montandoni,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Triturus carnifex,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Triturus cristatus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
@@ -461,7 +461,7 @@ Leucorrhinia pectoralis,STA_ZAZEMNENI,max,60,%,ne,lok
 Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,NA,ne,lok
 Bombina bombina,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 Bombina variegata,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Epidea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
+Epidalea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 Lissotriton montandoni,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 Triturus carnifex,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 Triturus cristatus,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
@@ -473,7 +473,7 @@ Bombina variegata,VLV_VLIVY,NA,NA,NA,ne,lok
 Carabus menetriesi pacholei,VLV_VLIVY,NA,NA,NA,ne,lok
 Cerambyx cerdo,VLV_VLIVY,NA,NA,NA,ne,lok
 Cucujus cinnaberinus,VLV_VLIVY,NA,NA,NA,ne,lok
-Epidea calamita,VLV_VLIVY,NA,NA,NA,ne,lok
+Epidalea calamita,VLV_VLIVY,NA,NA,NA,ne,lok
 Eriogaster catax,VLV_VLIVY,NA,NA,NA,ne,lok
 Euphydryas aurinia,VLV_VLIVY,NA,NA,NA,NA,lok
 Euphydryas maturna,VLV_VLIVY,NA,NA,NA,ne,lok
