@@ -19,6 +19,12 @@ data_celk <-
   dplyr::group_by(druh, stav) %>%
   dplyr::reframe(pocet_lokalit = n())
 
+barvy_stav <- c(
+  "zhoršený" = "#f59b23",
+  "špatný"   = "#cd011a",
+  "dobrý"    = "#94f204"
+)
+
 p_hod_n <- ggplot(data_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
   geom_col(position = "stack", width = 0.7) +
   scale_fill_manual(values = barvy_stav) +
