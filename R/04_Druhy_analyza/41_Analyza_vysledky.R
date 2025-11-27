@@ -122,7 +122,6 @@ data_comp_spec <-
       "kod_chu")
   )
   
-
 cols_status <- c(
   "0" = "#d73027",   # špatný
   "0.5" = "#fee08b", # zhoršený
@@ -140,7 +139,7 @@ p <- ggplot(data = data_comp_spec,
     values = cols_status,
     labels = c("0" = "špatný", "0.5" = "zhoršený", "1" = "dobrý")
   ) +
-  scale_y_continuous(
+  scale_y_discrete(
     breaks = c(0, 0.5, 1),
     labels = c("špatný", "zhoršený", "dobrý"),
     limits = c(-0.05, 1.05)
