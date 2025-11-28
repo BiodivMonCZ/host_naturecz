@@ -218,6 +218,27 @@ lesy_celk <-
     ) %>%
   mutate(
     stav = fct_relevel(stav, "dobrý", "zhoršený", "špatný"),
+    druh = str_wrap(druh, width = 150)
+  )
+
+bezles_celk <-
+  data_stanoviste %>%
+  dplyr::filter(skupina == 6) %>%
+  dplyr::filter(grepl("kraj", oop) == TRUE | grepl("Prahy", oop) == TRUE) %>%
+  dplyr::filter(parametr_nazev == 10) %>%
+  dplyr::group_by(feature_code, druh, stav) %>%
+  dplyr::reframe(pocet_lokalit = n()) %>%
+  dplyr::mutate(
+    stav = dplyr::case_when(
+      stav == 11 ~ "dobrý",
+      stav == 12 ~ "zhoršený",
+      stav == 13 ~ "špatný",
+      stav == 1 ~ "neznámý",
+      stav == 8 ~ "nehodnocen" 
+    )
+  ) %>%
+  mutate(
+    stav = fct_relevel(stav, "dobrý", "zhoršený", "špatný"),
     druh = str_wrap(druh, width = 80)
   )
 
@@ -227,7 +248,7 @@ barvy_stav <- c(
   "špatný"   = "#cd011a"
 )
 
-p_hod_n <- ggplot(lesy_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
+p_hod_les <- ggplot(lesy_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
   
   # Sloupcový graf
   geom_col(position = "stack", width = 0.8) + # Lehké zúžení pro lepší vzhled
@@ -248,9 +269,9 @@ p_hod_n <- ggplot(lesy_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
   coord_flip() +
   # Popisky os a tituly
   labs(
-    x = "Typ přírodního stanoviště",
-    y = "Počet lokalit",
-    fill = "Stav předmětu\nochrany"
+    x = "typ přírodního stanoviště",
+    y = "počet lokalit",
+    fill = "stav předmětu\nochrany"
   ) +
   
   # Téma a úpravy čitelnosti
@@ -265,6 +286,48 @@ p_hod_n <- ggplot(lesy_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
   )
 
 # Zobrazení grafu
- print(p_hod_n)
+print(p_hod_les)
 
-ggsave("Outputs/Grafy/graf_stav_stanoviste.png", plot = p_hod_n, width = 12, height = 5.5, dpi = 300)
+ggsave("Outputs/Grafy/graf_stav_lesy.png", plot = p_hod_les, width = 12, height = 5.5, dpi = 300)
+
+p_hod_bezles <- ggplot(bezles_celk, aes(x = druh, y = pocet_lokalit, fill = stav)) +
+  
+  # Sloupcový graf
+  geom_col(position = "stack", width = 0.8) + # Lehké zúžení pro lepší vzhled
+  
+  # Aplikace custom barev
+  scale_fill_manual(
+    values = barvy_stav,
+    # Zajistíme pořadí položek v legendě odshora dolů (dobrý, zhoršený, špatný)
+    breaks = c("dobrý", "zhoršený", "špatný") 
+  ) +
+  
+  # Textové popisky
+  geom_text(aes(label = pocet_lokalit),
+            position = position_stack(vjust = 0.5),
+            color = "black", 
+            size = 3.5,
+            fontface = "bold") + # Zvýraznění popisků
+  coord_flip() +
+  # Popisky os a tituly
+  labs(
+    x = "typ přírodního stanoviště",
+    y = "počet lokalit",
+    fill = "stav předmětu\nochrany"
+  ) +
+  
+  # Téma a úpravy čitelnosti
+  theme_minimal(base_size = 14) +
+  theme(
+    # Vyšší úhel rotace pro lepší čitelnost dlouhých kódů
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    panel.grid.major.x = element_blank(),
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5),
+    legend.position = "blank" # Přesun legendy doprava
+  )
+
+# Zobrazení grafu
+ print(p_hod_bezles)
+
+ggsave("Outputs/Grafy/graf_stav_bezlesi.png", plot = p_hod_bezles, width = 12, height = 5.5, dpi = 300)
