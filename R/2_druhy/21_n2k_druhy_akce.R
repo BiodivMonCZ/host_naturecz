@@ -776,6 +776,7 @@ run_n2k_druhy <- function(
         POP_DELKYJEDINCIKAT, 
         na.rm = TRUE
       ),
+      POP_ABUNDANCE = max(POP_ABUNDANCE, na.rm = TRUE),
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
@@ -903,8 +904,8 @@ run_n2k_druhy <- function(
       } else {
         NA_real_
       },
-      POP_ABUNDANCEREF = NA,  
-      POP_DYN = POP_ABUNDANCE/POP_ABUNDANCEREF,
+      POP_ABUNDANCEREF = POP_ABUNDANCE[3],  
+      POP_DYN = mean(POP_ABUNDANCE[1], POP_ABUNDANCE[1], na.rm = TRUE)/POP_ABUNDANCEREF,
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
