@@ -1,5 +1,8 @@
 kod_chu,DRUH,KOD_LOKAL,POLE,POSLEDNI_NALEZ
 CZ0210043,Osmoderma barnabita,CZ0210043,6150d,2015-10-02
+CZ0210111,Pulsatilla patens,Bělá pod Bezdězem,5555a,2021-04-15
+CZ0210111,Pulsatilla patens,"PP Paterovské stráně, bor při zatáčce silnice do Hrdlořez",5555a,2018-04-27
+CZ0210111,Pulsatilla patens,Ppat020,5555a,2024-04-04
 CZ0212020,Lampetra planeri,CZ0212020,5555a,2012-08-17
 CZ0213009,Lampetra planeri,CZ0213009,6355a,2014-09-04
 CZ0213009,Lampetra planeri,Polánecký potok,6355a,2023-11-14
@@ -582,8 +585,39 @@ CZ0413194,Lampetra planeri,CZ0413194,5945a,2015-09-21
 CZ0413194,Lampetra planeri,STR_001_Střela,5945b,2023-08-11
 CZ0414110,Lampetra planeri,CZ0414110,5542d,2015-09-01
 CZ0414127,Lampetra planeri,CZ0414127,5745a,2015-09-01
+CZ0414127,Pulsatilla patens,32070178,5645c,2022-06-28
+CZ0414127,Pulsatilla patens,32070201,5645c,2022-06-23
+CZ0414127,Pulsatilla patens,32070247,5645c,2022-06-28
+CZ0414127,Pulsatilla patens,32070249,5645c,2022-06-23
+CZ0414127,Pulsatilla patens,Dubina - západ,5645c,2020-04-23
+CZ0414127,Pulsatilla patens,Dubový vrch 4,5645c,2022-04-21
+CZ0414127,Pulsatilla patens,Havraň,5644d,2022-04-29
+CZ0414127,Pulsatilla patens,Humnický vrch,5644d,2022-04-29
+CZ0414127,Pulsatilla patens,Jindřichov 1,5645c,2022-04-23
+CZ0414127,Pulsatilla patens,Jindřichov 2,5645c,2022-04-23
+CZ0414127,Pulsatilla patens,Jindřichov 3,5645c,2022-04-23
+CZ0414127,Pulsatilla patens,Jindřichov 4,5645c,2017-04-15
+CZ0414127,Pulsatilla patens,Lesná,5644d,2015-04-29
+CZ0414127,Pulsatilla patens,Ppat010,5645c,2023-04-26
+CZ0414127,Pulsatilla patens,Ppat011,5645c,2023-04-26
+CZ0414127,Pulsatilla patens,Ppat012,5645c,2023-04-26
+CZ0414127,Pulsatilla patens,Ppat013,5645c,2023-04-26
+CZ0414127,Pulsatilla patens,Ppat014,5645c,2023-05-01
+CZ0414127,Pulsatilla patens,Ppat015,5644d,2023-05-01
+CZ0414127,Pulsatilla patens,Ppat016,5644d,2023-05-01
+CZ0414127,Pulsatilla patens,U Dubiny,5645c,2020-04-23
+CZ0414127,Pulsatilla patens,Žďár u Hradiště,5645c,2021-04-09
 CZ0420021,Osmoderma barnabita,CZ0420021,5545c,2015-10-01
 CZ0420144,Lampetra planeri,CZ0420144,5445a,2015-09-01
+CZ0422075,Pulsatilla patens,"2587, Bílinka",5449d,2022-04-27
+CZ0422075,Pulsatilla patens,Boreč,5449d,2020-05-19
+CZ0422075,Pulsatilla patens,Boreč u Lovosic,5449d,2018-04-23
+CZ0422075,Pulsatilla patens,Boreč u Lovosic_33220352,5449d,2015-04-19
+CZ0422075,Pulsatilla patens,Boreč u Lovosic_33220358,5449d,2015-04-19
+CZ0422075,Pulsatilla patens,Borečský vrch,5449d,2021-05-21
+CZ0422075,Pulsatilla patens,"EVL Borečský vrch, snímek 2 - plocha v lomu s P. patens",5449d,2019-08-08
+CZ0422075,Pulsatilla patens,"EVL Borečský vrch, snímek 2 - plocha v lomu s P. patens - kontrolní",5449d,2020-07-15
+CZ0422075,Pulsatilla patens,Ppat017,5449d,2024-04-29
 CZ0423202,Osmoderma barnabita,CZ0423202,5449c,2021-05-23
 CZ0423210,Osmoderma barnabita,CZ0423210,5349c,2025-03-02
 CZ0423213,Osmoderma barnabita,CZ0423213,5546b,2025-03-02
@@ -597,6 +631,9 @@ CZ0423510,Lampetra planeri,CZ0423510,5648a,2015-09-01
 CZ0423510,Lampetra planeri,CZ0423510,5648b,2015-09-01
 CZ0424030,Lampetra planeri,CZ0424030,5445d,2015-09-01
 CZ0424030,Lampetra planeri,CZ0424030,5546a,2015-09-01
+CZ0424030,Pulsatilla patens,Krásná Lípa,5546a,2021-04-22
+CZ0424030,Pulsatilla patens,Krásná Lípa u Křimova_33440275,5546a,2014-06-29
+CZ0424030,Pulsatilla patens,Ppat004,5546a,2023-04-16
 CZ0424031,Lampetra planeri,CS_LP_001_České Švýcarsko,5052c,2023-10-07
 CZ0424031,Lampetra planeri,CS_LP_002_České Švýcarsko,5152a,2023-10-07
 CZ0424031,Lampetra planeri,CS_LP_003_České Švýcarsko,5152a,2023-10-07
@@ -620,7 +657,60 @@ CZ0424031,Lampetra planeri,České Švýcarsko,5052c,2022-10-15
 CZ0424031,Lampetra planeri,České Švýcarsko,5152a,2021-10-25
 CZ0424031,Lampetra planeri,České Švýcarsko,5152b,2020-10-17
 CZ0424031,Lampetra planeri,České Švýcarsko,5152c,2020-10-18
+CZ0424038,Pulsatilla patens,"24719, Hlinná",5450b,2022-04-15
+CZ0424038,Pulsatilla patens,"EVL Holý vrch u Hlinné, snímek 2 - plocha s P.patens - s managementem",5450b,2020-08-12
+CZ0424038,Pulsatilla patens,Hlinná,5450b,2023-04-04
+CZ0424038,Pulsatilla patens,Hlinná_1250315,5450b,2012-06-18
+CZ0424038,Pulsatilla patens,Hlinná_1250327,5450b,2013-06-30
+CZ0424038,Pulsatilla patens,Hlinná_1250364,5450b,2013-06-30
+CZ0424038,Pulsatilla patens,Hlinná_1250995,5450b,2013-06-30
+CZ0424038,Pulsatilla patens,"Holy vrch, Hradiste, Hlinna",5450b,2015-10-10
+CZ0424038,Pulsatilla patens,Holý Vrch P1,5450b,2020-03-01
+CZ0424038,Pulsatilla patens,Holý vrch,5450b,2021-04-21
+CZ0424038,Pulsatilla patens,Holý vrch - Hradiště,5450b,2016-04-12
+CZ0424038,Pulsatilla patens,Holý vrch P4,5450b,2020-03-01
+CZ0424038,Pulsatilla patens,Hradiště u Hlinné,5450b,2021-05-05
+CZ0424038,Pulsatilla patens,Ppat018,5450b,2024-04-16
+CZ0424038,Pulsatilla patens,Ppat022,5450b,2024-04-16
 CZ0424125,Bombina variegata,amp107,5845b,2024-04-15
+CZ0424125,Pulsatilla patens,32070284,5645c,2022-06-03
+CZ0424125,Pulsatilla patens,32070285,5645c,2022-06-03
+CZ0424125,Pulsatilla patens,32070298,5645c,2022-06-03
+CZ0424125,Pulsatilla patens,32070584,5645d,2022-06-03
+CZ0424125,Pulsatilla patens,Dubina - Zvoníčkov 3,5645c,2013-05-01
+CZ0424125,Pulsatilla patens,Dubina - pahorek u silnice,5645d,2020-06-17
+CZ0424125,Pulsatilla patens,Dubina - sedlo,5645d,2020-04-23
+CZ0424125,Pulsatilla patens,Dubina - u borovic,5645c,2020-04-23
+CZ0424125,Pulsatilla patens,Dubina 4,5645c,2013-05-01
+CZ0424125,Pulsatilla patens,Dubina 5,5645c,2013-05-01
+CZ0424125,Pulsatilla patens,Dubina 6,5645c,2013-05-01
+CZ0424125,Pulsatilla patens,Dubina 7,5645c,2013-05-01
+CZ0424125,Pulsatilla patens,Dubina u Zvoníčkova 1,5645d,2013-05-01
+CZ0424125,Pulsatilla patens,Dubový vrch,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - U lípy,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - Z okolí pahorku,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - dlouhá vrstevnicová mez,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - krátká vrstevnicová mez,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - prudká stráň u borového hájku,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - spádnicová kamenná mez,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch - vrstevnicová mez s jalovcem,5645c,2021-04-23
+CZ0424125,Pulsatilla patens,Dubový vrch 1,5645c,2021-04-22
+CZ0424125,Pulsatilla patens,Dubový vrch 2,5645c,2022-04-20
+CZ0424125,Pulsatilla patens,Dubový vrch 3,5645c,2021-04-22
+CZ0424125,Pulsatilla patens,"Kadaň, 22423",5645d,2021-03-30
+CZ0424125,Pulsatilla patens,Pastviny,5645c,2024-03-30
+CZ0424125,Pulsatilla patens,Ppat005,5645d,2023-04-22
+CZ0424125,Pulsatilla patens,Ppat006,5645c,2023-04-22
+CZ0424125,Pulsatilla patens,Ppat007,5645c,2023-04-22
+CZ0424125,Pulsatilla patens,Ppat008,5645c,2023-04-22
+CZ0424125,Pulsatilla patens,Ppat009,5645c,2023-04-28
+CZ0424125,Pulsatilla patens,Zvoníčkov,5645c,2014-04-23
+CZ0424125,Pulsatilla patens,Zvoníčkov,5645d,2024-03-18
+CZ0424125,Pulsatilla patens,kopeček V od vrcholu Dubiny,5645d,2018-04-10
+CZ0424125,Pulsatilla patens,Úhošťany,5645c,2023-04-24
+CZ0424125,Pulsatilla patens,Úhošťany,5645d,2024-04-30
+CZ0424125,Pulsatilla patens,Úhošťany - Dubový vrch,5645c,2024-04-09
+CZ0424125,Pulsatilla patens,Úhošťany - Dubový vrch,5645d,2024-04-09
 CZ0424127,Lampetra planeri,CZ0424127,5446d,2015-09-01
 CZ0424127,Osmoderma barnabita,CZ0424127,5446d,2014-09-28
 CZ0424127,Osmoderma barnabita,CZ0424127,5447a,2021-10-10
@@ -659,6 +749,11 @@ CZ0514042,Osmoderma barnabita,CZ0514042,5354c,2014-07-13
 CZ0514042,Osmoderma barnabita,CZ0514042,5453b,2019-11-27
 CZ0514042,Osmoderma barnabita,CZ0514042,5454a,2021-07-30
 CZ0514042,Osmoderma barnabita,CZ0514042,5454b,2017-05-07
+CZ0514042,Pulsatilla patens,Jelení vrch,5354c,2020-04-06
+CZ0514042,Pulsatilla patens,Jindřichova skála,5354c,2021-04-15
+CZ0514042,Pulsatilla patens,Kozí kámen,5353d,2021-04-15
+CZ0514042,Pulsatilla patens,Ppat001,5354c,2024-04-04
+CZ0514042,Pulsatilla patens,Ppat002,5353d,2024-04-04
 CZ0514243,Osmoderma barnabita,235,5454c,2014-07-23
 CZ0514243,Osmoderma barnabita,CZ0514243,5454c,2020-07-25
 CZ0514670,Osmoderma barnabita,758655,5352d,2017-07-18
