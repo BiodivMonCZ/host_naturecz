@@ -515,6 +515,7 @@ safe_sum_num <- function(x) {
 to_num <- function(x) {
   suppressWarnings(as.numeric(gsub(",", ".", as.character(x))))
 }
+
 #----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
