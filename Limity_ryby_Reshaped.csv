@@ -1,0 +1,222 @@
+"DRUH","UKAZATEL_ID","UKAZATEL_NM","JEDNOTKY","min","med","max"
+"Cobitis elongatoides","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,NA
+"Cobitis elongatoides","BA0015","konduktivita v laboratoøi","mS/m",NA,40,55
+"Cobitis elongatoides","BA0035","teplota vody v terénu","C",NA,11.5,21.5
+"Cobitis elongatoides","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,10,NA
+"Cobitis elongatoides","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Cobitis elongatoides","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.5,NA
+"Cobitis elongatoides","CC0020","dusík amoniakální","mg/l",NA,0.1,NA
+"Cobitis elongatoides","CC0025","dusík dusitanový","mg/l",NA,0.025,NA
+"Cobitis elongatoides","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Cobitis elongatoides","CC0055","fosfor celkový","mg/l",NA,0.09,NA
+"Cobitis elongatoides","CC0065","fosfor fosforeènanový","mg/l",NA,0.02,NA
+"Cobitis elongatoides","CD0000","chloridy","mg/l",NA,25,NA
+"Cobitis elongatoides","CD0005","sírany","mg/l",NA,60,NA
+"Cottus gobio","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,8.5
+"Cottus gobio","BA0015","konduktivita v laboratoøi","mS/m",30,NA,50
+"Cottus gobio","BA0035","teplota vody v terénu","C",NA,9.5,21
+"Cottus gobio","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,5,NA
+"Cottus gobio","CA0000","kyslík rozpuštìný v terénu","mg/l",7,NA,NA
+"Cottus gobio","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,1.5,NA
+"Cottus gobio","CC0020","dusík amoniakální","mg/l",NA,0.035,NA
+"Cottus gobio","CC0025","dusík dusitanový","mg/l",NA,0.02,NA
+"Cottus gobio","CC0030","dusík dusiènanový","mg/l",NA,2.8,NA
+"Cottus gobio","CC0055","fosfor celkový","mg/l",NA,0.05,NA
+"Cottus gobio","CC0065","fosfor fosforeènanový","mg/l",NA,0.03,NA
+"Cottus gobio","CD0000","chloridy","mg/l",NA,10,NA
+"Cottus gobio","CD0005","sírany","mg/l",NA,30,NA
+"Eudontomyzon mariae","BA0005","pH vody v laboratoøi (25°C)",NA,7.3,NA,8.4
+"Eudontomyzon mariae","BA0015","konduktivita v laboratoøi","mS/m",NA,20,25
+"Eudontomyzon mariae","BA0035","teplota vody v terénu","C",NA,10.5,18.5
+"Eudontomyzon mariae","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,14,NA
+"Eudontomyzon mariae","CA0000","kyslík rozpuštìný v terénu","mg/l",8,NA,NA
+"Eudontomyzon mariae","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,1.3,NA
+"Eudontomyzon mariae","CC0020","dusík amoniakální","mg/l",NA,0.03,NA
+"Eudontomyzon mariae","CC0025","dusík dusitanový","mg/l",NA,0.08,NA
+"Eudontomyzon mariae","CC0030","dusík dusiènanový","mg/l",NA,1.5,NA
+"Eudontomyzon mariae","CC0055","fosfor celkový","mg/l",NA,0.065,NA
+"Eudontomyzon mariae","CC0065","fosfor fosforeènanový","mg/l",NA,0.04,NA
+"Eudontomyzon mariae","CD0000","chloridy","mg/l",NA,5,NA
+"Eudontomyzon mariae","CD0005","sírany","mg/l",NA,25,NA
+"Gymnocephalus baloni","BA0005","pH vody v laboratoøi (25°C)",NA,7,NA,9
+"Gymnocephalus baloni","BA0015","konduktivita v laboratoøi","mS/m",NA,65,NA
+"Gymnocephalus baloni","BA0035","teplota vody v terénu","C",NA,12,28
+"Gymnocephalus baloni","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Gymnocephalus baloni","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Gymnocephalus baloni","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.7,NA
+"Gymnocephalus baloni","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Gymnocephalus baloni","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Gymnocephalus baloni","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Gymnocephalus baloni","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Gymnocephalus baloni","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Gymnocephalus baloni","CD0000","chloridy","mg/l",NA,45,NA
+"Gymnocephalus baloni","CD0005","sírany","mg/l",NA,100,NA
+"Gymnocephalus schraetser","BA0005","pH vody v laboratoøi (25°C)",NA,9,NA,NA
+"Gymnocephalus schraetser","BA0015","konduktivita v laboratoøi","mS/m",NA,65,NA
+"Gymnocephalus schraetser","BA0035","teplota vody v terénu","C",NA,12,28
+"Gymnocephalus schraetser","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Gymnocephalus schraetser","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Gymnocephalus schraetser","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.7,NA
+"Gymnocephalus schraetser","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Gymnocephalus schraetser","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Gymnocephalus schraetser","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Gymnocephalus schraetser","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Gymnocephalus schraetser","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Gymnocephalus schraetser","CD0000","chloridy","mg/l",NA,45,NA
+"Gymnocephalus schraetser","CD0005","sírany","mg/l",NA,100,NA
+"Lampetra planeri","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,8.4
+"Lampetra planeri","BA0015","konduktivita v laboratoøi","mS/m",NA,31,50
+"Lampetra planeri","BA0035","teplota vody v terénu","C",NA,9.5,20
+"Lampetra planeri","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,5,NA
+"Lampetra planeri","CA0000","kyslík rozpuštìný v terénu","mg/l",7,NA,NA
+"Lampetra planeri","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,1.9,NA
+"Lampetra planeri","CC0020","dusík amoniakální","mg/l",NA,0.07,NA
+"Lampetra planeri","CC0025","dusík dusitanový","mg/l",NA,0.025,NA
+"Lampetra planeri","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Lampetra planeri","CC0055","fosfor celkový","mg/l",NA,0.07,NA
+"Lampetra planeri","CC0065","fosfor fosforeènanový","mg/l",NA,0.04,NA
+"Lampetra planeri","CD0000","chloridy","mg/l",NA,8,NA
+"Lampetra planeri","CD0005","sírany","mg/l",NA,30,NA
+"Leuciscus aspius","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,9
+"Leuciscus aspius","BA0015","konduktivita v laboratoøi","mS/m",NA,36,75
+"Leuciscus aspius","BA0035","teplota vody v terénu","C",NA,15,27.5
+"Leuciscus aspius","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Leuciscus aspius","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Leuciscus aspius","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,3.5,NA
+"Leuciscus aspius","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Leuciscus aspius","CC0025","dusík dusitanový","mg/l",NA,0.04,NA
+"Leuciscus aspius","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Leuciscus aspius","CC0055","fosfor celkový","mg/l",NA,0.15,NA
+"Leuciscus aspius","CC0065","fosfor fosforeènanový","mg/l",NA,0.1,NA
+"Leuciscus aspius","CD0000","chloridy","mg/l",NA,40,NA
+"Leuciscus aspius","CD0005","sírany","mg/l",NA,100,NA
+"Leuciscus aspius Zelivka","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,9
+"Leuciscus aspius Zelivka","BA0015","konduktivita v laboratoøi","mS/m",NA,36,75
+"Leuciscus aspius Zelivka","BA0035","teplota vody v terénu","C",NA,15,27.5
+"Leuciscus aspius Zelivka","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Leuciscus aspius Zelivka","CA0000","kyslík rozpuštìný v terénu","mg/l",NA,NA,NA
+"Leuciscus aspius Zelivka","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,3.5,NA
+"Leuciscus aspius Zelivka","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Leuciscus aspius Zelivka","CC0025","dusík dusitanový","mg/l",NA,0.04,NA
+"Leuciscus aspius Zelivka","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Leuciscus aspius Zelivka","CC0055","fosfor celkový","mg/l",NA,0.15,NA
+"Leuciscus aspius Zelivka","CC0065","fosfor fosforeènanový","mg/l",NA,0.1,NA
+"Leuciscus aspius Zelivka","CD0000","chloridy","mg/l",NA,40,NA
+"Leuciscus aspius Zelivka","CD0005","sírany","mg/l",NA,100,NA
+"Misgurnus fossilis","BA0005","pH vody v laboratoøi (25°C)",NA,5.5,NA,8.5
+"Misgurnus fossilis","BA0015","konduktivita v laboratoøi","mS/m",NA,50,57
+"Misgurnus fossilis","BA0035","teplota vody v terénu","C",NA,14,30
+"Misgurnus fossilis","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,10,NA
+"Misgurnus fossilis","CA0000","kyslík rozpuštìný v terénu","mg/l",1.5,NA,NA
+"Misgurnus fossilis","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,NA,NA
+"Misgurnus fossilis","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Misgurnus fossilis","CC0025","dusík dusitanový","mg/l",NA,0.02,NA
+"Misgurnus fossilis","CC0030","dusík dusiènanový","mg/l",NA,0.3,NA
+"Misgurnus fossilis","CC0055","fosfor celkový","mg/l",NA,0.13,NA
+"Misgurnus fossilis","CC0065","fosfor fosforeènanový","mg/l",NA,0.05,NA
+"Misgurnus fossilis","CD0000","chloridy","mg/l",NA,45,NA
+"Misgurnus fossilis","CD0005","sírany","mg/l",NA,60,NA
+"Pelecus cultratus","BA0005","pH vody v laboratoøi (25°C)",NA,7,NA,9
+"Pelecus cultratus","BA0015","konduktivita v laboratoøi","mS/m",NA,65,NA
+"Pelecus cultratus","BA0035","teplota vody v terénu","C",12,NA,28
+"Pelecus cultratus","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Pelecus cultratus","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Pelecus cultratus","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.7,NA
+"Pelecus cultratus","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Pelecus cultratus","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Pelecus cultratus","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Pelecus cultratus","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Pelecus cultratus","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Pelecus cultratus","CD0000","chloridy","mg/l",NA,45,NA
+"Pelecus cultratus","CD0005","sírany","mg/l",NA,100,NA
+"Rhodeus amarus","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,9
+"Rhodeus amarus","BA0015","konduktivita v laboratoøi","mS/m",37,NA,50
+"Rhodeus amarus","BA0035","teplota vody v terénu","C",NA,15,26
+"Rhodeus amarus","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,25,NA
+"Rhodeus amarus","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Rhodeus amarus","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,3.5,NA
+"Rhodeus amarus","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Rhodeus amarus","CC0025","dusík dusitanový","mg/l",NA,0.04,NA
+"Rhodeus amarus","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Rhodeus amarus","CC0055","fosfor celkový","mg/l",NA,0.15,NA
+"Rhodeus amarus","CC0065","fosfor fosforeènanový","mg/l",NA,0.1,NA
+"Rhodeus amarus","CD0000","chloridy","mg/l",NA,30,NA
+"Rhodeus amarus","CD0005","sírany","mg/l",NA,40,NA
+"Romanogobio albipinatus","BA0005","pH vody v laboratoøi (25°C)",NA,7.5,NA,9
+"Romanogobio albipinatus","BA0015","konduktivita v laboratoøi","mS/m",NA,70,NA
+"Romanogobio albipinatus","BA0035","teplota vody v terénu","C",NA,11.5,22.5
+"Romanogobio albipinatus","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Romanogobio albipinatus","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Romanogobio albipinatus","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.5,NA
+"Romanogobio albipinatus","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Romanogobio albipinatus","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Romanogobio albipinatus","CC0030","dusík dusiènanový","mg/l",NA,3.5,NA
+"Romanogobio albipinatus","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Romanogobio albipinatus","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Romanogobio albipinatus","CD0000","chloridy","mg/l",NA,40,NA
+"Romanogobio albipinatus","CD0005","sírany","mg/l",NA,100,NA
+"Romanogobio banaticus","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,8.5
+"Romanogobio banaticus","BA0015","konduktivita v laboratoøi","mS/m",NA,40,65
+"Romanogobio banaticus","BA0035","teplota vody v terénu","C",NA,11,25
+"Romanogobio banaticus","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Romanogobio banaticus","CA0000","kyslík rozpuštìný v terénu","mg/l",7,NA,NA
+"Romanogobio banaticus","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.2,NA
+"Romanogobio banaticus","CC0020","dusík amoniakální","mg/l",NA,0.1,NA
+"Romanogobio banaticus","CC0025","dusík dusitanový","mg/l",NA,0.03,NA
+"Romanogobio banaticus","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Romanogobio banaticus","CC0055","fosfor celkový","mg/l",NA,0.1,NA
+"Romanogobio banaticus","CC0065","fosfor fosforeènanový","mg/l",NA,0.07,NA
+"Romanogobio banaticus","CD0000","chloridy","mg/l",NA,20,NA
+"Romanogobio banaticus","CD0005","sírany","mg/l",NA,50,NA
+"Sabanejewia balcanica","BA0005","pH vody v laboratoøi (25°C)",NA,7.8,NA,9
+"Sabanejewia balcanica","BA0015","konduktivita v laboratoøi","mS/m",NA,55,70
+"Sabanejewia balcanica","BA0035","teplota vody v terénu","C",NA,11.5,23
+"Sabanejewia balcanica","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,10,NA
+"Sabanejewia balcanica","CA0000","kyslík rozpuštìný v terénu","mg/l",8,NA,NA
+"Sabanejewia balcanica","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,1.5,NA
+"Sabanejewia balcanica","CC0020","dusík amoniakální","mg/l",NA,0.1,NA
+"Sabanejewia balcanica","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Sabanejewia balcanica","CC0030","dusík dusiènanový","mg/l",NA,2.2,NA
+"Sabanejewia balcanica","CC0055","fosfor celkový","mg/l",NA,0.15,NA
+"Sabanejewia balcanica","CC0065","fosfor fosforeènanový","mg/l",NA,0.1,NA
+"Sabanejewia balcanica","CD0000","chloridy","mg/l",NA,15,NA
+"Sabanejewia balcanica","CD0005","sírany","mg/l",NA,40,NA
+"Salmo salar ","BA0005","pH vody v laboratoøi (25°C)",NA,6.5,NA,8
+"Salmo salar ","BA0015","konduktivita v laboratoøi","mS/m",NA,43,NA
+"Salmo salar ","BA0035","teplota vody v terénu","C",NA,10,21.5
+"Salmo salar ","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,10,NA
+"Salmo salar ","CA0000","kyslík rozpuštìný v terénu","mg/l",7,NA,NA
+"Salmo salar ","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,1.5,NA
+"Salmo salar ","CC0020","dusík amoniakální","mg/l",NA,0.035,NA
+"Salmo salar ","CC0025","dusík dusitanový","mg/l",NA,0.01,NA
+"Salmo salar ","CC0030","dusík dusiènanový","mg/l",NA,1.8,NA
+"Salmo salar ","CC0055","fosfor celkový","mg/l",NA,0.07,NA
+"Salmo salar ","CC0065","fosfor fosforeènanový","mg/l",NA,0.04,NA
+"Salmo salar ","CD0000","chloridy","mg/l",NA,10,NA
+"Salmo salar ","CD0005","sírany","mg/l",NA,30,NA
+"Zingel streber","BA0005","pH vody v laboratoøi (25°C)",NA,7,NA,9
+"Zingel streber","BA0015","konduktivita v laboratoøi","mS/m",NA,65,NA
+"Zingel streber","BA0035","teplota vody v terénu","C",12,NA,28
+"Zingel streber","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Zingel streber","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Zingel streber","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.7,NA
+"Zingel streber","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Zingel streber","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Zingel streber","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Zingel streber","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Zingel streber","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Zingel streber","CD0000","chloridy","mg/l",NA,45,NA
+"Zingel streber","CD0005","sírany","mg/l",NA,100,NA
+"Zingel zingel","BA0005","pH vody v laboratoøi (25°C)",NA,7,NA,9
+"Zingel zingel","BA0015","konduktivita v laboratoøi","mS/m",NA,65,NA
+"Zingel zingel","BA0035","teplota vody v terénu","C",NA,12,28
+"Zingel zingel","BA0055","nerozpuštìné látky pøi 105 °C","mg/l",NA,15,NA
+"Zingel zingel","CA0000","kyslík rozpuštìný v terénu","mg/l",6,NA,NA
+"Zingel zingel","CA0020","biochemická spotøeba kyslíku BSK-5","mg/l",NA,2.7,NA
+"Zingel zingel","CC0020","dusík amoniakální","mg/l",NA,0.15,NA
+"Zingel zingel","CC0025","dusík dusitanový","mg/l",NA,0.035,NA
+"Zingel zingel","CC0030","dusík dusiènanový","mg/l",NA,2.5,NA
+"Zingel zingel","CC0055","fosfor celkový","mg/l",NA,0.2,NA
+"Zingel zingel","CC0065","fosfor fosforeènanový","mg/l",NA,0.15,NA
+"Zingel zingel","CD0000","chloridy","mg/l",NA,45,NA
+"Zingel zingel","CD0005","sírany","mg/l",NA,100,NA

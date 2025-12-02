@@ -1,0 +1,2106 @@
+typ_predmetu_hodnoceni;kod_chu;nazev_chu;druh;feature_code;hodnocene_obdobi_od;hodnocene_obdobi_do;oop;parametr_nazev;parametr_hodnota;parametr_limit;parametr_jednotka;stav;trend;datum_hodnoceni;pracoviste;metodika
+Druh;CZ0724089;Beskydy;Aconitum firmum subsp. moravicum;NA;2012-05-28;2024-10-05;AOPK ČR - RP Moravskoslezské;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Moravskoslezské;15087
+Druh;CZ0724089;Beskydy;Aconitum firmum subsp. moravicum;NA;2012-05-28;2024-10-05;AOPK ČR - RP Moravskoslezské;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Moravskoslezské;15087
+Druh;CZ0712186;Hrdibořické rybníky;Angelica palustris;NA;2012-09-21;2024-04-24;AOPK ČR - RP Olomoucko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712186;Hrdibořické rybníky;Angelica palustris;NA;2012-09-21;2024-04-24;AOPK ČR - RP Olomoucko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0322055;Drahotínský les;Asplenium adulterinum;NA;2012-09-11;2024-07-03;Krajský úřad Plzeňského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Český les;15087
+Druh;CZ0322055;Drahotínský les;Asplenium adulterinum;NA;2012-09-11;2024-07-03;Krajský úřad Plzeňského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Český les;15087
+Druh;CZ0412065;Medvědí rozhledy;Asplenium adulterinum;NA;2012-06-12;2018-10-25;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412065;Medvědí rozhledy;Asplenium adulterinum;NA;2012-06-12;2018-10-25;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412069;Pramenské pastviny;Asplenium adulterinum;NA;2012-05-04;2018-11-14;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412069;Pramenské pastviny;Asplenium adulterinum;NA;2012-05-04;2018-11-14;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412070;Raušenbašská lada;Asplenium adulterinum;NA;2012-04-05;2022-12-01;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412070;Raušenbašská lada;Asplenium adulterinum;NA;2012-04-05;2022-12-01;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412071;Skalka pod Tisovým vrchem;Asplenium adulterinum;NA;2012-05-21;2018-06-14;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412071;Skalka pod Tisovým vrchem;Asplenium adulterinum;NA;2012-05-21;2018-06-14;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0414026;Úpolínová louka - Křížky;Asplenium adulterinum;NA;2012-04-19;2024-05-25;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0414026;Úpolínová louka - Křížky;Asplenium adulterinum;NA;2012-04-19;2024-05-25;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0622142;Rojetínský hadec;Asplenium adulterinum;NA;2012-09-11;2024-06-12;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622142;Rojetínský hadec;Asplenium adulterinum;NA;2012-09-11;2024-06-12;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0712187;Chrastický hadec;Asplenium adulterinum;NA;2015-08-15;2022-04-10;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712187;Chrastický hadec;Asplenium adulterinum;NA;2015-08-15;2022-04-10;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712197;Žďár;Asplenium adulterinum;NA;2015-10-12;2024-10-16;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712197;Žďár;Asplenium adulterinum;NA;2015-10-12;2024-10-16;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714084;Hadce a bučiny u Raškova;Asplenium adulterinum;NA;2015-10-12;2024-10-14;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714084;Hadce a bučiny u Raškova;Asplenium adulterinum;NA;2015-10-12;2024-10-14;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0524044;Krkonoše;Campanula bohemica;NA;2012-01-01;2024-08-08;AOPK ČR - RP Liberecko, Správa KRNAP, Krajský úřad Libereckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0524044;Krkonoše;Campanula bohemica;NA;2012-01-01;2024-08-08;AOPK ČR - RP Liberecko, Správa KRNAP, Krajský úřad Libereckého kraje;NA;34.014;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0714077;Praděd;Campanula gelida;NA;2012-01-01;2024-07-25;AOPK ČR - RP Olomoucko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714077;Praděd;Campanula gelida;NA;2012-01-01;2024-07-25;AOPK ČR - RP Olomoucko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0412069;Pramenské pastviny;Cerastium alsinifolium;NA;2012-05-04;2018-11-14;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412069;Pramenské pastviny;Cerastium alsinifolium;NA;2012-05-04;2018-11-14;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412070;Raušenbašská lada;Cerastium alsinifolium;NA;2012-06-12;2024-11-26;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0412070;Raušenbašská lada;Cerastium alsinifolium;NA;2012-06-12;2024-11-26;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0414026;Úpolínová louka - Křížky;Cerastium alsinifolium;NA;2012-05-23;2024-09-19;AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0414026;Úpolínová louka - Křížky;Cerastium alsinifolium;NA;2012-05-23;2024-09-19;AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0622026;Trkmanské louky;Cirsium brachycephalum;NA;2012-07-28;2024-07-09;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622026;Trkmanské louky;Cirsium brachycephalum;NA;2012-07-28;2024-07-09;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622037;Trkmanec - Rybníčky;Cirsium brachycephalum;NA;2012-07-25;2024-07-07;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622037;Trkmanec - Rybníčky;Cirsium brachycephalum;NA;2012-07-25;2024-07-07;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0212001;Březinský rybník;Coleanthus subtilis;NA;2012-05-17;2023-05-30;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212001;Březinský rybník;Coleanthus subtilis;NA;2012-05-17;2023-05-30;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212010;Hvožďanské Háje;Coleanthus subtilis;NA;2012-05-14;2023-05-30;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212010;Hvožďanské Háje;Coleanthus subtilis;NA;2012-05-14;2023-05-30;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214014;Podlesí;Coleanthus subtilis;NA;2012-09-07;2024-03-18;AOPK ČR - RP Střední Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214014;Podlesí;Coleanthus subtilis;NA;2012-09-07;2024-03-18;AOPK ČR - RP Střední Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214046;Rybník Vidlák;Coleanthus subtilis;NA;2020-07-08;2023-08-11;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214046;Rybník Vidlák;Coleanthus subtilis;NA;2020-07-08;2023-08-11;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0312038;Lomnický velký rybník;Coleanthus subtilis;NA;2015-06-10;2023-07-04;AOPK ČR - RP Jižní Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0312038;Lomnický velký rybník;Coleanthus subtilis;NA;2015-06-10;2023-07-04;AOPK ČR - RP Jižní Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0312040;Malý Horusický rybník;Coleanthus subtilis;NA;2015-05-14;2021-04-28;AOPK ČR - RP Jižní Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0312040;Malý Horusický rybník;Coleanthus subtilis;NA;2015-05-14;2021-04-28;AOPK ČR - RP Jižní Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0312048;Štičí rybník;Coleanthus subtilis;NA;2022-05-04;2024-04-30;AOPK ČR - RP Jižní Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0312048;Štičí rybník;Coleanthus subtilis;NA;2022-05-04;2024-04-30;AOPK ČR - RP Jižní Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314019;Velký a Malý Tisý;Coleanthus subtilis;NA;2020-05-13;2024-04-30;AOPK ČR - RP Jižní Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314019;Velký a Malý Tisý;Coleanthus subtilis;NA;2020-05-13;2024-04-30;AOPK ČR - RP Jižní Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314635;Mnišský rybník;Coleanthus subtilis;NA;2012-05-15;2023-06-06;Krajský úřad Jihočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314635;Mnišský rybník;Coleanthus subtilis;NA;2012-05-15;2023-06-06;Krajský úřad Jihočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314638;Vosecký rybník;Coleanthus subtilis;NA;2015-05-30;2024-05-16;Krajský úřad Jihočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314638;Vosecký rybník;Coleanthus subtilis;NA;2015-05-30;2024-05-16;Krajský úřad Jihočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314640;Rybník Walden;Coleanthus subtilis;NA;2019-08-20;2024-05-16;Krajský úřad Jihočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314640;Rybník Walden;Coleanthus subtilis;NA;2019-08-20;2024-05-16;Krajský úřad Jihočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0322057;Maňovický rybník;Coleanthus subtilis;NA;2012-05-16;2023-05-30;Krajský úřad Plzeňského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Český les;15087
+Druh;CZ0322057;Maňovický rybník;Coleanthus subtilis;NA;2012-05-16;2023-05-30;Krajský úřad Plzeňského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Český les;15087
+Druh;CZ0420144;Novodomské a polské rašeliniště;Coleanthus subtilis;NA;2013-07-02;2013-07-03;AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Ústeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0420144;Novodomské a polské rašeliniště;Coleanthus subtilis;NA;2013-07-02;2013-07-03;AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Ústeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0534050;Černý Nadýmač;Coleanthus subtilis;NA;2012-05-25;2023-05-10;Krajský úřad Pardubického kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0534050;Černý Nadýmač;Coleanthus subtilis;NA;2012-05-25;2023-05-10;Krajský úřad Pardubického kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0612134;Dolní rybník u Újezda;Coleanthus subtilis;NA;2012-06-20;2024-05-28;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612134;Dolní rybník u Újezda;Coleanthus subtilis;NA;2012-06-20;2024-05-28;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612135;Hodíškovský rybník;Coleanthus subtilis;NA;2015-06-02;2024-06-04;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612135;Hodíškovský rybník;Coleanthus subtilis;NA;2015-06-02;2024-06-04;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612137;Obecník;Coleanthus subtilis;NA;2012-06-11;2024-06-06;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612137;Obecník;Coleanthus subtilis;NA;2012-06-11;2024-06-06;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612139;Pod Kamenným vrchem;Coleanthus subtilis;NA;2013-06-13;2024-05-23;AOPK ČR - RP Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612139;Pod Kamenným vrchem;Coleanthus subtilis;NA;2013-06-13;2024-05-23;AOPK ČR - RP Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612140;Podvesník;Coleanthus subtilis;NA;2014-06-05;2024-06-04;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612140;Podvesník;Coleanthus subtilis;NA;2014-06-05;2024-06-04;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612143;Rybník u Zadního Zhořce;Coleanthus subtilis;NA;2015-06-02;2024-06-04;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612143;Rybník u Zadního Zhořce;Coleanthus subtilis;NA;2015-06-02;2024-06-04;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612145;Rychtářský rybník;Coleanthus subtilis;NA;2012-05-13;2024-06-04;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612145;Rychtářský rybník;Coleanthus subtilis;NA;2012-05-13;2024-06-04;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614052;Rybníky u Rudolce;Coleanthus subtilis;NA;2012-05-22;2024-05-28;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614052;Rybníky u Rudolce;Coleanthus subtilis;NA;2012-05-22;2024-05-28;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614057;Znětínské rybníky;Coleanthus subtilis;NA;2012-05-28;2024-06-04;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614057;Znětínské rybníky;Coleanthus subtilis;NA;2012-05-28;2024-06-04;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614058;Rybníky V Pouštích;Coleanthus subtilis;NA;2014-06-03;2024-05-28;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614058;Rybníky V Pouštích;Coleanthus subtilis;NA;2014-06-03;2024-05-28;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614132;Kamenický rybník;Coleanthus subtilis;NA;2014-06-23;2024-05-27;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614132;Kamenický rybník;Coleanthus subtilis;NA;2014-06-23;2024-05-27;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0212004;Malíkovická stráň;Cypripedium calceolus;NA;2012-06-07;2024-06-07;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212004;Malíkovická stráň;Cypripedium calceolus;NA;2012-06-07;2024-06-07;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212019;Smradovna;Cypripedium calceolus;NA;2012-05-31;2024-05-19;AOPK ČR - RP Střední Čechy, Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212019;Smradovna;Cypripedium calceolus;NA;2012-05-31;2024-05-19;AOPK ČR - RP Střední Čechy, Krajský úřad Středočeského kraje;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212022;Slepeč;Cypripedium calceolus;NA;2021-06-10;2023-06-13;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0212022;Slepeč;Cypripedium calceolus;NA;2021-06-10;2023-06-13;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0212024;Červené dolíky;Cypripedium calceolus;NA;2012-05-24;2023-07-19;Krajský úřad Středočeského kraje, AOPK ČR - RP Střední Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212024;Červené dolíky;Cypripedium calceolus;NA;2012-05-24;2023-07-19;Krajský úřad Středočeského kraje, AOPK ČR - RP Střední Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212025;Ostrov u Jedomělic;Cypripedium calceolus;NA;2012-05-24;2023-07-19;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212025;Ostrov u Jedomělic;Cypripedium calceolus;NA;2012-05-24;2023-07-19;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214010;Dománovický les;Cypripedium calceolus;NA;2012-05-10;2024-05-23;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214010;Dománovický les;Cypripedium calceolus;NA;2012-05-10;2024-05-23;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214013;Kokořínsko;Cypripedium calceolus;NA;2012-05-23;2024-06-07;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0214013;Kokořínsko;Cypripedium calceolus;NA;2012-05-23;2024-06-07;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0422085;Soběchlebské terasy;Cypripedium calceolus;NA;2012-05-23;2022-06-02;Krajský úřad Ústeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0422085;Soběchlebské terasy;Cypripedium calceolus;NA;2012-05-23;2022-06-02;Krajský úřad Ústeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0422087;V kuksu;Cypripedium calceolus;NA;2012-05-27;2022-05-25;Krajský úřad Ústeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0422087;V kuksu;Cypripedium calceolus;NA;2012-05-27;2022-05-25;Krajský úřad Ústeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424129;Bílé stráně u Litoměřic;Cypripedium calceolus;NA;2012-06-20;2024-05-21;AOPK ČR - RP SCHKO České středohoří;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424129;Bílé stráně u Litoměřic;Cypripedium calceolus;NA;2012-06-20;2024-05-21;AOPK ČR - RP SCHKO České středohoří;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0522002;Hustířanský les;Cypripedium calceolus;NA;2012-01-01;2022-05-19;Krajský úřad Královéhradeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0522002;Hustířanský les;Cypripedium calceolus;NA;2012-01-01;2022-05-19;Krajský úřad Královéhradeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0522129;Zadní Machová;Cypripedium calceolus;NA;2012-05-28;2024-05-14;Krajský úřad Královéhradeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0522129;Zadní Machová;Cypripedium calceolus;NA;2012-05-28;2024-05-14;Krajský úřad Královéhradeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0524050;Halín;Cypripedium calceolus;NA;2012-01-01;2024-05-14;Krajský úřad Královéhradeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0524050;Halín;Cypripedium calceolus;NA;2012-01-01;2024-05-14;Krajský úřad Královéhradeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0532131;U Banínského viaduktu;Cypripedium calceolus;NA;2012-05-22;2024-05-22;Krajský úřad Pardubického kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0532131;U Banínského viaduktu;Cypripedium calceolus;NA;2012-05-22;2024-05-22;Krajský úřad Pardubického kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0532132;Střemošická stráň;Cypripedium calceolus;NA;2012-05-17;2023-05-07;Krajský úřad Pardubického kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0532132;Střemošická stráň;Cypripedium calceolus;NA;2012-05-17;2023-05-07;Krajský úřad Pardubického kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0612133;Dědkovo;Cypripedium calceolus;NA;2012-05-18;2024-05-21;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612133;Dědkovo;Cypripedium calceolus;NA;2012-05-18;2024-05-21;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0622168;Mušenice;Cypripedium calceolus;NA;2012-05-21;2024-04-29;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622168;Mušenice;Cypripedium calceolus;NA;2012-05-21;2024-04-29;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622174;V Jezdinách;Cypripedium calceolus;NA;2015-06-02;2024-05-02;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622174;V Jezdinách;Cypripedium calceolus;NA;2015-06-02;2024-05-02;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624069;Strabišov - Oulehla;Cypripedium calceolus;NA;2012-03-20;2024-05-27;AOPK ČR - RP SCHKO Bílé Karpaty, Krajský úřad Jihomoravského kraje, Krajský úřad Zlínského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624069;Strabišov - Oulehla;Cypripedium calceolus;NA;2012-03-20;2024-05-27;AOPK ČR - RP SCHKO Bílé Karpaty, Krajský úřad Jihomoravského kraje, Krajský úřad Zlínského kraje;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624072;Čertoryje;Cypripedium calceolus;NA;2012-05-15;2024-08-08;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0624072;Čertoryje;Cypripedium calceolus;NA;2012-05-15;2024-08-08;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0624094;Bosonožský hájek;Cypripedium calceolus;NA;2012-05-22;2024-06-23;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624094;Bosonožský hájek;Cypripedium calceolus;NA;2012-05-22;2024-06-23;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624096;Podyjí;Cypripedium calceolus;NA;2012-05-15;2024-04-26;Správa NP Podyjí;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624096;Podyjí;Cypripedium calceolus;NA;2012-05-15;2024-04-26;Správa NP Podyjí;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624130;Moravský kras;Cypripedium calceolus;NA;2012-05-22;2024-06-05;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624130;Moravský kras;Cypripedium calceolus;NA;2012-05-22;2024-06-05;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0712189;Pod Rudným vrchem;Cypripedium calceolus;NA;2017-05-31;2023-06-13;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712189;Pod Rudným vrchem;Cypripedium calceolus;NA;2017-05-31;2023-06-13;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712226;Poláchovy stráně - Výří skály;Cypripedium calceolus;NA;2016-06-05;2023-06-08;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712226;Poláchovy stráně - Výří skály;Cypripedium calceolus;NA;2016-06-05;2023-06-08;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0724090;Bílé Karpaty;Cypripedium calceolus;NA;2012-05-20;2023-06-12;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724090;Bílé Karpaty;Cypripedium calceolus;NA;2012-05-20;2023-06-12;AOPK ČR - RP SCHKO Bílé Karpaty;NA;57.895;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0422077;Kleneč;Dianthus arenarius subsp. bohemicus;NA;2012-06-13;2024-04-12;AOPK ČR - RP SCHKO České středohoří;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0422077;Kleneč;Dianthus arenarius subsp. bohemicus;NA;2012-06-13;2024-04-12;AOPK ČR - RP SCHKO České středohoří;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0624043;Stolová hora;Dianthus lumnitzeri;NA;2012-03-28;2023-05-17;AOPK ČR - RP Jižní Morava;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624043;Stolová hora;Dianthus lumnitzeri;NA;2012-03-28;2023-05-17;AOPK ČR - RP Jižní Morava;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624104;Děvín;Dianthus lumnitzeri;NA;2013-06-12;2022-07-27;AOPK ČR - RP Jižní Morava;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624104;Děvín;Dianthus lumnitzeri;NA;2013-06-12;2022-07-27;AOPK ČR - RP Jižní Morava;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0612149;Suché skály;Dianthus moravicus;NA;2014-09-15;2024-06-06;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612149;Suché skály;Dianthus moravicus;NA;2014-09-15;2024-06-06;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0622175;Pekárka;Dianthus moravicus;NA;2012-03-21;2021-06-02;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622175;Pekárka;Dianthus moravicus;NA;2012-03-21;2021-06-02;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622181;Červené stráně;Dianthus moravicus;NA;2020-06-10;2023-09-15;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622181;Červené stráně;Dianthus moravicus;NA;2020-06-10;2023-09-15;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624095;Údolí Dyje;Dianthus moravicus;NA;2014-06-19;2020-06-24;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624095;Údolí Dyje;Dianthus moravicus;NA;2014-06-19;2020-06-24;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624128;Krumlovsko-rokytenské slepence;Dianthus moravicus;NA;2012-06-20;2022-06-09;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624128;Krumlovsko-rokytenské slepence;Dianthus moravicus;NA;2012-06-20;2022-06-09;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;6.18;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0114001;Radotínské údolí;Dracocephalum austriacum;NA;2012-05-21;2024-05-14;AOPK ČR - RP Střední Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0114001;Radotínské údolí;Dracocephalum austriacum;NA;2012-05-21;2024-05-14;AOPK ČR - RP Střední Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214002;Karlické údolí;Dracocephalum austriacum;NA;2012-05-21;2024-05-07;AOPK ČR - RP Střední Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214002;Karlické údolí;Dracocephalum austriacum;NA;2012-05-21;2024-05-07;AOPK ČR - RP Střední Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214017;Karlštejn - Koda;Dracocephalum austriacum;NA;2012-05-10;2024-11-01;AOPK ČR - RP Střední Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214017;Karlštejn - Koda;Dracocephalum austriacum;NA;2012-05-10;2024-11-01;AOPK ČR - RP Střední Čechy;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212021;Slatinná louka u Velenky;Gladiolus palustris;NA;2012-06-20;2024-06-25;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0212021;Slatinná louka u Velenky;Gladiolus palustris;NA;2012-06-20;2024-06-25;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0624070;Hodonínská Dúbrava;Gladiolus palustris;NA;2012-06-22;2024-06-29;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624070;Hodonínská Dúbrava;Gladiolus palustris;NA;2012-06-22;2024-06-29;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624072;Čertoryje;Gladiolus palustris;NA;2012-06-30;2024-06-13;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0624072;Čertoryje;Gladiolus palustris;NA;2012-06-30;2024-06-13;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0614131;Údolí Oslavy a Chvojnice;Himantoglossum adriaticum;NA;2012-03-21;2024-07-11;Krajský úřad Jihomoravského kraje, AOPK ČR - RP Vysočina, Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614131;Údolí Oslavy a Chvojnice;Himantoglossum adriaticum;NA;2012-03-21;2024-07-11;Krajský úřad Jihomoravského kraje, AOPK ČR - RP Vysočina, Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0212023;Písčina u Tišic;Jurinea cyanoides;NA;2012-07-17;2024-11-03;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212023;Písčina u Tišic;Jurinea cyanoides;NA;2012-07-17;2024-11-03;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0622009;Hovoranské louky;Klasea lycopifolia;NA;2012-04-11;2024-05-06;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622009;Hovoranské louky;Klasea lycopifolia;NA;2012-04-11;2024-05-06;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622218;Dunajovické kopce;Klasea lycopifolia;NA;2014-06-27;2024-05-26;AOPK ČR - RP Jižní Morava;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622218;Dunajovické kopce;Klasea lycopifolia;NA;2014-06-27;2024-05-26;AOPK ČR - RP Jižní Morava;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624072;Čertoryje;Klasea lycopifolia;NA;2012-05-28;2024-06-05;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0624072;Čertoryje;Klasea lycopifolia;NA;2012-05-28;2024-06-05;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724090;Bílé Karpaty;Klasea lycopifolia;NA;2012-06-14;2024-06-20;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724090;Bílé Karpaty;Klasea lycopifolia;NA;2012-06-14;2024-06-20;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0212020;Rečkov;Ligularia sibirica;NA;2012-08-22;2022-08-09;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0212020;Rečkov;Ligularia sibirica;NA;2012-08-22;2022-08-09;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0214043;Niva Bělé u Klokočky;Ligularia sibirica;NA;2012-08-20;2024-07-31;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0214043;Niva Bělé u Klokočky;Ligularia sibirica;NA;2012-08-20;2024-07-31;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0314123;Boletice;Ligularia sibirica;NA;2012-08-10;2024-09-17;AOPK ČR - RP Jižní Čechy, Krajský úřad Jihočeského kraje, Správa NP Šumava, Újezdní úřad Boletice;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314123;Boletice;Ligularia sibirica;NA;2012-08-10;2024-09-17;AOPK ČR - RP Jižní Čechy, Krajský úřad Jihočeského kraje, Správa NP Šumava, Újezdní úřad Boletice;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Ligularia sibirica;NA;2012-06-20;2024-10-02;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Ligularia sibirica;NA;2012-06-20;2024-10-02;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0314109;Ruda;Liparis loeselii;NA;2015-06-29;2024-07-29;AOPK ČR - RP Jižní Čechy;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0314109;Ruda;Liparis loeselii;NA;2015-06-29;2024-07-29;AOPK ČR - RP Jižní Čechy;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Čechy;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Liparis loeselii;NA;2012-06-14;2024-10-02;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Liparis loeselii;NA;2012-06-14;2024-10-02;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0514113;Podtrosecká údolí;Liparis loeselii;NA;2012-06-08;2023-06-28;AOPK ČR - RP Liberecko, Krajský úřad Královéhradeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0514113;Podtrosecká údolí;Liparis loeselii;NA;2012-06-08;2023-06-28;AOPK ČR - RP Liberecko, Krajský úřad Královéhradeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0524048;Byšičky;Liparis loeselii;NA;2012-01-01;2024-09-05;Krajský úřad Královéhradeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0524048;Byšičky;Liparis loeselii;NA;2012-01-01;2024-09-05;Krajský úřad Královéhradeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Východní Čechy;15087
+Druh;CZ0724090;Bílé Karpaty;Liparis loeselii;NA;2012-06-15;2024-06-18;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724090;Bílé Karpaty;Liparis loeselii;NA;2012-06-15;2024-06-18;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0422079;Královomlýnský rybník;Luronium natans;NA;2012-09-23;2024-08-09;Správa NP České Švýcarsko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0422079;Královomlýnský rybník;Luronium natans;NA;2012-09-23;2024-08-09;Správa NP České Švýcarsko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424111;Labské údolí;Luronium natans;NA;2012-09-22;2024-08-09;Správa NP České Švýcarsko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424111;Labské údolí;Luronium natans;NA;2012-09-22;2024-08-09;Správa NP České Švýcarsko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0212008;Hadce u Hrnčíř;Minuartia smejkalii;NA;2012-06-26;2024-07-08;Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0212008;Hadce u Hrnčíř;Minuartia smejkalii;NA;2012-06-26;2024-07-08;Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214016;Želivka;Minuartia smejkalii;NA;2012-09-04;2024-07-03;Krajský úřad Středočeského kraje, AOPK ČR - RP Střední Čechy, Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0214016;Želivka;Minuartia smejkalii;NA;2012-09-04;2024-07-03;Krajský úřad Středočeského kraje, AOPK ČR - RP Střední Čechy, Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Střední Čechy;15087
+Druh;CZ0524044;Krkonoše;Pedicularis sudetica;NA;2012-06-11;2023-08-11;AOPK ČR - RP Liberecko, Správa KRNAP, Krajský úřad Libereckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0524044;Krkonoše;Pedicularis sudetica;NA;2012-06-11;2023-08-11;AOPK ČR - RP Liberecko, Správa KRNAP, Krajský úřad Libereckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Liberecko;15087
+Druh;CZ0714077;Praděd;Poa riphaea;NA;2012-01-01;2024-08-27;AOPK ČR - RP Olomoucko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714077;Praděd;Poa riphaea;NA;2012-01-01;2024-08-27;AOPK ČR - RP Olomoucko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0612136;Kobylinec;Pulsatilla grandis;NA;2012-04-04;2025-03-08;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612136;Kobylinec;Pulsatilla grandis;NA;2012-04-04;2025-03-08;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612141;Ptáčovský kopeček;Pulsatilla grandis;NA;2012-04-04;2024-03-26;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612141;Ptáčovský kopeček;Pulsatilla grandis;NA;2012-04-04;2024-03-26;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612147;Špilberk;Pulsatilla grandis;NA;2012-04-04;2023-04-12;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0612147;Špilberk;Pulsatilla grandis;NA;2012-04-04;2023-04-12;Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614131;Údolí Oslavy a Chvojnice;Pulsatilla grandis;NA;2012-01-01;2024-03-25;Krajský úřad Jihomoravského kraje, AOPK ČR - RP Vysočina, Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614131;Údolí Oslavy a Chvojnice;Pulsatilla grandis;NA;2012-01-01;2024-03-25;Krajský úřad Jihomoravského kraje, AOPK ČR - RP Vysočina, Krajský úřad Kraje Vysočina;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614133;Kozének;Pulsatilla grandis;NA;2012-03-29;2024-04-03;Krajský úřad Kraje Vysočina;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0614133;Kozének;Pulsatilla grandis;NA;2012-03-29;2024-04-03;Krajský úřad Kraje Vysočina;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Vysočina;15087
+Druh;CZ0622009;Hovoranské louky;Pulsatilla grandis;NA;2012-04-11;2023-04-06;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622009;Hovoranské louky;Pulsatilla grandis;NA;2012-04-11;2023-04-06;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622017;Louky pod Kumstátem;Pulsatilla grandis;NA;2012-05-15;2023-04-06;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622017;Louky pod Kumstátem;Pulsatilla grandis;NA;2012-05-15;2023-04-06;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622150;Biskoupský kopec;Pulsatilla grandis;NA;2019-03-29;2024-03-28;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622150;Biskoupský kopec;Pulsatilla grandis;NA;2019-03-29;2024-03-28;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622161;Ve Žlebě;Pulsatilla grandis;NA;2014-03-25;2023-03-22;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622161;Ve Žlebě;Pulsatilla grandis;NA;2014-03-25;2023-03-22;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622162;Kopečky u Únanova;Pulsatilla grandis;NA;2013-04-24;2024-03-16;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622162;Kopečky u Únanova;Pulsatilla grandis;NA;2013-04-24;2024-03-16;Krajský úřad Jihomoravského kraje;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622167;Žebětín;Pulsatilla grandis;NA;2012-03-30;2025-03-09;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622167;Žebětín;Pulsatilla grandis;NA;2012-03-30;2025-03-09;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622169;Na Kocourkách;Pulsatilla grandis;NA;2014-03-28;2024-03-18;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622169;Na Kocourkách;Pulsatilla grandis;NA;2014-03-28;2024-03-18;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622170;Na lesní horce;Pulsatilla grandis;NA;2012-04-16;2024-03-14;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622170;Na lesní horce;Pulsatilla grandis;NA;2012-04-16;2024-03-14;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622172;Nad Vápenkou;Pulsatilla grandis;NA;2012-04-05;2024-03-19;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0622172;Nad Vápenkou;Pulsatilla grandis;NA;2012-04-05;2024-03-19;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0622173;Netopýrky;Pulsatilla grandis;NA;2013-04-17;2023-03-31;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622173;Netopýrky;Pulsatilla grandis;NA;2013-04-17;2023-03-31;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622175;Pekárka;Pulsatilla grandis;NA;2012-03-21;2023-03-30;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622175;Pekárka;Pulsatilla grandis;NA;2012-03-21;2023-03-30;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622179;Široký;Pulsatilla grandis;NA;2012-03-27;2023-03-22;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622179;Široký;Pulsatilla grandis;NA;2012-03-27;2023-03-22;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622217;Stepní stráně u Komořan;Pulsatilla grandis;NA;2012-03-29;2024-03-21;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622217;Stepní stráně u Komořan;Pulsatilla grandis;NA;2012-03-29;2024-03-21;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622226;Velký kopec;Pulsatilla grandis;NA;2014-03-25;2021-04-02;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622226;Velký kopec;Pulsatilla grandis;NA;2014-03-25;2021-04-02;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622227;Volkramy;Pulsatilla grandis;NA;2013-04-17;2025-03-16;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0622227;Volkramy;Pulsatilla grandis;NA;2013-04-17;2025-03-16;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624020;Stránská skála;Pulsatilla grandis;NA;2012-04-05;2024-10-01;AOPK ČR - RP Jižní Morava;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624020;Stránská skála;Pulsatilla grandis;NA;2012-04-05;2024-10-01;AOPK ČR - RP Jižní Morava;NA;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624043;Stolová hora;Pulsatilla grandis;NA;2012-03-28;2024-04-26;AOPK ČR - RP Jižní Morava;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624043;Stolová hora;Pulsatilla grandis;NA;2012-03-28;2024-04-26;AOPK ČR - RP Jižní Morava;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624067;Kamenný vrch;Pulsatilla grandis;NA;2014-05-09;2024-04-06;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624067;Kamenný vrch;Pulsatilla grandis;NA;2014-05-09;2024-04-06;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624096;Podyjí;Pulsatilla grandis;NA;2012-04-06;2025-03-28;Správa NP Podyjí;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624096;Podyjí;Pulsatilla grandis;NA;2012-04-06;2025-03-28;Správa NP Podyjí;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624097;Šévy;Pulsatilla grandis;NA;2017-04-01;2023-06-22;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624097;Šévy;Pulsatilla grandis;NA;2017-04-01;2023-06-22;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624118;Skalky u Havraníků;Pulsatilla grandis;NA;2012-01-01;2022-09-05;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624118;Skalky u Havraníků;Pulsatilla grandis;NA;2012-01-01;2022-09-05;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624128;Krumlovsko-rokytenské slepence;Pulsatilla grandis;NA;2012-04-05;2024-04-16;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624128;Krumlovsko-rokytenské slepence;Pulsatilla grandis;NA;2012-04-05;2024-04-16;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624130;Moravský kras;Pulsatilla grandis;NA;2012-03-28;2024-03-19;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624130;Moravský kras;Pulsatilla grandis;NA;2012-03-28;2024-03-19;AOPK ČR - RP Jižní Morava, Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624235;Malhostovické kopečky;Pulsatilla grandis;NA;2012-03-22;2024-04-06;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624235;Malhostovické kopečky;Pulsatilla grandis;NA;2012-03-22;2024-04-06;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624236;Jižní svahy Hádů;Pulsatilla grandis;NA;2012-03-31;2024-03-18;Krajský úřad Jihomoravského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0624236;Jižní svahy Hádů;Pulsatilla grandis;NA;2012-03-31;2024-03-18;Krajský úřad Jihomoravského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Jižní Morava;15087
+Druh;CZ0712192;U Bílých hlín;Pulsatilla grandis;NA;2012-09-20;2025-03-20;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712192;U Bílých hlín;Pulsatilla grandis;NA;2012-09-20;2025-03-20;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712193;U Strejčkova lomu;Pulsatilla grandis;NA;2012-09-20;2024-04-15;Krajský úřad Olomouckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712193;U Strejčkova lomu;Pulsatilla grandis;NA;2012-09-20;2024-04-15;Krajský úřad Olomouckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712225;Za Hrnčířkou;Pulsatilla grandis;NA;2013-01-01;2024-04-08;AOPK ČR - RP Olomoucko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0712225;Za Hrnčířkou;Pulsatilla grandis;NA;2013-01-01;2024-04-08;AOPK ČR - RP Olomoucko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714076;Kosířské lomy;Pulsatilla grandis;NA;2012-03-29;2024-03-28;AOPK ČR - RP Olomoucko;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0714076;Kosířské lomy;Pulsatilla grandis;NA;2012-03-29;2024-03-28;AOPK ČR - RP Olomoucko;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP Olomoucko;15087
+Druh;CZ0414127;Hradiště;Pulsatilla patens;NA;2012-04-21;2023-05-01;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0414127;Hradiště;Pulsatilla patens;NA;2012-04-21;2023-05-01;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0422075;Borečský vrch;Pulsatilla patens;NA;2012-04-20;2024-04-29;AOPK ČR - RP SCHKO České středohoří;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0422075;Borečský vrch;Pulsatilla patens;NA;2012-04-20;2024-04-29;AOPK ČR - RP SCHKO České středohoří;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424030;Bezručovo údolí;Pulsatilla patens;NA;2012-04-26;2023-04-16;Krajský úřad Ústeckého kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0424030;Bezručovo údolí;Pulsatilla patens;NA;2012-04-26;2023-04-16;Krajský úřad Ústeckého kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0424038;Holý vrch u Hlinné;Pulsatilla patens;NA;2012-04-19;2024-04-16;AOPK ČR - RP SCHKO České středohoří;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424038;Holý vrch u Hlinné;Pulsatilla patens;NA;2012-04-19;2024-04-16;AOPK ČR - RP SCHKO České středohoří;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO České středohoří;15087
+Druh;CZ0424125;Doupovské hory;Pulsatilla patens;NA;2012-04-12;2024-04-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0424125;Doupovské hory;Pulsatilla patens;NA;2012-04-12;2024-04-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Slavkovský les;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Pulsatilla patens;NA;2012-04-20;2024-04-04;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0514042;Jestřebsko - Dokesko;Pulsatilla patens;NA;2012-04-20;2024-04-04;Krajský úřad Libereckého kraje, AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0722198;Hodňovská dolina;Tephroseris longifolia subsp. moravica;NA;2012-05-27;2022-07-15;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0722198;Hodňovská dolina;Tephroseris longifolia subsp. moravica;NA;2012-05-27;2022-07-15;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0722199;Hrušová dolina;Tephroseris longifolia subsp. moravica;NA;2012-06-11;2022-07-01;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0722199;Hrušová dolina;Tephroseris longifolia subsp. moravica;NA;2012-06-11;2022-07-01;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724430;Vlárský průsmyk;Tephroseris longifolia subsp. moravica;NA;2012-05-27;2023-07-04;AOPK ČR - RP SCHKO Bílé Karpaty;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0724430;Vlárský průsmyk;Tephroseris longifolia subsp. moravica;NA;2012-05-27;2023-07-04;AOPK ČR - RP SCHKO Bílé Karpaty;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Bílé Karpaty;15087
+Druh;CZ0212021;Slatinná louka u Velenky;Thesium ebracteatum;NA;2014-06-13;2024-06-20;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+Druh;CZ0212021;Slatinná louka u Velenky;Thesium ebracteatum;NA;2014-06-13;2024-06-20;AOPK ČR - RP SCHKO Kokořínsko - Máchův kraj, Krajský úřad Středočeského kraje;NA;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-07-04;RP SCHKO Kokořínsko - Máchův kraj;15087
+NA;CZ0520519;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213086;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214005;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214005;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534051;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534051;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610175;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720013;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520028;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424034;NA;Adenophora lilifolia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424034;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613318;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0525001;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410404;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714082;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714082;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714082;NA;Romanogobio kesslerii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714082;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313092;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213600;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523824;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323142;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323142;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Triturus montandoni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Canis lupus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Lynx lynx;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Ursus arctos;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;Rhysodes sulcatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724089;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Dendrocopos leucotos;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Picoides tridactylus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Strix uralensis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Tetrao urogallus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811022;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533295;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533684;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424036;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424036;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213776;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423198;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623803;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424030;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424030;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513657;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713720;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523669;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724090;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720441;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424129;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424129;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424135;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210100;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623035;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623035;NA;Bolbelasmus unicornis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623035;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510441;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613695;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613696;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310629;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313805;NA;Margaritifera margaritifera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313805;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623701;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Lynx lynx;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314124;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313094;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0110142;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410023;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323143;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423201;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623324;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623324;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530033;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0531012;NA;Porzana porzana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533308;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533308;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533308;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533308;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213777;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420451;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311040;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311040;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311040;NA;Lullula arborea;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311040;NA;Picoides tridactylus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311040;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Lynx lynx;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Margaritifera margaritifera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Carabus menetriesi pacholei;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314123;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323144;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413174;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0422075;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314021;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623702;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533685;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420026;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624094;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533686;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533686;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313115;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533296;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533296;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623798;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623798;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623772;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323145;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530501;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710505;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713722;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214047;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520518;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521014;NA;Bubo bubo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521014;NA;Falco peregrinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623003;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613004;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423202;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423202;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520178;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520178;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213013;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723401;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623004;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213779;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623775;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510405;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533297;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523264;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413177;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413177;NA;Margaritifera margaritifera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413177;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413177;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524048;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524048;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Caprimulgus europaeus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Ciconia ciconia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Dendrocopos syriacus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621025;NA;Lullula arborea;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620073;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313097;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513238;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813438;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623345;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623354;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713723;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623359;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620194;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320023;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320180;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813770;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713724;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713725;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624062;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423203;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813760;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534050;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214004;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723007;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624072;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210704;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310032;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523265;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310610;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0515001;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513237;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424031;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424031;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424031;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424031;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424031;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311037;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311037;NA;Mareca strepera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311037;NA;Luscinia svecica cyanecula;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311037;NA;Nycticorax nycticorax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311037;NA;Sterna hirundo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511007;NA;Caprimulgus europaeus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511007;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511007;NA;Grus grus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511007;NA;Lullula arborea;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511007;NA;Luscinia svecica cyanecula;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513658;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520038;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312030;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620002;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210150;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310630;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620421;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323147;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614053;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614053;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623703;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523007;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523007;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311038;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311038;NA;Sterna hirundo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813439;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813439;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813439;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813439;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420069;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Carabus hungaricus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624104;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713008;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713008;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613809;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623704;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620414;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423206;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323826;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424139;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424139;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213015;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213602;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513659;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323636;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0315002;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713394;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534052;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534052;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813442;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513505;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513505;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513505;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213068;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213068;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214010;NA;Euphydryas maturna;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214010;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423210;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610514;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623697;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Bubo bubo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Caprimulgus europaeus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Lanius collurio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Pernis apivorus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0411002;NA;Sylvia nisoria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424125;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213017;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212006;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623799;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623799;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623799;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710006;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523268;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523268;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622218;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622218;NA;Artemisia pancicii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622218;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310080;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620003;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210101;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623778;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420044;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213783;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613319;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420074;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610025;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714084;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310070;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323825;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423211;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312032;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610516;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524050;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524050;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620415;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713726;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0110049;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813444;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813445;NA;Triturus montandoni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811021;NA;Ixobrychus minutus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811021;NA;Luscinia svecica cyanecula;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811021;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533300;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623010;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313098;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313098;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313099;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313099;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313099;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311036;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311036;NA;Ficedula albicollis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314126;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314126;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314126;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314126;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314126;NA;Rhysodes sulcatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620418;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523002;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533310;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810423;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623807;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612135;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624070;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620005;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420007;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424038;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420014;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622007;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213784;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423507;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423507;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423507;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413180;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314022;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314022;NA;Margaritifera margaritifera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713374;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623358;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610029;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813810;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513506;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213785;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Dendrocopos leucotos;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Lanius collurio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Picoides tridactylus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721023;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423212;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721024;NA;Dendrocopos leucotos;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0721024;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724429;NA;Triturus montandoni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724429;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724429;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210010;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622009;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622009;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621026;NA;Dendrocopos syriacus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621026;NA;Emberiza hortulana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621026;NA;Sylvia nisoria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623040;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210172;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210043;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0325001;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414127;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213787;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814093;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814093;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814093;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814093;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814093;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213023;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312033;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610145;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413014;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534054;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534054;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813447;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423001;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714771;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714771;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0325002;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713375;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320140;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210109;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320029;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533302;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533302;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423213;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423213;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710182;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710182;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614136;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614136;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533303;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533303;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423652;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724091;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724091;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724091;NA;Cordulegaster heros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724091;NA;Rosalia alpina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724091;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713728;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0110040;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723406;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314634;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314634;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723012;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213789;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813448;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720454;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623348;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723750;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613321;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613321;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513240;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620416;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621031;NA;Nycticorax nycticorax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312034;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624066;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624066;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523273;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523273;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813763;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813763;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813763;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213790;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620162;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610179;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613698;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711017;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711017;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533687;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323638;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513666;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533688;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;Rosalia alpina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514042;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623041;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623041;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213791;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620078;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410018;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510509;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523675;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813449;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423653;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511008;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0511008;NA;Aegolius funereus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510412;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510400;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624236;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523676;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213601;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523275;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523275;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213792;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213792;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323149;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210732;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210105;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213028;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213029;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323150;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323150;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614132;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620006;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620007;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610515;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624115;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624115;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523276;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410413;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324025;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324025;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0110154;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623368;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620177;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214007;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214007;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214007;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214002;NA;Adenophora lilifolia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214002;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813450;NA;Triturus montandoni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;Adenophora lilifolia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214017;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813451;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423215;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323151;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323151;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714075;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714075;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213794;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214044;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323812;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533698;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533698;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410414;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0422077;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623781;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510508;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420528;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310010;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724120;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724120;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724120;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623800;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0722201;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620417;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314648;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320053;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533696;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533696;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810035;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214013;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214013;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214013;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214013;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214013;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213796;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0531013;NA;Asio flammeus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0531013;NA;Circus cyaneus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723751;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423216;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423216;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423216;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714076;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714076;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523677;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420459;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313822;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723813;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214037;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613322;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720016;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614133;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520507;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510164;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312036;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310073;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530146;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711016;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710161;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410401;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423217;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313635;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534053;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534053;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Luscinia svecica svecica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521009;NA;Aegolius funereus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524044;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524044;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524044;NA;Galium sudeticum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524044;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524044;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210107;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624128;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624128;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624064;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624064;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624064;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414110;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414110;NA;Carabus menetriesi pacholei;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414110;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313101;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313101;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623709;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213610;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Bubo bubo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Ficedula albicollis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Ficedula parva;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Pernis apivorus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211001;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420406;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623710;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623710;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210409;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533307;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624101;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624101;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624101;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723409;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624065;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624065;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213038;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523277;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213039;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213039;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421006;NA;Bubo bubo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421006;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421006;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421006;NA;Falco peregrinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424111;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424111;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424111;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424111;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214008;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214008;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214008;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214008;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710034;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530174;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620204;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213611;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623016;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621028;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621028;NA;Spatula clypeata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621028;NA;Netta rufina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621028;NA;Nycticorax nycticorax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213814;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513662;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710007;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623370;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623820;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420455;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711019;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714133;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714133;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714133;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214009;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214009;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214009;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214009;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310014;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713734;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323639;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523274;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420500;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723752;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530500;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623711;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713735;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420454;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530503;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711018;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711018;NA;Ficedula albicollis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0711018;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714073;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410439;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423654;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0113005;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213058;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313103;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623372;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414027;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414027;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323155;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213042;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213612;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210720;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622017;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210058;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0615014;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413015;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214040;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214040;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0537011;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0537011;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210113;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533702;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210011;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424140;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424140;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623355;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424037;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513254;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423219;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523823;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624129;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624129;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723753;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723753;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523279;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420520;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313106;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313106;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313106;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313106;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610512;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210714;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210714;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533002;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213613;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624235;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313815;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714083;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714083;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323640;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513244;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614137;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614137;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613003;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613005;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623357;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413185;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530064;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624001;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624238;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624238;NA;Romanogobio vladykovi;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410038;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323156;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523280;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413187;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533012;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620101;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210719;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0427014;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420416;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0113002;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622166;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623018;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214006;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214006;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624100;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213047;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213047;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620147;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314635;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410438;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620010;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420085;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723410;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813455;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723412;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413181;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413013;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;Romanogobio kesslerii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714085;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813456;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813456;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813456;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813456;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313110;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313110;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530034;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624130;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210421;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;Romanogobio vladykovi;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624103;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213048;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420015;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620419;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620419;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213065;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213065;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420076;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210044;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622169;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622169;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720428;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420035;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614054;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614054;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614054;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613012;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413191;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523010;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523010;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523010;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210003;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0422081;NA;Cypripedium calceolus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713730;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620154;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724121;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724121;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720058;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313128;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313128;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313128;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421003;NA;Anser fabalis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421003;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523282;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613699;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613816;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613816;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613816;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423006;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724107;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724107;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310084;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0325003;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214043;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214043;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610517;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624099;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613009;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214041;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214041;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324026;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324026;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813457;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813457;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613327;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620011;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0717012;NA;Notothylas orbicularis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420144;NA;Orthotrichum rogeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420144;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421004;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421004;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311039;NA;Picoides tridactylus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311039;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213001;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623708;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213817;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612137;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424039;NA;Stipa zalesskii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424039;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424039;NA;Stenobothrus eurasius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424039;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0113001;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213818;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624071;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624071;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213050;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713383;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423510;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423510;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423510;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423510;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423510;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620169;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623019;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523283;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813516;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813516;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813516;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413188;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420501;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720190;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313114;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610518;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523284;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523284;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314044;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314044;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524049;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524049;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524049;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524049;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524046;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524046;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0521015;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323158;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310074;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813460;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413190;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413190;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323824;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420456;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213051;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713736;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723413;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214042;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214042;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210733;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Ciconia ciconia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Dendrocopos syriacus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Ficedula albicollis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Haliaeetus albicilla;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Lanius collurio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Pernis apivorus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621029;NA;Sylvia nisoria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810031;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520603;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533309;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533691;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0627016;NA;Cypripedium calceolus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0627016;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813463;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310063;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314642;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0322058;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0322058;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210111;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620049;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320043;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524047;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524047;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210721;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410040;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423223;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523680;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523680;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523680;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523006;NA;Coenagrion ornatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623808;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210730;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212023;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214049;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0422084;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713385;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210064;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310615;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623021;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413184;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413184;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424138;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424138;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310017;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420462;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423224;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323159;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323159;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323160;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523011;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620013;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513663;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413179;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623344;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720435;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214014;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214014;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214014;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420160;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623360;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533693;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533693;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514113;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612140;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621032;NA;Dendrocopos syriacus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621032;NA;Sylvia nisoria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624096;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0322059;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310057;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623022;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210152;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210713;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620139;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723415;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723414;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312045;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811020;NA;Botaurus stellaris;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811020;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811020;NA;Mareca strepera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0811020;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0814092;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623788;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723416;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424141;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424141;NA;Salmo salar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424141;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210028;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514669;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514669;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514669;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;Carabus hungaricus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;Artemisia pancicii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624060;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723417;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723754;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714077;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714077;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714077;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0113773;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313820;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513249;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413007;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320013;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214045;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214045;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413008;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423660;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423660;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423660;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0110050;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713388;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623329;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623329;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323163;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510191;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620014;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624114;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624114;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323641;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710148;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323161;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323162;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214012;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214012;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214012;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623801;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530027;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810014;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810032;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313129;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210023;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510403;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323164;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714078;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714078;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713004;NA;Eudontomyzon mariae;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323165;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323165;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323166;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323642;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423225;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423225;NA;Stenobothrus eurasius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423225;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313116;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0114001;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0114001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210114;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210114;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620245;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213063;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623365;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623365;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510028;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424033;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424033;NA;Stenobothrus eurasius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424033;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413009;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610519;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610412;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510402;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510415;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313513;NA;Carabus menetriesi pacholei;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313513;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313119;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313119;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420053;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314637;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314637;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613328;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620016;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534055;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534055;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534055;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534055;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0534055;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212020;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714081;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714081;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714081;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723421;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623045;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623045;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623045;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723024;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323167;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513251;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514670;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514670;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514670;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514670;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623713;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613002;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613002;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0512100;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620412;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211010;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211010;NA;Grus grus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213064;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314109;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314109;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713739;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720420;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410155;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620158;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720185;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723755;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623782;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533312;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310618;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523286;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213004;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533697;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523003;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612143;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214046;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213066;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314640;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314639;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314639;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314639;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614052;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614058;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614058;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0710183;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714086;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714086;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714086;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530149;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612145;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310067;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813462;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813462;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623819;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623819;NA;Romanogobio vladykovi;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0525002;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311035;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0315005;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210731;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213067;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213069;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420449;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720033;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530502;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423227;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513665;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723423;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624118;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620048;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420041;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0815031;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213512;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810424;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210173;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620031;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620187;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624102;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624102;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420525;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213070;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523266;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513255;NA;Rosalia alpina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533501;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723756;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723757;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213071;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623025;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313824;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723758;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213072;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513256;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513256;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513256;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0510408;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212019;NA;Adenophora lilifolia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0212019;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713740;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313113;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813468;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620191;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410150;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410150;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713741;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Triturus dobrogicus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Gymnocephalus baloni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Gymnocephalus schraetzer;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Pelecus cultratus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Zingel streber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Zingel zingel;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Romanogobio vladykovi;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624119;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Aquila heliaca;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Ciconia ciconia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Falco cherrug;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Ficedula albicollis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Milvus migrans;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Milvus milvus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Pernis apivorus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621027;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424134;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810018;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810018;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810018;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420083;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713827;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523288;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813469;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523682;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813764;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813764;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520508;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623707;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613333;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622217;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624043;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624043;NA;Carabus hungaricus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624043;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624043;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624043;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723424;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624069;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620017;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423228;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0712191;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420061;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424133;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424136;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210734;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723425;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420059;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0317017;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624068;NA;Castor fiber;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624068;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624068;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624068;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624068;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623797;NA;Lycaena dispar;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313123;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313123;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420063;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214039;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214039;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513257;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;Anser albifrons;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;Anser fabalis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;Haliaeetus albicilla;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;Sterna hirundo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0621030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210053;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413194;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623366;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0532132;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210708;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323646;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323169;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323169;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723426;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623026;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420082;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813472;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213077;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610513;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0612149;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213626;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514041;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514041;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514041;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213631;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320437;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624234;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624234;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624234;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624234;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312226;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423659;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513509;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213005;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624097;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410046;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613013;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813461;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0615018;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310611;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620051;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613332;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624112;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624112;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624116;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624116;NA;Artemisia pancicii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624116;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714080;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714080;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714080;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714080;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714080;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313122;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622221;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213076;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614059;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614059;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614059;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614059;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410047;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813765;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813765;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813765;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813766;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213615;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323644;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713742;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713743;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713743;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213620;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523683;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523683;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323637;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723759;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323645;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213621;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213621;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810036;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0715024;NA;Mannia triandra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Crex crex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Picoides tridactylus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Tetrao urogallus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Bonasa bonasia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311041;NA;Aegolius funereus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Lynx lynx;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Margaritifera margaritifera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Carabus menetriesi pacholei;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314024;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623027;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610056;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313125;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623011;NA;Triturus carnifex;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623717;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324029;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314636;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314636;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413195;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313004;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210062;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533314;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410001;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213628;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210054;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623046;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623046;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623046;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623046;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520600;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0625020;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213078;NA;Spermophilus citellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622037;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613334;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613334;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720153;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210056;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213059;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313131;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313131;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Anser anser;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Ardea alba;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Caprimulgus europaeus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Ciconia nigra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Circus aeruginosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Mareca strepera;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Leiopicus medius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Spatula clypeata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Dryocopus martius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Haliaeetus albicilla;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Lullula arborea;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Luscinia svecica cyanecula;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Nycticorax nycticorax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Pernis apivorus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Picus canus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Sterna hirundo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Aegolius funereus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311033;NA;Alcedo atthis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Ophiogomphus cecilia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Cobitis elongatoides;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Misgurnus fossilis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Graphoderus bilineatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314023;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323478;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210047;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213043;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420460;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624098;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624098;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624098;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523005;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624106;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624106;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624106;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624106;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713391;NA;Anisus vorticulus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213629;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213061;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413196;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523290;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523290;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214011;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214011;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214011;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214011;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613335;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413182;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413018;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610005;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623367;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413017;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622223;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622223;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622224;NA;Iris humilis subsp. arenaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614135;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614135;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533005;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413193;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0312050;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423229;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723430;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723430;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714772;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0714772;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Cerambyx cerdo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Romanogobio vladykovi;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;Rhodeus amarus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624095;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420171;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620132;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533301;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420507;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614134;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614134;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514672;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514672;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310033;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310033;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0715025;NA;Buxbaumia viridis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813474;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813474;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813474;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813474;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723020;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614131;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614131;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614131;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614131;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311034;NA;Bubo bubo;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0311034;NA;Glaucidium passerinum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214025;NA;Vandenboschia speciosa;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214025;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420073;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624132;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624132;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613010;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623718;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533316;NA;Cucujus cinnaberinus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723403;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723403;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523291;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313134;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724087;NA;Eriogaster catax;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724087;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414026;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0414026;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210186;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423656;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623793;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213802;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213802;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213822;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213822;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420013;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210118;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613336;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614056;NA;Hamatocaulis vernicosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614056;NA;Vertigo geyeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614056;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0324032;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0320005;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813475;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530028;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720437;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213006;NA;Vertigo moulinsiana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620181;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720422;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514668;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514668;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514668;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213081;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210726;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620024;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623349;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713526;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713526;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0720192;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713745;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514243;NA;Myotis bechsteinii;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514243;NA;Rosalia alpina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514243;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310020;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314019;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314019;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314019;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213082;NA;Triturus cristatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213082;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420166;NA;Leucorrhinia pectoralis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420166;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610159;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610159;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420165;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213083;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213083;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713746;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520184;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613338;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620103;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620018;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210729;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313137;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713395;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523293;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622184;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410151;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523014;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523014;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0723434;NA;Sabanejewia balcanica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724430;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724430;NA;Carabus variolosus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724430;NA;Rosalia alpina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0724430;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213009;NA;Lutra lutra;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213009;NA;Unio crassus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213009;NA;Lampetra planeri;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213009;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213009;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213084;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0322060;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713747;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310035;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210027;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314638;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623719;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0533694;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620084;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0522127;NA;Adenophora lilifolia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313138;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313138;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313138;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620055;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420004;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623030;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623030;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423232;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423232;NA;Stenobothrus eurasius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423233;NA;Stenobothrus eurasius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0423236;NA;Euplagia quadripunctaria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323647;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210034;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214015;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214015;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0421005;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424127;NA;Limoniscus violaceus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424127;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424127;NA;Maculinea teleius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0424127;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623031;NA;Triturus dobrogicus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623031;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620056;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620413;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310022;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410168;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0410176;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610003;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213630;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0712225;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0413173;NA;Euphydryas aurinia;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210029;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513508;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0615001;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0213016;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0813767;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210008;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523009;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523267;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0523267;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514667;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0514667;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0417018;NA;Lyrurus tetrix tetrix;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0417018;NA;Aegolius funereus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0622219;NA;Pontechium maculatum subsp. maculatum;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313140;NA;Cottus gobio;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524045;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0524045;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0513668;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520604;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310019;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610170;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624108;NA;Crambe tataria;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0624108;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713397;NA;Triturus montandoni;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0713398;NA;Bombina variegata;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214003;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214003;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214003;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323170;NA;Austropotamobius torrentium;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314641;NA;Gentianella bohemica;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0314641;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620120;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614057;NA;Bombina bombina;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0614057;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623034;NA;Myotis myotis;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0620076;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530504;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210153;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610401;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0610401;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0520511;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0613700;NA;Myotis emarginatus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214050;NA;Vertigo angustior;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214050;NA;Lucanus cervus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214050;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211011;NA;Ixobrychus minutus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0211011;NA;Porzana porzana;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0420012;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214016;NA;Barbastella barbastellus;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0214016;NA;Aspius aspius;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210066;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0810425;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0530021;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0623032;NA;Osmoderma barnabita;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0323648;NA;Rhinolophus hipposideros;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0210175;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0313141;NA;Maculinea nausithous;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310605;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310163;NA;Dicranum viride;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+NA;CZ0310163;NA;-;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA

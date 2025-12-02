@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.7">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1310" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=Helvetica;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="WIyWlLk6GJQsqaUBKTNV-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="&lt;font&gt;NEVALIDOVÁNO - &lt;br&gt;K VALIDACI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=2;shadow=0;fontFamily=Helvetica;labelBackgroundColor=#979ea8;fillColor=#979ea8;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="140" y="230" width="200.62" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-4" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;ANO&lt;/font&gt;" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=Helvetica;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="WIyWlLk6GJQsqaUBKTNV-10" edge="1">
+          <mxGeometry x="-0.5" y="35" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-5" value="NE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="R6NyF0XUrNnedPd3VcY9-12" edge="1">
+          <mxGeometry x="-0.2" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="490" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-6" value="&lt;font&gt;Jsou vstupní data &lt;br&gt;kompletní a přesná?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=11;align=center;strokeWidth=2;spacing=6;spacingTop=-4;fillStyle=solid;strokeColor=none;fillColor=light-dark(#006B4D,#000000);" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="140" y="350" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-8" value="ANO" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=Helvetica;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="R6NyF0XUrNnedPd3VcY9-19" edge="1">
+          <mxGeometry x="-0.5" y="35" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="265" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-9" value="NE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="R6NyF0XUrNnedPd3VcY9-13" edge="1">
+          <mxGeometry x="-0.2" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="560" y="682.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-10" value="&lt;font&gt;&lt;font&gt;Odpovídá metodika&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/font&gt;sledování stavu nárokům&lt;br&gt;cílového fenoménu?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=11;align=center;strokeWidth=2;spacing=6;spacingTop=-4;strokeColor=none;fillColor=light-dark(#006B4D,#000000);" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="139.38" y="570" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="R6NyF0XUrNnedPd3VcY9-12" value="&lt;font&gt;NEVALIDOVÁNO - &lt;br&gt;CHYBNÁ DATA&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=2;shadow=0;fontFamily=Helvetica;labelBackgroundColor=#e69800;fillColor=#e69800;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="450" y="400" width="237.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R6NyF0XUrNnedPd3VcY9-13" value="&lt;font&gt;NEVALIDOVÁNO - &lt;br&gt;METODICKÁ CHYBA&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=2;shadow=0;fontFamily=Helvetica;fillColor=#bf543a;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="450" y="620" width="237.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R6NyF0XUrNnedPd3VcY9-19" value="&lt;font&gt;VALIDOVÁNO&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=2;shadow=0;fontFamily=Helvetica;labelBackgroundColor=#9aca3b;fillColor=#9aca3b;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="140" y="790" width="200.62" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R6NyF0XUrNnedPd3VcY9-22" value="&lt;font&gt;SLEDOVÁNÍ&lt;br&gt;STAVU&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;labelBackgroundColor=default;fontStyle=1;fontSize=12;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="139.38" y="110" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="R6NyF0XUrNnedPd3VcY9-25" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=18;endArrow=block;endFill=0;endSize=8;strokeWidth=2;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;fontFamily=Helvetica;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="R6NyF0XUrNnedPd3VcY9-22" target="WIyWlLk6GJQsqaUBKTNV-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="275" y="320" as="sourcePoint" />
+            <mxPoint x="275" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="240" y="200" />
+              <mxPoint x="240" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

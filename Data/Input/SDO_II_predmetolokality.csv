@@ -1,0 +1,505 @@
+typ_lokality;sitecode;nazev_lokality;typ_pro;skupina;kod_pro;nazev_pro
+EVL;CZ0720013;Babí hora;Stanovištì;Lesy;91I0;Eurosibiøské stepní doubravy
+EVL;CZ0720013;Babí hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0720013;Babí hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0424034;Babinské louky;Druh;Cévnaté rostliny;;zvonovec liliolistı (Adenophora liliifolia)
+EVL;CZ0424034;Babinské louky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0424034;Babinské louky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0424034;Babinské louky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0523824;Bìleè - støelnice;Druh;Váky;;váka jasnoskvrnná (Leucorrhinia pectoralis)
+EVL;CZ0724089;Beskydy;Druh;Brouci;;støevlík hrbolatı (Carabus variolosus)
+EVL;CZ0724089;Beskydy;Druh;Brouci;;lesák rumìlkovı (Cucujus cinnaberinus)
+EVL;CZ0724089;Beskydy;Druh;Brouci;;rıhovec pralesní (Rhysodes sulcatus)
+EVL;CZ0724089;Beskydy;Druh;Cévnaté rostliny;;omìj tuhı moravskı (Aconitum firmum subsp. moravicum)
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9110;Buèiny asociace Luzulo-Fagetum
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9140;Støedoevropské subalpínské buèiny s javorem (Acer) a šovíkem horskım (Rumex arifolius)
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0724089;Beskydy;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0724089;Beskydy;Druh;Mechorosty;;šikoušek zelenı (Buxbaumia viridis)
+EVL;CZ0724089;Beskydy;Druh;Mìkkıši;;velevrub tupı (Unio crassus)
+EVL;CZ0724089;Beskydy;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0724089;Beskydy;Druh;Obojivelníci;;kuòka lutobøichá (Bombina variegata)
+EVL;CZ0724089;Beskydy;Druh;Obojivelníci;;èolek karpatskı (Triturus montandoni)
+EVL;CZ0724089;Beskydy;Druh;Ostatní savci;;vlk obecnı (Canis lupus)
+EVL;CZ0724089;Beskydy;Druh;Ostatní savci;;vydra øíèní (Lutra lutra)
+EVL;CZ0724089;Beskydy;Druh;Ostatní savci;;rys ostrovid (Lynx lynx)
+EVL;CZ0724089;Beskydy;Druh;Ostatní savci;;medvìd hnìdı (Ursus arctos)
+EVL;CZ0724089;Beskydy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0724089;Beskydy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0724089;Beskydy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0724089;Beskydy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0724089;Beskydy;Stanovištì;Skalní stanovištì a jeskynì;8220;Chasmofytická vegetace silikátovıch skalnatıch svahù
+EVL;CZ0724089;Beskydy;Stanovištì;Skalní stanovištì a jeskynì;8310;Jeskynì nepøístupné veøejnosti
+EVL;CZ0724089;Beskydy;Stanovištì;Sladkovodní stanovištì;3220;Alpínské øeky a bylinná vegetace podél jejich bøehù
+EVL;CZ0724089;Beskydy;Stanovištì;Sladkovodní stanovištì;3240;Alpínské øeky a jejich døevinná vegetace s vrbou šedou (Salix elaeagnos)
+EVL;CZ0724089;Beskydy;Stanovištì;Tuholisté køoviny;5130;Formace jalovce obecného (Juniperus communis) na vøesovištích nebo vápnitıch trávnících
+EVL;CZ0724089;Beskydy;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0724089;Beskydy;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0213776;Bezdìèín;Druh;Ostatní savci;;sysel obecnı (Spermophilus citellus)
+EVL;CZ0513657;Bílá Desná - kanál protrené pøehrady;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0720441;Bílé potoky;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0720441;Bílé potoky;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0720441;Bílé potoky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0720441;Bílé potoky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210p;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia), vıznaèná nalezištì vstavaèovitıch - prioritní stanovištì
+EVL;CZ0720441;Bílé potoky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0720441;Bílé potoky;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0424129;Bílé stránì u Litomìøic;Druh;Cévnaté rostliny;;støevíèník pantoflíèek (Cypripedium calceolus)
+EVL;CZ0424129;Bílé stránì u Litomìøic;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0424129;Bílé stránì u Litomìøic;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0424129;Bílé stránì u Litomìøic;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0424129;Bílé stránì u Litomìøic;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210p;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia), vıznaèná nalezištì vstavaèovitıch - prioritní stanovištì
+EVL;CZ0424129;Bílé stránì u Litomìøic;Stanovištì;Skalní stanovištì a jeskynì;8230;Pionırská vegetace silikátovıch skal (Sedo-Scleranthion, Sedo albi-Veronicion dillenii)
+EVL;CZ0623035;Bílı kopec u Èejèe;Druh;Brouci;;chrobák jednorohı (Bolbelasmus unicornis)
+EVL;CZ0623035;Bílı kopec u Èejèe;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0623035;Bílı kopec u Èejèe;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6250;Panonské sprašové stepní trávníky
+EVL;CZ0323144;Bonìtice;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0413174;Borecké rybníky;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0623772;Boickı mokøad;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0713722;Branná - hrad;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0214047;Brda;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0214047;Brda;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0214047;Brda;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0423202;Bøezina;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0510405;Bukovec;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0510405;Bukovec;Stanovištì;Lesy;9140;Støedoevropské subalpínské buèiny s javorem (Acer) a šovíkem horskım (Rumex arifolius)
+EVL;CZ0510405;Bukovec;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0510405;Bukovec;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0510405;Bukovec;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0510405;Bukovec;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0510405;Bukovec;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0510405;Bukovec;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0523264;Bystøice;Druh;Mìkkıši;;velevrub tupı (Unio crassus)
+EVL;CZ0813438;Cihelna Kunín;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0623345;Citonice - rybník Skalka;Druh;Obojivelníci;;èolek dravı (Triturus carnifex)
+EVL;CZ0320023;Èepièná;Stanovištì;Lesy;9150;Støedoevropské vápencové buèiny (Cephalanthero-Fagion)
+EVL;CZ0320023;Èepièná;Stanovištì;Lesy;91U0;Lesostepní bory
+EVL;CZ0320023;Èepièná;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6110;Vápnité nebo bazické skalní trávníky (Alysso-Sedion albi)
+EVL;CZ0534050;Èernı Nadımaè;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0534050;Èernı Nadımaè;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0810001;Èervenı kámen;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0810001;Èervenı kámen;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0810001;Èervenı kámen;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0513237;Èeská Lípa - mokøad v nivì Šporky;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0210150;Ètvrtì;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0210150;Ètvrtì;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0614053;Dáøská rašeliništì;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0614053;Dáøská rašeliništì;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0614053;Dáøská rašeliništì;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0614053;Dáøská rašeliništì;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0614053;Dáøská rašeliništì;Druh;Váky;;váka jasnoskvrnná (Leucorrhinia pectoralis)
+EVL;CZ0614053;Dáøská rašeliništì;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0612133;Dìdkovo;Druh;Cévnaté rostliny;;støevíèník pantoflíèek (Cypripedium calceolus)
+EVL;CZ0813439;Dìhylovskı potok - Štìpán;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0813439;Dìhylovskı potok - Štìpán;Druh;Ryby;;piskoø pruhovanı (Misgurnus fossilis)
+EVL;CZ0813439;Dìhylovskı potok - Štìpán;Stanovištì;Sladkovodní stanovištì;3260;Níinné a horské vodní toky s vegetací svazù Ranunculion fluitantis a Callitricho-Batrachion
+EVL;CZ0813439;Dìhylovskı potok - Štìpán;Druh;Váky;;váka jasnoskvrnná (Leucorrhinia pectoralis)
+EVL;CZ0713394;Dolní a Prostøední Svrèov;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0322055;Drahotínskı les;Druh;Cévnaté rostliny;;sleziník nepravı (Asplenium adulterinum)
+EVL;CZ0710006;Døevohostickı les;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0710006;Døevohostickı les;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0523268;Dubno - Èeská Skalice;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0523268;Dubno - Èeská Skalice;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0523268;Dubno - Èeská Skalice;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0523268;Dubno - Èeská Skalice;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0213783;Felbabka;Druh;Obojivelníci;;kuòka lutobøichá (Bombina variegata)
+EVL;CZ0613319;Fickù rybník;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0310070;Hadí vrch;Stanovištì;Tuholisté køoviny;5130;Formace jalovce obecného (Juniperus communis) na vøesovištích nebo vápnitıch trávnících
+EVL;CZ0530037;Heme-Mıtkov;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0722198;Hodòovská dolina;Druh;Cévnaté rostliny;;starèek dlouholistı moravskı (Tephroseris longifolia subsp. moravica)
+EVL;CZ0713374;Horní Morava;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+PO;CZ0721024;Hostınské vrchy;Druh;Ptáci;;strakapoud bìlohøbetı (Dendrocopos leucotos)
+PO;CZ0721024;Hostınské vrchy;Druh;Ptáci;;lejsek malı (Ficedula parva)
+EVL;CZ0210010;Housina;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0210010;Housina;Stanovištì;Lesy;91I0;Eurosibiøské stepní doubravy
+EVL;CZ0210010;Housina;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0210172;Hrabanovská èernava;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0210172;Hrabanovská èernava;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0210172;Hrabanovská èernava;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0210172;Hrabanovská èernava;Stanovištì;Vrchovištì, rašeliništì a moèály;7210;Vápnitá slatiništì s maøicí pilovitou (Cladium mariscus) a druhy svazu Caricion davallianae
+EVL;CZ0210172;Hrabanovská èernava;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0712186;Hrdiboøické rybníky;Druh;Cévnaté rostliny;;matizna bahenní (Angelica palustris)
+EVL;CZ0213023;Hrdlièka - ïánská hora;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0714771;Hùrka u Hranic;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0714771;Hùrka u Hranic;Stanovištì;Skalní stanovištì a jeskynì;8310;Jeskynì nepøístupné veøejnosti
+EVL;CZ0713375;Hustopeèe - Štìrkáè;Druh;Brouci;;lesák rumìlkovı (Cucujus cinnaberinus)
+EVL;CZ0212010;Hvoïanské Háje;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0320140;Chejlava;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0320140;Chejlava;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0813448;Jakartovice;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0720454;Jalovcová;Stanovištì;Tuholisté køoviny;5130;Formace jalovce obecného (Juniperus communis) na vøesovištích nebo vápnitıch trávnících
+EVL;CZ0623348;Jankovec;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0813763;Javorovı vrch;Druh;Netopıøi;;netopır èernı (Barbastella barbastellus)
+EVL;CZ0813763;Javorovı vrch;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0813763;Javorovı vrch;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0213790;Javùrek;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+PO;CZ0711017;Jeseníky;Druh;Ptáci;;jeøábek lesní (Bonasa bonasia)
+PO;CZ0711017;Jeseníky;Druh;Ptáci;;chøástal polní (Crex crex)
+EVL;CZ0323638;Jeskynì Inkù;Druh;Netopıøi;;netopır èernı (Barbastella barbastellus)
+EVL;CZ0510509;Jezevèí vrch;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0510509;Jezevèí vrch;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0813449;Jilešovice - Dìhylov;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0523676;Josefov - pevnost;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0620006;Kameníky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0620006;Kameníky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240;Subpanonské stepní trávníky
+EVL;CZ0813450;Karlova Studánka;Druh;Obojivelníci;;èolek karpatskı (Triturus montandoni)
+EVL;CZ0813451;Karviná - rybníky;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0323151;Kateøinskı a Nivní potok;Druh;Ostatní savci;;bobr evropskı (Castor fiber)
+EVL;CZ0323151;Kateøinskı a Nivní potok;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0213794;Kerské rybníèky;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0422077;Kleneè;Druh;Cévnaté rostliny;;hvozdík píseènı èeskı (Dianthus arenarius subsp. bohemicus)
+EVL;CZ0422077;Kleneè;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0310010;Klokoèínské louky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0533696;Kochánovické rybníky a tùnì;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0533696;Kochánovické rybníky a tùnì;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0723751;Komòa - kostel;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0423216;Kopistská vısypka;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0423216;Kopistská vısypka;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0423216;Kopistská vısypka;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0614133;Kozének;Druh;Cévnaté rostliny;;koniklec velkokvìtı (Pulsatilla grandis)
+EVL;CZ0614133;Kozének;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0614133;Kozének;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0520507;Kozínek;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0520507;Kozínek;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0520507;Kozínek;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0520507;Kozínek;Stanovištì;Skalní stanovištì a jeskynì;8210;Chasmofytická vegetace vápnitıch skalnatıch svahù
+EVL;CZ0313635;Kratochvíle - zámek;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;vèelojed lesní (Pernis apivorus)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;vır velkı (Bubo bubo)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;kulíšek nejmenší (Glaucidium passerinum)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;ledòáèek øíèní (Alcedo atthis)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;luna šedá (Picus canus)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;strakapoud prostøední (Dendrocopos medius)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;lejsek malı (Ficedula parva)
+PO;CZ0211001;Køivoklátsko;Druh;Ptáci;;lejsek bìlokrkı (Ficedula albicollis)
+EVL;CZ0420406;Køíové vršky, Malı vrch, Šibeník;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6110;Vápnité nebo bazické skalní trávníky (Alysso-Sedion albi)
+EVL;CZ0420406;Køíové vršky, Malı vrch, Šibeník;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0420406;Køíové vršky, Malı vrch, Šibeník;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210p;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia), vıznaèná nalezištì vstavaèovitıch - prioritní stanovištì
+EVL;CZ0420406;Køíové vršky, Malı vrch, Šibeník;Stanovištì;Vøesovištì a køoviny mírného pásu;40A0;Kontinentální opadavé køoviny
+EVL;CZ0210409;Kulivá hora;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0210409;Kulivá hora;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0210409;Kulivá hora;Stanovištì;Lesy;91H0;Panonské šípákové doubravy
+EVL;CZ0210409;Kulivá hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0210409;Kulivá hora;Stanovištì;Skalní stanovištì a jeskynì;8160;Vápnité sutì pahorkatin a horského stupnì
+EVL;CZ0710034;Lánskı luh;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0623820;Letištì Medlánky;Druh;Ostatní savci;;sysel obecnı (Spermophilus citellus)
+EVL;CZ0214009;Libické luhy;Druh;Brouci;;lesák rumìlkovı (Cucujus cinnaberinus)
+EVL;CZ0214009;Libické luhy;Druh;Brouci;;roháè obecnı (Lucanus cervus)
+EVL;CZ0214009;Libické luhy;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0214009;Libické luhy;Stanovištì;Lesy;91F0;Smíšené luní lesy s dubem letním (Quercus robur), jilmem vazem (Ulmus laevis), j. habrolistım (U. minor), jasanem ztepilım (Fraxinus excelsior) nebo j. úzkolistım (F. angustifolia) podél velkıch øek atlantské a støedoevropské provincie (Ulmenion minoris)
+EVL;CZ0214009;Libické luhy;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0214009;Libické luhy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0214009;Libické luhy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6440;Nivní louky øíèních údolí svazu Cnidion dubii
+EVL;CZ0214009;Libické luhy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0214009;Libické luhy;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0810021;Libotín;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0810021;Libotín;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0312038;Lomnickı velkı rybník;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0323155;Lopata;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0210720;Louèeòské rybníèky;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0210720;Louèeòské rybníèky;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0210058;Louky u Budenína;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0210058;Louky u Budenína;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0210058;Louky u Budenína;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0210058;Louky u Budenína;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0214040;Louky u Drahlína;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0214040;Louky u Drahlína;Druh;Motıli;;modrásek oèkovanı (Phengaris teleius)
+EVL;CZ0424037;Lovoš;Stanovištì;Lesy;9110;Buèiny asociace Luzulo-Fagetum
+EVL;CZ0424037;Lovoš;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0424037;Lovoš;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0424037;Lovoš;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0424037;Lovoš;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0424037;Lovoš;Stanovištì;Skalní stanovištì a jeskynì;8220;Chasmofytická vegetace silikátovıch skalnatıch svahù
+EVL;CZ0513254;Luèní potok;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0210714;Lovické tùnì;Druh;Brouci;;lesák rumìlkovı (Cucujus cinnaberinus)
+EVL;CZ0210714;Lovické tùnì;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0210714;Lovické tùnì;Stanovištì;Lesy;91F0;Smíšené luní lesy s dubem letním (Quercus robur), jilmem vazem (Ulmus laevis), j. habrolistım (U. minor), jasanem ztepilım (Fraxinus excelsior) nebo j. úzkolistım (F. angustifolia) podél velkıch øek atlantské a støedoevropské provincie (Ulmenion minoris)
+EVL;CZ0210714;Lovické tùnì;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0212004;Malíkovická stráò;Druh;Cévnaté rostliny;;støevíèník pantoflíèek (Cypripedium calceolus)
+EVL;CZ0312040;Malı Horusickı rybník;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0714083;Malı Kosíø;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0714083;Malı Kosíø;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210p;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia), vıznaèná nalezištì vstavaèovitıch - prioritní stanovištì
+EVL;CZ0714083;Malı Kosíø;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0322057;Maòovickı rybník;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0513244;Manušické rybníky;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0614137;Maršálka;Druh;Mìkkıši;;vrkoè Geyerùv (Vertigo geyeri)
+EVL;CZ0614137;Maršálka;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0530064;Mazurovy chalupy;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0523280;Metuje a Døevíè;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Lesy;9190;Staré acidofilní doubravy s dubem letním (Quercus robur) na písèitıch pláních
+EVL;CZ0214006;Milovice - Mladá;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0214006;Milovice - Mladá;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0624100;Milovickı les;Druh;Brouci;;roháè obecnı (Lucanus cervus)
+EVL;CZ0624100;Milovickı les;Stanovištì;Lesy;91G0;Panonské dubohabøiny
+EVL;CZ0624100;Milovickı les;Stanovištì;Lesy;91H0;Panonské šípákové doubravy
+EVL;CZ0624100;Milovickı les;Stanovištì;Lesy;91I0;Eurosibiøské stepní doubravy
+EVL;CZ0624100;Milovickı les;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0624100;Milovickı les;Druh;Motıli;;bourovec trnkovı (Eriogaster catax)
+EVL;CZ0624100;Milovickı les;Druh;Netopıøi;;netopır èernı (Barbastella barbastellus)
+EVL;CZ0624100;Milovickı les;Druh;Netopıøi;;netopır velkouchı (Myotis bechsteinii)
+EVL;CZ0624100;Milovickı les;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0624100;Milovickı les;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240;Subpanonské stepní trávníky
+EVL;CZ0723412;Mokøad u Slováckıch strojíren;Druh;Obojivelníci;;kuòka lutobøichá (Bombina variegata)
+EVL;CZ0530034;Moravská Sázava;Stanovištì;Lesy;9110;Buèiny asociace Luzulo-Fagetum
+EVL;CZ0530034;Moravská Sázava;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0530034;Moravská Sázava;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0210421;Mramor;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0210421;Mramor;Stanovištì;Lesy;91H0;Panonské šípákové doubravy
+EVL;CZ0213065;Na Babì;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0213065;Na Babì;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0213065;Na Babì;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0213065;Na Babì;Stanovištì;Vøesovištì a køoviny mírného pásu;40A0;Kontinentální opadavé køoviny
+EVL;CZ0320037;Na poárech;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0320037;Na poárech;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0713730;Na Špièáku;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0423006;Nebeskı rybníèek u Veselí;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0310084;Nerestskı lom;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6110;Vápnité nebo bazické skalní trávníky (Alysso-Sedion albi)
+EVL;CZ0310084;Nerestskı lom;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0310084;Nerestskı lom;Stanovištì;Skalní stanovištì a jeskynì;8210;Chasmofytická vegetace vápnitıch skalnatıch svahù
+EVL;CZ0213818;Octárna;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0213050;Ohrazenickı potok;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0713383;Ohrozim - Horka;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0620169;Ochùzky - Nedánov;Stanovištì;Lesy;91G0;Panonské dubohabøiny
+EVL;CZ0620169;Ochùzky - Nedánov;Stanovištì;Lesy;91I0;Eurosibiøské stepní doubravy
+EVL;CZ0620169;Ochùzky - Nedánov;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+PO;CZ0521015;Orlické Záhoøí;Druh;Ptáci;;chøástal polní (Crex crex)
+EVL;CZ0323158;Osek - rybník Labutinka;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0212025;Ostrov u Jedomìlic;Druh;Cévnaté rostliny;;støevíèník pantoflíèek (Cypripedium calceolus)
+EVL;CZ0723413;Ovèírka;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0210733;Pahorek u Ledèic;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0210733;Pahorek u Ledèic;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0810031;Palkovické hùrky;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0322058;Pastvištì u Fínù;Druh;Cévnaté rostliny;;hoøeèek èeskı (Gentianella bohemica)
+EVL;CZ0322058;Pastvištì u Fínù;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0320043;Pavlova Hu;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0410040;Pernink;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0410040;Pernink;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0410040;Pernink;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6520;Horské seèení loouky
+EVL;CZ0410040;Pernink;Stanovištì;Vrchovištì, rašeliništì a moèály;7110;Aktivní vrchovištì
+EVL;CZ0410040;Pernink;Stanovištì;Vrchovištì, rašeliništì a moèály;7120;Degradovaná vrchovištì (ještì schopná pøirozené obnovy)
+EVL;CZ0410040;Pernink;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0410040;Pernink;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0422084;Písèiny u Oleška;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0713385;Píseèná - mokøad;Druh;Obojivelníci;;kuòka lutobøichá (Bombina variegata)
+EVL;CZ0310615;Píseènı pøesyp u Vlkova;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0623021;Píseènı rybník;Druh;Mìkkıši;;svinutec tenkı (Anisus vorticulus)
+EVL;CZ0413184;Pískovna Erika;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0413184;Pískovna Erika;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0612139;Pod Kamennım vrchem;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0710004;Pod Trlinou;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0513663;Podhájí - chalupa;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0214014;Podlesí;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0214014;Podlesí;Druh;Mìkkıši;;vrkoè útlı (Vertigo angustior)
+EVL;CZ0214014;Podlesí;Stanovištì;Sladkovodní stanovištì;3130;Oligotrofní a mezotrofní stojaté vody níinného a subalpínského stupnì kontinentální a alpínské oblasti a horskıch poloh a jinıch oblastí, s vegetací tøíd Littorelletea uniflorae nebo Isoëto-Nanojuncetea
+EVL;CZ0214014;Podlesí;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0214014;Podlesí;Druh;Váky;;váka jasnoskvrnná (Leucorrhinia pectoralis)
+EVL;CZ0214014;Podlesí;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0533693;Podolská a Páterova jeskynì;Druh;Netopıøi;;netopır brvitı (Myotis emarginatus)
+EVL;CZ0533693;Podolská a Páterova jeskynì;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Lesy;91F0;Smíšené luní lesy s dubem letním (Quercus robur), jilmem vazem (Ulmus laevis), j. habrolistım (U. minor), jasanem ztepilım (Fraxinus excelsior) nebo j. úzkolistım (F. angustifolia) podél velkıch øek atlantské a støedoevropské provincie (Ulmenion minoris)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6440;Nivní louky øíèních údolí svazu Cnidion dubii
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Vrchovištì, rašeliništì a moèály;7210;Vápnitá slatiništì s maøicí pilovitou (Cladium mariscus) a druhy svazu Caricion davallianae
+EVL;CZ0210152;Polabí u Kostelce;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0712226;Poláchovy stránì - Vıøí skály;Druh;Cévnaté rostliny;;støevíèník pantoflíèek (Cypripedium calceolus)
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Druh;Mìkkıši;;vrkoè bainnı (Vertigo moulinsiana)
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Sladkovodní stanovištì;3160;Pøirozená dystrofní jezera a tùnì
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Druh;Váky;;váka jasnoskvrnná (Leucorrhinia pectoralis)
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0514669;Poselskı a Mariánskı rybník;Stanovištì;Vrchovištì, rašeliništì a moèály;7150;Prolákliny na rašelinném podloí (Rhynchosporion)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Druh;Brouci;;støevlík panonskı (Carabus hungaricus)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Druh;Brouci;;roháè obecnı (Lucanus cervus)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Druh;Cévnaté rostliny;;pelynìk Panèièùv (Artemisia pancicii)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Druh;Cévnaté rostliny;;katrán tatarskı (Crambe tataria)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Stanovištì;Lesy;91G0;Panonské dubohabøiny
+EVL;CZ0624060;Pouzdøanská step - Kolby;Stanovištì;Lesy;91I0;Eurosibiøské stepní doubravy
+EVL;CZ0624060;Pouzdøanská step - Kolby;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0624060;Pouzdøanská step - Kolby;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6250;Panonské sprašové stepní trávníky
+EVL;CZ0313820;Prachatice - kostel;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0513249;Prácheò - Zicht;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0413007;Prachomety;Druh;Motıli;;hnìdásek chrastavcovı (Euphydryas aurinia)
+EVL;CZ0713388;Protivanov;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0810032;Ptaèí hora;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0210023;Pustá seè;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0510403;Quarré;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0510403;Quarré;Stanovištì;Vrchovištì, rašeliništì a moèály;7110;Aktivní vrchovištì
+EVL;CZ0713004;Raèinka;Druh;Mihule;;mihule ukrajinská (Eudontomyzon mariae)
+EVL;CZ0323166;Radbuza - Novı Dvùr - Pila;Druh;Korıši;;rak kamenáè (Austropotamobius torrentium)
+EVL;CZ0313116;Radomilická mokøina;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0114001;Radotínské údolí;Druh;Cévnaté rostliny;;vèelník rakouskı (Dracocephalum austriacum)
+EVL;CZ0114001;Radotínské údolí;Stanovištì;Lesy;9170;Dubohabøiny asociace Galio-Carpinetum
+EVL;CZ0114001;Radotínské údolí;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0114001;Radotínské údolí;Stanovištì;Lesy;91H0;Panonské šípákové doubravy
+EVL;CZ0114001;Radotínské údolí;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0114001;Radotínské údolí;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0114001;Radotínské údolí;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0213063;Rakovník - za koupalištìm;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0510402;Rašeliništì Jizerky;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0510402;Rašeliništì Jizerky;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0510402;Rašeliništì Jizerky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0510402;Rašeliništì Jizerky;Stanovištì;Vrchovištì, rašeliništì a moèály;7110;Aktivní vrchovištì
+EVL;CZ0510402;Rašeliništì Jizerky;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0412070;Raušenbašská lada;Druh;Cévnaté rostliny;;sleziník nepravı (Asplenium adulterinum)
+EVL;CZ0412070;Raušenbašská lada;Druh;Cévnaté rostliny;;roec kuøièkolistı (Cerastium alsinifolium)
+EVL;CZ0412070;Raušenbašská lada;Druh;Cévnaté rostliny;;svízel sudetskı (Galium sudeticum)
+EVL;CZ0212020;Reèkov;Druh;Cévnaté rostliny;;popelivka sibiøská (Ligularia sibirica)
+EVL;CZ0212020;Reèkov;Druh;Mìkkıši;;vrkoè bainnı (Vertigo moulinsiana)
+EVL;CZ0212020;Reèkov;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0212020;Reèkov;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0714081;Rejvíz;Druh;Brouci;;støevlík hrbolatı (Carabus variolosus)
+EVL;CZ0714081;Rejvíz;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0714081;Rejvíz;Stanovištì;Lesy;9410;Acidofilní smrèiny (Vaccinio-Piceetea)
+EVL;CZ0714081;Rejvíz;Druh;Mechorosty;;šikoušek zelenı (Buxbaumia viridis)
+EVL;CZ0714081;Rejvíz;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0714081;Rejvíz;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0714081;Rejvíz;Stanovištì;Vrchovištì, rašeliništì a moèály;7110;Aktivní vrchovištì
+EVL;CZ0714081;Rejvíz;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0613002;Roštejnská obora;Druh;Netopıøi;;netopır èernı (Barbastella barbastellus)
+EVL;CZ0512100;Roverské skály;Druh;Cévnaté rostliny;;vláskatec tajemnı (Trichomanes speciosum)
+EVL;CZ0310618;Rybník Motovidlo;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0214046;Rybník Vidlák;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0214046;Rybník Vidlák;Stanovištì;Sladkovodní stanovištì;3130;Oligotrofní a mezotrofní stojaté vody níinného a subalpínského stupnì kontinentální a alpínské oblasti a horskıch poloh a jinıch oblastí, s vegetací tøíd Littorelletea uniflorae nebo Isoëto-Nanojuncetea
+EVL;CZ0314640;Rybník Walden;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0314640;Rybník Walden;Stanovištì;Sladkovodní stanovištì;3130;Oligotrofní a mezotrofní stojaté vody níinného a subalpínského stupnì kontinentální a alpínské oblasti a horskıch poloh a jinıch oblastí, s vegetací tøíd Littorelletea uniflorae nebo Isoëto-Nanojuncetea
+EVL;CZ0525002;Øeøišnı u Machova;Druh;Mechorosty;;srpnatka fermeová (Hamatocaulis vernicosus)
+EVL;CZ0315005;Øeabinec;Druh;Mechorosty;;srpnatka fermeová (Hamatocaulis vernicosus)
+PO;CZ0311035;Øeabinec;Druh;Ptáci;;husa velká (Anser anser)
+EVL;CZ0210731;Øísnice;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0213067;Sázava;Druh;Ryby;;bolen dravı (Aspius aspius)
+EVL;CZ0420449;Sedlo;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0530502;Semínskı pøesyp;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0810424;Skuèák;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0810424;Skuèák;Stanovištì;Sladkovodní stanovištì;3150;Pøirozené eutrofní vodní nádre s vegetací typu Magnopotamion nebo Hydrocharition
+EVL;CZ0620187;Slanisko Novosedly;Stanovištì;Pobøení a halofytní stanovištì;1340;Vnitrozemské slané louky
+EVL;CZ0624102;Slanisko u Nesytu;Druh;Mìkkıši;;vrkoè útlı (Vertigo angustior)
+EVL;CZ0624102;Slanisko u Nesytu;Stanovištì;Pobøení a halofytní stanovištì;1340;Vnitrozemské slané louky
+EVL;CZ0213070;Slánsko - Byseòskı potok;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0212021;Slatinná louka u Velenky;Druh;Cévnaté rostliny;;meèík bahenní (Gladiolus palustris)
+EVL;CZ0212021;Slatinná louka u Velenky;Druh;Cévnaté rostliny;;lnìnka bezlistenná (Thesium ebracteatum)
+EVL;CZ0212021;Slatinná louka u Velenky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0533501;Slavická obora;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0513256;Smìdá;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0513256;Smìdá;Druh;Ryby;;vranka obecná (Cottus gobio)
+EVL;CZ0513256;Smìdá;Druh;Váky;;klínatka rohatá (Ophiogomphus cecilia)
+EVL;CZ0313113;Sokolí hnízdo a baantnice;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0624043;Stolová hora;Druh;Brouci;;roháè obecnı (Lucanus cervus)
+EVL;CZ0624043;Stolová hora;Druh;Cévnaté rostliny;;hvozdík Lumnitzerùv (Dianthus lumnitzeri)
+EVL;CZ0624043;Stolová hora;Druh;Cévnaté rostliny;;kosatec skalní píseènı (Iris humilis subsp. arenaria)
+EVL;CZ0624043;Stolová hora;Druh;Cévnaté rostliny;;koniklec velkokvìtı (Pulsatilla grandis)
+EVL;CZ0624043;Stolová hora;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0624043;Stolová hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0624043;Stolová hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0624043;Stolová hora;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240;Subpanonské stepní trávníky
+EVL;CZ0624043;Stolová hora;Stanovištì;Skalní stanovištì a jeskynì;8160;Vápnité sutì pahorkatin a horského stupnì
+EVL;CZ0624043;Stolová hora;Stanovištì;Skalní stanovištì a jeskynì;8210;Chasmofytická vegetace vápnitıch skalnatıch svahù
+EVL;CZ0624043;Stolová hora;Stanovištì;Skalní stanovištì a jeskynì;8310;Jeskynì nepøístupné veøejnosti
+EVL;CZ0423228;Strádovskı rybník;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0624020;Stránská skála;Druh;Cévnaté rostliny;;koniklec velkokvìtı (Pulsatilla grandis)
+EVL;CZ0624020;Stránská skála;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6110;Vápnité nebo bazické skalní trávníky (Alysso-Sedion albi)
+EVL;CZ0624020;Stránská skála;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0624020;Stránská skála;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0624020;Stránská skála;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240;Subpanonské stepní trávníky
+EVL;CZ0624020;Stránská skála;Stanovištì;Skalní stanovištì a jeskynì;8210;Chasmofytická vegetace vápnitıch skalnatıch svahù
+EVL;CZ0624020;Stránská skála;Stanovištì;Skalní stanovištì a jeskynì;8310;Jeskynì nepøístupné veøejnosti
+EVL;CZ0313123;Stropnice;Druh;Motıli;;modrásek oèkovanı (Phengaris teleius)
+EVL;CZ0313123;Stropnice;Druh;Ostatní savci;;vydra øíèní (Lutra lutra)
+EVL;CZ0214039;Stroupínskı potok;Druh;Korıši;;rak kamenáè (Austropotamobius torrentium)
+EVL;CZ0214039;Stroupínskı potok;Druh;Ryby;;vranka obecná (Cottus gobio)
+EVL;CZ0513257;Strunické rybníky;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0623026;Studánkovı vrch;Druh;Motıli;;bourovec trnkovı (Eriogaster catax)
+EVL;CZ0320437;Svaté Pole;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0513509;Svitavka;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0310611;Široké blato;Stanovištì;Lesy;91D0;Rašelinnı les
+EVL;CZ0310611;Široké blato;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0813765;Štola Franz - Franz;Druh;Netopıøi;;netopır brvitı (Myotis emarginatus)
+EVL;CZ0813765;Štola Franz - Franz;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0813765;Štola Franz - Franz;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0213621;Štoly Velké Ameriky;Druh;Netopıøi;;netopır èernı (Barbastella barbastellus)
+EVL;CZ0213621;Štoly Velké Ameriky;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0810036;Štramberk;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0810036;Štramberk;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6110;Vápnité nebo bazické skalní trávníky (Alysso-Sedion albi)
+EVL;CZ0810036;Štramberk;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6190;Panonské skalní trávníky (Stipo-Festucetalia pallentis)
+EVL;CZ0810036;Štramberk;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0810036;Štramberk;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210p;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia), vıznaèná nalezištì vstavaèovitıch - prioritní stanovištì
+EVL;CZ0810036;Štramberk;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0810036;Štramberk;Stanovištì;Skalní stanovištì a jeskynì;8210;Chasmofytická vegetace vápnitıch skalnatıch svahù
+EVL;CZ0810036;Štramberk;Stanovištì;Vrchovištì, rašeliništì a moèály;7220;Petrifikující prameny s tvorbou pìnovcù (Cratoneurion)
+EVL;CZ0324029;Tìchonická draha;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0324029;Tìchonická draha;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0413195;Teplá s pøítoky a Otroèínskı potok;Druh;Ryby;;vranka obecná (Cottus gobio)
+EVL;CZ0313004;Terèino údolí;Druh;Motıli;;modrásek oèkovanı (Phengaris teleius)
+EVL;CZ0210062;Teslíny;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0210062;Teslíny;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0210062;Teslíny;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0210062;Teslíny;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6510;Extenzivní seèené louky níin a podhùøí (Arrhenatherion, Brachypodio-Centaureion nemoralis)
+EVL;CZ0213078;Trhovky;Druh;Ostatní savci;;sysel obecnı (Spermophilus citellus)
+EVL;CZ0622026;Trkmanské louky;Druh;Cévnaté rostliny;;pcháè lutoostennı (Cirsium brachycephalum)
+EVL;CZ0313131;Tøeboò;Druh;Brouci;;tesaøík obrovskı (Cerambyx cerdo)
+EVL;CZ0313131;Tøeboò;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0213043;Tøeštibok;Druh;Motıli;;pøástevník kostivalovı (Euplagia quadripunctaria)
+EVL;CZ0624098;Turold;Druh;Cévnaté rostliny;;kosatec skalní (Iris humilis)
+EVL;CZ0624098;Turold;Druh;Netopıøi;;vrápenec malı (Rhinolophus hipposideros)
+EVL;CZ0624098;Turold;Stanovištì;Skalní stanovištì a jeskynì;8310;Jeskynì nepøístupné veøejnosti
+EVL;CZ0413018;U hájenky;Druh;Motıli;;hnìdásek chrastavcovı (Euphydryas aurinia)
+EVL;CZ0623367;U Huberta;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0622223;U kaplièky;Druh;Cévnaté rostliny;;kosatec skalní (Iris humilis)
+EVL;CZ0622223;U kaplièky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240*;Subpanonské stepní trávníky
+EVL;CZ0413193;U sedmi rybníkù;Druh;Obojivelníci;;èolek velkı (Triturus cristatus)
+EVL;CZ0533301;Údolí Chrudimky;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Lesy;9110;Buèiny asociace Luzulo-Fagetum
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Lesy;9180;Lesy svazu Tilio-Acerion na svazích, sutích a v roklích
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0514672;Údolí Jizery a Kamenice;Druh;Ryby;;vranka obecná (Cottus gobio)
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Skalní stanovištì a jeskynì;8220;Chasmofytická vegetace silikátovıch skalnatıch svahù
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Sladkovodní stanovištì;3220;Alpínské øeky a bylinná vegetace podél jejich bøehù
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Sladkovodní stanovištì;3260;Níinné a horské vodní toky s vegetací svazù Ranunculion fluitantis a Callitricho-Batrachion
+EVL;CZ0514672;Údolí Jizery a Kamenice;Stanovištì;Vøesovištì a køoviny mírného pásu;4030;Evropská suchá vøesovištì
+EVL;CZ0523291;Uhøínov - Benátky;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0313134;Újezdec;Druh;Obojivelníci;;kuòka ohnivá (Bombina bombina)
+EVL;CZ0423656;Úštìk - kostel;Druh;Netopıøi;;netopır velkı (Myotis myotis)
+EVL;CZ0210118;V jezírkách;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6430;Vlhkomilná vysokobylinná lemová spoleèenstva níin a horského a alpínského stupnì
+EVL;CZ0210118;V jezírkách;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0210118;V jezírkách;Stanovištì;Vrchovištì, rašeliništì a moèály;7230;Zásaditá slatiništì
+EVL;CZ0324032;V Morávkách;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0324032;V Morávkách;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6410;Bezkolencové louky na vápnitıch, rašelinnıch nebo hlinito-jílovitıch pùdách (Molinion caeruleae)
+EVL;CZ0210726;Vápnomilnı bor u Líského;Stanovištì;Lesy;91U0;Lesostepní bory
+EVL;CZ0620024;Váté písky;Stanovištì;Pobøení píseèné duny a kontinentální duny;2330;Otevøené trávníky kontinentálních dun s palièkovcem (Corynephorus) a psineèkem (Agrostis)
+EVL;CZ0620024;Váté písky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6260;Panonské písèité stepi
+EVL;CZ0622161;Ve lebì;Druh;Cévnaté rostliny;;koniklec velkokvìtı (Pulsatilla grandis)
+EVL;CZ0620018;Vìtrníky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6210;Polopøirozené suché trávníky a facie køovin na vápnitıch podloích (Festuco-Brometalia)
+EVL;CZ0620018;Vìtrníky;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6240;Subpanonské stepní trávníky
+EVL;CZ0313137;Veveøskı potok;Druh;Mihule;;mihule potoèní (Lampetra planeri)
+EVL;CZ0314638;Voseckı rybník;Druh;Cévnaté rostliny;;puchıøka útlá (Coleanthus subtilis)
+EVL;CZ0314638;Voseckı rybník;Stanovištì;Sladkovodní stanovištì;3130;Oligotrofní a mezotrofní stojaté vody níinného a subalpínského stupnì kontinentální a alpínské oblasti a horskıch poloh a jinıch oblastí, s vegetací tøíd Littorelletea uniflorae nebo Isoëto-Nanojuncetea
+EVL;CZ0522127;Vraba;Druh;Cévnaté rostliny;;zvonovec liliolistı (Adenophora liliifolia)
+EVL;CZ0513508;Zahrádky;Druh;Brouci;;páchník hnìdı (Osmoderma eremita)
+EVL;CZ0523267;Zaorlicko;Stanovištì;Lesy;9,10E+01;Smíšené jasanovo-olšové luní lesy temperátní a boreální Evropy (Alno-Padion, Alnion incanae, Salicion albae)
+EVL;CZ0523267;Zaorlicko;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6520;Horské seèení loouky
+EVL;CZ0523267;Zaorlicko;Druh;Ryby;;vranka obecná (Cottus gobio)
+EVL;CZ0610170;Zhejral;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0610170;Zhejral;Stanovištì;Sladkovodní stanovištì;3130;Oligotrofní a mezotrofní stojaté vody níinného a subalpínského stupnì kontinentální a alpínské oblasti a horskıch poloh a jinıch oblastí, s vegetací tøíd Littorelletea uniflorae nebo Isoëto-Nanojuncetea
+EVL;CZ0610170;Zhejral;Stanovištì;Vrchovištì, rašeliništì a moèály;7140;Pøechodová rašeliništì a tøasovištì
+EVL;CZ0713397;Zlaté Hory - Èerné jezero;Druh;Obojivelníci;;èolek karpatskı (Triturus montandoni)
+EVL;CZ0530504;Zubøí;Stanovištì;Pøirozená a polopøirozená travinatá spoleèenstva;6230;Druhovì bohaté smilkové louky na silikátovıch podloích v horskıch oblastech (a v kontinentální Evropì v podhorskıch oblastech)
+EVL;CZ0610401;ákova hora;Stanovištì;Lesy;9110;Buèiny asociace Luzulo-Fagetum
+EVL;CZ0610401;ákova hora;Stanovištì;Lesy;9130;Buèiny asociace Asperulo-Fagetum
+EVL;CZ0610401;ákova hora;Druh;Mechorosty;;dvouhrotec zelenı (Dicranum viride)
+EVL;CZ0810425;ermanickı lom;Stanovištì;Sladkovodní stanovištì;3140;Tvrdé oligo-mezotrofní vody s bentickou vegetací paronatek
+EVL;CZ0313141;ofina Hu;Druh;Motıli;;modrásek bahenní (Phengaris nausithous)
+EVL;CZ0310605;ofinka;Stanovištì;Lesy;91D0;Rašelinnı les

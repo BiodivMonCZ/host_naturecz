@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.1.2">
+  <diagram name="Stránka-1" id="mv4x69BrsMQS8L-uvYgL">
+    <mxGraphModel dx="786" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c1BNSvU8p5dtVryAta5L-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1BNSvU8p5dtVryAta5L-2" target="c1BNSvU8p5dtVryAta5L-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-2" value="NDOP" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-3" value="PORTÁL ISOP" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1BNSvU8p5dtVryAta5L-4" target="c1BNSvU8p5dtVryAta5L-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-4" value="DATABÁZE MAPOVÁNÍ BIOTOPŮ" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-6" value="VALIDACE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1BNSvU8p5dtVryAta5L-5" target="c1BNSvU8p5dtVryAta5L-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-5" value="MODUL HODNOCENÍ" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-9" value="POHLED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="c1BNSvU8p5dtVryAta5L-7" target="c1BNSvU8p5dtVryAta5L-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c1BNSvU8p5dtVryAta5L-7" value="INTERNÍ DATABÁZE HODNOCENÍ" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,911 @@
+DRUH,ID_IND,KOMPILACE,TYP_IND,LIM_IND,JEDNOTKA,KLIC,UROVEN,pozn,...9,LIM_INDLIST
+Aconitum firmum subsp. moravicum,POP_POCET,dplyr::case_when(,min,50,poèet prýtù,ano,lok,NA,NA,alespoò 50 poèet prýtù
+Aconitum firmum subsp. moravicum,POP_POSKPERC,dplyr::case_when(,max,2,procenta poètu prýtù,ne,lok,NA,NA,nejvýš 2 procenta poètu prýtù
+Aconitum firmum subsp. moravicum,POP_POSKPOC,dplyr::case_when(,max,3,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 3 poèet typù poškození rostlin
+Aconitum firmum subsp. moravicum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Aconitum firmum subsp. moravicum,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,% poèet prýtù,ano,lok,NA,NA,alespoò 30 % poèet prýtù
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %, 50-75 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Aconitum firmum subsp. moravicum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Angelica palustris,POP_POCET,dplyr::case_when(,min,100,poèet prýtù,ano,lok,NA,NA,alespoò 100 poèet prýtù
+Angelica palustris,POP_POSKPERC,dplyr::case_when(,max,1,poèet prýtù,ne,lok,NA,NA,nejvýš 1 poèet prýtù
+Angelica palustris,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Angelica palustris,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Angelica palustris,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,20,% poètu prýtù,ano,lok,NA,NA,alespoò 20 % poètu prýtù
+Angelica palustris,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Angelica palustris,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Asplenium adulterinum,POP_POCET,dplyr::case_when(,min,25,poèet trsù,ano,lok,NA,NA,alespoò 25 poèet trsù
+Asplenium adulterinum,POP_POSKPERC,dplyr::case_when(,max,1,poèet trsù,ne,lok,NA,NA,nejvýš 1 poèet trsù
+Asplenium adulterinum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,"vždy pøechází hodnota ""2"" i když to není pravda. Píše se to i u PøL, kde je 0 anebo 1 poškození",nejvýš 2 poèet typù poškození rostlin
+Asplenium adulterinum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Asplenium adulterinum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Asplenium adulterinum,STA_ZASTINENICELK,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Asplenium adulterinum,STA_ZASTINENICELK,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula bohemica,POP_POCET,dplyr::case_when(,min,100,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 100 kvetoucí a plodné trsy
+Campanula bohemica,POP_POSKPERC,dplyr::case_when(,max,1,poèet jedincù,ne,lok,NA,NA,nejvýš 1 poèet jedincù
+Campanula bohemica,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Campanula bohemica,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Campanula bohemica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Campanula bohemica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Campanula bohemica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Campanula bohemica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula bohemica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula bohemica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula bohemica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula bohemica,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Campanula gelida,POP_POCET,dplyr::case_when(,min,60,poèet trsù,ano,lok,NA,NA,alespoò 60 poèet trsù
+Campanula gelida,POP_POSKPERC,dplyr::case_when(,max,1,poèet jedincù,ne,lok,NA,NA,nejvýš 1 poèet jedincù
+Campanula gelida,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Campanula gelida,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Campanula gelida,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula gelida,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Campanula gelida,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Campanula gelida,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Campanula gelida,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Campanula gelida,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cerastium alsinifolium,POP_PLOCHA,dplyr::case_when(,min,100,dm2,ano,lok,NA,NA,alespoò 100 dm2
+Cerastium alsinifolium,POP_POSKPERC,dplyr::case_when(,max,1,èisté plochy populace,ne,lok,NA,NA,nejvýš 1 èisté plochy populace
+Cerastium alsinifolium,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,"vždy pøechází hodnota ""2"" i když to není pravda. Píše se to i u PøL, kde je 0 anebo 1 poškození",nejvýš 2 poèet typù poškození rostlin
+Cerastium alsinifolium,POP_TREND,sum(,max,1,posledních dvou let s menší plochou než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menší plochou než je referenèní hodnota
+Cerastium alsinifolium,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cerastium alsinifolium,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cerastium alsinifolium,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cerastium alsinifolium,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cerastium alsinifolium,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cerastium alsinifolium,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cerastium alsinifolium,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cerastium alsinifolium,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cerastium alsinifolium,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Cerastium alsinifolium,STA_ZASTINENICELK,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)"")),",val,0,NA,ne,lok,nový parametr,NA,"0, do 25 %"
+Cerastium alsinifolium,STA_ZASTINENICELK,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)"")),",val,do 25 %,NA,ne,lok,nový parametr,NA,"0, do 25 %"
+Cirsium brachycephalum,POP_POCET,dplyr::case_when(,min,100,kvetoucí a plodní jedinci,ano,lok,NA,"nezjištìno = 1, 1 poškození = 2, 2 poškození = 3; tzn. automaticky to vždy pøièítá jedno poškození navíc",alespoò 100 kvetoucí a plodní jedinci
+Cirsium brachycephalum,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných trsù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných trsù
+Cirsium brachycephalum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Cirsium brachycephalum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem kvetoucích a plodných jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem kvetoucích a plodných jedincù než je referenèní hodnota
+Cirsium brachycephalum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Coleanthus subtilis,POP_POCETNOST,max(,min,4,kategorie relativní poèetnosti,ano,lok,NA,NA,alespoò 4 kategorie relativní poèetnosti
+Coleanthus subtilis,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Coleanthus subtilis,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Coleanthus subtilis,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Coleanthus subtilis,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Cypripedium calceolus,POP_POCET,dplyr::case_when(,min,6,trsy,ano,lok,NA,NA,alespoò 6 trsy
+Cypripedium calceolus,POP_POSKPERC,dplyr::case_when(,max,1,kategorie relativní poèetnosti,ne,lok,NA,NA,nejvýš 1 kategorie relativní poèetnosti
+Cypripedium calceolus,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Cypripedium calceolus,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Cypripedium calceolus,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,40,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 40 kvetoucí a plodné trsy
+Cypripedium calceolus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Cypripedium calceolus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cypripedium calceolus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Cypripedium calceolus,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Dianthus arenarius subsp. bohemicus,POP_POCET,dplyr::case_when(,min,5000,trsy,ano,lok,NA,NA,alespoò 5000 trsy
+Dianthus arenarius subsp. bohemicus,POP_POSKPERC,dplyr::case_when(,max,1,poèet trsù,ne,lok,NA,NA,nejvýš 1 poèet trsù
+Dianthus arenarius subsp. bohemicus,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Dianthus arenarius subsp. bohemicus,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Dianthus arenarius subsp. bohemicus,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,NA,ano,lok,NA,NA,alespoò 30 NA
+Dianthus arenarius subsp. bohemicus,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE0,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE0,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE0,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Dianthus arenarius subsp. bohemicus,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Dianthus lumnitzeri,POP_POCET,dplyr::case_when(,min,25,kvetoucích a plodných trsù,ano,lok,NA,NA,alespoò 25 kvetoucích a plodných trsù
+Dianthus lumnitzeri,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných trsù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných trsù
+Dianthus lumnitzeri,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Dianthus lumnitzeri,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Dianthus lumnitzeri,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus lumnitzeri,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Dianthus moravicus,POP_POCET,dplyr::case_when(,min,100,kvetoucích a plodných trsù,ano,lok,NA,NA,alespoò 100 kvetoucích a plodných trsù
+Dianthus moravicus,POP_POSKPERC,dplyr::case_when(,max,1,poèet jedincù,ne,lok,NA,NA,nejvýš 1 poèet jedincù
+Dianthus moravicus,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Dianthus moravicus,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Dianthus moravicus,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Dianthus moravicus,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Dracocephalum austriacum,POP_POCET,dplyr::case_when(,min,25,poèet trsù,ano,lok,NA,NA,alespoò 25 poèet trsù
+Dracocephalum austriacum,POP_POSKPERC,dplyr::case_when(,max,1,poèet trsù,ne,lok,NA,NA,nejvýš 1 poèet trsù
+Dracocephalum austriacum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Dracocephalum austriacum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Dracocephalum austriacum,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,% poèet jedincù,ano,lok,NA,NA,alespoò 30 % poèet jedincù
+Dracocephalum austriacum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Dracocephalum austriacum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Dracocephalum austriacum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Galium sudeticum,POP_PLOCHA,dplyr::case_when(,min,10,dm2,ano,lok,nový parametr,nepøechází do dat (v NDOP to ale je),alespoò 10 dm2
+Galium sudeticum,POP_POSKPERC,dplyr::case_when(,max,1,èisté plochy populace,ne,lok,NA,NA,nejvýš 1 èisté plochy populace
+Galium sudeticum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,neexistuje záznam parametru = 2,nejvýš 2 poèet typù poškození rostlin
+Galium sudeticum,POP_TREND,sum(,max,1,posledních dvou let s menší plochou než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menší plochou než je referenèní hodnota
+Galium sudeticum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Galium sudeticum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Galium sudeticum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Galium sudeticum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Galium sudeticum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Gladiolus palustris,POP_POCET,dplyr::case_when(,min,800,poèet kvetoucích a plodných jedincù,ano,lok,pro EVL Slatinná louka u Velenky,NA,"alespoò 800 poèet kvetoucích a plodných jedincù, alespoò 5 poèet kvetoucích a plodných jedincù"
+Gladiolus palustris,POP_POCET,dplyr::case_when(,min,5,poèet kvetoucích a plodných jedincù,ano,lok,pro ostatní lokality,NA,"alespoò 800 poèet kvetoucích a plodných jedincù, alespoò 5 poèet kvetoucích a plodných jedincù"
+Gladiolus palustris,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných jedincù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných jedincù
+Gladiolus palustris,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Gladiolus palustris,POP_TREND,sum(,min,1,posledních dvou let s vyšším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,alespoò 1 posledních dvou let s vyšším poètem jedincù než je referenèní hodnota
+Gladiolus palustris,STA_POKRDREVNIZ,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRDREVNIZ,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Gladiolus palustris,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Gladiolus palustris,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Gladiolus palustris,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Gladiolus palustris,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Himantoglossum adriaticum,POP_POCET,dplyr::case_when(,min,12,poèet jedincù,ano,lok,NA,NA,alespoò 12 poèet jedincù
+Himantoglossum adriaticum,POP_POSKPERC,dplyr::case_when(,max,1,poèet jedincù,ne,lok,NA,NA,nejvýš 1 poèet jedincù
+Himantoglossum adriaticum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Himantoglossum adriaticum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Himantoglossum adriaticum,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,poètu jedincù,ano,lok,NA,NA,alespoò 30 poètu jedincù
+Himantoglossum adriaticum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Himantoglossum adriaticum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Himantoglossum adriaticum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Himantoglossum adriaticum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Himantoglossum adriaticum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Himantoglossum adriaticum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Himantoglossum adriaticum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Himantoglossum adriaticum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Jurinea cyanoides,POP_POCET,dplyr::case_when(,min,100,poèet prýtù,ano,lok,NA,NA,alespoò 100 poèet prýtù
+Jurinea cyanoides,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných trsù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných trsù
+Jurinea cyanoides,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Jurinea cyanoides,POP_TREND,sum(,max,1,posledních dvou let s menším poètem prýtù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem prýtù než je referenèní hodnota
+Jurinea cyanoides,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 30 kvetoucí a plodné trsy
+Jurinea cyanoides,STA_POKRDREVNIZ,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Jurinea cyanoides,STA_POKRDREVNIZ,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Jurinea cyanoides,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Jurinea cyanoides,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Jurinea cyanoides,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Jurinea cyanoides,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Jurinea cyanoides,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Jurinea cyanoides,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Klasea lycopifolia,POP_POSKPERC,dplyr::case_when(,max,1,poètu prýtù,ne,lok,NA,NA,nejvýš 1 poètu prýtù
+Klasea lycopifolia,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Klasea lycopifolia,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Klasea lycopifolia,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,podíl kvetoucích a plodných prýtù a plochy populace,ano,lok,NA,NA,alespoò 30 podíl kvetoucích a plodných prýtù a plochy populace
+Klasea lycopifolia,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Ligularia sibirica,POP_POCET,dplyr::case_when(,min,150,jedinci,ano,lok,je zde zase potøeba souèet sterilních jedincù a kvetoucích a plodných jedincù,NA,alespoò 150 jedinci
+Ligularia sibirica,POP_POSKPERC,dplyr::case_when(,max,1,procenta poètu jedincù,ne,lok,NA,NA,nejvýš 1 procenta poètu jedincù
+Ligularia sibirica,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Ligularia sibirica,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Ligularia sibirica,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,25,% poèet jedincù,ano,lok,NA,NA,alespoò 25 % poèet jedincù
+Ligularia sibirica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Ligularia sibirica,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Liparis loeselii,POP_POCET,dplyr::case_when(,min,50,jedinci,ano,lok,NA,NA,alespoò 50 jedinci
+Liparis loeselii,POP_POSKPERC,dplyr::case_when(,max,1,kvetoucí a plodní jedinci,ne,lok,NA,NA,nejvýš 1 kvetoucí a plodní jedinci
+Liparis loeselii,POP_POSKPOC,dplyr::case_when(,max,2,poèet poškození,ne,lok,NA,NA,nejvýš 2 poèet poškození
+Liparis loeselii,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Liparis loeselii,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,kvetoucí a plodní jedinci,ano,lok,NA,NA,alespoò 30 kvetoucí a plodní jedinci
+Liparis loeselii,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Liparis loeselii,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Luronium natans,POP_POCET,dplyr::case_when(,min,1000,poèet rùžic,ano,lok,NA,NA,alespoò 1000 poèet rùžic
+Luronium natans,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných trsù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných trsù
+Luronium natans,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Luronium natans,POP_TREND,sum(,max,1,posledních dvou let s menším poètem rùžic než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem rùžic než je referenèní hodnota
+Luronium natans,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Luronium natans,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Luronium natans,STA_STUPENZACH,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<SP_STUPEN_ZACH_STAN>).*(?=</SP_STUPEN_ZACH_STAN>)"")),",val,dobrý,NA,ne,lok,NA,NA,"dobrý, støední"
+Luronium natans,STA_STUPENZACH,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<SP_STUPEN_ZACH_STAN>).*(?=</SP_STUPEN_ZACH_STAN>)"")),",val,støední,NA,ne,lok,NA,NA,"dobrý, støední"
+Minuartia smejkalii,POP_POCET,dplyr::case_when(,min,100,poèet trsù,ano,lok,NA,NA,alespoò 100 poèet trsù
+Minuartia smejkalii,POP_POSKPERC,dplyr::case_when(,max,1,èisté plochy populace,ne,lok,NA,NA,nejvýš 1 èisté plochy populace
+Minuartia smejkalii,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Minuartia smejkalii,POP_TREND,sum(,max,1,posledních dvou let s menším poètem trsù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem trsù než je referenèní hodnota
+Minuartia smejkalii,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,40,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 40 kvetoucí a plodné trsy
+Minuartia smejkalii,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTE0,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)"")),",val,0%,NA,ne,lok,NA,NA,"0%, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTE0,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0%, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Minuartia smejkalii,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Minuartia smejkalii,STA_POKRYVNOSTE2E3,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Minuartia smejkalii,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Minuartia smejkalii,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Pedicularis sudetica,POP_POCET,dplyr::case_when(,min,10,poèet kvetoucích a plodných lodyh,ano,lok,NA,NA,alespoò 10 poèet kvetoucích a plodných lodyh
+Pedicularis sudetica,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných lodyh,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných lodyh
+Pedicularis sudetica,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Pedicularis sudetica,POP_TREND,sum(,max,1,poèet kvetoucích a plodných lodyh,ano,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných lodyh
+Pedicularis sudetica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Pedicularis sudetica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Pedicularis sudetica,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Pedicularis sudetica,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Pedicularis sudetica,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Pedicularis sudetica,STA_POKRYVNOSTE1,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)"")),",val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Pedicularis sudetica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Pedicularis sudetica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Pedicularis sudetica,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Poa riphaea,POP_POCET,dplyr::case_when(,min,150,poèet trsù,ano,lok,NA,NA,alespoò 150 poèet trsù
+Poa riphaea,POP_POSKPERC,dplyr::case_when(,max,1,poètu trsù,ne,lok,NA,NA,nejvýš 1 poètu trsù
+Poa riphaea,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Poa riphaea,POP_TREND,sum(,max,1,posledních dvou let s menším poètem trsù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem trsù než je referenèní hodnota
+Poa riphaea,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,15,poèet stébel\poèet trsù,ano,lok,NA,NA,alespoò 15 poèet stébel\poèet trsù
+Poa riphaea,STA_STUPENZACH,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<SP_STUPEN_ZACH_STAN>).*(?=</SP_STUPEN_ZACH_STAN>)"")),",val,dobrý,NA,ne,lok,NA,NA,"dobrý, støední"
+Poa riphaea,STA_STUPENZACH,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<SP_STUPEN_ZACH_STAN>).*(?=</SP_STUPEN_ZACH_STAN>)"")),",val,støední,NA,ne,lok,NA,NA,"dobrý, støední"
+Pulsatilla grandis,POP_POCET,dplyr::case_when(,min,100,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 100 kvetoucí a plodné trsy
+Pulsatilla grandis,POP_POSKPERC,dplyr::case_when(,max,1,poèet kvetoucích a plodných trsù,ne,lok,NA,NA,nejvýš 1 poèet kvetoucích a plodných trsù
+Pulsatilla grandis,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,"POBLÉM TRVÁ –  u záznamù, kde není parametr sbírán se pøenáší ""2"", kde je parametr sebrán jako ""nezjištìno"", tam se pøenáší ""1"", kde byly sebrány 2 poškození, tam se pøenesly ""3""",nejvýš 2 poèet typù poškození rostlin
+Pulsatilla grandis,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Pulsatilla grandis,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Pulsatilla grandis,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Pulsatilla patens,POP_POCET,dplyr::case_when(,min,70,trsù,ano,lok,NA,NA,alespoò 70 trsù
+Pulsatilla patens,POP_POSKPERC,dplyr::case_when(,max,1,poèet trsù,ne,lok,NA,NA,nejvýš 1 poèet trsù
+Pulsatilla patens,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Pulsatilla patens,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Pulsatilla patens,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,NA,ano,lok,NA,NA,alespoò 30 NA
+Pulsatilla patens,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Pulsatilla patens,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Pulsatilla patens,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Tephroseris longifolia subsp. moravica,POP_POCET,dplyr::case_when(,min,300,jedinci,ano,lok,NA,NA,alespoò 300 jedinci
+Tephroseris longifolia subsp. moravica,POP_POSKPERC,dplyr::case_when(,max,1,poèet prýtù,ne,lok,NA,NA,nejvýš 1 poèet prýtù
+Tephroseris longifolia subsp. moravica,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Tephroseris longifolia subsp. moravica,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Tephroseris longifolia subsp. moravica,POP_VITAL,POP_POCETVITAL/POP_POCET*100) %>%,min,30,% poèet jedincù,ano,lok,NA,NA,alespoò 30 % poèet jedincù
+Tephroseris longifolia subsp. moravica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Tephroseris longifolia subsp. moravica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Tephroseris longifolia subsp. moravica,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %"
+Tephroseris longifolia subsp. moravica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Tephroseris longifolia subsp. moravica,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Tephroseris longifolia subsp. moravica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Tephroseris longifolia subsp. moravica,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Tephroseris longifolia subsp. moravica,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Thesium ebracteatum,POP_POCET,dplyr::case_when(,min,17000,prýty,ano,lok,NA,NA,alespoò 17000 prýty
+Thesium ebracteatum,POP_POSKPERC,dplyr::case_when(,max,1,poèet prýtù,ne,lok,NA,NA,nejvýš 1 poèet prýtù
+Thesium ebracteatum,POP_POSKPOC,dplyr::case_when(,max,2,poèet typù poškození rostlin,ne,lok,NA,"PROBLÉM TRVÁ – vždy pøechází hodnota ""2"" i když to není pravda. Píše se to i u PøL, kde je 0 anebo 1 poškození",nejvýš 2 poèet typù poškození rostlin
+Thesium ebracteatum,POP_TREND,sum(,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Thesium ebracteatum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,0,NA,ne,lok,NA,funguje a funguje i u dalších druhù,"0, do 25 %"
+Thesium ebracteatum,STA_POKRDREV,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Thesium ebracteatum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,0,NA,ne,lok,NA,funguje a funguje i u dalších druhù,"0, do 25 %"
+Thesium ebracteatum,STA_POKRSTAR,"readr::parse_character(stringr::str_extract(STRUKT_POZN, ""(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)"")),",val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Thesium ebracteatum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Thesium ebracteatum,STA_POKRYVNOSTEXPANZNI,readr::parse_character(,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Thesium ebracteatum,STA_POKRYVNOSTINVAZNI,readr::parse_character(,val,0,NA,ne,lok,NA,NA,0
+Phengaris nausithous,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,NA,val,jednotlivì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,NA,val,dominantnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,NA,val,hojnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris nausithous,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Phengaris teleius,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,NA,val,jednotlivì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,NA,val,dominantnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,NA,val,hojnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Phengaris teleius,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Lycaena dispar,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,NA,val,jednotlivì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,NA,val,dominantnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,NA,val,hojnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Lycaena dispar,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Euphydryas aurinia,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Euphydryas aurinia,POP_POCETSUMLOKAL,NA,min,10,hnízda housenek,ano,lok,NA,NA,alespoò 10 hnízda housenek
+Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,NA,val,jednotlivì,kategorie relativní poèetnosti,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,NA,val,dominantnì,kategorie relativní poèetnosti,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,NA,val,hojnì,kategorie relativní poèetnosti,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Euphydryas aurinia,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Euphydryas maturna,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Euphydryas maturna,POP_POCETSUMLOKAL,NA,min,10,hnízda housenek,ano,lok,NA,NA,alespoò 10 hnízda housenek
+Euphydryas maturna,STA_JASANOKOLI,NA,min,jednotlivì,kategorie relativní poèetnosti,ne,lok,NA,NA,alespoò jednotlivì kategorie relativní poèetnosti
+Euphydryas maturna,STA_MIKRPROSTLINA,NA,val,dominantnì,kategorie relativní poèetnosti,ne,lok,NA,NA,dominantnì
+Euphydryas maturna,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Eriogaster catax,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Eriogaster catax,POP_POCETSUMLOKAL,NA,min,10,hnízda housenek,ano,lok,NA,NA,alespoò 10 hnízda housenek
+Eriogaster catax,STA_LIKVIDACE,NA,val,nezaznamenána,NA,ne,lok,NA,NA,nezaznamenána
+Euplagia quadripunctaria,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,NA,val,jednotlivì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,NA,val,dominantnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,NA,val,hojnì,NA,ne,lok,NA,NA,"jednotlivì, dominantnì, hojnì"
+Cucujus cinnaberinus,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Cucujus cinnaberinus,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Cucujus cinnaberinus,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Lucanus cervus,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Lucanus cervus,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Lucanus cervus,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Osmoderma barnabita,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Osmoderma barnabita,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Osmoderma barnabita,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Rhysodes sulcatus,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Rhysodes sulcatus,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Rhysodes sulcatus,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Rosalia alpina,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Rosalia alpina,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Rosalia alpina,STA_SKLADREVO,NA,val,ne,NA,ne,lok,NA,NA,ne
+Rosalia alpina,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Cerambyx cerdo,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Cerambyx cerdo,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Cerambyx cerdo,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Leucorrhinia pectoralis,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Leucorrhinia pectoralis,STA_POKRYVNOSTDREVIN,NA,min,5,%,ne,lok,NA,NA,alespoò 5 %
+Leucorrhinia pectoralis,STA_ZAZEMNENI,NA,max,60,%,ne,lok,NA,NA,nejvýš 60 %
+Ophiogomphus cecilia,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Ophiogomphus cecilia,STA_POKRYVNOSTDREVIN,NA,max,50,%,ne,lok,NA,NA,nejvýš 50 %
+Ophiogomphus cecilia,STA_ZAZEMNENI,NA,val,ménì než 10 %,NA,ne,lok,NA,NA,ménì než 10 %
+Osmoderma barnabita,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Osmoderma barnabita,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Osmoderma barnabita,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Limoniscus violaceus,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Limoniscus violaceus,STA_VHSTROMN,NA,val,ano,NA,ne,lok,NA,NA,ano
+Limoniscus violaceus,STA_VHSTROMK,NA,val,ano,NA,ne,lok,NA,NA,ano
+Bolbelamus unicornis,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Carabus menetriesi pacholei,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Carabus variolosus,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Carabus variolosus,STA_MRTDREVO,NA,val,jednotlivé kmeny,stupnice relativní škály,ano,lok,NA,NA,"jednotlivé kmeny, hojnì"
+Carabus variolosus,STA_MRTDREVO,NA,val,hojnì,stupnice relativní škály,ano,lok,NA,NA,"jednotlivé kmeny, hojnì"
+Carabus variolosus,STA_TEKVODA,NA,val,ano,ano/ne,ano,lok,NA,NA,ano
+Graphoderus bilineatus,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Graphoderus bilineatus,STA_LITVEGET,NA,min,70,procento pokryvnosti litorální vegetace,ano,lok,NA,NA,alespoò 70 procento pokryvnosti litorální vegetace
+Graphoderus bilineatus,STA_SIRKALIT,NA,min,3,metry,ano,lok,NA,NA,alespoò 3 metry
+Graphoderus bilineatus,STA_ZASTIN,NA,val,ano,stupnice relativní škály,ano,lok,NA,NA,ano
+Bombina bombina,POP_PRESENCE,NA,val,ano,NA,ano,lok,NA,NA,ano
+Bombina bombina,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Bombina variegata,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Epidea calamita,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Lissotriton montandoni,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Triturus cristatus,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Triturus carnifex,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Triturus dobrogicus,POP_ZMENA_RAD,NA,max,-1,NA,ano,lok,NA,NA,nejvýš -1 NA
+Bombina bombina,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Bombina variegata,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Epidea calamita,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Lissotriton montandoni,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Triturus cristatus,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Triturus carnifex,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Triturus dobrogicus,STA_ZTRATABIO,NA,val,ne,zaznamenána ztráta vodních biotopù,ne,lok,NA,NA,ne
+Bombina bombina,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Bombina variegata,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Epidea calamita,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Lissotriton montandoni,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Triturus cristatus,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Triturus carnifex,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Triturus dobrogicus,STA_RYBY,NA,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok,NA,NA,ne
+Bombina bombina,STA_MANIPULACE,NA,val,ne,NA,ne,lok,NA,NA,ne
+Lissotriton montandoni,STA_MANIPULACE,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus cristatus,STA_MANIPULACE,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus carnifex,STA_MANIPULACE,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus dobrogicus,STA_MANIPULACE,NA,val,ne,NA,ne,lok,NA,NA,ne
+Bombina bombina,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina bombina,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina bombina,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina bombina,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina variegata,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina variegata,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina variegata,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina variegata,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Epidea calamita,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Epidea calamita,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Epidea calamita,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Epidea calamita,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Lissotriton montandoni,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Lissotriton montandoni,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Lissotriton montandoni,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Lissotriton montandoni,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus cristatus,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus cristatus,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus cristatus,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus cristatus,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus carnifex,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus carnifex,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus carnifex,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus carnifex,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus dobrogicus,STA_VYSYCHANI,NA,val,26-50 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus dobrogicus,STA_VYSYCHANI,NA,val,51-75 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus dobrogicus,STA_VYSYCHANI,NA,val,76-100 %,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Triturus dobrogicus,STA_VYSYCHANI,NA,min,25,NA,ne,lok,NA,NA,"26-50 %, 51-75 %, 76-100 %, alespoò 25 NA"
+Bombina bombina,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Bombina variegata,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Epidea calamita,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Lissotriton montandoni,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Triturus cristatus,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Triturus carnifex,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Triturus dobrogicus,STA_VYSYCHANIPERIOD3,NA,max,2,NA,ne,lok,NA,NA,nejvýš 2 NA
+Bombina variegata,STA_POKRVEGETACE,NA,val,0,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,val,0-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,val,1-10 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,val,11-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,val,26-50 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,val,1-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Bombina variegata,STA_POKRVEGETACE,NA,max,50,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,0,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,0-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,1-10 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,11-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,26-50 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,val,1-25 %,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Epidea calamita,STA_POKRVEGETACE,NA,max,50,NA,ne,lok,NA,NA,"0, 0-25 %, 1-10 %, 11-25 %, 26-50 %, 1-25 %, nejvýš 50 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,val,1-10 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,val,11-25 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,val,26-50 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,val,51-75 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,min,1,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus cristatus,STA_POKRVEGETACE,NA,max,75,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,val,1-10 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,val,11-25 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,val,26-50 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,val,51-75 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,min,1,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus carnifex,STA_POKRVEGETACE,NA,max,75,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,val,1-10 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,val,11-25 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,val,26-50 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,val,51-75 %,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,min,1,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Triturus dobrogicus,STA_POKRVEGETACE,NA,max,75,NA,ne,lok,NA,NA,"1-10 %, 11-25 %, 26-50 %, 51-75 %, alespoò 1 NA, nejvýš 75 NA"
+Bombina bombina,STA_PRUHLEDNOSTVODA,NA,val,až na dno,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Bombina bombina,STA_PRUHLEDNOSTVODA,NA,val,nad 50 cm,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Bombina bombina,STA_PRUHLEDNOSTVODA,NA,min,50,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus cristatus,STA_PRUHLEDNOSTVODA,NA,val,až na dno,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus cristatus,STA_PRUHLEDNOSTVODA,NA,val,nad 50 cm,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus cristatus,STA_PRUHLEDNOSTVODA,NA,min,50,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus carnifex,STA_PRUHLEDNOSTVODA,NA,val,až na dno,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus carnifex,STA_PRUHLEDNOSTVODA,NA,val,nad 50 cm,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus carnifex,STA_PRUHLEDNOSTVODA,NA,min,50,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,NA,val,až na dno,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,NA,val,nad 50 cm,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,NA,min,50,NA,ne,lok,NA,NA,"až na dno, nad 50 cm, alespoò 50 NA"
+Bombina bombina,STA_ZASTINENIHLADINA,NA,val,0-25 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina bombina,STA_ZASTINENIHLADINA,NA,val,26-50 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina bombina,STA_ZASTINENIHLADINA,NA,val,51-75 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina bombina,STA_ZASTINENIHLADINA,NA,max,75,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina variegata,STA_ZASTINENIHLADINA,NA,val,0-25 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina variegata,STA_ZASTINENIHLADINA,NA,val,26-50 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina variegata,STA_ZASTINENIHLADINA,NA,val,51-75 %,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina variegata,STA_ZASTINENIHLADINA,NA,max,75,NA,ne,lok,NA,NA,"0-25 %, 26-50 %, 51-75 %, nejvýš 75 NA"
+Bombina bombina,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Bombina variegata,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Epidea calamita,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Lissotriton montandoni,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus cristatus,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus carnifex,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Triturus dobrogicus,STA_UHYNOBOJZIVELNIK,NA,val,ne,NA,ne,lok,NA,NA,ne
+Myotis myotis,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Myotis myotis,POP_PRESENCELET,NA,val,ano,pøítomnost druhu v letní kolonii,ano,lok,NA,NA,ano
+Myotis myotis,POP_PRESENCEZIM,NA,val,ano,pøítomnost druhu na zimovišti,ano,lok,NA,NA,ano
+Myotis myotis,POP_REPROVAL,NA,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok,NA,NA,alespoò 1.5 podíl letní abundance II. k letní abundanci I.
+Myotis myotis,POP_DIFLET,NA,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl letní abundance k referenèní letní abundanci
+Myotis myotis,POP_DIFZIM,NA,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl zimní abundance k referenèní zimní abundanci
+Rhinolophus hipposideros,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Rhinolophus hipposideros,POP_PRESENCELET,NA,val,ano,pøítomnost druhu v letní kolonii,ano,lok,NA,NA,ano
+Rhinolophus hipposideros,POP_PRESENCEZIM,NA,val,ano,pøítomnost druhu na zimovišti,ano,lok,NA,NA,ano
+Rhinolophus hipposideros,POP_REPROVAL,NA,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok,NA,NA,alespoò 1.5 podíl letní abundance II. k letní abundanci I.
+Rhinolophus hipposideros,POP_DIFLET,NA,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl letní abundance k referenèní letní abundanci
+Rhinolophus hipposideros,POP_DIFZIM,NA,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl zimní abundance k referenèní zimní abundanci
+Barbastella barbastellus,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Barbastella barbastellus,POP_PRESENCELET,NA,val,ano,pøítomnost druhu v letní kolonii,ano,lok,NA,NA,ano
+Barbastella barbastellus,POP_PRESENCEZIM,NA,val,ano,pøítomnost druhu na zimovišti,ano,lok,NA,NA,ano
+Barbastella barbastellus,POP_REPROVAL,NA,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok,NA,NA,alespoò 1.5 podíl letní abundance II. k letní abundanci I.
+Barbastella barbastellus,POP_DIFLET,NA,min,0.67,podíl letní abundance k referenèní letní abundanci,ano,lok,NA,NA,alespoò 0.67 podíl letní abundance k referenèní letní abundanci
+Barbastella barbastellus,POP_DIFZIM,NA,min,0.67,podíl zimní abundance k referenèní zimní abundanci,ano,lok,NA,NA,alespoò 0.67 podíl zimní abundance k referenèní zimní abundanci
+Myotis emarginatus,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Myotis emarginatus,POP_PRESENCELET,NA,val,ano,pøítomnost druhu v letní kolonii,ano,lok,NA,NA,ano
+Myotis emarginatus,POP_PRESENCEZIM,NA,val,ano,pøítomnost druhu na zimovišti,ano,lok,NA,NA,ano
+Myotis emarginatus,POP_REPROVAL,NA,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok,NA,NA,alespoò 1.5 podíl letní abundance II. k letní abundanci I.
+Myotis emarginatus,POP_DIFLET,NA,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl letní abundance k referenèní letní abundanci
+Myotis emarginatus,POP_DIFZIM,NA,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl zimní abundance k referenèní zimní abundanci
+Myotis bechsteinii,POP_PRESENCE,NA,val,ano,pøítomnost druhu,ano,lok,NA,NA,ano
+Myotis bechsteinii,POP_PRESENCELET,NA,val,ano,pøítomnost druhu v letní kolonii,ano,lok,NA,NA,ano
+Myotis bechsteinii,POP_PRESENCEZIM,NA,val,ano,pøítomnost druhu na zimovišti,ano,lok,NA,NA,ano
+Myotis bechsteinii,POP_REPROVAL,NA,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok,NA,NA,alespoò 1.5 podíl letní abundance II. k letní abundanci I.
+Myotis bechsteinii,POP_DIFLET,NA,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl letní abundance k referenèní letní abundanci
+Myotis bechsteinii,POP_DIFZIM,NA,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok,NA,NA,alespoò 0.5 podíl zimní abundance k referenèní zimní abundanci
+Liparis loeselii,STA_POKRRAKOS,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Liparis loeselii,STA_POKRRAKOS,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Liparis loeselii,STA_POKRRAKOS,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Liparis loeselii,STA_POKRRAKOS,NA,val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Liparis loeselii,STA_HYDROPOMERY,NA,val,dobré,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Liparis loeselii,STA_HYDROPOMERY,NA,val,zhoršené,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Coleanthus subtilis,POP_REPROUSP,NA,val,0%,NA,ano,lok,NA,NA,"0%, do 10 %, 11-50 %"
+Coleanthus subtilis,POP_REPROUSP,NA,val,do 10 %,NA,ano,lok,NA,NA,"0%, do 10 %, 11-50 %"
+Coleanthus subtilis,POP_REPROUSP,NA,val,11-50 %,NA,ano,lok,NA,NA,"0%, do 10 %, 11-50 %"
+Coleanthus subtilis,STA_POKRDNO,NA,val,51-100 %,NA,ne,lok,NA,NA,51-100 %
+Gentianella praecox subsp. bohemica,POP_POCET,NA,min,25,kvetoucí a plodní jedinci,ano,lok,NA,NA,alespoò 25 kvetoucí a plodní jedinci
+Gentianella praecox subsp. bohemica,POP_TREND,NA,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Gentianella praecox subsp. bohemica,STA_STUPENZACH,NA,val,dobrý,NA,ne,lok,NA,NA,"dobrý, støední"
+Gentianella praecox subsp. bohemica,STA_STUPENZACH,NA,val,støední,NA,ne,lok,NA,NA,"dobrý, støední"
+Gentianella praecox subsp. bohemica,STA_ZAPOJENICELK,NA,val,øídký nezapojený,NA,ne,lok,NA,NA,"øídký nezapojený, støednì zapojený"
+Gentianella praecox subsp. bohemica,STA_ZAPOJENICELK,NA,val,støednì zapojený,NA,ne,lok,NA,NA,"øídký nezapojený, støednì zapojený"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE1,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE1,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE1,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE1,NA,val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE0,NA,val,0%,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE0,NA,val,do 5 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTE0,NA,val,5-25 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTINVAZNI,NA,val,0%,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTINVAZNI,NA,val,do 5 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTINVAZNI,NA,val,5-25 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTEXPANZNI,NA,val,0%,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTEXPANZNI,NA,val,do 5 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,STA_POKRYVNOSTEXPANZNI,NA,val,5-25 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Gentianella praecox subsp. bohemica,POP_POSKPERC,NA,max,1,jedinci,ne,lok,NA,NA,nejvýš 1 jedinci
+Adenophora liliifolia,POP_TREND,NA,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Adenophora liliifolia,POP_VITAL,NA,min,20,kvetoucí a plodné trsy,ano,lok,NA,NA,alespoò 20 kvetoucí a plodné trsy
+Adenophora liliifolia,POP_POCET,NA,min,80,trsù,ano,lok,NA,NA,alespoò 80 trsù
+Adenophora liliifolia,STA_POKRSTAR,NA,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRSTAR,NA,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRSTAR,NA,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRYVNOSTINVAZNI,NA,val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Adenophora liliifolia,STA_POKRYVNOSTINVAZNI,NA,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Adenophora liliifolia,STA_POKRYVNOSTEXPANZNI,NA,val,0%,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRYVNOSTEXPANZNI,NA,val,do 5 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRYVNOSTEXPANZNI,NA,val,5-25 %,NA,ne,lok,NA,NA,"0%, do 5 %, 5-25 %"
+Adenophora liliifolia,STA_POKRYVNOSTE2E3,NA,val,0,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Adenophora liliifolia,STA_POKRYVNOSTE2E3,NA,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Adenophora liliifolia,STA_POKRYVNOSTE2E3,NA,val,5-25 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Adenophora liliifolia,STA_POKRYVNOSTE2E3,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 5 %, 5-25 %, 25-50 %"
+Adenophora liliifolia,POP_POSKPERC,NA,max,2,poèet lodyh,ne,lok,"limit byl do metodiky zmìnìn z 25 na 50 %, což nám sedí do chlívku.",NA,nejvýš 2 poèet lodyh
+Dianthus arenarius subsp. bohemicus,STA_POKRPUDA,NA,val,5-25 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100"
+Dianthus arenarius subsp. bohemicus,STA_POKRPUDA,NA,val,25-50 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100"
+Dianthus arenarius subsp. bohemicus,STA_POKRPUDA,NA,val,50-75 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100"
+Dianthus arenarius subsp. bohemicus,STA_POKRPUDA,NA,val,75-100,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100"
+Pulsatilla patens,STA_POKRPUDA,NA,val,5-25 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100 %"
+Pulsatilla patens,STA_POKRPUDA,NA,val,25-50 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100 %"
+Pulsatilla patens,STA_POKRPUDA,NA,val,50-75 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100 %"
+Pulsatilla patens,STA_POKRPUDA,NA,val,75-100 %,NA,ne,lok,NA,NA,"5-25 %, 25-50 %, 50-75 %, 75-100 %"
+Ligularia sibirica,STA_POKRRAKOS,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Ligularia sibirica,STA_POKRRAKOS,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Ligularia sibirica,STA_POKRRAKOS,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Ligularia sibirica,STA_POKRRAKOS,NA,val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Ligularia sibirica,STA_HYDROPOMERY,NA,val,dobré,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Ligularia sibirica,STA_HYDROPOMERY,NA,val,zhoršené,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Aconitum firmum subsp. moravicum,STA_HYDROPOMERY,NA,val,dobré,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Aconitum firmum subsp. moravicum,STA_HYDROPOMERY,NA,val,zhoršené,NA,ne,lok,NA,NA,"dobré, zhoršené"
+Cirsium brachycephalum,STA_POKRVOLPUD,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Cirsium brachycephalum,STA_POKRVOLPUD,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,POP_POCET,NA,min,25,poèet jedincù,ano,lok,NA,NA,alespoò 25 poèet jedincù
+Echium maculatum,POP_TREND,NA,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem jedincù než je referenèní hodnota
+Echium maculatum,POP_POSKPOC,NA,max,2,poèet typù poškození rostlin,ne,lok,NA,"nezjištìno = 1, neexistuje záznam parametru = 2",nejvýš 2 poèet typù poškození rostlin
+Echium maculatum,POP_POSKPERC,NA,max,1,poèet jedincù,ne,lok,NA,NA,nejvýš 1 poèet jedincù
+Echium maculatum,STA_POKRSTAR,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,STA_POKRSTAR,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,STA_POKRDREV,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,STA_POKRDREV,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,STA_POKRYVNOSTINVAZNI,NA,val,0,NA,ne,lok,NA,NA,0
+Echium maculatum,STA_POKRYVNOSTEXPANZNI,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Echium maculatum,STA_POKRYVNOSTEXPANZNI,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,POP_POCET,NA,min,150,poèet prýtù,ano,lok,NA,NA,alespoò 150 poèet prýtù
+Iris humilis subsp. arenaria,POP_TREND,NA,max,1,posledních dvou let s menším poètem prýtù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem prýtù než je referenèní hodnota
+Iris humilis subsp. arenaria,POP_POSKPOC,NA,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Iris humilis subsp. arenaria,POP_POSKPERC,NA,max,1,poètu prýtù,ne,lok,NA,NA,nejvýš 1 poètu prýtù
+Iris humilis subsp. arenaria,STA_POKRDREV,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,STA_POKRDREV,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,STA_POKRSTAR,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,STA_POKRSTAR,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTE1,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTE1,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTE1,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTE1,NA,val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTINVAZNI,NA,val,0,NA,ne,lok,NA,NA,0
+Iris humilis subsp. arenaria,STA_POKRYVNOSTEXPANZNI,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Iris humilis subsp. arenaria,STA_POKRYVNOSTEXPANZNI,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Jurinea cyanoides,STA_POKRVOLPUD,NA,val,0,NA,ne,lok,NA,NA,"0, do 5 %"
+Jurinea cyanoides,STA_POKRVOLPUD,NA,val,do 5 %,NA,ne,lok,NA,NA,"0, do 5 %"
+Luronium natans,STA_POC_OST_NATASUB_DRH,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Luronium natans,STA_POC_OST_NATASUB_DRH,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Klasea lycopifolia,POP_POPULACE,NA,min,100,m2,ano,lok,nový parametr,nepøechází do dat (v NDOP to ale je),alespoò 100 m2
+Stipa zalesskii,POP_POCET,NA,min,25,poèet trsù,ano,lok,NA,NA,alespoò 25 poèet trsù
+Stipa zalesskii,POP_TREND,NA,max,1,posledních dvou let s menším poètem trsù než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menším poètem trsù než je referenèní hodnota
+Stipa zalesskii,POP_POSKPOC,NA,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Stipa zalesskii,POP_POSKPERC,NA,max,1,poètu trsù,ne,lok,NA,NA,nejvýš 1 poètu trsù
+Stipa zalesskii,STA_POKRSTAR,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Stipa zalesskii,STA_POKRSTAR,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Stipa zalesskii,STA_POKRYVNOSTE1,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Stipa zalesskii,STA_POKRYVNOSTE1,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Stipa zalesskii,STA_POKRYVNOSTE1,NA,val,25-50 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Stipa zalesskii,STA_POKRYVNOSTE1,NA,val,50-75 %,NA,ne,lok,NA,NA,"0, do 25 %, 25-50 %, 50-75 %"
+Stipa zalesskii,STA_POKRYVNOSTE2E3,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Stipa zalesskii,STA_POKRYVNOSTE2E3,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Stipa zalesskii,STA_POKRYVNOSTINVAZNI,NA,val,0,NA,ne,lok,NA,NA,0
+Stipa zalesskii,STA_POKRYVNOSTEXPANZNI,NA,val,0,NA,ne,lok,NA,NA,"0, do 25 %"
+Stipa zalesskii,STA_POKRYVNOSTEXPANZNI,NA,val,do 25 %,NA,ne,lok,NA,NA,"0, do 25 %"
+Trichomanes speciosum,POP_PLOCHA,NA,min,10,cm2,ano,lok,NA,NA,alespoò 10 cm2
+Trichomanes speciosum,POP_TREND,NA,max,1,posledních dvou let s menší hodnotou èisté populace než je referenèní hodnota,ano,lok,NA,NA,nejvýš 1 posledních dvou let s menší hodnotou èisté populace než je referenèní hodnota
+Trichomanes speciosum,POP_POSKPOC,NA,max,2,poèet typù poškození rostlin,ne,lok,NA,NA,nejvýš 2 poèet typù poškození rostlin
+Trichomanes speciosum,POP_POSKPERC,NA,max,1,èisté plochy populace,ne,lok,NA,NA,nejvýš 1 èisté plochy populace
+Trichomanes speciosum,STA_STUPENZACH,NA,val,dobrý,NA,ne,lok,NA,NA,"dobrý, støední"
+Trichomanes speciosum,STA_STUPENZACH,NA,val,støední,NA,ne,lok,NA,NA,"dobrý, støední"
+Trichomanes speciosum,STA_VLHPOM,NA,val,dobré,NA,ne,lok,nový parametr,nepøechází do dat (v NDOP to ale je),"dobré, støední"
+Trichomanes speciosum,STA_VLHPOM,NA,val,støední,NA,ne,lok,nový parametr,nepøechází do dat (v NDOP to ale je),"dobré, støední"
+Cobitis elangotoides,POP_DYN,NA,max,50,NA,ano,lok,NA,NA,nejvýš 50 NA
+Cobitis elangotoides,POP_VITALITA,NA,val,2,NA,ano,lok,NA,NA,2
+Cobitis elangotoides,STA_DNOPOCETTYPU,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Cobitis elangotoides,STA_DNOTYP,NA,val,bahno,NA,ne,lok,NA,NA,"bahno, písek"
+Cobitis elangotoides,STA_DNOTYP,NA,val,písek,NA,ne,lok,NA,NA,"bahno, písek"
+Cobitis elangotoides,STA_POCETTYPU,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Cobitis elangotoides,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, tùnì"
+Cobitis elangotoides,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, tùnì"
+Cobitis elangotoides,STA_VEGETACE,NA,val,submerzní,NA,ne,lok,NA,NA,submerzní
+Cottus gobio,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Cottus gobio,POP_VITALITA,NA,val,3,NA,ano,lok,NA,NA,3
+Cottus gobio,STA_DNO,NA,val,balvany,NA,ne,lok,NA,NA,"balvany, kameny, štìrk"
+Cottus gobio,STA_DNO,NA,val,kameny,NA,ne,lok,NA,NA,"balvany, kameny, štìrk"
+Cottus gobio,STA_DNO,NA,val,štìrk,NA,ne,lok,NA,NA,"balvany, kameny, štìrk"
+Cottus gobio,STA_DNOPOCET,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Cottus gobio,STA_DNOPREF,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Cottus gobio,STA_DNOPREF,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Cottus gobio,STA_DNOPREF,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Cottus gobio,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Cottus gobio,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Cottus gobio,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Cottus gobio,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Cottus gobio,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Eudontomyzon mariae,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Eudontomyzon mariae,POP_VITALITA,NA,val,3,kategorie,ano,lok,NA,NA,3
+Eudontomyzon mariae,STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV,NA,min,10,m2,ne,lok,NA,NA,alespoò 10 m2
+Eudontomyzon mariae,STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI,NA,min,10,m2,ne,lok,NA,NA,alespoò 10 m2
+Gymnocephalus baloni,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Gymnocephalus baloni,STA_DNOPOCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Gymnocephalus baloni,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Gymnocephalus baloni,STA_DNOTYP,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Gymnocephalus baloni,STA_DNOTYP,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Gymnocephalus baloni,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje"
+Gymnocephalus baloni,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje"
+Gymnocephalus baloni,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Gymnocephalus baloni,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Gymnocephalus baloni,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Gymnocephalus baloni,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Gymnocephalus baloni,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Gymnocephalus schraetser,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Gymnocephalus schraetser,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,kameny
+Gymnocephalus schraetser,STA_POCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Gymnocephalus schraetser,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Gymnocephalus schraetser,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Gymnocephalus schraetser,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Gymnocephalus schraetser,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Gymnocephalus schraetser,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Gymnocephalus schraetser,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Gymnocephalus schraetser,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Lampetra planeri,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Lampetra planeri,POP_VITALITA,NA,min,3,kategorie,ano,lok,NA,NA,alespoò 3 kategorie
+Lampetra planeri,STA_DNOTYP,NA,val,kompaktní jílové dno,NA,ne,lok,NA,NA,kompaktní jílové dno
+Lampetra planeri,STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV,NA,val,10,m2,ne,lok,NA,NA,10
+Lampetra planeri,STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI,NA,val,10,m2,ne,lok,NA,NA,10
+Leuciscus aspius,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Leuciscus aspius,POP_VITALITA,NA,min,1,jedinec tohoroèní,ano,lok,NA,NA,alespoò 1 jedinec tohoroèní
+Leuciscus aspius,STA_DNOPOCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Leuciscus aspius,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, štìrk"
+Leuciscus aspius,STA_DNOTYP,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, štìrk"
+Leuciscus aspius,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Leuciscus aspius,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Leuciscus aspius,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Leuciscus aspius,STA_PROUDPOCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Leuciscus aspius,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Leuciscus aspius,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Leuciscus aspius,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Leuciscus aspius,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Misgurnus fossilis,DNO_POCETTYPU,NA,min,2,NA,NA,lok,NA,NA,alespoò 2 NA
+Misgurnus fossilis,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Misgurnus fossilis,POP_VITALITA,NA,min,3,kategorie,ano,lok,NA,NA,alespoò 3 kategorie
+Misgurnus fossilis,STA_DNO,NA,val,bahno,NA,ne,lok,NA,NA,"bahno, písek"
+Misgurnus fossilis,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"bahno, písek"
+Misgurnus fossilis,STA_PROUD,NA,val,kaskády,NA,ne,lok,NA,NA,"kaskády, mírný, peøeje, tùnì"
+Misgurnus fossilis,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"kaskády, mírný, peøeje, tùnì"
+Misgurnus fossilis,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"kaskády, mírný, peøeje, tùnì"
+Misgurnus fossilis,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"kaskády, mírný, peøeje, tùnì"
+Misgurnus fossilis,STA_VEGETACE,NA,val,submerzní,NA,ne,lok,NA,NA,submerzní
+Pelecus cultratus,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Pelecus cultratus,STA_DNOPOCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Pelecus cultratus,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Pelecus cultratus,STA_DNOTYP,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Pelecus cultratus,STA_DNOTYP,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Pelecus cultratus,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, tùnì"
+Pelecus cultratus,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, tùnì"
+Pelecus cultratus,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Pelecus cultratus,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Pelecus cultratus,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Pelecus cultratus,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Pelecus cultratus,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Rhodeus amarus,POP_DYN,NA,max,50,%,ano,lok,NA,NA,nejvýš 50 %
+Rhodeus amarus,POP_VITALITA,NA,min,2,kategorie,ano,lok,NA,NA,alespoò 2 kategorie
+Rhodeus amarus,STA_DALSIPARAMETRY,NA,val,anodonta,NA,ne,lok,NA,NA,anodonta
+Rhodeus amarus,STA_DNO,NA,val,bahno,NA,ne,lok,NA,NA,"bahno, písek"
+Rhodeus amarus,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"bahno, písek"
+Rhodeus amarus,STA_DNOPOCETTYPU,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Rhodeus amarus,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, tùnì, vysoká"
+Rhodeus amarus,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, tùnì, vysoká"
+Rhodeus amarus,STA_PROUD,NA,val,vysoká,NA,ne,lok,NA,NA,"mírný, tùnì, vysoká"
+Rhodeus amarus,STA_PROUDPOCETTYPU,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Rhodeus amarus,STA_VEGETACE,NA,val,submerzní,NA,ne,lok,NA,NA,submerzní
+Romanogobio albipinatus,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Romanogobio albipinatus,STA_DNO,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio albipinatus,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio albipinatus,STA_DNO,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio albipinatus,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Romanogobio albipinatus,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje"
+Romanogobio albipinatus,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje"
+Romanogobio albipinatus,STA_PROUDPOCETTYPU,NA,val,2,NA,ne,lok,NA,NA,2
+Romanogobio albipinatus,STA_TRASATOKU,NA,val,umìle napøímený,NA,ne,lok,NA,NA,umìle napøímený
+Romanogobio albipinatus,STA_UPRAVABREHU,NA,min,49,%,ne,lok,NA,NA,alespoò 49 %
+Romanogobio albipinatus,STA_UPRAVADNA,NA,min,49,%,ne,lok,NA,NA,alespoò 49 %
+Romanogobio albipinatus,STA_VARIABILITAHLOUBEK,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, støední, vysoká"
+Romanogobio albipinatus,STA_VARIABILITAHLOUBEK,NA,val,støední,NA,ne,lok,NA,NA,"mírný, støední, vysoká"
+Romanogobio albipinatus,STA_VARIABILITAHLOUBEK,NA,val,vysoká,NA,ne,lok,NA,NA,"mírný, støední, vysoká"
+Romanogobio albipinatus,STA_VARIABILITAHLOUBEKPOCET,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Romanogobio albipinatus,STA_ZAHLOUBENIKORYTA,NA,val,pøirozenì nízký,NA,ne,lok,NA,NA,pøirozenì nízký
+Romanogobio kessleri,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Romanogobio kessleri,STA_DNO,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio kessleri,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio kessleri,STA_DNO,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Romanogobio kessleri,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Romanogobio kessleri,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Romanogobio kessleri,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Romanogobio kessleri,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Romanogobio kessleri,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Romanogobio kessleri,STA_VARIABILITAHLOUBEK,NA,val,støední,NA,ne,lok,NA,NA,"støední, vysoká"
+Romanogobio kessleri,STA_VARIABILITAHLOUBEK,NA,val,vysoká,NA,ne,lok,NA,NA,"støední, vysoká"
+Romanogobio kessleri,STA_VARIABILITAHLOUBEKPOCET,NA,min,1,NA,ne,lok,NA,NA,alespoò 1 NA
+Sabanejewia balcanica,POP_DYN,NA,min,50,%,ano,lok,NA,NA,alespoò 50 %
+Sabanejewia balcanica,POP_VITALITA,NA,min,1,jedinec tohoroèní,ano,lok,NA,NA,alespoò 1 jedinec tohoroèní
+Sabanejewia balcanica,STA_DNO,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Sabanejewia balcanica,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Sabanejewia balcanica,STA_DNO,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Sabanejewia balcanica,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Sabanejewia balcanica,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Sabanejewia balcanica,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Sabanejewia balcanica,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Sabanejewia balcanica,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Sabanejewia balcanica,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Sabanejewia balcanica,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Sabanejewia balcanica,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Sabanejewia balcanica,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Salmo salar,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Salmo salar,STA_DNOTYP,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Salmo salar,STA_DNOTYP,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Salmo salar,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Zingel streber,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Zingel streber,STA_DNOTYP,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, štìrk"
+Zingel streber,STA_DNOTYP,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, štìrk"
+Zingel streber,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Zingel streber,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel streber,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel streber,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel streber,STA_PROUDPOCETTYPU,NA,min,3,NA,ne,lok,NA,NA,alespoò 3 NA
+Zingel streber,STA_TRASATOKU,NA,neg,umìle napøímený,NA,ne,lok,NA,NA,
+Zingel streber,STA_UPRAVABREHU,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Zingel streber,STA_UPRAVADNA,NA,max,49,%,ne,lok,NA,NA,nejvýš 49 %
+Zingel streber,STA_VARIABILITAHLOUBEK,NA,neg,antropogenní nízká,NA,ne,lok,NA,NA,
+Zingel zingel,POP_PRESENCE,NA,min,1,jedinec,ano,lok,NA,NA,alespoò 1 jedinec
+Zingel zingel,STA_DNO,NA,val,kameny,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Zingel zingel,STA_DNO,NA,val,písek,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Zingel zingel,STA_DNO,NA,val,štìrk,NA,ne,lok,NA,NA,"kameny, písek, štìrk"
+Zingel zingel,STA_DNOTYPSOUCETPROCENT,NA,min,50,%,ne,lok,NA,NA,alespoò 50 %
+Zingel zingel,STA_PROUD,NA,val,mírný,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel zingel,STA_PROUD,NA,val,peøeje,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel zingel,STA_PROUD,NA,val,tùnì,NA,ne,lok,NA,NA,"mírný, peøeje, tùnì"
+Zingel zingel,STA_PROUDPOCETTYPU,NA,min,2,NA,ne,lok,NA,NA,alespoò 2 NA
+Leuciscus aspius,STA_MIGBARVYS,NA,max,30,cm,ne,lok,NA,NA,nejvýš 30 cm
+Cobitis elongatoides,STA_MIGBARVYS,NA,max,10,cm,ne,lok,NA,NA,nejvýš 10 cm
+Sabanejewia balcanica,STA_MIGBARVYS,NA,max,10,cm,ne,lok,NA,NA,nejvýš 10 cm
+Misgurnus fossilis,STA_MIGBARVYS,NA,max,10,cm,ne,lok,NA,NA,nejvýš 10 cm
+Rhodeus amarus,STA_MIGBARVYS,NA,max,5,cm,ne,lok,NA,NA,nejvýš 5 cm
+Pelecus cultratus,STA_MIGBARVYS,NA,max,30,cm,ne,lok,NA,NA,nejvýš 30 cm
+Romanogobio banaticus,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Lampetra planeri,STA_MIGBARVYS,NA,max,5,cm,ne,lok,NA,NA,nejvýš 5 cm
+Salmo salar,STA_MIGBARVYS,NA,max,50,cm,ne,lok,NA,NA,nejvýš 50 cm
+Zingel streber,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Romanogobio albipinatus,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Zingel zingel,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Gymnocephalus schraetser,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Gymnocephalus baloni,STA_MIGBARVYS,NA,max,20,cm,ne,lok,NA,NA,nejvýš 20 cm
+Eudontomyzon mariae,STA_MIGBARVYS,NA,max,5,cm,ne,lok,NA,NA,nejvýš 5 cm
+Cottus gobio,STA_MIGBARVYS,NA,max,10,cm,ne,lok,NA,NA,nejvýš 10 cm
+Leuciscus aspius,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Cobitis elongatoides,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Sabanejewia balcanica,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Misgurnus fossilis,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Rhodeus amarus,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Pelecus cultratus,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Romanogobio banaticus,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Lampetra planeri,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Salmo salar,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Zingel streber,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Romanogobio albipinatus,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Zingel zingel,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Gymnocephalus schraetser,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Gymnocephalus baloni,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Eudontomyzon mariae,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+Cottus gobio,STA_MIGBARPOCET,NA,max,1,NA,ne,lok,NA,NA,nejvýš 1 NA
+

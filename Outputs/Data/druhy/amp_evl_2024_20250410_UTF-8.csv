@@ -1,0 +1,511 @@
+typ_predmetu_hodnoceni;kod_chu;nazev_chu;druh;feature_code;hodnocene_obdobi_od;hodnocene_obdobi_do;oop;parametr_nazev;parametr_hodnota;parametr_limit;parametr_jednotka;stav;trend;datum_hodnoceni;pracoviste;metodika
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;21;22;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;22;100;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313115;Boukal;Bombina bombina;1188;2022-05-04;2024-07-13;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;setrvalý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;27;85.71;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;21;216;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;22;2080;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;80;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;33;85.71;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;130;57.14;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;131;7;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613809;Dívka;Bombina bombina;1188;2022-04-29;2024-05-19;AOPK ČR - RP Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;27;52.63;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;21;13;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;22;70;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;80;66.67;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;30;57.89;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;31;94.74;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;32;84.21;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;33;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;34;89.47;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;35;52.63;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;36;94.74;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;38;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;130;47.37;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Triturus cristatus;1166;2022-04-23;2024-11-12;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;131;19;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;27;26.92;30;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;21;26;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;22;140;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;80;57.14;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;30;NA;30;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;31;92.31;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;32;84.62;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;33;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;34;92.31;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;36;96.15;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;37;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;38;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;130;26.92;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;131;26;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0424125;Doupovské hory;Bombina bombina;1188;2022-04-23;2024-11-30;Krajský úřad Ústeckého kraje, AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;27;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;21;0;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;22;0;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;80;NA;100;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;30;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;31;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;32;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;33;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;34;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;35;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;36;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;38;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;130;50;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;zhoršený;zlepšující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0613319;Ficků rybník;Triturus cristatus;1166;2022-05-12;2024-09-09;Krajský úřad Kraje Vysočina;131;1;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;21;2;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;22;20;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;36;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423211;Háj u Oseka;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;setrvalý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;27;37.5;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;21;4;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;22;40;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;80;37.5;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;30;43.75;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;31;96.88;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;32;87.5;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;33;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;34;93.75;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;35;56.25;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;36;87.5;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;38;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;130;32.81;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Triturus cristatus;1166;2022-05-07;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;131;32;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;27;28.57;30;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;21;97;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;22;320;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;80;85.71;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;30;NA;30;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;31;96.43;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;32;82.14;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;33;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;34;92.86;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;36;96.43;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;37;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;38;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;130;26.79;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;131;28;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0414127;Hradiště;Bombina bombina;1188;2022-04-24;2024-08-22;Krajský úřad Ústeckého kraje, Újezdní úřad Hradiště, Krajský úřad Karlovarského kraje, AOPK ČR - RP SCHKO Slavkovský les;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;21;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;22;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;80;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423215;Kateřina - mokřad;Bombina bombina;1188;2022-05-03;2024-07-20;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;21;12;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;22;60;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;30;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;32;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;35;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;130;75;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Triturus cristatus;1166;2023-05-05;2024-04-25;AOPK ČR - RP Vysočina;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;21;22;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;22;100;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;32;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0533696;Kochánovické rybníky a tůně;Bombina bombina;1188;2022-04-28;2024-04-25;AOPK ČR - RP Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;21;17;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;22;110;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;30;14.29;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;35;57.14;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;36;57.14;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;130;85.71;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Triturus cristatus;1166;2022-04-20;2024-05-12;Krajský úřad Ústeckého kraje;131;7;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;27;95;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;21;629;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;22;2230;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;80;50;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;30;NA;30;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;31;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;32;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;33;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;34;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;36;90;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;37;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;38;100;30;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;130;55;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;131;20;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423216;Kopistská výsypka;Bombina bombina;1188;2022-04-15;2024-05-12;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;setrvalý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;21;1;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;22;10;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;80;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;30;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;35;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613322;Koupaliště u Bohuslavic;Triturus cristatus;1166;2023-05-22;2023-07-10;Krajský úřad Kraje Vysočina;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;21;12;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;22;60;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;30;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;34;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;35;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;130;50;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313103;Lom Skalka u Sepekova;Triturus cristatus;1166;2022-05-14;2024-07-13;Krajský úřad Jihočeského kraje;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;27;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;21;11;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;22;50;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;80;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;30;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;31;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;32;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;33;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;34;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;35;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;36;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;38;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;zhoršující se;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313815;Malý Bukač;Triturus cristatus;1166;2022-05-16;2024-07-02;Krajský úřad Jihočeského kraje;131;1;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;21;113;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;22;250;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;80;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;130;75;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613003;Maršovec a Čepička;Bombina bombina;1188;2022-04-30;2024-05-12;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;21;0;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;22;0;NA;adulti;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;30;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;32;11.11;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;35;11.11;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Triturus cristatus;1166;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;131;9;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;27;11.11;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;21;1;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;22;10;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;32;11.11;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;38;88.89;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;131;9;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0423660;Pražská pole;Bombina bombina;1188;2022-04-30;2024-07-21;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP SCHKO Slavkovský les;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;27;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;21;101;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;22;1000;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;80;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;30;NA;100;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;31;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;32;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;33;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;34;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;36;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;37;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;38;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;131;1;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313116;Radomilická mokřina;Bombina bombina;1188;2023-04-13;2024-05-16;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;27;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;21;12;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;22;60;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;30;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;35;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;zhoršující se;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313119;Rašeliniště Radlice;Triturus cristatus;1166;2022-05-15;2024-07-24;Krajský úřad Jihočeského kraje;131;3;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;27;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;21;11;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;22;50;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;80;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;30;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;31;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;32;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;33;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;34;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;35;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;36;0;100;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;38;100;100;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;špatný;zhoršující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0613328;Rašelinné jezírko Rosička;Triturus cristatus;1166;2022-05-15;2024-08-03;Krajský úřad Kraje Vysočina;131;1;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;21;24;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;22;120;NA;adulti;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;30;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;35;75;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;36;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;zhoršující se;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0314639;Rybníky u Lovětína;Triturus cristatus;1166;2022-05-16;2024-07-28;Krajský úřad Jihočeského kraje;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;21;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;22;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;80;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;33;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614052;Rybníky u Rudolce;Bombina bombina;1188;2022-05-03;2024-05-19;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;21;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;22;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;32;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;34;75;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;38;75;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614058;Rybníky V Pouštích;Bombina bombina;1188;2022-04-28;2024-07-02;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP Vysočina;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;21;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;22;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;32;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;36;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;37;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;131;2;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0423228;Strádovský rybník;Bombina bombina;1188;2022-05-19;2024-07-18;Krajský úřad Ústeckého kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;neznámý;2025-04-10;RP SCHKO České středohoří;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;27;75;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;21;13;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;22;70;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;32;50;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;36;75;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;130;75;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613013;Šilhánky;Bombina bombina;1188;2022-05-03;2024-10-15;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;setrvalý;2025-04-10;RP Vysočina;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;27;80;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;21;34;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;22;160;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;80;60;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;32;80;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;130;60;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;131;5;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313125;Tábor - Zahrádka;Bombina bombina;1188;2022-05-04;2024-06-09;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;21;23;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;22;110;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;80;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;130;66.67;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;131;3;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613335;U Borovné;Bombina bombina;1188;2022-05-03;2023-07-10;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;špatný;setrvalý;2025-04-10;RP Vysočina;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;21;254;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;22;2110;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;80;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;32;25;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;131;4;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313134;Újezdec;Bombina bombina;1188;2022-05-09;2024-08-08;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;27;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;21;13;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;22;70;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;80;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;32;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;36;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;130;100;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;131;3;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613336;V Kopaninách;Bombina bombina;1188;2023-05-28;2024-07-18;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;setrvalý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;27;55.56;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;21;15;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;22;90;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;80;80;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;32;66.67;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;36;88.89;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;130;55.56;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;131;9;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0613338;Vetelské rybníky;Bombina bombina;1188;2022-05-20;2024-06-19;AOPK ČR - RP Vysočina;10;NA;NA;hodnocení dílčích parametrů;dobrý;zlepšující se;2025-04-10;RP Vysočina;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;27;71.43;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;21;45;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;22;210;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;80;33.33;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;32;85.71;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;33;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;37;85.71;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;130;42.86;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;131;7;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0313138;Vrbenské rybníky;Bombina bombina;1188;2022-05-02;2024-06-12;Krajský úřad Jihočeského kraje;10;NA;NA;hodnocení dílčích parametrů;špatný;neznámý;2025-04-10;RP Jižní Čechy;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;27;0;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;21;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;22;0;NA;volající samci;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;80;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;30;NA;50;% lokalit v dobrém stavu;neznámý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;31;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;32;33.33;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;33;33.33;50;% lokalit v dobrém stavu;špatný;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;34;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;36;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;37;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;38;100;50;% lokalit v dobrém stavu;dobrý;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;130;0;NA;% lokalit v dobrém stavu;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;131;3;NA;počet dílčích lokalit;nehodnocen;neznámý;2025-04-10;RP Vysočina;19269
+Druh;CZ0614057;Znětínské rybníky;Bombina bombina;1188;2022-04-29;2024-05-18;Krajský úřad Kraje Vysočina;10;NA;NA;hodnocení dílčích parametrů;špatný;neznámý;2025-04-10;RP Vysočina;19269
