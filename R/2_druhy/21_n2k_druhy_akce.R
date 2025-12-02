@@ -1218,12 +1218,12 @@ nal_export <-
 # Zapis mapy indikatoru ----
 #----------------------------------------------------------#
 source("R/0_Config/01_n2k_map_ind.R")
-map <- build_indicator_map(
-  n2k_druhy,
-  limity,
-  script = "R/2_druhy/21_n2k_druhy_akce.R",
-  out_file = "Outputs/indicator_map_n2k.csv"
-)
+#map <- build_indicator_map(
+#  n2k_druhy,
+#  limity,
+#  script = "R/2_druhy/21_n2k_druhy_akce.R",
+#  out_file = "Outputs/indicator_map_n2k.csv"
+#)
 
 #----------------------------------------------------------#
 # KONEC ----
