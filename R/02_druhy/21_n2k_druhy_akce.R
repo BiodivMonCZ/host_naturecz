@@ -905,12 +905,7 @@ run_n2k_druhy <- function(
       } else {
         NA_real_
       },
-      POP_ABUNDANCEMEAN = mean(
-        POP_ABUNDANCE[1], 
-        POP_ABUNDANCE[2],  
-        POP_ABUNDANCE[3],
-        na.rm = TRUE
-        ),
+      POP_ABUNDANCEMEAN = mean(head(POP_ABUNDANCE, 3), na.rm = TRUE),
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
@@ -939,12 +934,7 @@ run_n2k_druhy <- function(
     ) %>%
     #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
-      POP_ABUNDANCEREF = mean(
-        POP_ABUNDANCE[1], 
-        POP_ABUNDANCE[2], 
-        POP_ABUNDANCE[3], 
-        na.rm = TRUE
-        )
+      POP_ABUNDANCEREF = mean(head(POP_ABUNDANCE, 3), na.rm = TRUE)
       ) %>%
     dplyr::ungroup() 
   
@@ -956,7 +946,7 @@ run_n2k_druhy <- function(
       ) %>%
     dplyr::mutate(
       POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF
-    )
+    ) 
     dplyr::left_join(
       cis_pocet_kat,
       by = "POP_POCETNOSTMAX"
