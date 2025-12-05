@@ -875,7 +875,7 @@ run_n2k_druhy <- function(
   
   # Lokalita - trendy ----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
-  n2k_druhy_lokpop_trend <- n2k_druhy_lokpop %>%
+  n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%
     dplyr::group_by(
       KOD_LOKAL, 
       DRUH
@@ -905,8 +905,12 @@ run_n2k_druhy <- function(
       } else {
         NA_real_
       },
-      POP_ABUNDANCEREF = POP_ABUNDANCE[3],  
-      POP_DYN = mean(POP_ABUNDANCE[1], POP_ABUNDANCE[1], na.rm = TRUE)/POP_ABUNDANCEREF,
+      POP_ABUNDANCEMEAN = mean(
+        POP_ABUNDANCE[1], 
+        POP_ABUNDANCE[2],  
+        POP_ABUNDANCE[3],
+        na.rm = TRUE
+        ),
       POP_POCETNOSTMAX = max(
         POP_POCETNOST, 
         na.rm = TRUE
@@ -922,7 +926,37 @@ run_n2k_druhy <- function(
         sum(v, na.rm = TRUE)
       }
     ) %>%
-    dplyr::ungroup() %>%
+    dplyr::ungroup() 
+  
+  n2k_druhy_lokpop_trend_ascd <- n2k_druhy_lokpop %>%
+    dplyr::group_by(
+      KOD_LOKAL, 
+      DRUH
+    ) %>%
+    # serazeni sestupne podle roku
+    dplyr::arrange(
+      ROK
+    ) %>%
+    #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
+    dplyr::reframe(
+      POP_ABUNDANCEREF = mean(
+        POP_ABUNDANCE[1], 
+        POP_ABUNDANCE[2], 
+        POP_ABUNDANCE[3], 
+        na.rm = TRUE
+        )
+      ) %>%
+    dplyr::ungroup() 
+  
+  n2k_druhy_lokpop_trend <-
+    dplyr::left_join(
+      n2k_druhy_lokpop_trend_desc,
+      n2k_druhy_lokpop_trend_ascd,
+      by = c("KOD_LOKAL", "DRUH")
+      ) %>%
+    dplyr::mutate(
+      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF
+    )
     dplyr::left_join(
       cis_pocet_kat,
       by = "POP_POCETNOSTMAX"
