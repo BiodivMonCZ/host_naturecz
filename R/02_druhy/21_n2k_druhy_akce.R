@@ -946,7 +946,7 @@ run_n2k_druhy <- function(
       ) %>%
     dplyr::mutate(
       POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF
-    ) 
+    ) %>%
     dplyr::left_join(
       cis_pocet_kat,
       by = "POP_POCETNOSTMAX"
