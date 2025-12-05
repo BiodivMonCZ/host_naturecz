@@ -125,8 +125,7 @@ run_n2k_druhy <- function(
         "(?<=<plocha_prolov_p>).*(?=</plocha_prolov_p>)"
       )
     ), # ze strukturovane poznamky
-    POP_ABUNDANCE = POP_POCET/POP_PLOCHALOV,
-    # K DOŘEŠENÍ END !!!!!
+    POP_ABUNDANCENAL = POP_POCET/POP_PLOCHALOV,
     # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
     POP_CILJEDNOTKA = NA,
     POP_KOEFICIENT = dplyr::case_when(
@@ -777,7 +776,8 @@ run_n2k_druhy <- function(
         na.rm = TRUE
       ),
       POP_VITALITA = ifelse(POP_PRESENCE == "ne", 0, POP_VITALITA),
-      POP_ABUNDANCE = max(POP_ABUNDANCE, na.rm = TRUE),
+      POP_ABUNDANCE = max(POP_ABUNDANCENAL, na.rm = TRUE),
+      POP_ABUNDANCE = ifelse(is.infinite(POP_ABUNDANCE) == TRUE, 0, POP_ABUNDANCE),
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
@@ -1242,7 +1242,7 @@ nal_export <-
 #----------------------------------------------------------#
 # Zapis mapy indikatoru ----
 #----------------------------------------------------------#
-source("R/0_Config/01_n2k_map_ind.R")
+#source("R/0_Config/01_n2k_map_ind.R")
 #map <- build_indicator_map(
 #  n2k_druhy,
 #  limity,
