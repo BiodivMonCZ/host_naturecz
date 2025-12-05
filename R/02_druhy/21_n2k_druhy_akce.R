@@ -776,6 +776,7 @@ run_n2k_druhy <- function(
         POP_DELKYJEDINCIKAT, 
         na.rm = TRUE
       ),
+      POP_VITALITA = ifelse(POP_PRESENCE == "ne", 0, POP_VITALITA),
       POP_ABUNDANCE = max(POP_ABUNDANCE, na.rm = TRUE),
       # ------------------------------------------#
       ### Savci ----- 
