@@ -8,7 +8,7 @@ Cobitis elangotoides;STA_POCETTYPU;min;1;NA;ne;lok
 Cobitis elangotoides;STA_PROUD;val;mírný;NA;ne;lok
 Cobitis elangotoides;STA_PROUD;val;tùnì;NA;ne;lok
 Cobitis elangotoides;STA_VEGETACE;val;submerzní;NA;ne;lok
-Cobitis elangotoides;POP_POCET;NA;NA;jedinec;NA;NA
+Cobitis elangotoides;POP_POCET;NA;NA;jedinci;NA;NA
 Cottus gobio;POP_DYN;max;50;%;ano;lok
 Cottus gobio;POP_VITALITA;val;3;;ano;lok
 Cottus gobio;STA_DNO;val;balvany;NA;ne;lok
@@ -23,13 +23,13 @@ Cottus gobio;STA_PROUD;val;mírný;NA;ne;lok
 Cottus gobio;STA_PROUD;val;peøeje;NA;ne;lok
 Cottus gobio;STA_PROUD;val;tùnì;NA;ne;lok
 Cottus gobio;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Cottus gobio;POP_POCET;NA;NA;jedinec;NA;NA
+Cottus gobio;POP_POCET;NA;NA;jedinci;NA;NA
 Eudontomyzon mariae;POP_DYN;max;50;%;ano;lok
 Eudontomyzon mariae;POP_VITALITA;val;3;kategorie;ano;lok
 Eudontomyzon mariae;STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV;min;10;m2;ne;lok
 Eudontomyzon mariae;STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI;min;10;m2;ne;lok
-Eudontomyzon mariae;POP_POCET;NA;NA;jedinec;NA;NA
-Gymnocephalus baloni;POP_PRESENCE;min;1;jedinec;ano;lok
+Eudontomyzon mariae;POP_POCET;NA;NA;jedinci;NA;NA
+Gymnocephalus baloni;POP_PRESENCE;min;1;jedinci;ano;lok
 Gymnocephalus baloni;STA_DNOPOCETTYPU;min;3;NA;ne;lok
 Gymnocephalus baloni;STA_DNOTYP;val;kameny;NA;ne;lok
 Gymnocephalus baloni;STA_DNOTYP;val;písek;NA;ne;lok
@@ -41,8 +41,8 @@ Gymnocephalus baloni;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Gymnocephalus baloni;STA_UPRAVABREHU;max;49;%;ne;lok
 Gymnocephalus baloni;STA_UPRAVADNA;max;49;%;ne;lok
 Gymnocephalus baloni;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Gymnocephalus baloni;POP_POCET;NA;NA;jedinec;NA;NA
-Gymnocephalus schraetser;POP_PRESENCE;min;1;jedinec;ano;lok
+Gymnocephalus baloni;POP_POCET;NA;NA;jedinci;NA;NA
+Gymnocephalus schraetser;POP_PRESENCE;min;1;jedinci;ano;lok
 Gymnocephalus schraetser;STA_DNOTYP;val;kameny;NA;ne;lok
 Gymnocephalus schraetser;STA_POCETTYPU;min;3;NA;ne;lok
 Gymnocephalus schraetser;STA_PROUD;val;mírný;NA;ne;lok
@@ -52,15 +52,15 @@ Gymnocephalus schraetser;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Gymnocephalus schraetser;STA_UPRAVABREHU;max;49;%;ne;lok
 Gymnocephalus schraetser;STA_UPRAVADNA;max;49;%;ne;lok
 Gymnocephalus schraetser;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Gymnocephalus schraetser;POP_POCET;NA;NA;jedinec;NA;NA
+Gymnocephalus schraetser;POP_POCET;NA;NA;jedinci;NA;NA
 Lampetra planeri;POP_DYN;max;50;%;ano;lok
 Lampetra planeri;POP_VITALITA;min;3;kategorie;ano;lok
 Lampetra planeri;STA_DNOTYP;val;kompaktní jílové dno;NA;ne;lok
 Lampetra planeri;STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV;val;10;m2;ne;lok
 Lampetra planeri;STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI;val;10;m2;ne;lok
-Lampetra planeri;POP_POCET;NA;NA;jedinec;NA;NA
+Lampetra planeri;POP_POCET;NA;NA;jedinci;NA;NA
 Leuciscus aspius;POP_DYN;max;50;%;ano;lok
-Leuciscus aspius;POP_VITALITA;min;1;jedinec tohoroèní;ano;lok
+Leuciscus aspius;POP_VITALITA;min;1;jedinci tohoroèní;ano;lok
 Leuciscus aspius;STA_DNOPOCETTYPU;min;3;NA;ne;lok
 Leuciscus aspius;STA_DNOTYP;val;kameny;NA;ne;lok
 Leuciscus aspius;STA_DNOTYP;val;štìrk;NA;ne;lok
@@ -72,7 +72,7 @@ Leuciscus aspius;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Leuciscus aspius;STA_UPRAVABREHU;max;49;%;ne;lok
 Leuciscus aspius;STA_UPRAVADNA;max;49;%;ne;lok
 Leuciscus aspius;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Leuciscus aspius;POP_POCET;NA;NA;jedinec;NA;NA
+Leuciscus aspius;POP_POCET;NA;NA;jedinci;NA;NA
 Misgurnus fossilis;DNO_POCETTYPU;min;2;NA;;lok
 Misgurnus fossilis;POP_DYN;max;50;%;ano;lok
 Misgurnus fossilis;POP_VITALITA;min;3;kategorie;ano;lok
@@ -83,8 +83,8 @@ Misgurnus fossilis;STA_PROUD;val;mírný;NA;ne;lok
 Misgurnus fossilis;STA_PROUD;val;peøeje;NA;ne;lok
 Misgurnus fossilis;STA_PROUD;val;tùnì;NA;ne;lok
 Misgurnus fossilis;STA_VEGETACE;val;submerzní;NA;ne;lok
-Misgurnus fossilis;POP_POCET;NA;NA;jedinec;NA;NA
-Pelecus cultratus;POP_PRESENCE;min;1;jedinec;ano;lok
+Misgurnus fossilis;POP_POCET;NA;NA;jedinci;NA;NA
+Pelecus cultratus;POP_PRESENCE;min;1;jedinci;ano;lok
 Pelecus cultratus;STA_DNOPOCETTYPU;min;3;NA;ne;lok
 Pelecus cultratus;STA_DNOTYP;val;kameny;NA;ne;lok
 Pelecus cultratus;STA_DNOTYP;val;písek;NA;ne;lok
@@ -96,7 +96,7 @@ Pelecus cultratus;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Pelecus cultratus;STA_UPRAVABREHU;max;49;%;ne;lok
 Pelecus cultratus;STA_UPRAVADNA;max;49;%;ne;lok
 Pelecus cultratus;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Pelecus cultratus;POP_POCET;NA;NA;jedinec;NA;NA
+Pelecus cultratus;POP_POCET;NA;NA;jedinci;NA;NA
 Rhodeus amarus;POP_DYN;max;50;%;ano;lok
 Rhodeus amarus;POP_VITALITA;min;2;kategorie;ano;lok
 Rhodeus amarus;STA_DALSIPARAMETRY;val;anodonta;NA;ne;lok
@@ -108,8 +108,8 @@ Rhodeus amarus;STA_PROUD;val;tùnì;NA;ne;lok
 Rhodeus amarus;STA_PROUD;val;vysoká;NA;ne;lok
 Rhodeus amarus;STA_PROUDPOCETTYPU;min;1;NA;ne;lok
 Rhodeus amarus;STA_VEGETACE;val;submerzní;NA;ne;lok
-Rhodeus amarus;POP_POCET;NA;NA;jedinec;NA;NA
-Romanogobio albipinatus;POP_PRESENCE;min;1;jedinec;ano;lok
+Rhodeus amarus;POP_POCET;NA;NA;jedinci;NA;NA
+Romanogobio albipinatus;POP_PRESENCE;min;1;jedinci;ano;lok
 Romanogobio albipinatus;STA_DNO;val;kameny;NA;ne;lok
 Romanogobio albipinatus;STA_DNO;val;písek;NA;ne;lok
 Romanogobio albipinatus;STA_DNO;val;štìrk;NA;ne;lok
@@ -125,8 +125,8 @@ Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;støední;NA;ne;lok
 Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;vysoká;NA;ne;lok
 Romanogobio albipinatus;STA_VARIABILITAHLOUBEKPOCET;min;1;NA;ne;lok
 Romanogobio albipinatus;STA_ZAHLOUBENIKORYTA;val;pøirozenì nízký;NA;ne;lok
-Romanogobio albipinatus;POP_POCET;NA;NA;jedinec;NA;NA
-Romanogobio kessleri;POP_PRESENCE;min;1;jedinec;ano;lok
+Romanogobio albipinatus;POP_POCET;NA;NA;jedinci;NA;NA
+Romanogobio kessleri;POP_PRESENCE;min;1;jedinci;ano;lok
 Romanogobio kessleri;STA_DNO;val;kameny;NA;ne;lok
 Romanogobio kessleri;STA_DNO;val;písek;NA;ne;lok
 Romanogobio kessleri;STA_DNO;val;štìrk;NA;ne;lok
@@ -138,9 +138,9 @@ Romanogobio kessleri;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
 Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;støední;NA;ne;lok
 Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;vysoká;NA;ne;lok
 Romanogobio kessleri;STA_VARIABILITAHLOUBEKPOCET;min;1;NA;ne;lok
-Romanogobio kessleri;POP_POCET;NA;NA;jedinec;NA;NA
+Romanogobio kessleri;POP_POCET;NA;NA;jedinci;NA;NA
 Sabanejewia balcanica;POP_DYN;min;50;%;ano;lok
-Sabanejewia balcanica;POP_VITALITA;min;1;jedinec tohoroèní;ano;lok
+Sabanejewia balcanica;POP_VITALITA;min;1;jedinci tohoroèní;ano;lok
 Sabanejewia balcanica;STA_DNO;val;kameny;NA;ne;lok
 Sabanejewia balcanica;STA_DNO;val;písek;NA;ne;lok
 Sabanejewia balcanica;STA_DNO;val;štìrk;NA;ne;lok
@@ -153,15 +153,15 @@ Sabanejewia balcanica;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Sabanejewia balcanica;STA_UPRAVABREHU;max;49;%;ne;lok
 Sabanejewia balcanica;STA_UPRAVADNA;max;49;%;ne;lok
 Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Sabanejewia balcanica;POP_POCET;NA;NA;jedinec;NA;NA
+Sabanejewia balcanica;POP_POCET;NA;NA;jedinci;NA;NA
 Salmo salar;POP_DYN;;;;ano;lok
 Salmo salar;POP_VITALITA;;;;ano;lok
 Salmo salar;STA_DNOTYP;val;kameny;NA;ne;lok
 Salmo salar;STA_DNOTYP;val;písek;NA;ne;lok
 Salmo salar;STA_DNOTYP;val;štìrk;NA;ne;lok
 Salmo salar;STA_DNOTYPSOUCETPROCENT;min;50;%;ne;lok
-Salmo salar;POP_POCET;NA;NA;jedinec;NA;NA
-Zingel streber;POP_PRESENCE;min;1;jedinec;ano;lok
+Salmo salar;POP_POCET;NA;NA;jedinci;NA;NA
+Zingel streber;POP_PRESENCE;min;1;jedinci;ano;lok
 Zingel streber;STA_DNOTYP;val;kameny;NA;ne;lok
 Zingel streber;STA_DNOTYP;val;štìrk;NA;ne;lok
 Zingel streber;STA_DNOTYPSOUCETPROCENT;min;50;%;ne;lok
@@ -172,9 +172,9 @@ Zingel streber;STA_PROUDPOCETTYPU;min;3;;ne;lok
 Zingel streber;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
 Zingel streber;STA_UPRAVABREHU;max;49;%;ne;lok
 Zingel streber;STA_UPRAVADNA;max;49;%;ne;lok
-Zingel streber;POP_POCET;NA;NA;jedinec;NA;NA
+Zingel streber;POP_POCET;NA;NA;jedinci;NA;NA
 Zingel streber;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
-Zingel zingel;POP_PRESENCE;min;1;jedinec;ano;lok
+Zingel zingel;POP_PRESENCE;min;1;jedinci;ano;lok
 Zingel zingel;STA_DNO;val;kameny;NA;ne;lok
 Zingel zingel;STA_DNO;val;písek;NA;ne;lok
 Zingel zingel;STA_DNO;val;štìrk;NA;ne;lok
@@ -183,7 +183,7 @@ Zingel zingel;STA_PROUD;val;mírný;NA;ne;lok
 Zingel zingel;STA_PROUD;val;peøeje;NA;ne;lok
 Zingel zingel;STA_PROUD;val;tùnì;NA;ne;lok
 Zingel zingel;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Zingel zingel;POP_POCET;NA;NA;jedinec;NA;NA
+Zingel zingel;POP_POCET;NA;NA;jedinci;NA;NA
 Leuciscus aspius;STA_MIGBARVYS;max;30;cm;ne;lok
 Cobitis elongatoides;STA_MIGBARVYS;max;10;cm;ne;lok
 Sabanejewia balcanica;STA_MIGBARVYS;max;10;cm;ne;lok
