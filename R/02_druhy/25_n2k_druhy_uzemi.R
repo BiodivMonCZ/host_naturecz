@@ -96,8 +96,11 @@ run_n2k_druhy_uzemi <- function(
         DRUH
         ) %>%
       dplyr::reframe(
-        ROK = toString(unique(ROK)), POLE = toString(unique(POLE)), NAZEV_LOK = toString(unique(NAZEV_LOK)), 
-        ID_ND_AKCE = toString(unique(ID_ND_AKCE)), CILMON_CHU = max(CILMON, na.rm = TRUE),
+        ROK = toString(unique(ROK)), 
+        POLE = toString(unique(POLE)), 
+        NAZEV_LOK = toString(unique(NAZEV_LOK)), 
+        ID_ND_AKCE = toString(unique(ID_ND_AKCE)), 
+        CILMON_CHU = max(CILMON, na.rm = TRUE),
         # CELKOVE_HODNOCENI = NA -- TOTO JIZ NENI POTREBA
         POP_PRESENCE = dplyr::case_when(
           any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ano",
@@ -108,20 +111,26 @@ run_n2k_druhy_uzemi <- function(
         POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(),
         POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(),
-        POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
+        POP_POCETOST = ifelse(
+          ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1,
+          as.numeric(HOD_IND),
+          0
+          ) %>%
+          na.omit() %>%
+          sum(),
         POP_PROCDOB = dplyr::case_when(is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_, POP_POCETSUM == 0 ~ 0, TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)),
-        POP_POCETZIM = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETZIM1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETZIM2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETZIM3 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIM = sum(dplyr::case_when(ID_IND == "POP_POCETZIM" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETZIM1 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIM2 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIM3 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM3" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
         POP_POCETZIMREF = mean(POP_POCETZIM1, POP_POCETZIM2, POP_POCETZIM3, na.rm = TRUE),
         POP_VITALZIM = ifelse(POP_POCETZIMREF == 0, NA_real_, round(POP_POCETZIM/POP_POCETZIMREF, 3)),
-        POP_POCETLETS1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETLETS2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETLET = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET3 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLETS1 = sum(dplyr::case_when(ID_IND == "POP_POCETLETS1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETLETS2 = sum(dplyr::case_when(ID_IND == "POP_POCETLETS2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETLET = sum(dplyr::case_when(ID_IND == "POP_POCETLET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET1 = sum(dplyr::case_when(ID_IND == "POP_POCETLET1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET2 = sum(dplyr::case_when(ID_IND == "POP_POCETLET2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET3 = sum(dplyr::case_when(ID_IND == "POP_POCETLET3" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETLETREF = mean(POP_POCETLET1, POP_POCETLET2, POP_POCETLET3, na.rm = TRUE),
         POP_VITALLET = round(POP_POCETLET/POP_POCETLETREF, 3),
         POP_REPROCHI = round(POP_POCETLETS2/POP_POCETLETS1, 3),
