@@ -111,13 +111,7 @@ run_n2k_druhy_uzemi <- function(
         POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(),
         POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(),
-        POP_POCETOST = ifelse(
-          ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1,
-          as.numeric(HOD_IND),
-          0
-          ) %>%
-          na.omit() %>%
-          sum(),
+        POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
         POP_PROCDOB = dplyr::case_when(is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_, POP_POCETSUM == 0 ~ 0, TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)),
         POP_POCETZIM = sum(dplyr::case_when(ID_IND == "POP_POCETZIM" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETZIM1 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
