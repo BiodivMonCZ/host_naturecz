@@ -21,7 +21,9 @@ n2k_druhy_posledni_chu <-
     "Data/Temp/n2k_druhy_posledni_chu.csv"
   )
 
+#----------------------------------------------------------#
 # Funkce napoctu ----
+#----------------------------------------------------------#
 run_n2k_druhy_uzemi <- function(
     n2k_druhy_lok,
     species_name,
