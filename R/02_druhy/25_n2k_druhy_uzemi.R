@@ -83,7 +83,7 @@ run_n2k_druhy_uzemi <- function(
       ) %>%
       dplyr::mutate(
         POP_PROCPOLE1D = round(POP_POCETPOLE1D/POP_POCETPOLE1*100, 3),
-        STA_HABPOKRYV = dplyr::case_when(is.na(STA_HABPOKRYVPRE) == TRUE ~ NA, TRUE ~ STA_HABPOKRYVPRE*100)
+        STA_HABPOKRYV = ifelse(is.na(STA_HABPOKRYVPRE) == TRUE, NA, STA_HABPOKRYVPRE*100)
       ) %>%
       dplyr::select(-STA_HABPOKRYVPRE)
     
