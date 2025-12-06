@@ -1,4 +1,6 @@
-# nacteni temp dat ----
+#----------------------------------------------------------#
+# Nacteni temp dat ----
+#----------------------------------------------------------#
 n2k_druhy_lok <- 
   readr::read_csv(
     "Data/Temp/n2k_druhy_lok.csv"
@@ -25,273 +27,104 @@ run_n2k_druhy_uzemi <- function(
     species_name,
     sites_subjects,
     limity,
+    biotop_evd, 
     current_year = 2024
 ) {
- 
+  
+  #----------------------------------------------------------#
+  # Nacteni skupiny druhu ----
+  #----------------------------------------------------------#
+  skupina_druhu <- n2k_druhy_lok %>% 
+    dplyr::filter(DRUH == species_name) %>% 
+    dplyr::pull(SKUPINA) %>% 
+    unique() %>% 
+    stats::na.omit() %>%
+    dplyr::first()
+  
   #----------------------------------------------------------#
   # Priprava dilcich objektu -----
   #----------------------------------------------------------#
-  #--------------------------------------------------#
-  ## Agregace po poli 1. radu -----
-  # group_by UZEMI a DRUH
-  #--------------------------------------------------#
-  n2k_druhy_chu_pole1 <- 
-    n2k_druhy_lok %>%
-    dplyr::filter(DRUH == species_name) %>%
-    dplyr::group_by(
-      kod_chu, 
-      DRUH
-    ) %>%
-    #dplyr::filter(DATUM + years(6) >= current_year) %>%
-    dplyr::reframe(
-      ROK = toString(unique(ROK)),
-      POLE = toString(unique(POLE)),
-      NAZEV_LOK = toString(unique(NAZEV_LOK)),
-      ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
-      CILMON_CHU = max(CILMON, na.rm = TRUE),
-      POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
-      POP_POCETPOLE1D = sum(
-        ID_IND == "CELKOVE_HODNOCENI" & 
-          HOD_IND != "neznámý" &
-          HOD_IND != "zhoršený" & 
-          HOD_IND != "špatný" & 
-          STAV_IND != "NA" & 
-          STAV_IND != "0" &
-          is.na(STAV_IND) == FALSE & 
-          STAV_IND != 0.5 & 
-          STAV_IND != 0 &
-          CILMON == 1, 
-        na.rm = TRUE)
-    ) %>%
-    dplyr::group_by(
-      kod_chu, 
-      DRUH
-    ) %>%
-    dplyr::mutate(
-      POP_PROCPOLE1D = round(
-        POP_POCETPOLE1D/POP_POCETPOLE1*100,
-        3
-      ),
-      # pokryvnost preferovanych biotopu evd
-      STA_HABPOKRYVPRE = {
-        x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == kod_chu & 
-                                          biotop_evd$DRUH == DRUH]
-        if (length(x) == 0) NA_real_ else unique(x)
-      },
-      STA_HABPOKRYV = dplyr::case_when(
-        is.na(STA_HABPOKRYVPRE) == TRUE ~ NA,
-        TRUE ~ STA_HABPOKRYVPRE*100)
-    ) %>%
-    dplyr::select(
-      -STA_HABPOKRYVPRE
-    ) %>%
-    dplyr::mutate(
-      across(
-        .cols = 7:ncol(.)-2,
-        .fns = ~ as.character(.)
+  pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
+  is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+  
+  # Vykonani agregace (vetve A nebo B) - kód beze zmeny
+  if (is_pole_druh) {
+    # Logika pro POLE
+    n2k_druhy_chu_temp <- n2k_druhy_lok %>%
+      dplyr::filter(DRUH == species_name) %>%
+      dplyr::group_by(kod_chu, DRUH) %>%
+      dplyr::reframe(
+        ROK = toString(unique(ROK)),
+        POLE = toString(unique(POLE)),
+        NAZEV_LOK = toString(unique(NAZEV_LOK)),
+        ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+        CILMON_CHU = max(CILMON, na.rm = TRUE),
+        POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
+        POP_POCETPOLE1D = sum(
+          ID_IND == "CELKOVE_HODNOCENI" & 
+            HOD_IND != "neznámý" & HOD_IND != "zhoršený" & HOD_IND != "špatný" & 
+            STAV_IND != "NA" & STAV_IND != "0" & is.na(STAV_IND) == FALSE & 
+            STAV_IND != 0.5 & STAV_IND != 0 & CILMON == 1, 
+          na.rm = TRUE),
+        STA_HABPOKRYVPRE = {
+          k_chu <- unique(kod_chu)
+          x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
+          if (length(x) == 0) NA_real_ else unique(x)
+        }
+      ) %>%
+      dplyr::mutate(
+        POP_PROCPOLE1D = round(POP_POCETPOLE1D/POP_POCETPOLE1*100, 3),
+        STA_HABPOKRYV = dplyr::case_when(is.na(STA_HABPOKRYVPRE) == TRUE ~ NA, TRUE ~ STA_HABPOKRYVPRE*100)
+      ) %>%
+      dplyr::select(-STA_HABPOKRYVPRE)
+    
+  } else { 
+    # Logika pro LOKALITY / OSTATNI
+    n2k_druhy_chu_temp <- n2k_druhy_lok %>%
+      dplyr::filter(DRUH == species_name) %>%
+      dplyr::group_by(kod_chu, DRUH) %>%
+      dplyr::reframe(
+        ROK = toString(unique(ROK)), POLE = toString(unique(POLE)), NAZEV_LOK = toString(unique(NAZEV_LOK)), 
+        ID_ND_AKCE = toString(unique(ID_ND_AKCE)), CILMON_CHU = max(CILMON, na.rm = TRUE),
+        # CELKOVE_HODNOCENI = NA -- TOTO JIZ NENI POTREBA
+        POP_PRESENCE = dplyr::case_when(
+          any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ano",
+          any(ID_IND == "POP_PRESENCE" & STAV_IND == 0, na.rm = TRUE) & !any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ne",
+          TRUE ~ NA_character_
+        ), 
+        POP_POCETMAX = sum(dplyr::case_when(ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(),
+        POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(),
+        POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
+        POP_PROCDOB = dplyr::case_when(is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_, POP_POCETSUM == 0 ~ 0, TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)),
+        POP_POCETZIM = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETZIM1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIM2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIM3 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETZIMREF = mean(POP_POCETZIM1, POP_POCETZIM2, POP_POCETZIM3, na.rm = TRUE),
+        POP_VITALZIM = ifelse(POP_POCETZIMREF == 0, NA_real_, round(POP_POCETZIM/POP_POCETZIMREF, 3)),
+        POP_POCETLETS1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETLETS2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
+        POP_POCETLET = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET1 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET2 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLET3 = sum(dplyr::case_when(ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
+        POP_POCETLETREF = mean(POP_POCETLET1, POP_POCETLET2, POP_POCETLET3, na.rm = TRUE),
+        POP_VITALLET = round(POP_POCETLET/POP_POCETLETREF, 3),
+        POP_REPROCHI = round(POP_POCETLETS2/POP_POCETLETS1, 3),
+        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
+        LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND == "dobrý", na.rm = TRUE),
+        LOK_PROCDOBR = dplyr::case_when(is.na(LOK_POCETDOB) | is.na(LOK_POCETSUM) ~ NA_real_, LOK_POCETSUM == 0 ~ NA_real_, TRUE ~ round(LOK_POCETDOB / LOK_POCETSUM * 100, 3))
       )
-    ) %>%
-    tidyr::pivot_longer(
-      .,
-      cols = c(8:ncol(.)),
-      names_to = "ID_IND",
-      values_to = "HOD_IND"
-    ) %>%
-    dplyr::mutate(
-      HOD_IND = as.character(HOD_IND)
-    ) %>%
-    dplyr::distinct() %>%
-    dplyr::arrange(ID_ND_AKCE)
+  }
   
   #--------------------------------------------------#
-  ## Agregace po lokalite -----
-  # group_by UZEMI a DRUH
+  ## Prevod na long format ----
   #--------------------------------------------------#
-  n2k_druhy_chu_lok <- 
-    n2k_druhy_lok %>%
-    dplyr::filter(DRUH == species_name) %>%
-    dplyr::group_by(
-      kod_chu, 
-      DRUH
-    ) %>%
-    dplyr::reframe(
-      ROK = toString(unique(ROK)),
-      POLE = toString(unique(POLE)),
-      NAZEV_LOK = toString(unique(NAZEV_LOK)),
-      ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
-      CILMON_CHU = max(
-        CILMON, 
-        na.rm = TRUE
-      ),
-      CELKOVE_HODNOCENI = NA,
-      POP_PRESENCE = dplyr::case_when(
-        any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ano",
-        any(ID_IND == "POP_PRESENCE" & STAV_IND == 0, na.rm = TRUE) & !any(ID_IND == "POP_PRESENCE" & STAV_IND == 1, na.rm = TRUE) ~ "ne",
-        TRUE ~ NA_character_
-      ), 
-      POP_POCETMAX = sum(
-        dplyr::case_when(
-          ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETMIN = sum(
-        dplyr::case_when(
-          ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETSUM = sum(
-        dplyr::case_when(
-          ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND),
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE) %>%
-        max(),
-      POP_POCETDOB = sum(
-        dplyr::case_when(
-          ID_IND == "POP_POCET" & CELKOVE == 1 & CILMON == 1 ~ as.numeric(HOD_IND), 
-          TRUE ~ 0
-        ), 
-        na.rm = TRUE) %>%
-        max(),
-      POP_POCETOST = sum(
-        dplyr::case_when(
-          ID_IND == "POP_POCET" & CELKOVE != 1 & CILMON == 1 ~ as.numeric(HOD_IND), 
-          TRUE ~ 0
-        ), 
-        na.rm = TRUE),
-      POP_PROCDOB = dplyr::case_when(
-        is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_,
-        POP_POCETSUM == 0 ~ 0,
-        TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)
-      ),
-      POP_POCETZIM = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE), 
-      POP_POCETZIM1 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE),
-      POP_POCETZIM2 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ),
-      POP_POCETZIM3 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ),
-        na.rm = TRUE
-      ),
-      POP_POCETZIMREF = mean(
-        POP_POCETZIM1, 
-        POP_POCETZIM2, 
-        POP_POCETZIM3, 
-        na.rm = TRUE
-      ),
-      POP_VITALZIM = ifelse(
-        POP_POCETZIMREF == 0, 
-        NA_real_, 
-        round(
-          POP_POCETZIM/POP_POCETZIMREF,
-          3
-        )
-      ),
-      POP_POCETLETS1 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ),
-      POP_POCETLETS2 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ),
-      POP_POCETLET = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETLET1 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETLET2 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETLET3 = sum(
-        case_when(
-          ID_IND == "POP_POCET" ~ as.numeric(HOD_IND), 
-          TRUE ~ NA
-        ), 
-        na.rm = TRUE
-      ), 
-      POP_POCETLETREF = mean(
-        POP_POCETLET1, 
-        POP_POCETLET2, 
-        POP_POCETLET3, 
-        na.rm = TRUE
-      ),
-      POP_VITALLET = round(
-        POP_POCETLET/POP_POCETLETREF,
-        3
-      ),
-      POP_REPROCHI = round(
-        POP_POCETLETS2/POP_POCETLETS1,
-        3
-      ),
-      LOK_POCETSUM = sum(
-        ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1,
-        na.rm = TRUE
-      ),
-      LOK_POCETDOB = sum(
-        ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND == "dobrý",
-        na.rm = TRUE
-      ),
-      LOK_PROCDOBR = dplyr::case_when(
-        is.na(LOK_POCETDOB) | is.na(LOK_POCETSUM) ~ NA_real_,
-        LOK_POCETSUM == 0 ~ NA_real_,
-        TRUE ~ round(LOK_POCETDOB / LOK_POCETSUM * 100, 3)
-      )
-    )
-  
-  #--------------------------------------------------#
-  ## Long format pripravneho objektu ---- 
-  #--------------------------------------------------#
-  # Prevod pole1 na long format
-  n2k_druhy_chu_pole1_long <- n2k_druhy_chu_pole1 %>%
-    dplyr::mutate(
-      across(
-        7:ncol(.) - 2,
-        as.character
-      )
-    ) %>%
+  n2k_druhy_chu_komb_long <- n2k_druhy_chu_temp %>%
     tidyr::pivot_longer(
-      cols = 8:ncol(.),
+      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU), 
       names_to = "ID_IND",
       values_to = "HOD_IND"
     ) %>%
@@ -299,55 +132,23 @@ run_n2k_druhy_uzemi <- function(
       HOD_IND = as.character(HOD_IND)
     )
   
-  # Convert lok na long format
-  n2k_druhy_chu_lok_long <- 
-    n2k_druhy_chu_lok %>%
-    dplyr::mutate(
-      across(
-        7:ncol(.)
-        , 
-        as.character
-      )
-    ) %>%
-    tidyr::pivot_longer(
-      cols = 8:ncol(.),
-      names_to = "ID_IND",
-      values_to = "HOD_IND"
-    ) %>%
-    dplyr::mutate(
-      HOD_IND = as.character(HOD_IND)
-    )
-  #--------------------------------------------------#
-  # Kombinace pole + lokalita  ----
-  #--------------------------------------------------#
-  n2k_druhy_chu_komb_long <- 
-    dplyr::bind_rows(
-      n2k_druhy_chu_pole1_long, 
-      n2k_druhy_chu_lok_long
-    ) %>%
-    dplyr::distinct() %>%
-    dplyr::arrange(
-      ID_ND_AKCE
-    ) %>%
+  #----------------------------------------------------------#
+  ## Napojeni na limity (UPOZORNENI: CELKOVE_HODNOCENI zde neni!) ----
+  #----------------------------------------------------------#
+  n2k_druhy_chu_pre <- n2k_druhy_chu_komb_long %>%
     dplyr::right_join(
       .,
       limity %>%
-        dplyr::filter(
-          UROVEN == "chu"
-        ),
-      by = c(
-        "DRUH" = "DRUH",
-        "ID_IND" = "ID_IND"
-      )
+        dplyr::filter(UROVEN == "chu"),
+      by = c("DRUH" = "DRUH", "ID_IND" = "ID_IND")
     ) %>%
-    dplyr::group_by(
-      kod_chu,
-      DRUH,
-      ID_IND
-    ) %>%
-    dplyr::arrange(
-      HOD_IND
-    ) %>%
+    # Vsechny radky by jiz mely mit ROK (diky inner joinu), ale pro jistotu ponechame fill 
+    # v pripade, ze by limity pridaly prazdne radky
+    dplyr::group_by(kod_chu, DRUH) %>%
+    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU, .direction = "downup") %>%
+    dplyr::ungroup() %>%
+    dplyr::group_by(kod_chu, DRUH, ID_IND) %>%
+    dplyr::arrange(HOD_IND) %>%
     dplyr::slice(1) %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
@@ -369,26 +170,14 @@ run_n2k_druhy_uzemi <- function(
       )
     ) %>%
     dplyr::distinct() %>%
-    # Teď odstraníme všechny sloupce, co začínají na '...'
-    dplyr::select(
-      -dplyr::starts_with(
-        "..."
-      )
-    )
-  
+    dplyr::select(-dplyr::starts_with("..."))
   
   
   #----------------------------------------------------------#
-  # Konsolidace uzemi -----
+  # Konsolidace uzemi a VYPOCET CELKOVE_HODNOCENI -----
   #----------------------------------------------------------#
-  n2k_druhy_chu <- 
-    n2k_druhy_chu_komb_long %>%
-    dplyr::group_by(
-      kod_chu, 
-      DRUH, 
-      ID_IND,
-      KLIC
-    ) %>%
+  n2k_druhy_chu <- n2k_druhy_chu_pre %>%
+    dplyr::group_by(kod_chu, DRUH, ID_IND, KLIC) %>%
     dplyr::reframe(
       ROK = toString(unique(ROK)),
       POLE = toString(unique(POLE)),
@@ -409,94 +198,80 @@ run_n2k_druhy_uzemi <- function(
       KLIC = unique(KLIC),
       UROVEN = unique(UROVEN),
       IND_GRP = unique(IND_GRP),
-      CILMON_CHU = max(
-        CILMON_CHU, 
-        na.rm = TRUE
-      )
+      CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)
     ) %>%
     dplyr::distinct() %>%
     dplyr::ungroup() %>%
     dplyr::left_join(
       ., 
       n2k_druhy_obdobi_chu,
-      by = join_by(
-        "kod_chu",
-        "DRUH"
-      )
+      by = dplyr::join_by("kod_chu", "DRUH")
     ) %>%
     dplyr::mutate(
-      STAV_IND = ifelse(
-        is.infinite(STAV_IND),
-        0, 
-        STAV_IND
-      )
+      STAV_IND = ifelse(is.infinite(STAV_IND), 0, STAV_IND)
     ) %>%
-    dplyr::group_by(
-      kod_chu, 
-      DRUH
+    dplyr::group_by(kod_chu, DRUH) %>%
+    dplyr::mutate(
+      # Vypocet souhrnnych metrik (IND_SUMKLIC atd.) pro celkove hodnoceni
+      IND_SUMKLIC = sum(STAV_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)], na.rm = TRUE),
+      LENIND_SUMKLIC = length(unique(na.omit(ID_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)]))),
+      LENIND_NAKLIC = sum(KLIC == "ano" & UROVEN == "chu" & is.na(HOD_IND), na.rm = TRUE)
     ) %>%
     dplyr::mutate(
-      IND_SUM = sum(
-        STAV_IND %>% 
-          as.numeric(), 
-        na.rm = TRUE
-        ),
-      IND_SUMKLIC = sum(
-        STAV_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
-          as.numeric(), 
-        na.rm = TRUE
-        ),
-      IND_SUMOST = sum(
-        STAV_IND[KLIC == "ne" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
-          as.numeric(),
-        na.rm = TRUE
-      ),
-      LENIND_SUM = ID_IND[UROVEN == "chu" & !is.na(LIM_IND)] %>%
-        unique() %>%
-        na.omit() %>%
-        length(),
-      LENIND_SUMKLIC = ID_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
-        unique() %>%
-        na.omit() %>%
-        length(),
-      LENIND_SUMOST = ID_IND[KLIC == "ne" & UROVEN == "chu" & !is.na(LIM_IND)] %>%
-        unique() %>%
-        na.omit() %>%
-        length(),
-      LENIND_NAKLIC = sum(
-        KLIC == "ano" &
-          UROVEN == "chu" &
-          is.na(HOD_IND),
-        na.rm = TRUE
-      )
-    ) %>%
-    # pokud sumklic spatny tak spatny, pokud sum osts tak spatny, pokud sumostz tak zhorseny, pokud nic z toho tak dobry, TRUE ~ neznamy pres napojeni na limity
-    dplyr::mutate(
+      # Vypocet celkoveho stavu
       CELKOVE = dplyr::case_when(
-        HODNOCENE_OBDOBI_DO + years(6) < current_year ~ NA_real_,
+        HODNOCENE_OBDOBI_DO + lubridate::years(6) < current_year ~ NA_real_,
         IND_SUMKLIC < (LENIND_SUMKLIC - 1 - LENIND_NAKLIC) ~ 0,
         IND_SUMKLIC < (LENIND_SUMKLIC - LENIND_NAKLIC) ~ 0.5,
         IND_SUMKLIC >= (LENIND_SUMKLIC - LENIND_NAKLIC) ~ 1,
         TRUE ~ NA_real_
       )
     ) %>%
-    dplyr::mutate(
-      STAV_IND = dplyr::case_when(
-        ID_IND == "CELKOVE_HODNOCENI" ~ CELKOVE,
-        TRUE ~ STAV_IND
+    
+    # --- FIX: MANUALNI VLOZENI RADKU CELKOVE_HODNOCENI ---
+    # Vybereme klon metadat pro kazdou skupinu (chu, druh)
+    metadata_chu <- . %>%
+    dplyr::summarise(
+      # Opakujeme metadata, ktera potrebujeme pro finalni radku
+      ROK = toString(unique(ROK)),
+      POLE = toString(unique(POLE)),
+      NAZEV_LOK = toString(unique(NAZEV_LOK)),
+      ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+      UROVEN = "chu",
+      CILMON_CHU = max(CILMON_CHU, na.rm = TRUE),
+      
+      # Vypoctene hodnoty
+      STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), # Ziskame stav
+      HOD_IND = dplyr::case_when(
+        STAV_IND == 0 ~ "špatný",
+        STAV_IND == 0.5 ~ "zhoršený",
+        STAV_IND == 1 ~ "dobrý",
+        is.na(STAV_IND) ~ "neznámý"
       )
     ) %>%
     dplyr::mutate(
+      ID_IND = "CELKOVE_HODNOCENI",
+      KLIC = NA_character_, # Celkove hodnoceni neni klicovy indikator
+      TYP_IND = NA_character_,
+      LIM_IND = NA_character_,
+      JEDNOTKA = NA_character_,
+      LIM_INDLIST = NA_character_
+    ) %>%
+    dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
+  
+  n2k_druhy_chu_final <- dplyr::bind_rows(
+    n2k_druhy_chu %>% 
+      dplyr::select(-c(IND_SUMKLIC, LENIND_SUMKLIC, LENIND_NAKLIC, CELKOVE)), # Odstranime pomocne sloupce
+    metadata_chu
+  )
+  # --- KONEC FIXU ---
+  
+  n2k_druhy_chu_final <- n2k_druhy_chu_final %>%
+    # Puvodni sekce pro prepis HOD_IND (TEXT) a STAV_IND (SLOVNI)
+    dplyr::mutate(
       HOD_IND = dplyr::case_when(
         HOD_IND == "NaN" ~ NA_character_,
-        is.na(HOD_IND) == TRUE ~ NA_character_,
-        ID_IND == "CELKOVE_HODNOCENI" & is.na(STAV_IND) == TRUE ~ "neznámý",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0 ~ "špatný",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0.5 ~ "zhoršený",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 1 ~ "dobrý",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == "0" ~ "špatný",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == "0.5" ~ "zhoršený",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == "1" ~ "dobrý",
+        is.na(HOD_IND) == TRUE & ID_IND != "CELKOVE_HODNOCENI" ~ NA_character_,
         TRUE ~ HOD_IND
       )
     ) %>%
@@ -509,7 +284,7 @@ run_n2k_druhy_uzemi <- function(
         is.infinite(STAV_IND) == TRUE ~ "neznámý",
         HOD_IND == " " ~ "neznámý",
         ID_IND == "STA_HABPOKRYV" ~ "neznámý",
-        is.na(HOD_IND) == TRUE ~ "neznámý",
+        is.na(HOD_IND) == TRUE & ID_IND != "CELKOVE_HODNOCENI" ~ "neznámý",
         STAV_IND == 0 ~ "špatný",
         STAV_IND == 0.5 ~ "zhoršený",
         STAV_IND == 1 ~ "dobrý",
@@ -521,18 +296,14 @@ run_n2k_druhy_uzemi <- function(
     ) %>%
     dplyr::ungroup() %>%
     dplyr::distinct() %>%
-    dplyr::arrange(
-      DRUH, 
-      kod_chu, 
-      POLE
-    ) %>%
-    dplyr::filter(is.na(ROK) == FALSE & ROK != "NA") 
-   
-  return(n2k_druhy_chu)
+    dplyr::arrange(DRUH, kod_chu, POLE) %>%
+    dplyr::filter(is.na(ROK) == FALSE & ROK != "NA")
   
+  return(n2k_druhy_chu_final)
 }
 
-# Napocet a temp zapis----- 
+#----------------------------------------------------------#
+# Napocet a temp zapis ---- 
 #----------------------------------------------------------#
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
