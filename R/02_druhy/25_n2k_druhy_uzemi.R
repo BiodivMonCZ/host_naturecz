@@ -30,6 +30,8 @@ run_n2k_druhy_uzemi <- function(
     sites_subjects,
     limity,
     biotop_evd, 
+    n2k_druhy_obdobi_chu,
+    n2k_druhy_posledni_chu,
     current_year = 2024
 ) {
   
@@ -49,12 +51,16 @@ run_n2k_druhy_uzemi <- function(
   pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
   
-  # Vykonani agregace (vetve A nebo B) - kód beze zmeny
   if (is_pole_druh) {
     # Logika pro POLE
     n2k_druhy_chu_temp <- n2k_druhy_lok %>%
-      dplyr::filter(DRUH == species_name) %>%
-      dplyr::group_by(kod_chu, DRUH) %>%
+      dplyr::filter(
+        DRUH == species_name
+        ) %>%
+      dplyr::group_by(
+        kod_chu, 
+        DRUH
+        ) %>%
       dplyr::reframe(
         ROK = toString(unique(ROK)),
         POLE = toString(unique(POLE)),
@@ -67,7 +73,8 @@ run_n2k_druhy_uzemi <- function(
             HOD_IND != "neznámý" & HOD_IND != "zhoršený" & HOD_IND != "špatný" & 
             STAV_IND != "NA" & STAV_IND != "0" & is.na(STAV_IND) == FALSE & 
             STAV_IND != 0.5 & STAV_IND != 0 & CILMON == 1, 
-          na.rm = TRUE),
+          na.rm = TRUE
+          ),
         STA_HABPOKRYVPRE = {
           k_chu <- unique(kod_chu)
           x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
@@ -84,7 +91,10 @@ run_n2k_druhy_uzemi <- function(
     # Logika pro LOKALITY / OSTATNI
     n2k_druhy_chu_temp <- n2k_druhy_lok %>%
       dplyr::filter(DRUH == species_name) %>%
-      dplyr::group_by(kod_chu, DRUH) %>%
+      dplyr::group_by(
+        kod_chu, 
+        DRUH
+        ) %>%
       dplyr::reframe(
         ROK = toString(unique(ROK)), POLE = toString(unique(POLE)), NAZEV_LOK = toString(unique(NAZEV_LOK)), 
         ID_ND_AKCE = toString(unique(ID_ND_AKCE)), CILMON_CHU = max(CILMON, na.rm = TRUE),
@@ -122,9 +132,15 @@ run_n2k_druhy_uzemi <- function(
   }
   
   #--------------------------------------------------#
-  ## Prevod na long format ----
+  # Prevod na long format ----
   #--------------------------------------------------#
   n2k_druhy_chu_komb_long <- n2k_druhy_chu_temp %>%
+    dplyr::mutate(
+      dplyr::across(
+        .cols = where(is.numeric), 
+        .fns = as.character
+      )
+    ) %>%
     tidyr::pivot_longer(
       cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU), 
       names_to = "ID_IND",
@@ -135,7 +151,7 @@ run_n2k_druhy_uzemi <- function(
     )
   
   #----------------------------------------------------------#
-  ## Napojeni na limity (UPOZORNENI: CELKOVE_HODNOCENI zde neni!) ----
+  # Napojeni na limity ----
   #----------------------------------------------------------#
   n2k_druhy_chu_pre <- n2k_druhy_chu_komb_long %>%
     dplyr::right_join(
@@ -178,7 +194,9 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   # Konsolidace uzemi a VYPOCET CELKOVE_HODNOCENI -----
   #----------------------------------------------------------#
-  n2k_druhy_chu <- n2k_druhy_chu_pre %>%
+  
+  # Vypocet dilcich stavu (STAV_IND) a pridani metadat obdobi
+  n2k_druhy_chu_vypocet <- n2k_druhy_chu_pre %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND, KLIC) %>%
     dplyr::reframe(
       ROK = toString(unique(ROK)),
@@ -204,46 +222,36 @@ run_n2k_druhy_uzemi <- function(
     ) %>%
     dplyr::distinct() %>%
     dplyr::ungroup() %>%
-    dplyr::left_join(
-      ., 
-      n2k_druhy_obdobi_chu,
-      by = dplyr::join_by("kod_chu", "DRUH")
-    ) %>%
     dplyr::mutate(
       STAV_IND = ifelse(is.infinite(STAV_IND), 0, STAV_IND)
     ) %>%
     dplyr::group_by(kod_chu, DRUH) %>%
     dplyr::mutate(
-      # Vypocet souhrnnych metrik (IND_SUMKLIC atd.) pro celkove hodnoceni
       IND_SUMKLIC = sum(STAV_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)], na.rm = TRUE),
       LENIND_SUMKLIC = length(unique(na.omit(ID_IND[KLIC == "ano" & UROVEN == "chu" & !is.na(LIM_IND)]))),
       LENIND_NAKLIC = sum(KLIC == "ano" & UROVEN == "chu" & is.na(HOD_IND), na.rm = TRUE)
     ) %>%
     dplyr::mutate(
-      # Vypocet celkoveho stavu
+      # Vypocet celkoveho stavu (numeric 0/0.5/1)
       CELKOVE = dplyr::case_when(
-        HODNOCENE_OBDOBI_DO + lubridate::years(6) < current_year ~ NA_real_,
         IND_SUMKLIC < (LENIND_SUMKLIC - 1 - LENIND_NAKLIC) ~ 0,
         IND_SUMKLIC < (LENIND_SUMKLIC - LENIND_NAKLIC) ~ 0.5,
         IND_SUMKLIC >= (LENIND_SUMKLIC - LENIND_NAKLIC) ~ 1,
         TRUE ~ NA_real_
       )
-    ) %>%
-    
-    # --- FIX: MANUALNI VLOZENI RADKU CELKOVE_HODNOCENI ---
-    # Vybereme klon metadat pro kazdou skupinu (chu, druh)
-    metadata_chu <- . %>%
+    )
+  
+  # Vytvoreni radku CELKOVE_HODNOCENI z vypoctu CELKOVE
+  metadata_chu <- n2k_druhy_chu_vypocet %>%
+    dplyr::group_by(kod_chu, DRUH) %>%
     dplyr::summarise(
-      # Opakujeme metadata, ktera potrebujeme pro finalni radku
       ROK = toString(unique(ROK)),
       POLE = toString(unique(POLE)),
       NAZEV_LOK = toString(unique(NAZEV_LOK)),
       ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
       UROVEN = "chu",
       CILMON_CHU = max(CILMON_CHU, na.rm = TRUE),
-      
-      # Vypoctene hodnoty
-      STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), # Ziskame stav
+      STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), 
       HOD_IND = dplyr::case_when(
         STAV_IND == 0 ~ "špatný",
         STAV_IND == 0.5 ~ "zhoršený",
@@ -253,7 +261,7 @@ run_n2k_druhy_uzemi <- function(
     ) %>%
     dplyr::mutate(
       ID_IND = "CELKOVE_HODNOCENI",
-      KLIC = NA_character_, # Celkove hodnoceni neni klicovy indikator
+      KLIC = NA_character_,
       TYP_IND = NA_character_,
       LIM_IND = NA_character_,
       JEDNOTKA = NA_character_,
@@ -261,12 +269,12 @@ run_n2k_druhy_uzemi <- function(
     ) %>%
     dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
   
+  # Krok 3: Spojeni radku indikatoru s radky celkoveho hodnoceni
   n2k_druhy_chu_final <- dplyr::bind_rows(
-    n2k_druhy_chu %>% 
+    n2k_druhy_chu_vypocet %>% 
       dplyr::select(-c(IND_SUMKLIC, LENIND_SUMKLIC, LENIND_NAKLIC, CELKOVE)), # Odstranime pomocne sloupce
     metadata_chu
   )
-  # --- KONEC FIXU ---
   
   n2k_druhy_chu_final <- n2k_druhy_chu_final %>%
     # Puvodni sekce pro prepis HOD_IND (TEXT) a STAV_IND (SLOVNI)
@@ -302,6 +310,7 @@ run_n2k_druhy_uzemi <- function(
     dplyr::filter(is.na(ROK) == FALSE & ROK != "NA")
   
   return(n2k_druhy_chu_final)
+  
 }
 
 #----------------------------------------------------------#
@@ -310,12 +319,14 @@ run_n2k_druhy_uzemi <- function(
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 #species_list <- unique(n2k_load$DRUH)
-species_list <- c("Bombina variegata", "Osmoderma barnabita", "Lampetra planeri")
+species_list <- c("Pulsatilla patens", "Bombina variegata", "Osmoderma barnabita", "Lampetra planeri")
 #species_list <- "Bombina variegata"
 
 n2k_druhy_uzemi <- 
   lapply(species_list, function(sp) {
-  run_n2k_druhy_uzemi(n2k_druhy_lok, sp, sites_subjects, limity, current_year = 2024)
+  run_n2k_druhy_uzemi(
+    n2k_druhy_lok, sp, sites_subjects, limity, biotop_evd, 
+    current_year = 2024)
     }
   ) %>%
   dplyr::bind_rows()
