@@ -945,7 +945,7 @@ run_n2k_druhy <- function(
       by = c("KOD_LOKAL", "DRUH")
       ) %>%
     dplyr::mutate(
-      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF
+      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF*100
     ) %>%
     dplyr::left_join(
       cis_pocet_kat,
