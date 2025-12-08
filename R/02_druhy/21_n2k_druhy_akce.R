@@ -978,7 +978,7 @@ run_n2k_druhy <- function(
     dplyr::distinct() 
   
   #--------------------------------------------------#
-  ## Odstraneni dilcich objektu z pameti ----- 
+  # Odstraneni dilcich objektu z pameti ----- 
   #--------------------------------------------------#
   rm(
     n2k_druhy_pre, 
