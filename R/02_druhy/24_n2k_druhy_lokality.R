@@ -32,16 +32,33 @@ run_n2k_druhy_lok <- function(
     unique()
   
   if (length(bad_groups) == 0) {
-    warning(glue::glue("Vsechny indikatory vraceji prave 1 typ, klicovost i uroven"))
+    warning(glue::glue("Druh {species_name}: Vsechny indikatory vraceji prave 1 typ, klicovost i uroven"))
   } else {
-    warning(glue::glue("indikator {bad_groups} vraci vice nez 1 typ, klicovost ci uroven"))
+    warning(glue::glue("Druh {species_name}: indikator {bad_groups} vraci vice nez 1 typ, klicovost ci uroven"))
     
   }
   
   #----------------------------------------------------------#
+  # Nacteni skupiny druhu ----
+  #----------------------------------------------------------#
+  skupina_druhu <- n2k_druhy_lok %>% 
+    dplyr::filter(DRUH == species_name) %>% 
+    dplyr::pull(SKUPINA) %>% 
+    unique() %>% 
+    stats::na.omit() %>%
+    dplyr::first()
+  
+  #----------------------------------------------------------#
+  # Priprava dilcich objektu -----
+  #----------------------------------------------------------#
+  pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
+  # Zde je bezpecnejsi osetrit, pokud by druh nebyl v sites_subjects vubec
+  is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+  
+  #----------------------------------------------------------#
   # Priprava agregovanych indikatoru ----
   #----------------------------------------------------------#
-  n2k_druhy_lok_pre <- 
+  n2k_druhy_lim_post <- 
     n2k_druhy_lim %>%
     dplyr::filter(DRUH == species_name) %>%
     dplyr::group_by(
@@ -81,88 +98,100 @@ run_n2k_druhy_lok <- function(
     dplyr::ungroup() %>%
     dplyr::distinct()
   
+  if(is_pole_druh) {
+    
+    n2k_druhy_lok_pre <-
+      n2k_druhy_lim_post %>%
+      dplyr::group_by(
+        kod_chu, 
+        DRUH, 
+        KOD_LOKAL, 
+        ROK
+      )
+      
+  } else {
+    
+    n2k_druhy_lok_pre <-
+      n2k_druhy_lim_post %>%
+      dplyr::group_by(
+        kod_chu, 
+        DRUH, 
+        KOD_LOKAL, 
+        ROK
+      ) %>%
+      dplyr::mutate(
+        POLE = toString(unique(POLE))
+        ) %>%
+      dplyr::distinct(
+        kod_chu, DRUH, KOD_LOKAL, ROK, ID_IND, .keep_all = TRUE
+        )
+    
+  }
+  
   #----------------------------------------------------------#
   # Napojeni na limity ----
   #----------------------------------------------------------#
   n2k_druhy_lok <- 
     n2k_druhy_lok_pre %>%
+    # 1. Seskupeni - definuje, za co pocitame vysledek
     dplyr::group_by(
       kod_chu, 
       DRUH, 
       KOD_LOKAL, 
       ROK
     ) %>%
+    # 2. Vypocet souhrnnych statistik pro danou skupinu
+    # Nyni se odkazujeme na sloupce UVNITR dataframu, ne na externi 'limity'
     dplyr::mutate(
-      IND_SUM = STAV_IND[limity$UROVEN %in% c("lok") & is.na(LIM_IND) == FALSE] %>%
-        na.omit() %>%
-        as.numeric() %>%
-        sum() %>%
-        as.character(),
-      IND_SUMKLIC = STAV_IND[KLIC == "ano" & 
-                               limity$UROVEN %in% c("lok") & 
-                               is.na(LIM_IND) == FALSE] %>%
-        na.omit() %>%
-        as.numeric() %>%
-        sum() %>%
-        as.character(),
-      IND_SUMOST = STAV_IND[KLIC == "ne" &
-                              limity$UROVEN %in% c("lok") &
-                              is.na(LIM_IND) == FALSE] %>%
-        na.omit() %>%
-        as.numeric() %>%
-        sum() %>%
-        as.character(),
-      IND_LEN = limity$ID_IND[limity$DRUH %in% DRUH &
-                                limity$UROVEN %in% c("lok") &
-                                is.na(limity$LIM_IND) == FALSE] %>%
-        unique() %>% 
-        na.omit() %>%
-        length(),
-      IND_LENKLIC = limity$ID_IND[limity$DRUH %in% DRUH & 
-                                    limity$KLIC == "ano" &
-                                    limity$UROVEN %in% c("lok") &
-                                    is.na(limity$LIM_IND) == FALSE] %>%
-        unique() %>%
-        na.omit() %>%
-        length(),
-      IND_LENOST = limity$ID_IND[limity$DRUH %in% DRUH & 
-                                   limity$KLIC == "ne" &
-                                   limity$UROVEN %in% c("lok") &
-                                   is.na(limity$LIM_IND) == FALSE] %>%
-        unique() %>% 
-        na.omit() %>%
-        length()
+      # Pocet klicovych indikatoru, ktere maji vyplneny limit (definovane)
+      IND_LENKLIC = sum(KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
+      
+      # Pocet ostatnich indikatoru, ktere maji vyplneny limit (definovane)
+      IND_LENOST  = sum(KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
+      
+      # Kolik klicovych indikatoru skutecne splnilo limit (STAV_IND == 1)
+      IND_SUMKLIC = sum(STAV_IND == 1 & KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
+      
+      # Kolik ostatnich indikatoru skutecne splnilo limit
+      IND_SUMOST  = sum(STAV_IND == 1 & KLIC == "ne"  & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE)
     ) %>%
-    # pokud sumklic spatny tak spatny, pokud sum ost tak spatny, pokud sumost tak zhorseny, pokud nic z toho tak dobry, TRUE ~ neznamy pres napojeni na limity
+    # 3. Vyhodnoceni celkoveho stavu (Logika zustava stejna, ale pracujeme s cisly)
     dplyr::mutate(
       CELKOVE = dplyr::case_when(
-        is.na(CILMON) == TRUE ~ NA_real_,
-        unique(IND_SUMKLIC) < IND_LENKLIC ~ 0,
-        unique(IND_SUMOST) < (IND_LENOST - 2) ~ 0,
-        unique(IND_SUMOST) < (IND_LENOST - 1) ~ 0.5,
-        unique(IND_SUMKLIC) >= IND_LENKLIC & 
-          unique(IND_SUMOST) > (IND_LENOST - 1) ~ 1,
+        # Pokud chybi cil monitoringu, nelze hodnotit
+        is.na(CILMON) ~ NA_real_,
+        
+        # Pokud je splneno mene klicovych, nez je pozadovano -> 0 (Spatny)
+        IND_SUMKLIC < IND_LENKLIC ~ 0,
+        
+        # Ostatni: Povolujeme urcitou toleranci (dle puvodniho skriptu)
+        # Pokud je splneno o 2 a vice mene nez pozadovano -> 0 (Spatny)
+        IND_SUMOST < (IND_LENOST - 1) ~ 0, 
+        
+        # Pokud chybi prave 1 do plneho poctu -> 0.5 (Zhorseny)
+        # (Pozn: podminka vyse < (LEN - 1) zachytila rozdily 2, 3, 4..., takze tady zbyva jen rozdil 1)
+        IND_SUMOST < IND_LENOST ~ 0.5,
+        
+        # Pokud mame vsechny klicove A zaroven dostatek ostatnich -> 1 (Dobry)
+        IND_SUMKLIC >= IND_LENKLIC & IND_SUMOST >= (IND_LENOST - 1) ~ 1, # Zde jsem upravil logiku na >=, aby to matematicky sedelo k "zbytku"
+        
         TRUE ~ NA_real_
       )
     ) %>%
+    # 4. Propis do radku CELKOVE_HODNOCENI
     dplyr::mutate(
       STAV_IND = dplyr::case_when(
         ID_IND == "CELKOVE_HODNOCENI" ~ CELKOVE,
         TRUE ~ STAV_IND
       )
     ) %>%
+    # 5. Prevod na slovni hodnoceni
     dplyr::mutate(
       HOD_IND = dplyr::case_when(
-        is.na(STAV_IND) == TRUE ~ "neznámý",
-        ID_IND == "CELKOVE_HODNOCENI" & 
-          STAV_IND == 0 
-        ~ "špatný",
-        ID_IND == "CELKOVE_HODNOCENI" & 
-          STAV_IND == 0.5 
-        ~ "zhoršený",
-        ID_IND == "CELKOVE_HODNOCENI" & 
-          STAV_IND == 1 
-        ~ "dobrý",
+        is.na(STAV_IND) ~ "neznámý",
+        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0   ~ "špatný",
+        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0.5 ~ "zhoršený",
+        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 1   ~ "dobrý",
         TRUE ~ HOD_IND
       )
     ) %>%
@@ -229,7 +258,7 @@ run_n2k_druhy_lok <- function(
     ) %>%
     dplyr::ungroup()
   
-  if(unique(n2k_druhy_lok_pre$SKUPINA) %in% c("Motýli", "Brouci", "Vážky", "Rovnokřídlí")){
+  if(is_pole_druh) {
     n2k_druhy_lok_return <- n2k_druhy_lokeval
   } else {
     n2k_druhy_lok_return <- n2k_druhy_lok
