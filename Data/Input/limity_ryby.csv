@@ -59,6 +59,7 @@ Lampetra planeri;STA_DNOTYP;val;kompaktní jílové dno;NA;ne;lok
 Lampetra planeri;STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV;val;10;m2;ne;lok
 Lampetra planeri;STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI;val;10;m2;ne;lok
 Lampetra planeri;POP_POCET;NA;NA;jedinci;NA;NA
+Lampetra planeri;LOK_PROCDOBR;min;50;% lokalit v dobrém stavu;NA;chu
 Leuciscus aspius;POP_DYN;max;50;%;ano;lok
 Leuciscus aspius;POP_VITALITA;min;1;jedinci tohoroèní;ano;lok
 Leuciscus aspius;STA_DNOPOCETTYPU;min;3;NA;ne;lok
