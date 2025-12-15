@@ -945,7 +945,7 @@ run_n2k_druhy <- function(
       by = c("KOD_LOKAL", "DRUH")
       ) %>%
     dplyr::mutate(
-      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF
+      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF*100
     ) %>%
     dplyr::left_join(
       cis_pocet_kat,
@@ -978,7 +978,7 @@ run_n2k_druhy <- function(
     dplyr::distinct() 
   
   #--------------------------------------------------#
-  ## Odstraneni dilcich objektu z pameti ----- 
+  # Odstraneni dilcich objektu z pameti ----- 
   #--------------------------------------------------#
   rm(
     n2k_druhy_pre, 
