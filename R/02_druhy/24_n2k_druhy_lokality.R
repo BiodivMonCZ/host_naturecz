@@ -41,7 +41,7 @@ run_n2k_druhy_lok <- function(
   #----------------------------------------------------------#
   # Nacteni skupiny druhu ----
   #----------------------------------------------------------#
-  skupina_druhu <- n2k_druhy_lok %>% 
+  skupina_druhu <- n2k_druhy_lim %>% 
     dplyr::filter(DRUH == species_name) %>% 
     dplyr::pull(SKUPINA) %>% 
     unique() %>% 
