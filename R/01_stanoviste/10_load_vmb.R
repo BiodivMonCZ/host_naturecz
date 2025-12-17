@@ -3,30 +3,67 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
   if(vmb_x == 1) {
     
     # VMB - ZÁKLADNÍ MAPOVÁNÍ
-    vmb_shp_sjtsk_orig_read <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/20060501_Segment.shp", options = "ENCODING=WINDOWS-1250")
-    vmb_hab_dbf_orig <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf", options = "ENCODING=WINDOWS-1250")
-    vmb_pb_dbf_orig <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/PB20060501_BIOTOP.dbf", options = "ENCODING=WINDOWS-1250") %>%
-      dplyr::filter(!OBJECTID %in% vmb_hab_dbf_orig$OBJECTID)
+    vmb_shp_sjtsk_orig_read <- 
+      sf::st_read(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/20060501_Segment.shp", 
+        options = "ENCODING=WINDOWS-1250"
+        )
+    vmb_hab_dbf_orig <- 
+      sf::st_read(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf", 
+        options = "ENCODING=WINDOWS-1250"
+        )
+    vmb_pb_dbf_orig <- 
+      sf::st_read(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/PB20060501_BIOTOP.dbf",
+        options = "ENCODING=WINDOWS-1250"
+        ) %>%
+      dplyr::filter(
+        !OBJECTID %in% vmb_hab_dbf_orig$OBJECTID
+        )
     
-    vmb_hab_pb_dbf_orig <- dplyr::bind_rows(vmb_hab_dbf_orig, vmb_pb_dbf_orig) %>%
-      dplyr::group_by(SEGMENT_ID) %>%
-      dplyr::mutate(moz_num = n(),
-                    FSB_EVAL_prep = dplyr::case_when(sum(STEJ_PR, na.rm = TRUE) < 50 ~ "X",
-                                                     sum(STEJ_PR, na.rm = TRUE) >= 50 &
-                                                       sum(STEJ_PR, na.rm = TRUE) < 200 ~ "moz.",
-                                                     sum(STEJ_PR, na.rm = TRUE) == 200 ~ NA_character_)) %>%
+    vmb_hab_pb_dbf_orig <- 
+      dplyr::bind_rows(
+        vmb_hab_dbf_orig, 
+        vmb_pb_dbf_orig
+        ) %>%
+      dplyr::group_by(
+        SEGMENT_ID
+        ) %>%
+      dplyr::mutate(
+        moz_num = n(),
+        FSB_EVAL_prep = dplyr::case_when(
+          sum(STEJ_PR, na.rm = TRUE) < 50 ~ "X",
+          sum(STEJ_PR, na.rm = TRUE) >= 50 & sum(STEJ_PR, na.rm = TRUE) < 200 ~ "moz.",
+          sum(STEJ_PR, na.rm = TRUE) == 200 ~ NA_character_)
+        ) %>%
       dplyr::ungroup() %>% 
-      dplyr::select(SEGMENT_ID,
-                    FSB_EVAL_prep) %>%
+      dplyr::select(
+        SEGMENT_ID,
+        FSB_EVAL_prep
+        ) %>%
       dplyr::distinct()
     
-    vmb_shp_sjtsk_orig <- vmb_shp_sjtsk_orig_read %>%
-      dplyr::left_join(vmb_hab_dbf_orig, by = "SEGMENT_ID") %>%
-      dplyr::left_join(vmb_hab_pb_dbf_orig, by = "SEGMENT_ID") %>%
-      dplyr::mutate(FSB_EVAL = dplyr::case_when(FSB_EVAL_prep == "X" ~ "X",
-                                                TRUE ~ FSB),
-                    HABITAT = dplyr::case_when(HABITAT == 6210 & HABIT_TYP == "p" ~ "6210p",
-                                               TRUE ~ HABITAT))
+    vmb_shp_sjtsk_orig <- 
+      vmb_shp_sjtsk_orig_read %>%
+      dplyr::left_join(
+        vmb_hab_dbf_orig, 
+        by = "SEGMENT_ID"
+        ) %>%
+      dplyr::left_join(
+        vmb_hab_pb_dbf_orig, 
+        by = "SEGMENT_ID"
+        ) %>%
+      dplyr::mutate(
+        FSB_EVAL = dplyr::case_when(
+          FSB_EVAL_prep == "X" ~ "X",
+          TRUE ~ FSB
+          ),
+        HABITAT = dplyr::case_when(
+          HABITAT == 6210 & HABIT_TYP == "p" ~ "6210p",
+          TRUE ~ HABITAT
+          )
+        )
     
     assign("vmb_shp_sjtsk_orig", vmb_shp_sjtsk_orig, envir = .GlobalEnv)
     
