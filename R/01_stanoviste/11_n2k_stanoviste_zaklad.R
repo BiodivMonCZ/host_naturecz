@@ -1,15 +1,4 @@
 # LOAD DATA ----
-# VRSTVA EVL 
-n2k_oop <- read.csv2("n2k_oop_24.csv", fileEncoding = "Windows-1250")
-po <- sf::st_read("//bali.nature.cz/du/OchranaPrirody/Natura 2000/PtaciObl.shp", options = "ENCODING=WINDOWS-1250")
-evl <- sf::st_read("//bali.nature.cz/du/OchranaPrirody/Natura 2000/EvVyzLok.shp", options = "ENCODING=WINDOWS-1250") %>%
-  dplyr::left_join(., n2k_oop, by = c("KOD" = "kod_chu"))
-#evl_akt <- sf::st_read("S:/Složky uživatelů/Gaigr/stanoviste/evl/Aktualizovaná vrstva/Aktualizovana_vrstva_EVL.shp", options = "ENCODING=UTF-8") %>%
-#  dplyr::left_join(., n2k_oop, by = c("KOD" = "kod_chu"))
-evl_sjtsk <- sf::st_transform(evl, CRS("+init=epsg:5514"))
-mzchu_sjtsk <- sf::st_read("//bali.nature.cz/du/OchranaPrirody/UzemniOchrana/MaloplZCHU.shp", options = "ENCODING=WINDOWS-1250")
-
-rp_n2k <- read.csv2("n2k_rp_24.csv", fileEncoding = "Windows-1250")
 
 # VRSTVA HRANIC CZ 
 czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
