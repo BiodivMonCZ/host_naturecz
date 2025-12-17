@@ -11,9 +11,6 @@ habitat_areas_2022 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_
 # PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
 evl_lengths <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/evl/evl_max_dist.csv", encoding = "UTF-8")
 #evl_species <- read.csv("https://media.githubusercontent.com/media/jonasgaigr/N2K.CZ/main/cevnate_evl.csv", encoding = "UTF-8")
-# LIMITNÍ HODNOTY PARAMETRŮ HODNOCENÍ
-hablimits <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/hablimits.csv", encoding = "UTF-8") %>%
-  filter(REG != "alp" | is.na(REG) == TRUE)
 
 habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
                              fileEncoding = "Windows-1250")
