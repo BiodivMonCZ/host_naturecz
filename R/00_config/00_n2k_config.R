@@ -231,6 +231,9 @@ sites_subjects <- openxlsx::read.xlsx(
     nazev_lat = `Název.latinsky.(druh)`
   )
 
+sites_habitats <- sites_subjects %>%
+  dplyr::filter(feature_type == "stanoviště")
+
 #--------------------------------------------------#
 ## Seznam EVL SDO II ---- 
 #--------------------------------------------------#

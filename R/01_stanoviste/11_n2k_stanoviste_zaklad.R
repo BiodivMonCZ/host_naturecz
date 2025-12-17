@@ -16,14 +16,6 @@ czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
   st_transform(., CRS("+init=epsg:5514"))
 czechia_line <- st_cast(czechia, "LINESTRING")
 
-# SEZNAM EVL A PŘEDMĚTŮ OCHRANY
-#rn2kcz::load_n2k_sites()
-sites_subjects <- openxlsx::read.xlsx("S:/Složky uživatelů/Gaigr/stanoviste/evl/seznam_predmetolokalit_Natura2000_5_2025_fin.xlsx",
-                                        sheet = 1)
-colnames(sites_subjects) <- c("site_code", "site_name", "site_type", "feature_type", "EU_code", "feature_code", "nazev_cz", "nazev_lat")
-
-sites_habitats <- sites_subjects %>%
-  dplyr::filter(feature_type == "stanoviště")
 
 # ČÍSELNÍK HABITATŮ
 habitats <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/habitats.csv", encoding = "UTF-8")
