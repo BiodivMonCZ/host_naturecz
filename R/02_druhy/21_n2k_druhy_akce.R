@@ -873,7 +873,7 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::ungroup()
   
-  # Lokalita - trendy ----
+  # Lokalita - trendy akualni----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%
     dplyr::group_by(
@@ -923,6 +923,7 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::ungroup() 
   
+  # Lokalita - trendy referencni----
   n2k_druhy_lokpop_trend_ascd <- n2k_druhy_lokpop %>%
     dplyr::group_by(
       KOD_LOKAL, 
@@ -934,7 +935,7 @@ run_n2k_druhy <- function(
     ) %>%
     #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
-      POP_ABUNDANCEREF = mean(head(POP_ABUNDANCE, 3), na.rm = TRUE)
+      POP_ABUNDANCEREF = mean(head(na.omit(POP_ABUNDANCE), 3), na.rm = TRUE)
       ) %>%
     dplyr::ungroup() 
   
