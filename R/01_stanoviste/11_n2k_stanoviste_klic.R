@@ -5,17 +5,6 @@ czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
   st_transform(., CRS("+init=epsg:5514"))
 czechia_line <- st_cast(czechia, "LINESTRING")
 
-# rozloze stanoviště v ČR v rámci AVMB2022
-habitat_areas_2022 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", encoding = "Windows-1250")
-# MAXIMÁLNÍ VZDÁLENOST MEZI 2 BODY PRO KAŽDOU EVL - LINESTRINGY BYLY PŘEVEDENY NA MULTIPOINT 
-# PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
-evl_lengths <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/evl/evl_max_dist.csv", encoding = "UTF-8")
-#evl_species <- read.csv("https://media.githubusercontent.com/media/jonasgaigr/N2K.CZ/main/cevnate_evl.csv", encoding = "UTF-8")
-
-habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
-                             fileEncoding = "Windows-1250")
-
-
 load_vmb(vmb_x = 0)
 #load_vmb(vmb_x = 2)
 

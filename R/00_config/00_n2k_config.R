@@ -207,6 +207,35 @@ minimisize <-
   dplyr::ungroup()
 
 #--------------------------------------------------#
+## Rozloha stanovišť v ČR v rámci AVMB2022 ----
+#--------------------------------------------------#
+habitat_areas_2022 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+    )
+
+#--------------------------------------------------#
+## Rozloha stanovišť v ČR v rámci VMB2----
+#--------------------------------------------------#
+habitat_areas_a1 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+    )
+
+
+#--------------------------------------------------#
+# MAXIMÁLNÍ VZDÁLENOST MEZI 2 BODY PRO KAŽDOU EVL - LINESTRINGY BYLY PŘEVEDENY NA MULTIPOINT 
+# PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
+#--------------------------------------------------#
+evl_lengths <- 
+  readr::read_csv(
+    "Data/Input/evl_max_dist.csv", 
+    locale = readr::locale(encoding = "UTF-8")
+    )
+
+#--------------------------------------------------#
 ## Ciselnik biotopu EVD hmyzu ---- 
 #--------------------------------------------------#
 biotop_evd <- readr::read_csv(
