@@ -26,27 +26,17 @@ if (!require("rn2kcz", quietly = TRUE)) {
   library(rn2kcz)
 }
 
-#----------------------------------------------------------#
-# Nacteni remote dat -----
-#----------------------------------------------------------#
-
 #--------------------------------------------------#
-## Zdroj cileného monitoringu ---- 
-#--------------------------------------------------#
-CIS_CILMON <- readr::read_csv(
-  "Data/Input/cil_mon_zdroj.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-)
-
-#--------------------------------------------------#
-## Rok hodnoceni ---- 
+# Rok hodnoceni ---- 
 #--------------------------------------------------#
 current_year <- as.numeric(format(Sys.Date(), "%Y")) - 1
 
+#----------------------------------------------------------#
+# Nacteni remote dat -----
+#----------------------------------------------------------#
 #--------------------------------------------------#
 ## Limity hodnoceni stavu ---- 
 #--------------------------------------------------#
-
 #------------------------------------------#
 ### Limity - cévnaté rostliny ---- 
 #------------------------------------------#
@@ -62,7 +52,6 @@ limity_ryb <- readr::read_csv2(
   "Data/Input/limity_ryby.csv", 
   locale = readr::locale(encoding = "Windows-1250")
 )
-
 
 #------------------------------------------#
 ### Limity - hlavní soubor ---- 
@@ -118,114 +107,10 @@ limity <- readr::read_csv(
   dplyr::ungroup()
 
 #--------------------------------------------------#
-## Ciselnik poctu navazanych na relativni kategorii pocetnost ---- 
+## Ciselniky - sdilene ---- 
 #--------------------------------------------------#
-cis_pocet_kat <- readr::read_csv(
-  "Data/Input/cis_pocet_kat.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-)
-
 #--------------------------------------------------#
-## Ciselnik indikatoru hodnoceni stavu ---- 
-#--------------------------------------------------#
-indikatory_id <- readr::read_csv(
-  "Data/Input/cis_indikatory_popis.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-)
-
-#--------------------------------------------------#
-## Ciselnik periody hodnoceni stavu ---- 
-#--------------------------------------------------#
-cis_evd_perioda <- readr::read_csv(
-  "Data/Input/cis_evd_perioda.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
-  dplyr::select(
-    TAXON, 
-    PERIODA
-    )
-
-#--------------------------------------------------#
-## Ciselnik metodiky hodnoceni stavu ---- 
-#--------------------------------------------------#
-cis_metodika <- readr::read_csv(
-  "Data/Input/cis_metodika.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-) %>%
-  dplyr::select(
-    druh, 
-    metodika
-  )
-
-#--------------------------------------------------#
-## Ciselnik kategorii delkovych struktur ryb a mihuli ---- 
-#--------------------------------------------------#
-cis_ryby_delky <- readr::read_csv(
-  "Data/Input/cis_ryby_delky_strukt.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
-)
-
-#--------------------------------------------------#
-## Ciselnik kodu a nazvu typu prirodnich stanovist ---- 
-#--------------------------------------------------#
-cis_habitat <- 
-  readr::read_csv2(
-    "Data/Input/cis_habitat.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-    ) %>%
-  dplyr::select(
-    KOD_HABITAT, 
-    NAZEV_HABITAT, 
-    PRIORITA
-    ) %>% 
-  dplyr::mutate(
-    KOD_HABITAT = dplyr::case_when(
-      KOD_HABITAT == "91" ~ "91E0",
-      KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
-      TRUE ~ KOD_HABITAT
-      )
-    ) %>%
-  dplyr::select(
-    KOD_HABITAT, 
-    NAZEV_HABITAT
-    )
-
-#--------------------------------------------------#
-## Ciselnik minimiarealu typu prirodnich stanovist ---- 
-#--------------------------------------------------#
-minimisize <- 
-  readr::read_csv(
-    "Data/Input/minimisize.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-    ) %>%
-  dplyr::group_by(
-    HABITAT
-    ) %>%
-  dplyr::reframe(
-    MINIMISIZE = max(MINIMISIZE)/10000
-    ) %>%
-  dplyr::ungroup()
-
-#--------------------------------------------------#
-## Rozloha stanovišť v ČR v rámci AVMB2022 ----
-#--------------------------------------------------#
-habitat_areas_2022 <- 
-  readr::read_csv(
-    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-    )
-
-#--------------------------------------------------#
-## Rozloha stanovišť v ČR v rámci VMB2----
-#--------------------------------------------------#
-habitat_areas_a1 <- 
-  readr::read_csv(
-    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-    )
-
-
-#--------------------------------------------------#
+### Delky EVL ----
 # MAXIMÁLNÍ VZDÁLENOST MEZI 2 BODY PRO KAŽDOU EVL - LINESTRINGY BYLY PŘEVEDENY NA MULTIPOINT 
 # PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
 #--------------------------------------------------#
@@ -233,22 +118,15 @@ evl_lengths <-
   readr::read_csv(
     "Data/Input/evl_max_dist.csv", 
     locale = readr::locale(encoding = "UTF-8")
-    )
+  )
 
 #--------------------------------------------------#
-## Ciselnik biotopu EVD hmyzu ---- 
-#--------------------------------------------------#
-biotop_evd <- readr::read_csv(
-  "Data/Input/biotopy_evd_hmyz.csv"
-)
-
-#--------------------------------------------------#
-## Seznam predmetu ochrany EVL ---- 
+### Seznam predmetu ochrany EVL ---- 
 #--------------------------------------------------#
 sites_subjects <- openxlsx::read.xlsx(
   "Data/Input/seznam_predmetolokalit_Natura2000_2_2025.xlsx",
   sheet = 1
-  ) %>%
+) %>%
   dplyr::rename(
     site_code = `Kód.lokality`,
     site_name = `Název.lokality`,
@@ -264,7 +142,7 @@ sites_habitats <- sites_subjects %>%
   dplyr::filter(feature_type == "stanoviště")
 
 #--------------------------------------------------#
-## Seznam EVL SDO II ---- 
+### Seznam EVL SDO II ---- 
 #--------------------------------------------------#
 sdo_II_sites <- readr::read_csv2(
   "Data/Input/SDO_II_predmetolokality.csv", 
@@ -272,18 +150,18 @@ sdo_II_sites <- readr::read_csv2(
 ) 
 
 #--------------------------------------------------#
-## Ciselnik OOP ---- 
+### Ciselnik OOP ---- 
 #--------------------------------------------------#
 n2k_oop <- readr::read_csv2(
   "Data/Input/n2k_oop_25.csv", 
   locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
+) %>%
   mutate(oop = gsub(";", ",", oop)) %>%
   dplyr::rename(SITECODE = sitecode) %>%
   dplyr::select(SITECODE, oop)
 
 #--------------------------------------------------#
-## Ciselnik RP AOPK CR ---- 
+### Ciselnik RP AOPK CR ---- 
 #--------------------------------------------------#
 rp_code <- readr::read_csv2(
   "Data/Input/n2k_rp_25.csv", 
@@ -301,6 +179,127 @@ rp_code <- readr::read_csv2(
                       pracoviste
     )
   )
+
+#------------------------------------------#
+### Ciselnik indikatoru hodnoceni stavu ---- 
+#------------------------------------------#
+indikatory_id <- readr::read_csv(
+  "Data/Input/cis_indikatory_popis.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+)
+
+#--------------------------------------------------#
+### Ciselnik periody hodnoceni stavu ---- 
+#--------------------------------------------------#
+cis_evd_perioda <- readr::read_csv(
+  "Data/Input/cis_evd_perioda.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+) %>%
+  dplyr::select(
+    TAXON, 
+    PERIODA
+  )
+
+#--------------------------------------------------#
+### Ciselnik metodiky hodnoceni stavu ---- 
+#--------------------------------------------------#
+cis_metodika <- readr::read_csv(
+  "Data/Input/cis_metodika.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+) %>%
+  dplyr::select(
+    druh, 
+    metodika
+  )
+
+#--------------------------------------------------#
+## Ciselniky - druhy ---- 
+#--------------------------------------------------#
+#------------------------------------------#
+### Ciselnik poctu navazanych na relativni kategorii pocetnost ---- 
+#------------------------------------------#
+cis_pocet_kat <- readr::read_csv(
+  "Data/Input/cis_pocet_kat.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+)
+
+#------------------------------------------#
+### Ciselnik kategorii delkovych struktur ryb a mihuli ---- 
+#------------------------------------------#
+cis_ryby_delky <- readr::read_csv(
+  "Data/Input/cis_ryby_delky_strukt.csv", 
+  locale = readr::locale(encoding = "Windows-1250")
+)
+
+#--------------------------------------------------#
+### Ciselnik biotopu EVD hmyzu ---- 
+#--------------------------------------------------#
+biotop_evd <- readr::read_csv(
+  "Data/Input/biotopy_evd_hmyz.csv"
+)
+
+#--------------------------------------------------#
+## Ciselniky - stanoviste ---- 
+#--------------------------------------------------#
+#------------------------------------------#
+### Ciselnik kodu a nazvu typu prirodnich stanovist ---- 
+#------------------------------------------#
+cis_habitat <- 
+  readr::read_csv2(
+    "Data/Input/cis_habitat.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  ) %>%
+  dplyr::select(
+    KOD_HABITAT, 
+    NAZEV_HABITAT, 
+    PRIORITA
+  ) %>% 
+  dplyr::mutate(
+    KOD_HABITAT = dplyr::case_when(
+      KOD_HABITAT == "91" ~ "91E0",
+      KOD_HABITAT == 6210 & PRIORITA == "p" ~ "6210p",
+      TRUE ~ KOD_HABITAT
+    )
+  ) %>%
+  dplyr::select(
+    KOD_HABITAT, 
+    NAZEV_HABITAT
+  )
+
+#--------------------------------------------------#
+### Ciselnik minimiarealu typu prirodnich stanovist ---- 
+#--------------------------------------------------#
+minimisize <- 
+  readr::read_csv(
+    "Data/Input/minimisize.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  ) %>%
+  dplyr::group_by(
+    HABITAT
+  ) %>%
+  dplyr::reframe(
+    MINIMISIZE = max(MINIMISIZE)/10000
+  ) %>%
+  dplyr::ungroup()
+
+#--------------------------------------------------#
+### Rozloha stanovišť v ČR v rámci AVMB2022 ----
+#--------------------------------------------------#
+habitat_areas_2022 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  )
+
+#--------------------------------------------------#
+### Rozloha stanovišť v ČR v rámci VMB2----
+#--------------------------------------------------#
+habitat_areas_a1 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  )
+
 
 #--------------------------------------------------#
 ## Stažení GIS vrstev AOPK ČR ---- 
@@ -327,7 +326,7 @@ getfeature_url_biotopzvld <- paste0(
 )
 
 #--------------------------------------------------#
-## Funkce pro načtení vrstvy: nejprve lokálně, jinak z WFS ----
+### Funkce pro načtení vrstvy: nejprve lokálně, jinak z WFS ----
 #--------------------------------------------------#
 
 read_layer <- function(local_path, wfs_url, n2k = NULL) {
@@ -352,7 +351,7 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
 }
 
 #--------------------------------------------------#
-## Načtení vrstev ----
+### Načtení vrstev ----
 #--------------------------------------------------#
 
 evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
@@ -360,7 +359,7 @@ po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
 biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
 
 #--------------------------------------------------#
-## Spojení EVL a PO ----
+### Spojení EVL a PO ----
 #--------------------------------------------------#
 
 n2k_union <- sf::st_join(evl, po)
