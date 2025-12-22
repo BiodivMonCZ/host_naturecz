@@ -100,9 +100,16 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     assign("paseky_a1", paseky_a1, envir = .GlobalEnv)
     
   } else if(vmb_x == 0) {
-    # VMB - MÁJOVÁ VRSTVA AKTUÁLNÍ
+    # VMB - VRSTVA AKTUÁLNÍ
+    vmb_x_shp_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/X_Segment.shp")
+    vmb_x_dbf_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf")
+    
+    vmb_pb_shp_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/PB_Segment.shp")
+    vmb_pb_dbf_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf")
+    
     vmb_shp_sjtsk_akt_read <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Aktualni_Segment.shp", options = "ENCODING=WINDOWS-1250")
     vmb_hab_dbf_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/HAB_BIOTOP.dbf", options = "ENCODING=WINDOWS-1250")
+    
     vmb_pb_dbf_akt <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf", options = "ENCODING=WINDOWS-1250") %>%
       dplyr::filter(!OBJECTID %in% vmb_hab_dbf_akt$OBJECTID)
     vmb_hab_pb_dbf_akt <- dplyr::bind_rows(vmb_hab_dbf_akt, vmb_pb_dbf_akt) %>%
@@ -126,6 +133,14 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
                                                TRUE ~ HABITAT),
                     REGION_ID = REGION_ID.x) %>%
       dplyr::rename(DATUM = DATUM.x)
+    
+    vmb_x_akt <- vmb_x_shp_22 %>%
+      dplyr::left_join(vmb_x_dbf_22, by = "SEGMENT_ID")
+    
+    vmb_pb_akt <- vmb_pb_shp_22 %>%
+      dplyr::left_join(vmb_pb_dbf_22, by = "SEGMENT_ID")
+    
+    vmb_pb_x_22 <- dplyr::bind_rows(vmb_x_22, vmb_pb_22)
     
     paseky_23 <- read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
     
