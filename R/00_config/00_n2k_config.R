@@ -300,9 +300,14 @@ habitat_areas_a1 <-
     locale = readr::locale(encoding = "Windows-1250")
   )
 
+#--------------------------------------------------#
+## Stažení hranice CR ---- 
+#--------------------------------------------------#
+czechia <- sf::st_read("Data/Input/HraniceCR.shp")
+czechia_line <- sf::st_cast(czechia, "LINESTRING")
 
 #--------------------------------------------------#
-## Stažení GIS vrstev AOPK ČR ---- 
+## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 
 endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
