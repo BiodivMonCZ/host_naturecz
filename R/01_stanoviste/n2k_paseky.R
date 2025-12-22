@@ -1,21 +1,9 @@
-# VMB - X a PB 2022
-vmb_x_shp_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/X_Segment.shp")
-vmb_x_dbf_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/Biotop/X_biotop.dbf")
-vmb_pb_shp_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/PB_Segment.shp")
-vmb_pb_dbf_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/Biotop/PB_BIOTOP.dbf")
-
-vmb_x_22 <- vmb_x_shp_22 %>%
-  dplyr::left_join(vmb_x_dbf_22, by = "SEGMENT_ID")
-
-vmb_pb_22 <- vmb_pb_shp_22 %>%
-  dplyr::left_join(vmb_pb_dbf_22, by = "SEGMENT_ID")
-
-vmb_pb_x_22 <- dplyr::bind_rows(vmb_x_22, vmb_pb_22)
+# Nacteni VMB ----
 
 load_vmb(vmb_x = 1)
 load_vmb(vmb_x = 0)
 
-# VÝPOČET PASEK ----
+# Funkce pro vypocet pasek ----
 paseky <- function(hab_code, evl_site, typ_chu = "evl") {
   
   if(typ_chu == "evl") {
