@@ -3,7 +3,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
   
   if(vmb_x == 1) {
     
-    # VMB - ZÁKLADNÍ MAPOVÁNÍ
+    # VMB1 (zakladni) ----
     vmb_shp_sjtsk_orig_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/20060501_Segment.shp", 
@@ -74,7 +74,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     
   } else if(vmb_x == 2) {
     
-    # VMB1 - PRVNÍ AKTUALIZACE
+    # VMB2 (VMBa1) ----
     vmb_shp_sjtsk_a1_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Aktualizace1_Segment.shp", 
@@ -153,7 +153,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       )
     
   } else if(vmb_x == 0) {
-    # VMB - MÁJOVÁ VRSTVA AKTUÁLNÍ
+    # VMBX  (aktualni) ----
     vmb_shp_sjtsk_akt_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Aktualni_Segment.shp", 
