@@ -144,12 +144,15 @@ paseky <- function(hab_code, evl_site, typ_chu = "evl") {
 }
 
 # RESULTS ----
-hu_paseky <- paseky_evl(sites_habitats[1,5], sites_habitats[1,1])
+hu_paseky <- paseky(sites_habitats[1,5], sites_habitats[1,1])
 paseky_results <- matrix(NA, 1, ncol(hu_paseky)) %>% dplyr::as_tibble()
 colnames(paseky_results) <- colnames(hu_paseky)
 for(i in 1:nrow(sites_habitats)) {
-  paseky_results <- dplyr::bind_rows(paseky_results,
-                                     as.data.frame(paseky_evl(sites_habitats[i,5], sites_habitats[i,1])))
+  paseky_results <- 
+    dplyr::bind_rows(
+    paseky_results,
+    as.data.frame(paseky(sites_habitats[i,5], sites_habitats[i,1]))
+    )
 }
 write.csv2(paseky_results, 
            "S:/Gaigr/hodnoceni_stanovist_grafy/paseky_results_20220927.csv", 
