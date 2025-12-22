@@ -100,9 +100,10 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       )
     
     vmb_pb_x_a1 <- 
-      dplyr::right_join(
+      dplyr::inner_join(
         vmb_shp_sjtsk_a1_read, 
-        vmb_pb_x_dbf_a1
+        vmb_pb_x_dbf_a1,
+        by = "SEGMENT_ID"
       )
     
     vmb_hab_pb_dbf_a1 <- 
@@ -192,12 +193,14 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       dplyr::bind_rows(
         vmb_pb_dbf_akt,
         vmb_x_dbf_akt
-      )
+      ) %>%
+      dplyr::distinct()
 
     vmb_pb_x_akt <- 
-      dplyr::right_join(
+      dplyr::inner_join(
         vmb_shp_sjtsk_akt_read, 
-        vmb_pb_x_dbf_akt
+        vmb_pb_x_dbf_akt,
+        by = "SEGMENT_ID"
         )
     
     vmb_hab_pb_dbf_akt <- 
