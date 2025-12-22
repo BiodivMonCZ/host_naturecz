@@ -173,6 +173,23 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         !OBJECTID %in% vmb_hab_dbf_akt$OBJECTID
         )
     
+    vmb_x_dbf_akt <- 
+      sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf")
+    vmb_pb_dbf_akt <- 
+      sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf")
+    
+    vmb_pb_x_dbf_akt <-
+      dplyr::bind_rows(
+        vmb_pb_dbf_akt,
+        vmb_x_dbf_akt
+      )
+
+    vmb_pb_x_akt <- 
+      dplyr::right_join(
+        vmb_shp_sjtsk_akt_read, 
+        vmb_pb_x_dbf_akt
+        )
+    
     vmb_hab_pb_dbf_akt <- 
       dplyr::bind_rows(
         vmb_hab_dbf_akt,
@@ -231,6 +248,11 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       envir = .GlobalEnv
       )
     assign(
+      "vmb_pb_x_akt", 
+      vmb_pb_x_akt, 
+      envir = .GlobalEnv
+    )
+    assign(
       "paseky", 
       paseky_23, 
       envir = .GlobalEnv
@@ -262,7 +284,10 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       vmb_shp_sjtsk_akt_read, 
       vmb_hab_dbf_akt, 
       vmb_pb_dbf_akt, 
-      vmb_hab_pb_dbf_akt
+      vmb_hab_pb_dbf_akt,
+      vmb_pb_dbf_akt,
+      vmb_x_dbf_akt,
+      vmb_pb_x_dbf_akt
       )
     
   }
