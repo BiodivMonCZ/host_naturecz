@@ -119,13 +119,16 @@ paseky_spat <- function(
     
   } 
   
-  result <- vmb_target_sjtsk_update <- 
-    sf::st_intersection(
-      vmb_aktu, 
-      uzemi_filter
-    ) 
+  # Definice cesty a názvu souboru
+  file_path <- paste0("Outputs/Data/stanoviste/paseky/", evl_site, "_", hab_code, ".gpkg")
   
-  return(result)
+  # Zápis do GeoPackage
+  sf::st_write(
+    obj = result, 
+    dsn = file_path,
+    layer = paste0(evl_site, "_", hab_code), # Nazev vrstvy uvnitr GPKG
+    delete_dsn = TRUE                        # Prepise soubor, pokud jiz existuje
+  )
   
 }
 
@@ -279,8 +282,6 @@ paseky <- function(
         POCET_SEGMENTU_PASEKY = NA
       )
   }
-  
-  return(result)
   
 }
 
