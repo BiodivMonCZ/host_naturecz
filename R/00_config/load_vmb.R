@@ -91,15 +91,28 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Biotop.dbf",
         options = "ENCODING=WINDOWS-1250"
-        ) %>%
-      dplyr::filter(
-        !OBJECTID_1 %in% vmb_hab_dbf_a1$OBJECTID_1
         )
+    
+    vmb_x_dbf_a1 <-
+      vmb_pb_dbf_a1 %>%
+      dplyr::filter(
+        BIOTOP == "X"
+      )
+    
+    vmb_pb_x_a1 <- 
+      dplyr::right_join(
+        vmb_shp_sjtsk_a1_read, 
+        vmb_pb_x_dbf_a1
+      )
     
     vmb_hab_pb_dbf_a1 <- 
       dplyr::bind_rows(
         vmb_hab_dbf_a1, 
-        vmb_pb_dbf_a1) %>%
+        vmb_pb_dbf_a1 %>%
+          dplyr::filter(
+            !OBJECTID_1 %in% vmb_hab_dbf_a1$OBJECTID_1
+          )
+        ) %>%
       dplyr::group_by(SEGMENT_ID
                       ) %>%
       dplyr::mutate(
@@ -170,7 +183,10 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         options = "ENCODING=WINDOWS-1250"
         ) 
     vmb_x_dbf_akt <- 
-      sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf")
+      sf::st_read(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf", 
+        options = "ENCODING=WINDOWS-1250"
+        )
     
     vmb_pb_x_dbf_akt <-
       dplyr::bind_rows(
