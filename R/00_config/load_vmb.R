@@ -281,8 +281,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
       vmb_shp_sjtsk_akt_read, 
       vmb_hab_dbf_akt, 
       vmb_pb_dbf_akt, 
-      vmb_hab_pb_dbf_akt,
-      vmb_pb_dbf_akt,
+      vmb_hab_pb_dbf_akt,,
       vmb_x_dbf_akt,
       vmb_pb_x_dbf_akt
       )
