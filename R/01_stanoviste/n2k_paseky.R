@@ -1,10 +1,3 @@
-# SET WD ----
-# HRANICE ČR
-czechia <- st_read("HraniceCR.shp")
-czechia_line <- st_cast(czechia, "LINESTRING")
-# BIOGEOGRAFICKÉ ČLENĚNÍ ČR
-#bioregs <- st_read("BiogeoRegions_CR.shp")
-#bioregs <- st_transform(bioregs, CRS("+init=epsg:4326"))
 # VMB - X a PB 2022
 vmb_x_shp_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/X_Segment.shp")
 vmb_x_dbf_22 <- sf::st_read("//bali.nature.cz/du/Mapovani/Biotopy/CR_2022/Biotop/X_biotop.dbf")
@@ -19,8 +12,21 @@ vmb_pb_22 <- vmb_pb_shp_22 %>%
 
 vmb_pb_x_22 <- dplyr::bind_rows(vmb_x_22, vmb_pb_22)
 
+load_vmb(vmb_x = 1)
+load_vmb(vmb_x = 0)
+
 # VÝPOČET PASEK ----
-paseky_evl <- function(hab_code, evl_site) {
+paseky <- function(hab_code, evl_site, typ_chu = "evl") {
+  
+  if(typ_chu == "evl") {
+    
+    uzemi <- evl_sjtsk
+    
+  } else if(typ_chu == "mzchu") {
+    
+    uzemi <- mzchu_sjtsk
+    
+  }
   
   if(substr(hab_code, 1, 1) == 9) {
     vmb_target_sjtsk_update <- 
@@ -28,7 +34,7 @@ paseky_evl <- function(hab_code, evl_site) {
       sf::st_intersection(
         .,
         dplyr::filter(
-          evl_sjtsk, 
+          uzemi, 
           SITECODE == evl_site
           )
         ) %>%
@@ -50,7 +56,7 @@ paseky_evl <- function(hab_code, evl_site) {
       sf::st_intersection(
         .,
         dplyr::filter(
-          evl_sjtsk, 
+          uzemi, 
           SITECODE == evl_site
           )
         ) %>%
