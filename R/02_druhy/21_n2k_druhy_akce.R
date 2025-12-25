@@ -1127,32 +1127,6 @@ run_n2k_druhy_lim <- function(
 }
 
 #----------------------------------------------------------#
-# Napocet a temp zapis----- 
-#----------------------------------------------------------#
-
-#species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
-#species_list <- unique(n2k_load$DRUH)
-species_list <- c("Pulsatilla patens", "Bombina variegata", "Osmoderma barnabita", "Lampetra planeri")
-
-n2k_druhy <- lapply(species_list, function(sp) {
-  run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
-}) %>%
-  dplyr::bind_rows() 
-readr::write_csv(
-  n2k_druhy,
-  paste0("Data/Temp/n2k_druhy", ".csv")
-)
-
-n2k_druhy_lim <- lapply(species_list, function(sp) {
-  run_n2k_druhy_lim(n2k_druhy, sp, sites_subjects, limity, current_year = 2024)
-}) %>%
-  dplyr::bind_rows()
-readr::write_csv(
-  n2k_druhy_lim,
-  paste0("Data/Temp/n2k_druhy_lim", ".csv")
-)
-
-#----------------------------------------------------------#
 # Zapis dat -----
 #----------------------------------------------------------#
 
