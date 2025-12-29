@@ -3,7 +3,8 @@
 #----------------------------------------------------------#
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
-species_list <- n2k_load %>% dplyr::filter(SKUPINA == "Ryby a mihule") %>% pull(DRUH) %>% unique()
+species_list <- n2k_load %>% dplyr::filter(SKUPINA == "Ryby a mihule") %>% pull(DRUH) %>% unique() %>% as.character()
+#species_list <- "Eriogaster catax"
 #species_list <- unique(n2k_load$DRUH)
 #species_list <- c("Pulsatilla patens", "Bombina variegata", "Osmoderma barnabita", "Lampetra planeri")
 
@@ -13,7 +14,7 @@ species_list <- n2k_load %>% dplyr::filter(SKUPINA == "Ryby a mihule") %>% pull(
 #--------------------------------------------------#
 # Uroven akce ----- 
 #--------------------------------------------------#
-n2k_druhy <- lapply(unique(n2k_load$DRUH), function(sp) {
+n2k_druhy <- lapply(species_list, function(sp) {
   run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
 }) %>%
   dplyr::bind_rows() 
