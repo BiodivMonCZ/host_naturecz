@@ -958,7 +958,7 @@ run_n2k_druhy <- function(
   #--------------------------------------------------#
   # Kompilace konecne tabulky vsech indikatoru ----- 
   #--------------------------------------------------#
-  n2k_druhy <<- n2k_druhy_pre %>%
+  n2k_druhy <- n2k_druhy_pre %>%
     dplyr::left_join(
       ., 
       n2k_druhy_lokpop,
@@ -976,16 +976,7 @@ run_n2k_druhy <- function(
         DRUH
       )
     ) %>%
-    dplyr::distinct() 
-  
-  #--------------------------------------------------#
-  # Odstraneni dilcich objektu z pameti ----- 
-  #--------------------------------------------------#
-  rm(
-    n2k_druhy_pre, 
-    n2k_druhy_lokpop, 
-    n2k_druhy_lokpop_trend
-  )
+    dplyr::distinct()
   
   return(n2k_druhy)
   
