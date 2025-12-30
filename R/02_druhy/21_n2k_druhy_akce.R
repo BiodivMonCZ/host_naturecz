@@ -586,9 +586,9 @@ run_n2k_druhy <- function(
         na.rm = TRUE
       ),
       POP_POCET = dplyr::case_when(
-        is.na(POP_POCETSUM) == FALSE ~ POP_POCET,
-        POP_POCETSUM > POP_POCET ~ POP_POCETSUM,
-        NA ~ POP_POCET),
+        !is.na(POP_POCETSUM) & (POP_POCETSUM > POP_POCET) ~ POP_POCETSUM, # Priorita pro větší sumu
+        TRUE ~ POP_POCET                                                  # Jinak původní počet
+      ),
       POP_POCETKONCPAST = dplyr::case_when(
         is.na(POP_PASTIPOCET) == TRUE ~ NA_real_,
         is.infinite(POP_PASTIPOCET) == TRUE ~ NA_real_,
