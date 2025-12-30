@@ -61,23 +61,23 @@ run_n2k_druhy_lok <- function(
     dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, POLE, ROK, ID_IND) %>%
     dplyr::reframe(
       # Metadata
-      SKUPINA     = dplyr::first(SKUPINA),
-      NAZEV_LOK   = paste(unique(LOKALITA), collapse = ", "),
-      ID_ND_AKCE  = paste(unique(IDX_ND_AKCE), collapse = ", "),
-      DATUM       = max(DATUM, na.rm = TRUE),
-      CILMON      = max(CILMON, na.rm = TRUE),
-      
+      SKUPINA = dplyr::first(SKUPINA),
+      NAZEV_LOK = paste(unique(LOKALITA), collapse = ", "),
+      ID_ND_AKCE = paste(unique(IDX_ND_AKCE), collapse = ", "),
+      DATUM = max(DATUM, na.rm = TRUE),
+      CILMON = max(CILMON, na.rm = TRUE),
       # Atributy indikatoru
-      TYP_IND     = dplyr::first(TYP_IND),
-      KLIC        = dplyr::first(KLIC),
-      UROVEN      = dplyr::first(UROVEN),
-      IND_GRP     = dplyr::first(IND_GRP),
-      JEDNOTKA    = dplyr::first(JEDNOTKA),
-      
+      TYP_IND = dplyr::first(TYP_IND),
+      KLIC = dplyr::first(KLIC),
+      UROVEN = dplyr::first(UROVEN),
+      IND_GRP = dplyr::first(IND_GRP),
+      JEDNOTKA = dplyr::first(JEDNOTKA),
       # Limity
       LIM_IND     = dplyr::first(stats::na.omit(unique(LIM_IND))),
       LIM_INDLIST = dplyr::first(stats::na.omit(unique(LIM_INDLIST))),
-      
+      # Vytahneme originalni hodnotu. Pokud je jich vice (aggregate), spojime je, 
+      # ale pro POP_ indikatory je to typicky jedna hodnota.
+      HOD_IND_VAL = dplyr::first(stats::na.omit(HOD_IND)),
       # Vypocet hodnoty (STAV_IND) dle typu (minmax vs val)
       STAV_IND_RAW = dplyr::case_when(
         IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE),
@@ -89,8 +89,10 @@ run_n2k_druhy_lok <- function(
     ) %>%
     dplyr::mutate(
       STAV_IND = ifelse(is.infinite(STAV_IND_RAW), NA, STAV_IND_RAW),
-      # Ulozeni textove reprezentace pro finalni vystup
-      HOD_IND_TEXT = ifelse(is.na(STAV_IND), "neznámý", as.character(STAV_IND))
+      HOD_IND_TEXT = dplyr::case_when(
+        is.na(HOD_IND_VAL) ~ "neznámý",
+        TRUE ~ as.character(HOD_IND_VAL)
+      )
     ) %>%
     dplyr::ungroup()
   
@@ -119,11 +121,9 @@ run_n2k_druhy_lok <- function(
       # Do jmenovatele vstupuji jen ty, ktere maji !is.na(LIM_IND)
       N_KEY_EXPECTED = sum(KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
       N_OTH_EXPECTED = sum(KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
-      
       # Pocet SPLNENYCH indikatoru (STAV_IND == 1)
       N_KEY_PASSED = sum(KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1, na.rm = TRUE),
       N_OTH_PASSED = sum(KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1, na.rm = TRUE),
-      
       # Metadata pro razeni
       MAX_CILMON = max(CILMON, na.rm = TRUE),
       MAX_DATUM  = max(DATUM, na.rm = TRUE),
@@ -131,24 +131,18 @@ run_n2k_druhy_lok <- function(
     ) %>%
     dplyr::mutate(
       # --- Logika vyhodnoceni ---
-      
       # Pocet selhani v ostatnich indikatorech
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
-      
       CELKOVE = dplyr::case_when(
         # Pokud neni znam cil monitoringu, nelze hodnotit
         is.na(MAX_CILMON) ~ NA_real_,
-        
         # 1. Klicove indikatory: Musi byt splneny vsechny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        
         # 2. Ostatni indikatory: Tolerance selhani
         # Vice nez 1 selhani -> Spatny (0)
         N_OTH_FAIL > 1 ~ 0,
-        
         # Prave 1 selhani -> Zhorseny (0.5) (Pravidlo "-1 is OK")
         N_OTH_FAIL == 1 ~ 0.5,
-        
         # 0 selhani -> Dobry (1)
         TRUE ~ 1
       )
@@ -157,12 +151,6 @@ run_n2k_druhy_lok <- function(
   #----------------------------------------------------------#
   # 4. Vyber reprezentativni navstevy (ID_AKCE) ----
   #----------------------------------------------------------#
-  
-  # Vyber probiha hierarchicky:
-  # 1. Kvalita metodiky (CILMON)
-  # 2. Aktualnost roku (ROK)
-  # 3. Aktualnost v sezone (DATUM)
-  # 4. Vysledek (CELKOVE) - pouze jako posledni kriterium
   
   best_visits <- n2k_eval %>%
     dplyr::group_by(kod_chu, DRUH, KOD_LOKAL) %>% 
@@ -196,14 +184,14 @@ run_n2k_druhy_lok <- function(
         TRUE ~ STAV_IND
       ),
       HOD_IND = dplyr::case_when(
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0   ~ "špatný",
+        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0    ~ "špatný",
         ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0.5 ~ "zhoršený",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 1   ~ "dobrý",
+        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 1    ~ "dobrý",
         TRUE ~ as.character(HOD_IND_TEXT)
       )
     ) %>%
     # Odstraneni pomocnych sloupcu
-    dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND_TEXT) %>%
+    dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND_TEXT, -HOD_IND_VAL) %>%
     dplyr::arrange(kod_chu, KOD_LOKAL, ID_IND)
   
   return(final_rows)
