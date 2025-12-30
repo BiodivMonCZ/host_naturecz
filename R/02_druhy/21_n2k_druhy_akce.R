@@ -1105,7 +1105,7 @@ run_n2k_druhy_lim <- function(
   n2k_druhy_lim <- n2k_druhy_lim_pre %>%
     dplyr::group_by(ID_ND_NALEZ) %>%
     dplyr::mutate(
-      CELKOVE_HODNOCENI = as.character(
+      CELKOVE_SUM = as.character(
         sum(
           STAV_IND, 
           na.rm = TRUE)
