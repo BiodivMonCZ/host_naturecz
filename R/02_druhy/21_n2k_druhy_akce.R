@@ -771,13 +771,18 @@ run_n2k_druhy <- function(
       # ------------------------------------------#
       ### Ryby a mihule ----- 
       # ------------------------------------------#
-      POP_VITALITA = dplyr::n_distinct(
-        POP_DELKYJEDINCIKAT, 
-        na.rm = TRUE
+      # Spocitame pocet kategorii
+      POP_VITALITA_N_CATS = dplyr::n_distinct(POP_DELKYJEDINCIKAT, na.rm = TRUE),
+      POP_VITALITA = dplyr::case_when(
+        # 1. Druh není přítomen -> Vitalita je 0 (Logické, populace nefunguje)
+        POP_PRESENCE == "ne" ~ 0,
+        # 2. Druh je přítomen, ale nemáme žádné kategorie (chybí data o velikostech) -> NA
+        POP_PRESENCE == "ano" & POP_VITALITA_N_CATS == 0 ~ NA_integer_,
+        # 3. Druh je přítomen a máme data -> Vracíme počet kategorií
+        TRUE ~ as.integer(POP_VITALITA_N_CATS)
       ),
-      POP_VITALITA = ifelse(POP_PRESENCE == "ne", 0, POP_VITALITA),
       POP_ABUNDANCE = max(POP_ABUNDANCENAL, na.rm = TRUE),
-      POP_ABUNDANCE = ifelse(is.infinite(POP_ABUNDANCE) == TRUE, 0, POP_ABUNDANCE),
+      POP_ABUNDANCE = dplyr::if_else(is.infinite(POP_ABUNDANCE), NA_real_, POP_ABUNDANCE),
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
@@ -946,7 +951,19 @@ run_n2k_druhy <- function(
       by = c("KOD_LOKAL", "DRUH")
       ) %>%
     dplyr::mutate(
-      POP_DYN = POP_ABUNDANCEMEAN/POP_ABUNDANCEREF*100
+      POP_DYN = dplyr::case_when(
+        # 1. Pokud nemáme data pro výpočet (NaN vzniklé z mean(NA))
+        is.na(POP_ABUNDANCEMEAN) | is.nan(POP_ABUNDANCEMEAN) | 
+          is.na(POP_ABUNDANCEREF) | is.nan(POP_ABUNDANCEREF) ~ NA_real_,
+        # 2. Stabilní absence: Začátek 0, Konec 0 -> 100% (beze změny)
+        POP_ABUNDANCEREF == 0 & POP_ABUNDANCEMEAN == 0 ~ 100,
+        # 3. Kolonizace: Začátek 0, Konec > 0 -> Nekonečný nárůst
+        # R by vratilo Inf automaticky, ale explicitně je to čistší.
+        # Pokud chcete strop, dejte sem třeba 9999. Jinak nechte Inf.
+        POP_ABUNDANCEREF == 0 & POP_ABUNDANCEMEAN > 0 ~ Inf,
+        # 4. Standardní výpočet
+        TRUE ~ (POP_ABUNDANCEMEAN / POP_ABUNDANCEREF) * 100
+      )
     ) %>%
     dplyr::left_join(
       cis_pocet_kat,
