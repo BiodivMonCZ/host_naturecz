@@ -25,7 +25,6 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   # 2. Priprava kontextu (CELKOVE jako sloupec) ----
   #----------------------------------------------------------#
-  # TOTO JE OPRAVA CHYBY "object CELKOVE not found"
   # Vytvorime mapovaci tabulku: Lokalita+Rok -> Vysledek
   
   hodnoceni_lokalit <- n2k_druhy_lok %>%
