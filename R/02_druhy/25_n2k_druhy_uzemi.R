@@ -121,12 +121,10 @@ run_n2k_druhy_uzemi <- function(
         POP_POCETMAX = sum(dplyr::case_when(ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(na.rm = TRUE),
-        
-        # --- ZDE BYLA CHYBA: "CELKOVE" ---
+
         # Nyni pouzijeme sloupec "CELKOVE_CTX", ktery jsme pripojili na zacatku
         POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(na.rm = TRUE),
         POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
-        # ---------------------------------
         
         POP_PROCDOB = dplyr::case_when(is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_, POP_POCETSUM == 0 ~ 0, TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)),
         
