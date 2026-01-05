@@ -52,9 +52,9 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   
   if (is_pole_druh) {
-    # ------------------------------------------------------#
-    # Logika pro POLE (HMYZ) ----
-    # ------------------------------------------------------#
+    # ----------------------------------------------#
+    ## Logika pro POLE (HMYZ) ----
+    # ----------------------------------------------#
     n2k_druhy_chu_temp <- n2k_druhy_aug %>%
       dplyr::filter(
         DRUH == species_name
@@ -96,9 +96,9 @@ run_n2k_druhy_uzemi <- function(
       dplyr::select(-STA_HABPOKRYVPRE)
     
   } else { 
-    # ------------------------------------------------------#
-    # Logika pro LOKALITY / OSTATNI (HMYZ NE) ----
-    # ------------------------------------------------------#
+    # ----------------------------------------------#
+    ## Logika pro LOKALITY / OSTATNI (HMYZ NE) ----
+    # ----------------------------------------------#
     n2k_druhy_chu_temp <- n2k_druhy_aug %>%
       dplyr::filter(DRUH == species_name) %>%
       dplyr::group_by(
