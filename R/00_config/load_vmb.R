@@ -1,7 +1,7 @@
 
 load_vmb <- function(vmb_x = 1, clean = TRUE) {
   
-  if(vmb_x == 1) {
+  if(vmb_x == 0) {
     
     # VMB1 (zakladni) ----
     vmb_shp_sjtsk_orig_read <- 
