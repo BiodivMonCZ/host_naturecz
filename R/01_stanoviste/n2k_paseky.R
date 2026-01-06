@@ -1,9 +1,13 @@
+#----------------------------------------------------------#
 # Nacteni VMB ----
+#----------------------------------------------------------#
 
 load_vmb(vmb_x = 1)
 load_vmb(vmb_x = 0)
 
+#----------------------------------------------------------#
 # Prostorova funkce pro vypocet pasek ----
+#----------------------------------------------------------#
 paseky_spat <- function(
     hab_code, 
     evl_site, 
@@ -12,7 +16,9 @@ paseky_spat <- function(
     typ_chu = "EVL"
 ) {
   
-  # --- 1. Načtení podkladových dat (na základě argumentů) ---
+  #--------------------------------------------------#
+  ## Načtení podkladových dat (na základě argumentů) ----
+  #--------------------------------------------------#
   if(typ_chu == "EVL") {
     uzemi <- evl
   } else if(typ_chu == "MZCHU") {
@@ -55,7 +61,9 @@ paseky_spat <- function(
     # Filtrace území pro konkrétní site (zrychlí následný intersection)
     uzemi_filter <- dplyr::filter(uzemi, SITECODE == evl_site)
     
-    # Výpočet pro aktuální VMB
+    #--------------------------------------------------#
+    ## Výpočet pro aktuální VMB ----
+    #--------------------------------------------------#
     vmb_target_sjtsk_update <- 
       sf::st_intersection(
         vmb_aktu, 
@@ -74,7 +82,9 @@ paseky_spat <- function(
         ROK_AKT_update = ROK_AKT
       )
     
-    # Výpočet pro základní VMB
+    #--------------------------------------------------#
+    ## Výpočet pro základní VMB ----
+    #--------------------------------------------------#
     vmb_target_sjtsk_orig <- 
       vmb_zakl %>%
       sf::st_intersection(., uzemi_filter) %>%
@@ -91,7 +101,9 @@ paseky_spat <- function(
         STEJ_PR_orig = STEJ_PR
       )
     
-    # Finální průnik (zde by to bez CRS pojistky spadlo)
+    #--------------------------------------------------#
+    ## Finální průnik ----
+    #--------------------------------------------------#
     result <- 
       sf::st_intersection(
         vmb_target_sjtsk_update, 
@@ -122,7 +134,9 @@ paseky_spat <- function(
   # Definice cesty a názvu souboru
   file_path <- paste0("Outputs/Data/stanoviste/paseky/", evl_site, "_", hab_code, ".gpkg")
   
-  # Zápis do GeoPackage
+  #--------------------------------------------------#
+  # Zápis do GeoPackage ----
+  #--------------------------------------------------#
   sf::st_write(
     obj = result, 
     dsn = file_path,
@@ -132,8 +146,9 @@ paseky_spat <- function(
   
 }
 
-
+#----------------------------------------------------------#
 # Sumarizacni funkce pro vypocet pasek ----
+#----------------------------------------------------------#
 paseky <- function(
     hab_code, 
     evl_site, 
@@ -285,15 +300,18 @@ paseky <- function(
   
 }
 
+#----------------------------------------------------------#
 # Vypocet GIS vrstvy ----
+#----------------------------------------------------------#
 hu_paseky_spat <- paseky_spat(sites_habitats[343,5], sites_habitats[343,1])
 
 for(i in 1:nrow(sites_habitats)) {
   paseky_spat(sites_habitats[i,5], sites_habitats[i,1])
 }
 
-
+#----------------------------------------------------------#
 # Vypocet sumarizace ----
+#----------------------------------------------------------#
 hu_paseky <- paseky(sites_habitats[343,5], sites_habitats[343,1])
 paseky_results <- matrix(NA, 1, ncol(hu_paseky)) %>% dplyr::as_tibble()
 colnames(paseky_results) <- colnames(hu_paseky)
