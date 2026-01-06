@@ -2,8 +2,12 @@
 # Nacteni VMB ----
 #----------------------------------------------------------#
 
-load_vmb(vmb_x = 1)
-load_vmb(vmb_x = 0)
+data_orig <- load_vmb(vmb_x = 1)
+data_akt <- load_vmb(vmb_x = 0)
+
+vmb_shp_sjtsk_orig <- data_orig$vmb_shp_sjtsk_orig
+
+vmb_pb_x_akt <- data_akt$vmb_pb_x_akt
 
 #----------------------------------------------------------#
 # Prostorova funkce pro vypocet pasek ----
@@ -79,7 +83,7 @@ paseky_spat <- function(
         FSB_update = FSB,
         BIOTOP_update = BIOTOP,
         STEJ_PR_update = STEJ_PR,
-        ROK_AKT_update = ROK_AKT
+        ROK_AKT_update = ROK_AKT.x
       )
     
     #--------------------------------------------------#
@@ -135,7 +139,7 @@ paseky_spat <- function(
   file_path <- paste0("Outputs/Data/stanoviste/paseky/", evl_site, "_", hab_code, ".gpkg")
   
   #--------------------------------------------------#
-  # Zápis do GeoPackage ----
+  ## Zápis do GeoPackage ----
   #--------------------------------------------------#
   sf::st_write(
     obj = result, 
