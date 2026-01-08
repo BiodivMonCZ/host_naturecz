@@ -9,7 +9,8 @@ packages <- c(
   "openxlsx",
   "fuzzyjoin", 
   "remotes",
-  "ggplot2"
+  "ggplot2",
+  "progress"
 )
 
 # Standardni package
