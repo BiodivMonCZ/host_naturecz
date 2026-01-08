@@ -74,7 +74,7 @@ Leuciscus aspius;STA_UPRAVABREHU;max;49;%;ne;lok
 Leuciscus aspius;STA_UPRAVADNA;max;49;%;ne;lok
 Leuciscus aspius;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
 Leuciscus aspius;POP_POCET;NA;NA;jedinci;NA;NA
-Misgurnus fossilis;DNO_POCETTYPU;min;2;NA;;lok
+Misgurnus fossilis;STA_DNOPOCETTYPU;min;2;NA;;lok
 Misgurnus fossilis;POP_DYN;max;50;%;ano;lok
 Misgurnus fossilis;POP_VITALITA;min;3;kategorie;ano;lok
 Misgurnus fossilis;STA_DNO;val;bahno;NA;ne;lok
