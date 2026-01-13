@@ -138,15 +138,42 @@ paseky_spat <- function(
   # Definice cesty a názvu souboru
   file_path <- paste0("Outputs/Data/stanoviste/paseky/", evl_site, "_", hab_code, ".gpkg")
   
+  # Aplikace clean_names na celý objekt (pokud existuje)
+  if (!is.null(result) && nrow(result) > 0) {
+    result <- janitor::clean_names(result)
+  }
+  
   #--------------------------------------------------#
   ## Zápis do GeoPackage ----
   #--------------------------------------------------#
-  sf::st_write(
-    obj = result, 
-    dsn = file_path,
-    layer = paste0(evl_site, "_", hab_code), # Nazev vrstvy uvnitr GPKG
-    delete_dsn = TRUE                        # Prepise soubor, pokud jiz existuje
-  )
+  if (!is.null(result) && nrow(result) > 0) {
+    
+    # 1. EXPLICITNÍ SMAZÁNÍ SOUBORU, POKUD EXISTUJE
+    # Toto vyřeší "GDAL Error 1 ... already exists"
+    if (file.exists(file_path)) {
+      tryCatch({
+        file.remove(file_path)
+        message(paste("Starý soubor smazán:", file_path))
+      }, error = function(e) {
+        stop("Nelze smazat existující soubor. Ujistěte se, že není otevřený v QGIS/ArcGIS! ", e)
+      })
+    }
+    
+    # 2. Samotný zápis
+    sf::st_write(
+      obj = result, 
+      dsn = file_path, 
+      layer = paste0(evl_site, "_", hab_code), 
+      driver = "GPKG",
+      quiet = TRUE
+      # delete_dsn už není potřeba, smazali jsme ho ručně o krok výše
+    )
+    
+    message(paste("Pro", evl_site, "a", hab_code, "vrstva zapsána."))
+    
+  } else {
+    message(paste("Pro", evl_site, "a", hab_code, "nevznikl žádný průnik."))
+  }
   
 }
 
@@ -307,10 +334,47 @@ paseky <- function(
 #----------------------------------------------------------#
 # Vypocet GIS vrstvy ----
 #----------------------------------------------------------#
-hu_paseky_spat <- paseky_spat(sites_habitats[343,5], sites_habitats[343,1])
+paseky_spat(sites_habitats[343,5], sites_habitats[343,1])
 
+# Inicializace progress baru
+pb <- progress::progress_bar$new(
+  # Přidal jsem :current/:total pro lepší přehled
+  format = "  Zpracovávám [:bar] :percent | :current/:total | ETA: :eta", 
+  total = nrow(sites_habitats),
+  clear = FALSE,
+  width = 100
+)
+
+# Loop s "odchytáváním" zpráv
 for(i in 1:nrow(sites_habitats)) {
-  paseky_spat(sites_habitats[i,5], sites_habitats[i,1])
+  
+  # Posuneme bar
+  pb$tick()
+  
+  # Spuštění funkce v obalce, která řeší vizuál
+  tryCatch({
+    withCallingHandlers({
+      
+      # Tvoje funkce
+      paseky_spat(sites_habitats[i,5], sites_habitats[i,1])
+      
+    }, message = function(m) {
+      # TOTO JE KLÍČOVÉ:
+      # 1. Vezmeme text zprávy a odstraníme prázdné znaky na konci
+      txt <- trimws(m$message, which = "right")
+      
+      # 2. Vypíšeme ji skrz progress bar (objeví se nad ním)
+      if(nchar(txt) > 0) {
+        pb$message(txt) 
+      }
+      
+      # 3. Potlačíme původní zprávu, aby se nevytiskla 2x
+      invokeRestart("muffleMessage")
+    })
+  }, error = function(e) {
+    # Pokud nastane chyba, vypíšeme ji také hezky přes bar
+    pb$message(paste("!!! CHYBA:", e$message))
+  })
 }
 
 #----------------------------------------------------------#
