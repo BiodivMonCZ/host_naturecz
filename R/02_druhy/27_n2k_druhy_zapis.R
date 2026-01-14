@@ -15,6 +15,7 @@ species_list <- n2k_load %>%
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
+species_list <- "Eriogaster catax"
 
 # Spocitame celkovy pocet pro hlasky
 N_species <- length(species_list)
