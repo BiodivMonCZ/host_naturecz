@@ -542,6 +542,190 @@ lok_export <- function(
 
 lok_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
 
+chu_export <- function(
+    n2k_druhy_uzemi,
+    evl,
+    rp_code,
+    n2k_oop,
+    indikatory_id,
+    sites_subjects,
+    current_year = 2024
+) {
+  
+  message("--- ZACINAM PRIPRAVU DAT PRO EXPORT (CHU) ---")
+  
+  # Kontrola vstupu
+  if (is.null(n2k_druhy_uzemi) || nrow(n2k_druhy_uzemi) == 0) {
+    warning("Vstupni data (n2k_druhy_uzemi) jsou prazdna. Export se neprovede.")
+    return(NULL)
+  }
+  
+  #----------------------------------------------------------#
+  # 1. Zpracovani a formatovani dat -----
+  #----------------------------------------------------------#
+  
+  n2k_druhy_chu_write <- n2k_druhy_uzemi %>%
+    # Pripojeni informaci o EVL (nazev)
+    dplyr::left_join(
+      .,
+      evl %>%
+        sf::st_drop_geometry() %>%
+        dplyr::select(
+          SITECODE,
+          NAZEV
+        ),
+      by = c(
+        "kod_chu" = "SITECODE"
+      )
+    ) %>%
+    # Pripojeni kodu RP
+    dplyr::left_join(
+      .,
+      rp_code,
+      by = dplyr::join_by(
+        "kod_chu"
+      )
+    ) %>%
+    # Pripojeni informaci o OOP
+    dplyr::left_join(
+      ., 
+      n2k_oop,
+      by = c(
+        "kod_chu" = "SITECODE"
+      )
+    ) %>%
+    # Pridani konstantnich sloupcu
+    dplyr::mutate(
+      typ_predmetu_hodnoceni = "Druh",
+      feature_code = NA,
+      trend = "neznámý",
+      datum_hodnoceni = Sys.Date()
+    ) %>%
+    # Filtrace pouze na CILOVY MONITORING CHU
+    dplyr::filter(
+      CILMON_CHU == 1
+    ) %>%
+    # Prejmenovani sloupcu pro vystup
+    dplyr::rename(
+      nazev_chu = NAZEV, 
+      druh = DRUH, 
+      hodnocene_obdobi_od = HODNOCENE_OBDOBI_OD, 
+      hodnocene_obdobi_do = HODNOCENE_OBDOBI_DO, 
+      parametr_nazev = ID_IND, 
+      parametr_hodnota = HOD_IND, 
+      parametr_limit = LIM_IND, 
+      parametr_jednotka = JEDNOTKA, 
+      stav = STAV_IND
+    ) %>%
+    # Vyber relevantnich sloupcu
+    dplyr::select(
+      typ_predmetu_hodnoceni, 
+      kod_chu, 
+      nazev_chu, 
+      druh, 
+      feature_code, 
+      hodnocene_obdobi_od, 
+      hodnocene_obdobi_do, 
+      oop, 
+      parametr_nazev, 
+      parametr_hodnota, 
+      parametr_limit, 
+      parametr_jednotka, 
+      stav, 
+      trend, 
+      datum_hodnoceni, 
+      pracoviste, 
+      ID_ND_AKCE
+    ) %>%
+    # Mapovani nazvu indikatoru dle ciselniku
+    dplyr::left_join(
+      ., 
+      indikatory_id, 
+      by = c("parametr_nazev" = "ind_r")
+    ) %>%
+    # Cisteni textu a nastaveni metodiky
+    dplyr::mutate(
+      parametr_nazev = ind_id,
+      pracoviste = gsub(
+        ",",
+        "",
+        pracoviste
+      ),
+      metodika = 15087
+    ) %>%
+    # Navazani pouze na predmety ochrany (sites_subjects)
+    # Right join zajisti, ze ve vystupu budou vsechny predmety ochrany,
+    # i ty, ktere nemaji data (budou mit NA)
+    dplyr::right_join(
+      .,
+      sites_subjects %>%
+        dplyr::select(
+          site_code,
+          nazev_lat
+        ),
+      by = c(
+        "kod_chu" = "site_code",
+        "druh" = "nazev_lat"
+      )
+    ) %>%
+    # Odstraneni pomocnych sloupcu
+    dplyr::select(
+      -c(
+        ind_id,
+        ind_popis, 
+        ID_ND_AKCE
+      )
+    ) %>%
+    dplyr::distinct()
+  
+  #----------------------------------------------------------#
+  # 2. Export dat -----
+  #----------------------------------------------------------#
+  
+  # Nastaveni pro export
+  sep_isop <- ";"
+  quote_env_isop <- FALSE
+  encoding_isop <- "UTF-8"
+  
+  sep <- ","
+  quote_env <- TRUE
+  encoding <- "Windows-1250"
+  
+  date_stamp <- gsub("-", "", Sys.Date())
+  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_chu_", current_year, "_", date_stamp)
+  
+  message(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
+  
+  # Kontrola adresare
+  if (!dir.exists("Outputs/Data/druhy/")) {
+    dir.create("Outputs/Data/druhy/", recursive = TRUE)
+  }
+  
+  # Export 1: Windows-1250 (Excel)
+  write.table(
+    n2k_druhy_chu_write,
+    paste0(file_base, "_", encoding, ".csv"),
+    row.names = FALSE,
+    sep = sep,
+    quote = quote_env,
+    fileEncoding = encoding
+  )  
+  
+  # Export 2: UTF-8 (ISOP/Standard)
+  write.table(
+    n2k_druhy_chu_write,
+    paste0(file_base, "_", encoding_isop, ".csv"),
+    row.names = FALSE,
+    sep = sep_isop,
+    quote = quote_env_isop,
+    fileEncoding = encoding_isop
+  )  
+  
+  message("--- HOTOVO (CHU_EXPORT) ---")
+  
+  return(n2k_druhy_chu_write)
+}
+
 #----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#
