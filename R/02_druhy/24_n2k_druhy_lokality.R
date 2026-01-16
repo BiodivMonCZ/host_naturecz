@@ -210,7 +210,8 @@ run_n2k_druhy_lok <- function(
     dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND = HOD_IND_TEXT, -HOD_IND_VAL) %>%
     # Prejmenovani sloupce HOD_IND_TEXT na HOD_IND pro sjednoceni
     dplyr::bind_rows(result_summary) %>%
-    dplyr::arrange(kod_chu, KOD_LOKAL, dplyr::desc(ID_IND == "CELKOVE_HODNOCENI"), ID_IND)
+    dplyr::arrange(kod_chu, KOD_LOKAL, dplyr::desc(ID_IND == "CELKOVE_HODNOCENI"), ID_IND) %>%
+    dplyr::distinct()
   
   return(final_rows)
 }
