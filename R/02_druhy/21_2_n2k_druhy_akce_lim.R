@@ -153,7 +153,8 @@ run_n2k_druhy_lim <- function(
     ) %>%
     dplyr::arrange(ID_ND_NALEZ) %>%
     # Filtrace "sirotcich" limitu, ktere nemaji prirazeny nalez
-    dplyr::filter(is.na(ID_ND_NALEZ) == FALSE)
+    dplyr::filter(is.na(ID_ND_NALEZ) == FALSE) %>%
+    dplyr::distinct()
   
   return(n2k_druhy_lim)
 }
