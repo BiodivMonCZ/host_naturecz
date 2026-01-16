@@ -15,6 +15,7 @@ species_list <- n2k_load %>%
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
+species_list <- "Pulsatilla patens"
 
 # Spocitame celkovy pocet pro hlasky
 N_species <- length(species_list)
