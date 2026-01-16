@@ -136,7 +136,104 @@ readr::write_csv(
 
 message("--- HOTOVO: Všechny výpočty dokončeny ---")
 
+#----------------------------------------------------------#
+# Zapis dat nalez -----
+#----------------------------------------------------------#
 
+nal_export <-
+  function() {
+    
+    n2k_druhy_lim_write <-
+      n2k_druhy_lim %>%
+      dplyr::left_join(
+        ., 
+        evl %>%
+          sf::st_drop_geometry() %>%
+          dplyr::select(
+            SITECODE, 
+            NAZEV
+          ),
+        by = c(
+          "kod_chu" = "SITECODE"
+        )
+      ) %>%
+      dplyr::left_join(
+        .,
+        rp_code,
+        by = join_by(
+          "kod_chu"
+        )
+      ) %>%
+      dplyr::left_join(
+        .,
+        n2k_oop,
+        by = c("kod_chu" = "SITECODE")
+      )
+    
+    sep_isop <- ";"
+    quote_env_isop <- FALSE
+    encoding_isop <- "UTF-8"
+    
+    sep <- ","
+    quote_env <- TRUE
+    encoding <- "Windows-1250"
+    
+    write.table(
+      n2k_druhy_lim_write,
+      paste0("Outputs/Data/",
+             "n2k_druhy_nal",
+             "_",
+             current_year,
+             "_",
+             gsub(
+               "-", 
+               "", 
+               Sys.Date()
+             ),
+             "_",
+             encoding,
+             ".csv"
+      ),
+      row.names = FALSE,
+      sep = sep,
+      quote = quote_env,
+      fileEncoding = encoding
+    )  
+    
+    write.table(
+      n2k_druhy_lim_write,
+      paste0("Outputs/Data/druhy/",
+             "n2k_druhy_nal",
+             "_",
+             current_year,
+             "_",
+             gsub(
+               "-", 
+               "", 
+               Sys.Date()
+             ),
+             "_",
+             encoding_isop,
+             ".csv"
+      ),
+      row.names = FALSE,
+      sep = sep_isop,
+      quote = quote_env_isop,
+      fileEncoding = encoding_isop
+    )  
+    
+  }
+
+#----------------------------------------------------------#
+# Zapis mapy indikatoru ----
+#----------------------------------------------------------#
+#source("R/0_Config/01_n2k_map_ind.R")
+#map <- build_indicator_map(
+#  n2k_druhy,
+#  limity,
+#  script = "R/2_druhy/21_n2k_druhy_akce.R",
+#  out_file = "Outputs/indicator_map_n2k.csv"
+#)
 #----------------------------------------------------------#
 # Zapis dat lok -----
 #----------------------------------------------------------#
