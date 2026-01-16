@@ -576,7 +576,7 @@ run_n2k_druhy <- function(
     # POP_POCETVITAL: Pocet vitalnich casti, pokud jednotka odpovida
     POP_POCETVITAL = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_VITAL"] ~ POCET,
+      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETVITAL"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # Extrakce parametru managementu a pokryvnosti (invazni, expanzni, dreviny, atd.)
