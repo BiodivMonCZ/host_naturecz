@@ -331,3 +331,31 @@ p_hod_bezles <- ggplot(bezles_celk, aes(x = druh, y = pocet_lokalit, fill = stav
  print(p_hod_bezles)
 
 ggsave("Outputs/Grafy/graf_stav_bezlesi.png", plot = p_hod_bezles, width = 12, height = 5.5, dpi = 300)
+
+kuk %>%
+  mutate(
+        area_category = cut(
+              ROZLOHA, 
+              breaks = c(-Inf, 10, 100, Inf), 
+              labels = c("malá rozloha (< 10 ha)", 
+                                                  "střední rozloha (10–100 ha)", 
+                                                  "velká rozloha (> 100 ha)")
+          )
+    ) %>%
+  filter(is.na(MRTVE_DREVO) == FALSE) %>%
+  ggplot(aes(x = MRTVE_DREVO, fill = area_category, color = area_category)) +
+  geom_histogram(bins = 30, alpha = 0.6, position = "identity", size = 0.2) + # tenčí ohraničení
+  scale_fill_viridis_d(option = "D", begin = 0.2, end = 0.8) + 
+  scale_color_viridis_d(option = "D", begin = 0.2, end = 0.8) +
+  # TOTO JE TA ZMĚNA:
+  facet_wrap(~area_category, ncol = 1) + # ncol = 1 je dá pod sebe, ncol = 3 vedle sebe
+  theme_minimal() +
+  labs(
+        title = "Mrtvé dřevo dle rozlohy předmětu ochrany",
+        x = "Rozlohou vážený průměr indikátoru [m³/ha]",
+        y = "Četnost"
+    ) +
+  theme(
+        legend.position = "none", # Legenda není potřeba, máme nadpisy grafů
+        plot.title = element_text(face = "bold")
+    )
