@@ -73,7 +73,7 @@ run_n2k_druhy_lok <- function(
       IND_GRP = dplyr::first(IND_GRP),
       JEDNOTKA = dplyr::first(JEDNOTKA),
       # Limity
-      LIM_IND     = dplyr::first(stats::na.omit(unique(LIM_IND))),
+      LIM_IND = dplyr::first(stats::na.omit(unique(LIM_IND))),
       LIM_INDLIST = dplyr::first(stats::na.omit(unique(LIM_INDLIST))),
       # Vytahneme originalni hodnotu. Pokud je jich vice (aggregate), spojime je, 
       # ale pro POP_ indikatory je to typicky jedna hodnota.
@@ -105,6 +105,7 @@ run_n2k_druhy_lok <- function(
   
   if(!is_pole_druh) {
     # Pokud neni druh vazany na pole, sloucime vizualne POLE, ale grupujeme bez nej
+    # DULEZITE: Zde vznika potencialni duplicita indikatoru (vice radku pro jeden ID_IND z ruznych POLE)
     n2k_druhy_lim_post <- n2k_druhy_lim_post %>%
       dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
       dplyr::mutate(POLE = paste(unique(POLE), collapse = ",")) %>%
@@ -117,13 +118,18 @@ run_n2k_druhy_lok <- function(
   n2k_eval <- n2k_druhy_lim_post %>%
     dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
     dplyr::summarise(
+      # FIX: Nahrazeno sum() za n_distinct().
+      # Duvod: Pokud ma druh data ze 2 transektu (POLE), v datech jsou 2 radky pro stejny ID_IND.
+      # sum() by je secetl dvakrat. n_distinct(ID_IND) zapocita indikator jen jednou.
+      
       # Pocet OCEKAVANYCH indikatoru (maji definovany limit)
-      # Do jmenovatele vstupuji jen ty, ktere maji !is.na(LIM_IND)
-      N_KEY_EXPECTED = sum(KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
-      N_OTH_EXPECTED = sum(KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND), na.rm = TRUE),
+      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND)]),
+      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND)]),
+      
       # Pocet SPLNENYCH indikatoru (STAV_IND == 1)
-      N_KEY_PASSED = sum(KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1, na.rm = TRUE),
-      N_OTH_PASSED = sum(KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1, na.rm = TRUE),
+      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1]),
+      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1]),
+      
       # Metadata pro razeni
       MAX_CILMON = max(CILMON, na.rm = TRUE),
       MAX_DATUM  = max(DATUM, na.rm = TRUE),
