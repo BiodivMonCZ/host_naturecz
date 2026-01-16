@@ -72,12 +72,14 @@ run_n2k_druhy_lok <- function(
       UROVEN = dplyr::first(UROVEN),
       IND_GRP = dplyr::first(IND_GRP),
       JEDNOTKA = dplyr::first(JEDNOTKA),
-      # Limity
-      LIM_IND = dplyr::first(stats::na.omit(unique(LIM_IND))),
-      LIM_INDLIST = dplyr::first(stats::na.omit(unique(LIM_INDLIST))),
-      # Vytahneme originalni hodnotu. Pokud je jich vice (aggregate), spojime je, 
-      # ale pro POP_ indikatory je to typicky jedna hodnota.
+      
+      # --- FIX 3: ZACHOVANI VSECH LIMITU (nikoli jen first) ---
+      LIM_IND = paste(unique(stats::na.omit(LIM_IND)), collapse = ", "),
+      LIM_INDLIST = paste(unique(stats::na.omit(LIM_INDLIST)), collapse = ", "),
+      
+      # Vytahneme originalni hodnotu.
       HOD_IND_VAL = dplyr::first(stats::na.omit(HOD_IND)),
+      
       # Vypocet hodnoty (STAV_IND) dle typu (minmax vs val)
       STAV_IND_RAW = dplyr::case_when(
         IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE),
@@ -104,31 +106,32 @@ run_n2k_druhy_lok <- function(
   group_vars <- c("kod_chu", "DRUH", "KOD_LOKAL", "ROK")
   
   if(!is_pole_druh) {
-    # Pokud neni druh vazany na pole, sloucime vizualne POLE, ale grupujeme bez nej
-    # DULEZITE: Zde vznika potencialni duplicita indikatoru (vice radku pro jeden ID_IND z ruznych POLE)
+    # --- FIX 1: ODSTRANENI DUPLICIT PRO NE-POLE DRUHY ---
+    # Pokud neni druh vazany na pole, sloucime vizualne POLE a ponechame 
+    # pro kazdy indikator (ID_IND) jen jeden radek.
     n2k_druhy_lim_post <- n2k_druhy_lim_post %>%
-      dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
-      dplyr::mutate(POLE = paste(unique(POLE), collapse = ",")) %>%
+      # Musime grupovat i podle ID_IND, abychom neztratili ruzne indikatory
+      dplyr::group_by(dplyr::across(dplyr::all_of(c(group_vars, "ID_IND")))) %>%
+      dplyr::mutate(POLE = paste(unique(POLE), collapse = ", ")) %>%
+      dplyr::slice(1) %>% # Ponecha jen jeden radek pro danou kombinaci (Lokalita+Rok+Indikator)
       dplyr::ungroup()
   } else {
     group_vars <- c(group_vars, "POLE")
   }
   
-  # Vytvoreni hodnotici tabulky
+  # Vytvoreni hodnotici tabulky (zde jiz data neobsahuji duplicity transektu)
   n2k_eval <- n2k_druhy_lim_post %>%
     dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
     dplyr::summarise(
-      # FIX: Nahrazeno sum() za n_distinct().
-      # Duvod: Pokud ma druh data ze 2 transektu (POLE), v datech jsou 2 radky pro stejny ID_IND.
-      # sum() by je secetl dvakrat. n_distinct(ID_IND) zapocita indikator jen jednou.
+      # Zde ponechavame n_distinct pro jistotu, ale diky FIX 1 by nyni fungoval i sum
       
-      # Pocet OCEKAVANYCH indikatoru (maji definovany limit)
-      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND)]),
-      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND)]),
+      # Pocet OCEKAVANYCH indikatoru
+      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
+      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
       
-      # Pocet SPLNENYCH indikatoru (STAV_IND == 1)
-      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1]),
-      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & STAV_IND == 1]),
+      # Pocet SPLNENYCH indikatoru
+      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
+      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
       
       # Metadata pro razeni
       MAX_CILMON = max(CILMON, na.rm = TRUE),
@@ -136,20 +139,12 @@ run_n2k_druhy_lok <- function(
       .groups = "drop"
     ) %>%
     dplyr::mutate(
-      # --- Logika vyhodnoceni ---
-      # Pocet selhani v ostatnich indikatorech
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
       CELKOVE = dplyr::case_when(
-        # Pokud neni znam cil monitoringu, nelze hodnotit
         is.na(MAX_CILMON) ~ NA_real_,
-        # 1. Klicove indikatory: Musi byt splneny vsechny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        # 2. Ostatni indikatory: Tolerance selhani
-        # Vice nez 1 selhani -> Spatny (0)
         N_OTH_FAIL > 1 ~ 0,
-        # Prave 1 selhani -> Zhorseny (0.5) (Pravidlo "-1 is OK")
         N_OTH_FAIL == 1 ~ 0.5,
-        # 0 selhani -> Dobry (1)
         TRUE ~ 1
       )
     )
@@ -173,32 +168,49 @@ run_n2k_druhy_lok <- function(
   # 5. Finalni slozeni vystupu ----
   #----------------------------------------------------------#
   
-  # Filtrace puvodnich dat na vitezne navstevy
-  result <- n2k_druhy_lim_post %>%
+  # A. Detailni radky (indikatory)
+  result_details <- n2k_druhy_lim_post %>%
     dplyr::inner_join(best_visits, by = c("kod_chu", "DRUH", "KOD_LOKAL", "ROK")) 
   
-  # Pokud se resi pole, dofiltrujeme konkretni pole
   if(is_pole_druh) {
-    result <- result %>% dplyr::filter(POLE == BEST_POLE)
+    result_details <- result_details %>% dplyr::filter(POLE == BEST_POLE)
   }
   
-  # Doplneni radku s celkovym hodnocenim
-  final_rows <- result %>%
+  # B. --- FIX 2: VYTVORENI RADKU CELKOVEHO HODNOCENI ---
+  # Vytvorime novy dataframe pro souhrnne radky na zaklade viteznych navstev
+  # Pouzijeme metadata z result_details (prvni radek skupiny), aby sedely sloupce jako Datum atd.
+  
+  result_summary <- result_details %>%
+    dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, ROK) %>%
+    dplyr::slice(1) %>% # Vezmeme "hlavicku" z prvniho indikatoru
+    dplyr::ungroup() %>%
     dplyr::mutate(
-      STAV_IND = dplyr::case_when(
-        ID_IND == "CELKOVE_HODNOCENI" ~ WINNING_CELKOVE,
-        TRUE ~ STAV_IND
-      ),
+      ID_IND = "CELKOVE_HODNOCENI",
+      # Prepiseme hodnoty vysledkem z best_visits (WINNING_CELKOVE uz tam je diky joinu)
+      STAV_IND = WINNING_CELKOVE,
       HOD_IND = dplyr::case_when(
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0    ~ "špatný",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 0.5 ~ "zhoršený",
-        ID_IND == "CELKOVE_HODNOCENI" & STAV_IND == 1    ~ "dobrý",
-        TRUE ~ as.character(HOD_IND_TEXT)
-      )
+        WINNING_CELKOVE == 0   ~ "špatný",
+        WINNING_CELKOVE == 0.5 ~ "zhoršený",
+        WINNING_CELKOVE == 1   ~ "dobrý",
+        TRUE ~ "nehodnoceno"
+      ),
+      # Vycistime sloupce specificke pro dilci indikatory, aby to nepletlo
+      TYP_IND = NA_character_,
+      KLIC = NA_character_,
+      UROVEN = "lok", # Celkove hodnoceni je vzdy za lokalitu
+      LIM_IND = NA_character_,
+      LIM_INDLIST = NA_character_,
+      JEDNOTKA = NA_character_
     ) %>%
-    # Odstraneni pomocnych sloupcu
-    dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND_TEXT, -HOD_IND_VAL) %>%
-    dplyr::arrange(kod_chu, KOD_LOKAL, ID_IND)
+    # Odstranime pomocne sloupce pred spojenim
+    dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND_TEXT, -HOD_IND_VAL)
+  
+  # C. Spojeni detailu a souhrnu
+  final_rows <- result_details %>%
+    dplyr::select(-WINNING_CELKOVE, -dplyr::any_of("BEST_POLE"), -STAV_IND_RAW, -HOD_IND = HOD_IND_TEXT, -HOD_IND_VAL) %>%
+    # Prejmenovani sloupce HOD_IND_TEXT na HOD_IND pro sjednoceni
+    dplyr::bind_rows(result_summary) %>%
+    dplyr::arrange(kod_chu, KOD_LOKAL, dplyr::desc(ID_IND == "CELKOVE_HODNOCENI"), ID_IND)
   
   return(final_rows)
 }
