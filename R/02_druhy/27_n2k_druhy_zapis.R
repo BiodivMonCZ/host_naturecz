@@ -15,7 +15,11 @@ species_list <- n2k_load %>%
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
-species_list <- "Pulsatilla patens"
+species_list <- n2k_load %>% 
+  dplyr::filter(SKUPINA == "Cévnaté rostliny") %>% 
+  dplyr::pull(DRUH) %>% 
+  unique() %>% 
+  as.character()
 
 # Spocitame celkovy pocet pro hlasky
 N_species <- length(species_list)
@@ -140,89 +144,203 @@ message("--- HOTOVO: Všechny výpočty dokončeny ---")
 # Zapis dat nalez -----
 #----------------------------------------------------------#
 
-nal_export <-
-  function() {
-    
-    n2k_druhy_lim_write <-
-      n2k_druhy_lim %>%
-      dplyr::left_join(
-        ., 
-        evl %>%
-          sf::st_drop_geometry() %>%
-          dplyr::select(
-            SITECODE, 
-            NAZEV
-          ),
-        by = c(
-          "kod_chu" = "SITECODE"
-        )
-      ) %>%
-      dplyr::left_join(
-        .,
-        rp_code,
-        by = join_by(
-          "kod_chu"
-        )
-      ) %>%
-      dplyr::left_join(
-        .,
-        n2k_oop,
-        by = c("kod_chu" = "SITECODE")
-      )
-    
-    sep_isop <- ";"
-    quote_env_isop <- FALSE
-    encoding_isop <- "UTF-8"
-    
-    sep <- ","
-    quote_env <- TRUE
-    encoding <- "Windows-1250"
-    
-    write.table(
-      n2k_druhy_lim_write,
-      paste0("Outputs/Data/",
-             "n2k_druhy_nal",
-             "_",
-             current_year,
-             "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
-             "_",
-             encoding,
-             ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep,
-      quote = quote_env,
-      fileEncoding = encoding
-    )  
-    
-    write.table(
-      n2k_druhy_lim_write,
-      paste0("Outputs/Data/druhy/",
-             "n2k_druhy_nal",
-             "_",
-             current_year,
-             "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
-             "_",
-             encoding_isop,
-             ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep_isop,
-      quote = quote_env_isop,
-      fileEncoding = encoding_isop
-    )  
-    
+nal_export <- function(
+    n2k_load,
+    species_list,
+    sites_subjects,
+    limity,
+    evl,
+    rp_code,
+    n2k_oop,
+    current_year = 2024
+) {
+  
+  # Zajisteni existence slozky pro docasne soubory
+  if (!dir.exists("Data/Temp/")) {
+    dir.create("Data/Temp/", recursive = TRUE)
   }
+  
+  N_species <- length(species_list)
+  
+  #----------------------------------------------------------#
+  # 1. Uroven akce (Vypocet indikatoru) ----- 
+  #----------------------------------------------------------#
+  message(paste0("--- ZACINAM VYPOCET FAZE 1 (AKCE) PRO ", N_species, " DRUHU ---"))
+  
+  n2k_druhy <- lapply(seq_along(species_list), function(i) {
+    
+    sp <- species_list[i]
+    message(sprintf("[1/4 Akce] %s (%d/%d) - Zbyva: %d", sp, i, N_species, N_species - i))
+    
+    run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = current_year)
+    
+  }) %>%
+    dplyr::bind_rows() 
+  
+  # Ulozeni mezivysledku 1
+  message("--- UKLADAM MEZIVYSLEDEK 1 DO TEMP ---")
+  readr::write_csv(
+    n2k_druhy,
+    paste0("Data/Temp/n2k_druhy", ".csv")
+  )
+  
+  #----------------------------------------------------------#
+  # 2. Porovnani s limity ----- 
+  #----------------------------------------------------------#
+  message(paste0("--- ZACINAM VYPOCET FAZE 2 (LIMITY) ---"))
+  
+  if (nrow(n2k_druhy) == 0) {
+    warning("Faze 1 nevygenerovala zadna data. Faze 2 a export budou preskoceny.")
+    return(NULL)
+  }
+  
+  n2k_druhy_lim <- lapply(seq_along(species_list), function(i) {
+    
+    sp <- species_list[i]
+    message(sprintf("[2/4 Limity] %s (%d/%d) - Zbyva: %d", sp, i, N_species, N_species - i))
+    
+    data_subset <- n2k_druhy %>% dplyr::filter(DRUH == sp)
+    
+    if(nrow(data_subset) == 0) return(NULL)
+    
+    run_n2k_druhy_lim(data_subset, sp, sites_subjects, limity, current_year = current_year)
+    
+  }) %>%
+    dplyr::bind_rows()
+  
+  # Ulozeni mezivysledku 2 (Vstup pro lok_export)
+  message("--- UKLADAM MEZIVYSLEDEK 2 DO TEMP ---")
+  readr::write_csv(
+    n2k_druhy_lim,
+    paste0("Data/Temp/n2k_druhy_lim", ".csv")
+  )
+  
+  #----------------------------------------------------------#
+  # 3. Propojeni s metadaty a serazeni sloupcu ----- 
+  #----------------------------------------------------------#
+  
+  message("--- PRIPRAVA DAT PRO EXPORT (NALEZY) ---")
+  
+  if (nrow(n2k_druhy_lim) == 0) {
+    warning("Faze 2 nevygenerovala zadna data. Export se neprovede.")
+    return(NULL)
+  }
+  
+  n2k_druhy_lim_write <- n2k_druhy_lim %>%
+    # Pripojeni informaci o EVL
+    dplyr::left_join(
+      ., 
+      evl %>%
+        sf::st_drop_geometry() %>%
+        dplyr::select(
+          SITECODE, 
+          NAZEV
+        ),
+      by = c(
+        "kod_chu" = "SITECODE"
+      )
+    ) %>%
+    # Pripojeni kodu RP
+    dplyr::left_join(
+      .,
+      rp_code,
+      by = dplyr::join_by(
+        "kod_chu"
+      )
+    ) %>%
+    # Pripojeni informaci o OOP
+    dplyr::left_join(
+      .,
+      n2k_oop,
+      by = c("kod_chu" = "SITECODE")
+    ) %>%
+    dplyr::distinct() %>%
+    # Logicke serazeni sloupcu (stejna logika jako u lok_export)
+    dplyr::select(
+      # 1. Identifikace
+      ROK,
+      kod_chu,
+      NAZEV,          # Nazev EVL
+      DRUH,
+      SKUPINA,
+      
+      # 2. Lokalita
+      KOD_LOKAL,
+      LOKALITA,
+      pracoviste,
+      oop,
+      
+      # 3. Akce a Nalez
+      IDX_ND_AKCE,
+      ID_ND_NALEZ,    # Specificke pro nal_export
+      DATUM,
+      AUTOR,          # Specificke pro nal_export
+      
+      # 4. Definice Indikatoru
+      ID_IND,
+      JEDNOTKA,
+      TYP_IND,
+      IND_GRP,
+      KLIC,
+      UROVEN,
+      
+      # 5. Vysledky
+      LIM_IND,
+      HOD_IND,
+      STAV_IND,
+      
+      # Zbytek
+      dplyr::everything()
+    )
+  
+  #----------------------------------------------------------#
+  # 4. Export dat ----- 
+  #----------------------------------------------------------#
+  
+  sep_isop <- ";"
+  quote_env_isop <- FALSE
+  encoding_isop <- "UTF-8"
+  
+  sep <- ","
+  quote_env <- TRUE
+  encoding <- "Windows-1250"
+  
+  date_stamp <- gsub("-", "", Sys.Date())
+  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_nal_", current_year, "_", date_stamp)
+  
+  message(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
+  
+  if (!dir.exists("Outputs/Data/druhy/")) {
+    dir.create("Outputs/Data/druhy/", recursive = TRUE)
+  }
+  
+  # Export 1: Windows-1250
+  write.table(
+    n2k_druhy_lim_write,
+    paste0(file_base, "_", encoding, ".csv"),
+    row.names = FALSE,
+    sep = sep,
+    quote = quote_env,
+    fileEncoding = encoding
+  )  
+  
+  # Export 2: UTF-8
+  write.table(
+    n2k_druhy_lim_write,
+    paste0(file_base, "_", encoding_isop, ".csv"),
+    row.names = FALSE,
+    sep = sep_isop,
+    quote = quote_env_isop,
+    fileEncoding = encoding_isop
+  )  
+  
+  message("--- HOTOVO (NAL_EXPORT) ---")
+  
+  return(n2k_druhy_lim_write)
+  
+}
+
+nal_export(n2k_load, species_list, sites_subjects, limity, evl, rp_code, n2k_oop)
 
 #----------------------------------------------------------#
 # Zapis mapy indikatoru ----
@@ -238,103 +356,191 @@ nal_export <-
 # Zapis dat lok -----
 #----------------------------------------------------------#
 
-lok_export <-
-  function() {
-    
-    n2k_druhy_lok_write <-
-      n2k_druhy_lokeval %>%
-      dplyr::left_join(
-        ., 
-        evl %>%
-          sf::st_drop_geometry() %>%
-          dplyr::select(
-            SITECODE, 
-            NAZEV
-          ),
-        by = c(
-          "kod_chu" = "SITECODE"
-        )
-      ) %>%
-      dplyr::left_join(
-        ., 
-        n2k_druhy_obdobi_lok,
-        by = join_by(
-          "kod_chu",
-          "KOD_LOKAL",
-          "POLE",
-          "DRUH",
-        )
-      ) %>%
-      dplyr::left_join(
-        .,
-        rp_code,
-        by = join_by(
-          "kod_chu"
-        )
-      ) %>%
-      dplyr::left_join(
-        .,
-        n2k_oop,
-        by = c("kod_chu" = "SITECODE")
-      ) %>%
-      dplyr::distinct()
-    
-    sep_isop <- ";"
-    quote_env_isop <- FALSE
-    encoding_isop <- "UTF-8"
-    
-    sep <- ","
-    quote_env <- TRUE
-    encoding <- "Windows-1250"
-    
-    write.table(
-      n2k_druhy_lok_write,
-      paste0(
-        "Outputs/Data/druhy/",
-        "n2k_druhy_lok",
-        "_",
-        current_year,
-        "_",
-        gsub(
-          "-", 
-          "", 
-          Sys.Date()
-          ),
-        "_",
-        encoding,
-        ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep,
-      quote = quote_env,
-      fileEncoding = encoding
-    )  
-    
-    write.table(
-      n2k_druhy_lok_write,
-      paste0(
-        "Outputs/Data/druhy/",
-        "n2k_druhy_lok",
-        "_",
-        current_year,
-        "_",
-        gsub(
-          "-", 
-          "", 
-          Sys.Date()
-          ),
-        "_",
-        encoding_isop,
-        ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep_isop,
-      quote = quote_env_isop,
-      fileEncoding = encoding_isop
-    )  
-    
+lok_export <- function(
+    species_list,
+    sites_subjects,
+    limity,
+    evl,
+    n2k_druhy_obdobi_lok,
+    rp_code,
+    n2k_oop,
+    current_year = 2024,
+    input_path = "Data/Temp/n2k_druhy_lim.csv"
+) {
+  
+  #--------------------------------------------------#
+  # 1. Nacteni temp dat ----
+  #--------------------------------------------------#
+  if (!file.exists(input_path)) {
+    stop(paste0("Input file not found: ", input_path))
   }
+  
+  n2k_druhy_lim <- readr::read_csv(input_path, show_col_types = FALSE)
+  
+  message("--- ZACINAM VYPOCET FAZE 3 (LOKALITY) ---")
+  
+  N_species <- length(species_list)
+  
+  #--------------------------------------------------#
+  # 2. Vypocet - Agregace na uroven lokality ----
+  #--------------------------------------------------#
+  
+  n2k_druhy_lok <- lapply(seq_along(species_list), function(i) {
+    
+    sp <- species_list[i]
+    message(sprintf("[3/4 Lokality] %s (%d/%d) - Zbyva: %d", sp, i, N_species, N_species - i))
+    
+    data_subset <- n2k_druhy_lim %>% dplyr::filter(DRUH == sp)
+    
+    if(nrow(data_subset) == 0) return(NULL)
+    
+    # Volani vypocetni funkce pro lokalitu
+    run_n2k_druhy_lok(data_subset, sp, sites_subjects, limity, current_year = current_year)
+    
+  }) %>%
+    dplyr::bind_rows() 
+  
+  if (is.null(n2k_druhy_lok) || nrow(n2k_druhy_lok) == 0) {
+    warning("Zadna data nebyla vygenerovana (n2k_druhy_lok je prazdne). Export se neprovede.")
+    return(NULL)
+  }
+  
+  # --- UKLADANI TEMP DAT ---
+  # Ulozeni mezivysledku pro dalsi funkce
+  message("--- UKLADAM MEZIVYSLEDEK DO TEMP ---")
+  
+  # Ujistime se, ze existuje slozka (i kdyz pro cteni existovala)
+  if (!dir.exists("Data/Temp/")) {
+    dir.create("Data/Temp/", recursive = TRUE)
+  }
+  
+  readr::write_csv(
+    n2k_druhy_lok,
+    paste0("Data/Temp/n2k_druhy_lok", ".csv")
+  )
+  
+  #--------------------------------------------------#
+  # 3. Propojeni s metadaty a serazeni sloupcu ----
+  #--------------------------------------------------#
+  
+  message("--- PRIPRAVA DAT PRO EXPORT ---")
+  
+  n2k_druhy_lok_write <- n2k_druhy_lok %>%
+    # Pripojeni informaci o EVL
+    dplyr::left_join(
+      ., 
+      evl %>%
+        sf::st_drop_geometry() %>%
+        dplyr::select(SITECODE, NAZEV),
+      by = c("kod_chu" = "SITECODE")
+    ) %>%
+    # Pripojeni informaci o obdobich
+    dplyr::left_join(
+      ., 
+      n2k_druhy_obdobi_lok,
+      by = dplyr::join_by("kod_chu", "KOD_LOKAL", "POLE", "DRUH")
+    ) %>%
+    # Pripojeni kodu RP
+    dplyr::left_join(
+      .,
+      rp_code,
+      by = dplyr::join_by("kod_chu")
+    ) %>%
+    # Pripojeni informaci o OOP
+    dplyr::left_join(
+      .,
+      n2k_oop,
+      by = c("kod_chu" = "SITECODE")
+    ) %>%
+    dplyr::distinct() %>%
+    # Logicke serazeni sloupcu
+    dplyr::select(
+      # 1. Identifikace (Kde, Kdo, Kdy)
+      ROK,
+      kod_chu,
+      NAZEV,          # Nazev EVL
+      DRUH,
+      SKUPINA,
+      
+      # 2. Lokalita a Odpovednost
+      KOD_LOKAL,
+      NAZEV_LOK,
+      POLE,
+      pracoviste,
+      oop,
+      
+      # 3. Obdobi a Akce
+      HODNOCENE_OBDOBI_OD,
+      HODNOCENE_OBDOBI_DO,
+      ID_ND_AKCE,
+      DATUM,
+      CILMON,
+      
+      # 4. Definice Indikatoru
+      ID_IND,
+      JEDNOTKA,
+      TYP_IND,
+      IND_GRP,
+      KLIC,
+      UROVEN,
+      
+      # 5. Vysledky a Limity
+      LIM_IND,
+      LIM_INDLIST,
+      HOD_IND,
+      STAV_IND,
+      
+      # Zbytek
+      dplyr::everything()
+    )
+  
+  #--------------------------------------------------#
+  # 4. Export dat ----
+  #--------------------------------------------------#
+  
+  sep_isop <- ";"
+  quote_env_isop <- FALSE
+  encoding_isop <- "UTF-8"
+  
+  sep <- ","
+  quote_env <- TRUE
+  encoding <- "Windows-1250"
+  
+  date_stamp <- gsub("-", "", Sys.Date())
+  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_lok_", current_year, "_", date_stamp)
+  
+  message(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
+  
+  if (!dir.exists("Outputs/Data/druhy/")) {
+    dir.create("Outputs/Data/druhy/", recursive = TRUE)
+  }
+  
+  # Export 1: Windows-1250
+  write.table(
+    n2k_druhy_lok_write,
+    paste0(file_base, "_", encoding, ".csv"),
+    row.names = FALSE,
+    sep = sep,
+    quote = quote_env,
+    fileEncoding = encoding
+  )  
+  
+  # Export 2: UTF-8
+  write.table(
+    n2k_druhy_lok_write,
+    paste0(file_base, "_", encoding_isop, ".csv"),
+    row.names = FALSE,
+    sep = sep_isop,
+    quote = quote_env_isop,
+    fileEncoding = encoding_isop
+  )  
+  
+  message("--- HOTOVO ---")
+  
+  return(n2k_druhy_lok_write)
+}
 
+lok_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
 
 #----------------------------------------------------------#
 # KONEC ----
