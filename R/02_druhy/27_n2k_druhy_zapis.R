@@ -70,6 +70,19 @@ readr::write_csv(
 #----------------------------------------------------------#
 # 3. Uroven lokality (Agregace a semafor) ----- 
 #----------------------------------------------------------#
+#--------------------------------------------------#
+## Nacteni temp dat ----
+#--------------------------------------------------#
+n2k_druhy_lim <- 
+  readr::read_csv(
+    "Data/Temp/n2k_druhy_lim.csv"
+  )
+
+ncol_druhy_lim <- 
+  ncol(
+    n2k_druhy_lim
+  )
+
 message(paste0("--- ZAČÍNÁM VÝPOČET FÁZE 3 (LOKALITY) ---"))
 
 n2k_druhy_lok <- lapply(seq_along(species_list), function(i) {
