@@ -21,124 +21,6 @@ species_list <- n2k_load %>%
   unique() %>% 
   as.character()
 
-# Spocitame celkovy pocet pro hlasky
-N_species <- length(species_list)
-
-#----------------------------------------------------------#
-# 1. Uroven akce (Vypocet indikatoru) ----- 
-#----------------------------------------------------------#
-message(paste0("--- ZAČÍNÁM VÝPOČET FÁZE 1 (AKCE) PRO ", N_species, " DRUHŮ ---"))
-
-n2k_druhy <- lapply(seq_along(species_list), function(i) {
-  
-  sp <- species_list[i]
-  
-  # Hlaska o postupu
-  message(sprintf("[1/4 Akce] %s (%d/%d) - Zbývá: %d", sp, i, N_species, N_species - i))
-  
-  run_n2k_druhy(n2k_load, sp, sites_subjects, limity, current_year = 2024)
-}) %>%
-  dplyr::bind_rows() 
-
-readr::write_csv(
-  n2k_druhy,
-  paste0("Data/Temp/n2k_druhy", ".csv")
-)
-
-#----------------------------------------------------------#
-# 2. Porovnani s limity ----- 
-#----------------------------------------------------------#
-message(paste0("--- ZAČÍNÁM VÝPOČET FÁZE 2 (LIMITY) ---"))
-
-n2k_druhy_lim <- lapply(seq_along(species_list), function(i) {
-  
-  sp <- species_list[i]
-  
-  # Hlaska o postupu
-  message(sprintf("[2/4 Limity] %s (%d/%d) - Zbývá: %d", sp, i, N_species, N_species - i))
-  
-  data_subset <- n2k_druhy %>% dplyr::filter(DRUH == sp)
-  
-  if(nrow(data_subset) == 0) return(NULL)
-  
-  run_n2k_druhy_lim(data_subset, sp, sites_subjects, limity, current_year = 2024)
-  
-}) %>%
-  dplyr::bind_rows()
-
-readr::write_csv(
-  n2k_druhy_lim,
-  paste0("Data/Temp/n2k_druhy_lim", ".csv")
-)
-
-#----------------------------------------------------------#
-# 3. Uroven lokality (Agregace a semafor) ----- 
-#----------------------------------------------------------#
-#--------------------------------------------------#
-## Nacteni temp dat ----
-#--------------------------------------------------#
-n2k_druhy_lim <- 
-  readr::read_csv(
-    "Data/Temp/n2k_druhy_lim.csv"
-  )
-
-ncol_druhy_lim <- 
-  ncol(
-    n2k_druhy_lim
-  )
-
-message(paste0("--- ZAČÍNÁM VÝPOČET FÁZE 3 (LOKALITY) ---"))
-
-n2k_druhy_lok <- lapply(seq_along(species_list), function(i) {
-  
-  sp <- species_list[i]
-  
-  # Hlaska o postupu
-  message(sprintf("[3/4 Lokality] %s (%d/%d) - Zbývá: %d", sp, i, N_species, N_species - i))
-  
-  data_subset <- n2k_druhy_lim %>% dplyr::filter(DRUH == sp)
-  
-  if(nrow(data_subset) == 0) return(NULL)
-  
-  run_n2k_druhy_lok(data_subset, sp, sites_subjects, limity, current_year = 2024)
-  
-}) %>%
-  dplyr::bind_rows() 
-
-readr::write_csv(
-  n2k_druhy_lok,
-  paste0("Data/Temp/n2k_druhy_lok", ".csv")
-)
-
-#----------------------------------------------------------#
-# 4. Uroven uzemi (Celkove hodnoceni) ----- 
-#----------------------------------------------------------#
-message(paste0("--- ZAČÍNÁM VÝPOČET FÁZE 4 (ÚZEMÍ) ---"))
-
-n2k_druhy_uzemi <- lapply(seq_along(species_list), function(i) {
-  
-  sp <- species_list[i]
-  
-  # Hlaska o postupu
-  message(sprintf("[4/4 Území] %s (%d/%d) - Zbývá: %d", sp, i, N_species, N_species - i))
-  
-  data_subset <- n2k_druhy_lok %>% dplyr::filter(DRUH == sp)
-  
-  if(nrow(data_subset) == 0) return(NULL)
-  
-  run_n2k_druhy_uzemi(
-    data_subset, sp, sites_subjects, limity, biotop_evd, 
-    current_year = 2024
-  )
-}) %>%
-  dplyr::bind_rows()
-
-readr::write_csv(
-  n2k_druhy_uzemi,
-  paste0("Data/Temp/n2k_druhy_uzemi", ".csv")
-)
-
-message("--- HOTOVO: Všechny výpočty dokončeny ---")
 
 #----------------------------------------------------------#
 # Zapis dat nalez -----
@@ -565,7 +447,21 @@ chu_export <- function(
   #----------------------------------------------------------#
   
   n2k_druhy_chu_write <- n2k_druhy_uzemi %>%
-    # Pripojeni informaci o EVL (nazev)
+    # 1. FILTRACE PREDMETU OCHRANY (Inner Join)
+    # Ponecha pouze kombinace (kod_chu, druh), ktere jsou v sites_subjects.
+    # Zaroven odstrani vse, co neni predmetem ochrany.
+    dplyr::inner_join(
+      sites_subjects %>%
+        dplyr::select(
+          site_code,
+          nazev_lat
+        ),
+      by = c(
+        "kod_chu" = "site_code",
+        "druh" = "nazev_lat"
+      )
+    ) %>%
+    # 2. PRIPOJENI METADAT (EVL, RP, OOP)
     dplyr::left_join(
       .,
       evl %>%
@@ -578,7 +474,6 @@ chu_export <- function(
         "kod_chu" = "SITECODE"
       )
     ) %>%
-    # Pripojeni kodu RP
     dplyr::left_join(
       .,
       rp_code,
@@ -586,7 +481,6 @@ chu_export <- function(
         "kod_chu"
       )
     ) %>%
-    # Pripojeni informaci o OOP
     dplyr::left_join(
       ., 
       n2k_oop,
@@ -594,18 +488,17 @@ chu_export <- function(
         "kod_chu" = "SITECODE"
       )
     ) %>%
-    # Pridani konstantnich sloupcu
+    # 3. FORMATOVANI A FILTRACE MONITORINGU
     dplyr::mutate(
       typ_predmetu_hodnoceni = "Druh",
       feature_code = NA,
       trend = "neznámý",
       datum_hodnoceni = Sys.Date()
     ) %>%
-    # Filtrace pouze na CILOVY MONITORING CHU
     dplyr::filter(
       CILMON_CHU == 1
     ) %>%
-    # Prejmenovani sloupcu pro vystup
+    # Prejmenovani sloupcu
     dplyr::rename(
       nazev_chu = NAZEV, 
       druh = DRUH, 
@@ -617,7 +510,7 @@ chu_export <- function(
       parametr_jednotka = JEDNOTKA, 
       stav = STAV_IND
     ) %>%
-    # Vyber relevantnich sloupcu
+    # Vyber sloupcu
     dplyr::select(
       typ_predmetu_hodnoceni, 
       kod_chu, 
@@ -637,38 +530,17 @@ chu_export <- function(
       pracoviste, 
       ID_ND_AKCE
     ) %>%
-    # Mapovani nazvu indikatoru dle ciselniku
+    # 4. PRIPOJENI NAZVU INDIKATORU
     dplyr::left_join(
       ., 
       indikatory_id, 
       by = c("parametr_nazev" = "ind_r")
     ) %>%
-    # Cisteni textu a nastaveni metodiky
     dplyr::mutate(
       parametr_nazev = ind_id,
-      pracoviste = gsub(
-        ",",
-        "",
-        pracoviste
-      ),
+      pracoviste = gsub(",", "", pracoviste),
       metodika = 15087
     ) %>%
-    # Navazani pouze na predmety ochrany (sites_subjects)
-    # Right join zajisti, ze ve vystupu budou vsechny predmety ochrany,
-    # i ty, ktere nemaji data (budou mit NA)
-    dplyr::right_join(
-      .,
-      sites_subjects %>%
-        dplyr::select(
-          site_code,
-          nazev_lat
-        ),
-      by = c(
-        "kod_chu" = "site_code",
-        "druh" = "nazev_lat"
-      )
-    ) %>%
-    # Odstraneni pomocnych sloupcu
     dplyr::select(
       -c(
         ind_id,
@@ -682,7 +554,6 @@ chu_export <- function(
   # 2. Export dat -----
   #----------------------------------------------------------#
   
-  # Nastaveni pro export
   sep_isop <- ";"
   quote_env_isop <- FALSE
   encoding_isop <- "UTF-8"
@@ -696,12 +567,11 @@ chu_export <- function(
   
   message(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
   
-  # Kontrola adresare
   if (!dir.exists("Outputs/Data/druhy/")) {
     dir.create("Outputs/Data/druhy/", recursive = TRUE)
   }
   
-  # Export 1: Windows-1250 (Excel)
+  # Export 1: Windows-1250
   write.table(
     n2k_druhy_chu_write,
     paste0(file_base, "_", encoding, ".csv"),
@@ -711,7 +581,7 @@ chu_export <- function(
     fileEncoding = encoding
   )  
   
-  # Export 2: UTF-8 (ISOP/Standard)
+  # Export 2: UTF-8
   write.table(
     n2k_druhy_chu_write,
     paste0(file_base, "_", encoding_isop, ".csv"),
@@ -725,6 +595,9 @@ chu_export <- function(
   
   return(n2k_druhy_chu_write)
 }
+
+chu_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
+
 
 #----------------------------------------------------------#
 # KONEC ----
