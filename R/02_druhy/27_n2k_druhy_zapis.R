@@ -234,10 +234,10 @@ nal_export(n2k_load, species_list, sites_subjects, limity, evl, rp_code, n2k_oop
 #  script = "R/2_druhy/21_n2k_druhy_akce.R",
 #  out_file = "Outputs/indicator_map_n2k.csv"
 #)
+
 #----------------------------------------------------------#
 # Zapis dat lok -----
 #----------------------------------------------------------#
-
 lok_export <- function(
     species_list,
     sites_subjects,
@@ -424,81 +424,75 @@ lok_export <- function(
 
 lok_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
 
+#----------------------------------------------------------#
+# Zapis dat uzemi -----
+#----------------------------------------------------------#
 chu_export <- function(
-    n2k_druhy_uzemi,
+    species_list,
+    sites_subjects,
+    limity,
+    biotop_evd,
     evl,
     rp_code,
     n2k_oop,
     indikatory_id,
-    sites_subjects,
-    current_year = 2024
+    n2k_druhy_obdobi_chu,
+    current_year = 2024,
+    input_path = "Data/Temp/n2k_druhy_lok.csv"
 ) {
   
-  message("--- ZACINAM PRIPRAVU DAT PRO EXPORT (CHU) ---")
+  if (!file.exists(input_path)) {
+    stop(paste0("Input file not found: ", input_path))
+  }
   
-  # Kontrola vstupu
+  n2k_druhy_lok <- readr::read_csv(input_path, show_col_types = FALSE)
+  
+  message("--- ZACINAM VYPOCET FAZE 4 (UZEMI/CHU) ---")
+  N_species <- length(species_list)
+  
+  n2k_druhy_uzemi <- lapply(seq_along(species_list), function(i) {
+    sp <- species_list[i]
+    message(sprintf("[4/4 Uzemi] %s (%d/%d) - Zbyva: %d", sp, i, N_species, N_species - i))
+    
+    data_subset <- n2k_druhy_lok %>% dplyr::filter(DRUH == sp)
+    if(nrow(data_subset) == 0) return(NULL)
+    
+    run_n2k_druhy_uzemi(
+      n2k_druhy_lok = data_subset,
+      species_name = sp,
+      sites_subjects = sites_subjects,
+      limity = limity,
+      biotop_evd = biotop_evd,
+      n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu,
+      current_year = current_year
+    )
+  }) %>%
+    dplyr::bind_rows() 
+  
   if (is.null(n2k_druhy_uzemi) || nrow(n2k_druhy_uzemi) == 0) {
-    warning("Vstupni data (n2k_druhy_uzemi) jsou prazdna. Export se neprovede.")
+    warning("Zadna data nebyla vygenerovana. Export se neprovede.")
     return(NULL)
   }
   
-  #----------------------------------------------------------#
-  # 1. Zpracovani a formatovani dat -----
-  #----------------------------------------------------------#
+  message("--- UKLADAM MEZIVYSLEDEK DO TEMP ---")
+  if (!dir.exists("Data/Temp/")) dir.create("Data/Temp/", recursive = TRUE)
+  readr::write_csv(n2k_druhy_uzemi, paste0("Data/Temp/n2k_druhy_chu", ".csv"))
+  
+  message("--- PRIPRAVA DAT PRO EXPORT (CHU) ---")
   
   n2k_druhy_chu_write <- n2k_druhy_uzemi %>%
-    # 1. FILTRACE PREDMETU OCHRANY (Inner Join)
-    # Ponecha pouze kombinace (kod_chu, druh), ktere jsou v sites_subjects.
-    # Zaroven odstrani vse, co neni predmetem ochrany.
-    dplyr::inner_join(
-      sites_subjects %>%
-        dplyr::select(
-          site_code,
-          nazev_lat
-        ),
-      by = c(
-        "kod_chu" = "site_code",
-        "druh" = "nazev_lat"
-      )
-    ) %>%
-    # 2. PRIPOJENI METADAT (EVL, RP, OOP)
-    dplyr::left_join(
-      .,
-      evl %>%
-        sf::st_drop_geometry() %>%
-        dplyr::select(
-          SITECODE,
-          NAZEV
-        ),
-      by = c(
-        "kod_chu" = "SITECODE"
-      )
-    ) %>%
-    dplyr::left_join(
-      .,
-      rp_code,
-      by = dplyr::join_by(
-        "kod_chu"
-      )
-    ) %>%
+    dplyr::inner_join(sites_subjects %>% dplyr::select(site_code, nazev_lat), by = c("kod_chu" = "site_code", "DRUH" = "nazev_lat")) %>%
+    # Pripojeni informaci o obdobich
     dplyr::left_join(
       ., 
-      n2k_oop,
-      by = c(
-        "kod_chu" = "SITECODE"
-      )
+      n2k_druhy_obdobi_chu,
+      by = dplyr::join_by("kod_chu", "DRUH")
     ) %>%
-    # 3. FORMATOVANI A FILTRACE MONITORINGU
-    dplyr::mutate(
-      typ_predmetu_hodnoceni = "Druh",
-      feature_code = NA,
-      trend = "neznámý",
-      datum_hodnoceni = Sys.Date()
-    ) %>%
-    dplyr::filter(
-      CILMON_CHU == 1
-    ) %>%
-    # Prejmenovani sloupcu
+    dplyr::left_join(evl %>% sf::st_drop_geometry() %>% dplyr::select(SITECODE, NAZEV), by = c("kod_chu" = "SITECODE")) %>%
+    dplyr::left_join(rp_code, by = dplyr::join_by("kod_chu")) %>%
+    dplyr::left_join(n2k_oop, by = c("kod_chu" = "SITECODE")) %>%
+    dplyr::mutate(typ_predmetu_hodnoceni = "Druh", feature_code = NA, trend = "neznámý", datum_hodnoceni = Sys.Date()) %>%
+    dplyr::filter(CILMON_CHU == 1) %>%
     dplyr::rename(
       nazev_chu = NAZEV, 
       druh = DRUH, 
@@ -510,95 +504,43 @@ chu_export <- function(
       parametr_jednotka = JEDNOTKA, 
       stav = STAV_IND
     ) %>%
-    # Vyber sloupcu
-    dplyr::select(
-      typ_predmetu_hodnoceni, 
-      kod_chu, 
-      nazev_chu, 
-      druh, 
-      feature_code, 
-      hodnocene_obdobi_od, 
-      hodnocene_obdobi_do, 
-      oop, 
-      parametr_nazev, 
-      parametr_hodnota, 
-      parametr_limit, 
-      parametr_jednotka, 
-      stav, 
-      trend, 
-      datum_hodnoceni, 
-      pracoviste, 
-      ID_ND_AKCE
-    ) %>%
-    # 4. PRIPOJENI NAZVU INDIKATORU
-    dplyr::left_join(
-      ., 
-      indikatory_id, 
-      by = c("parametr_nazev" = "ind_r")
-    ) %>%
+    dplyr::select(typ_predmetu_hodnoceni, kod_chu, nazev_chu, druh, feature_code, hodnocene_obdobi_od, hodnocene_obdobi_do, oop, parametr_nazev, parametr_hodnota, parametr_limit, parametr_jednotka, stav, trend, datum_hodnoceni, pracoviste, ID_ND_AKCE) %>%
+    dplyr::left_join(indikatory_id, by = c("parametr_nazev" = "ind_r")) %>%
+    # --- ZDE BYLA CHYBA: Pridano as.character() pro sjednoceni typu ---
     dplyr::mutate(
-      parametr_nazev = ind_id,
-      pracoviste = gsub(",", "", pracoviste),
+      parametr_nazev = dplyr::coalesce(as.character(ind_id), as.character(parametr_nazev)), 
+      pracoviste = gsub(",", "", pracoviste), 
       metodika = 15087
     ) %>%
-    dplyr::select(
-      -c(
-        ind_id,
-        ind_popis, 
-        ID_ND_AKCE
-      )
-    ) %>%
+    dplyr::select(-c(ind_id, ind_popis, ID_ND_AKCE)) %>%
     dplyr::distinct()
-  
-  #----------------------------------------------------------#
-  # 2. Export dat -----
-  #----------------------------------------------------------#
   
   sep_isop <- ";"
   quote_env_isop <- FALSE
   encoding_isop <- "UTF-8"
-  
   sep <- ","
   quote_env <- TRUE
   encoding <- "Windows-1250"
-  
   date_stamp <- gsub("-", "", Sys.Date())
   file_base <- paste0("Outputs/Data/druhy/n2k_druhy_chu_", current_year, "_", date_stamp)
   
   message(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
-  
-  if (!dir.exists("Outputs/Data/druhy/")) {
-    dir.create("Outputs/Data/druhy/", recursive = TRUE)
-  }
-  
-  # Export 1: Windows-1250
-  write.table(
-    n2k_druhy_chu_write,
-    paste0(file_base, "_", encoding, ".csv"),
-    row.names = FALSE,
-    sep = sep,
-    quote = quote_env,
-    fileEncoding = encoding
-  )  
-  
-  # Export 2: UTF-8
-  write.table(
-    n2k_druhy_chu_write,
-    paste0(file_base, "_", encoding_isop, ".csv"),
-    row.names = FALSE,
-    sep = sep_isop,
-    quote = quote_env_isop,
-    fileEncoding = encoding_isop
-  )  
+  if (!dir.exists("Outputs/Data/druhy/")) dir.create("Outputs/Data/druhy/", recursive = TRUE)
+  write.table(n2k_druhy_chu_write, paste0(file_base, "_", encoding, ".csv"), row.names = FALSE, sep = sep, quote = quote_env, fileEncoding = encoding)
+  write.table(n2k_druhy_chu_write, paste0(file_base, "_", encoding_isop, ".csv"), row.names = FALSE, sep = sep_isop, quote = quote_env_isop, fileEncoding = encoding_isop)
   
   message("--- HOTOVO (CHU_EXPORT) ---")
-  
   return(n2k_druhy_chu_write)
 }
 
-chu_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
-
-
-#----------------------------------------------------------#
-# KONEC ----
-#----------------------------------------------------------#
+chu_export(
+  species_list = species_list,
+  sites_subjects = sites_subjects,
+  limity = limity,
+  biotop_evd = biotop_evd,
+  evl = evl,
+  rp_code = rp_code,
+  n2k_oop = n2k_oop,
+  indikatory_id = indikatory_id,
+  n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu # Zde předáváme vypočtená období
+)
