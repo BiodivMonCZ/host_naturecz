@@ -121,11 +121,10 @@ run_n2k_druhy <- function(
     POP_POCETNOSTNAL = dplyr::case_when(
       POP_PRESENCE == 0 ~ 0,
       POP_POCET > 1000000 ~ 8,
-      REL_POC == "100 001-1 000 000" ~ 8,
+      REL_POC == "100 001-1 000 000" ~ 7,
       POP_POCET > 100000 ~ 7,
-      REL_POC == "10 001-100 000" ~ 7,
+      REL_POC == "10 001-100 000" ~ 6,
       POP_POCET > 10000 ~ 6,
-      REL_POC == "1001-10 000" ~ 6,
       POP_POCET > 1000 ~ 5,
       REL_POC == "řádově tisíce" ~ 5,
       REL_POC == "1001-10 000" ~ 5,
@@ -676,11 +675,14 @@ run_n2k_druhy <- function(
       # POP_POCETMIN: Minimalni odhad populace na zaklade kategorie pocetnosti
       POP_POCETMIN = dplyr::case_when(
         is.na(POP_POCET) == FALSE ~ POP_POCET,
+        POP_POCETNOSTNAL == 8 ~ 1000000,
+        POP_POCETNOSTNAL == 7 ~ 100001,
+        POP_POCETNOSTNAL == 6 ~ 10001,
         POP_POCETNOSTNAL == 5 ~ 1001,
-        POP_POCETNOSTNAL == 4 ~ 100,
-        POP_POCETNOSTNAL == 3 ~ 10000,
-        POP_POCETNOSTNAL == 2 ~ 10000,
-        POP_POCETNOSTNAL == 1 ~ 10000
+        POP_POCETNOSTNAL == 4 ~ 101,
+        POP_POCETNOSTNAL == 3 ~ 50,
+        POP_POCETNOSTNAL == 2 ~ 11,
+        POP_POCETNOSTNAL == 1 ~ 1
       ),
       # POP_POCETMAX: Maximalni odhad populace na zaklade kategorie pocetnosti
       POP_POCETMAX = dplyr::case_when(
@@ -690,6 +692,10 @@ run_n2k_druhy <- function(
         POP_POCETNOSTNAL == 3 ~ 10000,
         POP_POCETNOSTNAL == 2 ~ 10000,
         POP_POCETNOSTNAL == 1 ~ 10000
+      ),
+      POP_POCET = dplyr::case_when(
+        is.na(POP_POCET) == TRUE & POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCET"] ~ POP_POCETMIN,
+        TRUE ~ POP_POCET
       ),
       # POP_POCETLODYHSUM: Celkovy soucet lodyh
       POP_POCETLODYHSUM = sum(
