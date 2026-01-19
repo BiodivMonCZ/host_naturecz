@@ -715,7 +715,10 @@ run_n2k_druhy <- function(
         TRUE ~ NA_real_
       ),
       # POP_VITAL: Procento vitalnich casti populace
-      POP_VITAL = POP_POCETVITAL/POP_POCET*100
+      POP_VITAL = dplyr::case_when(
+        POP_PRESENCE_N == 0 ~ 0,
+        TRUE ~ POP_POCETVITAL/POP_POCET*100
+      )
       ) %>%
     dplyr::mutate(
       POP_POCETFIN = as.numeric(dplyr::coalesce(POP_POCET, POP_POCETMIN)),
@@ -860,10 +863,11 @@ run_n2k_druhy <- function(
       # Osetreni nekonecnych hodnot u maxima
       POP_POCETMAX = ifelse(is.infinite(POP_POCETMAX), 0, POP_POCETMAX),
       # POP_POCETNOST: Maximalni kategorie pocetnosti
-      POP_POCETNOST = max(
-        POP_POCETNOSTNAL,
-        na.rm = TRUE
-      ),
+      POP_POCETNOST = if (all(is.na(POP_POCETNOSTNAL))) {
+        NA_real_ 
+      } else {
+        max(POP_POCETNOSTNAL, na.rm = TRUE)
+      },
       POP_POCETNOSTMAX = NA,
       #POP_POCETSUM = sum(POP_POCET, na.rm = TRUE),
       #CILMON = max(CILMON, na.rm = TRUE),
