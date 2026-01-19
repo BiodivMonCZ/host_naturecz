@@ -9,7 +9,7 @@ run_n2k_druhy <- function(
   # Kontrola limitu pro pocet (POP_POCET)
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
-  lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique()
+  lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
   if (length(lim_pocet) == 0) {
     warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
   } else {
@@ -18,7 +18,7 @@ run_n2k_druhy <- function(
   
   # Kontrola limitu pro sumu poctu (POP_POCETSUM)
   # Stejna logika jako vyse - kontrola existence limitu a varovani pri absenci.
-  lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique()
+  lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
   if (length(lim_pocetsum) == 0) {
     warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
   } else {
@@ -27,7 +27,7 @@ run_n2k_druhy <- function(
   
   # Kontrola limitu pro reprodukci (POP_REPRO)
   # Stejna logika jako vyse - kontrola existence limitu a varovani pri absenci.
-  lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique()
+  lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
   if (length(lim_repro) == 0) {
     warning(glue::glue("No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations."))
   } else {
@@ -60,6 +60,7 @@ run_n2k_druhy <- function(
   dplyr::mutate(
     # POP_PRESENCE_N: Cislo reprezentujici pritomnost (1 = ano, 0 = ne)
     # Odvozuje se z priznaku NEGATIVNI a hodnoty POCET
+    POCITANO_CLEAN = stringr::str_squish(as.character(POCITANO)),
     POP_PRESENCE_N = dplyr::case_when(
       NEGATIVNI == 1 ~ 0,
       POCET == 0 ~ 0,
@@ -73,11 +74,11 @@ run_n2k_druhy <- function(
     ),
     # POP_POCET: Hodnota poctu pro dany zaznam
     # Pokud neni pritomen -> 0.
-    # Pokud jednotka (POCITANO) odpovida definovanym limitum pro POP_POCET -> hodnota POCET.
+    # Pokud jednotka (POCITANO_CLEAN) odpovida definovanym limitum pro POP_POCET -> hodnota POCET.
     # Jinak NA (pokud jednotka neodpovida metodice limitu).
     POP_POCET = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCET"] ~ POCET,
+      POCITANO_CLEAN %in% lim_pocet ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_POCETSUM_PART: Castice pro scitani (napr. samci, samice), ktere se maji secist za celou akci
@@ -85,28 +86,28 @@ run_n2k_druhy <- function(
     # Logika stejna jako u POP_POCET, ale kontroluje se shoda s jednotkami pro POP_POCETSUM.
     POP_POCETSUM_PART = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUM"] ~ POCET,
+      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUM"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_POCETSUM: Inicializace promenne pro sumu
     # Zatim obsahuje jen hodnotu pro dany radek (pokud odpovida limitu), pozdeji bude agregovana.
     POP_POCETSUM = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUM"] ~ POCET,
+      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUM"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_PLOCHA: Hodnota populace vyjadrena plochou
-    # Pouze pokud jednotka (POCITANO) odpovida limitum pro POP_PLOCHA.
+    # Pouze pokud jednotka (POCITANO_CLEAN) odpovida limitum pro POP_PLOCHA.
     POP_PLOCHA = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_PLOCHA"] ~ POCET,
+      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_PLOCHA"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_REPRO: Indikator reprodukce ("ano"/"ne")
     # Pokud je druh pritomen a jednotka odpovida limitum pro reprodukci -> "ano".
     POP_REPRO = dplyr::case_when(
       POP_PRESENCE == "ne" ~ "ne",
-      POP_PRESENCE == "ano" & POCITANO %in% limity$JEDNOTKA[limity$DRUH == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
+      POP_PRESENCE == "ano" & POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH == DRUH & limity$ID_IND == "POP_REPRO"] ~ "ano",
       TRUE ~ NA_character_
     ),
     # POP_REPRONUM: Ciselna verze reprodukce (1 = ano, 0 = ne) pro snadnejsi vypocty
@@ -145,7 +146,8 @@ run_n2k_druhy <- function(
       POP_POCET > 0 & POP_POCET <= 10 ~ 1,
       REL_POC == "do 10" ~ 1,
       REL_POC == "1-10" ~ 1,
-      grepl("počet samců: do 10", POZN_TAX) ~ 1),
+      grepl("počet samců: do 10", POZN_TAX) ~ 1
+      ),
     # POP_PASTIPOCET: Extrakce poctu pasti ze strukturovane poznamky (XML tag)
     POP_PASTIPOCET = readr::parse_number(
       stringr::str_extract(
@@ -167,15 +169,15 @@ run_n2k_druhy <- function(
     # POP_CILJEDNOTKA: Zatim NA, placeholder pro cilovou jednotku
     POP_CILJEDNOTKA = NA,
     # POP_KOEFICIENT: Koeficient pro prepocet jednotek (napr. m2 na cm2)
-    # Zatim se odviji od POP_CILJEDNOTKA a POCITANO.
+    # Zatim se odviji od POP_CILJEDNOTKA a POCITANO_CLEAN.
     POP_KOEFICIENT = dplyr::case_when(
-      POP_CILJEDNOTKA == POCITANO ~ 1,
-      POP_CILJEDNOTKA == "cm2" & POCITANO == "dm2" ~ 100,
-      POP_CILJEDNOTKA == "cm2" & POCITANO == "m2" ~ 10000,
-      POP_CILJEDNOTKA == "dm2" & POCITANO == "cm2" ~ 0.01,
-      POP_CILJEDNOTKA == "dm2" & POCITANO == "m2" ~ 100,
-      POP_CILJEDNOTKA == "m2" & POCITANO == "cm2" ~ 0.0001,
-      POP_CILJEDNOTKA == "m2" & POCITANO == "dm2" ~ 0.01),
+      POP_CILJEDNOTKA == POCITANO_CLEAN ~ 1,
+      POP_CILJEDNOTKA == "cm2" & POCITANO_CLEAN == "dm2" ~ 100,
+      POP_CILJEDNOTKA == "cm2" & POCITANO_CLEAN == "m2" ~ 10000,
+      POP_CILJEDNOTKA == "dm2" & POCITANO_CLEAN == "cm2" ~ 0.01,
+      POP_CILJEDNOTKA == "dm2" & POCITANO_CLEAN == "m2" ~ 100,
+      POP_CILJEDNOTKA == "m2" & POCITANO_CLEAN == "cm2" ~ 0.0001,
+      POP_CILJEDNOTKA == "m2" & POCITANO_CLEAN == "dm2" ~ 0.01),
     ## Vlivy ----
     # Extrakce informaci o vlivech ze dvou ruznych XML tagu ve strukturovane poznamce
     vliv1 = stringr::str_extract(
@@ -192,7 +194,7 @@ run_n2k_druhy <- function(
         is.na(vliv1) == FALSE ~ vliv1,
         TRUE ~ vliv2
       ),
-      # VLV_VLIVY_NUM: Pocet uvedenych vlivu (pocitano dle poctu carek)
+      # VLV_VLIVY_NUM: Pocet uvedenych vlivu (POCITANO_CLEAN dle poctu carek)
       VLV_VLIVY_NUM = stringr::str_count(
         VLV_VLIVY,
         ","
@@ -569,13 +571,13 @@ run_n2k_druhy <- function(
     # POP_POCETLODYH: Pocet lodyh, pokud je druh pritomen a jednotka odpovida
     POP_POCETLODYH = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
+      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_POCETVITAL: Pocet vitalnich casti, pokud jednotka odpovida
     POP_POCETVITAL = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETVITAL"] ~ POCET,
+      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETVITAL"] ~ POCET,
       TRUE ~ NA_real_
     ),
     # Extrakce parametru managementu a pokryvnosti (invazni, expanzni, dreviny, atd.)
@@ -656,7 +658,6 @@ run_n2k_druhy <- function(
     dplyr::mutate(
       # Secteme dily populace (napr. samci + samice) za celou akci
       POP_POCETSUM = sum(POP_POCETSUM_PART, na.rm = TRUE),
-      
       # Aktualizujeme POP_POCET:
       # Pokud je suma (za celou akci) vetsi nez dilci pocet (na radku), pouzijeme sumu.
       # Tuto hodnotu rozkopirujeme do vsech radku akce (coz zpusobuje duplicitu, kterou vyresime v kroku 2).
@@ -674,7 +675,7 @@ run_n2k_druhy <- function(
     dplyr::mutate(
       # POP_POCETMIN: Minimalni odhad populace na zaklade kategorie pocetnosti
       POP_POCETMIN = dplyr::case_when(
-        is.na(POP_POCET) == FALSE ~ POP_POCET,
+        !is.na(POP_POCET) ~ as.numeric(POP_POCET),
         POP_POCETNOSTNAL == 8 ~ 1000000,
         POP_POCETNOSTNAL == 7 ~ 100001,
         POP_POCETNOSTNAL == 6 ~ 10001,
@@ -682,7 +683,8 @@ run_n2k_druhy <- function(
         POP_POCETNOSTNAL == 4 ~ 101,
         POP_POCETNOSTNAL == 3 ~ 50,
         POP_POCETNOSTNAL == 2 ~ 11,
-        POP_POCETNOSTNAL == 1 ~ 1
+        POP_POCETNOSTNAL == 1 ~ 1,
+        TRUE ~ NA_real_
       ),
       # POP_POCETMAX: Maximalni odhad populace na zaklade kategorie pocetnosti
       POP_POCETMAX = dplyr::case_when(
@@ -693,10 +695,6 @@ run_n2k_druhy <- function(
         POP_POCETNOSTNAL == 2 ~ 10000,
         POP_POCETNOSTNAL == 1 ~ 10000
       ),
-      POP_POCET = dplyr::case_when(
-        is.na(POP_POCET) == TRUE & POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCET"] ~ POP_POCETMIN,
-        TRUE ~ POP_POCET
-      ),
       # POP_POCETLODYHSUM: Celkovy soucet lodyh
       POP_POCETLODYHSUM = sum(
         POP_POCETLODYH, 
@@ -705,12 +703,21 @@ run_n2k_druhy <- function(
       # POP_POCETPLOD: Pocet plodnych casti, pokud jednotka odpovida
       POP_POCETPLOD = dplyr::case_when(
         POP_PRESENCE == "ne" ~ 0,
-        POCITANO %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & 
+        POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & 
                                         limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
         TRUE ~ NA_real_
       ),
       # POP_VITAL: Procento vitalnich casti populace
-      POP_VITAL = POP_POCETVITAL/POP_POCET*100) %>%
+      POP_VITAL = POP_POCETVITAL/POP_POCET*100
+      ) %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(
+      POP_POCET = dplyr::case_when(
+        # Pokud POCET chybí & mame MIN odhad & jednotka sedí (bez mezer)
+        is.na(POP_POCET) & !is.na(POP_POCETMIN) & (POCITANO_CLEAN %in% lim_pocet) ~ as.numeric(POP_POCETMIN),
+        TRUE ~ as.numeric(POP_POCET)
+      )
+    ) %>%
     dplyr::ungroup() %>%
     # Zpracovani poskozeni rostlin (rozpad retezce)
     dplyr::group_by(
