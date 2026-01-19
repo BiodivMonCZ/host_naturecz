@@ -223,7 +223,7 @@ nal_export <- function(
   
 }
 
-nal_export(n2k_load, species_list, sites_subjects, limity, evl, rp_code, n2k_oop)
+kuknal <- nal_export(n2k_load, species_list, sites_subjects, limity, evl, rp_code, n2k_oop)
 
 #----------------------------------------------------------#
 # Zapis mapy indikatoru ----
@@ -423,7 +423,7 @@ lok_export <- function(
   return(n2k_druhy_lok_write)
 }
 
-lok_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
+kuklok <- lok_export(species_list, sites_subjects, limity, evl, n2k_druhy_obdobi_lok, rp_code, n2k_oop)
 
 #----------------------------------------------------------#
 # Zapis dat uzemi -----
