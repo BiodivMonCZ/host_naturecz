@@ -17,6 +17,7 @@ species_list <- n2k_load %>%
   as.character()
 species_list <- n2k_load %>% 
   dplyr::filter(SKUPINA == "Cévnaté rostliny") %>% 
+  dplyr::filter(DRUH %in% sites_subjects$nazev_lat) %>%
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
