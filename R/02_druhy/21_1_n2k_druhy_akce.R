@@ -663,7 +663,6 @@ run_n2k_druhy <- function(
     dplyr::mutate(
       # Secteme dily populace (napr. samci + samice) za celou akci
       POP_POCETSUM = sum(POP_POCETSUM_PART, na.rm = TRUE),
-      
       # Aktualizujeme POP_POCET:
       POP_POCET = dplyr::case_when(
         # FIX: Ensure sum is positive (>0) before overwriting!
