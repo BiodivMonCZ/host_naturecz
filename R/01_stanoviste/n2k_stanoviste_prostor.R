@@ -1,3 +1,6 @@
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+# Vypocet prostorovych charakteristik
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # LOAD DATA ----
 # VRSTVA EVL 
@@ -28,14 +31,18 @@ sites_habitats <- sites_subjects %>%
 
 # ČÍSELNÍK HABITATŮ
 habitats <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/habitats.csv", encoding = "UTF-8")
+
 # SEZNAM MINIMIAREÁLŮ
 minimisize <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/minimiarealy/minimisize.csv", encoding = "UTF-8")
+
 # rozloze stanoviště v ČR v rámci AVMB2022
 habitat_areas_2022 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", encoding = "Windows-1250")
+
 # MAXIMÁLNÍ VZDÁLENOST MEZI 2 BODY PRO KAŽDOU EVL - LINESTRINGY BYLY PŘEVEDENY NA MULTIPOINT 
 # PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
 evl_lengths <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/evl/evl_max_dist.csv", encoding = "UTF-8")
 #evl_species <- read.csv("https://media.githubusercontent.com/media/jonasgaigr/N2K.CZ/main/cevnate_evl.csv", encoding = "UTF-8")
+
 # LIMITNÍ HODNOTY PARAMETRŮ HODNOCENÍ
 hablimits <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/hablimits.csv", encoding = "UTF-8") %>%
   filter(REG != "alp" | is.na(REG) == TRUE)
@@ -43,6 +50,7 @@ hablimits <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/
 habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
                              fileEncoding = "Windows-1250")
 
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # VÝPOČET HODNOCENÍ ----
 hvezdice_eval <- function(hab_code, evl_site) {
@@ -216,10 +224,13 @@ hvezdice_eval <- function(hab_code, evl_site) {
       # KVALITA
       QUALITY = 4 - sum(QUAL_SEG, na.rm = TRUE)) %>%
     dplyr::distinct()
+
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # až sem identické jako 11_n2k_stanoviste_klic.R
   
   # MINIMIAREÁL
   if(nrow(vmb_target_sjtsk) > 0) {
-    
+    # vypocet/prirazeni minimiarealu z objektu minimisize
     minimi_value <- vmb_target_sjtsk %>%
       sf::st_drop_geometry() %>%
       dplyr::mutate(MINIMI_SIZE = case_when("V6" %in% unique(BIOTOP) ~ 1000/10000,
@@ -231,7 +242,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
                                             "M4.3" %in% unique(BIOTOP) ~ 1000/10000,
                                             TRUE ~ minimisize %>% 
                                               dplyr::filter(HABITAT == hab_code) %>%
-                                              dplyr::pull(MINIMISIZE) %>%
+                                              dplyr::pull(MINIMISIZE) %>% # redundantni?
                                               unique() %>%
                                               .[1]/10000)) %>%
       dplyr::pull(MINIMI_SIZE) %>%
@@ -245,18 +256,19 @@ hvezdice_eval <- function(hab_code, evl_site) {
                        .[1]/10000)
   }
   
+  # vypocet celistvosti (0/1)
   spat_celistvost <- vmb_target_sjtsk %>%
     dplyr::filter(DG != "W" & RB != "W") %>%
-    sf::st_buffer(., 50) %>%
+    sf::st_buffer(., 50) %>% # buffer a sjednoceni
     sf::st_union() %>%
     sf::st_cast(., "POLYGON") %>%
     sf::st_make_valid() %>%
     base::as.data.frame() %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(ID_COMB = row_number()) %>%
+    dplyr::mutate(ID_COMB = row_number()) %>% # id segment nest
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
-    dplyr::filter(DG != "W" & RB != "W") %>%
+    dplyr::filter(DG != "W" & RB != "W") %>% # uz nahore??
     dplyr::group_by(ID_COMB) %>%
     dplyr::mutate(COMB_SIZE = sum(PLO_BIO_M2_EVL, na.rm = TRUE)) %>%
     dplyr::mutate(MINIMI_SIZE = case_when("V6" %in% unique(BIOTOP) & COMB_SIZE >= 1000 ~ 1,
@@ -285,6 +297,9 @@ hvezdice_eval <- function(hab_code, evl_site) {
                                             .[1] ~ 0)) %>%
     dplyr::ungroup()
   
+  # vypocet minimiarealu
+  # bere jenom dostatecne velke seskupeni polygonu, pripadne dostatecne velky polygon, viz vypocty vyse
+  # pocita se z procento rozlohy celistveho stanoviste (MINIMI_SIZE == 1) z celkove rozlohy biotopu v EVL
   if(nrow(vmb_target_sjtsk %>%
           sf::st_drop_geometry() %>% 
           dplyr::filter(DG != "W" & RB != "W")) > 0) {
@@ -293,8 +308,11 @@ hvezdice_eval <- function(hab_code, evl_site) {
       dplyr::filter(MINIMI_SIZE == 1) %>%
       dplyr::pull(PLO_BIO_M2_EVL) %>%
       sum()
+    
+    # procenta
     celistvost <- celistvost_minimi/SUM_PLO_BIO*100
     
+    # pocet vhodnych mikrostanovist
     celistvost_num <- spat_celistvost %>%
       dplyr::filter(MINIMI_SIZE == 1) %>%
       dplyr::pull(ID_COMB) %>%
@@ -310,26 +328,31 @@ hvezdice_eval <- function(hab_code, evl_site) {
   
   # PŘÍPRAVA VRSTVY PRO VÝPOČET PARAMETRU "MOZAIKA"
   vmb_buff <- vmb_shp_sjtsk_akt %>%
+    # buffer okolo EVL
     sf::st_filter(., evl_sjtsk %>%
                     dplyr::filter(., SITECODE == evl_site) %>%
                     sf::st_buffer(., 500)) %>%
     sf::st_make_valid() %>%
+    # nechat jen polygony
     dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
                     sf::st_geometry_type(geometry) != "MULTIPOINT" & 
                     sf::st_geometry_type(geometry) != "LINESTRING" & 
                     sf::st_geometry_type(geometry) != "MULTILINESTRING" & 
                     sf::st_geometry_type(geometry) != "GEOMETRYCOLLECTION") %>%
+    # nechat jen habitaty
     dplyr::filter(FSB_EVAL != "X" &
                     FSB_EVAL != "-" &
                     FSB_EVAL != "-1" &
                     HABITAT != hab_code) %>% 
     dplyr::rename(SEGMENT_ID_buff = SEGMENT_ID) %>%
     dplyr::group_by(SEGMENT_ID_buff) %>% 
-    dplyr::slice(1) %>%
+    dplyr::slice(1) %>% # keep only 1 obs
     dplyr::ungroup()
   
+  # FSB mimo X
   vmb_spat <- vmb_target_sjtsk %>%
     dplyr::filter(FSB_EVAL != "X")
+  
   
   spat_union <- vmb_spat %>%
     sf::st_cast(., "POLYGON") %>%
@@ -365,7 +388,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
     
     # VÝPOČET PARAMETRU MOZAIKA
     mozaika_bord <- 1 - border_hsl/border_all
-    
+    # skalovane podle delky hranice segmentu s hranici CR
     mozaika <- border_nat/(border_all-border_hsl)*mozaika_bord*100
 
     if(mozaika > 100) {

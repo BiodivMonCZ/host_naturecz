@@ -8,6 +8,8 @@ czechia_line <- st_cast(czechia, "LINESTRING")
 load_vmb(vmb_x = 0)
 #load_vmb(vmb_x = 2)
 
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+
 # VÝPOČET HODNOCENÍ ----
 n2k_hab_klic <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
