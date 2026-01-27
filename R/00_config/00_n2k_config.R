@@ -143,6 +143,27 @@ sites_habitats <- sites_subjects %>%
   dplyr::filter(feature_type == "stanoviště")
 
 #--------------------------------------------------#
+### Seznam predmetu ochrany MZCHU ---- 
+#--------------------------------------------------#
+sites_subjects_mzchu <- openxlsx::read.xlsx(
+  "Data/Input/DatabazePrO_2025.xlsx",
+  sheet = 1
+) %>%
+  dplyr::rename(
+    site_code = `kód`,
+    site_name = `název`,
+    site_type = `kategorie`,
+    #feature_type = `Typ.předmětu.ochrany`,
+    #sdf_code = `Kód.SDF`,
+    feature_code = `kód.biotopu`,
+    nazev_cz = `název.biotopu`,
+    nazev_lat = `latinský.název`
+  )
+
+sites_habitats_mzchu <- sites_subjects %>%
+  dplyr::filter(feature_type == "ekosystém")
+
+#--------------------------------------------------#
 ### Seznam EVL SDO II ---- 
 #--------------------------------------------------#
 sdo_II_sites <- readr::read_csv2(
