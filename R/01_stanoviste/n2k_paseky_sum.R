@@ -6,14 +6,14 @@ paseky <- function(
     evl_site, 
     zakl = "VMB1",
     aktu = "VMB0",
-    typ_chu = "evl"
+    typ_chu = "EVL"
 ) {
   
-  if(typ_chu == "evl") {
+  if(typ_chu == "EVL") {
     
     uzemi <- evl
     
-  } else if(typ_chu == "mzchu") {
+  } else if(typ_chu == "MZCHU") {
     
     uzemi <- mzchu_sjtsk
     
