@@ -136,7 +136,7 @@ paseky_spat <- function(
   } 
   
   # Definice cesty a názvu souboru
-  file_path <- paste0("Outputs/Data/stanoviste/paseky/", evl_site, "_", hab_code, ".gpkg")
+  file_path <- paste0("Outputs/Data/stanoviste/paseky/", typ_chu, "_", evl_site, "_", hab_code, "_", zakl, "_", aktu, ".gpkg")
   
   # Aplikace clean_names na celý objekt (pokud existuje)
   if (!is.null(result) && nrow(result) > 0) {
