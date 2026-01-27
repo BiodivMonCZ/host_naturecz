@@ -221,4 +221,3 @@ for(i in 1:nrow(sites_habitats_mzchu_test)) {
     pb$message(paste("!!! CHYBA:", e$message))
   })
 }
-
