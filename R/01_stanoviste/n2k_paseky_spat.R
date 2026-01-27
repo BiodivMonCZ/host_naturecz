@@ -17,7 +17,7 @@ paseky_spat <- function(
     evl_site, 
     zakl = "VMB1", 
     aktu = "VMB0", 
-    typ_chu = "EVL"
+    typ_chu
 ) {
   
   #--------------------------------------------------#
@@ -44,7 +44,7 @@ paseky_spat <- function(
   # Inicializace proměnné result pro případ, že se nespustí hlavní blok
   result <- NULL 
   
-  if(substr(hab_code, 1, 1) == 9) {
+  if(substr(hab_code, 1, 1) == 9 | substr(hab_code, 1, 1) == "L") {
     
     # Zjistíme CRS referenčního území
     target_crs <- sf::st_crs(uzemi)
@@ -92,7 +92,7 @@ paseky_spat <- function(
     vmb_target_sjtsk_orig <- 
       vmb_zakl %>%
       sf::st_intersection(., uzemi_filter) %>%
-      dplyr::filter(HABITAT == hab_code) %>%
+      dplyr::filter(HABITAT == hab_code | BIOTOP == hab_code) %>%
       dplyr::mutate(
         AREA_real_orig = units::drop_units(sf::st_area(geometry))
       ) %>%
@@ -163,7 +163,7 @@ paseky_spat <- function(
     sf::st_write(
       obj = result, 
       dsn = file_path, 
-      layer = paste0(typ_chu, "_", evl_site, "_", hab_code), 
+      layer = paste0(typ_chu, "_", evl_site, "_", hab_code, "_", zakl, "_", aktu), 
       driver = "GPKG",
       quiet = TRUE
       # delete_dsn už není potřeba, smazali jsme ho ručně o krok výše
@@ -179,19 +179,19 @@ paseky_spat <- function(
 #----------------------------------------------------------#
 # Vypocet GIS vrstvy ----
 #----------------------------------------------------------#
-paseky_spat(sites_habitats[343,5], sites_habitats[343,1])
+paseky_spat(sites_habitats_mzchu_test[8,5], sites_habitats_mzchu_test[8,1], typ_chu = "MZCHU")
 
 # Inicializace progress baru
 pb <- progress::progress_bar$new(
   # Přidal jsem :current/:total pro lepší přehled
   format = "  Zpracovávám [:bar] :percent | :current/:total | ETA: :eta", 
-  total = nrow(sites_habitats),
+  total = nrow(sites_habitats_mzchu_test),
   clear = FALSE,
   width = 100
 )
 
 # Loop s "odchytáváním" zpráv
-for(i in 1:nrow(sites_habitats)) {
+for(i in 1:nrow(sites_habitats_mzchu_test)) {
   
   # Posuneme bar
   pb$tick()
@@ -201,7 +201,7 @@ for(i in 1:nrow(sites_habitats)) {
     withCallingHandlers({
       
       # Tvoje funkce
-      paseky_spat(sites_habitats[i,5], sites_habitats[i,1])
+      paseky_spat(sites_habitats_mzchu_test[i,5], sites_habitats_mzchu_test[i,1], typ_chu = "MZCHU")
       
     }, message = function(m) {
       # TOTO JE KLÍČOVÉ:
