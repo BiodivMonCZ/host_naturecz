@@ -153,14 +153,14 @@ sites_subjects_mzchu <- openxlsx::read.xlsx(
     site_code = `kód`,
     site_name = `název`,
     site_type = `kategorie`,
-    #feature_type = `Typ.předmětu.ochrany`,
+    feature_type = `typ.předmětu.ochrany`,
     #sdf_code = `Kód.SDF`,
     feature_code = `kód.biotopu`,
     nazev_cz = `název.biotopu`,
     nazev_lat = `latinský.název`
   )
 
-sites_habitats_mzchu <- sites_subjects %>%
+sites_habitats_mzchu <- sites_subjects_mzchu %>%
   dplyr::filter(feature_type == "ekosystém")
 
 sites_habitats_mzchu_test <- sites_habitats_mzchu %>%
