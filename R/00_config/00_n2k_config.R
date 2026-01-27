@@ -10,7 +10,8 @@ packages <- c(
   "fuzzyjoin", 
   "remotes",
   "ggplot2",
-  "progress"
+  "progress",
+  "fs"
 )
 
 # Standardni package
