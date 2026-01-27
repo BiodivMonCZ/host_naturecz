@@ -163,7 +163,7 @@ paseky_spat <- function(
     sf::st_write(
       obj = result, 
       dsn = file_path, 
-      layer = paste0(evl_site, "_", hab_code), 
+      layer = paste0(typ_chu, "_", evl_site, "_", hab_code), 
       driver = "GPKG",
       quiet = TRUE
       # delete_dsn už není potřeba, smazali jsme ho ručně o krok výše
