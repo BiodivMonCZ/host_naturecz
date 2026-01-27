@@ -1,161 +1,97 @@
+# Define folder with your GPKG files
+data_folder <- "Outputs/Data/stanoviste/paseky/MZCHU" 
+
+# Load all GPKG files into one data frame
+# We drop geometry immediately to save RAM, as we only need the attributes for the summary.
+cached_data <- dir_ls(data_folder, glob = "*.gpkg") %>% 
+  map_dfr(function(file_path) {
+    
+    st_read(file_path, quiet = TRUE) %>%
+      st_drop_geometry() %>% 
+      # Standardize column names to lowercase to avoid case-sensitivity issues
+      rename_with(tolower) %>% 
+      # Ensure numeric columns are actually numeric
+      mutate(
+        plo_bio_m2_evl_intersection = as.numeric(plo_bio_m2_evl_intersection),
+        paseka = as.numeric(paseka),
+        holina = as.numeric(holina)
+      )
+    
+  }, .id = "source_file")
+
+# Create an index for faster filtering (optional but good for large data)
+# We assume 'sitecode' and 'habitat' are the key lookups
+
 #----------------------------------------------------------#
 # Sumarizacni funkce pro vypocet pasek ----
 #----------------------------------------------------------#
 paseky <- function(
     hab_code, 
     evl_site, 
-    zakl = "VMB1",
-    aktu = "VMB0",
-    typ_chu = "EVL"
+    zakl = "VMB1", 
+    aktu = "VMB0", 
+    typ_chu
 ) {
   
-  if(typ_chu == "EVL") {
-    
-    uzemi <- evl
-    
-  } else if(typ_chu == "MZCHU") {
-    
-    uzemi <- mzchu_sjtsk
-    
-  }
-  
-  if(aktu == "VMB0") {
-    
-    vmb_aktu <- vmb_pb_x_akt
-    
-  } else if(aktu == "VMB2") {
-    
-    vmb_aktu <- vmb_pb_x_a1
-    
-  }
-  
-  if(zakl == "VMB1") {
-    
-    vmb_zakl <- vmb_shp_sjtsk_orig
-    
-  } else if(zakl == "VMB2") {
-    
-    vmb_zakl <- vmb_shp_sjtsk_a1
-    
-  }
-  
+  # Preserving the original logic: Only process if habitat starts with 9
   if(substr(hab_code, 1, 1) == 9) {
-    vmb_target_sjtsk_update <- 
-      vmb_aktu %>%
-      sf::st_intersection(
-        .,
-        dplyr::filter(
-          uzemi, 
-          SITECODE == evl_site
-        )
-      ) %>%
-      dplyr::mutate(
-        AREA_real_update = units::drop_units(st_area(geometry))
-      ) %>%
-      dplyr::mutate(
-        PLO_BIO_M2_EVL_update = STEJ_PR/100*AREA_real_update
-      ) %>%
-      dplyr::rename(
-        FSB_update = FSB,
-        BIOTOP_update = BIOTOP,
-        STEJ_PR_update = STEJ_PR,
-        ROK_AKT_update = ROK_AKT
+    
+    # 1. Filter the pre-loaded data instead of calculating intersection
+    # We filter by site and habitat. 
+    # Note: We use 'sitecode' and 'habitat' (lowercase) to match the standardized cached_data
+    vmb_target_data <- cached_data %>%
+      filter(
+        sitecode_1 == evl_site) %>%
+      filter(
+        habitat == hab_code | biotop_orig == hab_code
       )
     
-    vmb_target_sjtsk_orig <- 
-      vmb_zakl %>%
-      sf::st_intersection(
-        .,
-        dplyr::filter(
-          uzemi, 
-          SITECODE == evl_site
-        )
-      ) %>%
-      dplyr::filter(
-        HABITAT == hab_code
-      ) %>%
-      dplyr::mutate(
-        AREA_real_orig = units::drop_units(st_area(geometry))
-      ) %>%
-      dplyr::mutate(
-        PLO_BIO_M2_EVL_orig = STEJ_PR/100*AREA_real_orig
-      ) %>%
-      dplyr::rename(
-        FSB_orig = FSB,
-        BIOTOP_orig = BIOTOP,
-        STEJ_PR_orig = STEJ_PR
-      )
+    # 2. Calculate summaries using the existing columns
+    # The GPKG files already contain 'paseka', 'holina', and 'plo_bio_m2_evl_intersection'
     
-    vmb_target_sjtsk_intersection <- 
-      sf::st_intersection(
-        vmb_target_sjtsk_update, 
-        vmb_target_sjtsk_orig
-      ) %>%
-      dplyr::mutate(
-        PASEKA = dplyr::case_when(
-          BIOTOP_update %in% c("LP", "X10") ~ 1,
-          BIOTOP_update %in% c("X11", "X12A", "X12B") & ROK_AKT_update %in% c(2007:2012) ~ 1,
-          TRUE ~ 0
-        )
-      ) %>%
-      dplyr::mutate(
-        AREA_real_intersection = units::drop_units(st_area(geometry))
-      ) %>%
-      dplyr::mutate(
-        PLO_BIO_M2_EVL_intersection = AREA_real_intersection*STEJ_PR_orig/100*STEJ_PR_update/100
-      ) %>%
-      dplyr::mutate(
-        HOLINA = dplyr::case_when(
-          PASEKA == 1 & PLO_BIO_M2_EVL_intersection > 10000 ~ 1,
-          TRUE ~ 0
-        )
-      )
+    rozloha_paseky <- vmb_target_data %>%
+      filter(paseka == 1) %>%
+      pull(plo_bio_m2_evl_intersection) %>%
+      sum(na.rm = TRUE) / 10000
     
-    rozloha_paseky <- 
-      vmb_target_sjtsk_intersection %>%
-      dplyr::filter(PASEKA == 1) %>%
-      dplyr::pull(PLO_BIO_M2_EVL_intersection) %>%
-      sum()/10000
+    rozloha_holiny <- vmb_target_data %>%
+      filter(holina == 1) %>%
+      pull(plo_bio_m2_evl_intersection) %>%
+      sum(na.rm = TRUE) / 10000
     
-    rozloha_holiny <- 
-      vmb_target_sjtsk_intersection %>%
-      dplyr::filter(HOLINA == 1) %>%
-      dplyr::pull(PLO_BIO_M2_EVL_intersection) %>%
-      sum()/10000
+    pocet_segmentu <- vmb_target_data %>%
+      filter(paseka == 1) %>%
+      pull(segment_id) %>%
+      n_distinct() # Safer than unique() %>% length()
     
-    pocet_segmentu <- 
-      vmb_target_sjtsk_intersection %>%
-      dplyr::filter(PASEKA == 1) %>%
-      dplyr::pull(SEGMENT_ID) %>%
-      unique() %>%
-      length()
-    
-    result <- 
-      tidyr::tibble(
-        SITECODE = evl_site,
-        HABITAT_CODE = hab_code,
-        ROZLOHA_PASEKY = rozloha_paseky,
-        ROZLOHA_HOLINY = rozloha_holiny,
-        POCET_SEGMENTU_PASEKY = pocet_segmentu
-      )
+    # 3. Construct the result tibble
+    result <- tidyr::tibble(
+      SITECODE = evl_site,
+      HABITAT_CODE = hab_code,
+      ROZLOHA_PASEKY = rozloha_paseky,
+      ROZLOHA_HOLINY = rozloha_holiny,
+      POCET_SEGMENTU_PASEKY = pocet_segmentu
+    )
     
   } else {
-    result <- 
-      tidyr::tibble(
-        SITECODE = evl_site,
-        HABITAT_CODE = hab_code,
-        ROZLOHA_PASEKY = NA,
-        ROZLOHA_HOLINY = NA,
-        POCET_SEGMENTU_PASEKY = NA
-      )
+    
+    # Return NAs if not a forest habitat (original structure)
+    result <- tidyr::tibble(
+      SITECODE = evl_site,
+      HABITAT_CODE = hab_code,
+      ROZLOHA_PASEKY = NA,
+      ROZLOHA_HOLINY = NA,
+      POCET_SEGMENTU_PASEKY = NA
+    )
   }
   
+  return(vmb_target_data)
 }
 
 #----------------------------------------------------------#
 # Vypocet GIS vrstvy ----
 #----------------------------------------------------------#
-paseky_spat(sites_habitats[343,5], sites_habitats[343,1])
+paseky(sites_habitats_mzchu_test[9,5], sites_habitats[9,1])
 
 # Inicializace progress baru
 pb <- progress::progress_bar$new(
