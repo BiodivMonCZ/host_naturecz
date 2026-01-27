@@ -322,8 +322,9 @@ czechia_line <- sf::st_cast(czechia, "LINESTRING")
 endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
 caps_url <- paste0(endpoint, "request=GetCapabilities&service=WFS")
 
-layer_name_evl      <- "Opendata:Evropsky_vyznamne_lokality"
-layer_name_po       <- "Opendata:Ptaci_oblasti"
+layer_name_evl <- "Opendata:Evropsky_vyznamne_lokality"
+layer_name_po <- "Opendata:Ptaci_oblasti"
+layer_name_mzchu <- "Opendata:Maloplosna_zvlaste_chranena_uzemi__MZCHU_"
 layer_name_biotopzvld <- "Opendata:Biotop_zvlaste_chranenych_druhu_velkych_savcu"
 
 getfeature_url_evl <- paste0(
@@ -333,6 +334,10 @@ getfeature_url_evl <- paste0(
 getfeature_url_po <- paste0(
   endpoint,
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_po
+)
+getfeature_url_mzchu <- paste0(
+  endpoint,
+  "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_mzchu
 )
 getfeature_url_biotopzvld <- paste0(
   endpoint,
@@ -357,7 +362,7 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
     st_crs("+init=epsg:5514")
     )
   
-  if (!is.null(n2k)) {
+  if (!is.null(n2k) & local_path != "Data/Input/MaloplZCHU.shp") {
     shp <- dplyr::left_join(shp, n2k, by = "SITECODE")
   }
   
@@ -370,6 +375,7 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
 
 evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
 po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
+mzchu  <- read_layer("Data/Input/MaloplZCHU.shp", getfeature_url_mzchu,  n2k = n2k_oop)
 biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
 
 #--------------------------------------------------#
