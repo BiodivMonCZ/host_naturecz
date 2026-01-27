@@ -12,6 +12,8 @@ cached_data <- dir_ls(data_folder, glob = "*.gpkg") %>%
       rename_with(tolower) %>% 
       # Ensure numeric columns are actually numeric
       mutate(
+        sitecode = as.character(sitecode),
+        habitat = as.character(habitat),
         plo_bio_m2_evl_intersection = as.numeric(plo_bio_m2_evl_intersection),
         paseka = as.numeric(paseka),
         holina = as.numeric(holina)
@@ -34,7 +36,7 @@ paseky <- function(
 ) {
   
   # Preserving the original logic: Only process if habitat starts with 9
-  if(substr(hab_code, 1, 1) == 9) {
+  if(substr(hab_code, 1, 1) == 9 | substr(hab_code, 1, 1) == "L") {
     
     # 1. Filter the pre-loaded data instead of calculating intersection
     # We filter by site and habitat. 
@@ -66,8 +68,9 @@ paseky <- function(
     
     # 3. Construct the result tibble
     result <- tidyr::tibble(
-      SITECODE = evl_site,
-      HABITAT_CODE = hab_code,
+      TYP_CHU = as.character(typ_chu),
+      SITECODE = as.character(evl_site),
+      HABITAT_CODE = as.character(hab_code),
       ROZLOHA_PASEKY = rozloha_paseky,
       ROZLOHA_HOLINY = rozloha_holiny,
       POCET_SEGMENTU_PASEKY = pocet_segmentu
@@ -77,77 +80,90 @@ paseky <- function(
     
     # Return NAs if not a forest habitat (original structure)
     result <- tidyr::tibble(
-      SITECODE = evl_site,
-      HABITAT_CODE = hab_code,
+      TYP_CHU = as.character(typ_chu),
+      SITECODE = as.character(evl_site),
+      HABITAT_CODE = as.character(hab_code),
       ROZLOHA_PASEKY = NA,
       ROZLOHA_HOLINY = NA,
       POCET_SEGMENTU_PASEKY = NA
     )
   }
   
-  return(vmb_target_data)
+  return(result)
 }
 
 #----------------------------------------------------------#
 # Vypocet GIS vrstvy ----
 #----------------------------------------------------------#
-paseky(sites_habitats_mzchu_test[9,5], sites_habitats[9,1])
-
-# Inicializace progress baru
-pb <- progress::progress_bar$new(
-  # Přidal jsem :current/:total pro lepší přehled
-  format = "  Zpracovávám [:bar] :percent | :current/:total | ETA: :eta", 
-  total = nrow(sites_habitats),
-  clear = FALSE,
-  width = 100
-)
-
-# Loop s "odchytáváním" zpráv
-for(i in 1:nrow(sites_habitats)) {
-  
-  # Posuneme bar
-  pb$tick()
-  
-  # Spuštění funkce v obalce, která řeší vizuál
-  tryCatch({
-    withCallingHandlers({
-      
-      # Tvoje funkce
-      paseky_spat(sites_habitats[i,5], sites_habitats[i,1])
-      
-    }, message = function(m) {
-      # TOTO JE KLÍČOVÉ:
-      # 1. Vezmeme text zprávy a odstraníme prázdné znaky na konci
-      txt <- trimws(m$message, which = "right")
-      
-      # 2. Vypíšeme ji skrz progress bar (objeví se nad ním)
-      if(nchar(txt) > 0) {
-        pb$message(txt) 
-      }
-      
-      # 3. Potlačíme původní zprávu, aby se nevytiskla 2x
-      invokeRestart("muffleMessage")
-    })
-  }, error = function(e) {
-    # Pokud nastane chyba, vypíšeme ji také hezky přes bar
-    pb$message(paste("!!! CHYBA:", e$message))
-  })
-}
+paseky("L6.3", "5874", typ_chu = "MZCHU")
 
 #----------------------------------------------------------#
 # Vypocet sumarizace ----
 #----------------------------------------------------------#
-hu_paseky <- paseky(sites_habitats[343,5], sites_habitats[343,1])
-paseky_results <- matrix(NA, 1, ncol(hu_paseky)) %>% dplyr::as_tibble()
-colnames(paseky_results) <- colnames(hu_paseky)
-for(i in 1:nrow(sites_habitats)) {
-  paseky_results <- 
-    dplyr::bind_rows(
-    paseky_results,
-    as.data.frame(paseky(sites_habitats[i,5], sites_habitats[i,1]))
-    )
-}
-write.csv2(paseky_results, 
-           "S:/Gaigr/hodnoceni_stanovist_grafy/paseky_results_20220927.csv", 
-           row.names = FALSE)
+# Ensure 'sites_habitats' is defined. 
+# Using a generic name here - replace with 'sites_habitats_mzchu_test' if needed
+input_data <- sites_habitats_mzchu_test 
 
+# Initialize Result Storage
+# We create an empty tibble with the correct columns to start
+paseky_results <- tibble(
+  TYP_CHU = character(),
+  SITECODE = character(),
+  HABITAT_CODE = character(),
+  ROZLOHA_PASEKY = numeric(),
+  ROZLOHA_HOLINY = numeric(),
+  POCET_SEGMENTU_PASEKY = integer()
+)
+
+# Initialize Progress Bar
+pb <- progress::progress_bar$new(
+  format = "  Zpracovávám [:bar] :percent | :current/:total | ETA: :eta", 
+  total = nrow(input_data),
+  clear = FALSE,
+  width = 100
+)
+
+# The Loop
+for(i in 1:nrow(input_data)) {
+  
+  pb$tick()
+  
+  tryCatch({
+    withCallingHandlers({
+      
+      # 1. Run the calculation
+      # Using columns 5 (hab_code) and 1 (sitecode) as per your snippet
+      current_row <- paseky(
+        hab_code = input_data[i, 5], 
+        evl_site = input_data[i, 1], 
+        typ_chu = "MZCHU"
+      )
+      
+      # 2. Bind to main results
+      paseky_results <- bind_rows(paseky_results, current_row)
+      
+    }, message = function(m) {
+      # Handle messages cleanly in PB
+      txt <- trimws(m$message, which = "right")
+      if(nchar(txt) > 0) pb$message(txt) 
+      invokeRestart("muffleMessage")
+    })
+  }, error = function(e) {
+    # Handle errors cleanly in PB
+    pb$message(paste("!!! CHYBA [Row", i, "]:", e$message))
+  })
+}
+
+#-------------------------------------------------------------------------#
+# 4. SAVE OUTPUT
+#-------------------------------------------------------------------------#
+# Create directory if it doesn't exist
+dir_create("Outputs/Data/stanoviste/paseky/MZCHU/")
+
+write.csv2(
+  paseky_results, 
+  "Outputs/Data/stanoviste/paseky/MZCHU/paseky_results_20260127.csv", 
+  row.names = FALSE
+)
+
+print("Hotovo!")
