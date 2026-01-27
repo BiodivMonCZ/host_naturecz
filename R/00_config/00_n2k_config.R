@@ -163,6 +163,9 @@ sites_subjects_mzchu <- openxlsx::read.xlsx(
 sites_habitats_mzchu <- sites_subjects %>%
   dplyr::filter(feature_type == "ekosystém")
 
+sites_habitats_mzchu_test <- sites_habitats_mzchu %>%
+  dplyr::filter(site_code %in% c("5874", "681", "2213", "1183"))
+
 #--------------------------------------------------#
 ### Seznam EVL SDO II ---- 
 #--------------------------------------------------#
