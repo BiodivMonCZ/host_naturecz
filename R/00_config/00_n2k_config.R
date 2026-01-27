@@ -399,7 +399,8 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
 
 evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
 po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
-mzchu  <- read_layer("Data/Input/MaloplZCHU.shp", getfeature_url_mzchu,  n2k = n2k_oop)
+mzchu  <- read_layer("Data/Input/MaloplZCHU.shp", getfeature_url_mzchu,  n2k = n2k_oop) %>%
+  dplyr::rename(SITECODE = KOD)
 biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
 
 #--------------------------------------------------#
