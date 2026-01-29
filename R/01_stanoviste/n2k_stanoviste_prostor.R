@@ -53,7 +53,24 @@ habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_ro
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # VÝPOČET HODNOCENÍ ----
+
+## hvezdice_eval vstupy:
+
+# vmb_shp_sjtsk_akt ‒ sf objekt s VMB
+# evl_sjtsk ‒ sf objekt EVL
+# paseky ‒ tab paseky
+# minimisize ‒ tab limitnich hodnot minimiarealu
+# czechia_line ‒ sf objekt hranice CZ
+# habitat_areas_2022 ‒ tab celkovych rozloh habitatu v CZ?
+# red_list_species ‒ KDE SE NACITA?
+# invasive_species ‒ KDE SE NACITA?
+# expansive_species ‒ KDE SE NACITA?
+# find_evl_CODE_TO_NAME() ‒ KDE SE NACITA?
+
 hvezdice_eval <- function(hab_code, evl_site) {
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+  # duplicitni blok START
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
     sf::st_intersection(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
@@ -226,9 +243,15 @@ hvezdice_eval <- function(hab_code, evl_site) {
     dplyr::distinct()
 
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
-  # až sem identické jako 11_n2k_stanoviste_klic.R
+  # až sem skoro identické jako 11_n2k_stanoviste_klic.R
+  # navic je vypocet SUM_PLO_BIO_MINIMI
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+  # duplicitni blok STOP
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   
-  # MINIMIAREÁL
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### MINIMIAREÁL ####
+  
   if(nrow(vmb_target_sjtsk) > 0) {
     # vypocet/prirazeni minimiarealu z objektu minimisize
     minimi_value <- vmb_target_sjtsk %>%
@@ -256,7 +279,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
                        .[1]/10000)
   }
   
-  # vypocet celistvosti (0/1)
+  # vypocet spat celistvosti (0/1)
+  # bere jen kvalitni segmenty, buffer, shluky a tem prirazeni ID_COMB, priradi puvodni segmenty do shluku, pro kazdy shluk spocita COMB_SIZE (soucet PLO_BIO_M2_EVL [plochy biotopu v segmentu v evl]), priradi binarni 1/0 ‒ porovnani COMB_SIZE s minimisize (viz vyse)
   spat_celistvost <- vmb_target_sjtsk %>%
     dplyr::filter(DG != "W" & RB != "W") %>%
     sf::st_buffer(., 50) %>% # buffer a sjednoceni
@@ -297,19 +321,19 @@ hvezdice_eval <- function(hab_code, evl_site) {
                                             .[1] ~ 0)) %>%
     dplyr::ungroup()
   
-  # vypocet minimiarealu
-  # bere jenom dostatecne velke seskupeni polygonu, pripadne dostatecne velky polygon, viz vypocty vyse
+  # vystup:
   # pocita se z procento rozlohy celistveho stanoviste (MINIMI_SIZE == 1) z celkove rozlohy biotopu v EVL
   if(nrow(vmb_target_sjtsk %>%
           sf::st_drop_geometry() %>% 
           dplyr::filter(DG != "W" & RB != "W")) > 0) {
     
+    # celistva plocha biotopu
     celistvost_minimi <- spat_celistvost %>%
       dplyr::filter(MINIMI_SIZE == 1) %>%
       dplyr::pull(PLO_BIO_M2_EVL) %>%
       sum()
     
-    # procenta
+    # procenta celistve plochy z celkove plochy
     celistvost <- celistvost_minimi/SUM_PLO_BIO*100
     
     # pocet vhodnych mikrostanovist
@@ -324,7 +348,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
     celistvost_num <- NA
   }
   
-  # PARAMETR MOZAIKA
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### MOZAIKA ####
   
   # PŘÍPRAVA VRSTVY PRO VÝPOČET PARAMETRU "MOZAIKA"
   vmb_buff <- vmb_shp_sjtsk_akt %>%
@@ -353,7 +378,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
   vmb_spat <- vmb_target_sjtsk %>%
     dplyr::filter(FSB_EVAL != "X")
   
-  
+  # prevod na df, vytvoreni ID_COMB
   spat_union <- vmb_spat %>%
     sf::st_cast(., "POLYGON") %>%
     as.data.frame() %>%
@@ -387,6 +412,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
       sum()
     
     # VÝPOČET PARAMETRU MOZAIKA
+    # opatreni proti umele penalizaci hranici CZ
     mozaika_bord <- 1 - border_hsl/border_all
     # skalovane podle delky hranice segmentu s hranici CR
     mozaika <- border_nat/(border_all-border_hsl)*mozaika_bord*100
@@ -401,6 +427,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
   }
   
   # VNITŘNÍ MOZAIKA
+  # procento plochy segmentu, který v názvu obsahuje 'X'
   mozaika_inner <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(grepl("X", BIOTOP_SEZ, ignore.case = TRUE)) %>%
@@ -408,16 +435,21 @@ hvezdice_eval <- function(hab_code, evl_site) {
     na.omit() %>%
     sum()/SUM_PLO_BIO*100
   
+  # ?? podíl v procentech, podivné
   perc_spat <- sum(vmb_spat$PLO_BIO_M2_EVL)/100/target_area_ha
   
-
+  # kompilace mozaiky
   if (is.na(perc_spat) == TRUE | is.null(perc_spat) == TRUE) {
     mozaika_kompil <- NA
   } else if (perc_spat >= 25) {
     mozaika_kompil <- mozaika
   } else {
     mozaika_kompil <- 100 - mozaika_inner
-  } 
+  }
+  
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+  # duplicitni blok START
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   
   # !!!! NUTNO PŘEPSAT PŘI AKTUALIZACI EVL !!!!!
   area_evl_perc <- unique(target_area_ha/(unique(vmb_target_sjtsk$SHAPE_AREA)/10000)*100)
@@ -438,26 +470,36 @@ hvezdice_eval <- function(hab_code, evl_site) {
     area_good_ha <- 0
   }
   
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+  # duplicitni blok STOP
+  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+  
   # VYPLNĚNOST PARAMETRŮ
   fill_TD <- sum(filter(vmb_target_sjtsk, is.na(TD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
   fill_QUAL <- sum(filter(vmb_target_sjtsk, is.na(KVALITA) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
   fill_MD <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
-  fill_KP <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
+  fill_KP <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL) ## chyba??
   
-  # RED LIST SPECIES
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### RED LIST SPECIES ####
+  
+  # seznam redlist druhu v segmentech?? metodika rika ze cele EVL
   redlist_list <- red_list_species %>%
-    #dplyr::filter(SITECODE == evl_site) %>%
-    sf::st_filter(., vmb_target_sjtsk) %>%
-    dplyr::pull(DRUH) %>%
+    #dplyr::filter(SITECODE == evl_site) %>% # neni potreba, to je uz implicitne v vmb_target_sjtsk
+    sf::st_filter(., vmb_target_sjtsk) %>% # jen occur co lezi v segmentech daneho biotopu
+    dplyr::pull(DRUH) %>% # ktere jsou to druhy
     unique() 
   
+  # hlavni metrika
   redlist <- redlist_list %>%
     length()/log(SUM_PLO_BIO)*4
   
+  # pojistka maxima
   if(redlist > 10) {
     redlist <- 10
   } 
   
+  # pojistky nul
   if(length(redlist_list) == 0) {
     redlist_list <- NA
   } 
@@ -467,11 +509,13 @@ hvezdice_eval <- function(hab_code, evl_site) {
     redlist <- NA
   }
   
-  # INVASIVE SPECIES
-  if(hab_code == 6510) {
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### INVASIVE SPECIES ####
+  
+  if(hab_code == 6510) { # specialni pripad T1.1
     invaders_all <- invasive_species %>%
       dplyr::filter(SITECODE == evl_site) %>%
-      dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
+      dplyr::filter(DRUH != "Arrhenatherum elatius") %>% # arrela neni invaz spec na T1.1
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -483,37 +527,41 @@ hvezdice_eval <- function(hab_code, evl_site) {
   } else {
     invaders_all <- invasive_species %>%
       dplyr::filter(SITECODE == evl_site) %>%
-      sf::st_intersection(., vmb_target_sjtsk) %>%
+      sf::st_intersection(., vmb_target_sjtsk) %>% # spojit invaz s VMB
       sf::st_drop_geometry() %>%
-      dplyr::filter(is.na(HABITAT) == FALSE) %>%
-      dplyr::group_by(OBJECTID.y, DRUH) %>%
+      dplyr::filter(is.na(HABITAT) == FALSE) %>% # zachovat pouze habitaty
+      dplyr::group_by(OBJECTID.y, DRUH) %>% # co je tady OBJECTID.y ??
       dplyr::filter(DATUM_OD >= DATUM) %>%
-      dplyr::slice(which.max(DATUM_OD)) %>%
-      dplyr::filter(NEGATIVNI == 0) %>%
+      dplyr::slice(which.max(DATUM_OD)) %>% # zachovat nejnovejsi pozorovani
+      dplyr::filter(NEGATIVNI == 0) %>% # ??
       dplyr::ungroup()
   }
   
+  # zachovat prvni pozorovani z OBJECTID.y
   invaders_calc <- invaders_all %>%
     dplyr::group_by(OBJECTID.y) %>%
     dplyr::slice(1) %>%
     dplyr::ungroup()
   
+  # seznam unikatnich invazek
   invaders_list <- invaders_all %>%
     dplyr::pull(DRUH) %>%
     unique() 
     
-  
+  # hlavni metrika ‒ !! rozchod s metodikou !! ??
   invaders <- sum(invaders_calc$PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO*100
   
-  if(length(invaders_list) == 0 |
-     nrow(vmb_target_sjtsk) == 0) {
+  # pojistka nul
+  if(length(invaders_list) == 0 | nrow(vmb_target_sjtsk) == 0) {
     invaders_list <- NA
   }
   
-  # EXPANZNÍ DRUHY
-  expanders_all <- expansive_species %>%
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### EXPANZNÍ DRUHY ####
+  
+  expanders_all <- expansive_species %>% # skoro stejne jak invasivni
     dplyr::filter(SITECODE == evl_site) %>%
-    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>%
+    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>% # expanzni druhy jsou ty, co maji vysoke pokryvnosti
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -523,18 +571,21 @@ hvezdice_eval <- function(hab_code, evl_site) {
     dplyr::filter(NEGATIVNI == 0) %>%
     dplyr::ungroup()
   
+  # zachovat prvni pozorovani
   expanders_calc <- expanders_all %>%
     dplyr::group_by(OBJECTID.y) %>%
     dplyr::slice(1) %>%
     dplyr::ungroup()
   
+  # extrahovat seznam unikatnich druhu, ktere se chovaji jako expanzni
   expanders_list <- expanders_all %>%
     dplyr::pull(DRUH) %>%
     unique() 
   
+  # hlavni metrika ‒ !! rozchod s metodikou !! ??
   expanders <- sum(expanders_calc$PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO*100
   
-  
+  # pojistky
   if(length(expanders_list) == 0 &
      nrow(vmb_target_sjtsk) == 0) {
     expanders <- NA
@@ -545,51 +596,55 @@ hvezdice_eval <- function(hab_code, evl_site) {
     expanders_list <- NA
   }
   
+  ## ?? redundantni?
   if(nrow(vmb_target_sjtsk) == 0) {
     perc_spat <- NA
   }
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### DATUM ####
+  
   vmb_target_date <- vmb_target_sjtsk %>%
     pull(DATUM)
   
-  min_date <- vmb_target_date %>%
-    min() %>%
-    unique()
-  
-  max_date <- vmb_target_date %>%
-    max() %>%
-    unique()
-  
+  # zakldani temporalni metriky
+  min_date <- vmb_target_date %>% min() %>% unique()
+  max_date <- vmb_target_date %>% max() %>% unique()
   mean_date <- mean(vmb_target_date)
-  
   median_date <- median(vmb_target_date)
   
+  # metriky spatio-temporalni
+  # 1. nikdy neaktalizovano
   perc_seg_0 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y == 0) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # 2. aktualizovano pred rokem 2012
   perc_seg_1 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y > 0 & ROK_AKT.y <= 2012) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # 3. aktualizovano mezi lety 2012 a 2024
   perc_seg_2 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2024) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # pojistka
   if(nrow(vmb_target_sjtsk) == 0) {
     perc_seg_0 <- NA
     perc_seg_1 <- NA
     perc_seg_2 <- NA
   }
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### VÝSLEDKY ####
   
-  # VÝSLEDKY
   if(target_area_ha > 0 & is.na(target_area_ha) == FALSE) {
     result <- vmb_qual %>%
       dplyr::reframe(SITECODE = unique(SITECODE)[1],
@@ -610,8 +665,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
                        MOZAIKA_VNITRNI = (100 - mozaika_inner),
                        MOZAIKA_FIN = mozaika_kompil,
                        RED_LIST = redlist,
-                       INVASIVE = invaders,
-                       EXPANSIVE = expanders,
+                       INVASIVE = invaders, # 100-
+                       EXPANSIVE = expanders, # 100-
                        MRTVE_DREVO = unique(MD_FIN)[1],
                        KALAMITA_POLOM = unique(KP_FIN)[1],
                        RED_LIST_SPECIES = paste(redlist_list, collapse = ", "),
