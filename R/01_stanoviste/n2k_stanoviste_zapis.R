@@ -26,6 +26,29 @@ write.csv2(
   fileEncoding = "Windows-1250"
 )
 
+habresults_mzchu_long <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_20260129.csv", 
+  fileEncoding = "Windows-1250"
+  ) %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  dplyr::select(-c(DATE_MEAN, DATE_MEDIAN)) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:DATE_MAX),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  )
+
+write.csv2(
+  habresults_mzchu_long, 
+  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_", 
+         gsub('-','',Sys.Date()), "long",
+         ".csv"), 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
 # RESULTS 2024 ----
 hu <- n2k_hab_klic(sites_habitats[89,5], sites_habitats[89,1])
 habresults_100_110 <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
