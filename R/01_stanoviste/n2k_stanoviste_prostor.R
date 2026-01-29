@@ -748,6 +748,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
   
 }
 
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+# duplicitni s 11_n2k_stanoviste_klic.R
 n2k_hab_klic <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -1041,7 +1043,11 @@ n2k_hab_klic <- function(hab_code, evl_site) {
            distinct())
   
 }
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
 
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+# spolecny problem techto funkci je, ze se pri vytvareni "result" spolehaji na objekt "vmb_qual", ktery se ale v ramci techto funkci nevytvari. obzvlast nebezpecne, pokud je "vmb_qual" v globalnim prostredi
+# trochu bordel, počítají se pouze prostorové proměnné, ale výpočet result předpokládá i výpočet kvalitativních parametrů a redlist/invasive/expansive species
 n2k_hab_spat <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -1399,6 +1405,7 @@ n2k_hab_spat <- function(hab_code, evl_site) {
   
 }
 
+# podobny priklad jako n2k_hab_spat, ale tentokrat uz vysledek neocekava kvalitativni a prostorove parametry
 n2k_hab_druhy <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -1627,7 +1634,7 @@ n2k_hab_druhy <- function(hab_code, evl_site) {
            distinct())
   
 }
-
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
 
 hvezdice_eval_a1 <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
