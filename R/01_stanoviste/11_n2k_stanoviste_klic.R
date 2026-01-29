@@ -5,15 +5,56 @@ czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
   st_transform(., CRS("+init=epsg:5514"))
 czechia_line <- st_cast(czechia, "LINESTRING")
 
-load_vmb(vmb_x = 0)
-#load_vmb(vmb_x = 2)
+#data_orig <- load_vmb(vmb_x = 1)
+data_akt <- load_vmb(vmb_x = 0)
+
+#vmb_shp_sjtsk_orig <- data_orig$vmb_shp_sjtsk_orig
+
+vmb_pb_x_akt <- data_akt$vmb_pb_x_akt
 
 # VÝPOČET HODNOCENÍ ----
-n2k_hab_klic <- function(hab_code, evl_site) {
+n2k_hab_klic <- function(hab_code, evl_site, typ_chu) {
+
+  if(typ_chu == "EVL") {
+    uzemi <- evl
+  } else if(typ_chu == "MZCHU") {
+    uzemi <- mzchu
+  }
+  
+  # 1. Select the correct directory based on typ_chu
+  if (typ_chu == "EVL") {
+    target_dir <- "C:/Users/jonas.gaigr/Documents/host_naturecz/Outputs/Data/stanoviste/paseky/EVL"
+  } else if (typ_chu == "MZCHU") {
+    target_dir <- "C:/Users/jonas.gaigr/Documents/host_naturecz/Outputs/Data/stanoviste/paseky/MZCHU"
+  } else {
+    stop("typ_chu variable is not set to EVL or MZCHU")
+  }
+  
+  # 2. List all CSV files in that directory
+  # full.names = TRUE gives us the complete path, which we need for loading
+  files <- list.files(path = target_dir, pattern = "\\.csv$", full.names = TRUE)
+  
+  # 3. Check if files exist to avoid errors
+  if (length(files) > 0) {
+    
+    # 4. Get file details (modification time)
+    file_details <- file.info(files)
+    
+    # 5. Find the row with the maximum time (latest)
+    latest_file <- rownames(file_details)[which.max(file_details$mtime)]
+    
+    # 6. Load the data
+    print(paste("Loading:", latest_file)) # Optional: prints what file is being loaded
+    paseky <- read.csv2(latest_file, fileEncoding = "Windows-1250")
+    
+  } else {
+    warning("No CSV files found in the target directory.")
+  }
+  
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
-  vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
-    sf::st_intersection(dplyr::filter(evl, SITECODE == evl_site)) %>%
-    dplyr::filter(HABITAT == hab_code) %>%
+  vmb_target_sjtsk <- data_akt$vmb_shp_sjtsk_akt %>%
+    sf::st_intersection(dplyr::filter(uzemi, SITECODE == evl_site)) %>%
+    dplyr::filter(HABITAT == hab_code | BIOTOP == hab_code) %>%
     sf::st_make_valid() %>%
     dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
                     sf::st_geometry_type(geometry) != "MULTIPOINT" & 
@@ -121,7 +162,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
                                      KVALITA == 2 ~ 2,
                                      KVALITA == 3 ~ 1,
                                      KVALITA == 4 ~ 0),
-      MRTVE_DREVO_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      MRTVE_DREVO_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                          DG == "W" ~ 0,
                                          RB == "W" ~ 0,
                                          MD == 0 ~ 0,
@@ -129,7 +170,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
                                          MD == 2 ~ 2,
                                          MD == 3 ~ 0,
                                          MD == 4 ~ 0),
-      KALAMITA_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      KALAMITA_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                       DG == "W" ~ 0,
                                       RB == "W" ~ 0,
                                       MD == 0 ~ 0,
@@ -144,9 +185,9 @@ n2k_hab_klic <- function(hab_code, evl_site) {
       DC_SEG = DEGREEOFCONS_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
       CN_SEG = CON_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
       QUAL_SEG = KVALITA_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
-      MD_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      MD_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                 TRUE ~ MRTVE_DREVO_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO),
-      KAL_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      KAL_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                  TRUE ~ KALAMITA_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO)
     ) %>%
     dplyr::mutate(
@@ -176,10 +217,10 @@ n2k_hab_klic <- function(hab_code, evl_site) {
     dplyr::distinct()
   
   # !!!! NUTNO PŘEPSAT PŘI AKTUALIZACI EVL !!!!!
-  area_evl_perc <- unique(target_area_ha/(unique(dplyr::filter(evl, SITECODE == evl_site)$SHAPE_AREA)/10000)*100)
-  area_relative_perc <- target_area_ha/habitat_areas_2022 %>%
-    dplyr::filter(., HABITAT == hab_code) %>%
-    pull(TOTAL_AREA_ALL)/10000*100
+  area_evl_perc <- unique(target_area_ha/(unique(dplyr::filter(uzemi, SITECODE == evl_site)$SHAPE_AREA)/10000)*100)
+  #area_relative_perc <- target_area_ha/habitat_areas_2022 %>%
+  #  dplyr::filter(., HABITAT == hab_code) %>%
+  #  pull(TOTAL_AREA_ALL)/10000*100
   
   area_good_ha <- vmb_target_sjtsk %>%
     dplyr::filter(SF == "P" | SF == "MP") %>%
@@ -235,7 +276,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   
   
   # VÝSLEDKY
-  if(target_area_ha > 0 & is.na(target_area_ha) == FALSE) {
+  if(as.numeric(target_area_ha) > 0 & is.na(target_area_ha) == FALSE) {
     result <- 
       vmb_qual %>%
       dplyr::reframe(
@@ -251,7 +292,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
         DEGREE_OF_CONSERVATION = unique(DC_FIN)[1],
         MRTVE_DREVO = unique(MD_FIN)[1],
         KALAMITA_POLOM = unique(KP_FIN)[1],
-        RELATIVE_AREA_PERC = area_relative_perc,
+        #RELATIVE_AREA_PERC = area_relative_perc,
         EVL_AREA_PERC = area_evl_perc, # NUTNO PŘEPSAT PŘI AKTUALIZACI EVL
         GOOD_DOC_AREA_HA = area_good_ha,
         W_AREA_HA = area_w_ha,
@@ -273,7 +314,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
     result <- 
       dplyr::tibble(
         SITECODE = evl_site,
-        NAZEV = sites_habitats %>% 
+        NAZEV = sites_habitats_mzchu_test %>% 
           dplyr::filter(site_code == evl_site) %>%
           dplyr::pull(site_name) %>%
           unique(),
@@ -287,7 +328,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
         DEGREE_OF_CONSERVATION = NA,
         MRTVE_DREVO = NA,
         KALAMITA_POLOM = NA,
-        RELATIVE_AREA_PERC = NA,
+        #RELATIVE_AREA_PERC = NA,
         EVL_AREA_PERC = NA,
         GOOD_DOC_AREA_HA = NA,
         W_AREA_HA = area_w_ha,
@@ -306,9 +347,6 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   }
   
   return(result %>%
-           distinct())
+           dplyr::distinct())
   
 }
-
-
-# KONEC ----
