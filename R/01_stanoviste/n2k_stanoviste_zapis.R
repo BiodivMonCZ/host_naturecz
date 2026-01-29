@@ -1,3 +1,31 @@
+# MZCHU 2025 ----
+hu <- n2k_hab_klic(sites_habitats_mzchu_test[1,5], sites_habitats_mzchu_test[1,1], typ_chu = "MZCHU")
+habresults_mzchu <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
+habresults_mzchu <- hu
+
+for(i in 1:nrow(sites_habitats_mzchu_test)) {
+  habresults_mzchu <- dplyr::bind_rows(
+    habresults_mzchu, 
+    as.data.frame(
+      n2k_hab_klic(
+        sites_habitats_mzchu_test[i,5], 
+        sites_habitats_mzchu_test[i,1],
+        typ_chu = "MZCHU"
+        )
+      )
+    )
+}
+
+path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_", 
+               gsub('-','',Sys.Date()), 
+               ".csv")
+write.csv2(
+  habresults_mzchu[c(2:nrow(habresults_mzchu)),], 
+  path, 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
 # RESULTS 2024 ----
 hu <- n2k_hab_klic(sites_habitats[89,5], sites_habitats[89,1])
 habresults_100_110 <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
