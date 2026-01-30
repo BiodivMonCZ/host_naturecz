@@ -207,10 +207,10 @@ n2k_hab_klic <- function(hab_code, evl_site, typ_chu) {
       # CONSERVATION
       CN_FIN = 3 - sum(CN_SEG, na.rm = TRUE),
       # MRTVÉ DŘEVO
-      MD_FIN = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      MD_FIN = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                 TRUE ~ sum(MD_SEG, na.rm = TRUE)),
       # KALAMITA A POLOM
-      KP_FIN = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
+      KP_FIN = dplyr::case_when(substr(hab_code, 1, 1) != 9 & substr(hab_code, 1, 1) != "L" ~ NA_real_,
                                 TRUE ~ sum(KAL_SEG, na.rm = TRUE)),
       # KVALITA
       QUALITY = 4 - sum(QUAL_SEG, na.rm = TRUE)) %>%
@@ -282,7 +282,7 @@ n2k_hab_klic <- function(hab_code, evl_site, typ_chu) {
       dplyr::reframe(
         SITECODE = unique(SITECODE)[1],
         NAZEV = unique(NAZEV)[1],
-        HABITAT_CODE = unique(HABITAT)[1],
+        HABITAT_CODE = ifelse(typ_chu == "EVL", unique(HABITAT)[1], unique(BIOTOP)[1]),
         ROZLOHA = target_area_ha,
         KVALITA = unique(QUALITY)[1],
         TYPICKE_DRUHY = unique(TD_FIN)[1],
@@ -314,10 +314,17 @@ n2k_hab_klic <- function(hab_code, evl_site, typ_chu) {
     result <- 
       dplyr::tibble(
         SITECODE = evl_site,
-        NAZEV = sites_habitats_mzchu_test %>% 
-          dplyr::filter(site_code == evl_site) %>%
-          dplyr::pull(site_name) %>%
-          unique(),
+        NAZEV = ifelse(
+          typ_chu == "EVL",
+          sites_habitats %>% 
+            dplyr::filter(site_code == evl_site) %>%
+            dplyr::pull(site_name) %>%
+            unique(),
+          sites_habitats_mzchu_test %>% 
+            dplyr::filter(site_code == evl_site) %>%
+            dplyr::pull(site_name) %>%
+            unique()
+        ),
         HABITAT_CODE = hab_code,
         ROZLOHA = target_area_ha,
         KVALITA = NA,
