@@ -1,7 +1,14 @@
-n2k_hab_druhy <- function(hab_code, evl_site) {
+n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
+  
+  if(typ_chu == "EVL") {
+    uzemi <- evl
+  } else if(typ_chu == "MZCHU") {
+    uzemi <- mzchu
+  }
+  
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
-    sf::st_intersection(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
+    sf::st_intersection(dplyr::filter(uzemi, SITECODE == evl_site)) %>%
     dplyr::filter(HABITAT == hab_code) %>%
     sf::st_make_valid() %>%
     dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
@@ -183,47 +190,60 @@ n2k_hab_druhy <- function(hab_code, evl_site) {
   # VÝSLEDKY
   if(target_area_ha > 0 & is.na(target_area_ha) == FALSE) {
     result <- vmb_qual %>%
-      dplyr::reframe(SITECODE = unique(SITECODE)[1],
-                     NAZEV = unique(NAZEV)[1],
-                     HABITAT_CODE = unique(HABITAT)[1],
-                     ROZLOHA = target_area_ha,
-                     RED_LIST = redlist,
-                     INVASIVE = invaders,
-                     EXPANSIVE = expanders,
-                     RED_LIST_SPECIES = paste(redlist_list, collapse = ", "),
-                     INVASIVE_LIST = paste(invaders_list, collapse = ", "),
-                     EXPANSIVE_LIST = paste(expanders_list, collapse = ", "),
-                     PERC_0 = perc_seg_0,
-                     PERC_1 = perc_seg_1,
-                     PERC_2 = perc_seg_2,
-                     DATE_MIN = min_date,
-                     DATE_MAX = max_date,
-                     DATE_MEAN = mean_date,
-                     DATE_MEDIAN = median_date
+      dplyr::reframe(
+        SITECODE = unique(SITECODE)[1],
+        NAZEV = unique(NAZEV)[1],
+        HABITAT_CODE = ifelse(typ_chu == "EVL", unique(HABITAT)[1], unique(BIOTOP)[1]),
+        ROZLOHA = target_area_ha,
+        RED_LIST = redlist,
+        INVASIVE = invaders,
+        EXPANSIVE = expanders,
+        RED_LIST_SPECIES = paste(redlist_list, collapse = ", "),
+        INVASIVE_LIST = paste(invaders_list, collapse = ", "),
+        EXPANSIVE_LIST = paste(expanders_list, collapse = ", "),
+        PERC_0 = perc_seg_0,
+        PERC_1 = perc_seg_1,
+        PERC_2 = perc_seg_2,
+        DATE_MIN = min_date,
+        DATE_MAX = max_date,
+        DATE_MEAN = mean_date,
+        DATE_MEDIAN = median_date
       ) %>%
       dplyr::distinct()
   } else {
-    result <- tibble(SITECODE = evl_site,
-                     NAZEV = find_evl_CODE_TO_NAME(evl_site),
-                     HABITAT_CODE = hab_code,
-                     ROZLOHA = target_area_ha,
-                     RED_LIST = NA,
-                     INVASIVE = NA,
-                     EXPANSIVE = NA,
-                     RED_LIST_SPECIES = NA_character_,
-                     INVASIVE_LIST = NA_character_,
-                     EXPANSIVE_LIST = NA_character_,
-                     PERC_0 = NA,
-                     PERC_1 = NA,
-                     PERC_2 = NA,
-                     DATE_MIN = NA_Date_,
-                     DATE_MAX = NA_Date_,
-                     DATE_MEAN = NA_Date_,
-                     DATE_MEDIAN = NA_Date_)
+    result <- tibble(
+      SITECODE = evl_site,
+      NAZEV = ifelse(
+        typ_chu == "EVL",
+        sites_habitats %>% 
+          dplyr::filter(site_code == evl_site) %>%
+          dplyr::pull(site_name) %>%
+          unique(),
+        sites_habitats_mzchu_test %>% 
+          dplyr::filter(site_code == evl_site) %>%
+          dplyr::pull(site_name) %>%
+          unique()
+        ),
+      HABITAT_CODE = hab_code,
+      ROZLOHA = target_area_ha,
+      RED_LIST = NA,
+      INVASIVE = NA,
+      EXPANSIVE = NA,
+      RED_LIST_SPECIES = NA_character_,
+      INVASIVE_LIST = NA_character_,
+      EXPANSIVE_LIST = NA_character_,
+      PERC_0 = NA,
+      PERC_1 = NA,
+      PERC_2 = NA,
+      DATE_MIN = NA_Date_,
+      DATE_MAX = NA_Date_,
+      DATE_MEAN = NA_Date_,
+      DATE_MEDIAN = NA_Date_
+      )
   }
   
   return(result %>%
-           distinct())
+           dplyr::distinct())
   
 }
 
