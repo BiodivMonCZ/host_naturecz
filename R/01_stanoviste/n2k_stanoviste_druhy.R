@@ -66,7 +66,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
   }
   
   # INVASIVE SPECIES
-  if(hab_code == 6510) {
+  if(hab_code == 6510 | hab_code == "T1.1") {
     invaders_all <- invasive_species %>%
       dplyr::filter(SITECODE == evl_site) %>%
       dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
