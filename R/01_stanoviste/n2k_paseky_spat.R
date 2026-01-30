@@ -27,6 +27,8 @@ paseky_spat <- function(
     uzemi <- evl
   } else if(typ_chu == "MZCHU") {
     uzemi <- mzchu
+  } else if(typ_chu == "OKRSEK") {
+    uzemi <- akt_okrsek
   }
   
   if(aktu == "VMB0") {

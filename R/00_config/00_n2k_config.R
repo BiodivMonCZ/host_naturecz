@@ -341,6 +341,12 @@ czechia <- sf::st_read("Data/Input/HraniceCR.shp")
 czechia_line <- sf::st_cast(czechia, "LINESTRING")
 
 #--------------------------------------------------#
+## Aktuaalizaceni okrsky mapovani biotopu ---- 
+#--------------------------------------------------#
+akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
+  dplyr::rename(SITECODE = kod)
+
+#--------------------------------------------------#
 ## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 
