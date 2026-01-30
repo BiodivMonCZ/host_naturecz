@@ -1670,6 +1670,7 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
   
   target_area_ha <- SUM_PLO_BIO/10000
   
+  # super řešení oproti sum(vmb$SHAPE_AREA) v hvezdice_eval
   evl_area <- sf::st_area(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
     units::drop_units() %>%
     unique()
@@ -1805,6 +1806,8 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
                                 TRUE ~ sum(na.omit(KAL_SEG))),
       # KVALITA
       QUALITY = 4 - sum(na.omit(QUAL_SEG)))
+  
+  ## ?? chybí distinct()
   
   # MINIMIAREÁL
   if(nrow(vmb_target_sjtsk) > 0) {
@@ -1984,7 +1987,7 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
     mozaika_kompil <- 100 - mozaika_inner
   } 
   
-  area_evl_perc <- target_area_ha/evl_area/10000*100
+  area_evl_perc <- target_area_ha/evl_area/10000*100 ## ?? chyba ?? má být ha/(m^2/10000)*100
   area_relative_perc <- target_area_ha/habitat_areas_a1 %>%
     dplyr::filter(., HABITAT == hab_code) %>%
     pull(TOTAL_AREA_ALL)/10000*100
@@ -2227,10 +2230,10 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
       GOOD_DOC_AREA_HA = NA,
       W_AREA_HA = NA,
       W_AREA_PERC = NA,
-      PASEKY_AREA_HA = NA,
-      PASEKY_AREA_PERC = NA,
-      DEGRAD_AREA_HA = NA,
-      DEGRAD_AREA_PERC = NA,
+      PASEKY_AREA_HA = NA, # ?? zbytecne
+      PASEKY_AREA_PERC = NA, # ?? zbytecne
+      DEGRAD_AREA_HA = NA, # ?? zbytecne
+      DEGRAD_AREA_PERC = NA, # ?? zbytecne
       PASEKY_AREA_HA = area_paseky_ha,
       PASEKY_AREA_PERC = area_paseky_perc,
       DEGRAD_AREA_HA = area_degrad_ha,
@@ -2256,6 +2259,9 @@ hvezdice_eval_a1("3260", "CZ0323142")
 hvezdice_eval_a1(sites_habitats[1205,5], sites_habitats[1205,1])
 
 hvezdice_update <- function(evl_site) {
+  # funkce pro pruzkum aktualizovanosti mapovani v danem EVL
+  # nebere v potaz prislusnost ke skupinam biotopu, sype vse na jednu hromadu
+  # vystupem je tabulka ukazujici jak velke casti EVL byly mapovany v jakych letech
   
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -2275,11 +2281,11 @@ hvezdice_update <- function(evl_site) {
   
   result <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
-    dplyr::mutate(YEAR = stringr::str_sub(DATUM.x, 1, 4)) %>%
+    dplyr::mutate(YEAR = stringr::str_sub(DATUM.x, 1, 4)) %>% # DATUM.x je z vmb_target_sjtsk ??
     dplyr::group_by(YEAR) %>%
     dplyr::summarize(SITECODE = unique(SITECODE),
-                     PLOCHA_HA = sum(PLO_BIO_M2_EVL, na.rm = TRUE), 
-                     PLOCHA_PERC = sum(PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO) %>%
+                     PLOCHA_HA = sum(PLO_BIO_M2_EVL, na.rm = TRUE), # ?? PLO_BIO_... je v m^2, vysledek je taky v m^2
+                     PLOCHA_PERC = sum(PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO) %>% # ?? podil, pro procenta chybi *100
     dplyr::ungroup() %>%
     dplyr::filter(PLOCHA_HA > 0)
   
@@ -2287,6 +2293,7 @@ hvezdice_update <- function(evl_site) {
   
 }
 
+# stará verze ?? 
 hvezdice_eval_orig <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_orig %>%
@@ -3037,7 +3044,7 @@ hvezdice_eval_a1_geom <- function(hab_code, evl_site) {
     sf::st_as_sf() %>%
     dplyr::mutate(ID_COMB = row_number()) %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
-    sf::st_drop_geometry() %>%
+    sf::st_drop_geometry() %>% # ??
     dplyr::filter(DG != "W" & RB != "W") %>%
     dplyr::group_by(ID_COMB) %>%
     dplyr::mutate(COMB_SIZE = sum(PLO_BIO_M2_EVL, na.rm = TRUE)) %>%
