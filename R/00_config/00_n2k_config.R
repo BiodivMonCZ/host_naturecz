@@ -10,7 +10,8 @@ packages <- c(
   "fuzzyjoin", 
   "remotes",
   "ggplot2",
-  "progress"
+  "progress",
+  "fs"
 )
 
 # Standardni package
@@ -141,6 +142,30 @@ sites_subjects <- openxlsx::read.xlsx(
 
 sites_habitats <- sites_subjects %>%
   dplyr::filter(feature_type == "stanoviště")
+
+#--------------------------------------------------#
+### Seznam predmetu ochrany MZCHU ---- 
+#--------------------------------------------------#
+sites_subjects_mzchu <- openxlsx::read.xlsx(
+  "Data/Input/DatabazePrO_2025.xlsx",
+  sheet = 1
+) %>%
+  dplyr::rename(
+    site_code = `kód`,
+    site_name = `název`,
+    site_type = `kategorie`,
+    feature_type = `typ.předmětu.ochrany`,
+    #sdf_code = `Kód.SDF`,
+    feature_code = `kód.biotopu`,
+    nazev_cz = `název.biotopu`,
+    nazev_lat = `latinský.název`
+  )
+
+sites_habitats_mzchu <- sites_subjects_mzchu %>%
+  dplyr::filter(feature_type == "ekosystém")
+
+sites_habitats_mzchu_test <- sites_habitats_mzchu %>%
+  dplyr::filter(site_code %in% c("5874", "681", "2213", "1183"))
 
 #--------------------------------------------------#
 ### Seznam EVL SDO II ---- 
@@ -316,14 +341,21 @@ czechia <- sf::st_read("Data/Input/HraniceCR.shp")
 czechia_line <- sf::st_cast(czechia, "LINESTRING")
 
 #--------------------------------------------------#
+## Aktuaalizaceni okrsky mapovani biotopu ---- 
+#--------------------------------------------------#
+akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
+  dplyr::rename(SITECODE = kod)
+
+#--------------------------------------------------#
 ## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 
 endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
 caps_url <- paste0(endpoint, "request=GetCapabilities&service=WFS")
 
-layer_name_evl      <- "Opendata:Evropsky_vyznamne_lokality"
-layer_name_po       <- "Opendata:Ptaci_oblasti"
+layer_name_evl <- "Opendata:Evropsky_vyznamne_lokality"
+layer_name_po <- "Opendata:Ptaci_oblasti"
+layer_name_mzchu <- "Opendata:Maloplosna_zvlaste_chranena_uzemi__MZCHU_"
 layer_name_biotopzvld <- "Opendata:Biotop_zvlaste_chranenych_druhu_velkych_savcu"
 
 getfeature_url_evl <- paste0(
@@ -333,6 +365,10 @@ getfeature_url_evl <- paste0(
 getfeature_url_po <- paste0(
   endpoint,
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_po
+)
+getfeature_url_mzchu <- paste0(
+  endpoint,
+  "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_mzchu
 )
 getfeature_url_biotopzvld <- paste0(
   endpoint,
@@ -357,7 +393,7 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
     st_crs("+init=epsg:5514")
     )
   
-  if (!is.null(n2k)) {
+  if (!is.null(n2k) & local_path != "Data/Input/MaloplZCHU.shp") {
     shp <- dplyr::left_join(shp, n2k, by = "SITECODE")
   }
   
@@ -370,6 +406,8 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
 
 evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
 po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
+mzchu  <- read_layer("Data/Input/MaloplZCHU.shp", getfeature_url_mzchu,  n2k = n2k_oop) %>%
+  dplyr::rename(SITECODE = KOD)
 biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
 
 #--------------------------------------------------#
