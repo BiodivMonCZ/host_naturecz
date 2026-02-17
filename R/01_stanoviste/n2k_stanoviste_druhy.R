@@ -6,10 +6,40 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
     uzemi <- mzchu
   }
   
+  # 1. Select the correct directory based on typ_chu
+  if (typ_chu == "EVL") {
+    target_dir <- "C:/Users/jonas.gaigr/Documents/host_naturecz/Outputs/Data/stanoviste/paseky/EVL"
+  } else if (typ_chu == "MZCHU") {
+    target_dir <- "C:/Users/jonas.gaigr/Documents/host_naturecz/Outputs/Data/stanoviste/paseky/MZCHU"
+  } else {
+    stop("typ_chu variable is not set to EVL or MZCHU")
+  }
+  
+  # 2. List all CSV files in that directory
+  # full.names = TRUE gives us the complete path, which we need for loading
+  files <- list.files(path = target_dir, pattern = "\\.csv$", full.names = TRUE)
+  
+  # 3. Check if files exist to avoid errors
+  if (length(files) > 0) {
+    
+    # 4. Get file details (modification time)
+    file_details <- file.info(files)
+    
+    # 5. Find the row with the maximum time (latest)
+    latest_file <- rownames(file_details)[which.max(file_details$mtime)]
+    
+    # 6. Load the data
+    print(paste("Loading:", latest_file)) # Optional: prints what file is being loaded
+    paseky <- read.csv2(latest_file, fileEncoding = "Windows-1250")
+    
+  } else {
+    warning("No CSV files found in the target directory.")
+  }
+  
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
-  vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
+  vmb_target_sjtsk <- data_akt$vmb_shp_sjtsk_akt %>%
     sf::st_intersection(dplyr::filter(uzemi, SITECODE == evl_site)) %>%
-    dplyr::filter(HABITAT == hab_code) %>%
+    dplyr::filter(HABITAT == hab_code | BIOTOP == hab_code) %>%
     sf::st_make_valid() %>%
     dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
                     sf::st_geometry_type(geometry) != "MULTIPOINT" & 
@@ -68,7 +98,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
   # INVASIVE SPECIES
   if(hab_code == 6510 | hab_code == "T1.1") {
     invaders_all <- invasive_species %>%
-      dplyr::filter(SITECODE == evl_site) %>%
+      #dplyr::filter(SITECODE == evl_site) %>%
       dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
@@ -80,7 +110,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       dplyr::ungroup()
   } else {
     invaders_all <- invasive_species %>%
-      dplyr::filter(SITECODE == evl_site) %>%
+      #dplyr::filter(SITECODE == evl_site) %>%
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -110,8 +140,8 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
   
   # EXPANZNÍ DRUHY
   expanders_all <- expansive_species %>%
-    dplyr::filter(SITECODE == evl_site) %>%
-    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>%
+    dplyr::filter(POKRYVNOST %in% c("3", "4", "5")) %>%
+    #dplyr::filter(SITECODE == evl_site) %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -189,7 +219,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
   
   # VÝSLEDKY
   if(target_area_ha > 0 & is.na(target_area_ha) == FALSE) {
-    result <- vmb_qual %>%
+    result <- vmb_target_sjtsk %>%
       dplyr::reframe(
         SITECODE = unique(SITECODE)[1],
         NAZEV = unique(NAZEV)[1],
