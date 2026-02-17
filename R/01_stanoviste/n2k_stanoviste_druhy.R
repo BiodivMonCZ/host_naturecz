@@ -104,7 +104,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       sf::st_drop_geometry() %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
       dplyr::group_by(OBJECTID.y, DRUH) %>%
-      dplyr::filter(DATUM_OD >= DATUM) %>%
+      #dplyr::filter(DATUM_OD >= DATUM) %>%
       dplyr::slice(which.max(DATUM_OD)) %>%
       dplyr::filter(NEGATIVNI == 0) %>%
       dplyr::ungroup()
@@ -115,7 +115,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       sf::st_drop_geometry() %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
       dplyr::group_by(OBJECTID.y, DRUH) %>%
-      dplyr::filter(DATUM_OD >= DATUM) %>%
+      #dplyr::filter(DATUM_OD >= DATUM) %>%
       dplyr::slice(which.max(DATUM_OD)) %>%
       dplyr::filter(NEGATIVNI == 0) %>%
       dplyr::ungroup()
@@ -146,7 +146,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
     sf::st_drop_geometry() %>%
     dplyr::filter(is.na(HABITAT) == FALSE) %>%
     dplyr::group_by(OBJECTID.y, DRUH) %>%
-    dplyr::filter(DATUM_OD >= DATUM) %>%
+    #dplyr::filter(DATUM_OD >= DATUM) %>%
     dplyr::slice(which.max(DATUM_OD)) %>%
     dplyr::filter(NEGATIVNI == 0) %>%
     dplyr::ungroup()

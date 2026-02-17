@@ -73,7 +73,7 @@ path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_",
                gsub('-','',Sys.Date()), 
                ".csv")
 write.csv2(
-  habresults_mzchu[c(2:nrow(habresults_mzchu)),], 
+  habresults_mzchu_druhy[c(2:nrow(habresults_mzchu_druhy)),], 
   path, 
   row.names = FALSE,
   fileEncoding = "Windows-1250"
@@ -103,7 +103,16 @@ write.csv(
 )
 
 ## MZCHU - napojeni 2025 ----
-results_klic <- 
+results_klic <- read.csv(
+  "mzchu_25_biotopy_klic_20260217_long",
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+  )
+results_druhy <- read.csv(
+  "mzchu_25_biotopy_druhy_20260217_long",
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
 
 
 # RESULTS 2024 ----
