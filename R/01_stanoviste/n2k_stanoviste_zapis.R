@@ -1,4 +1,5 @@
 # MZCHU 2025 ----
+## MZCHU - klicove 2025 ----
 hu <- n2k_hab_klic(sites_habitats_mzchu_test[1,5], sites_habitats_mzchu_test[1,1], typ_chu = "MZCHU")
 habresults_mzchu <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
 habresults_mzchu <- hu
@@ -16,7 +17,7 @@ for(i in 1:nrow(sites_habitats_mzchu_test)) {
     )
 }
 
-path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_", 
+path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_klic_", 
                gsub('-','',Sys.Date()), 
                ".csv")
 write.csv2(
@@ -26,10 +27,11 @@ write.csv2(
   fileEncoding = "Windows-1250"
 )
 
+
 habresults_mzchu_long <- read.csv2(
-  "Outputs/Data/stanoviste/mzchu_25_biotopy_20260129.csv", 
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_klic_20260217.csv", 
   fileEncoding = "Windows-1250"
-  ) %>%
+) %>%
   dplyr::mutate(
     across(where(is.numeric), ~ round(., 4))
   ) %>%
@@ -42,12 +44,67 @@ habresults_mzchu_long <- read.csv2(
 
 write.csv(
   habresults_mzchu_long, 
-  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_", 
+  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_klic_", 
          gsub('-','',Sys.Date()), "_long",
          ".csv"), 
   row.names = FALSE,
   fileEncoding = "Windows-1250"
 )
+
+## MZCHU - druhy 2025 ----
+hu <- n2k_hab_druhy(sites_habitats_mzchu_test[1,5], sites_habitats_mzchu_test[1,1], typ_chu = "MZCHU")
+habresults_mzchu_druhy <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
+habresults_mzchu_druhy <- hu
+
+for(i in 1:nrow(sites_habitats_mzchu_test)) {
+  habresults_mzchu_druhy <- dplyr::bind_rows(
+    habresults_mzchu_druhy, 
+    as.data.frame(
+      n2k_hab_druhy(
+        sites_habitats_mzchu_test[i,5], 
+        sites_habitats_mzchu_test[i,1],
+        typ_chu = "MZCHU"
+      )
+    )
+  )
+}
+
+path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_", 
+               gsub('-','',Sys.Date()), 
+               ".csv")
+write.csv2(
+  habresults_mzchu[c(2:nrow(habresults_mzchu)),], 
+  path, 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+
+habresults_mzchu_long <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.csv", 
+  fileEncoding = "Windows-1250"
+) %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:EXPANSIVE_LIST),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  )
+
+write.csv(
+  habresults_mzchu_long, 
+  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_", 
+         gsub('-','',Sys.Date()), "_long",
+         ".csv"), 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+## MZCHU - napojeni 2025 ----
+results_klic <- 
+
 
 # RESULTS 2024 ----
 hu <- n2k_hab_klic(sites_habitats[89,5], sites_habitats[89,1])
