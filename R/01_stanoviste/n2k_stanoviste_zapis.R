@@ -103,17 +103,44 @@ write.csv(
 )
 
 ## MZCHU - napojeni 2025 ----
-results_klic <- read.csv(
-  "mzchu_25_biotopy_klic_20260217_long",
-  row.names = FALSE,
+results_klic <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_klic_20260217.csv",
   fileEncoding = "Windows-1250"
   )
-results_druhy <- read.csv(
-  "mzchu_25_biotopy_druhy_20260217_long",
-  row.names = FALSE,
+results_druhy <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.csv",
   fileEncoding = "Windows-1250"
 )
 
+results <- 
+  dplyr::full_join(
+    results_klic,
+    results_druhy
+  ) %>%
+  dplyr::arrange(
+    SITECODE,
+    HABITAT_CODE
+  ) %>%
+  dplyr::select(
+    -c(REPRE, REPRE_SDF, CONSERVATION, DEGREE_OF_CONSERVATION, 
+       EVL_AREA_PERC, GOOD_DOC_AREA_HA, W_AREA_HA, W_AREA_PERC,
+       PASEKY_AREA_HA, PASEKY_AREA_PERC, DEGRAD_AREA_HA, DEGRAD_AREA_PERC,
+       PERC_0, PERC_1, PERC_2, DATE_MEAN, DATE_MEDIAN)
+    )  %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:KALAMITA_POLOM, RED_LIST:EXPANSIVE_LIST),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  ) %>%
+  dplyr::distinct()
+
+openxlsx::write.xlsx(
+  results,
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.xlsx"
+  )
 
 # RESULTS 2024 ----
 hu <- n2k_hab_klic(sites_habitats[89,5], sites_habitats[89,1])
