@@ -201,13 +201,6 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
         RED_LIST_SPECIES = paste(redlist_list, collapse = ", "),
         INVASIVE_LIST = paste(invaders_list, collapse = ", "),
         EXPANSIVE_LIST = paste(expanders_list, collapse = ", "),
-        PERC_0 = perc_seg_0,
-        PERC_1 = perc_seg_1,
-        PERC_2 = perc_seg_2,
-        DATE_MIN = min_date,
-        DATE_MAX = max_date,
-        DATE_MEAN = mean_date,
-        DATE_MEDIAN = median_date
       ) %>%
       dplyr::distinct()
   } else {
@@ -232,13 +225,6 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       RED_LIST_SPECIES = NA_character_,
       INVASIVE_LIST = NA_character_,
       EXPANSIVE_LIST = NA_character_,
-      PERC_0 = NA,
-      PERC_1 = NA,
-      PERC_2 = NA,
-      DATE_MIN = NA_Date_,
-      DATE_MAX = NA_Date_,
-      DATE_MEAN = NA_Date_,
-      DATE_MEDIAN = NA_Date_
       )
   }
   
