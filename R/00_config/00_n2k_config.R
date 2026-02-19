@@ -577,22 +577,35 @@ n2k_load <- n2k_export %>%
 # kompletni pouze pro overene uzivatele,
 # bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
 #------------------------------------------------------#
-red_list_species <- 
-  readr::read_csv2(
-    paste0(
-      slozka_lokal,
-      "evl_data_redlist_20260217.csv"
-    ), 
-    locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
-  dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
-  #dplyr::filter(is.na(Nepůvodní.druhy) == TRUE) %>%
-  dplyr::filter(is.na(REDLIST) == FALSE) %>%
-  dplyr::mutate(
+# 1. Read the data with strict encoding and column specifications
+redlist_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_redlist.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+redlist_species <- redlist_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
+  mutate(
+    DRUH = as.factor(DRUH),
+    DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
     DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
-    DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y')
-    ) %>%
-  sf::st_as_sf(., coords = c("X", "Y"), crs = "+init=epsg:5514")
+    DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
 
 #------------------------------------------------------#
 ## Invazni nepuvodni druhy ----
@@ -600,28 +613,35 @@ red_list_species <-
 # kompletni pouze pro overene uzivatele,
 # bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
 #------------------------------------------------------#
-invasive_species <- readr::read_csv2(
-  paste0(
-    slozka_lokal,
-    "export_nalezy_invazni_CR_06042023.csv"
-    ), 
-  locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
-  #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
-  #dplyr::filter(DRUH %in% invaz_list$TAXON) %>%
+# 1. Read the data with strict encoding and column specifications
+invasive_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_invaze.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+invasive_species <- invasive_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
   mutate(
-    # Převedení druhu na kategorickou veličinu
     DRUH = as.factor(DRUH),
-    # Převedení datumu do vhodného formátu
     DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
     DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
     DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
-    NEGATIVNI = dplyr::case_when(NEGATIVNI == "ne" ~ 0,
-                                 NEGATIVNI == "ano" ~ 1),
-    # Redukce data na rok
-    YEAR = substring(DATE, 1, 4)
-    ) %>% 
-  sf::st_as_sf(., coords = c("CXLOKAL_X", "CXLOKAL_Y"), crs = "+init=epsg:5514")
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
 
 #------------------------------------------------------#
 ## Expanzivni druhy ----
@@ -629,28 +649,35 @@ invasive_species <- readr::read_csv2(
 # kompletni pouze pro overene uzivatele,
 # bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
 #------------------------------------------------------#
-expansive_species <- 
-  readr::read_csv(
-  paste0(
-    slozka_lokal,
-    "export_nalezy_expanzivky_CR_06042023_v3.csv"
-  ), 
-  locale = readr::locale(encoding = "Windows-1250")
-) %>%
-  dplyr::filter(DRUH != "Arrhenatherum elatius") %>% 
+# 1. Read the data with strict encoding and column specifications
+expansive_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_expanze.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+expansive_species <- expansive_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
   mutate(
-    # Převedení druhu na kategorickou veličinu
     DRUH = as.factor(DRUH),
-    # Převedení datumu do vhodného formátu
     DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
     DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
     DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
-    NEGATIVNI = dplyr::case_when(NEGATIVNI == "ne" ~ 0,
-                                 NEGATIVNI == "ano" ~ 1),
-    # Redukce data na rok
-    YEAR = substring(DATE, 1, 4)
-    ) %>% 
-  sf::st_as_sf(., coords = c("CXLOKAL_X", "CXLOKAL_Y"), crs = "+init=epsg:5514")
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
 
 #----------------------------------------------------------#
 # Vlastní funkce na úpravu dat ----
