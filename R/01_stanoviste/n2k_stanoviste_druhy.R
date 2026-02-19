@@ -102,7 +102,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
-      dplyr::filter(is.na(HABITAT) == FALSE) %>%
+      #dplyr::filter(is.na(HABITAT) == FALSE) %>%
       dplyr::group_by(OBJECTID.y, DRUH) %>%
       #dplyr::filter(DATUM_OD >= DATUM) %>%
       dplyr::slice(which.max(DATUM_OD)) %>%
@@ -113,7 +113,7 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
       #dplyr::filter(SITECODE == evl_site) %>%
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
-      dplyr::filter(is.na(HABITAT) == FALSE) %>%
+      #dplyr::filter(is.na(HABITAT) == FALSE) %>%
       dplyr::group_by(OBJECTID.y, DRUH) %>%
       #dplyr::filter(DATUM_OD >= DATUM) %>%
       dplyr::slice(which.max(DATUM_OD)) %>%
@@ -140,11 +140,11 @@ n2k_hab_druhy <- function(hab_code, evl_site, typ_chu) {
   
   # EXPANZNÍ DRUHY
   expanders_all <- expansive_species %>%
-    dplyr::filter(POKRYVNOST %in% c("3", "4", "5")) %>%
+    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>%
     #dplyr::filter(SITECODE == evl_site) %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
-    dplyr::filter(is.na(HABITAT) == FALSE) %>%
+    #dplyr::filter(is.na(HABITAT) == FALSE) %>%
     dplyr::group_by(OBJECTID.y, DRUH) %>%
     #dplyr::filter(DATUM_OD >= DATUM) %>%
     dplyr::slice(which.max(DATUM_OD)) %>%
