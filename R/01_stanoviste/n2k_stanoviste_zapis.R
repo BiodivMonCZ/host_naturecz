@@ -52,7 +52,7 @@ write.csv(
 )
 
 ## MZCHU - druhy 2025 ----
-hu <- n2k_hab_druhy(sites_habitats_mzchu_test[1,5], sites_habitats_mzchu_test[1,1], typ_chu = "MZCHU")
+hu <- n2k_hab_druhy(sites_habitats_mzchu_test[8,5], sites_habitats_mzchu_test[8,1], typ_chu = "MZCHU")
 habresults_mzchu_druhy <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
 habresults_mzchu_druhy <- hu
 
@@ -108,7 +108,7 @@ results_klic <- read.csv2(
   fileEncoding = "Windows-1250"
   )
 results_druhy <- read.csv2(
-  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.csv",
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260219.csv",
   fileEncoding = "Windows-1250"
 )
 
