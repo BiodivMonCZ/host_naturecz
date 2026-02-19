@@ -45,7 +45,7 @@ current_year <- as.numeric(format(Sys.Date(), "%Y")) - 1
 limity_cev <- readr::read_csv(
   "Data/Input/limity_cevky.csv", 
   locale = readr::locale(encoding = "Windows-1250")
-  )
+)
 
 #------------------------------------------#
 ### Limity - ryby ---- 
@@ -61,18 +61,18 @@ limity_ryb <- readr::read_csv2(
 limity <- readr::read_csv(
   "Data/Input/limity_vse.csv", 
   locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
+) %>%
   dplyr::bind_rows(
     ., 
     limity_cev,
     limity_ryb
-    ) %>%
+  ) %>%
   dplyr::group_by(
     DRUH, 
     ID_IND, 
     TYP_IND, 
     UROVEN
-    ) %>%
+  ) %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
     LIM_INDLIST = dplyr::case_when(
@@ -80,32 +80,32 @@ limity <- readr::read_csv(
         "nejvýš", 
         LIM_IND, 
         JEDNOTKA
-        ),
+      ),
       TYP_IND == "min" ~ paste(
         "alespoň", 
         LIM_IND, 
         JEDNOTKA
-        ),
+      ),
       TYP_IND == "val" ~ paste(
         paste0(
           unique(LIM_IND), 
           collapse = ", "
-          )
-        ),
+        )
+      ),
       TRUE ~ NA_character_)
   ) %>%
   dplyr::ungroup() %>%
   dplyr::group_by(
     DRUH, 
     ID_IND
-    ) %>%
+  ) %>%
   dplyr::mutate(
     LIM_INDLIST = toString(
       na.omit(
         unique(LIM_INDLIST)
-        )
       )
-    ) %>%
+    )
+  ) %>%
   dplyr::ungroup()
 
 #--------------------------------------------------#
@@ -391,7 +391,7 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
   shp <- sf::st_transform(
     shp, 
     st_crs("+init=epsg:5514")
-    )
+  )
   
   if (!is.null(n2k) & local_path != "Data/Input/MaloplZCHU.shp") {
     shp <- dplyr::left_join(shp, n2k, by = "SITECODE")
