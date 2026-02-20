@@ -177,7 +177,9 @@ data_beskydy <- sf::st_read(
     MD_hod = as.factor(MD_hod)
   )  %>%
   # Good practice: explicitly drop records missing the categorical variable
-  tidyr::drop_na(MD_hod)
+  dplyr::filter(
+    is.na(MD_hod) == FALSE & MD_hod != 3 & MD_hod != 4
+  )
 
 # 2. BEAUTIFICATION THEME
 # Creating a clean, custom theme inspired by the tutorial to remove grey backgrounds
@@ -265,3 +267,13 @@ raincloud_md_beskydy <-
 
 # Zobrazení grafu
 print(raincloud_md_beskydy)
+
+ggsave(
+  filename = "Outputs/Grafy/raincloud_md_beskydy.png", # Název a formát (může být i .jpg, .tiff nebo .pdf)
+  plot = raincloud_md_beskydy,     # Který graf ukládáme
+  width = 20,          # Šířka obrázku
+  height = 15,         # Výška obrázku
+  units = "cm",        # Jednotky rozměrů ("cm", "mm", nebo "in" pro palce)
+  dpi = 300,           # Rozlišení (300 je standard pro tisk/publikace)
+  bg = "white"         # Zabrání průhlednému pozadí u theme_minimal()
+)
