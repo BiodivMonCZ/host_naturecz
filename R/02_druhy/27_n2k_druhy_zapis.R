@@ -11,7 +11,8 @@ ncol_orig <- ncol(n2k_load)
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 species_list <- n2k_load %>% 
-  dplyr::filter(SKUPINA == "Ryby a mihule") %>% 
+  dplyr::filter(DRUH == "Eriogaster catax") %>% 
+  #dplyr::filter(SKUPINA == "Ryby a mihule") %>% 
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
