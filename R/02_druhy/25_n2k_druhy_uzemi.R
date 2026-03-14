@@ -21,6 +21,9 @@ run_n2k_druhy_uzemi <- function(
   
   pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+  if(species_name == "Eriogaster catax") {
+    is_pole_druh == FALSE
+  }
   
   #----------------------------------------------------------#
   # 2. Priprava kontextu (CELKOVE jako sloupec) ----
@@ -68,6 +71,7 @@ run_n2k_druhy_uzemi <- function(
         POLE = toString(unique(POLE)),
         NAZEV_LOK = toString(unique(NAZEV_LOK)),
         ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+        ID_ND_LOK = toString(unique(ID_ND_LOK)),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
         # Zde staci pocitat radky s hodnocenim
@@ -176,7 +180,7 @@ run_n2k_druhy_uzemi <- function(
       )
     ) %>%
     tidyr::pivot_longer(
-      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU), 
+      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU), 
       names_to = "ID_IND",
       values_to = "HOD_IND"
     ) %>%
