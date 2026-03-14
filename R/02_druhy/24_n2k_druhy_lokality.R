@@ -39,6 +39,9 @@ run_n2k_druhy_lok <- function(
   
   # Zjisteni, zda se ma filtrovat podle POLE (zda je druh vazany na transekt nebo plochu)
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+  if(species_name == "Eriogaster catax") {
+    is_pole_druh == FALSE
+  }
   
   #----------------------------------------------------------#
   # 2. Agregace dilcich indikatoru ----
@@ -53,6 +56,7 @@ run_n2k_druhy_lok <- function(
       SKUPINA = dplyr::first(SKUPINA),
       NAZEV_LOK = paste(unique(LOKALITA), collapse = ", "),
       ID_ND_AKCE = paste(unique(IDX_ND_AKCE), collapse = ", "),
+      ID_ND_LOK = unique(IDX_ND_LOK)[1],
       DATUM = max(DATUM, na.rm = TRUE),
       CILMON = max(CILMON, na.rm = TRUE),
       # Atributy indikatoru
