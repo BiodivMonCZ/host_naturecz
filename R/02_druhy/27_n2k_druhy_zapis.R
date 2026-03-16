@@ -11,7 +11,7 @@ ncol_orig <- ncol(n2k_load)
 
 #species_list <- unique(subset(n2k_load, SKUPINA == "Obojživelníci")$DRUH)
 species_list <- n2k_load %>% 
-  dplyr::filter(DRUH == "Eriogaster catax") %>% 
+  dplyr::filter(DRUH == "Eriogaster catax" | DRUH == "Euphydryas aurinia") %>% 
   #dplyr::filter(SKUPINA == "Ryby a mihule") %>% 
   dplyr::pull(DRUH) %>% 
   unique() %>% 
@@ -528,7 +528,8 @@ chu_export <- function(
   return(n2k_druhy_chu_write)
 }
 
-chu_export(
+kukchu <- 
+  chu_export(
   species_list = species_list,
   sites_subjects = sites_subjects,
   limity = limity,
