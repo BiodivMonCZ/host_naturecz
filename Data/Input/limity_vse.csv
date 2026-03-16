@@ -85,9 +85,9 @@ Graphoderus bilineatus,POP_POCETPOLE0,NA,NA,poèet sledovaných mapovacích polí 1.
 Limoniscus violaceus,POP_POCETPOLE0,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Cerambyx cerdo,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Cucujus cinnaberinus,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
-Eriogaster catax,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
-Euphydryas aurinia,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
-Euphydryas maturna,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
+Eriogaster catax,LOK_PROCDOBR,NA,NA,procento dílèích lokalit v dobrém stavu,NA,chu
+Euphydryas aurinia,LOK_PROCDOBR,NA,NA,procento dílèích lokalit v dobrém stavu,NA,chu
+Euphydryas maturna,LOK_PROCDOBR,NA,NA,procento dílèích lokalit v dobrém stavu,NA,chu
 Euplagia quadripunctaria,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Leucorrhinia pectoralis,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Lucanus cervus,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
@@ -287,8 +287,8 @@ Carabus menetriesi pacholei,STA_HABPOKRYV,min,10,procento pokryvnosti preferovan
 Carabus variolosus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Cerambyx cerdo,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
 Cucujus cinnaberinus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
-Eriogaster catax,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
-Euphydryas aurinia,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
+Eriogaster catax,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,NA
+Euphydryas aurinia,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,NA
 Euphydryas maturna,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Euplagia quadripunctaria,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Graphoderus bilineatus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
