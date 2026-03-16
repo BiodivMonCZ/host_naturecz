@@ -39,8 +39,8 @@ run_n2k_druhy_lok <- function(
   
   # Zjisteni, zda se ma filtrovat podle POLE (zda je druh vazany na transekt nebo plochu)
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
-  if(species_name == "Eriogaster catax") {
-    is_pole_druh == FALSE
+  if(species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
+    is_pole_druh <- FALSE
   }
   
   #----------------------------------------------------------#
