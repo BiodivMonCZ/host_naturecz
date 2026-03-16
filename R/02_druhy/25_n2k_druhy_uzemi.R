@@ -21,8 +21,8 @@ run_n2k_druhy_uzemi <- function(
   
   pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
-  if(species_name == "Eriogaster catax") {
-    is_pole_druh == FALSE
+  if(species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
+    is_pole_druh <- FALSE
   }
   
   #----------------------------------------------------------#
@@ -196,7 +196,7 @@ run_n2k_druhy_uzemi <- function(
       by = c("DRUH" = "DRUH", "ID_IND" = "ID_IND")
     ) %>%
     dplyr::group_by(kod_chu, DRUH) %>%
-    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU, .direction = "downup") %>%
+    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU, .direction = "downup") %>%
     dplyr::ungroup() %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND) %>%
     dplyr::arrange(dplyr::desc(!is.na(HOD_IND)), HOD_IND) %>% 
@@ -235,6 +235,7 @@ run_n2k_druhy_uzemi <- function(
       POLE = toString(unique(POLE)),
       NAZEV_LOK = toString(unique(NAZEV_LOK)),
       ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+      ID_ND_LOK = toString(unique(ID_ND_LOK)),
       HOD_IND = toString(stats::na.omit(unique(HOD_IND))),        
       TYP_IND = unique(TYP_IND),
       LIM_IND = unique(LIM_IND),
@@ -281,6 +282,7 @@ run_n2k_druhy_uzemi <- function(
       POLE = toString(unique(POLE)),
       NAZEV_LOK = toString(unique(NAZEV_LOK)),
       ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+      ID_ND_LOK = toString(unique(ID_ND_LOK)),
       UROVEN = "chu",
       CILMON_CHU = max(CILMON_CHU, na.rm = TRUE),
       STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), 
@@ -299,7 +301,7 @@ run_n2k_druhy_uzemi <- function(
       JEDNOTKA = NA_character_,
       LIM_INDLIST = NA_character_
     ) %>%
-    dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
+    dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
   
   n2k_druhy_chu_final <- dplyr::bind_rows(
     n2k_druhy_chu_vypocet %>% 
