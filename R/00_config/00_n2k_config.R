@@ -432,12 +432,12 @@ slozka_lokal <- "C:/Users/jonas.gaigr/Documents/host_data/"
 # kompletni pouze pro overene uzivatele,
 # bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
 #------------------------------------------------------#
-n2k_export <- readr::read_csv2(
+n2k_export <- readr::read_csv(
   paste0(
     slozka_lokal,
-    "evl_data_export_20250408.csv"
+    "export_data_evl.csv"
   ), 
-  locale = readr::locale(encoding = "Windows-1250")
+  locale = readr::locale(encoding = "UTF-8")
 )
 
 ncol_orig <- ncol(n2k_export)
