@@ -44,8 +44,9 @@ run_n2k_druhy <- function(
     ) %>%
     # Filtrace dat: Ponechame pouze kombinace Druh a Lokalita, ktere jsou v seznamu sledovanych predmetu ochrany
     dplyr::filter(
-      DRUH %in% sites_subjects$nazev_lat & 
-        kod_chu %in% sites_subjects$site_code
+      DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
+      (DRUH %in% sites_subjects$nazev_lat & 
+        kod_chu %in% sites_subjects$site_code)
     ) %>%
     #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
     #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
