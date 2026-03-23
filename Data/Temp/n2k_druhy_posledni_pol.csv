@@ -1,11 +1,18 @@
 kod_chu,DRUH,POLE,POSLEDNI_NALEZ
 CZ0110040,Barbastella barbastellus,5952c,2020-07-02
 CZ0110040,Euplagia quadripunctaria,5952c,2022-08-09
+CZ0110040,Gentianella amarella,NA,2001-09-05
+CZ0110040,Hipparchia semele,NA,2011-08-23
+CZ0110040,Chazara briseis,NA,1995-01-01
 CZ0110040,Myotis myotis,5952c,2021-05-28
 CZ0110040,Myotis sp.,5952c,2020-05-18
+CZ0110049,Hipparchia semele,NA,1995-01-01
 CZ0110050,Abramis brama,5952c,2007-01-01
 CZ0110050,Barbastella barbastellus,5952c,2025-12-07
 CZ0110050,Euplagia quadripunctaria,5952c,2023-08-11
+CZ0110050,Gentianella amarella,NA,2001-09-05
+CZ0110050,Hipparchia semele,NA,2012-08-01
+CZ0110050,Chazara briseis,NA,1995-01-01
 CZ0110050,Lucanus cervus,5952c,2021-09-03
 CZ0110050,Myotis myotis,5952c,2026-02-07
 CZ0110050,Myotis sp.,5952c,2019-06-05
@@ -14,15 +21,19 @@ CZ0110050,Sanguisorba officinalis,5952c,2009-07-30
 CZ0110050,Scardinius erythrophthalmus,5952c,2007-01-01
 CZ0110142,Barbastella barbastellus,5953b,2019-06-24
 CZ0110142,Bombina bombina,5953b,2025-07-14
+CZ0110142,Hipparchia semele,NA,1995-01-01
 CZ0110142,Lemna trisulca,5953b,2012-05-11
 CZ0110142,Myotis sp.,5953b,2019-07-30
 CZ0110142,Sanguisorba officinalis,5953b,2024-05-28
 CZ0110142,Scardinius erythrophthalmus,5953b,2020-04-16
 CZ0110154,Euplagia quadripunctaria,5852c,2021-08-10
+CZ0110154,Hipparchia semele,NA,1995-01-01
 CZ0113001,Cucujus cinnaberinus,5951b,2023-11-11
+CZ0113001,Hipparchia semele,NA,2007-07-21
 CZ0113001,Vertigo angustior,5951b,2016-05-22
 CZ0113002,Bombina bombina,5953c,2023-05-06
 CZ0113002,Cerambyx cerdo,5953c,2023-07-13
+CZ0113002,Hipparchia semele,NA,1995-01-01
 CZ0113002,Lemna trisulca,5953c,2024-05-04
 CZ0113002,Leucorrhinia pectoralis,5953c,2015-06-06
 CZ0113002,Lucanus cervus,5953c,2015-04-01
@@ -32,11 +43,16 @@ CZ0113002,Scardinius erythrophthalmus,5953c,2024-05-08
 CZ0113005,Euplagia quadripunctaria,5951d,2022-07-28
 CZ0113005,Euplagia quadripunctaria,6052a,2023-08-18
 CZ0113005,Euplagia quadripunctaria,"82,""6052a""",2011-05-19
+CZ0113005,Gentianella amarella,NA,2001-09-05
+CZ0113005,Hipparchia semele,NA,2011-08-23
+CZ0113005,Chazara briseis,NA,1995-01-01
 CZ0113005,Lucanus cervus,"37,""6052a""",2015-04-01
 CZ0113005,Lutra lutra,"45,""6052a""",2024-04-05
 CZ0113005,Myotis myotis,6051b,2015-05-21
 CZ0113773,Castor fiber,5952a,2004-01-01
 CZ0113773,Euplagia quadripunctaria,5952a,2020-08-12
+CZ0113773,Hipparchia semele,NA,2011-08-23
+CZ0113773,Chazara briseis,NA,1995-01-01
 CZ0113773,Lucanus cervus,5952a,2025-06-04
 CZ0113773,Myotis myotis,5952a,2022-06-10
 CZ0113773,Scardinius erythrophthalmus,5952a,2023-06-09
@@ -51,6 +67,7 @@ CZ0114001,Euplagia quadripunctaria,"24,""6051b""",1956-01-01
 CZ0114001,Euplagia quadripunctaria,"27,""6051b""",2004-07-30
 CZ0114001,Euplagia quadripunctaria,5951d,2025-08-15
 CZ0114001,Euplagia quadripunctaria,6051b,2024-07-09
+CZ0114001,Hipparchia semele,NA,2009-08-01
 CZ0114001,Lucanus cervus,5951d,2024-06-10
 CZ0114001,Lutra lutra,6051b,2013-02-19
 CZ0114001,Myotis alcathoe/emarginatus,5951d,2025-08-26
@@ -71,8 +88,10 @@ CZ0210010,Lucanus cervus,"01,""6150a""",2011-07-04
 CZ0210010,Lucanus cervus,6150a,2025-06-01
 CZ0210010,Myotis bechsteinii,6150a,2022-05-08
 CZ0210010,Triturus cristatus,6150a,2025-04-15
+CZ0210011,Hipparchia semele,NA,2010-07-20
 CZ0210011,Lucanus cervus,6050c,2010-04-17
 CZ0210022,Cypripedium calceolus,5857d,2016-05-19
+CZ0210022,Euphydryas maturna,NA,2007-06-09
 CZ0210022,Lucanus cervus,5857d,2023-07-26
 CZ0210022,Phengaris teleius,"81,""5857d""",2000-01-01
 CZ0210022,Sanguisorba officinalis,5857d,2025-07-22
@@ -107,9 +126,12 @@ CZ0210047,Myotis alcathoe/emarginatus,6448b,2017-07-06
 CZ0210047,Myotis bechsteinii,6448b,2018-09-08
 CZ0210047,Myotis myotis,6448b,2015-08-30
 CZ0210053,Euplagia quadripunctaria,6252c,2021-09-02
+CZ0210053,Hipparchia semele,NA,1995-01-01
+CZ0210053,Chazara briseis,NA,1995-01-01
 CZ0210053,Lucanus cervus,6252c,2023-06-11
 CZ0210053,Myotis myotis,6252c,2014-08-15
 CZ0210054,Canis lupus,6249c,2025-03-24
+CZ0210054,Hipparchia semele,NA,1995-01-01
 CZ0210056,Phengaris teleius,6348a,2023-07-13
 CZ0210056,Sanguisorba officinalis,6348a,2023-06-12
 CZ0210056,Succisa pratensis,6348a,2023-06-12
@@ -196,6 +218,7 @@ CZ0210109,Sanguisorba officinalis,5655b,2024-08-18
 CZ0210109,Succisa pratensis,"23,""5655a""",2022-05-01
 CZ0210109,Triturus cristatus,5655b,2013-04-30
 CZ0210111,Pulsatilla patens,5555a,2025-06-29
+CZ0210113,Euphydryas maturna,NA,2007-06-09
 CZ0210113,Hamatocaulis vernicosus,5858c,2001-01-01
 CZ0210113,Sanguisorba officinalis,5858c,2022-06-22
 CZ0210113,Succisa pratensis,5858c,2022-06-22
@@ -262,12 +285,14 @@ CZ0210152,Triturus cristatus,5753c,2024-06-26
 CZ0210153,Cerambyx cerdo,6052c,2009-06-01
 CZ0210153,Cucujus cinnaberinus,6052c,2014-05-03
 CZ0210153,Euplagia quadripunctaria,6052c,2019-07-20
+CZ0210153,Hipparchia semele,NA,2004-01-01
 CZ0210153,Lucanus cervus,6052c,2015-04-01
 CZ0210172,Bombina bombina,5754d,2024-04-08
 CZ0210172,Bombina bombina,5755c,2024-05-09
 CZ0210172,Bombina bombina,"62,""5754d""",2025-05-20
 CZ0210172,Bombina bombina,"91,""5754d""",2014-03-23
 CZ0210172,Hamatocaulis vernicosus,"44,""5755c""",2001-01-01
+CZ0210172,Hipparchia semele,NA,1995-01-01
 CZ0210172,Lemna trisulca,5754d,2022-06-22
 CZ0210172,Leucorrhinia pectoralis,5754d,2021-06-28
 CZ0210172,Leucorrhinia pectoralis,"91,""5754d""",2015-03-15
@@ -362,10 +387,12 @@ CZ0210186,Triturus cristatus,5652d,2011-04-30
 CZ0210409,Austropotamobius torrentium,6051b,2024-08-13
 CZ0210409,Barbastella barbastellus,6051b,2019-08-24
 CZ0210409,Euplagia quadripunctaria,6051b,2020-07-30
+CZ0210409,Hipparchia semele,NA,2009-08-01
 CZ0210409,Lucanus cervus,6051b,2021-07-05
 CZ0210421,Barbastella barbastellus,6050d,2012-02-07
 CZ0210421,Barbastella barbastellus,6150b,2011-01-22
 CZ0210421,Euplagia quadripunctaria,6150b,2008-07-29
+CZ0210421,Hipparchia semele,NA,2010-07-20
 CZ0210421,Myotis myotis,6050d,2012-02-07
 CZ0210421,Myotis sp.,6150b,2008-02-01
 CZ0210421,Rhinolophus hipposideros,6050d,2015-02-06
@@ -413,6 +440,7 @@ CZ0210721,Vertigo angustior,5756a,2006-11-22
 CZ0210721,Vertigo moulinsiana,5756a,2015-10-06
 CZ0210729,Cucujus cinnaberinus,5852a,2024-03-23
 CZ0210729,Euplagia quadripunctaria,5852a,2022-08-07
+CZ0210729,Hipparchia semele,NA,1995-01-01
 CZ0210729,Lucanus cervus,5852a,2017-07-04
 CZ0210729,Lycaena dispar,5852a,2022-06-08
 CZ0210729,Myotis myotis,5852a,2013-08-24
@@ -550,6 +578,7 @@ CZ0213016,Austropotamobius torrentium,5851b,2025-10-25
 CZ0213016,Austropotamobius torrentium,5851c,2018-10-26
 CZ0213016,Cottus gobio,5851a,2014-09-23
 CZ0213016,Cottus gobio,5851c,2014-09-23
+CZ0213016,Hipparchia semele,NA,2003-07-24
 CZ0213016,Lampetra planeri,5851a,2014-09-23
 CZ0213016,Lampetra planeri,5851c,2014-09-23
 CZ0213016,Lutra lutra,5851b,2011-10-30
@@ -560,6 +589,8 @@ CZ0213017,Bombina bombina,6449c,2025-06-25
 CZ0213017,Triturus cristatus,6449c,2024-06-24
 CZ0213023,Euplagia quadripunctaria,"5,""6252a""",2003-07-25
 CZ0213023,Euplagia quadripunctaria,6252a,2021-08-04
+CZ0213023,Hipparchia semele,NA,1995-01-01
+CZ0213023,Chazara briseis,NA,1995-01-01
 CZ0213028,Bombina bombina,"03,""5748d""",2025-07-04
 CZ0213028,Bombina bombina,5748d,2025-07-04
 CZ0213028,Bombina bombina,5749c,2025-07-04
@@ -613,16 +644,19 @@ CZ0213048,Rhodeus amarus,"62,""5855a""",1950-01-01
 CZ0213048,Scardinius erythrophthalmus,5855a,2000-01-01
 CZ0213050,Austropotamobius torrentium,6249b,2016-11-23
 CZ0213050,Barbastella barbastellus,6249b,2017-04-11
+CZ0213050,Hipparchia semele,NA,1995-01-01
 CZ0213050,Lampetra planeri,6249b,2025-03-26
 CZ0213050,Lampetra planeri,"99,""6249b""",2000-01-01
 CZ0213050,Lutra lutra,6249b,2016-08-03
 CZ0213050,Myotis myotis,6249b,2016-09-14
+CZ0213051,Euphydryas maturna,NA,2007-06-05
 CZ0213051,Lucanus cervus,5857c,2020-07-15
 CZ0213051,Lucanus cervus,"6,""5857c""",2015-04-01
 CZ0213058,Bombina bombina,5954c,2025-06-30
 CZ0213058,Leucorrhinia pectoralis,5954c,2023-06-16
 CZ0213058,Lycaena dispar,5954c,2021-08-22
-CZ0213058,Triturus cristatus,5954c,2025-07-13
+CZ0213058,Triturus cristatus,5954c,2026-03-22
+CZ0213059,Hipparchia semele,NA,2015-01-01
 CZ0213059,Vertigo angustior,5850a,2023-10-13
 CZ0213061,Abramis brama,5958c,2004-01-01
 CZ0213061,Ameiurus nebulosus,"44,""5958c""",2014-04-22
@@ -827,9 +861,11 @@ CZ0213512,Bombina variegata,6049a,2025-09-09
 CZ0213512,Lemna trisulca,6049a,2009-06-17
 CZ0213512,Triturus cristatus,6049a,2025-07-01
 CZ0213600,Myotis myotis,5454d,2020-06-05
+CZ0213601,Hipparchia semele,NA,2005-01-01
+CZ0213601,Chazara briseis,NA,2005-01-01
 CZ0213601,Myotis myotis,6050a,2019-07-17
 CZ0213602,Myotis myotis,6251a,2005-06-26
-CZ0213610,Barbastella barbastellus,5949c,2024-02-22
+CZ0213610,Barbastella barbastellus,5949c,2025-02-07
 CZ0213610,Myotis myotis,5949c,2023-06-26
 CZ0213610,Myotis sp.,5949c,2024-07-15
 CZ0213611,Lucanus cervus,5656a,2011-07-05
@@ -842,19 +878,20 @@ CZ0213613,Myotis myotis,6057c,2015-02-11
 CZ0213613,Myotis sp.,6057c,2014-12-30
 CZ0213613,Rhinolophus hipposideros,6057c,2015-02-11
 CZ0213615,Myotis myotis,6452a,2021-01-30
-CZ0213615,Rhinolophus hipposideros,6452a,2024-01-27
+CZ0213615,Rhinolophus hipposideros,6452a,2025-01-25
 CZ0213620,Myotis bechsteinii,6354d,2021-02-04
 CZ0213620,Myotis myotis,6354d,2016-02-27
 CZ0213620,Myotis sp.,6354d,2021-02-04
 CZ0213621,Barbastella barbastellus,6051a,2026-01-23
 CZ0213621,Euplagia quadripunctaria,6051a,2021-08-09
+CZ0213621,Hipparchia semele,NA,2009-08-01
 CZ0213621,Myotis bechsteinii,6051a,2023-01-27
 CZ0213621,Myotis emarginatus,6051a,2026-01-23
 CZ0213621,Myotis myotis,6051a,2026-01-23
 CZ0213621,Rhinolophus hipposideros,6051a,2026-01-23
 CZ0213626,Myotis myotis,6150a,2015-07-17
 CZ0213626,Rhinolophus hipposideros,6150a,2015-07-17
-CZ0213628,Myotis myotis,6149a,2024-07-27
+CZ0213628,Myotis myotis,6149a,2025-07-28
 CZ0213630,Myotis myotis,6152d,2005-06-25
 CZ0213631,Myotis myotis,6249a,2006-06-28
 CZ0213776,Spermophilus citellus,"06,""5655a""",2025-07-01
@@ -889,6 +926,7 @@ CZ0213779,Euplagia quadripunctaria,6052a,2023-07-18
 CZ0213779,Euplagia quadripunctaria,6052b,2022-08-17
 CZ0213779,Euplagia quadripunctaria,"91,""6052a""",1961-07-17
 CZ0213779,Euplagia quadripunctaria,"94,""6052b""",2005-08-03
+CZ0213779,Hipparchia semele,NA,2004-01-01
 CZ0213779,Lucanus cervus,"49,""6052a""",2009-06-01
 CZ0213779,Lucanus cervus,6052a,2025-07-31
 CZ0213779,Lucanus cervus,6052b,2016-06-07
@@ -915,6 +953,7 @@ CZ0213785,Phengaris nausithous,6352a,2021-07-28
 CZ0213785,Vertigo angustior,6352a,2015-03-28
 CZ0213787,Bombina bombina,6249a,2021-09-04
 CZ0213787,Bombina variegata,6249a,2024-07-05
+CZ0213787,Hipparchia semele,NA,1995-01-01
 CZ0213787,Myotis myotis,6249a,2015-05-06
 CZ0213787,Myotis sp.,6249a,2020-10-01
 CZ0213787,Phengaris nausithous,6249a,2021-07-13
@@ -962,6 +1001,7 @@ CZ0213796,Spermophilus citellus,"2,""5957c""",2001-07-11
 CZ0213796,Spermophilus citellus,"51,""5957c""",2020-07-03
 CZ0213796,Spermophilus citellus,5957c,2025-07-01
 CZ0213802,Euplagia quadripunctaria,6052c,2006-08-05
+CZ0213802,Hipparchia semele,NA,2004-01-01
 CZ0213802,Lucanus cervus,6052c,2004-08-28
 CZ0213814,Austropotamobius torrentium,6248c,2016-09-28
 CZ0213814,Cottus gobio,6248c,2023-09-03
@@ -969,6 +1009,7 @@ CZ0213814,Lampetra planeri,6248c,2016-07-12
 CZ0213814,Lutra lutra,6248c,2015-05-10
 CZ0213814,Myotis myotis,6248c,2015-05-10
 CZ0213814,Salmo trutta,6248c,2016-07-12
+CZ0213817,Hipparchia semele,NA,1995-01-01
 CZ0213817,Lampetra planeri,"06,""6249d""",2000-01-01
 CZ0213817,Lampetra planeri,6249d,2023-09-03
 CZ0213817,Lutra lutra,6249d,2015-05-25
@@ -976,6 +1017,7 @@ CZ0213817,Myotis myotis,6249d,2015-05-25
 CZ0213817,Salmo trutta,6249d,2008-11-15
 CZ0213818,Abramis brama,6249d,2021-07-26
 CZ0213818,Austropotamobius torrentium,6249d,2016-11-25
+CZ0213818,Hipparchia semele,NA,1995-01-01
 CZ0213818,Lampetra planeri,"06,""6249d""",2000-01-01
 CZ0213818,Lampetra planeri,6249d,2023-09-03
 CZ0213818,Lampetra planeri,"91,""6249d""",1998-01-01
@@ -999,6 +1041,7 @@ CZ0214002,Dracocephalum austriacum,6051c,2025-05-05
 CZ0214002,Euplagia quadripunctaria,6051a,2021-08-11
 CZ0214002,Euplagia quadripunctaria,6051c,2019-08-05
 CZ0214002,Euplagia quadripunctaria,"98,""6051d""",2018-07-28
+CZ0214002,Hipparchia semele,NA,2009-08-01
 CZ0214002,Lucanus cervus,"25,""6051d""",2005-08-30
 CZ0214002,Lucanus cervus,6051a,2020-06-27
 CZ0214002,Lucanus cervus,6051c,2020-06-27
@@ -1019,6 +1062,7 @@ CZ0214003,Barbastella barbastellus,6050c,2026-01-20
 CZ0214003,Dracocephalum austriacum,6050c,2023-05-22
 CZ0214003,Euplagia quadripunctaria,"17,""6050c""",2011-08-25
 CZ0214003,Euplagia quadripunctaria,6050c,2023-07-16
+CZ0214003,Hipparchia semele,NA,2010-07-20
 CZ0214003,Lucanus cervus,"26,""6050d""",2024-04-01
 CZ0214003,Lucanus cervus,6050c,2020-07-03
 CZ0214003,Myotis emarginatus,6050c,2026-01-20
@@ -1075,6 +1119,7 @@ CZ0214006,Epidalea calamita,"17,""5755c""",2001-01-01
 CZ0214006,Epidalea calamita,5755a,2002-01-01
 CZ0214006,Epidalea calamita,5755c,2019-06-17
 CZ0214006,Euplagia quadripunctaria,5755a,2021-08-09
+CZ0214006,Hipparchia semele,NA,1995-01-01
 CZ0214006,Lucanus cervus,5755a,2024-06-11
 CZ0214006,Lucanus cervus,5755c,2024-06-25
 CZ0214006,Lycaena dispar,5755a,2022-06-08
@@ -1237,6 +1282,7 @@ CZ0214009,Cucujus cinnaberinus,5956b,2025-11-04
 CZ0214009,Cucujus cinnaberinus,5957a,2025-11-04
 CZ0214009,Euphydryas maturna,"46,""5857c""",2019-06-16
 CZ0214009,Euphydryas maturna,5857c,2023-06-15
+CZ0214009,Euphydryas maturna,NA,2007-06-05
 CZ0214009,Lampetra planeri,"47,""5856d""",1900-01-01
 CZ0214009,Lemna trisulca,"02,""5957a""",2001-05-01
 CZ0214009,Lemna trisulca,"24,""5957a""",2001-05-01
@@ -1315,6 +1361,7 @@ CZ0214010,Euphydryas maturna,"01,""5858c""",2009-06-02
 CZ0214010,Euphydryas maturna,"23,""5858c""",2023-06-23
 CZ0214010,Euphydryas maturna,5857d,2007-06-12
 CZ0214010,Euphydryas maturna,5858c,2025-06-12
+CZ0214010,Euphydryas maturna,NA,2007-06-09
 CZ0214010,Lucanus cervus,"35,""5857d""",2001-07-01
 CZ0214010,Lucanus cervus,"36,""5858c""",2001-01-01
 CZ0214010,Lucanus cervus,5857d,2025-06-12
@@ -1375,8 +1422,8 @@ CZ0214012,Myotis bechsteinii,5456c,2015-08-22
 CZ0214012,Myotis emarginatus,5456c,2018-01-14
 CZ0214012,Myotis emarginatus,"99,""5456c""",2002-01-22
 CZ0214012,Myotis myotis,5456c,2023-01-06
-CZ0214012,Myotis sp.,5456c,2023-01-06
-CZ0214012,Rhinolophus hipposideros,5456c,2024-01-10
+CZ0214012,Myotis sp.,5456c,2025-01-16
+CZ0214012,Rhinolophus hipposideros,5456c,2025-01-16
 CZ0214012,Rhinolophus hipposideros,"99,""5456c""",2002-01-22
 CZ0214012,Trichomanes speciosum,5456c,2022-07-23
 CZ0214012,Trichomanes speciosum,5456d,2010-11-05
@@ -1389,7 +1436,7 @@ CZ0214013,Barbastella barbastellus,5453c,2019-05-24
 CZ0214013,Barbastella barbastellus,5552b,2021-09-28
 CZ0214013,Barbastella barbastellus,5552d,2018-10-10
 CZ0214013,Barbastella barbastellus,5553a,2023-02-03
-CZ0214013,Barbastella barbastellus,5553b,2024-02-15
+CZ0214013,Barbastella barbastellus,5553b,2025-01-28
 CZ0214013,Barbastella barbastellus,5553c,2018-10-11
 CZ0214013,Barbastella barbastellus,5553d,2018-09-20
 CZ0214013,Barbastella barbastellus,5653a,2018-07-24
@@ -1409,6 +1456,9 @@ CZ0214013,Canis lupus,5553b,2026-01-19
 CZ0214013,Canis lupus,5553c,2023-01-19
 CZ0214013,Canis lupus,5554a,2025-12-26
 CZ0214013,Canis lupus,5653a,2022-08-16
+CZ0214013,Canis lupus,"61,""5554a""",2025-04-28
+CZ0214013,Canis lupus,"78,""5553a""",2025-02-15
+CZ0214013,Canis lupus,"91,""5553b""",2025-04-14
 CZ0214013,Castor fiber,5453c,2025-03-12
 CZ0214013,Castor fiber,5552b,2025-11-20
 CZ0214013,Castor fiber,5552d,2023-04-20
@@ -1486,7 +1536,7 @@ CZ0214013,Myotis myotis,5552b,2016-09-15
 CZ0214013,Myotis myotis,5552d,2018-10-10
 CZ0214013,Myotis myotis,5553a,2025-11-20
 CZ0214013,Myotis myotis,5553b,2026-01-12
-CZ0214013,Myotis myotis,5553c,2025-02-11
+CZ0214013,Myotis myotis,5553c,2025-06-22
 CZ0214013,Myotis myotis,5553d,2018-09-20
 CZ0214013,Myotis myotis,5653a,2018-07-24
 CZ0214013,Myotis myotis,"58,""5453c""",2005-01-01
@@ -1501,7 +1551,7 @@ CZ0214013,Myotis myotis,"96,""5553d""",2012-06-21
 CZ0214013,Myotis sp.,5453c,2017-09-28
 CZ0214013,Myotis sp.,5552b,2018-09-12
 CZ0214013,Myotis sp.,5553a,2017-09-27
-CZ0214013,Myotis sp.,5553b,2024-02-15
+CZ0214013,Myotis sp.,5553b,2025-02-01
 CZ0214013,Myotis sp.,5553c,2023-02-03
 CZ0214013,Myotis sp.,5553d,2018-09-20
 CZ0214013,Ophiogomphus cecilia,5453c,2018-06-27
@@ -1595,7 +1645,7 @@ CZ0214015,Triturus cristatus,5949d,2011-04-21
 CZ0214016,Abramis brama,"1,""6356b""",2009-01-01
 CZ0214016,Abramis brama,"42,""6256d""",2010-01-01
 CZ0214016,Abramis brama,6457a,2015-04-11
-CZ0214016,Barbastella barbastellus,6256d,2024-02-08
+CZ0214016,Barbastella barbastellus,6256d,2025-02-27
 CZ0214016,Barbastella barbastellus,6356b,2016-02-02
 CZ0214016,Blicca bjoerkna,"42,""6256d""",2010-01-01
 CZ0214016,Leuciscus aspius,"02,""6356b""",1950-01-01
@@ -1612,7 +1662,7 @@ CZ0214016,Lutra lutra,6357a,2011-10-06
 CZ0214016,Lutra lutra,6457a,2018-11-14
 CZ0214016,Minuartia smejkalii,6356b,2025-07-14
 CZ0214016,Myotis myotis,"18,""6256d""",2016-09-17
-CZ0214016,Myotis myotis,6256d,2024-02-08
+CZ0214016,Myotis myotis,6256d,2025-02-27
 CZ0214016,Myotis myotis,6356b,2016-02-02
 CZ0214016,Myotis myotis,"99,""6356b""",2009-09-08
 CZ0214016,Myotis sp.,6356b,2016-02-02
@@ -1671,7 +1721,9 @@ CZ0214017,Euplagia quadripunctaria,"96,""6050a""",2010-08-04
 CZ0214017,Euplagia quadripunctaria,"96,""6050b""",2010-08-04
 CZ0214017,Euplagia quadripunctaria,"96,""6050c""",2010-08-04
 CZ0214017,Euplagia quadripunctaria,"96,""6050d""",2010-08-04
+CZ0214017,Hipparchia semele,NA,2016-08-20
 CZ0214017,Chamaecytisus sp.,6050d,2007-07-18
+CZ0214017,Chazara briseis,NA,2005-01-01
 CZ0214017,Lemna trisulca,6050b,2013-05-02
 CZ0214017,Leuciscus aspius,"14,""5950a""",1950-01-01
 CZ0214017,Leuciscus aspius,6050b,2004-01-01
@@ -1687,7 +1739,7 @@ CZ0214017,Lucanus cervus,6051c,2022-06-24
 CZ0214017,Lucanus cervus,"73,""6050b""",2020-04-27
 CZ0214017,Lutra lutra,"09,""6050b""",2021-02-18
 CZ0214017,Lutra lutra,6050b,2025-04-01
-CZ0214017,Lutra lutra,6050d,2026-01-19
+CZ0214017,Lutra lutra,6050d,2026-03-19
 CZ0214017,Lutra lutra,"96,""6050a""",2007-01-01
 CZ0214017,Lutra lutra,"96,""6050b""",2007-01-01
 CZ0214017,Lutra lutra,"96,""6050c""",2007-01-01
@@ -1767,6 +1819,8 @@ CZ0214025,Myotis emarginatus,5556b,2015-07-01
 CZ0214025,Sanguisorba officinalis,5556b,2019-09-24
 CZ0214025,Trichomanes speciosum,5556b,2019-09-24
 CZ0214037,Euplagia quadripunctaria,6050c,2020-07-31
+CZ0214037,Hipparchia semele,NA,2013-08-14
+CZ0214037,Chazara briseis,NA,2003-07-27
 CZ0214037,Lucanus cervus,6050c,2019-06-02
 CZ0214037,Myotis emarginatus,6050c,2019-08-27
 CZ0214037,Myotis myotis,6050c,2019-09-20
@@ -1787,6 +1841,7 @@ CZ0214039,Rumex sp.,6049c,2016-07-07
 CZ0214039,Salmo trutta,6049c,2015-08-06
 CZ0214039,Salmo trutta,6049d,2020-09-02
 CZ0214039,Salmo trutta,"92,""6049c""",2004-01-01
+CZ0214040,Hipparchia semele,NA,1995-01-01
 CZ0214040,Phengaris nausithous,6249d,2021-08-03
 CZ0214040,Phengaris teleius,6249d,2021-08-03
 CZ0214040,Sanguisorba officinalis,6249d,2010-05-29
@@ -1825,6 +1880,7 @@ CZ0214042,Austropotamobius torrentium,6348b,2025-09-17
 CZ0214042,Austropotamobius torrentium,6348d,2020-06-16
 CZ0214042,Austropotamobius torrentium,"77,""6348b""",2003-01-01
 CZ0214042,Barbastella barbastellus,6348d,2017-07-11
+CZ0214042,Canis lupus,"1,""6348b""",2025-03-11
 CZ0214042,Canis lupus,6348b,2021-10-25
 CZ0214042,Canis lupus,6348c,2024-06-05
 CZ0214042,Canis lupus,6348d,2024-09-28
@@ -1880,6 +1936,7 @@ CZ0214045,Scardinius erythrophthalmus,5849c,2004-01-01
 CZ0214045,Triturus cristatus,5849c,2001-08-15
 CZ0214045,Vertigo angustior,5848d,2019-05-08
 CZ0214046,Coleanthus subtilis,6157c,2023-08-11
+CZ0214047,Hipparchia semele,NA,1995-01-01
 CZ0214049,Jurinea cyanoides,5753a,2025-11-28
 CZ0214050,Abramis brama,"65,""5857d""",2018-10-17
 CZ0214050,Adenophora liliifolia,5857b,2024-07-24
@@ -1894,6 +1951,7 @@ CZ0214050,Bombina bombina,5857b,2022-08-25
 CZ0214050,Bombina bombina,5857d,2012-06-10
 CZ0214050,Bombina bombina,5858a,2025-07-09
 CZ0214050,Bombina bombina,5858c,2024-06-06
+CZ0214050,Euphydryas maturna,NA,2007-06-09
 CZ0214050,Hamatocaulis vernicosus,"57,""5857d""",2001-01-01
 CZ0214050,Leuciscus aspius,"65,""5857d""",2018-10-17
 CZ0214050,Leucorrhinia pectoralis,5858a,2003-06-03
@@ -2085,11 +2143,13 @@ CZ0310080,Triturus cristatus,6953b,2019-05-10
 CZ0310084,Bombina bombina,6450c,2023-05-09
 CZ0310084,Triturus cristatus,6450c,2023-05-09
 CZ0310163,Barbastella barbastellus,7354a,2015-06-27
+CZ0310163,Canis lupus,"25,""7354c""",2025-03-08
 CZ0310163,Canis lupus,7354a,2023-12-20
 CZ0310163,Cottus gobio,7354a,2015-08-24
 CZ0310163,Dicranum viride,7354a,2019-11-14
 CZ0310163,Dicranum viride,"99,""7354a""",2019-11-19
 CZ0310163,Lutra lutra,7354a,2017-02-18
+CZ0310163,Lynx lynx,"25,""7354c""",2025-02-14
 CZ0310163,Lynx lynx,7354a,2020-11-05
 CZ0310163,Lynx lynx,"92,""7354a""",2020-10-10
 CZ0310163,Myotis bechsteinii,7354a,2015-06-27
@@ -2125,6 +2185,7 @@ CZ0312032,Gentianella praecox subsp. bohemica,6848d,2025-08-18
 CZ0312032,Succisa pratensis,6848d,2025-08-18
 CZ0312033,Gentianella praecox subsp. bohemica,6655a,2024-04-13
 CZ0312033,Succisa pratensis,6655a,2013-05-03
+CZ0312034,Gentianella amarella,NA,2002-04-01
 CZ0312034,Gentianella praecox subsp. bohemica,6848c,2024-09-05
 CZ0312036,Gentianella praecox subsp. bohemica,6648c,2023-08-31
 CZ0312038,Bombina bombina,6954a,2025-04-29
@@ -2135,6 +2196,7 @@ CZ0312038,Myotis myotis,6954a,2015-08-29
 CZ0312040,Bombina bombina,6854a,2025-06-13
 CZ0312040,Coleanthus subtilis,6854a,2021-04-28
 CZ0312045,Gentianella praecox subsp. bohemica,7250b,2025-10-13
+CZ0312045,Gentianella praecox subsp. bohemica,NA,2005-01-01
 CZ0312048,Bombina bombina,7054b,2019-06-12
 CZ0312048,Coleanthus subtilis,7054b,2024-04-30
 CZ0312048,Lutra lutra,7054b,2015-05-25
@@ -2733,6 +2795,8 @@ CZ0314021,Triturus cristatus,6753d,2020-08-08
 CZ0314022,Abramis brama,7252d,2023-09-26
 CZ0314022,Abramis brama,7352b,2006-10-06
 CZ0314022,Bombina bombina,7352d,2023-08-08
+CZ0314022,Canis lupus,"47,""7453b""",2025-04-07
+CZ0314022,Canis lupus,"51,""7353d""",2025-04-26
 CZ0314022,Canis lupus,7353c,2023-04-22
 CZ0314022,Canis lupus,7353d,2025-03-28
 CZ0314022,Castor fiber,7252d,2025-02-20
@@ -2766,6 +2830,8 @@ CZ0314022,Lutra lutra,7353d,2018-11-06
 CZ0314022,Lutra lutra,"98,""7353c""",2005-08-01
 CZ0314022,Lycaena dispar,7352d,2024-08-12
 CZ0314022,Lynx lynx,"07,""7353d""",2013-03-17
+CZ0314022,Lynx lynx,"47,""7453b""",2025-04-07
+CZ0314022,Lynx lynx,"51,""7353d""",2024-12-16
 CZ0314022,Lynx lynx,7353c,2015-07-06
 CZ0314022,Lynx lynx,7353d,2022-12-19
 CZ0314022,Margaritifera margaritifera,"01,""7353c""",2006-08-27
@@ -3185,17 +3251,24 @@ CZ0314024,Buxbaumia viridis,7350c,2023-10-04
 CZ0314024,Canis lupus,"01,""6846b""",2003-01-01
 CZ0314024,Canis lupus,"01,""6846d""",2001-12-10
 CZ0314024,Canis lupus,"01,""6947c""",2004-05-01
+CZ0314024,Canis lupus,"03,""6947d""",2025-02-17
+CZ0314024,Canis lupus,"05,""6949c""",2025-03-30
 CZ0314024,Canis lupus,"07,""6846d""",2006-01-13
 CZ0314024,Canis lupus,"11,""7047a""",2003-01-01
+CZ0314024,Canis lupus,"14,""7050c""",2025-03-30
 CZ0314024,Canis lupus,"26,""7047b""",2000-02-23
+CZ0314024,Canis lupus,"32,""7350b""",2025-01-22
+CZ0314024,Canis lupus,"34,""7350b""",2025-03-01
 CZ0314024,Canis lupus,"38,""7148d""",2000-01-01
 CZ0314024,Canis lupus,"43,""7249a""",2004-01-01
 CZ0314024,Canis lupus,"44,""6946b""",2021-02-01
+CZ0314024,Canis lupus,"46,""6948c""",2025-02-16
 CZ0314024,Canis lupus,"48,""6846c""",2004-01-01
 CZ0314024,Canis lupus,"48,""6949c""",2023-02-11
 CZ0314024,Canis lupus,"55,""6846c""",2001-12-03
 CZ0314024,Canis lupus,"57,""6946b""",2001-01-01
 CZ0314024,Canis lupus,"57,""7048b""",2023-01-21
+CZ0314024,Canis lupus,"59,""6947a""",2025-01-11
 CZ0314024,Canis lupus,"64,""6744d""",2006-01-09
 CZ0314024,Canis lupus,"64,""7048d""",2019-08-09
 CZ0314024,Canis lupus,6744a,2024-03-15
@@ -3215,7 +3288,7 @@ CZ0314024,Canis lupus,6845c,2026-01-06
 CZ0314024,Canis lupus,6845d,2026-03-15
 CZ0314024,Canis lupus,6846a,2025-10-18
 CZ0314024,Canis lupus,6846b,2022-09-12
-CZ0314024,Canis lupus,6846c,2026-01-20
+CZ0314024,Canis lupus,6846c,2026-03-13
 CZ0314024,Canis lupus,6846d,2026-03-05
 CZ0314024,Canis lupus,6847c,2024-11-25
 CZ0314024,Canis lupus,6847d,2025-03-03
@@ -3232,11 +3305,12 @@ CZ0314024,Canis lupus,6948a,2026-01-27
 CZ0314024,Canis lupus,6948c,2026-02-26
 CZ0314024,Canis lupus,6948d,2025-09-04
 CZ0314024,Canis lupus,6949c,2024-03-09
+CZ0314024,Canis lupus,"7,""7048b""",2025-03-29
 CZ0314024,Canis lupus,7046a,2024-03-23
 CZ0314024,Canis lupus,7046b,2025-09-28
 CZ0314024,Canis lupus,7046d,2022-01-12
 CZ0314024,Canis lupus,7047a,2025-11-21
-CZ0314024,Canis lupus,7047b,2026-01-08
+CZ0314024,Canis lupus,7047b,2026-03-18
 CZ0314024,Canis lupus,7047d,2026-01-13
 CZ0314024,Canis lupus,7048a,2026-03-08
 CZ0314024,Canis lupus,7048b,2026-02-04
@@ -3251,26 +3325,31 @@ CZ0314024,Canis lupus,7050b,2025-09-15
 CZ0314024,Canis lupus,7050c,2025-04-10
 CZ0314024,Canis lupus,7050d,2025-03-26
 CZ0314024,Canis lupus,7148a,2026-02-27
-CZ0314024,Canis lupus,7148b,2026-03-12
-CZ0314024,Canis lupus,7148d,2026-02-14
+CZ0314024,Canis lupus,7148b,2026-03-16
+CZ0314024,Canis lupus,7148d,2026-03-04
 CZ0314024,Canis lupus,7149a,2026-02-03
 CZ0314024,Canis lupus,7149b,2026-01-25
 CZ0314024,Canis lupus,7149c,2026-02-26
 CZ0314024,Canis lupus,7149d,2025-01-13
 CZ0314024,Canis lupus,7248b,2023-09-08
-CZ0314024,Canis lupus,7249a,2026-03-02
+CZ0314024,Canis lupus,7249a,2026-03-20
 CZ0314024,Canis lupus,7249b,2026-02-02
 CZ0314024,Canis lupus,7249d,2025-03-20
 CZ0314024,Canis lupus,7250a,2026-02-05
 CZ0314024,Canis lupus,7250b,2025-06-17
-CZ0314024,Canis lupus,7250c,2026-02-09
+CZ0314024,Canis lupus,7250c,2026-03-06
 CZ0314024,Canis lupus,7250d,2023-12-25
 CZ0314024,Canis lupus,7350a,2025-04-27
 CZ0314024,Canis lupus,7350b,2025-01-14
 CZ0314024,Canis lupus,7350c,2025-04-27
 CZ0314024,Canis lupus,7350d,2025-06-17
 CZ0314024,Canis lupus,7450b,2025-07-06
+CZ0314024,Canis lupus,"8,""6744d""",2025-01-25
+CZ0314024,Canis lupus,"8,""6847d""",2025-03-30
 CZ0314024,Canis lupus,"82,""7047b""",2000-02-11
+CZ0314024,Canis lupus,"83,""7249a""",2025-03-04
+CZ0314024,Canis lupus,"85,""6847d""",2025-04-03
+CZ0314024,Canis lupus,"88,""6844b""",2025-01-25
 CZ0314024,Canis lupus,"89,""7047d""",2021-04-09
 CZ0314024,Canis lupus,"92,""6946b""",2002-01-01
 CZ0314024,Canis lupus,"93,""6946a""",2002-01-01
@@ -3334,7 +3413,7 @@ CZ0314024,Castor fiber,6746c,2024-01-05
 CZ0314024,Castor fiber,6746d,2018-12-29
 CZ0314024,Castor fiber,"68,""6847c""",2002-01-01
 CZ0314024,Castor fiber,6844b,2022-10-27
-CZ0314024,Castor fiber,6845a,2025-12-10
+CZ0314024,Castor fiber,6845a,2026-03-18
 CZ0314024,Castor fiber,6845b,2025-12-02
 CZ0314024,Castor fiber,6845c,2026-03-13
 CZ0314024,Castor fiber,6845d,2026-03-05
@@ -3349,9 +3428,9 @@ CZ0314024,Castor fiber,6946b,2025-11-26
 CZ0314024,Castor fiber,6946d,2026-03-09
 CZ0314024,Castor fiber,6947a,2026-02-27
 CZ0314024,Castor fiber,6947b,2023-08-15
-CZ0314024,Castor fiber,6947c,2026-03-05
+CZ0314024,Castor fiber,6947c,2026-03-09
 CZ0314024,Castor fiber,6947d,2025-12-15
-CZ0314024,Castor fiber,6948a,2026-02-04
+CZ0314024,Castor fiber,6948a,2026-03-17
 CZ0314024,Castor fiber,6948c,2024-01-31
 CZ0314024,Castor fiber,7046b,2026-02-27
 CZ0314024,Castor fiber,7047a,2025-02-17
@@ -3370,24 +3449,24 @@ CZ0314024,Castor fiber,7050b,2020-10-29
 CZ0314024,Castor fiber,7050c,2024-02-29
 CZ0314024,Castor fiber,7050d,2024-02-29
 CZ0314024,Castor fiber,7147b,2024-10-06
-CZ0314024,Castor fiber,7148a,2026-03-12
+CZ0314024,Castor fiber,7148a,2026-03-19
 CZ0314024,Castor fiber,7148b,2026-02-28
 CZ0314024,Castor fiber,7148d,2026-03-09
-CZ0314024,Castor fiber,7149a,2026-03-09
+CZ0314024,Castor fiber,7149a,2026-03-17
 CZ0314024,Castor fiber,7149b,2026-02-11
 CZ0314024,Castor fiber,7149c,2025-11-29
-CZ0314024,Castor fiber,7149d,2026-02-12
+CZ0314024,Castor fiber,7149d,2026-03-16
 CZ0314024,Castor fiber,7248b,2023-06-16
 CZ0314024,Castor fiber,7249a,2026-03-04
-CZ0314024,Castor fiber,7249b,2026-03-09
+CZ0314024,Castor fiber,7249b,2026-03-16
 CZ0314024,Castor fiber,7249d,2026-03-12
 CZ0314024,Castor fiber,7250a,2026-03-06
 CZ0314024,Castor fiber,7250b,2025-11-14
-CZ0314024,Castor fiber,7250c,2026-03-12
-CZ0314024,Castor fiber,7250d,2025-07-23
-CZ0314024,Castor fiber,7350a,2025-12-24
-CZ0314024,Castor fiber,7350b,2025-05-31
-CZ0314024,Castor fiber,7350c,2025-08-28
+CZ0314024,Castor fiber,7250c,2026-03-16
+CZ0314024,Castor fiber,7250d,2026-03-19
+CZ0314024,Castor fiber,7350a,2026-03-20
+CZ0314024,Castor fiber,7350b,2026-03-19
+CZ0314024,Castor fiber,7350c,2026-02-20
 CZ0314024,Castor fiber,7350d,2024-09-19
 CZ0314024,Castor fiber,7351c,2024-07-12
 CZ0314024,Castor fiber,7450b,2023-11-01
@@ -3508,6 +3587,7 @@ CZ0314024,Gentianella praecox subsp. bohemica,7048c,2001-06-01
 CZ0314024,Gentianella praecox subsp. bohemica,7050d,2023-09-20
 CZ0314024,Gentianella praecox subsp. bohemica,7148d,2025-08-25
 CZ0314024,Gentianella praecox subsp. bohemica,"84,""7050c""",2013-08-30
+CZ0314024,Gentianella praecox subsp. bohemica,NA,2005-01-01
 CZ0314024,Hamatocaulis vernicosus,"01,""7250c""",2001-01-01
 CZ0314024,Hamatocaulis vernicosus,"02,""6947d""",2001-01-01
 CZ0314024,Hamatocaulis vernicosus,"09,""6846a""",2025-05-01
@@ -3761,7 +3841,7 @@ CZ0314024,Lycaena dispar,7250c,2025-05-31
 CZ0314024,Lycaena dispar,7250d,2021-08-14
 CZ0314024,Lycaena dispar,7350c,2019-08-18
 CZ0314024,Lycaena helle,"48,""7148d""",2023-06-19
-CZ0314024,Lycaena helle,7148d,2025-06-15
+CZ0314024,Lycaena helle,7148d,2025-06-29
 CZ0314024,Lycaena helle,"96,""7148a""",1995-01-01
 CZ0314024,Lycaena helle,"96,""7148b""",1995-01-01
 CZ0314024,Lycaena helle,"96,""7148c""",1995-01-01
@@ -3772,13 +3852,18 @@ CZ0314024,Lynx lynx,"01,""6847d""",2000-12-01
 CZ0314024,Lynx lynx,"01,""6946a""",2001-11-12
 CZ0314024,Lynx lynx,"01,""7149b""",2021-03-09
 CZ0314024,Lynx lynx,"01,""7250a""",2000-01-10
+CZ0314024,Lynx lynx,"01,""7350d""",2025-03-01
 CZ0314024,Lynx lynx,"06,""6846b""",2002-05-06
 CZ0314024,Lynx lynx,"06,""6948d""",2001-01-30
 CZ0314024,Lynx lynx,"07,""6845d""",2000-01-01
 CZ0314024,Lynx lynx,"08,""6846d""",2000-08-02
 CZ0314024,Lynx lynx,"08,""7250a""",2000-09-21
 CZ0314024,Lynx lynx,"09,""6847a""",2005-08-15
+CZ0314024,Lynx lynx,"09,""6847c""",2025-03-02
+CZ0314024,Lynx lynx,"11,""7249d""",2025-03-02
 CZ0314024,Lynx lynx,"12,""6847d""",2001-02-17
+CZ0314024,Lynx lynx,"12,""7048a""",2025-02-15
+CZ0314024,Lynx lynx,"14,""7050c""",2025-02-01
 CZ0314024,Lynx lynx,"15,""6847c""",2002-01-03
 CZ0314024,Lynx lynx,"15,""7050d""",2000-01-01
 CZ0314024,Lynx lynx,"16,""6949c""",2000-03-01
@@ -3787,6 +3872,7 @@ CZ0314024,Lynx lynx,"18,""6846d""",2002-03-06
 CZ0314024,Lynx lynx,"19,""7049a""",2000-02-01
 CZ0314024,Lynx lynx,"2,""6846b""",2000-10-12
 CZ0314024,Lynx lynx,"2,""7050c""",2000-10-01
+CZ0314024,Lynx lynx,"2,""7148d""",2024-12-26
 CZ0314024,Lynx lynx,"21,""7050d""",2015-09-12
 CZ0314024,Lynx lynx,"23,""6846b""",2005-11-14
 CZ0314024,Lynx lynx,"23,""6946b""",2001-03-02
@@ -3798,7 +3884,9 @@ CZ0314024,Lynx lynx,"31,""6744a""",2000-11-01
 CZ0314024,Lynx lynx,"32,""6645d""",2000-03-28
 CZ0314024,Lynx lynx,"32,""6847c""",2001-10-13
 CZ0314024,Lynx lynx,"33,""6946b""",2005-03-24
+CZ0314024,Lynx lynx,"33,""7350d""",2025-03-01
 CZ0314024,Lynx lynx,"34,""7250b""",2001-02-01
+CZ0314024,Lynx lynx,"34,""7350b""",2025-03-01
 CZ0314024,Lynx lynx,"35,""6947d""",2004-02-20
 CZ0314024,Lynx lynx,"35,""6948d""",2000-01-01
 CZ0314024,Lynx lynx,"37,""6744d""",2001-02-07
@@ -3806,12 +3894,16 @@ CZ0314024,Lynx lynx,"39,""6846b""",2002-03-06
 CZ0314024,Lynx lynx,"44,""6746d""",2000-09-01
 CZ0314024,Lynx lynx,"44,""7047b""",2001-12-11
 CZ0314024,Lynx lynx,"45,""6946b""",2001-12-17
+CZ0314024,Lynx lynx,"46,""6845a""",2025-01-25
 CZ0314024,Lynx lynx,"46,""6847c""",2001-03-02
+CZ0314024,Lynx lynx,"46,""6948c""",2025-02-16
+CZ0314024,Lynx lynx,"46,""7149c""",2024-12-26
 CZ0314024,Lynx lynx,"47,""6846b""",2005-09-21
 CZ0314024,Lynx lynx,"5,""7147b""",2005-01-17
 CZ0314024,Lynx lynx,"55,""6846c""",2001-11-17
 CZ0314024,Lynx lynx,"56,""6745d""",2019-03-22
 CZ0314024,Lynx lynx,"58,""7049c""",2001-02-23
+CZ0314024,Lynx lynx,"59,""6947a""",2025-01-19
 CZ0314024,Lynx lynx,"64,""7048d""",2019-01-01
 CZ0314024,Lynx lynx,6744a,2021-02-08
 CZ0314024,Lynx lynx,6744b,2024-12-29
@@ -3850,6 +3942,7 @@ CZ0314024,Lynx lynx,6948a,2025-12-04
 CZ0314024,Lynx lynx,6948c,2024-07-18
 CZ0314024,Lynx lynx,6948d,2025-05-10
 CZ0314024,Lynx lynx,6949c,2026-02-01
+CZ0314024,Lynx lynx,"7,""7048b""",2025-02-15
 CZ0314024,Lynx lynx,7046a,2012-08-04
 CZ0314024,Lynx lynx,7046b,2025-09-22
 CZ0314024,Lynx lynx,7046d,2017-05-11
@@ -3895,14 +3988,19 @@ CZ0314024,Lynx lynx,"77,""7050c""",2015-02-07
 CZ0314024,Lynx lynx,"78,""6946d""",2019-04-21
 CZ0314024,Lynx lynx,"79,""6847a""",2000-07-01
 CZ0314024,Lynx lynx,"79,""6949c""",2000-03-01
+CZ0314024,Lynx lynx,"8,""6744d""",2025-01-25
 CZ0314024,Lynx lynx,"8,""6745d""",2005-10-01
+CZ0314024,Lynx lynx,"8,""6847d""",2025-03-30
 CZ0314024,Lynx lynx,"8,""6948c""",2000-01-01
 CZ0314024,Lynx lynx,"8,""7148b""",2001-02-15
 CZ0314024,Lynx lynx,"82,""7047b""",2000-09-24
 CZ0314024,Lynx lynx,"84,""6744b""",2000-11-17
 CZ0314024,Lynx lynx,"84,""6947b""",2000-04-04
+CZ0314024,Lynx lynx,"84,""6948a""",2025-02-16
 CZ0314024,Lynx lynx,"84,""7050c""",2011-10-01
+CZ0314024,Lynx lynx,"85,""6847d""",2025-03-30
 CZ0314024,Lynx lynx,"86,""6946b""",2000-10-15
+CZ0314024,Lynx lynx,"88,""6844b""",2025-01-25
 CZ0314024,Lynx lynx,"9,""6949c""",2020-01-11
 CZ0314024,Lynx lynx,"9,""7050c""",2001-08-01
 CZ0314024,Lynx lynx,"91,""6948a""",2000-01-01
@@ -4696,7 +4794,7 @@ CZ0314123,Castor fiber,7149d,2023-07-06
 CZ0314123,Castor fiber,7150c,2025-03-01
 CZ0314123,Castor fiber,7150d,2025-05-18
 CZ0314123,Castor fiber,7250a,2025-02-09
-CZ0314123,Castor fiber,7250b,2025-12-20
+CZ0314123,Castor fiber,7250b,2026-03-17
 CZ0314123,Cottus gobio,7149b,2023-09-05
 CZ0314123,Cottus gobio,7149d,2023-10-13
 CZ0314123,Cottus gobio,7150a,2023-09-05
@@ -5004,6 +5102,7 @@ CZ0314124,Abramis brama,"5,""7152c""",2004-01-01
 CZ0314124,Barbastella barbastellus,"22,""7152a""",2013-01-01
 CZ0314124,Barbastella barbastellus,7151c,2024-05-24
 CZ0314124,Barbastella barbastellus,7152a,2019-01-24
+CZ0314124,Barbastella barbastellus,7152b,2025-01-25
 CZ0314124,Barbastella barbastellus,"96,""7151a""",2011-12-21
 CZ0314124,Barbastella barbastellus,"96,""7151b""",2011-12-21
 CZ0314124,Barbastella barbastellus,"96,""7151c""",2011-12-21
@@ -5170,7 +5269,7 @@ CZ0314124,Myotis myotis,7151a,2006-07-13
 CZ0314124,Myotis myotis,7151c,2024-09-14
 CZ0314124,Myotis myotis,7151d,2011-08-30
 CZ0314124,Myotis myotis,7152a,2024-02-14
-CZ0314124,Myotis myotis,7152b,2024-02-14
+CZ0314124,Myotis myotis,7152b,2025-01-25
 CZ0314124,Myotis myotis,"96,""7051a""",2012-06-21
 CZ0314124,Myotis myotis,"96,""7051b""",2012-06-21
 CZ0314124,Myotis myotis,"96,""7051c""",2012-06-21
@@ -5394,17 +5493,18 @@ CZ0314126,Sanguisorba officinalis,"37,""6952b""",2001-07-01
 CZ0314126,Sanguisorba officinalis,"51,""6952b""",2001-07-01
 CZ0314126,Sanguisorba officinalis,"78,""6852d""",2001-07-01
 CZ0314126,Triturus cristatus,6952b,2021-05-07
-CZ0314634,Barbastella barbastellus,6554d,2024-12-15
+CZ0314634,Barbastella barbastellus,6554d,2025-02-07
 CZ0314634,Barbastella barbastellus,6555c,1986-10-01
 CZ0314634,Myotis bechsteinii,"23,""6554d""",2005-12-06
 CZ0314634,Myotis bechsteinii,6554d,2024-12-15
 CZ0314634,Myotis emarginatus,"23,""6554d""",2006-01-01
 CZ0314634,Myotis emarginatus,6554d,2006-02-07
 CZ0314634,Myotis myotis,"23,""6554d""",2005-10-24
-CZ0314634,Myotis myotis,6554d,2024-12-15
+CZ0314634,Myotis myotis,6554d,2025-02-07
 CZ0314634,Myotis myotis,6555c,2023-09-07
 CZ0314635,Coleanthus subtilis,6956d,2023-06-06
 CZ0314636,Gentianella praecox subsp. bohemica,6847d,2023-09-19
+CZ0314636,Gentianella praecox subsp. bohemica,NA,2000-01-01
 CZ0314636,Hamatocaulis vernicosus,6847d,2001-01-01
 CZ0314636,Phengaris nausithous,6847d,2019-08-01
 CZ0314636,Sanguisorba officinalis,6847d,2024-05-06
@@ -5494,7 +5594,7 @@ CZ0314648,Phengaris teleius,6548b,2021-07-20
 CZ0314648,Sanguisorba officinalis,6548b,2025-10-04
 CZ0314648,Succisa pratensis,6548b,2025-10-04
 CZ0315002,Bombina bombina,6548d,2011-04-01
-CZ0315002,Hamatocaulis vernicosus,6548d,2020-11-07
+CZ0315002,Hamatocaulis vernicosus,6548d,2024-01-01
 CZ0315002,Sanguisorba officinalis,6548d,2013-06-16
 CZ0315002,Vertigo angustior,6548d,2006-09-09
 CZ0315005,Hamatocaulis vernicosus,6750a,2023-06-15
@@ -5524,6 +5624,7 @@ CZ0320023,Sanguisorba officinalis,6747b,2022-05-03
 CZ0320023,Succisa pratensis,6747b,2025-06-28
 CZ0320030,Barbastella barbastellus,6542a,2018-09-15
 CZ0320030,Barbastella barbastellus,6542d,2015-09-27
+CZ0320030,Canis lupus,"3,""6542d""",2025-03-29
 CZ0320030,Canis lupus,6542a,2018-05-28
 CZ0320030,Castor fiber,"49,""6542c""",2000-06-01
 CZ0320030,Castor fiber,"97,""6542a""",2006-05-06
@@ -5642,12 +5743,14 @@ CZ0322057,Coleanthus subtilis,6547b,2023-05-30
 CZ0322057,Sanguisorba officinalis,6547b,2007-04-19
 CZ0322057,Succisa pratensis,6547b,2007-04-19
 CZ0322058,Gentianella praecox subsp. bohemica,6747c,2023-09-09
+CZ0322058,Gentianella praecox subsp. bohemica,NA,2004-01-01
 CZ0322058,Sanguisorba officinalis,6747c,2024-09-01
 CZ0322058,Succisa pratensis,6747c,2025-10-11
 CZ0322058,Vertigo angustior,6747c,2012-03-10
 CZ0322059,Gentianella praecox subsp. bohemica,6847b,2025-10-11
 CZ0322060,Gentianella praecox subsp. bohemica,6647d,2023-10-03
 CZ0322060,Gentianella praecox subsp. bohemica,6747b,2023-10-03
+CZ0322060,Gentianella praecox subsp. bohemica,NA,2006-01-01
 CZ0322060,Sanguisorba officinalis,6747b,2001-10-07
 CZ0323142,Abramis brama,6047c,1998-01-01
 CZ0323142,Abramis brama,6047d,2011-06-15
@@ -5704,6 +5807,8 @@ CZ0323147,Scardinius erythrophthalmus,6343c,2015-08-06
 CZ0323147,Triturus cristatus,6343c,2025-08-30
 CZ0323149,Sanguisorba officinalis,6347b,2008-06-07
 CZ0323149,Triturus cristatus,6347b,2025-07-13
+CZ0323150,Hipparchia semele,NA,1995-01-01
+CZ0323150,Chazara briseis,NA,1995-01-01
 CZ0323150,Phengaris nausithous,6147b,2021-07-26
 CZ0323150,Phengaris teleius,6147b,2018-07-12
 CZ0323150,Sanguisorba officinalis,6147b,2010-05-08
@@ -5921,6 +6026,7 @@ CZ0323824,Cottus gobio,6746a,2019-09-23
 CZ0323824,Cottus gobio,6746b,2001-01-01
 CZ0323824,Cottus gobio,"83,""6747a""",2001-01-01
 CZ0323824,Cottus gobio,"99,""6746a""",2001-01-01
+CZ0323824,Gentianella praecox subsp. bohemica,NA,2004-01-01
 CZ0323824,Lampetra planeri,"05,""6747a""",2000-01-01
 CZ0323824,Lampetra planeri,"61,""6746b""",2000-09-01
 CZ0323824,Lampetra planeri,6746a,2023-10-27
@@ -6019,6 +6125,7 @@ CZ0410020,Cottus gobio,"46,""5841c""",2004-01-01
 CZ0410020,Cottus gobio,5840d,1950-01-01
 CZ0410020,Cottus gobio,"63,""5841c""",1950-01-01
 CZ0410020,Cottus gobio,"69,""5940b""",2004-01-01
+CZ0410020,Euphydryas aurinia,NA,2007-06-11
 CZ0410020,Lampetra planeri,"46,""5841c""",2004-01-01
 CZ0410020,Lampetra planeri,5841c,2021-06-05
 CZ0410020,Lampetra planeri,"61,""5841c""",2004-01-01
@@ -6050,6 +6157,7 @@ CZ0410020,Sanguisorba officinalis,5841c,2013-08-12
 CZ0410020,Scardinius erythrophthalmus,5841c,2013-07-24
 CZ0410020,Scardinius erythrophthalmus,"99,""5840d""",2004-01-01
 CZ0410020,Succisa pratensis,5841c,2005-08-27
+CZ0410021,Euphydryas aurinia,NA,2009-06-15
 CZ0410021,Ophiogomphus cecilia,5842a,2025-06-30
 CZ0410021,Sanguisorba officinalis,5842a,2010-09-21
 CZ0410021,Succisa pratensis,5842a,2010-09-21
@@ -6063,6 +6171,7 @@ CZ0410038,Hamatocaulis vernicosus,5941c,2001-01-01
 CZ0410040,Lycaena dispar,5642b,2025-07-18
 CZ0410040,Rumex sp.,5642b,2005-08-26
 CZ0410040,Sanguisorba officinalis,5642b,2005-08-26
+CZ0410047,Euphydryas aurinia,NA,2009-05-20
 CZ0410047,Sanguisorba officinalis,5738d,2012-09-09
 CZ0410150,Barbastella barbastellus,5840c,2013-07-23
 CZ0410150,Castor fiber,5840a,2023-04-05
@@ -6080,6 +6189,7 @@ CZ0410150,Euphydryas aurinia,5840b,2025-06-06
 CZ0410150,Euphydryas aurinia,5840d,2025-08-30
 CZ0410150,Euphydryas aurinia,"6,""5840d""",2019-09-01
 CZ0410150,Euphydryas aurinia,"64,""5840d""",2016-08-01
+CZ0410150,Euphydryas aurinia,NA,2007-06-11
 CZ0410150,Leucorrhinia pectoralis,5840b,2021-06-16
 CZ0410150,Lutra lutra,5840c,2006-09-28
 CZ0410150,Myotis sp.,5840a,2013-07-23
@@ -6116,6 +6226,7 @@ CZ0410151,Phengaris nausithous,5945a,2021-08-20
 CZ0410151,Sanguisorba officinalis,5945a,2009-05-18
 CZ0410151,Triturus cristatus,5945a,2011-06-03
 CZ0410155,Barbastella barbastellus,"31,""5642c""",2008-02-05
+CZ0410155,Canis lupus,"51,""5642a""",2025-01-26
 CZ0410155,Lycaena dispar,5642a,2024-06-26
 CZ0410155,Myotis myotis,"31,""5642c""",2008-02-05
 CZ0410155,Orthotrichum rogeri,5642c,2019-08-01
@@ -6128,6 +6239,7 @@ CZ0410168,Succisa pratensis,5642c,2008-11-23
 CZ0410401,Canis lupus,5842d,2024-12-16
 CZ0410401,Euphydryas aurinia,5842d,2011-09-06
 CZ0410401,Euphydryas aurinia,"8,""5842d""",2005-01-01
+CZ0410401,Euphydryas aurinia,NA,2009-06-15
 CZ0410401,Leucorrhinia pectoralis,5842d,2022-05-15
 CZ0410401,Sanguisorba officinalis,"22,""5842c""",2010-08-22
 CZ0410401,Sanguisorba officinalis,"32,""5842d""",2010-08-22
@@ -6136,6 +6248,7 @@ CZ0410401,Sanguisorba officinalis,5842c,2010-08-22
 CZ0410401,Sanguisorba officinalis,5842d,2010-08-19
 CZ0410401,Succisa pratensis,5842c,2010-08-22
 CZ0410401,Succisa pratensis,5842d,2010-08-19
+CZ0410404,Euphydryas aurinia,NA,2009-06-16
 CZ0410404,Lutra lutra,5943a,2024-12-16
 CZ0410413,Abramis brama,"39,""5742d""",2004-01-01
 CZ0410413,Blicca bjoerkna,"39,""5742d""",2004-01-01
@@ -6143,6 +6256,7 @@ CZ0410413,Castor fiber,5742d,2022-10-23
 CZ0410413,Castor fiber,5842b,2023-10-15
 CZ0410413,Cottus gobio,5742d,2021-05-18
 CZ0410413,Cottus gobio,5842b,2021-05-18
+CZ0410413,Euphydryas aurinia,NA,2009-06-15
 CZ0410413,Leuciscus aspius,"39,""5742d""",2004-01-01
 CZ0410413,Ophiogomphus cecilia,5742d,2021-08-15
 CZ0410413,Ophiogomphus cecilia,5842b,2021-08-15
@@ -6210,11 +6324,13 @@ CZ0410414,Succisa pratensis,5941d,2009-08-03
 CZ0410438,Leucorrhinia pectoralis,5841d,2017-06-01
 CZ0412065,Asplenium adulterinum,5942a,2018-10-25
 CZ0412065,Cerastium alsinifolium,5942a,2000-01-01
+CZ0412065,Euphydryas aurinia,NA,2009-06-15
 CZ0412069,Asplenium adulterinum,5942a,2018-11-14
 CZ0412069,Cerastium alsinifolium,5942a,2018-11-14
+CZ0412069,Euphydryas aurinia,NA,2009-06-15
 CZ0412070,Asplenium adulterinum,"42,""5942c""",2004-05-10
 CZ0412070,Asplenium adulterinum,5942c,2022-12-01
-CZ0412070,Asplenium adulterinum,5942d,2022-12-01
+CZ0412070,Asplenium adulterinum,5942d,2026-03-07
 CZ0412070,Asplenium adulterinum,"64,""5942d""",2000-01-01
 CZ0412070,Asplenium adulterinum,"97,""5942c""",2009-04-20
 CZ0412070,Canis lupus,5942c,2025-08-13
@@ -6228,13 +6344,17 @@ CZ0412070,Cerastium alsinifolium,"67,""5942c""",2004-05-10
 CZ0412070,Cerastium alsinifolium,"72,""5942d""",2009-04-20
 CZ0412070,Cerastium alsinifolium,"91,""5942c""",2009-04-21
 CZ0412070,Cerastium alsinifolium,"99,""5942c""",2022-06-16
+CZ0412070,Euphydryas aurinia,NA,2009-06-15
 CZ0412070,Myotis myotis,5942c,2024-09-27
 CZ0412070,Phengaris nausithous,5942c,2018-07-25
 CZ0412070,Sanguisorba officinalis,5942c,2022-06-15
 CZ0412070,Sanguisorba officinalis,5942d,2022-06-27
 CZ0412071,Asplenium adulterinum,5943c,2018-06-14
+CZ0412071,Euphydryas aurinia,NA,2009-06-16
+CZ0412071,Gentianella obtusifolia subsp. sturmiana,NA,2005-08-30
 CZ0413007,Euphydryas aurinia,"01,""5943d""",2023-08-29
 CZ0413007,Euphydryas aurinia,5943d,2024-08-24
+CZ0413007,Euphydryas aurinia,NA,2009-06-16
 CZ0413007,Sanguisorba officinalis,5943d,2017-07-23
 CZ0413007,Succisa pratensis,5943d,2020-08-21
 CZ0413008,Cottus gobio,6042b,2002-10-04
@@ -6242,6 +6362,8 @@ CZ0413008,Euphydryas aurinia,6042a,2010-08-23
 CZ0413008,Euphydryas aurinia,6042b,2025-09-02
 CZ0413008,Euphydryas aurinia,"89,""6042a""",2005-01-01
 CZ0413008,Euphydryas aurinia,"95,""6042b""",2007-01-01
+CZ0413008,Euphydryas aurinia,NA,2011-06-03
+CZ0413008,Gentianella obtusifolia subsp. sturmiana,NA,2002-06-01
 CZ0413008,Lampetra planeri,"92,""6042b""",2004-01-01
 CZ0413008,Lutra lutra,6042b,2020-03-26
 CZ0413008,Salmo trutta,6042b,2015-09-23
@@ -6252,6 +6374,8 @@ CZ0413008,Sanguisorba officinalis,6042b,2021-06-15
 CZ0413008,Succisa pratensis,6042a,2022-08-10
 CZ0413008,Succisa pratensis,6042b,2023-09-13
 CZ0413009,Euphydryas aurinia,5943c,2024-08-22
+CZ0413009,Euphydryas aurinia,NA,2009-06-16
+CZ0413009,Gentianella obtusifolia subsp. sturmiana,NA,2005-08-30
 CZ0413009,Lutra lutra,5943c,2019-08-07
 CZ0413009,Phengaris nausithous,5943c,2020-07-19
 CZ0413009,Phengaris teleius,5943c,2020-07-19
@@ -6260,18 +6384,21 @@ CZ0413009,Succisa pratensis,5943c,2020-09-15
 CZ0413009,Triturus cristatus,5943c,2024-05-17
 CZ0413013,Bombina bombina,5844b,2019-05-30
 CZ0413013,Euphydryas aurinia,5844b,2025-08-29
+CZ0413013,Euphydryas aurinia,NA,2005-05-29
 CZ0413013,Leucorrhinia pectoralis,5844b,2019-06-18
 CZ0413013,Phengaris nausithous,5844b,2019-08-21
 CZ0413013,Sanguisorba officinalis,5844b,2017-05-20
 CZ0413013,Succisa pratensis,5844b,2017-05-20
 CZ0413014,Bombina bombina,5844d,2025-06-13
 CZ0413014,Euphydryas aurinia,5844d,2025-06-13
+CZ0413014,Euphydryas aurinia,NA,2024-08-29
 CZ0413014,Sanguisorba officinalis,5844d,2020-08-27
 CZ0413014,Succisa pratensis,5844d,2025-06-13
 CZ0413014,Triturus cristatus,5844d,2019-04-18
 CZ0413015,Euphydryas aurinia,5843b,2025-08-29
 CZ0413015,Euphydryas aurinia,5844a,2025-08-29
 CZ0413015,Euphydryas aurinia,"62,""5843b""",2020-08-27
+CZ0413015,Euphydryas aurinia,NA,2010-06-23
 CZ0413015,Rumex sp.,5843b,2010-05-15
 CZ0413015,Sanguisorba officinalis,5844a,2010-10-03
 CZ0413015,Succisa pratensis,"01,""5843b""",2010-09-04
@@ -6280,16 +6407,19 @@ CZ0413015,Succisa pratensis,"58,""5843b""",2010-09-04
 CZ0413015,Succisa pratensis,5843b,2025-06-12
 CZ0413015,Succisa pratensis,5844a,2010-10-03
 CZ0413017,Euphydryas aurinia,6041b,2012-08-21
+CZ0413017,Euphydryas aurinia,NA,2009-06-01
 CZ0413017,Lampetra planeri,6041b,2009-06-27
 CZ0413017,Sanguisorba officinalis,6041b,2009-09-28
 CZ0413017,Succisa pratensis,6041b,2009-09-27
 CZ0413018,Euphydryas aurinia,5943a,2023-09-08
+CZ0413018,Euphydryas aurinia,NA,2009-06-16
 CZ0413018,Phengaris nausithous,5943a,2020-07-22
 CZ0413018,Phengaris teleius,5943a,2020-07-22
 CZ0413018,Sanguisorba officinalis,5943a,2022-08-23
 CZ0413018,Succisa pratensis,5943a,2022-08-23
 CZ0413173,Bombina bombina,5844c,2023-05-20
 CZ0413173,Euphydryas aurinia,5844c,2025-08-29
+CZ0413173,Euphydryas aurinia,NA,2008-06-09
 CZ0413173,Lutra lutra,5844c,2023-12-14
 CZ0413173,Sanguisorba officinalis,5844c,2017-06-02
 CZ0413173,Succisa pratensis,5844c,2024-07-24
@@ -6306,6 +6436,7 @@ CZ0413177,Euphydryas aurinia,5638d,2025-08-31
 CZ0413177,Euphydryas aurinia,5738b,2025-08-31
 CZ0413177,Euphydryas aurinia,5738d,2005-01-01
 CZ0413177,Euphydryas aurinia,"94,""5738b""",2011-06-02
+CZ0413177,Euphydryas aurinia,NA,2009-05-20
 CZ0413177,Hamatocaulis vernicosus,"94,""5738b""",2001-01-01
 CZ0413177,Lampetra planeri,5638d,2023-08-16
 CZ0413177,Lampetra planeri,5738b,2023-08-13
@@ -6336,16 +6467,20 @@ CZ0413177,Triturus cristatus,5738b,2020-04-27
 CZ0413179,Euphydryas aurinia,"01,""6042b""",2024-08-22
 CZ0413179,Euphydryas aurinia,6042b,2025-08-27
 CZ0413179,Euphydryas aurinia,"99,""6042b""",2023-08-22
+CZ0413179,Euphydryas aurinia,NA,2010-06-05
+CZ0413179,Gentianella obtusifolia subsp. sturmiana,NA,2002-06-01
 CZ0413179,Leucorrhinia pectoralis,6042b,2018-05-31
 CZ0413179,Salmo trutta,6042b,2015-09-23
 CZ0413179,Sanguisorba officinalis,6042b,2020-07-19
 CZ0413179,Succisa pratensis,6042b,2020-08-23
 CZ0413179,Triturus cristatus,6042b,2024-05-06
 CZ0413180,Euphydryas aurinia,6042b,2024-09-04
+CZ0413180,Euphydryas aurinia,NA,2010-06-05
 CZ0413180,Sanguisorba officinalis,6042b,2015-06-04
 CZ0413180,Succisa pratensis,6042b,2023-08-09
 CZ0413181,Euphydryas aurinia,"01,""5843d""",2002-08-01
 CZ0413181,Euphydryas aurinia,5843d,2025-09-04
+CZ0413181,Euphydryas aurinia,NA,2010-06-03
 CZ0413181,Lycaena dispar,5843d,2024-06-17
 CZ0413181,Sanguisorba officinalis,5843d,2020-09-17
 CZ0413181,Succisa pratensis,5843d,2023-08-30
@@ -6354,6 +6489,7 @@ CZ0413182,Carabus menetriesi pacholei,5942a,2017-05-23
 CZ0413182,Carabus menetriesi pacholei,5942b,2019-05-27
 CZ0413182,Carabus menetriesi pacholei,"95,""5942a""",2007-06-03
 CZ0413182,Euphydryas aurinia,5942a,2024-09-06
+CZ0413182,Euphydryas aurinia,NA,2009-06-15
 CZ0413182,Leucorrhinia pectoralis,5942a,2021-07-27
 CZ0413182,Phengaris nausithous,5942a,2019-07-24
 CZ0413182,Sanguisorba officinalis,"06,""5942a""",2009-09-08
@@ -6368,11 +6504,13 @@ CZ0413182,Succisa pratensis,5942b,2021-07-27
 CZ0413184,Epidalea calamita,"01,""5741d""",2021-06-18
 CZ0413184,Epidalea calamita,5741d,2025-07-25
 CZ0413184,Epidalea calamita,"99,""5741d""",2024-05-23
+CZ0413184,Euphydryas aurinia,NA,1995-01-01
 CZ0413184,Leucorrhinia pectoralis,5741d,2015-06-06
 CZ0413184,Succisa pratensis,5741d,2023-08-22
 CZ0413184,Triturus cristatus,"01,""5741d""",2022-09-01
 CZ0413184,Triturus cristatus,5741d,2025-07-31
 CZ0413185,Euphydryas aurinia,"05,""5841b""",1995-01-01
+CZ0413185,Euphydryas aurinia,NA,1995-01-01
 CZ0413185,Triturus cristatus,"06,""5741d""",2025-08-24
 CZ0413185,Triturus cristatus,"18,""5841b""",2023-07-14
 CZ0413185,Triturus cristatus,"21,""5841b""",2003-04-28
@@ -6381,6 +6519,7 @@ CZ0413185,Triturus cristatus,5741d,2025-05-23
 CZ0413185,Triturus cristatus,5841b,2025-08-24
 CZ0413185,Triturus cristatus,"8,""5741d""",2015-06-07
 CZ0413187,Euphydryas aurinia,5943a,2015-09-12
+CZ0413187,Euphydryas aurinia,NA,2009-06-16
 CZ0413187,Phengaris nausithous,5943a,2022-07-23
 CZ0413187,Sanguisorba officinalis,"17,""5943a""",2014-07-14
 CZ0413187,Sanguisorba officinalis,"57,""5943a""",2014-07-14
@@ -6388,6 +6527,7 @@ CZ0413187,Sanguisorba officinalis,5943a,2014-07-14
 CZ0413187,Succisa pratensis,"19,""5943a""",2002-06-16
 CZ0413187,Succisa pratensis,"57,""5943a""",2014-07-14
 CZ0413187,Succisa pratensis,5943a,2014-07-14
+CZ0413188,Euphydryas aurinia,NA,2009-05-26
 CZ0413188,Spermophilus citellus,5743d,2025-07-07
 CZ0413188,Spermophilus citellus,"74,""5743d""",2001-06-25
 CZ0413190,Bombina bombina,"11,""5743b""",2020-07-23
@@ -6396,6 +6536,7 @@ CZ0413190,Bombina bombina,"57,""5743a""",2022-07-11
 CZ0413190,Bombina bombina,5743a,2021-07-05
 CZ0413190,Bombina bombina,5743b,2022-07-11
 CZ0413190,Bombina bombina,"98,""5643d""",2021-07-05
+CZ0413190,Euphydryas aurinia,NA,2009-05-26
 CZ0413190,Leucorrhinia pectoralis,5743b,2018-06-05
 CZ0413190,Osmoderma barnabita,5743b,2018-10-03
 CZ0413190,Rumex sp.,5743a,2010-09-21
@@ -6412,11 +6553,13 @@ CZ0413190,Triturus cristatus,5743b,2025-07-31
 CZ0413190,Triturus cristatus,"98,""5643d""",2021-07-05
 CZ0413191,Cottus gobio,5843b,2021-10-12
 CZ0413191,Euphydryas aurinia,5843b,2024-08-27
+CZ0413191,Euphydryas aurinia,NA,2010-06-03
 CZ0413191,Phengaris nausithous,5843b,2025-07-22
 CZ0413191,Phengaris teleius,5843b,2025-07-22
 CZ0413191,Salmo trutta,5843b,2014-09-24
 CZ0413191,Sanguisorba officinalis,5843b,2020-09-02
 CZ0413191,Succisa pratensis,5843b,2020-09-02
+CZ0413193,Euphydryas aurinia,NA,2007-06-11
 CZ0413193,Leucorrhinia pectoralis,5839b,2021-06-17
 CZ0413193,Leucorrhinia pectoralis,5840a,2018-06-04
 CZ0413193,Lutra lutra,5839b,2025-03-13
@@ -6456,6 +6599,8 @@ CZ0413195,Cottus gobio,5943a,2013-09-06
 CZ0413195,Cottus gobio,5943c,2020-09-13
 CZ0413195,Cottus gobio,"79,""5942d""",2000-01-01
 CZ0413195,Cottus gobio,"89,""5942d""",2000-01-01
+CZ0413195,Euphydryas aurinia,NA,2009-06-16
+CZ0413195,Gentianella obtusifolia subsp. sturmiana,NA,2005-08-30
 CZ0413195,Lutra lutra,5942b,2019-01-13
 CZ0413195,Lutra lutra,5942d,2022-09-07
 CZ0413195,Lutra lutra,5943a,2000-10-13
@@ -6500,6 +6645,7 @@ CZ0414026,Cerastium alsinifolium,"89,""5942b""",2009-03-18
 CZ0414026,Cerastium alsinifolium,"9,""5942b""",2009-03-05
 CZ0414026,Cerastium alsinifolium,"99,""5942b""",2005-01-01
 CZ0414026,Euphydryas aurinia,5942b,2024-09-05
+CZ0414026,Euphydryas aurinia,NA,2009-06-15
 CZ0414026,Leucorrhinia pectoralis,5942b,2023-06-13
 CZ0414026,Lutra lutra,"28,""5942b""",2005-11-01
 CZ0414026,Lutra lutra,5942a,2016-11-07
@@ -6525,6 +6671,7 @@ CZ0414026,Succisa pratensis,5942a,2018-04-24
 CZ0414026,Succisa pratensis,5942b,2025-07-24
 CZ0414027,Euphydryas aurinia,5843b,2025-08-29
 CZ0414027,Euphydryas aurinia,"99,""5843b""",2018-08-22
+CZ0414027,Euphydryas aurinia,NA,2010-06-23
 CZ0414027,Leucorrhinia pectoralis,5843b,2014-07-05
 CZ0414027,Salmo trutta,5843b,2002-10-03
 CZ0414027,Sanguisorba officinalis,5843b,2021-09-01
@@ -6533,7 +6680,7 @@ CZ0414027,Triturus cristatus,5843b,2020-04-25
 CZ0414110,Barbastella barbastellus,5542d,2010-02-27
 CZ0414110,Barbastella barbastellus,5641b,2013-09-08
 CZ0414110,Barbastella barbastellus,5642b,2025-01-24
-CZ0414110,Barbastella barbastellus,5643a,2024-01-21
+CZ0414110,Barbastella barbastellus,5643a,2025-02-15
 CZ0414110,Barbastella barbastellus,"63,""5643a""",2013-08-05
 CZ0414110,Barbastella barbastellus,"96,""5641a""",2011-12-21
 CZ0414110,Barbastella barbastellus,"96,""5641b""",2011-12-21
@@ -6543,6 +6690,10 @@ CZ0414110,Barbastella barbastellus,"96,""5642a""",2011-12-21
 CZ0414110,Barbastella barbastellus,"96,""5642b""",2011-12-21
 CZ0414110,Barbastella barbastellus,"96,""5642c""",2011-12-21
 CZ0414110,Barbastella barbastellus,"96,""5642d""",2011-12-21
+CZ0414110,Canis lupus,"21,""5543c""",2025-04-27
+CZ0414110,Canis lupus,"42,""5542d""",2024-08-16
+CZ0414110,Canis lupus,"44,""5543c""",2025-04-27
+CZ0414110,Canis lupus,"51,""5642a""",2025-01-26
 CZ0414110,Canis lupus,5541d,2024-12-30
 CZ0414110,Canis lupus,5542c,2024-02-24
 CZ0414110,Canis lupus,5542d,2025-01-25
@@ -6553,6 +6704,7 @@ CZ0414110,Canis lupus,5641d,2021-07-24
 CZ0414110,Canis lupus,5642a,2024-02-24
 CZ0414110,Canis lupus,5642b,2023-10-25
 CZ0414110,Canis lupus,5643a,2025-03-21
+CZ0414110,Canis lupus,"67,""5642b""",2025-02-15
 CZ0414110,Carabus menetriesi pacholei,5543c,2025-05-24
 CZ0414110,Carabus menetriesi pacholei,"99,""5543c""",2003-06-28
 CZ0414110,Castor fiber,5641b,2025-05-21
@@ -6598,7 +6750,7 @@ CZ0414110,Myotis myotis,5542b,2024-06-08
 CZ0414110,Myotis myotis,5542d,2025-01-24
 CZ0414110,Myotis myotis,5543c,2025-01-23
 CZ0414110,Myotis myotis,5641b,2013-09-08
-CZ0414110,Myotis myotis,5642b,2025-01-24
+CZ0414110,Myotis myotis,5642b,2025-03-01
 CZ0414110,Myotis myotis,5643a,2024-08-24
 CZ0414110,Myotis myotis,"96,""5542a""",2012-06-21
 CZ0414110,Myotis myotis,"96,""5542b""",2012-06-21
@@ -6693,10 +6845,14 @@ CZ0414127,Bombina bombina,5845b,2008-06-05
 CZ0414127,Bombina bombina,"62,""5845a""",2021-06-23
 CZ0414127,Bombina bombina,"63,""5744d""",2021-08-07
 CZ0414127,Bombina bombina,"63,""5745c""",2024-08-17
+CZ0414127,Canis lupus,"36,""5744b""",2025-02-09
 CZ0414127,Canis lupus,5645c,2025-02-07
 CZ0414127,Canis lupus,5744a,2017-02-24
 CZ0414127,Canis lupus,5744b,2025-03-16
 CZ0414127,Canis lupus,5744d,2025-03-15
+CZ0414127,Canis lupus,"6,""5845a""",2025-04-19
+CZ0414127,Canis lupus,"67,""5744d""",2025-03-15
+CZ0414127,Canis lupus,"71,""5745a""",2025-03-16
 CZ0414127,Castor fiber,5744c,2022-05-19
 CZ0414127,Castor fiber,5744d,2025-10-10
 CZ0414127,Castor fiber,5844b,2021-07-27
@@ -6721,6 +6877,7 @@ CZ0414127,Euphydryas aurinia,"96,""5844a""",2005-05-29
 CZ0414127,Euphydryas aurinia,"96,""5844b""",2005-05-29
 CZ0414127,Euphydryas aurinia,"96,""5844c""",2005-05-29
 CZ0414127,Euphydryas aurinia,"96,""5844d""",2005-05-29
+CZ0414127,Euphydryas aurinia,NA,2015-10-01
 CZ0414127,Euplagia quadripunctaria,5644b,2020-08-02
 CZ0414127,Euplagia quadripunctaria,5644c,2022-07-17
 CZ0414127,Euplagia quadripunctaria,5644d,2022-07-17
@@ -6786,7 +6943,7 @@ CZ0414127,Myotis myotis,5644d,2020-07-05
 CZ0414127,Myotis myotis,5743b,2014-06-16
 CZ0414127,Myotis myotis,5743d,2024-01-21
 CZ0414127,Myotis myotis,5744a,2021-07-24
-CZ0414127,Myotis myotis,5744c,2024-01-21
+CZ0414127,Myotis myotis,5744c,2025-02-15
 CZ0414127,Myotis myotis,5745a,2024-03-08
 CZ0414127,Myotis myotis,5745c,2017-07-06
 CZ0414127,Myotis myotis,5845a,2024-01-23
@@ -6817,7 +6974,7 @@ CZ0414127,Myotis myotis,"96,""5845d""",2012-06-21
 CZ0414127,Myotis sp.,"13,""5644b""",2022-07-03
 CZ0414127,Myotis sp.,5744a,2020-08-12
 CZ0414127,Myotis sp.,5744c,2022-09-09
-CZ0414127,Myotis sp.,5744d,2024-01-20
+CZ0414127,Myotis sp.,5744d,2025-02-28
 CZ0414127,Myotis sp.,5745c,2024-06-23
 CZ0414127,Myotis sp.,5844b,2023-02-04
 CZ0414127,Myotis sp.,"63,""5644d""",2022-07-03
@@ -6972,7 +7129,7 @@ CZ0414127,Vertigo angustior,5844a,2012-11-09
 CZ0420004,Euplagia quadripunctaria,5650b,2010-08-08
 CZ0420007,Euplagia quadripunctaria,5451c,2016-07-29
 CZ0420012,Abramis brama,5645b,2006-08-09
-CZ0420012,Barbastella barbastellus,5645b,2024-01-15
+CZ0420012,Barbastella barbastellus,5645b,2025-01-14
 CZ0420012,Blicca bjoerkna,5645b,2019-01-01
 CZ0420012,Castor fiber,5645b,2025-12-21
 CZ0420012,Euplagia quadripunctaria,5645b,2025-08-11
@@ -6997,24 +7154,26 @@ CZ0420015,Myotis myotis,5650a,2023-04-29
 CZ0420015,Ophiogomphus cecilia,"23,""5650a""",2014-09-06
 CZ0420015,Osmoderma barnabita,5650a,2007-07-26
 CZ0420015,Rhinolophus hipposideros,5650a,2023-04-29
-CZ0420021,Barbastella barbastellus,5545c,2024-01-15
-CZ0420021,Barbastella barbastellus,5545d,2024-01-15
+CZ0420021,Barbastella barbastellus,5545c,2025-01-14
+CZ0420021,Barbastella barbastellus,5545d,2025-01-14
 CZ0420021,Euplagia quadripunctaria,5545d,2015-08-03
 CZ0420021,Lutra lutra,"4,""5545c""",2020-12-18
-CZ0420021,Myotis myotis,5545c,2024-01-15
-CZ0420021,Myotis myotis,5545d,2024-01-15
+CZ0420021,Myotis myotis,5545c,2025-01-14
+CZ0420021,Myotis myotis,5545d,2025-07-01
 CZ0420021,Myotis sp.,5545c,2019-02-16
 CZ0420021,Myotis sp.,5545d,2023-06-25
 CZ0420021,Osmoderma barnabita,5545c,2015-10-01
-CZ0420021,Rhinolophus hipposideros,5545d,2024-01-15
+CZ0420021,Rhinolophus hipposideros,5545d,2025-01-14
 CZ0420021,Sanguisorba officinalis,5545d,2013-08-24
 CZ0420026,Barbastella barbastellus,5448d,2013-10-19
 CZ0420026,Euplagia quadripunctaria,5448d,2024-08-07
+CZ0420026,Chazara briseis,NA,1995-01-01
 CZ0420026,Lucanus cervus,5448d,2025-10-27
 CZ0420026,Myotis myotis,5448d,2013-07-21
 CZ0420026,Rhinolophus hipposideros,5448d,2013-07-21
 CZ0420035,Canis lupus,5544b,2021-01-19
 CZ0420035,Canis lupus,5545a,2025-03-15
+CZ0420035,Canis lupus,"96,""5545a""",2024-07-07
 CZ0420035,Lutra lutra,5544b,2020-05-04
 CZ0420035,Lutra lutra,5545a,2020-05-04
 CZ0420035,Lycaena dispar,5544b,2024-07-29
@@ -7026,6 +7185,8 @@ CZ0420035,Succisa pratensis,"68,""5544b""",2025-06-07
 CZ0420044,Cypripedium calceolus,5650a,2024-05-23
 CZ0420053,Canis lupus,5248c,2024-04-27
 CZ0420063,Cucujus cinnaberinus,5647a,2021-12-31
+CZ0420063,Hipparchia semele,NA,2009-01-01
+CZ0420063,Chazara briseis,NA,1995-01-01
 CZ0420069,Euplagia quadripunctaria,"23,""5745d""",2014-08-08
 CZ0420073,Euplagia quadripunctaria,5650a,2022-08-08
 CZ0420073,Lucanus cervus,5650b,2024-08-20
@@ -7039,6 +7200,7 @@ CZ0420082,Ameiurus nebulosus,5152d,2024-07-31
 CZ0420082,Ameiurus nebulosus,"99,""5152d""",2024-09-03
 CZ0420082,Barbastella barbastellus,"14,""5152d""",2015-05-16
 CZ0420082,Canis lupus,5152d,2024-09-25
+CZ0420082,Canis lupus,"85,""5152d""",2025-03-02
 CZ0420082,Euplagia quadripunctaria,5152d,2024-08-12
 CZ0420082,Myotis myotis,5152d,2014-08-16
 CZ0420082,Salmo trutta,5152d,2025-09-01
@@ -7051,6 +7213,7 @@ CZ0420083,Euplagia quadripunctaria,5152b,2025-08-07
 CZ0420083,Lycaena dispar,5152b,2019-08-21
 CZ0420083,Salmo trutta,5152b,2022-08-18
 CZ0420083,Succisa pratensis,5152b,2024-07-02
+CZ0420085,Chazara briseis,NA,1995-01-01
 CZ0420085,Lutra lutra,5450d,2006-10-26
 CZ0420085,Myotis myotis,5450d,2015-05-09
 CZ0420085,Sanguisorba officinalis,5450d,2014-08-28
@@ -7060,13 +7223,14 @@ CZ0420144,Barbastella barbastellus,"96,""5445a""",2011-06-21
 CZ0420144,Barbastella barbastellus,"96,""5445b""",2011-06-21
 CZ0420144,Barbastella barbastellus,"96,""5445c""",2011-06-21
 CZ0420144,Barbastella barbastellus,"96,""5445d""",2011-06-21
-CZ0420144,Canis lupus,"25,""5545a""",2019-06-23
+CZ0420144,Canis lupus,"25,""5545a""",2025-04-15
 CZ0420144,Canis lupus,"42,""5445d""",2019-10-02
 CZ0420144,Canis lupus,5445a,2022-12-26
 CZ0420144,Canis lupus,5445b,2024-12-28
 CZ0420144,Canis lupus,5445c,2023-06-11
 CZ0420144,Canis lupus,5445d,2022-09-24
 CZ0420144,Canis lupus,5545a,2024-12-25
+CZ0420144,Canis lupus,"63,""5445d""",2025-04-19
 CZ0420144,Coleanthus subtilis,5445d,2013-07-03
 CZ0420144,Cottus gobio,5445a,2015-09-01
 CZ0420144,Lampetra planeri,5445a,2015-09-01
@@ -7098,6 +7262,8 @@ CZ0420166,Succisa pratensis,5153a,2023-01-01
 CZ0420171,Barbastella barbastellus,5546a,2015-05-20
 CZ0420171,Euplagia quadripunctaria,5546a,2019-08-18
 CZ0420406,Euplagia quadripunctaria,5548d,2025-08-07
+CZ0420406,Hipparchia semele,NA,2010-08-22
+CZ0420406,Chazara briseis,NA,2007-08-26
 CZ0420406,Stipa glabrata,5548d,2023-06-03
 CZ0420416,Barbastella barbastellus,5449b,2013-10-22
 CZ0420416,Euplagia quadripunctaria,5449b,2018-08-09
@@ -7128,12 +7294,15 @@ CZ0420459,Cucujus cinnaberinus,5549b,2017-03-16
 CZ0420459,Euplagia quadripunctaria,5449d,2013-08-04
 CZ0420459,Euplagia quadripunctaria,5450c,2024-08-12
 CZ0420459,Euplagia quadripunctaria,5549b,2022-08-09
+CZ0420459,Chazara briseis,NA,2007-08-07
 CZ0420459,Lucanus cervus,5549b,2013-06-20
 CZ0420459,Lycaena dispar,5449d,2023-06-11
 CZ0420459,Myotis myotis,5449d,2005-07-15
 CZ0420459,Stipa glabrata,5449d,2025-05-13
 CZ0420459,Stipa glabrata,"7,""5449d""",2009-01-01
+CZ0420460,Chazara briseis,NA,2007-08-07
 CZ0420462,Euplagia quadripunctaria,5450b,2022-07-31
+CZ0420462,Chazara briseis,NA,1995-01-01
 CZ0420462,Myotis myotis,5450b,2020-08-18
 CZ0420500,Abramis brama,5250a,2004-01-01
 CZ0420500,Barbastella barbastellus,5250a,2019-09-05
@@ -7193,11 +7362,14 @@ CZ0420520,Ameiurus melas,5153b,2024-11-07
 CZ0420520,Ameiurus nebulosus,"37,""5153d""",2024-10-18
 CZ0420520,Ameiurus nebulosus,5153b,2024-11-07
 CZ0420520,Barbastella barbastellus,"86,""5153b""",2015-05-19
+CZ0420520,Canis lupus,"1,""5153b""",2025-04-12
 CZ0420520,Canis lupus,5153b,2020-04-30
 CZ0420520,Canis lupus,5153d,2024-01-27
 CZ0420520,Myotis myotis,5153b,2001-02-09
 CZ0420525,Sanguisorba officinalis,5547c,2015-05-08
-CZ0420528,Barbastella barbastellus,5544d,2024-01-21
+CZ0420528,Barbastella barbastellus,5544d,2025-02-15
+CZ0420528,Canis lupus,"02,""5544c""",2025-04-10
+CZ0420528,Canis lupus,"1,""5543d""",2025-01-03
 CZ0420528,Canis lupus,5544c,2018-07-15
 CZ0420528,Canis lupus,5544d,2018-03-23
 CZ0420528,Canis lupus,5643b,2018-04-03
@@ -7206,7 +7378,7 @@ CZ0420528,Cottus gobio,5544c,2024-08-24
 CZ0420528,Cottus gobio,"93,""5544c""",2004-01-01
 CZ0420528,Lampetra planeri,"93,""5544c""",2004-01-01
 CZ0420528,Lynx lynx,5643b,2014-03-01
-CZ0420528,Myotis myotis,5544d,2024-01-21
+CZ0420528,Myotis myotis,5544d,2025-02-15
 CZ0420528,Orthotrichum rogeri,5544c,2012-09-01
 CZ0420528,Salmo trutta,"93,""5544c""",2004-01-01
 CZ0420528,Succisa pratensis,5544c,2023-06-05
@@ -7222,6 +7394,7 @@ CZ0422079,Luronium natans,5150d,2025-08-29
 CZ0422079,Myotis myotis,5150d,2019-05-18
 CZ0422079,Salmo trutta,5150d,2025-04-10
 CZ0422081,Cypripedium calceolus,5748a,2021-06-11
+CZ0422084,Hipparchia semele,NA,1995-01-01
 CZ0422084,Jurinea cyanoides,5551a,2005-07-21
 CZ0422085,Cypripedium calceolus,5747c,2022-06-02
 CZ0422087,Cypripedium calceolus,5452c,2022-05-25
@@ -7234,7 +7407,7 @@ CZ0423201,Euplagia quadripunctaria,"39,""5649c""",2000-01-01
 CZ0423201,Euplagia quadripunctaria,5649c,2022-07-21
 CZ0423201,Lucanus cervus,"32,""5649c""",2015-07-10
 CZ0423201,Myotis myotis,5649c,2015-05-10
-CZ0423202,Barbastella barbastellus,5449c,2024-03-10
+CZ0423202,Barbastella barbastellus,5449c,2025-03-11
 CZ0423202,Cucujus cinnaberinus,5449c,2021-05-09
 CZ0423202,Lemna trisulca,5449c,2012-09-28
 CZ0423202,Leucorrhinia pectoralis,5449c,2020-06-22
@@ -7253,6 +7426,8 @@ CZ0423211,Bombina bombina,5348c,2025-07-25
 CZ0423211,Lemna trisulca,5348c,2009-03-03
 CZ0423211,Triturus cristatus,5348c,2015-08-21
 CZ0423212,Euplagia quadripunctaria,5548b,2022-07-15
+CZ0423212,Hipparchia semele,NA,2010-08-22
+CZ0423212,Chazara briseis,NA,2012-08-21
 CZ0423213,Lucanus cervus,"29,""5546b""",2009-06-26
 CZ0423213,Lucanus cervus,"49,""5546b""",2001-06-24
 CZ0423213,Lucanus cervus,5546b,2001-05-01
@@ -7285,12 +7460,15 @@ CZ0423219,Austropotamobius torrentium,5451a,2012-08-22
 CZ0423223,Cerambyx cerdo,5846d,2017-07-18
 CZ0423223,Lucanus cervus,5846d,2015-05-17
 CZ0423223,Osmoderma barnabita,5846d,2022-08-06
-CZ0423224,Myotis myotis,5451a,2024-08-22
+CZ0423224,Myotis myotis,5451a,2025-08-11
 CZ0423224,Osmoderma barnabita,5451a,2022-11-28
-CZ0423224,Rhinolophus hipposideros,5451a,2024-08-10
+CZ0423224,Rhinolophus hipposideros,5451a,2025-08-11
 CZ0423225,Euplagia quadripunctaria,5450d,2024-08-06
+CZ0423225,Chazara briseis,NA,1995-01-01
 CZ0423225,Stenobothrus eurasius bohemicus,5450d,2021-08-12
 CZ0423227,Euplagia quadripunctaria,5548b,2022-07-15
+CZ0423227,Hipparchia semele,NA,2013-09-06
+CZ0423227,Chazara briseis,NA,2012-08-21
 CZ0423227,Myotis myotis,"76,""5548b""",2015-05-05
 CZ0423228,Bombina bombina,5349b,2025-07-11
 CZ0423228,Sanguisorba officinalis,5349b,2020-09-11
@@ -7301,6 +7479,8 @@ CZ0423229,Lucanus cervus,5546b,2025-06-21
 CZ0423232,Euplagia quadripunctaria,5550c,2021-08-12
 CZ0423232,Stenobothrus eurasius bohemicus,5550c,2021-08-12
 CZ0423233,Euplagia quadripunctaria,5548d,2022-07-29
+CZ0423233,Hipparchia semele,NA,2010-08-22
+CZ0423233,Chazara briseis,NA,2007-08-26
 CZ0423233,Lucanus cervus,5548d,2021-07-23
 CZ0423233,Osmoderma barnabita,5548d,2020-04-29
 CZ0423233,Stenobothrus eurasius bohemicus,5548d,2024-09-06
@@ -7357,6 +7537,8 @@ CZ0423510,Cottus gobio,5648a,2015-09-01
 CZ0423510,Cottus gobio,5648b,2015-09-01
 CZ0423510,Cottus gobio,5649a,2025-04-21
 CZ0423510,Cucujus cinnaberinus,5648b,2021-03-30
+CZ0423510,Hipparchia semele,NA,2010-06-09
+CZ0423510,Chazara briseis,NA,2007-08-07
 CZ0423510,Lampetra planeri,5647c,2015-09-01
 CZ0423510,Lampetra planeri,5648a,2015-09-01
 CZ0423510,Lampetra planeri,5648b,2015-09-01
@@ -7412,8 +7594,8 @@ CZ0423510,Unio crassus,"66,""5549d""",2001-08-30
 CZ0423510,Unio crassus,"95,""5549d""",2003-06-07
 CZ0423652,Myotis myotis,5152b,2005-07-14
 CZ0423653,Myotis myotis,5250b,2025-07-01
-CZ0423654,Myotis myotis,4951d,2024-07-16
-CZ0423656,Myotis myotis,5452a,2025-06-24
+CZ0423654,Myotis myotis,4951d,2025-07-29
+CZ0423656,Myotis myotis,5452a,2025-07-07
 CZ0423659,Abramis brama,5153a,2004-01-01
 CZ0423659,Ameiurus nebulosus,5153a,2023-08-03
 CZ0423659,Leucorrhinia pectoralis,5153a,2025-06-21
@@ -7471,7 +7653,7 @@ CZ0424031,Ameiurus melas,5151b,2021-07-12
 CZ0424031,Ameiurus nebulosus,5152c,2022-05-04
 CZ0424031,Barbastella barbastellus,5052d,2018-06-13
 CZ0424031,Barbastella barbastellus,5151b,2023-03-15
-CZ0424031,Barbastella barbastellus,5152b,2024-01-19
+CZ0424031,Barbastella barbastellus,5152b,2025-01-23
 CZ0424031,Barbastella barbastellus,"96,""5052a""",2011-12-21
 CZ0424031,Barbastella barbastellus,"96,""5052b""",2011-12-21
 CZ0424031,Barbastella barbastellus,"96,""5052c""",2011-12-21
@@ -7484,6 +7666,7 @@ CZ0424031,Barbastella barbastellus,"96,""5152a""",2011-12-21
 CZ0424031,Barbastella barbastellus,"96,""5152b""",2011-12-21
 CZ0424031,Barbastella barbastellus,"96,""5152c""",2011-12-21
 CZ0424031,Barbastella barbastellus,"96,""5152d""",2011-12-21
+CZ0424031,Canis lupus,"46,""5152b""",2024-05-25
 CZ0424031,Canis lupus,5052c,2025-04-08
 CZ0424031,Canis lupus,5052d,2025-03-19
 CZ0424031,Canis lupus,5151b,2025-11-10
@@ -7491,6 +7674,7 @@ CZ0424031,Canis lupus,5151d,2023-12-29
 CZ0424031,Canis lupus,5152a,2025-11-07
 CZ0424031,Canis lupus,5152b,2025-05-24
 CZ0424031,Canis lupus,5152c,2025-01-30
+CZ0424031,Canis lupus,"54,""5052c""",2024-05-25
 CZ0424031,Castor fiber,"02,""5151b""",1993-01-01
 CZ0424031,Castor fiber,5052d,2021-04-23
 CZ0424031,Castor fiber,5151b,2025-11-10
@@ -7562,7 +7746,7 @@ CZ0424031,Ophiogomphus cecilia,5151b,2000-06-20
 CZ0424031,Phengaris nausithous,5152c,2020-07-22
 CZ0424031,Rhinolophus hipposideros,"02,""5151b""",2005-01-06
 CZ0424031,Rhinolophus hipposideros,5151b,2024-02-23
-CZ0424031,Rhinolophus hipposideros,5152a,2024-06-20
+CZ0424031,Rhinolophus hipposideros,5152a,2025-07-04
 CZ0424031,Rhinolophus hipposideros,"96,""5151a""",2012-06-21
 CZ0424031,Rhinolophus hipposideros,"96,""5151b""",2012-06-21
 CZ0424031,Rhinolophus hipposideros,"96,""5151c""",2012-06-21
@@ -7606,6 +7790,8 @@ CZ0424031,Trichomanes speciosum,5152c,2001-01-01
 CZ0424031,Triturus cristatus,5152c,2025-07-20
 CZ0424033,Crambe tataria,5548d,2018-05-26
 CZ0424033,Euplagia quadripunctaria,5548d,2023-08-14
+CZ0424033,Hipparchia semele,NA,2010-08-22
+CZ0424033,Chazara briseis,NA,2007-08-26
 CZ0424033,Lycaena dispar,5548d,2023-07-11
 CZ0424033,Myotis myotis,5548d,2013-09-27
 CZ0424033,Ophiogomphus cecilia,5548d,2018-08-07
@@ -7639,6 +7825,7 @@ CZ0424034,Adenophora liliifolia,"27,""5450b""",2019-01-01
 CZ0424034,Adenophora liliifolia,5450b,2024-07-24
 CZ0424034,Adenophora liliifolia,"56,""5450b""",2001-01-01
 CZ0424034,Euplagia quadripunctaria,5450b,2020-08-13
+CZ0424034,Chazara briseis,NA,1995-01-01
 CZ0424034,Lycaena dispar,5450b,2016-06-22
 CZ0424034,Myotis myotis,"85,""5450b""",2020-09-23
 CZ0424034,Phengaris nausithous,"52,""5450b""",2012-08-01
@@ -7659,19 +7846,25 @@ CZ0424034,Succisa pratensis,5350d,2013-06-30
 CZ0424034,Succisa pratensis,5450b,2024-07-08
 CZ0424034,Succisa pratensis,"6,""5450b""",2013-06-30
 CZ0424034,Succisa pratensis,"88,""5450b""",2002-07-18
+CZ0424036,Hipparchia semele,NA,2015-08-07
+CZ0424036,Chazara briseis,NA,1995-01-01
 CZ0424036,Lucanus cervus,5646a,2025-06-28
 CZ0424037,Barbastella barbastellus,5450c,2013-10-20
 CZ0424037,Euplagia quadripunctaria,5450c,2023-08-12
+CZ0424037,Chazara briseis,NA,1995-01-01
 CZ0424037,Lucanus cervus,5450c,2014-06-15
 CZ0424037,Myotis myotis,5450c,2013-07-20
 CZ0424037,Rhinolophus hipposideros,5450c,2013-07-20
 CZ0424037,Spermophilus citellus,5450c,2002-01-01
 CZ0424038,Canis lupus,5450b,2024-09-16
 CZ0424038,Euplagia quadripunctaria,5450b,2022-08-02
+CZ0424038,Chazara briseis,NA,1995-01-01
 CZ0424038,Pulsatilla patens,5450b,2025-05-02
 CZ0424038,Succisa pratensis,5450b,2013-06-30
 CZ0424039,Cucujus cinnaberinus,5548d,2025-05-05
 CZ0424039,Euplagia quadripunctaria,5548d,2024-07-29
+CZ0424039,Hipparchia semele,NA,2010-08-22
+CZ0424039,Chazara briseis,NA,2007-08-26
 CZ0424039,Lucanus cervus,5548d,2025-06-19
 CZ0424039,Myotis myotis,5548d,2013-08-05
 CZ0424039,Ophiogomphus cecilia,5548d,2024-07-29
@@ -7688,6 +7881,7 @@ CZ0424111,Barbastella barbastellus,"96,""5151b""",2011-06-21
 CZ0424111,Barbastella barbastellus,"96,""5151c""",2011-06-21
 CZ0424111,Barbastella barbastellus,"96,""5151d""",2011-06-21
 CZ0424111,Blicca bjoerkna,5151c,2011-09-07
+CZ0424111,Canis lupus,"06,""5151c""",2024-11-11
 CZ0424111,Castor fiber,"01,""5151c""",2017-02-11
 CZ0424111,Castor fiber,"02,""5151b""",1993-01-01
 CZ0424111,Castor fiber,"17,""5151a""",2018-03-01
@@ -7773,7 +7967,7 @@ CZ0424125,Barbastella barbastellus,"12,""5644d""",2020-08-16
 CZ0424125,Barbastella barbastellus,"33,""5645c""",2020-09-20
 CZ0424125,Barbastella barbastellus,5644a,2023-05-25
 CZ0424125,Barbastella barbastellus,5644b,2025-01-14
-CZ0424125,Barbastella barbastellus,5644c,2025-01-21
+CZ0424125,Barbastella barbastellus,5644c,2025-02-15
 CZ0424125,Barbastella barbastellus,5645a,2025-09-01
 CZ0424125,Barbastella barbastellus,5645b,2013-02-23
 CZ0424125,Barbastella barbastellus,5645c,2025-06-25
@@ -7815,6 +8009,7 @@ CZ0424125,Bombina bombina,5845b,2025-08-06
 CZ0424125,Bombina bombina,"94,""5645a""",2005-01-01
 CZ0424125,Canis lupus,5644a,2025-03-11
 CZ0424125,Canis lupus,5644c,2025-03-09
+CZ0424125,Canis lupus,"6,""5845a""",2025-04-19
 CZ0424125,Castor fiber,5644a,2025-05-23
 CZ0424125,Castor fiber,5644b,2025-12-22
 CZ0424125,Castor fiber,5644c,2025-12-23
@@ -7837,6 +8032,7 @@ CZ0424125,Cottus gobio,5744a,2017-10-18
 CZ0424125,Cottus gobio,5745a,2013-06-22
 CZ0424125,Euphydryas aurinia,5844a,2025-08-30
 CZ0424125,Euphydryas aurinia,"99,""5844a""",2015-10-01
+CZ0424125,Euphydryas aurinia,NA,2010-06-03
 CZ0424125,Euplagia quadripunctaria,5644a,2023-08-10
 CZ0424125,Euplagia quadripunctaria,5644b,2025-08-11
 CZ0424125,Euplagia quadripunctaria,5644c,2025-08-20
@@ -7854,6 +8050,8 @@ CZ0424125,Euplagia quadripunctaria,"96,""5645b""",2011-08-23
 CZ0424125,Euplagia quadripunctaria,"96,""5645c""",2011-08-23
 CZ0424125,Euplagia quadripunctaria,"96,""5645d""",2011-08-23
 CZ0424125,Euplagia quadripunctaria,"99,""5845b""",2014-08-08
+CZ0424125,Hipparchia semele,NA,2009-01-01
+CZ0424125,Chazara briseis,NA,1995-01-01
 CZ0424125,Lampetra planeri,"01,""5646c""",1900-01-01
 CZ0424125,Lampetra planeri,"01,""5646d""",1900-01-01
 CZ0424125,Lampetra planeri,"15,""5645d""",2004-01-01
@@ -7911,7 +8109,7 @@ CZ0424125,Myotis bechsteinii,"96,""5644c""",2011-12-21
 CZ0424125,Myotis bechsteinii,"96,""5644d""",2011-12-21
 CZ0424125,Myotis myotis,"12,""5644d""",2020-08-16
 CZ0424125,Myotis myotis,"51,""5745d""",2000-01-01
-CZ0424125,Myotis myotis,5644a,2023-06-17
+CZ0424125,Myotis myotis,5644a,2025-06-25
 CZ0424125,Myotis myotis,5644b,2024-07-08
 CZ0424125,Myotis myotis,5644c,2023-06-17
 CZ0424125,Myotis myotis,5645a,2025-09-01
@@ -7940,9 +8138,9 @@ CZ0424125,Myotis myotis,"96,""5745c""",2012-06-21
 CZ0424125,Myotis myotis,"96,""5745d""",2012-06-21
 CZ0424125,Myotis sp.,"12,""5644b""",2023-07-07
 CZ0424125,Myotis sp.,5644a,2023-05-25
-CZ0424125,Myotis sp.,5644b,2023-08-14
-CZ0424125,Myotis sp.,5644c,2023-07-07
-CZ0424125,Myotis sp.,5645a,2024-01-20
+CZ0424125,Myotis sp.,5644b,2025-06-25
+CZ0424125,Myotis sp.,5644c,2025-06-25
+CZ0424125,Myotis sp.,5645a,2025-06-21
 CZ0424125,Myotis sp.,5645b,2024-06-24
 CZ0424125,Myotis sp.,5743b,2022-08-02
 CZ0424125,Myotis sp.,5745a,2024-06-22
@@ -8076,6 +8274,8 @@ CZ0424127,Barbastella barbastellus,"96,""5446b""",2011-12-21
 CZ0424127,Barbastella barbastellus,"96,""5446c""",2011-12-21
 CZ0424127,Barbastella barbastellus,"96,""5446d""",2011-12-21
 CZ0424127,Barbastella barbastellus,"99,""5348a""",2014-09-18
+CZ0424127,Canis lupus,"18,""5249c""",2025-03-29
+CZ0424127,Canis lupus,"18,""5249d""",2024-11-09
 CZ0424127,Canis lupus,5248d,2023-11-11
 CZ0424127,Canis lupus,5347c,2020-03-07
 CZ0424127,Canis lupus,5347d,2021-04-29
@@ -8083,6 +8283,9 @@ CZ0424127,Canis lupus,5348a,2020-03-03
 CZ0424127,Canis lupus,5348c,2017-04-11
 CZ0424127,Canis lupus,5446b,2018-04-13
 CZ0424127,Canis lupus,5446d,2023-11-29
+CZ0424127,Canis lupus,"57,""5446b""",2025-03-30
+CZ0424127,Canis lupus,"7,""5248d""",2024-11-05
+CZ0424127,Canis lupus,"88,""5249d""",2025-03-16
 CZ0424127,Carabus menetriesi pacholei,5249c,2023-06-01
 CZ0424127,Castor fiber,"8,""5249d""",2009-01-01
 CZ0424127,Cottus gobio,5446d,2015-09-01
@@ -8231,6 +8434,7 @@ CZ0424129,Barbastella barbastellus,5450b,2011-09-06
 CZ0424129,Cypripedium calceolus,5450b,2024-05-21
 CZ0424129,Euplagia quadripunctaria,5450b,2023-08-17
 CZ0424129,Euplagia quadripunctaria,5450d,2025-08-21
+CZ0424129,Chazara briseis,NA,1995-01-01
 CZ0424129,Lucanus cervus,5450b,2024-07-06
 CZ0424129,Lycaena dispar,5450b,2015-07-06
 CZ0424129,Myotis myotis,5450b,2011-07-16
@@ -8238,6 +8442,7 @@ CZ0424129,Myotis myotis,5450d,2015-10-24
 CZ0424129,Rhinolophus hipposideros,5450b,2011-06-22
 CZ0424129,Sanguisorba officinalis,5450d,2021-08-02
 CZ0424133,Sanguisorba officinalis,5451d,2022-09-22
+CZ0424134,Hipparchia semele,NA,1995-01-01
 CZ0424135,Sanguisorba officinalis,5552a,2021-06-20
 CZ0424138,Barbastella barbastellus,5550d,2023-08-24
 CZ0424138,Castor fiber,5550d,2021-01-23
@@ -8247,6 +8452,7 @@ CZ0424138,Myotis myotis,5550d,2023-08-24
 CZ0424138,Osmoderma barnabita,5550d,2018-10-26
 CZ0424138,Unio crassus,5550d,2016-08-12
 CZ0424139,Cucujus cinnaberinus,5551d,2015-05-13
+CZ0424139,Hipparchia semele,NA,1995-01-01
 CZ0424139,Sanguisorba officinalis,5551d,2005-06-08
 CZ0424140,Barbastella barbastellus,5550b,2023-08-24
 CZ0424140,Cucujus cinnaberinus,5550d,2011-11-23
@@ -8277,6 +8483,7 @@ CZ0424141,Blicca bjoerkna,5350c,2006-01-01
 CZ0424141,Blicca bjoerkna,5351a,2011-09-07
 CZ0424141,Bombina bombina,"19,""5350d""",2006-08-09
 CZ0424141,Bombina bombina,5350b,2009-04-30
+CZ0424141,Canis lupus,"03,""5350d""",2025-01-02
 CZ0424141,Canis lupus,5350c,2025-09-20
 CZ0424141,Canis lupus,5350d,2023-09-02
 CZ0424141,Castor fiber,"01,""5251a""",2020-03-01
@@ -8356,6 +8563,7 @@ CZ0424141,Euplagia quadripunctaria,5351a,2023-08-15
 CZ0424141,Euplagia quadripunctaria,5450a,2020-07-31
 CZ0424141,Euplagia quadripunctaria,5450b,2019-08-20
 CZ0424141,Euplagia quadripunctaria,5450c,2021-07-29
+CZ0424141,Chazara briseis,NA,1995-01-01
 CZ0424141,Leuciscus aspius,5251a,2025-08-21
 CZ0424141,Leuciscus aspius,5251c,2021-09-03
 CZ0424141,Leuciscus aspius,5350a,2020-10-31
@@ -8465,12 +8673,13 @@ CZ0424141,Unio crassus,5350b,2015-09-14
 CZ0424141,Unio crassus,5450d,2019-10-20
 CZ0510028,Barbastella barbastellus,5354b,2015-07-05
 CZ0510028,Euplagia quadripunctaria,5354b,2024-08-13
+CZ0510028,Hipparchia semele,NA,1995-01-01
 CZ0510028,Myotis myotis,5354b,2009-08-31
 CZ0510028,Ophiogomphus cecilia,5354b,2017-08-18
 CZ0510028,Trichomanes speciosum,5354b,2021-05-19
 CZ0510164,Myotis bechsteinii,5458c,2015-05-12
-CZ0510164,Myotis myotis,5458c,2015-05-12
-CZ0510164,Rhinolophus hipposideros,5458c,2024-12-13
+CZ0510164,Myotis myotis,5458c,2025-01-17
+CZ0510164,Rhinolophus hipposideros,5458c,2025-01-17
 CZ0510164,Scardinius erythrophthalmus,5458c,2024-08-01
 CZ0510191,Barbastella barbastellus,"05,""5357c""",2015-05-04
 CZ0510191,Barbastella barbastellus,"37,""5457a""",2023-06-21
@@ -8494,14 +8703,14 @@ CZ0510191,Myotis bechsteinii,"99,""5357c""",2005-01-01
 CZ0510191,Myotis emarginatus,5357c,2024-08-08
 CZ0510191,Myotis myotis,"05,""5357c""",2015-08-11
 CZ0510191,Myotis myotis,5357c,2025-09-12
-CZ0510191,Myotis myotis,5457a,2024-09-07
+CZ0510191,Myotis myotis,5457a,2025-01-16
 CZ0510191,Myotis myotis,"71,""5457a""",2023-09-03
 CZ0510191,Myotis sp.,5457a,2023-01-14
 CZ0510191,Phengaris nausithous,"09,""5357c""",2001-01-01
 CZ0510191,Phengaris nausithous,5357c,2025-07-19
 CZ0510191,Rhinolophus ferrumequinum,5357c,2023-01-14
 CZ0510191,Rhinolophus hipposideros,5357c,2025-08-21
-CZ0510191,Rhinolophus hipposideros,5457a,2024-01-11
+CZ0510191,Rhinolophus hipposideros,5457a,2025-01-17
 CZ0510191,Rhodeus amarus,"62,""5357c""",2004-01-01
 CZ0510191,Salmo trutta,5357c,2024-07-04
 CZ0510191,Salmo trutta,"62,""5357c""",2004-01-01
@@ -8519,10 +8728,14 @@ CZ0510400,Barbastella barbastellus,"96,""5157a""",2011-12-21
 CZ0510400,Barbastella barbastellus,"96,""5157b""",2011-12-21
 CZ0510400,Barbastella barbastellus,"96,""5157c""",2011-12-21
 CZ0510400,Barbastella barbastellus,"96,""5157d""",2011-12-21
+CZ0510400,Canis lupus,"11,""5156a""",2025-04-23
 CZ0510400,Canis lupus,5156a,2025-06-10
 CZ0510400,Canis lupus,5156b,2024-04-09
 CZ0510400,Canis lupus,5157a,2020-04-23
 CZ0510400,Canis lupus,5157b,2025-12-08
+CZ0510400,Canis lupus,"7,""5157a""",2025-03-15
+CZ0510400,Canis lupus,"72,""5156b""",2025-01-17
+CZ0510400,Canis lupus,"86,""5157b""",2025-03-15
 CZ0510400,Cottus gobio,"22,""5156a""",1950-01-01
 CZ0510400,Lampetra planeri,5156b,2014-09-26
 CZ0510400,Lampetra planeri,5157a,2014-09-26
@@ -8563,21 +8776,26 @@ CZ0510400,Salmo trutta,5157a,2014-09-26
 CZ0510400,Salmo trutta,5157b,2025-10-18
 CZ0510402,Canis lupus,5157d,2023-08-02
 CZ0510402,Canis lupus,5158c,2023-01-15
+CZ0510402,Hipparchia semele,NA,2004-08-12
 CZ0510402,Lampetra planeri,5157d,2014-09-26
 CZ0510402,Lutra lutra,5157d,2020-05-08
 CZ0510402,Lutra lutra,5158c,2022-10-28
 CZ0510402,Lynx lynx,5158c,2012-03-14
 CZ0510402,Salmo trutta,5157d,2014-09-26
 CZ0510402,Salmo trutta,5158c,2023-06-24
+CZ0510403,Hipparchia semele,NA,2004-08-12
 CZ0510405,Canis lupus,5158c,2025-06-26
 CZ0510405,Lutra lutra,5158c,2012-12-21
 CZ0510405,Salmo trutta,5158c,2004-01-01
 CZ0510405,Sanguisorba officinalis,5158c,2004-06-22
+CZ0510408,Hipparchia semele,NA,2004-08-12
 CZ0510412,Canis lupus,5157c,2025-12-18
+CZ0510412,Hipparchia semele,NA,2004-08-12
 CZ0510412,Lutra lutra,5157c,2018-02-21
 CZ0510415,Canis lupus,5157b,2021-03-02
 CZ0510415,Canis lupus,5158c,2025-08-13
 CZ0510415,Canis lupus,"7,""5158c""",2020-01-17
+CZ0510415,Hipparchia semele,NA,2004-08-12
 CZ0510415,Lampetra planeri,5157b,2014-10-04
 CZ0510415,Lutra lutra,"25,""5157b""",2006-11-26
 CZ0510415,Lutra lutra,5157b,2012-06-16
@@ -8606,6 +8824,8 @@ CZ0510509,Dicranum viride,5254a,2022-06-08
 CZ0510509,Euplagia quadripunctaria,5254a,2025-08-08
 CZ0510509,Myotis myotis,5254a,2022-07-26
 CZ0512100,Barbastella barbastellus,5452b,2020-09-12
+CZ0512100,Canis lupus,"31,""5452b""",2025-02-22
+CZ0512100,Canis lupus,"43,""5452d""",2025-03-04
 CZ0512100,Canis lupus,5452b,2023-01-22
 CZ0512100,Cucujus cinnaberinus,5452b,2022-04-22
 CZ0512100,Lutra lutra,"96,""5452a""",2007-01-01
@@ -8805,6 +9025,7 @@ CZ0513506,Euplagia quadripunctaria,"74,""5354c""",2007-05-01
 CZ0513506,Euplagia quadripunctaria,"99,""5354a""",2001-06-27
 CZ0513506,Graphoderus bilineatus,5354c,2022-09-25
 CZ0513506,Hamatocaulis vernicosus,"91,""5354c""",2001-01-01
+CZ0513506,Hipparchia semele,NA,1995-01-01
 CZ0513506,Lampetra planeri,5254d,2016-06-21
 CZ0513506,Lampetra planeri,5255c,2014-09-14
 CZ0513506,Lampetra planeri,5353b,2015-07-21
@@ -8939,15 +9160,15 @@ CZ0513509,Salmo trutta,5153d,2022-08-16
 CZ0513509,Salmo trutta,5154c,2022-08-17
 CZ0513509,Salmo trutta,5254a,2022-10-23
 CZ0513657,Lutra lutra,5157d,2014-12-18
-CZ0513657,Myotis myotis,5157d,2024-01-24
+CZ0513657,Myotis myotis,5157d,2025-02-03
 CZ0513658,Myotis myotis,5355b,2022-06-15
 CZ0513659,Myotis myotis,5453b,2018-06-08
 CZ0513659,Rhinolophus hipposideros,5453b,2014-06-20
-CZ0513662,Barbastella barbastellus,5254b,2024-01-23
+CZ0513662,Barbastella barbastellus,5254b,2025-02-10
 CZ0513662,Myotis emarginatus,5254b,2015-02-24
-CZ0513662,Myotis myotis,5254b,2022-01-23
+CZ0513662,Myotis myotis,5254b,2025-02-10
 CZ0513662,Myotis sp.,5254b,2015-02-24
-CZ0513662,Rhinolophus hipposideros,5254b,2024-06-23
+CZ0513662,Rhinolophus hipposideros,5254b,2025-06-27
 CZ0513663,Myotis emarginatus,5457c,2022-07-05
 CZ0513663,Myotis myotis,5457c,2020-07-11
 CZ0513663,Rhinolophus hipposideros,5457c,2022-07-05
@@ -8962,10 +9183,10 @@ CZ0514041,Barbastella barbastellus,5153d,2024-02-02
 CZ0514041,Canis lupus,5153d,2022-01-26
 CZ0514041,Myotis bechsteinii,5153d,2004-09-03
 CZ0514041,Myotis emarginatus,5153d,2020-09-04
-CZ0514041,Myotis myotis,5153d,2023-01-13
+CZ0514041,Myotis myotis,5153d,2025-01-31
 CZ0514041,Myotis sp.,5153d,2012-01-27
 CZ0514041,Ophiogomphus cecilia,5153d,2006-08-10
-CZ0514041,Rhinolophus hipposideros,5153d,2024-02-02
+CZ0514041,Rhinolophus hipposideros,5153d,2025-01-31
 CZ0514042,Abramis brama,5353d,2024-09-26
 CZ0514042,Abramis brama,5453b,2024-09-26
 CZ0514042,Aldrovanda vesiculosa,5454a,2024-07-25
@@ -8984,7 +9205,9 @@ CZ0514042,Bombina bombina,5353d,2005-05-11
 CZ0514042,Bombina bombina,"93,""5353d""",2003-04-27
 CZ0514042,Canis lupus,"01,""5354c""",2024-01-19
 CZ0514042,Canis lupus,"15,""5454a""",2016-01-01
-CZ0514042,Canis lupus,"33,""5354c""",2019-06-28
+CZ0514042,Canis lupus,"29,""5354d""",2025-03-03
+CZ0514042,Canis lupus,"33,""5354c""",2025-02-24
+CZ0514042,Canis lupus,"37,""5454a""",2025-03-10
 CZ0514042,Canis lupus,5353c,2018-09-06
 CZ0514042,Canis lupus,5353d,2026-01-14
 CZ0514042,Canis lupus,5354c,2025-01-14
@@ -8992,9 +9215,10 @@ CZ0514042,Canis lupus,5453b,2016-12-29
 CZ0514042,Canis lupus,5454a,2026-01-27
 CZ0514042,Canis lupus,"57,""5454a""",2024-01-19
 CZ0514042,Canis lupus,"73,""5454a""",2015-02-05
-CZ0514042,Canis lupus,"75,""5454b""",2019-06-12
+CZ0514042,Canis lupus,"75,""5454b""",2025-04-08
 CZ0514042,Canis lupus,"79,""5353d""",2025-01-14
 CZ0514042,Castor fiber,5353d,2022-01-24
+CZ0514042,Colias myrmidone,5454a,2026-03-21
 CZ0514042,Cottus gobio,5353c,2023-09-11
 CZ0514042,Cottus gobio,5353d,2023-10-11
 CZ0514042,Cottus gobio,5454a,2023-09-11
@@ -9011,6 +9235,7 @@ CZ0514042,Hamatocaulis vernicosus,5353d,2022-09-27
 CZ0514042,Hamatocaulis vernicosus,5454a,2019-11-05
 CZ0514042,Hamatocaulis vernicosus,"78,""5353d""",2001-01-01
 CZ0514042,Hamatocaulis vernicosus,"84,""5353c""",2025-09-25
+CZ0514042,Hipparchia semele,NA,1995-01-01
 CZ0514042,Lemna trisulca,5353b,2002-06-01
 CZ0514042,Lemna trisulca,5353c,2020-08-02
 CZ0514042,Lemna trisulca,5353d,2022-09-15
@@ -9210,7 +9435,7 @@ CZ0514113,Phengaris nausithous,"23,""5457c""",2009-07-22
 CZ0514113,Phengaris nausithous,5457c,2022-07-23
 CZ0514113,Phengaris teleius,5457c,2022-07-23
 CZ0514113,Rhinolophus hipposideros,5457a,2021-01-07
-CZ0514113,Rhinolophus hipposideros,5457c,2024-07-18
+CZ0514113,Rhinolophus hipposideros,5457c,2025-07-10
 CZ0514113,Rhinolophus hipposideros,"72,""5457c""",2007-07-01
 CZ0514113,Rhinolophus hipposideros,"99,""5457c""",2015-05-02
 CZ0514113,Sanguisorba officinalis,5456d,2021-08-26
@@ -9235,8 +9460,8 @@ CZ0514243,Rhinolophus hipposideros,5454c,2025-08-27
 CZ0514243,Rosalia alpina,5454c,2025-07-15
 CZ0514667,Barbastella barbastellus,5255a,2005-12-30
 CZ0514667,Myotis emarginatus,5255a,2024-02-01
-CZ0514667,Myotis myotis,5255a,2024-02-01
-CZ0514667,Rhinolophus hipposideros,5255a,2024-02-01
+CZ0514667,Myotis myotis,5255a,2025-02-05
+CZ0514667,Rhinolophus hipposideros,5255a,2025-02-05
 CZ0514668,Barbastella barbastellus,5256c,2019-08-09
 CZ0514668,Lycaena dispar,"59,""5256c""",2009-07-04
 CZ0514668,Myotis bechsteinii,5255d,2019-08-22
@@ -9248,7 +9473,7 @@ CZ0514668,Myotis myotis,5255d,2019-08-22
 CZ0514668,Myotis myotis,5256c,2019-08-30
 CZ0514668,Myotis sp.,5256c,2021-02-14
 CZ0514668,Rhinolophus hipposideros,5255d,2019-08-22
-CZ0514668,Rhinolophus hipposideros,5256c,2023-01-01
+CZ0514668,Rhinolophus hipposideros,5256c,2025-01-01
 CZ0514669,Abramis brama,5454a,2022-01-06
 CZ0514669,Ameiurus nebulosus,5454a,2022-01-06
 CZ0514669,Leucorrhinia pectoralis,"35,""5454a""",2003-07-05
@@ -9422,7 +9647,7 @@ CZ0520511,Sanguisorba officinalis,5462c,2015-07-17
 CZ0520511,Sanguisorba officinalis,"65,""5462a""",2013-06-07
 CZ0520511,Sanguisorba officinalis,"78,""5462a""",2010-03-01
 CZ0520518,Barbastella barbastellus,5463d,2022-12-17
-CZ0520518,Canis lupus,"41,""5463d""",2020-04-23
+CZ0520518,Canis lupus,"41,""5463d""",2025-01-26
 CZ0520518,Canis lupus,5463d,2021-02-19
 CZ0520518,Lynx lynx,5463d,2016-08-01
 CZ0520518,Lynx lynx,5464c,2021-02-08
@@ -9441,6 +9666,7 @@ CZ0520519,Abramis brama,5362d,2021-07-03
 CZ0520519,Barbastella barbastellus,5362d,2006-01-14
 CZ0520519,Barbastella barbastellus,5462b,2015-06-11
 CZ0520519,Barbastella barbastellus,"73,""5462b""",2013-08-18
+CZ0520519,Canis lupus,"18,""5362d""",2025-01-31
 CZ0520519,Canis lupus,"26,""5362d""",2017-01-01
 CZ0520519,Canis lupus,5362d,2025-03-03
 CZ0520519,Canis lupus,5462b,2025-07-25
@@ -9471,6 +9697,7 @@ CZ0520519,Sanguisorba officinalis,5362d,2018-01-01
 CZ0520519,Sanguisorba officinalis,5462b,2020-07-14
 CZ0520519,Succisa pratensis,5362d,2003-09-22
 CZ0520600,Barbastella barbastellus,"4,""5664d""",2015-09-03
+CZ0520600,Canis lupus,"45,""5664d""",2025-03-23
 CZ0520600,Canis lupus,5664d,2026-01-18
 CZ0520600,Canis lupus,5764b,2021-12-05
 CZ0520600,Cottus gobio,5664d,2009-06-09
@@ -9549,9 +9776,10 @@ CZ0523007,Salmo trutta,5763a,2022-10-06
 CZ0523007,Salmo trutta,"63,""5763a""",2004-01-01
 CZ0523007,Sanguisorba officinalis,5763a,2007-10-05
 CZ0523009,Barbastella barbastellus,5863c,2016-01-27
-CZ0523009,Rhinolophus hipposideros,5863c,2024-01-30
+CZ0523009,Rhinolophus hipposideros,5863c,2025-02-25
 CZ0523010,Bombina bombina,5861a,2024-08-21
 CZ0523010,Epidalea calamita,5861a,2024-05-03
+CZ0523010,Hipparchia semele,NA,1995-01-01
 CZ0523010,Leucorrhinia pectoralis,5861a,2021-06-24
 CZ0523010,Lycaena dispar,5861a,2021-09-05
 CZ0523010,Myotis myotis,5861a,2020-06-12
@@ -9592,6 +9820,7 @@ CZ0523265,Sanguisorba officinalis,5559d,2025-04-04
 CZ0523265,Triturus cristatus,5559d,2025-07-14
 CZ0523266,Ameiurus nebulosus,5860b,2025-07-23
 CZ0523266,Ameiurus nebulosus,5861a,2025-07-23
+CZ0523266,Hipparchia semele,NA,1995-01-01
 CZ0523266,Lemna trisulca,5861a,2008-09-26
 CZ0523266,Myotis myotis,5860b,2015-05-08
 CZ0523266,Sanguisorba officinalis,"09,""5861a""",2017-05-17
@@ -9793,6 +10022,7 @@ CZ0523282,Bombina bombina,"51,""5557d""",2025-05-31
 CZ0523282,Bombina bombina,5557d,2022-07-20
 CZ0523282,Triturus cristatus,5557d,2001-05-01
 CZ0523283,Cucujus cinnaberinus,5858a,2023-03-14
+CZ0523283,Euphydryas maturna,NA,2007-06-09
 CZ0523283,Lucanus cervus,5858a,2015-06-12
 CZ0523283,Lucanus cervus,5858b,2023-07-03
 CZ0523283,Lucanus cervus,5858d,2009-06-20
@@ -9832,33 +10062,36 @@ CZ0523291,Phengaris nausithous,"96,""5763d""",2010-05-28
 CZ0523291,Phengaris teleius,5763d,2022-07-29
 CZ0523291,Sanguisorba officinalis,"57,""5763d""",2010-05-23
 CZ0523291,Sanguisorba officinalis,5763d,2025-08-21
+CZ0523293,Euphydryas maturna,NA,2007-06-09
 CZ0523293,Lucanus cervus,5858a,2019-06-12
 CZ0523293,Lucanus cervus,5858c,2023-06-21
 CZ0523293,Lucanus cervus,"78,""5858c""",2012-06-07
 CZ0523669,Barbastella barbastellus,5560b,2017-12-29
 CZ0523669,Rhinolophus hipposideros,5560b,2017-12-29
-CZ0523675,Myotis emarginatus,5658a,2024-07-06
-CZ0523675,Myotis myotis,5658a,2024-07-06
-CZ0523675,Rhinolophus hipposideros,5658a,2024-07-06
+CZ0523675,Myotis emarginatus,5658a,2025-06-08
+CZ0523675,Myotis myotis,5658a,2025-06-18
+CZ0523675,Rhinolophus hipposideros,5658a,2025-06-08
 CZ0523676,Barbastella barbastellus,5661d,2026-03-09
 CZ0523676,Myotis emarginatus,5661d,2026-02-13
 CZ0523676,Myotis myotis,5661d,2026-03-09
-CZ0523676,Rhinolophus hipposideros,5661d,2026-03-09
+CZ0523676,Myotis sp.,5661d,2026-03-16
+CZ0523676,Rhinolophus hipposideros,5661d,2026-03-16
 CZ0523676,Triturus cristatus,5661d,2024-02-10
-CZ0523677,Barbastella barbastellus,5556b,2024-01-10
+CZ0523677,Barbastella barbastellus,5556b,2025-01-16
 CZ0523677,Myotis bechsteinii,5556b,2012-01-09
-CZ0523677,Myotis emarginatus,5556b,2024-06-14
-CZ0523677,Myotis myotis,5556b,2024-06-14
-CZ0523677,Rhinolophus hipposideros,5556b,2024-06-14
+CZ0523677,Myotis emarginatus,5556b,2025-06-08
+CZ0523677,Myotis myotis,5556b,2025-06-08
+CZ0523677,Myotis sp.,5556b,2025-01-16
+CZ0523677,Rhinolophus hipposideros,5556b,2025-06-08
 CZ0523680,Barbastella barbastellus,5563c,2016-01-09
 CZ0523680,Myotis bechsteinii,5563c,2018-01-06
 CZ0523680,Myotis emarginatus,5563c,2026-01-09
 CZ0523680,Myotis myotis,5563c,2026-01-09
 CZ0523680,Rhinolophus hipposideros,5563c,2026-01-09
 CZ0523682,Barbastella barbastellus,5657a,2017-01-12
-CZ0523682,Myotis emarginatus,5657a,2024-06-24
+CZ0523682,Myotis emarginatus,5657a,2025-06-08
 CZ0523682,Myotis myotis,5657a,2013-07-06
-CZ0523682,Rhinolophus hipposideros,5657a,2024-06-14
+CZ0523682,Rhinolophus hipposideros,5657a,2025-06-08
 CZ0523683,Barbastella barbastellus,5663d,2020-01-10
 CZ0523683,Myotis bechsteinii,5663d,2018-01-05
 CZ0523683,Myotis emarginatus,5663d,2020-01-10
@@ -9872,6 +10105,7 @@ CZ0523823,Lampetra planeri,5460a,1900-01-01
 CZ0523823,Lutra lutra,5460a,2025-07-15
 CZ0523823,Salmo trutta,5460a,1900-01-01
 CZ0523823,Salmo trutta,5460b,2012-07-23
+CZ0523824,Hipparchia semele,NA,1995-01-01
 CZ0523824,Leucorrhinia pectoralis,5861b,2021-07-27
 CZ0524044,Austropotamobius torrentium,5360c,2016-10-22
 CZ0524044,Austropotamobius torrentium,5460a,2024-09-21
@@ -10031,6 +10265,7 @@ CZ0524044,Campanula bohemica,"99,""5259d""",2009-01-01
 CZ0524044,Campanula bohemica,"99,""5260c""",2024-07-06
 CZ0524044,Campanula bohemica,"99,""5360a""",2001-01-01
 CZ0524044,Canis lupus,"06,""5258a""",2018-09-16
+CZ0524044,Canis lupus,"4,""5260d""",2025-02-27
 CZ0524044,Canis lupus,5158d,2025-07-08
 CZ0524044,Canis lupus,5258a,2020-03-28
 CZ0524044,Canis lupus,5258b,2025-06-29
@@ -10215,16 +10450,16 @@ CZ0524044,Myotis myotis,"05,""5258d""",1987-01-01
 CZ0524044,Myotis myotis,"15,""5259d""",2000-01-01
 CZ0524044,Myotis myotis,"32,""5358b""",2000-01-01
 CZ0524044,Myotis myotis,5258b,2009-07-31
-CZ0524044,Myotis myotis,5258c,2024-06-30
+CZ0524044,Myotis myotis,5258c,2025-06-29
 CZ0524044,Myotis myotis,5258d,2004-01-28
 CZ0524044,Myotis myotis,5259d,2000-01-06
 CZ0524044,Myotis myotis,5358b,2018-03-06
-CZ0524044,Myotis myotis,5359a,2024-06-30
+CZ0524044,Myotis myotis,5359a,2025-06-29
 CZ0524044,Myotis myotis,5359b,2018-02-06
-CZ0524044,Myotis myotis,5360b,2024-07-06
+CZ0524044,Myotis myotis,5360b,2025-07-13
 CZ0524044,Myotis myotis,5360d,2023-07-16
 CZ0524044,Myotis myotis,5361a,2018-02-22
-CZ0524044,Myotis myotis,5460a,2024-06-17
+CZ0524044,Myotis myotis,5460a,2025-06-18
 CZ0524044,Myotis myotis,"94,""5361a""",1972-01-01
 CZ0524044,Myotis myotis,"96,""5258a""",2012-06-21
 CZ0524044,Myotis myotis,"96,""5258b""",2012-06-21
@@ -10273,17 +10508,17 @@ CZ0524044,Phengaris nausithous,5259c,2023-07-20
 CZ0524044,Phengaris nausithous,5259d,2021-08-13
 CZ0524044,Phengaris nausithous,5261c,2021-08-11
 CZ0524044,Phengaris nausithous,5358b,2025-08-08
-CZ0524044,Phengaris nausithous,5358d,2022-07-28
+CZ0524044,Phengaris nausithous,5358d,2025-08-14
 CZ0524044,Phengaris nausithous,5359a,2023-08-12
-CZ0524044,Phengaris nausithous,5359b,2025-07-27
+CZ0524044,Phengaris nausithous,5359b,2025-08-14
 CZ0524044,Phengaris nausithous,5359c,2023-07-19
 CZ0524044,Phengaris nausithous,5359d,2024-07-31
 CZ0524044,Phengaris nausithous,5360a,2021-07-29
 CZ0524044,Phengaris nausithous,5360b,2021-07-29
-CZ0524044,Phengaris nausithous,5360c,2024-08-05
+CZ0524044,Phengaris nausithous,5360c,2025-08-14
 CZ0524044,Phengaris nausithous,5360d,2025-07-28
 CZ0524044,Phengaris nausithous,5361a,2021-08-10
-CZ0524044,Phengaris nausithous,5361c,2025-07-29
+CZ0524044,Phengaris nausithous,5361c,2025-08-11
 CZ0524044,Phengaris nausithous,5460b,2025-07-28
 CZ0524044,Phengaris nausithous,"8,""5361a""",1995-01-01
 CZ0524044,Phengaris nausithous,"96,""5358a""",2006-07-25
@@ -10519,7 +10754,7 @@ CZ0524044,Succisa pratensis,5360d,2006-01-01
 CZ0524045,Bombina bombina,5762a,2025-06-27
 CZ0524045,Bombina bombina,"65,""5762a""",2012-01-01
 CZ0524045,Bombina bombina,"8,""5762a""",2022-07-03
-CZ0524045,Castor fiber,5762a,2025-03-22
+CZ0524045,Castor fiber,5762a,2026-03-19
 CZ0524045,Hamatocaulis vernicosus,"86,""5762a""",2001-01-01
 CZ0524045,Lutra lutra,5762a,2025-03-22
 CZ0524045,Lycaena dispar,"86,""5762a""",2010-08-20
@@ -10554,6 +10789,7 @@ CZ0524046,Succisa pratensis,"99,""5664c""",2005-06-03
 CZ0524047,Barbastella barbastellus,5663a,2001-01-01
 CZ0524047,Buxbaumia viridis,5663a,2024-11-09
 CZ0524047,Buxbaumia viridis,"79,""5663a""",2001-04-21
+CZ0524047,Canis lupus,"27,""5663a""",2025-01-01
 CZ0524047,Canis lupus,5663a,2025-01-24
 CZ0524047,Cottus gobio,5663a,2015-09-16
 CZ0524047,Cucujus cinnaberinus,5663a,2021-01-22
@@ -10631,6 +10867,7 @@ CZ0524049,Cucujus cinnaberinus,5860d,2017-07-18
 CZ0524049,Cucujus cinnaberinus,5960b,2019-03-14
 CZ0524049,Cucujus cinnaberinus,5963c,2007-06-27
 CZ0524049,Epidalea calamita,5862c,2019-01-01
+CZ0524049,Hipparchia semele,NA,1995-01-01
 CZ0524049,Lampetra planeri,"43,""5862a""",2004-01-01
 CZ0524049,Lampetra planeri,"55,""5862d""",2004-01-01
 CZ0524049,Lampetra planeri,5761c,2008-06-03
@@ -10742,7 +10979,7 @@ CZ0524049,Sanguisorba officinalis,5861b,2021-05-07
 CZ0524049,Sanguisorba officinalis,5862a,2012-08-14
 CZ0524049,Sanguisorba officinalis,5862c,2022-09-22
 CZ0524049,Sanguisorba officinalis,5862d,2022-09-06
-CZ0524049,Sanguisorba officinalis,5863c,2022-07-02
+CZ0524049,Sanguisorba officinalis,5863c,2025-03-12
 CZ0524049,Sanguisorba officinalis,5960b,2022-06-24
 CZ0524049,Sanguisorba officinalis,5962b,2024-06-07
 CZ0524049,Sanguisorba officinalis,5963c,2024-06-03
@@ -10793,15 +11030,16 @@ CZ0530020,Euplagia quadripunctaria,6265a,2007-07-18
 CZ0530020,Myotis bechsteinii,6265c,2022-02-11
 CZ0530020,Myotis emarginatus,6265c,2016-02-26
 CZ0530020,Myotis myotis,"18,""6265d""",2022-09-09
-CZ0530020,Myotis myotis,6265c,2022-02-11
+CZ0530020,Myotis myotis,6265c,2025-02-03
 CZ0530020,Myotis sp.,6265c,2024-02-02
 CZ0530020,Rhinolophus hipposideros,"18,""6265d""",2022-02-25
-CZ0530020,Rhinolophus hipposideros,6265c,2024-02-02
+CZ0530020,Rhinolophus hipposideros,6265c,2025-02-03
 CZ0530020,Rhinolophus hipposideros,"65,""6265d""",2002-01-01
 CZ0530020,Sanguisorba officinalis,6365b,2016-08-23
 CZ0530021,Bombina bombina,"15,""5861d""",2019-06-08
 CZ0530021,Bombina bombina,"19,""5861d""",2025-05-03
 CZ0530021,Bombina bombina,5961b,2025-05-03
+CZ0530021,Hipparchia semele,NA,1995-01-01
 CZ0530021,Lutra lutra,5961b,2023-04-30
 CZ0530021,Lycaena dispar,"07,""5961b""",2023-08-04
 CZ0530021,Lycaena dispar,"57,""5961b""",2008-07-31
@@ -10861,6 +11099,7 @@ CZ0530034,Salmo trutta,6065d,2013-09-23
 CZ0530034,Sanguisorba officinalis,6065b,2005-09-15
 CZ0530034,Sanguisorba officinalis,6065d,2013-09-18
 CZ0530034,Scardinius erythrophthalmus,"21,""6065b""",2004-01-01
+CZ0530064,Hipparchia semele,NA,1995-01-01
 CZ0530064,Ophiogomphus cecilia,5861b,2019-08-03
 CZ0530064,Phengaris nausithous,5861b,2023-08-04
 CZ0530064,Phengaris teleius,5861b,2024-04-01
@@ -10875,6 +11114,8 @@ CZ0530146,Barbastella barbastellus,"96,""5867b""",2011-12-21
 CZ0530146,Barbastella barbastellus,"96,""5867c""",2011-12-21
 CZ0530146,Barbastella barbastellus,"96,""5867d""",2011-12-21
 CZ0530146,Buxbaumia viridis,5867a,2022-10-19
+CZ0530146,Canis lupus,"26,""5866b""",2024-06-08
+CZ0530146,Canis lupus,"49,""5867a""",2025-04-13
 CZ0530146,Canis lupus,5866b,2025-11-08
 CZ0530146,Canis lupus,5867a,2024-03-24
 CZ0530146,Canis lupus,5867c,2025-04-26
@@ -10977,6 +11218,7 @@ CZ0532132,Cypripedium calceolus,"81,""6162a""",2000-01-01
 CZ0532132,Cypripedium calceolus,"98,""6062c""",2001-08-01
 CZ0532132,Cypripedium calceolus,"99,""6062c""",2021-05-26
 CZ0532132,Dianthus lumnitzeri,6162a,2020-05-14
+CZ0532132,Gentianella amarella,NA,2001-01-01
 CZ0532132,Sanguisorba officinalis,6162a,2021-05-14
 CZ0533002,Bombina bombina,6161a,2025-07-05
 CZ0533002,Sanguisorba officinalis,6161a,2011-05-04
@@ -10999,6 +11241,7 @@ CZ0533296,Bombina bombina,6160b,2025-05-28
 CZ0533296,Leucorrhinia pectoralis,6160b,2020-06-26
 CZ0533296,Triturus cristatus,6160b,2021-07-12
 CZ0533297,Cucujus cinnaberinus,5861d,2015-07-23
+CZ0533297,Hipparchia semele,NA,1995-01-01
 CZ0533297,Osmoderma barnabita,5861d,2015-07-23
 CZ0533300,Barbastella barbastellus,6059d,2008-01-30
 CZ0533300,Barbastella barbastellus,6060c,2026-01-15
@@ -11123,14 +11366,14 @@ CZ0533308,Phengaris nausithous,"58,""5960a""",2005-07-17
 CZ0533308,Phengaris nausithous,5860c,2013-07-28
 CZ0533308,Phengaris nausithous,5960a,2021-08-15
 CZ0533308,Phengaris nausithous,"96,""5960a""",2004-07-25
-CZ0533308,Rhodeus amarus,5960a,2016-11-01
+CZ0533308,Rhodeus amarus,5960a,2026-03-20
 CZ0533308,Sanguisorba officinalis,"49,""5959b""",2019-04-07
 CZ0533308,Sanguisorba officinalis,"5,""5960a""",2019-04-07
 CZ0533308,Sanguisorba officinalis,"58,""5960a""",2005-01-01
 CZ0533308,Sanguisorba officinalis,5959b,2000-01-01
 CZ0533308,Sanguisorba officinalis,5960a,2024-08-28
 CZ0533308,Scardinius erythrophthalmus,5959b,2020-11-29
-CZ0533308,Scardinius erythrophthalmus,5960a,2025-09-03
+CZ0533308,Scardinius erythrophthalmus,5960a,2026-03-20
 CZ0533308,Succisa pratensis,"58,""5960a""",2005-01-01
 CZ0533308,Succisa pratensis,5960a,2021-08-28
 CZ0533309,Cucujus cinnaberinus,5960d,2022-07-22
@@ -11205,13 +11448,13 @@ CZ0533686,Myotis bechsteinii,5966a,2020-02-29
 CZ0533686,Myotis emarginatus,5966a,2022-02-26
 CZ0533686,Myotis myotis,5966a,2022-02-26
 CZ0533687,Myotis emarginatus,6062c,2024-01-13
-CZ0533687,Myotis myotis,6062c,2024-01-13
+CZ0533687,Myotis myotis,6062c,2025-01-03
 CZ0533687,Myotis sp.,6062c,2016-02-11
-CZ0533687,Rhinolophus hipposideros,6062c,2024-01-13
+CZ0533687,Rhinolophus hipposideros,6062c,2025-01-03
 CZ0533688,Myotis bechsteinii,6163c,2021-02-04
-CZ0533688,Myotis emarginatus,6163c,2024-01-23
-CZ0533688,Myotis myotis,6163c,2023-01-25
-CZ0533688,Rhinolophus hipposideros,6163c,2024-01-23
+CZ0533688,Myotis emarginatus,6163c,2025-01-18
+CZ0533688,Myotis myotis,6163c,2025-01-18
+CZ0533688,Rhinolophus hipposideros,6163c,2025-01-18
 CZ0533691,Barbastella barbastellus,6159c,2022-01-21
 CZ0533691,Myotis myotis,6159c,2015-02-11
 CZ0533693,Myotis bechsteinii,6159b,2022-02-06
@@ -11262,7 +11505,7 @@ CZ0533698,Sanguisorba officinalis,"35,""5958b""",2014-05-19
 CZ0533698,Sanguisorba officinalis,5958b,2023-06-05
 CZ0533698,Sanguisorba officinalis,5958d,2023-06-05
 CZ0533698,Scardinius erythrophthalmus,5958d,2004-01-01
-CZ0533702,Hamatocaulis vernicosus,6261d,2023-09-28
+CZ0533702,Hamatocaulis vernicosus,6261d,2025-11-08
 CZ0533702,Phengaris nausithous,6261d,2019-07-15
 CZ0533702,Phengaris teleius,6261d,2019-07-15
 CZ0533702,Sanguisorba officinalis,6261d,2022-06-03
@@ -11415,6 +11658,7 @@ CZ0610145,Succisa pratensis,6258a,2015-06-09
 CZ0610159,Barbastella barbastellus,6659c,2013-08-02
 CZ0610159,Cucujus cinnaberinus,6659c,2022-05-07
 CZ0610159,Dicranum viride,6659c,2023-11-19
+CZ0610159,Hipparchia semele,NA,2004-07-01
 CZ0610159,Myotis bechsteinii,6659c,2015-05-22
 CZ0610159,Osmoderma barnabita,6659c,2022-07-22
 CZ0610170,Abramis brama,6757d,2021-08-09
@@ -11437,10 +11681,10 @@ CZ0610179,Lutra lutra,6961b,2013-02-01
 CZ0610179,Lycaena dispar,6961b,2022-08-19
 CZ0610179,Myotis bechsteinii,6961b,2016-02-05
 CZ0610179,Myotis emarginatus,6961b,2011-07-14
-CZ0610179,Myotis myotis,6961b,2023-02-04
+CZ0610179,Myotis myotis,6961b,2025-01-29
 CZ0610179,Myotis myotis,6961d,2011-07-14
 CZ0610179,Osmoderma barnabita,6961b,2021-07-05
-CZ0610179,Rhinolophus hipposideros,6961b,2023-02-04
+CZ0610179,Rhinolophus hipposideros,6961b,2025-01-29
 CZ0610179,Sanguisorba officinalis,6961b,2025-08-20
 CZ0610179,Sanguisorba officinalis,6961d,2025-08-18
 CZ0610179,Sanguisorba officinalis,"75,""6961b""",2011-03-24
@@ -11454,6 +11698,7 @@ CZ0610412,Myotis myotis,6360b,2013-09-22
 CZ0610412,Rumex sp.,6360b,2023-08-17
 CZ0610512,Abramis brama,6659a,2004-01-01
 CZ0610512,Bombina bombina,6659a,2024-06-05
+CZ0610512,Hipparchia semele,NA,2004-07-01
 CZ0610512,Leuciscus aspius,6659a,2004-01-01
 CZ0610512,Scardinius erythrophthalmus,6659a,2004-01-01
 CZ0610512,Unio crassus,6659a,2022-07-27
@@ -11584,6 +11829,7 @@ CZ0613005,Scardinius erythrophthalmus,6456b,2021-08-13
 CZ0613005,Unio crassus,"15,""6456b""",2006-09-01
 CZ0613005,Unio crassus,6456b,2012-09-15
 CZ0613005,Unio crassus,6457a,2023-10-28
+CZ0613009,Gentianella amarella,NA,2008-09-23
 CZ0613009,Phengaris nausithous,6362d,2021-07-15
 CZ0613009,Salmo trutta,6362d,2021-04-21
 CZ0613009,Sanguisorba officinalis,6362d,2022-09-13
@@ -11756,7 +12002,7 @@ CZ0613334,Lutra lutra,6556a,2018-09-05
 CZ0613334,Misgurnus fossilis,"55,""6456d""",2004-01-01
 CZ0613334,Myotis bechsteinii,6457c,2020-01-30
 CZ0613334,Myotis sp.,6456d,2024-02-08
-CZ0613334,Myotis sp.,6457c,2023-02-17
+CZ0613334,Myotis sp.,6457c,2025-01-19
 CZ0613334,Ophiogomphus cecilia,6456d,2020-07-15
 CZ0613334,Ophiogomphus cecilia,6556a,2020-07-15
 CZ0613334,Salmo trutta,"55,""6456d""",2004-01-01
@@ -11912,7 +12158,7 @@ CZ0614059,Buxbaumia viridis,6361a,2024-09-29
 CZ0614059,Castor fiber,6361a,2019-04-07
 CZ0614059,Cottus gobio,6361a,2015-09-17
 CZ0614059,Gentianella praecox subsp. bohemica,6361a,2023-09-11
-CZ0614059,Hamatocaulis vernicosus,6361a,2022-09-21
+CZ0614059,Hamatocaulis vernicosus,6361a,2025-11-08
 CZ0614059,Myotis bechsteinii,6361a,2020-09-03
 CZ0614059,Myotis emarginatus,6361a,2020-09-03
 CZ0614059,Myotis myotis,6361a,2020-09-03
@@ -12139,9 +12385,12 @@ CZ0620002,Lycaena dispar,6867d,2018-06-12
 CZ0620002,Lycaena dispar,"69,""6867b""",2009-05-01
 CZ0620002,Pulsatilla grandis,6867b,2024-03-21
 CZ0620002,Pulsatilla grandis,"69,""6867b""",2009-04-15
+CZ0620003,Eriogaster catax,NA,2006-10-09
 CZ0620003,Pulsatilla grandis,7162d,2023-03-29
 CZ0620004,Cucujus cinnaberinus,7161d,2020-03-28
+CZ0620004,Eriogaster catax,NA,2007-04-05
 CZ0620004,Euplagia quadripunctaria,7161d,2009-07-17
+CZ0620004,Hipparchia semele,NA,1995-01-01
 CZ0620004,Lucanus cervus,7161d,2017-04-06
 CZ0620004,Pulsatilla grandis,7161d,2025-05-29
 CZ0620005,Crambe tataria,"24,""7066c""",2003-06-25
@@ -12154,6 +12403,7 @@ CZ0620005,Lycaena dispar,7066c,2017-06-14
 CZ0620006,Eriogaster catax,7266c,2025-04-23
 CZ0620006,Pulsatilla grandis,7266c,2024-03-15
 CZ0620007,Bombina bombina,7162d,2010-01-01
+CZ0620007,Eriogaster catax,NA,2006-10-09
 CZ0620007,Pulsatilla grandis,7162d,2022-03-29
 CZ0620009,Abramis brama,7266a,2015-11-17
 CZ0620009,Abramis brama,7266b,2015-10-27
@@ -12168,6 +12418,7 @@ CZ0620009,Cerambyx cerdo,7266b,2024-04-15
 CZ0620009,Coenagrion ornatum,7266a,2014-06-27
 CZ0620009,Eriogaster catax,"01,""7266a""",2023-04-19
 CZ0620009,Eriogaster catax,7266a,2023-05-10
+CZ0620009,Eriogaster catax,NA,2004-01-01
 CZ0620009,Lemna trisulca,7266b,2001-08-28
 CZ0620009,Leuciscus aspius,7266a,2015-11-17
 CZ0620009,Leuciscus aspius,7266b,2015-10-27
@@ -12210,6 +12461,7 @@ CZ0620020,Triturus cristatus s. l.,7161d,2015-08-04
 CZ0620024,Bombina bombina,7069d,2016-06-25
 CZ0620024,Cerambyx cerdo,7069c,2023-06-26
 CZ0620024,Euplagia quadripunctaria,7069c,2025-08-14
+CZ0620024,Hipparchia semele,NA,1995-01-01
 CZ0620024,Lemna trisulca,7069c,2003-04-01
 CZ0620024,Lucanus cervus,7069c,2023-06-26
 CZ0620024,Lucanus cervus,7069d,2024-06-20
@@ -12224,10 +12476,12 @@ CZ0620037,Pulsatilla grandis,6766d,2025-03-21
 CZ0620037,Triturus cristatus,"21,""6766d""",2003-03-15
 CZ0620048,Eriogaster catax,"01,""7266a""",2024-04-12
 CZ0620048,Eriogaster catax,7266a,2025-10-14
+CZ0620048,Eriogaster catax,NA,2004-01-01
 CZ0620048,Euplagia quadripunctaria,7266a,2024-07-14
 CZ0620048,Chamaecytisus sp.,7266a,2009-08-15
 CZ0620048,Lucanus cervus,7266a,2025-06-24
 CZ0620048,Lycaena dispar,7266a,2009-05-09
+CZ0620049,Eriogaster catax,NA,2004-01-01
 CZ0620049,Pulsatilla grandis,7266a,2025-04-27
 CZ0620051,Pulsatilla grandis,6866a,2024-03-24
 CZ0620055,Cerambyx cerdo,7067c,2020-06-21
@@ -12235,7 +12489,9 @@ CZ0620055,Lucanus cervus,"95,""7067c""",2019-06-13
 CZ0620056,Pulsatilla grandis,7062d,2023-03-29
 CZ0620073,Cerambyx cerdo,7069b,2013-07-19
 CZ0620073,Euplagia quadripunctaria,7069b,2021-08-12
+CZ0620073,Hipparchia semele,NA,1995-01-01
 CZ0620078,Castor fiber,7069a,2023-02-28
+CZ0620078,Hipparchia semele,NA,1995-01-01
 CZ0620078,Lemna trisulca,7069a,2024-04-26
 CZ0620078,Sanguisorba officinalis,"3,""7069a""",2012-01-01
 CZ0620078,Sanguisorba officinalis,"49,""7069a""",2024-04-26
@@ -12253,6 +12509,7 @@ CZ0620084,Cerambyx cerdo,7065b,2016-05-11
 CZ0620084,Cerambyx cerdo,7065d,2015-11-10
 CZ0620084,Cucujus cinnaberinus,7065d,2025-03-06
 CZ0620084,Emys orbicularis,7065b,2010-01-01
+CZ0620084,Hipparchia semele,NA,1995-01-01
 CZ0620084,Lemna trisulca,"04,""7065d""",2015-01-01
 CZ0620084,Lemna trisulca,7065d,2020-05-27
 CZ0620084,Lucanus cervus,7065b,2010-01-01
@@ -12266,6 +12523,7 @@ CZ0620084,Triturus dobrogicus,7065d,2018-06-17
 CZ0620101,Barbastella barbastellus,7062b,2019-07-10
 CZ0620101,Lucanus cervus,7062b,2019-09-29
 CZ0620101,Myotis bechsteinii,7062b,2019-07-02
+CZ0620103,Hipparchia semele,NA,2003-01-01
 CZ0620120,Cypripedium calceolus,6665c,2022-04-26
 CZ0620120,Pulsatilla grandis,6665c,2024-04-06
 CZ0620132,Dicranum viride,6564a,2023-10-25
@@ -12279,6 +12537,7 @@ CZ0620147,Lucanus cervus,7063d,2024-06-23
 CZ0620147,Lucanus cervus,"99,""7063d""",2015-06-05
 CZ0620147,Myotis myotis,"99,""7063d""",2005-04-21
 CZ0620147,Pulsatilla grandis,7063d,2025-03-20
+CZ0620154,Eriogaster catax,NA,2006-10-09
 CZ0620154,Euplagia quadripunctaria,7162d,2021-08-08
 CZ0620154,Lucanus cervus,7162d,2022-06-16
 CZ0620154,Lycaena dispar,7162d,2022-08-26
@@ -12348,6 +12607,7 @@ CZ0620245,Succisa pratensis,6666d,2009-04-28
 CZ0620245,Succisa pratensis,6767a,2009-04-28
 CZ0620245,Vertigo angustior,6767a,2014-09-18
 CZ0620414,Lycaena dispar,6564c,2023-07-12
+CZ0620415,Hipparchia semele,NA,2003-01-01
 CZ0620415,Lutra lutra,6968b,2016-03-30
 CZ0620416,Bombina bombina,7263a,2024-05-09
 CZ0620417,Lycaena dispar,7067d,2020-05-17
@@ -12362,6 +12622,7 @@ CZ0620419,Echium maculatum,"75,""6967d""",2020-03-01
 CZ0620419,Echium maculatum,"87,""6968c""",2001-06-01
 CZ0620419,Euplagia quadripunctaria,6967d,2023-09-08
 CZ0620419,Euplagia quadripunctaria,"96,""6968c""",2003-08-05
+CZ0620419,Hipparchia semele,NA,2003-01-01
 CZ0620419,Lycaena dispar,6968c,2013-08-03
 CZ0620419,Pulsatilla grandis,"1,""6967d""",2017-04-01
 CZ0620419,Pulsatilla grandis,"6,""6968c""",2000-01-01
@@ -12371,6 +12632,7 @@ CZ0620421,Bombina bombina,6967c,2011-06-15
 CZ0620421,Lucanus cervus,6967a,2025-07-03
 CZ0620421,Lucanus cervus,6967c,2014-05-20
 CZ0622007,Echium maculatum,7068d,2025-06-19
+CZ0622007,Eriogaster catax,NA,2005-01-01
 CZ0622007,Lucanus cervus,7068d,2019-06-18
 CZ0622007,Sanguisorba officinalis,7068d,2020-04-12
 CZ0622009,Crambe tataria,7067b,2022-05-27
@@ -12419,6 +12681,7 @@ CZ0622169,Pulsatilla grandis,7063a,2024-03-18
 CZ0622169,Pulsatilla grandis,7063b,2024-03-18
 CZ0622169,Pulsatilla grandis,"79,""7063b""",2003-04-23
 CZ0622170,Pulsatilla grandis,6664d,2024-03-14
+CZ0622172,Eriogaster catax,NA,2015-05-02
 CZ0622172,Pulsatilla grandis,7171a,2025-03-21
 CZ0622172,Sanguisorba officinalis,7171a,2020-09-06
 CZ0622173,Pulsatilla grandis,6765c,2026-02-26
@@ -12486,10 +12749,12 @@ CZ0623010,Lemna trisulca,7264a,2011-01-01
 CZ0623010,Lycaena dispar,7264a,2006-08-03
 CZ0623010,Misgurnus fossilis,7264a,2022-04-26
 CZ0623011,Bombina bombina,7162d,2024-08-01
+CZ0623011,Eriogaster catax,NA,2006-10-09
 CZ0623011,Triturus carnifex,7162d,2025-08-07
 CZ0623011,Triturus cristatus s. l.,7162d,2013-08-05
 CZ0623016,Myotis emarginatus,7166d,2015-01-15
-CZ0623016,Rhinolophus hipposideros,7166d,2024-01-11
+CZ0623016,Rhinolophus hipposideros,7166d,2025-01-16
+CZ0623018,Eriogaster catax,NA,2005-01-01
 CZ0623018,Spermophilus citellus,7068b,2025-06-25
 CZ0623018,Spermophilus citellus,"99,""7068b""",2001-08-23
 CZ0623019,Barbastella barbastellus,7063d,2015-08-25
@@ -12505,6 +12770,7 @@ CZ0623019,Pulsatilla grandis,7063d,2011-01-01
 CZ0623021,Anisus vorticulus,7068b,2025-11-16
 CZ0623021,Bombina bombina,7068b,2009-04-03
 CZ0623021,Castor fiber,7068b,2023-02-28
+CZ0623021,Eriogaster catax,NA,2005-01-01
 CZ0623021,Lemna trisulca,7068b,2009-01-01
 CZ0623021,Lutra lutra,7068b,2025-06-13
 CZ0623021,Sanguisorba officinalis,7068b,2014-06-04
@@ -12523,6 +12789,7 @@ CZ0623025,Osmoderma barnabita,"61,""6867a""",2003-01-01
 CZ0623025,Osmoderma barnabita,6867a,2020-10-04
 CZ0623025,Osmoderma barnabita,"99,""6867a""",2012-08-26
 CZ0623026,Eriogaster catax,7266a,2025-10-14
+CZ0623026,Eriogaster catax,NA,2004-01-01
 CZ0623027,Bombina bombina,7064b,2025-07-18
 CZ0623027,Bombina bombina,"99,""7064b""",2021-07-24
 CZ0623027,Cucujus cinnaberinus,7064b,2025-03-05
@@ -12537,6 +12804,7 @@ CZ0623030,Lycaena dispar,7262b,2011-05-25
 CZ0623031,Abramis brama,"73,""7070a""",2004-01-01
 CZ0623031,Blicca bjoerkna,"73,""7070a""",2004-01-01
 CZ0623031,Bombina bombina,7069b,2025-06-14
+CZ0623031,Hipparchia semele,NA,1995-01-01
 CZ0623031,Lemna trisulca,7069b,2009-01-01
 CZ0623031,Leuciscus aspius,"73,""7070a""",2004-01-01
 CZ0623031,Lycaena dispar,7069b,2013-06-09
@@ -12557,6 +12825,7 @@ CZ0623035,Euplagia quadripunctaria,7067d,2020-07-01
 CZ0623035,Klasea lycopifolia,7067d,2022-07-12
 CZ0623035,Klasea lycopifolia,"99,""7067d""",2009-04-16
 CZ0623035,Lucanus cervus,7067d,2022-06-11
+CZ0623040,Eriogaster catax,NA,2005-01-01
 CZ0623040,Lucanus cervus,7068c,2024-07-18
 CZ0623041,Abramis brama,7163a,2013-10-18
 CZ0623041,Cobitis elongatoides,7163a,2013-10-18
@@ -12646,6 +12915,7 @@ CZ0623348,Triturus cristatus,7061b,2024-08-17
 CZ0623348,Triturus cristatus s. l.,7061b,2021-07-28
 CZ0623349,Bombina variegata,7171a,2025-07-19
 CZ0623349,Eriogaster catax,7171a,2025-04-23
+CZ0623349,Eriogaster catax,NA,2024-10-11
 CZ0623349,Euplagia quadripunctaria,7171a,2008-01-01
 CZ0623349,Lycaena dispar,7171a,2008-06-01
 CZ0623349,Phengaris nausithous,7171a,2020-08-20
@@ -12658,6 +12928,7 @@ CZ0623354,Sanguisorba officinalis,6464d,2024-09-28
 CZ0623355,Castor fiber,6968a,2016-01-28
 CZ0623355,Euplagia quadripunctaria,6968a,2015-08-13
 CZ0623355,Euplagia quadripunctaria,"99,""6968a""",1985-01-01
+CZ0623355,Hipparchia semele,NA,2003-01-01
 CZ0623355,Lucanus cervus,6968a,2015-07-02
 CZ0623355,Myotis bechsteinii,6968a,2015-05-13
 CZ0623357,Bombina bombina,7161b,2024-04-07
@@ -12710,6 +12981,7 @@ CZ0623367,Triturus cristatus s. l.,7061b,2021-07-28
 CZ0623367,Triturus cristatus s. l.,7062a,2015-04-09
 CZ0623368,Abramis brama,7162a,2004-01-01
 CZ0623368,Bombina bombina,7162a,2024-05-14
+CZ0623368,Eriogaster catax,NA,2006-10-09
 CZ0623368,Scardinius erythrophthalmus,7162a,2004-01-01
 CZ0623368,Triturus carnifex,7162a,2024-06-26
 CZ0623368,Triturus cristatus s. l.,7162a,2007-08-04
@@ -12743,7 +13015,7 @@ CZ0623702,Myotis myotis,6466a,2005-06-14
 CZ0623703,Myotis myotis,6767b,2005-06-16
 CZ0623704,Myotis myotis,6565c,2001-01-01
 CZ0623704,Rhinolophus hipposideros,6565c,2001-06-14
-CZ0623707,Myotis myotis,7061b,2024-07-02
+CZ0623707,Myotis myotis,7061b,2025-07-03
 CZ0623707,Myotis sp.,7061b,2020-01-21
 CZ0623707,Rhinolophus hipposideros,7061b,2016-02-05
 CZ0623708,Barbastella barbastellus,7061b,1958-01-01
@@ -12753,17 +13025,18 @@ CZ0623709,Rhinolophus hipposideros,6465a,2005-06-17
 CZ0623710,Myotis emarginatus,6766a,1958-01-01
 CZ0623710,Myotis myotis,6766a,2021-06-07
 CZ0623710,Rhinolophus hipposideros,6766a,2021-06-07
-CZ0623711,Myotis myotis,7070d,2024-07-22
+CZ0623711,Myotis myotis,7070d,2025-07-11
 CZ0623713,Myotis myotis,6864a,2005-06-16
-CZ0623717,Myotis emarginatus,6962d,2024-07-24
+CZ0623717,Myotis emarginatus,6962d,2025-07-03
 CZ0623717,Myotis myotis,6962d,2021-07-09
 CZ0623717,Rhinolophus hipposideros,6962d,2017-07-13
 CZ0623718,Barbastella barbastellus,7059d,2022-02-03
-CZ0623718,Myotis emarginatus,7059d,2023-06-29
-CZ0623718,Myotis myotis,7059d,2024-07-02
-CZ0623718,Rhinolophus hipposideros,7059d,2024-07-02
-CZ0623719,Myotis emarginatus,7160b,2024-06-25
-CZ0623719,Myotis sp.,7160b,2023-02-03
+CZ0623718,Myotis emarginatus,7059d,2025-01-29
+CZ0623718,Myotis myotis,7059d,2025-01-29
+CZ0623718,Rhinolophus hipposideros,7059d,2025-07-03
+CZ0623719,Myotis emarginatus,7160b,2025-06-26
+CZ0623719,Myotis myotis,7160b,2025-06-26
+CZ0623719,Myotis sp.,7160b,2025-01-28
 CZ0623719,Rhinolophus hipposideros,7160b,2022-02-02
 CZ0623772,Bombina bombina,7163d,2025-08-20
 CZ0623772,Lycaena dispar,7163d,2010-06-17
@@ -12786,6 +13059,7 @@ CZ0623797,Abramis brama,7169b,2017-09-26
 CZ0623797,Bombina bombina,7169b,2009-04-11
 CZ0623797,Bombina bombina,"91,""7169b""",2002-06-11
 CZ0623797,Castor fiber,7169b,2024-12-26
+CZ0623797,Hipparchia semele,NA,1995-01-01
 CZ0623797,Lycaena dispar,"53,""7169b""",2005-09-01
 CZ0623797,Lycaena dispar,7169b,2023-08-14
 CZ0623797,Misgurnus fossilis,7169b,2017-09-26
@@ -12889,6 +13163,7 @@ CZ0624001,Cottus gobio,7162d,2014-10-30
 CZ0624001,Cottus gobio,7163c,2015-10-12
 CZ0624001,Cucujus cinnaberinus,7163c,2021-10-05
 CZ0624001,Cucujus cinnaberinus,7263a,2020-01-10
+CZ0624001,Eriogaster catax,NA,2006-10-09
 CZ0624001,Leuciscus aspius,"54,""7263a""",2004-01-01
 CZ0624001,Leuciscus aspius,"84,""7162d""",2004-01-01
 CZ0624001,Lutra lutra,7162d,2011-11-12
@@ -12932,6 +13207,7 @@ CZ0624043,Eriogaster catax,7165d,2025-04-23
 CZ0624043,Euplagia quadripunctaria,"71,""7165d""",2003-08-01
 CZ0624043,Euplagia quadripunctaria,7165d,2023-08-11
 CZ0624043,Himantoglossum adriaticum,7165d,2025-06-16
+CZ0624043,Hipparchia semele,NA,1995-01-01
 CZ0624043,Iris arenaria,7165d,2024-04-26
 CZ0624043,Lucanus cervus,7165d,2024-06-13
 CZ0624043,Lycaena dispar,7165d,2007-05-24
@@ -12953,7 +13229,8 @@ CZ0624060,Crambe tataria,7065d,2025-06-02
 CZ0624060,Cucujus cinnaberinus,7065d,2015-06-20
 CZ0624060,Euplagia quadripunctaria,"55,""7065b""",2003-08-13
 CZ0624060,Euplagia quadripunctaria,7065b,2015-08-11
-CZ0624060,Euplagia quadripunctaria,7065d,2024-08-10
+CZ0624060,Euplagia quadripunctaria,7065d,2025-08-07
+CZ0624060,Hipparchia semele,NA,1995-01-01
 CZ0624060,Lucanus cervus,"15,""7065b""",2013-04-27
 CZ0624060,Lucanus cervus,"55,""7065b""",2002-06-12
 CZ0624060,Lucanus cervus,"68,""7065b""",2013-04-27
@@ -13013,28 +13290,28 @@ CZ0624064,Triturus cristatus,6964a,2024-06-29
 CZ0624064,Triturus cristatus,6964c,2024-06-29
 CZ0624065,Barbastella barbastellus,"33,""6664d""",2002-02-28
 CZ0624065,Barbastella barbastellus,6664a,2022-01-29
-CZ0624065,Barbastella barbastellus,6664b,2022-01-29
+CZ0624065,Barbastella barbastellus,6664b,2025-01-17
 CZ0624065,Himantoglossum adriaticum,6664b,2025-06-27
 CZ0624065,Lucanus cervus,6664b,2014-05-17
-CZ0624065,Myotis bechsteinii,6664a,2022-01-29
+CZ0624065,Myotis bechsteinii,6664a,2025-01-17
 CZ0624065,Myotis bechsteinii,6664b,2021-01-30
-CZ0624065,Myotis emarginatus,6664a,2022-01-29
+CZ0624065,Myotis emarginatus,6664a,2025-01-17
 CZ0624065,Myotis emarginatus,6664b,2021-01-30
 CZ0624065,Myotis myotis,"33,""6664d""",2002-02-28
-CZ0624065,Myotis myotis,6664a,2022-01-29
-CZ0624065,Myotis myotis,6664b,2022-01-29
+CZ0624065,Myotis myotis,6664a,2025-01-17
+CZ0624065,Myotis myotis,6664b,2025-01-17
 CZ0624065,Myotis sp.,"33,""6664d""",2000-03-03
 CZ0624065,Myotis sp.,6664a,2020-02-15
 CZ0624065,Rhinolophus hipposideros,"33,""6664d""",2002-02-28
 CZ0624065,Rhinolophus hipposideros,6664a,2022-01-29
-CZ0624065,Rhinolophus hipposideros,6664b,2022-01-29
+CZ0624065,Rhinolophus hipposideros,6664b,2025-01-17
 CZ0624066,Echium maculatum,7071c,2025-06-25
 CZ0624066,Echium maculatum,"99,""7071c""",2013-06-12
 CZ0624066,Euplagia quadripunctaria,7071c,2022-08-15
 CZ0624066,Sanguisorba officinalis,7071c,2023-06-22
 CZ0624067,Euplagia quadripunctaria,6865a,2016-07-31
 CZ0624067,Lucanus cervus,6865a,2023-08-19
-CZ0624067,Pulsatilla grandis,6865a,2024-04-06
+CZ0624067,Pulsatilla grandis,6865a,2026-03-22
 CZ0624068,Bombina bombina,"27,""7169a""",2002-01-01
 CZ0624068,Bombina bombina,7069d,2020-06-03
 CZ0624068,Bombina bombina,7169a,2024-04-26
@@ -13056,6 +13333,7 @@ CZ0624068,Cerambyx cerdo,7069d,2019-02-28
 CZ0624068,Cucujus cinnaberinus,"61,""7069d""",2003-04-18
 CZ0624068,Cucujus cinnaberinus,7069d,2020-10-26
 CZ0624068,Euplagia quadripunctaria,7169a,2021-08-13
+CZ0624068,Hipparchia semele,NA,1995-01-01
 CZ0624068,Lemna trisulca,7169b,2003-04-01
 CZ0624068,Lemna trisulca,"72,""7169b""",2009-06-27
 CZ0624068,Lucanus cervus,7069d,2019-07-20
@@ -13108,6 +13386,7 @@ CZ0624070,Cerambyx cerdo,7168b,2025-07-23
 CZ0624070,Cucujus cinnaberinus,7068c,2023-05-22
 CZ0624070,Cucujus cinnaberinus,7168b,2020-06-22
 CZ0624070,Emys orbicularis,7068c,2025-07-21
+CZ0624070,Eriogaster catax,NA,2005-01-01
 CZ0624070,Euplagia quadripunctaria,"01,""7168b""",2005-07-29
 CZ0624070,Euplagia quadripunctaria,"54,""7168b""",2004-07-25
 CZ0624070,Euplagia quadripunctaria,7068c,2023-08-09
@@ -13257,6 +13536,7 @@ CZ0624072,Eriogaster catax,"96,""7170a""",2005-01-01
 CZ0624072,Eriogaster catax,"96,""7170b""",2005-01-01
 CZ0624072,Eriogaster catax,"96,""7170c""",2005-01-01
 CZ0624072,Eriogaster catax,"96,""7170d""",2005-01-01
+CZ0624072,Eriogaster catax,NA,2006-05-20
 CZ0624072,Euplagia quadripunctaria,"01,""7170a""",2005-07-27
 CZ0624072,Euplagia quadripunctaria,"35,""7170c""",2004-08-15
 CZ0624072,Euplagia quadripunctaria,"63,""7170a""",2005-07-28
@@ -13391,7 +13671,7 @@ CZ0624094,Cypripedium calceolus,6865a,2024-06-23
 CZ0624094,Euplagia quadripunctaria,6865a,2016-06-01
 CZ0624094,Chamaecytisus sp.,6864b,2024-08-14
 CZ0624094,Lucanus cervus,6864b,2025-08-20
-CZ0624095,Barbastella barbastellus,7060c,2023-02-02
+CZ0624095,Barbastella barbastellus,7060c,2025-01-29
 CZ0624095,Barbastella barbastellus,"96,""7060a""",2011-12-21
 CZ0624095,Barbastella barbastellus,"96,""7060b""",2011-12-21
 CZ0624095,Barbastella barbastellus,"96,""7060c""",2011-12-21
@@ -13426,7 +13706,7 @@ CZ0624095,Myotis emarginatus,"96,""7060a""",2011-12-21
 CZ0624095,Myotis emarginatus,"96,""7060b""",2011-12-21
 CZ0624095,Myotis emarginatus,"96,""7060c""",2011-12-21
 CZ0624095,Myotis emarginatus,"96,""7060d""",2011-12-21
-CZ0624095,Myotis myotis,7060c,2024-07-02
+CZ0624095,Myotis myotis,7060c,2025-07-03
 CZ0624095,Myotis myotis,"96,""7060a""",2012-06-21
 CZ0624095,Myotis myotis,"96,""7060b""",2012-06-21
 CZ0624095,Myotis myotis,"96,""7060c""",2012-06-21
@@ -13434,7 +13714,7 @@ CZ0624095,Myotis myotis,"96,""7060d""",2012-06-21
 CZ0624095,Osmoderma barnabita,7060c,2023-07-06
 CZ0624095,Osmoderma barnabita,7060d,2023-06-11
 CZ0624095,Osmoderma barnabita,"91,""7060c""",2012-06-23
-CZ0624095,Rhinolophus hipposideros,7060c,2023-02-02
+CZ0624095,Rhinolophus hipposideros,7060c,2025-01-29
 CZ0624095,Rhinolophus hipposideros,"96,""7060a""",2012-06-21
 CZ0624095,Rhinolophus hipposideros,"96,""7060b""",2012-06-21
 CZ0624095,Rhinolophus hipposideros,"96,""7060c""",2012-06-21
@@ -13450,11 +13730,11 @@ CZ0624095,Unio crassus,7159b,2025-06-29
 CZ0624095,Unio crassus,7160a,2011-10-28
 CZ0624096,Abramis brama,"01,""7162c""",2004-01-01
 CZ0624096,Abramis brama,"99,""7161d""",2004-01-01
-CZ0624096,Barbastella barbastellus,7160b,2023-02-03
-CZ0624096,Barbastella barbastellus,7161a,2023-08-31
+CZ0624096,Barbastella barbastellus,7160b,2025-01-28
+CZ0624096,Barbastella barbastellus,7161a,2025-01-27
 CZ0624096,Barbastella barbastellus,7161b,2021-02-01
-CZ0624096,Barbastella barbastellus,7161c,2023-02-03
-CZ0624096,Barbastella barbastellus,7161d,2023-02-03
+CZ0624096,Barbastella barbastellus,7161c,2025-01-28
+CZ0624096,Barbastella barbastellus,7161d,2025-01-28
 CZ0624096,Barbastella barbastellus,7162a,2020-01-20
 CZ0624096,Barbastella barbastellus,"96,""7161a""",2011-12-21
 CZ0624096,Barbastella barbastellus,"96,""7161b""",2011-12-21
@@ -13505,6 +13785,7 @@ CZ0624096,Eriogaster catax,"39,""7162c""",2024-10-08
 CZ0624096,Eriogaster catax,7161a,2024-04-09
 CZ0624096,Eriogaster catax,7161d,2025-04-22
 CZ0624096,Eriogaster catax,"91,""7161d""",2007-04-05
+CZ0624096,Eriogaster catax,NA,2022-04-15
 CZ0624096,Euplagia quadripunctaria,"25,""7161d""",1991-01-01
 CZ0624096,Euplagia quadripunctaria,"37,""7161d""",2005-08-12
 CZ0624096,Euplagia quadripunctaria,"62,""7162a""",2011-08-17
@@ -13572,7 +13853,7 @@ CZ0624096,Myotis bechsteinii,"96,""7161d""",2011-12-21
 CZ0624096,Myotis bechsteinii,"97,""7161a""",1999-01-01
 CZ0624096,Myotis bechsteinii,"99,""7162c""",2000-01-01
 CZ0624096,Myotis emarginatus,"68,""7162c""",2006-02-03
-CZ0624096,Myotis emarginatus,7160b,1957-01-01
+CZ0624096,Myotis emarginatus,7160b,2025-01-28
 CZ0624096,Myotis emarginatus,7161a,2023-08-31
 CZ0624096,Myotis emarginatus,7161c,2015-02-02
 CZ0624096,Myotis emarginatus,"96,""7161a""",2011-06-21
@@ -13580,7 +13861,7 @@ CZ0624096,Myotis emarginatus,"96,""7161b""",2011-06-21
 CZ0624096,Myotis emarginatus,"96,""7161c""",2011-06-21
 CZ0624096,Myotis emarginatus,"96,""7161d""",2011-06-21
 CZ0624096,Myotis myotis,7160b,2022-02-02
-CZ0624096,Myotis myotis,7161a,2023-08-31
+CZ0624096,Myotis myotis,7161a,2025-01-27
 CZ0624096,Myotis myotis,7161b,2003-01-28
 CZ0624096,Myotis myotis,7161c,2023-02-03
 CZ0624096,Myotis myotis,7161d,2023-02-03
@@ -13602,18 +13883,18 @@ CZ0624096,Pulsatilla grandis,"69,""7161c""",2002-04-01
 CZ0624096,Pulsatilla grandis,7160b,2025-03-22
 CZ0624096,Pulsatilla grandis,7161a,2025-03-30
 CZ0624096,Pulsatilla grandis,7161c,2025-03-27
-CZ0624096,Pulsatilla grandis,7161d,2025-06-04
+CZ0624096,Pulsatilla grandis,7161d,2026-03-16
 CZ0624096,Pulsatilla grandis,7162a,2025-05-16
-CZ0624096,Pulsatilla grandis,7162c,2025-03-31
+CZ0624096,Pulsatilla grandis,7162c,2026-03-10
 CZ0624096,Pulsatilla grandis,"85,""7162c""",2001-07-21
 CZ0624096,Pulsatilla grandis,"94,""7161c""",2002-04-01
-CZ0624096,Rhinolophus hipposideros,7160b,2024-07-03
+CZ0624096,Rhinolophus hipposideros,7160b,2025-07-02
 CZ0624096,Rhinolophus hipposideros,7161a,2025-02-12
-CZ0624096,Rhinolophus hipposideros,7161b,2023-02-03
-CZ0624096,Rhinolophus hipposideros,7161c,2023-02-03
-CZ0624096,Rhinolophus hipposideros,7161d,2024-07-24
+CZ0624096,Rhinolophus hipposideros,7161b,2025-01-28
+CZ0624096,Rhinolophus hipposideros,7161c,2025-01-28
+CZ0624096,Rhinolophus hipposideros,7161d,2025-07-02
 CZ0624096,Rhinolophus hipposideros,7162a,2018-02-01
-CZ0624096,Rhinolophus hipposideros,7162c,2024-07-24
+CZ0624096,Rhinolophus hipposideros,7162c,2025-07-02
 CZ0624096,Rhinolophus hipposideros,"96,""7161a""",2012-06-21
 CZ0624096,Rhinolophus hipposideros,"96,""7161b""",2012-06-21
 CZ0624096,Rhinolophus hipposideros,"96,""7161c""",2012-06-21
@@ -13634,22 +13915,22 @@ CZ0624096,Sanguisorba officinalis,"99,""7161d""",2023-06-01
 CZ0624096,Scardinius erythrophthalmus,"01,""7162c""",2004-01-01
 CZ0624096,Scardinius erythrophthalmus,7160b,2023-05-04
 CZ0624096,Scardinius erythrophthalmus,7161a,2020-06-04
-CZ0624096,Spermophilus citellus,7161d,2026-03-05
+CZ0624096,Spermophilus citellus,7161d,2026-03-20
 CZ0624096,Succisa pratensis,7061c,2020-05-30
 CZ0624096,Succisa pratensis,7161a,2025-07-28
 CZ0624096,Succisa pratensis,7161d,2020-05-14
 CZ0624096,Triturus carnifex,7061c,2023-08-10
 CZ0624096,Triturus carnifex,7160b,2023-05-04
-CZ0624096,Triturus carnifex,7161a,2025-04-13
+CZ0624096,Triturus carnifex,7161a,2025-06-12
 CZ0624096,Triturus carnifex,7161d,2025-04-20
-CZ0624096,Triturus carnifex,7162c,2024-06-19
+CZ0624096,Triturus carnifex,7162c,2025-06-11
 CZ0624096,Triturus cristatus s. l.,7061c,2016-01-01
 CZ0624096,Triturus cristatus s. l.,7160b,2015-04-25
 CZ0624096,Triturus cristatus s. l.,7161a,2016-01-01
 CZ0624096,Triturus cristatus s. l.,7161d,2013-09-01
 CZ0624096,Triturus cristatus s. l.,7162c,2013-05-10
 CZ0624096,Vertigo angustior,7161d,2007-08-14
-CZ0624097,Pulsatilla grandis,6867d,2024-05-27
+CZ0624097,Pulsatilla grandis,6867d,2026-03-18
 CZ0624098,Barbastella barbastellus,7165d,1991-01-01
 CZ0624098,Cerambyx cerdo,7165d,2018-06-23
 CZ0624098,Euplagia quadripunctaria,7165d,2022-07-20
@@ -13657,11 +13938,11 @@ CZ0624098,Iris arenaria,7165d,2024-04-26
 CZ0624098,Lucanus cervus,7165d,2019-07-30
 CZ0624098,Lycaena dispar,7165d,2018-05-24
 CZ0624098,Myotis bechsteinii,7165d,2017-01-11
-CZ0624098,Myotis emarginatus,7165d,2024-01-11
+CZ0624098,Myotis emarginatus,7165d,2025-01-16
 CZ0624098,Myotis myotis,7165d,2020-01-15
 CZ0624098,Myotis sp.,7165d,2013-01-10
 CZ0624098,Pulsatilla grandis,7165d,2023-03-22
-CZ0624098,Rhinolophus hipposideros,7165d,2024-01-11
+CZ0624098,Rhinolophus hipposideros,7165d,2025-01-16
 CZ0624099,Abramis brama,"01,""7166d""",2004-01-01
 CZ0624099,Abramis brama,7166d,2019-10-30
 CZ0624099,Abramis brama,7167c,2019-10-30
@@ -13725,10 +14006,12 @@ CZ0624099,Cucujus cinnaberinus,7166d,2023-11-08
 CZ0624099,Cucujus cinnaberinus,7167c,2020-10-28
 CZ0624099,Cucujus cinnaberinus,7267a,2022-04-23
 CZ0624099,Emys orbicularis,7166d,2022-09-04
+CZ0624099,Euphydryas maturna,NA,2004-05-20
 CZ0624099,Euplagia quadripunctaria,7166c,2014-07-26
 CZ0624099,Euplagia quadripunctaria,"75,""7267a""",2002-01-01
 CZ0624099,Gymnocephalus schraetser,7166d,2005-05-12
 CZ0624099,Gymnocephalus schraetser,7267a,2012-10-06
+CZ0624099,Hipparchia semele,NA,1995-01-01
 CZ0624099,Lemna trisulca,7166c,2021-06-25
 CZ0624099,Lemna trisulca,7166d,2025-08-25
 CZ0624099,Lemna trisulca,"73,""7166c""",2003-06-17
@@ -13812,7 +14095,7 @@ CZ0624099,Osmoderma barnabita,7267a,2022-04-11
 CZ0624099,Pelecus cultratus,7166d,2006-08-01
 CZ0624099,Rhinolophus hipposideros,7166a,2013-05-01
 CZ0624099,Rhinolophus hipposideros,7166c,2006-07-13
-CZ0624099,Rhinolophus hipposideros,7166d,2024-01-11
+CZ0624099,Rhinolophus hipposideros,7166d,2025-01-16
 CZ0624099,Rhinolophus hipposideros,"96,""7166a""",2012-06-21
 CZ0624099,Rhinolophus hipposideros,"96,""7166b""",2012-06-21
 CZ0624099,Rhinolophus hipposideros,"96,""7166c""",2012-06-21
@@ -13870,6 +14153,7 @@ CZ0624100,Cucujus cinnaberinus,7166c,2019-10-24
 CZ0624100,Cucujus cinnaberinus,7266a,2023-05-10
 CZ0624100,Eriogaster catax,7166c,2025-05-02
 CZ0624100,Eriogaster catax,7266a,2025-04-23
+CZ0624100,Eriogaster catax,NA,2004-01-01
 CZ0624100,Euplagia quadripunctaria,"39,""7166c""",2000-01-01
 CZ0624100,Euplagia quadripunctaria,7166c,2025-08-20
 CZ0624100,Euplagia quadripunctaria,7266a,2024-08-16
@@ -13945,6 +14229,7 @@ CZ0624101,Pulsatilla grandis,7067c,2025-03-25
 CZ0624102,Bombina bombina,7266a,2016-04-21
 CZ0624102,Coenagrion ornatum,7266a,2014-06-27
 CZ0624102,Cucujus cinnaberinus,7266a,2011-04-21
+CZ0624102,Eriogaster catax,NA,2004-01-01
 CZ0624102,Euplagia quadripunctaria,7266a,2024-07-27
 CZ0624102,Lucanus cervus,7266a,2025-06-29
 CZ0624102,Lycaena dispar,7266a,2022-08-12
@@ -14007,6 +14292,7 @@ CZ0624104,Dianthus lumnitzeri,"01,""7165b""",2015-03-21
 CZ0624104,Dianthus lumnitzeri,7165b,2025-05-20
 CZ0624104,Eriogaster catax,7165b,2025-04-23
 CZ0624104,Euplagia quadripunctaria,7165b,2025-08-01
+CZ0624104,Chazara briseis,NA,1995-01-01
 CZ0624104,Iris arenaria,7165b,2023-05-04
 CZ0624104,Lucanus cervus,7165b,2025-08-04
 CZ0624104,Lycaena dispar,"28,""7165d""",2007-05-01
@@ -14015,7 +14301,7 @@ CZ0624104,Myotis blythii,7165b,2000-01-01
 CZ0624104,Myotis emarginatus,7165b,2006-08-14
 CZ0624104,Myotis myotis,7165b,2015-09-08
 CZ0624104,Pulsatilla grandis,"01,""7165b""",2015-03-21
-CZ0624104,Pulsatilla grandis,7165b,2024-03-31
+CZ0624104,Pulsatilla grandis,7165b,2025-03-11
 CZ0624104,Rhinolophus hipposideros,7165b,2006-08-14
 CZ0624104,Rumex sp.,7165b,2004-04-20
 CZ0624104,Spermophilus citellus,"28,""7165d""",2002-01-01
@@ -14027,6 +14313,7 @@ CZ0624106,Bombina bombina,7162b,2025-04-21
 CZ0624106,Cerambyx cerdo,7062d,2023-05-13
 CZ0624106,Cerambyx cerdo,7162b,2023-05-13
 CZ0624106,Echium maculatum,7162b,2005-01-01
+CZ0624106,Eriogaster catax,NA,2006-10-09
 CZ0624106,Euplagia quadripunctaria,7162b,2012-08-10
 CZ0624106,Lucanus cervus,7062d,2023-05-13
 CZ0624106,Lucanus cervus,7162b,2023-07-05
@@ -14075,6 +14362,7 @@ CZ0624116,Pulsatilla grandis,7067d,2023-03-21
 CZ0624116,Pulsatilla grandis,"99,""7067d""",2008-01-01
 CZ0624118,Eriogaster catax,"56,""7162c""",2022-04-15
 CZ0624118,Eriogaster catax,7162c,2025-04-22
+CZ0624118,Eriogaster catax,NA,2007-04-13
 CZ0624118,Pulsatilla grandis,"41,""7262a""",2008-03-16
 CZ0624118,Pulsatilla grandis,"69,""7162c""",2012-01-01
 CZ0624118,Pulsatilla grandis,7162c,2025-04-01
@@ -14174,12 +14462,12 @@ CZ0624119,Castor fiber,7168c,2017-02-11
 CZ0624119,Castor fiber,7168d,2025-10-01
 CZ0624119,Castor fiber,7267a,2011-01-01
 CZ0624119,Castor fiber,7267c,2026-02-16
-CZ0624119,Castor fiber,7267d,2026-01-04
+CZ0624119,Castor fiber,7267d,2026-03-15
 CZ0624119,Castor fiber,7268a,2018-11-07
 CZ0624119,Castor fiber,7268c,2025-11-25
 CZ0624119,Castor fiber,7367a,2018-03-01
 CZ0624119,Castor fiber,7367b,2026-01-03
-CZ0624119,Castor fiber,7367d,2026-02-26
+CZ0624119,Castor fiber,7367d,2026-03-09
 CZ0624119,Castor fiber,"97,""7268a""",2017-02-11
 CZ0624119,Castor fiber,"98,""7267d""",2018-03-01
 CZ0624119,Castor fiber,"98,""7268c""",2017-02-11
@@ -14280,11 +14568,11 @@ CZ0624119,Lutra lutra,7168c,2016-10-21
 CZ0624119,Lutra lutra,7168d,2025-10-01
 CZ0624119,Lutra lutra,7267a,2006-10-20
 CZ0624119,Lutra lutra,7267b,2025-11-12
-CZ0624119,Lutra lutra,7267c,2026-01-21
-CZ0624119,Lutra lutra,7267d,2026-03-03
+CZ0624119,Lutra lutra,7267c,2026-03-08
+CZ0624119,Lutra lutra,7267d,2026-03-15
 CZ0624119,Lutra lutra,7268a,2025-11-25
 CZ0624119,Lutra lutra,7268c,2026-01-04
-CZ0624119,Lutra lutra,7367b,2026-01-22
+CZ0624119,Lutra lutra,7367b,2026-03-09
 CZ0624119,Lutra lutra,7367d,2026-02-26
 CZ0624119,Lutra lutra,"96,""7267a""",2007-01-01
 CZ0624119,Lutra lutra,"96,""7267b""",2007-01-01
@@ -14536,7 +14824,7 @@ CZ0624129,Lutra lutra,6666c,2024-11-15
 CZ0624129,Lycaena dispar,6666c,2025-08-06
 CZ0624129,Phengaris nausithous,6666c,2025-08-06
 CZ0624129,Sanguisorba officinalis,6666c,2025-07-22
-CZ0624129,Triturus cristatus,6666c,2025-03-19
+CZ0624129,Triturus cristatus,6666c,2026-03-21
 CZ0624129,Triturus cristatus,6666d,2021-05-27
 CZ0624129,Triturus cristatus,"89,""6666c""",2022-04-27
 CZ0624129,Vertigo angustior,6666c,2014-09-23
@@ -14661,10 +14949,10 @@ CZ0624130,Myotis alcathoe/emarginatus,6766c,2024-08-08
 CZ0624130,Myotis bechsteinii,"31,""6666c""",2019-07-18
 CZ0624130,Myotis bechsteinii,"53,""6666a""",2001-02-20
 CZ0624130,Myotis bechsteinii,6566c,2024-01-29
-CZ0624130,Myotis bechsteinii,6566d,2023-03-05
+CZ0624130,Myotis bechsteinii,6566d,2025-01-30
 CZ0624130,Myotis bechsteinii,6666a,2026-02-06
 CZ0624130,Myotis bechsteinii,6666b,2025-01-30
-CZ0624130,Myotis bechsteinii,6666c,2025-02-23
+CZ0624130,Myotis bechsteinii,6666c,2025-03-02
 CZ0624130,Myotis bechsteinii,6766a,2025-02-22
 CZ0624130,Myotis bechsteinii,6766c,2024-08-08
 CZ0624130,Myotis bechsteinii,6766d,2025-02-21
@@ -14698,7 +14986,7 @@ CZ0624130,Myotis dasycneme,"96,""6766c""",2011-12-21
 CZ0624130,Myotis dasycneme,"96,""6766d""",2011-12-21
 CZ0624130,Myotis emarginatus,"53,""6666a""",2001-02-20
 CZ0624130,Myotis emarginatus,6566c,2025-02-07
-CZ0624130,Myotis emarginatus,6566d,2024-02-05
+CZ0624130,Myotis emarginatus,6566d,2025-01-30
 CZ0624130,Myotis emarginatus,6666a,2026-02-06
 CZ0624130,Myotis emarginatus,6666b,2026-02-09
 CZ0624130,Myotis emarginatus,6666c,2025-12-28
@@ -14721,7 +15009,7 @@ CZ0624130,Myotis myotis,6566c,2026-03-03
 CZ0624130,Myotis myotis,6566d,2026-02-02
 CZ0624130,Myotis myotis,6666a,2026-02-06
 CZ0624130,Myotis myotis,6666b,2026-02-09
-CZ0624130,Myotis myotis,6666c,2026-02-20
+CZ0624130,Myotis myotis,6666c,2026-03-20
 CZ0624130,Myotis myotis,6766a,2025-11-28
 CZ0624130,Myotis myotis,6766c,2026-01-23
 CZ0624130,Myotis myotis,6766d,2025-02-21
@@ -14940,13 +15228,14 @@ CZ0712189,Cypripedium calceolus,5867d,2023-06-13
 CZ0712189,Myotis myotis,5867d,2001-01-27
 CZ0712189,Rhinolophus hipposideros,5867d,2001-01-27
 CZ0712191,Gentianella praecox subsp. bohemica,6566b,2023-09-25
+CZ0712191,Gentianella praecox subsp. bohemica,NA,2002-01-01
 CZ0712191,Succisa pratensis,6566b,2001-08-23
 CZ0712192,Lycaena dispar,6469d,2004-01-01
-CZ0712192,Pulsatilla grandis,6469d,2025-03-20
+CZ0712192,Pulsatilla grandis,6469d,2026-03-11
 CZ0712193,Lycaena dispar,6469d,2017-09-10
 CZ0712193,Pulsatilla grandis,6469d,2024-04-15
 CZ0712197,Asplenium adulterinum,6067a,2024-10-16
-CZ0712225,Pulsatilla grandis,6567b,2024-04-08
+CZ0712225,Pulsatilla grandis,6567b,2026-03-21
 CZ0712226,Cypripedium calceolus,5967b,2023-06-08
 CZ0713004,Cottus gobio,5968c,2017-09-29
 CZ0713004,Eudontomyzon mariae,5968c,2023-10-01
@@ -15079,10 +15368,10 @@ CZ0713741,Myotis myotis,6372c,2022-01-17
 CZ0713741,Myotis sp.,6372c,2024-11-16
 CZ0713741,Rhinolophus hipposideros,6372c,2024-11-16
 CZ0713742,Barbastella barbastellus,5770c,2024-01-13
-CZ0713742,Myotis bechsteinii,5770c,2018-01-06
-CZ0713742,Myotis emarginatus,5770c,2024-01-13
-CZ0713742,Myotis myotis,5770c,2024-02-17
-CZ0713742,Rhinolophus hipposideros,5770c,2024-02-17
+CZ0713742,Myotis bechsteinii,5770c,2025-02-16
+CZ0713742,Myotis emarginatus,5770c,2025-02-16
+CZ0713742,Myotis myotis,5770c,2025-02-16
+CZ0713742,Rhinolophus hipposideros,5770c,2025-02-16
 CZ0713743,Barbastella barbastellus,5967c,2022-01-21
 CZ0713743,Myotis emarginatus,5967c,2022-01-21
 CZ0713743,Myotis myotis,5967c,2022-01-21
@@ -15182,7 +15471,7 @@ CZ0714073,Castor fiber,6267d,2026-01-19
 CZ0714073,Castor fiber,6268c,2026-01-20
 CZ0714073,Castor fiber,6268d,2019-07-18
 CZ0714073,Castor fiber,6368a,2012-05-24
-CZ0714073,Castor fiber,6368b,2025-03-26
+CZ0714073,Castor fiber,6368b,2026-03-18
 CZ0714073,Castor fiber,6369a,2026-03-04
 CZ0714073,Castor fiber,6369c,2023-04-22
 CZ0714073,Castor fiber,6369d,2019-01-14
@@ -15482,6 +15771,7 @@ CZ0714075,Barbastella barbastellus,"96,""5868c""",2011-12-21
 CZ0714075,Barbastella barbastellus,"96,""5868d""",2011-12-21
 CZ0714075,Buxbaumia viridis,5868d,2024-08-22
 CZ0714075,Canis lupus,"09,""5868a""",2001-11-01
+CZ0714075,Canis lupus,"1,""5868d""",2024-08-15
 CZ0714075,Canis lupus,5868b,2026-02-19
 CZ0714075,Carabus variolosus,5868b,2015-06-18
 CZ0714075,Carabus variolosus,5868d,2021-06-29
@@ -15536,6 +15826,7 @@ CZ0714077,Canis lupus,5869c,2025-01-30
 CZ0714077,Canis lupus,5969a,2026-03-04
 CZ0714077,Canis lupus,5969c,2025-04-20
 CZ0714077,Canis lupus,6068b,2024-05-08
+CZ0714077,Canis lupus,"68,""5869c""",2024-06-30
 CZ0714077,Carabus variolosus,"5,""5969c""",2003-01-01
 CZ0714077,Carabus variolosus,"54,""5969a""",2010-08-10
 CZ0714077,Carabus variolosus,5869c,2020-06-04
@@ -15615,6 +15906,7 @@ CZ0714080,Rhinolophus hipposideros,"32,""6367b""",2005-02-12
 CZ0714080,Rhinolophus hipposideros,6367a,2026-03-03
 CZ0714080,Rhinolophus hipposideros,6367b,2022-01-15
 CZ0714081,Buxbaumia viridis,5769d,2020-10-08
+CZ0714081,Canis lupus,"57,""5769d""",2024-11-09
 CZ0714081,Canis lupus,5769d,2024-05-08
 CZ0714081,Carabus variolosus,5769d,2022-06-07
 CZ0714081,Carabus variolosus,"99,""5769d""",2010-05-06
@@ -15853,8 +16145,12 @@ CZ0714086,Barbastella barbastellus,"96,""5769c""",2011-12-21
 CZ0714086,Barbastella barbastellus,"96,""5769d""",2011-12-21
 CZ0714086,Buxbaumia viridis,5768c,2015-09-24
 CZ0714086,Buxbaumia viridis,5768d,2015-04-12
+CZ0714086,Canis lupus,"09,""5768d""",2025-01-22
+CZ0714086,Canis lupus,"37,""5669c""",2024-07-27
+CZ0714086,Canis lupus,"42,""5768a""",2025-03-28
 CZ0714086,Canis lupus,5768a,2025-04-18
 CZ0714086,Canis lupus,5768c,2026-02-19
+CZ0714086,Canis lupus,"58,""5768c""",2025-01-23
 CZ0714086,Carabus variolosus,"46,""5768c""",2003-01-01
 CZ0714086,Carabus variolosus,5768a,2002-07-03
 CZ0714086,Carabus variolosus,5768b,2014-02-21
@@ -15933,7 +16229,7 @@ CZ0714086,Salmo trutta,"88,""5768b""",2004-01-01
 CZ0714086,Sanguisorba officinalis,5768d,2019-04-21
 CZ0714086,Triturus cristatus,5769c,2025-02-24
 CZ0714133,Barbastella barbastellus,6370a,2022-01-23
-CZ0714133,Barbastella barbastellus,6370b,2024-01-21
+CZ0714133,Barbastella barbastellus,6370b,2025-01-19
 CZ0714133,Barbastella barbastellus,6471a,2024-07-05
 CZ0714133,Barbastella barbastellus,6471b,2025-01-26
 CZ0714133,Barbastella barbastellus,"96,""6370a""",2011-12-21
@@ -16046,7 +16342,7 @@ CZ0714133,Myotis bechsteinii,"96,""6471b""",2011-12-21
 CZ0714133,Myotis bechsteinii,"96,""6471c""",2011-12-21
 CZ0714133,Myotis bechsteinii,"96,""6471d""",2011-12-21
 CZ0714133,Myotis emarginatus,6370a,2021-01-24
-CZ0714133,Myotis emarginatus,6370b,2024-01-21
+CZ0714133,Myotis emarginatus,6370b,2025-01-19
 CZ0714133,Myotis emarginatus,6471b,2024-02-18
 CZ0714133,Myotis emarginatus,"96,""6370a""",2011-12-21
 CZ0714133,Myotis emarginatus,"96,""6370b""",2011-12-21
@@ -16057,9 +16353,9 @@ CZ0714133,Myotis emarginatus,"96,""6471b""",2011-12-21
 CZ0714133,Myotis emarginatus,"96,""6471c""",2011-12-21
 CZ0714133,Myotis emarginatus,"96,""6471d""",2011-12-21
 CZ0714133,Myotis myotis,6370a,2019-01-27
-CZ0714133,Myotis myotis,6370b,2024-01-21
+CZ0714133,Myotis myotis,6370b,2025-01-19
 CZ0714133,Myotis myotis,6471a,2024-07-05
-CZ0714133,Myotis myotis,6471b,2025-01-26
+CZ0714133,Myotis myotis,6471b,2025-02-08
 CZ0714133,Myotis myotis,"96,""6370a""",2012-06-21
 CZ0714133,Myotis myotis,"96,""6370b""",2012-06-21
 CZ0714133,Myotis myotis,"96,""6370c""",2012-06-21
@@ -16084,9 +16380,9 @@ CZ0714133,Phengaris nausithous,"96,""6471b""",1995-01-01
 CZ0714133,Phengaris nausithous,"96,""6471c""",1995-01-01
 CZ0714133,Phengaris nausithous,"96,""6471d""",1995-01-01
 CZ0714133,Rhinolophus hipposideros,6370a,2025-04-12
-CZ0714133,Rhinolophus hipposideros,6370b,2024-02-21
+CZ0714133,Rhinolophus hipposideros,6370b,2025-01-19
 CZ0714133,Rhinolophus hipposideros,6471a,2006-02-27
-CZ0714133,Rhinolophus hipposideros,6471b,2025-01-26
+CZ0714133,Rhinolophus hipposideros,6471b,2025-02-08
 CZ0714133,Rhinolophus hipposideros,"96,""6370a""",2011-12-21
 CZ0714133,Rhinolophus hipposideros,"96,""6370b""",2011-12-21
 CZ0714133,Rhinolophus hipposideros,"96,""6370c""",2011-12-21
@@ -16208,7 +16504,9 @@ CZ0720013,Sanguisorba officinalis,7071a,2012-06-06
 CZ0720013,Sanguisorba officinalis,"85,""7071a""",2005-05-31
 CZ0720016,Bombina variegata,6971d,2001-05-15
 CZ0720016,Colias myrmidone,"69,""6971d""",1995-01-01
+CZ0720016,Eriogaster catax,NA,2008-04-01
 CZ0720016,Euplagia quadripunctaria,6971c,1995-01-01
+CZ0720016,Hipparchia semele,NA,1995-01-01
 CZ0720016,Lucanus cervus,6971c,2006-04-03
 CZ0720016,Lycaena dispar,"69,""6971d""",1995-01-01
 CZ0720016,Pulsatilla grandis,6971c,2023-03-24
@@ -16218,6 +16516,7 @@ CZ0720033,Bombina variegata,6673b,2010-07-08
 CZ0720033,Bombina variegata,6673c,2022-05-10
 CZ0720033,Bombina variegata,6673d,2025-08-05
 CZ0720033,Bombina variegata,"99,""6673d""",2010-07-01
+CZ0720033,Canis lupus,"33,""6673b""",2025-01-29
 CZ0720033,Carabus variolosus,6673d,2019-10-09
 CZ0720033,Castor fiber,6673b,2018-05-22
 CZ0720033,Euplagia quadripunctaria,6673c,2020-08-28
@@ -16250,6 +16549,7 @@ CZ0720192,Carabus variolosus,6672c,2018-08-10
 CZ0720192,Cucujus cinnaberinus,6672c,2021-10-28
 CZ0720192,Salmo trutta,"26,""6772a""",2004-01-01
 CZ0720192,Sanguisorba officinalis,6672c,2014-08-05
+CZ0720420,Eriogaster catax,NA,2010-05-02
 CZ0720420,Euplagia quadripunctaria,6972b,2005-09-04
 CZ0720420,Euplagia quadripunctaria,6972d,2011-08-07
 CZ0720420,Lycaena dispar,6972b,2023-09-06
@@ -16264,6 +16564,7 @@ CZ0720422,Bombina variegata,6972d,2010-04-13
 CZ0720422,Bombina variegata,7072a,2010-04-26
 CZ0720422,Bombina variegata,7072b,2016-08-16
 CZ0720422,Eriogaster catax,"19,""7072a""",2008-04-26
+CZ0720422,Eriogaster catax,NA,2010-05-02
 CZ0720422,Euplagia quadripunctaria,6972d,2022-08-09
 CZ0720422,Euplagia quadripunctaria,7072b,2022-07-22
 CZ0720422,Lycaena dispar,6972d,2015-09-12
@@ -16369,6 +16670,7 @@ CZ0720441,Bombina variegata,6874c,2023-06-15
 CZ0720441,Carabus variolosus,6874c,2019-05-02
 CZ0720441,Cottus gobio,"43,""6874c""",2004-01-01
 CZ0720441,Euplagia quadripunctaria,6874c,2009-08-15
+CZ0720441,Hipparchia semele,NA,1995-01-01
 CZ0720441,Lycaena dispar,6874c,2022-07-05
 CZ0720441,Phengaris nausithous,6874c,2022-08-08
 CZ0720441,Phengaris teleius,6874c,2022-08-08
@@ -16384,12 +16686,14 @@ CZ0720454,Bombina bombina,6874d,2023-06-15
 CZ0720454,Bombina variegata,6874d,2021-05-26
 CZ0720454,Euplagia quadripunctaria,"59,""6874d""",2010-08-10
 CZ0720454,Euplagia quadripunctaria,6874d,2021-08-13
+CZ0720454,Hipparchia semele,NA,1995-01-01
 CZ0720454,Lissotriton montandoni,6874d,2019-06-13
 CZ0720454,Lycaena dispar,6874d,2005-09-04
 CZ0720454,Phengaris teleius,6874d,2007-08-02
 CZ0720454,Sanguisorba officinalis,6874d,2019-05-08
 CZ0720454,Sanguisorba officinalis,"86,""6874d""",2019-05-08
 CZ0720454,Succisa pratensis,6874d,2014-06-18
+CZ0722198,Hipparchia semele,NA,1995-01-01
 CZ0722198,Sanguisorba officinalis,6974a,2021-06-16
 CZ0722198,Tephroseris longifolia subsp. moravica,6974a,2022-07-15
 CZ0722199,Bombina variegata,6874d,2019-06-12
@@ -16411,6 +16715,7 @@ CZ0723007,Abramis brama,"37,""6970b""",2004-01-01
 CZ0723007,Blicca bjoerkna,6970b,2011-05-26
 CZ0723007,Bombina bombina,6970b,2001-03-11
 CZ0723007,Castor fiber,6970b,2010-01-01
+CZ0723007,Eriogaster catax,NA,2008-04-01
 CZ0723007,Leuciscus aspius,"37,""6970b""",2004-01-01
 CZ0723007,Rhodeus amarus,"37,""6970b""",2004-01-01
 CZ0723007,Rhodeus amarus,6970b,2022-09-24
@@ -16424,6 +16729,8 @@ CZ0723020,Lycaena dispar,7070b,2023-05-01
 CZ0723024,Eriogaster catax,"59,""6970b""",2012-04-14
 CZ0723024,Eriogaster catax,6970b,2025-04-25
 CZ0723024,Eriogaster catax,"79,""6970b""",2022-04-15
+CZ0723024,Eriogaster catax,NA,2008-04-01
+CZ0723024,Hipparchia semele,NA,1995-01-01
 CZ0723024,Lycaena dispar,"59,""6970b""",2008-01-01
 CZ0723024,Lycaena dispar,6970b,2021-06-27
 CZ0723024,Lycaena dispar,"93,""6970b""",2021-08-03
@@ -16475,7 +16782,9 @@ CZ0723412,Abramis brama,6971d,2015-10-01
 CZ0723412,Bombina variegata,"68,""6971d""",2025-05-08
 CZ0723412,Bombina variegata,6971d,2025-04-28
 CZ0723412,Bombina variegata,7071b,2010-05-05
+CZ0723412,Eriogaster catax,NA,2008-04-01
 CZ0723412,Euplagia quadripunctaria,6971d,2008-08-13
+CZ0723412,Hipparchia semele,NA,1995-01-01
 CZ0723412,Myotis myotis,6971d,2015-05-08
 CZ0723412,Phengaris nausithous,6971d,2018-07-19
 CZ0723412,Scardinius erythrophthalmus,6971d,2016-05-12
@@ -16483,16 +16792,21 @@ CZ0723412,Triturus cristatus,6971d,2025-05-08
 CZ0723413,Bombina bombina,6972c,2025-05-13
 CZ0723413,Bombina variegata,6972c,2020-06-15
 CZ0723413,Castor fiber,6972c,2024-03-06
+CZ0723413,Eriogaster catax,NA,2010-05-02
 CZ0723413,Triturus cristatus,6972c,2015-07-31
 CZ0723414,Eriogaster catax,6972a,2008-01-01
+CZ0723414,Eriogaster catax,NA,2010-05-02
 CZ0723414,Lycaena dispar,6972a,2008-01-01
+CZ0723415,Eriogaster catax,NA,2010-05-02
 CZ0723416,Bombina bombina,6971a,2015-06-20
 CZ0723416,Bombina variegata,6971a,2025-05-08
 CZ0723416,Castor fiber,"52,""6971a""",2003-01-01
 CZ0723416,Castor fiber,6971a,2025-03-27
 CZ0723416,Cucujus cinnaberinus,6971a,2024-09-13
 CZ0723416,Eriogaster catax,"52,""6971a""",2012-04-14
+CZ0723416,Eriogaster catax,NA,2008-04-01
 CZ0723416,Euplagia quadripunctaria,6971a,2015-08-20
+CZ0723416,Hipparchia semele,NA,1995-01-01
 CZ0723416,Lucanus cervus,6971a,2015-05-29
 CZ0723416,Lycaena dispar,6971a,2021-09-10
 CZ0723416,Myotis myotis,6971a,2015-05-07
@@ -16503,6 +16817,7 @@ CZ0723417,Phengaris teleius,6773d,2009-07-26
 CZ0723417,Vertigo angustior,6773d,2025-09-05
 CZ0723421,Eriogaster catax,"19,""7072a""",2008-04-26
 CZ0723421,Eriogaster catax,7072a,2011-04-15
+CZ0723421,Eriogaster catax,NA,2015-05-07
 CZ0723421,Euplagia quadripunctaria,7072a,2008-01-01
 CZ0723421,Lycaena dispar,7072a,2021-07-25
 CZ0723421,Phengaris nausithous,7072a,2024-07-21
@@ -16541,8 +16856,10 @@ CZ0723425,Eriogaster catax,"58,""6971c""",2008-04-13
 CZ0723425,Eriogaster catax,6971a,2008-01-01
 CZ0723425,Eriogaster catax,6971c,2025-04-16
 CZ0723425,Eriogaster catax,"94,""6971c""",2011-04-29
+CZ0723425,Eriogaster catax,NA,2014-04-09
 CZ0723425,Euplagia quadripunctaria,6971a,2008-01-01
 CZ0723425,Euplagia quadripunctaria,6971c,2008-01-01
+CZ0723425,Hipparchia semele,NA,1995-01-01
 CZ0723425,Lucanus cervus,"58,""6971c""",2007-04-14
 CZ0723425,Lycaena dispar,"58,""6971c""",2007-04-14
 CZ0723425,Lycaena dispar,6971a,2008-01-01
@@ -16566,6 +16883,7 @@ CZ0723430,Bombina variegata,"99,""6972c""",2025-07-22
 CZ0723430,Eriogaster catax,6972c,2017-04-23
 CZ0723430,Eriogaster catax,"77,""6972c""",2000-01-01
 CZ0723430,Eriogaster catax,"99,""6972c""",2008-01-01
+CZ0723430,Eriogaster catax,NA,2010-05-02
 CZ0723430,Lycaena dispar,"68,""6972c""",2000-01-01
 CZ0723430,Lycaena dispar,"99,""6972c""",2008-01-01
 CZ0723430,Phengaris nausithous,6972c,2018-07-28
@@ -16581,6 +16899,7 @@ CZ0723434,Cottus gobio,"22,""6974a""",2000-01-01
 CZ0723434,Cottus gobio,"64,""6973b""",2004-01-01
 CZ0723434,Cottus gobio,6974a,2019-09-16
 CZ0723434,Cottus gobio,6974c,2017-09-29
+CZ0723434,Hipparchia semele,NA,1995-01-01
 CZ0723434,Lutra lutra,"55,""6974a""",2015-05-12
 CZ0723434,Lutra lutra,6974c,2016-10-09
 CZ0723434,Rhodeus amarus,"16,""6974c""",2025-08-11
@@ -16594,16 +16913,16 @@ CZ0723434,Salmo trutta,6974a,2017-09-29
 CZ0723434,Salmo trutta,6974c,2017-09-29
 CZ0723434,Sanguisorba officinalis,6974c,2009-06-17
 CZ0723750,Myotis myotis,6870a,2015-07-01
-CZ0723751,Myotis myotis,7072b,2024-08-18
+CZ0723751,Myotis myotis,7072b,2025-07-22
 CZ0723752,Myotis myotis,6774c,2005-06-21
-CZ0723753,Myotis myotis,6972a,2024-07-15
-CZ0723753,Rhinolophus hipposideros,6972a,2024-07-15
+CZ0723753,Myotis myotis,6972a,2025-07-22
+CZ0723753,Rhinolophus hipposideros,6972a,2025-07-22
 CZ0723754,Rhinolophus hipposideros,6773d,2015-07-01
 CZ0723755,Myotis myotis,6672a,2024-07-11
-CZ0723756,Myotis myotis,6973a,2024-07-11
-CZ0723757,Myotis emarginatus,6973a,2024-07-18
+CZ0723756,Myotis myotis,6973a,2025-07-10
+CZ0723757,Myotis emarginatus,6973a,2025-07-10
 CZ0723758,Myotis emarginatus,6772d,2022-08-01
-CZ0723758,Myotis myotis,6772d,2024-07-09
+CZ0723758,Myotis myotis,6772d,2025-06-23
 CZ0723759,Myotis emarginatus,6773a,2012-01-26
 CZ0723759,Myotis myotis,6773a,2012-01-26
 CZ0723759,Rhinolophus hipposideros,6773a,2012-01-26
@@ -16627,12 +16946,14 @@ CZ0724087,Eriogaster catax,6972a,2017-04-16
 CZ0724087,Eriogaster catax,6972c,2020-04-21
 CZ0724087,Eriogaster catax,"86,""6972c""",2023-05-01
 CZ0724087,Eriogaster catax,"97,""6972c""",2023-05-01
+CZ0724087,Eriogaster catax,NA,2012-04-15
 CZ0724087,Euplagia quadripunctaria,"65,""6972c""",2008-01-01
 CZ0724087,Euplagia quadripunctaria,6971b,2018-08-02
 CZ0724087,Euplagia quadripunctaria,6971d,2018-08-03
 CZ0724087,Euplagia quadripunctaria,6972a,2025-08-13
 CZ0724087,Euplagia quadripunctaria,6972c,2025-08-13
 CZ0724087,Euplagia quadripunctaria,"79,""6971b""",2005-01-01
+CZ0724087,Hipparchia semele,NA,1995-01-01
 CZ0724087,Chamaecytisus sp.,"13,""6971d""",2022-05-09
 CZ0724087,Lucanus cervus,"05,""6972c""",2007-04-24
 CZ0724087,Lycaena dispar,"05,""6972c""",2007-04-24
@@ -16810,44 +17131,52 @@ CZ0724089,Canis lupus,"01,""6478c""",2004-01-01
 CZ0724089,Canis lupus,"01,""6577b""",2023-08-26
 CZ0724089,Canis lupus,"01,""6675b""",2005-10-28
 CZ0724089,Canis lupus,"01,""6675d""",2005-10-06
-CZ0724089,Canis lupus,"01,""6775b""",2020-04-22
+CZ0724089,Canis lupus,"01,""6775b""",2025-03-27
 CZ0724089,Canis lupus,"04,""6474d""",2003-03-01
 CZ0724089,Canis lupus,"06,""6674d""",2020-03-13
 CZ0724089,Canis lupus,"07,""6475c""",2001-04-29
 CZ0724089,Canis lupus,"1,""6477b""",2004-07-21
 CZ0724089,Canis lupus,"12,""6675a""",2004-09-18
+CZ0724089,Canis lupus,"13,""6674b""",2025-01-27
 CZ0724089,Canis lupus,"14,""6376d""",2001-04-01
 CZ0724089,Canis lupus,"17,""6476a""",2003-05-24
 CZ0724089,Canis lupus,"17,""6675a""",2004-09-09
 CZ0724089,Canis lupus,"2,""6574c""",2004-08-01
 CZ0724089,Canis lupus,"21,""6575c""",2004-07-23
+CZ0724089,Canis lupus,"23,""6774b""",2024-12-21
 CZ0724089,Canis lupus,"24,""6676a""",2000-06-03
 CZ0724089,Canis lupus,"25,""6476b""",2005-06-14
 CZ0724089,Canis lupus,"25,""6576d""",2001-01-13
+CZ0724089,Canis lupus,"27,""6874b""",2025-02-22
 CZ0724089,Canis lupus,"28,""6676a""",2003-07-23
 CZ0724089,Canis lupus,"29,""6475d""",2002-10-01
-CZ0724089,Canis lupus,"29,""6674b""",2020-05-05
+CZ0724089,Canis lupus,"29,""6674b""",2025-02-08
 CZ0724089,Canis lupus,"3,""6477b""",2002-04-04
 CZ0724089,Canis lupus,"3,""6574d""",2004-05-01
+CZ0724089,Canis lupus,"3,""6576d""",2025-04-22
 CZ0724089,Canis lupus,"32,""6476b""",2002-01-01
 CZ0724089,Canis lupus,"32,""6476d""",2003-12-20
 CZ0724089,Canis lupus,"35,""6478c""",2007-08-27
 CZ0724089,Canis lupus,"37,""6476c""",2004-01-01
 CZ0724089,Canis lupus,"39,""6576a""",2002-12-20
-CZ0724089,Canis lupus,"39,""6675a""",2018-11-10
+CZ0724089,Canis lupus,"39,""6675a""",2025-03-20
 CZ0724089,Canis lupus,"42,""6477a""",2005-06-01
 CZ0724089,Canis lupus,"44,""6576c""",2018-12-01
 CZ0724089,Canis lupus,"47,""6475c""",2001-08-25
 CZ0724089,Canis lupus,"47,""6575b""",2012-06-05
-CZ0724089,Canis lupus,"48,""6775a""",2018-05-12
+CZ0724089,Canis lupus,"47,""6674d""",2025-01-24
+CZ0724089,Canis lupus,"48,""6775a""",2025-03-08
 CZ0724089,Canis lupus,"49,""6377d""",2021-08-07
+CZ0724089,Canis lupus,"49,""6576a""",2025-04-22
 CZ0724089,Canis lupus,"5,""6478c""",2015-03-22
-CZ0724089,Canis lupus,"52,""6774b""",2020-05-03
+CZ0724089,Canis lupus,"52,""6474c""",2025-04-23
+CZ0724089,Canis lupus,"52,""6774b""",2025-04-16
 CZ0724089,Canis lupus,"53,""6575d""",2004-06-17
 CZ0724089,Canis lupus,"56,""6575d""",2020-04-27
 CZ0724089,Canis lupus,"56,""6676c""",2000-05-17
 CZ0724089,Canis lupus,"57,""6477a""",2004-05-29
 CZ0724089,Canis lupus,"58,""6477d""",2004-02-21
+CZ0724089,Canis lupus,"58,""6774c""",2025-01-13
 CZ0724089,Canis lupus,"59,""6377d""",2000-08-14
 CZ0724089,Canis lupus,"62,""6476c""",2020-03-23
 CZ0724089,Canis lupus,6376d,2004-10-01
@@ -16855,7 +17184,7 @@ CZ0724089,Canis lupus,6377c,2026-02-06
 CZ0724089,Canis lupus,6377d,2026-02-20
 CZ0724089,Canis lupus,"64,""6377d""",2000-08-19
 CZ0724089,Canis lupus,6474c,2024-11-25
-CZ0724089,Canis lupus,6474d,2024-07-01
+CZ0724089,Canis lupus,6474d,2026-02-20
 CZ0724089,Canis lupus,6475c,2025-02-07
 CZ0724089,Canis lupus,6475d,2025-10-23
 CZ0724089,Canis lupus,6476a,2004-05-29
@@ -16871,7 +17200,7 @@ CZ0724089,Canis lupus,6478c,2026-01-23
 CZ0724089,Canis lupus,"65,""6577a""",2001-04-01
 CZ0724089,Canis lupus,6574b,2013-09-10
 CZ0724089,Canis lupus,6574c,2024-05-17
-CZ0724089,Canis lupus,6574d,2023-10-19
+CZ0724089,Canis lupus,6574d,2026-03-19
 CZ0724089,Canis lupus,6575a,2026-02-26
 CZ0724089,Canis lupus,6575b,2026-02-06
 CZ0724089,Canis lupus,6575c,2024-03-30
@@ -16885,7 +17214,7 @@ CZ0724089,Canis lupus,6577b,2026-01-23
 CZ0724089,Canis lupus,6577c,2003-02-22
 CZ0724089,Canis lupus,6578a,2024-08-01
 CZ0724089,Canis lupus,6674a,2023-12-16
-CZ0724089,Canis lupus,6674b,2025-09-08
+CZ0724089,Canis lupus,6674b,2026-03-20
 CZ0724089,Canis lupus,6674c,2024-07-23
 CZ0724089,Canis lupus,6674d,2024-08-22
 CZ0724089,Canis lupus,6675a,2026-03-12
@@ -16895,16 +17224,18 @@ CZ0724089,Canis lupus,6675d,2024-09-12
 CZ0724089,Canis lupus,6676a,2024-05-10
 CZ0724089,Canis lupus,6676b,2023-01-01
 CZ0724089,Canis lupus,6676c,2024-08-29
-CZ0724089,Canis lupus,"67,""6774a""",2018-02-10
+CZ0724089,Canis lupus,"67,""6774a""",2025-02-22
 CZ0724089,Canis lupus,6774a,2025-05-09
 CZ0724089,Canis lupus,6774b,2025-02-08
 CZ0724089,Canis lupus,6774c,2024-12-25
 CZ0724089,Canis lupus,6774d,2025-08-24
 CZ0724089,Canis lupus,6775a,2024-02-17
 CZ0724089,Canis lupus,6775b,2015-09-24
+CZ0724089,Canis lupus,"68,""6675b""",2025-01-07
 CZ0724089,Canis lupus,6874b,2022-06-15
 CZ0724089,Canis lupus,"7,""6477a""",2000-09-19
 CZ0724089,Canis lupus,"7,""6576d""",2000-01-14
+CZ0724089,Canis lupus,"72,""6676c""",2025-04-10
 CZ0724089,Canis lupus,"73,""6575c""",2004-05-28
 CZ0724089,Canis lupus,"74,""6575a""",2003-08-30
 CZ0724089,Canis lupus,"77,""6478c""",2004-01-01
@@ -17185,7 +17516,7 @@ CZ0724089,Lutra lutra,6674d,2021-07-23
 CZ0724089,Lutra lutra,6675a,2025-03-13
 CZ0724089,Lutra lutra,6675b,2025-02-24
 CZ0724089,Lutra lutra,6675c,2025-02-23
-CZ0724089,Lutra lutra,6675d,2024-10-08
+CZ0724089,Lutra lutra,6675d,2025-02-28
 CZ0724089,Lutra lutra,6676a,2024-05-28
 CZ0724089,Lutra lutra,6676c,2016-12-30
 CZ0724089,Lutra lutra,6774b,2016-11-26
@@ -17286,7 +17617,7 @@ CZ0724089,Lycaena dispar,"96,""6774b""",2006-08-19
 CZ0724089,Lycaena dispar,"96,""6774c""",2006-08-19
 CZ0724089,Lycaena dispar,"96,""6774d""",2006-08-19
 CZ0724089,Lynx lynx,"01,""6676a""",2019-03-20
-CZ0724089,Lynx lynx,"01,""6775b""",2020-05-03
+CZ0724089,Lynx lynx,"01,""6775b""",2025-03-27
 CZ0724089,Lynx lynx,"02,""6674b""",2004-11-29
 CZ0724089,Lynx lynx,"1,""6477d""",2019-02-17
 CZ0724089,Lynx lynx,"12,""6474d""",2019-03-18
@@ -17302,17 +17633,20 @@ CZ0724089,Lynx lynx,"26,""6574b""",2001-02-01
 CZ0724089,Lynx lynx,"27,""6874b""",2018-01-05
 CZ0724089,Lynx lynx,"29,""6674b""",2020-04-09
 CZ0724089,Lynx lynx,"3,""6576d""",2020-02-13
+CZ0724089,Lynx lynx,"32,""6675c""",2025-01-04
 CZ0724089,Lynx lynx,"34,""6578a""",2020-03-10
 CZ0724089,Lynx lynx,"41,""6475d""",2008-03-01
 CZ0724089,Lynx lynx,"43,""6476a""",2020-04-20
+CZ0724089,Lynx lynx,"44,""6576c""",2025-02-07
 CZ0724089,Lynx lynx,"47,""6575b""",2003-01-01
-CZ0724089,Lynx lynx,"48,""6775a""",2020-03-26
+CZ0724089,Lynx lynx,"48,""6775a""",2025-02-21
+CZ0724089,Lynx lynx,"49,""6576a""",2025-01-23
 CZ0724089,Lynx lynx,"51,""6477c""",2020-03-05
 CZ0724089,Lynx lynx,"52,""6477a""",2022-02-27
 CZ0724089,Lynx lynx,"52,""6774b""",2020-05-07
 CZ0724089,Lynx lynx,"56,""6575d""",2020-02-27
 CZ0724089,Lynx lynx,"58,""6477d""",2019-05-17
-CZ0724089,Lynx lynx,"58,""6774c""",2019-04-17
+CZ0724089,Lynx lynx,"58,""6774c""",2025-04-16
 CZ0724089,Lynx lynx,"58,""6775a""",2020-04-30
 CZ0724089,Lynx lynx,"61,""6477d""",2000-03-01
 CZ0724089,Lynx lynx,"62,""6476c""",2020-04-21
@@ -17358,7 +17692,7 @@ CZ0724089,Lynx lynx,6675d,2020-02-14
 CZ0724089,Lynx lynx,6676a,2025-01-07
 CZ0724089,Lynx lynx,6676b,2003-03-01
 CZ0724089,Lynx lynx,6676c,2025-02-06
-CZ0724089,Lynx lynx,"67,""6774a""",2020-03-25
+CZ0724089,Lynx lynx,"67,""6774a""",2025-02-18
 CZ0724089,Lynx lynx,6774a,2006-12-16
 CZ0724089,Lynx lynx,6774b,2024-01-25
 CZ0724089,Lynx lynx,6774c,2022-02-12
@@ -17368,7 +17702,7 @@ CZ0724089,Lynx lynx,6775b,2018-03-28
 CZ0724089,Lynx lynx,"68,""6476b""",2005-01-09
 CZ0724089,Lynx lynx,6874b,2015-08-15
 CZ0724089,Lynx lynx,"71,""6476d""",2022-03-02
-CZ0724089,Lynx lynx,"72,""6676c""",2018-12-19
+CZ0724089,Lynx lynx,"72,""6676c""",2025-04-10
 CZ0724089,Lynx lynx,"78,""6577b""",2020-04-25
 CZ0724089,Lynx lynx,"79,""6476c""",2001-02-01
 CZ0724089,Lynx lynx,"79,""6476d""",2020-04-09
@@ -17423,11 +17757,11 @@ CZ0724089,Myotis emarginatus,"29,""6475d""",2022-08-11
 CZ0724089,Myotis emarginatus,"47,""6575b""",2013-07-01
 CZ0724089,Myotis emarginatus,"52,""6574b""",2001-01-01
 CZ0724089,Myotis emarginatus,6475c,2025-07-14
-CZ0724089,Myotis emarginatus,6476b,2022-01-26
+CZ0724089,Myotis emarginatus,6476b,2025-01-04
 CZ0724089,Myotis emarginatus,6478c,2024-08-11
 CZ0724089,Myotis emarginatus,6575b,2025-09-20
 CZ0724089,Myotis emarginatus,6576d,2015-07-06
-CZ0724089,Myotis emarginatus,6774c,2019-01-28
+CZ0724089,Myotis emarginatus,6774c,2025-02-02
 CZ0724089,Myotis emarginatus,"76,""6476c""",2021-05-27
 CZ0724089,Myotis emarginatus,"77,""6377c""",2020-04-28
 CZ0724089,Myotis emarginatus,"96,""6474a""",2011-06-21
@@ -17466,7 +17800,7 @@ CZ0724089,Myotis myotis,"58,""6477d""",2013-05-20
 CZ0724089,Myotis myotis,6376d,2008-01-26
 CZ0724089,Myotis myotis,6475c,2004-09-07
 CZ0724089,Myotis myotis,6475d,2024-11-17
-CZ0724089,Myotis myotis,6476b,2024-01-04
+CZ0724089,Myotis myotis,6476b,2025-01-04
 CZ0724089,Myotis myotis,6476c,2008-03-01
 CZ0724089,Myotis myotis,6476d,2020-10-09
 CZ0724089,Myotis myotis,6477a,2018-08-07
@@ -17483,7 +17817,7 @@ CZ0724089,Myotis myotis,6675d,2001-01-01
 CZ0724089,Myotis myotis,6676a,2013-05-16
 CZ0724089,Myotis myotis,6774a,2011-01-01
 CZ0724089,Myotis myotis,6774b,1995-01-01
-CZ0724089,Myotis myotis,6774c,2023-02-28
+CZ0724089,Myotis myotis,6774c,2025-02-02
 CZ0724089,Myotis myotis,"76,""6476c""",2021-05-27
 CZ0724089,Myotis myotis,"77,""6377c""",2020-04-28
 CZ0724089,Myotis myotis,"87,""6774c""",2013-07-03
@@ -17645,11 +17979,11 @@ CZ0724089,Rhinolophus hipposideros,"29,""6475d""",2022-08-11
 CZ0724089,Rhinolophus hipposideros,"47,""6575b""",2013-07-01
 CZ0724089,Rhinolophus hipposideros,6377c,2006-11-28
 CZ0724089,Rhinolophus hipposideros,6475c,2024-10-11
-CZ0724089,Rhinolophus hipposideros,6476b,2024-01-04
+CZ0724089,Rhinolophus hipposideros,6476b,2025-01-04
 CZ0724089,Rhinolophus hipposideros,6575a,2024-03-17
 CZ0724089,Rhinolophus hipposideros,6575b,2025-09-20
 CZ0724089,Rhinolophus hipposideros,6575c,2015-09-18
-CZ0724089,Rhinolophus hipposideros,6774c,2024-01-13
+CZ0724089,Rhinolophus hipposideros,6774c,2025-02-02
 CZ0724089,Rhinolophus hipposideros,"74,""6575a""",2009-04-25
 CZ0724089,Rhinolophus hipposideros,"76,""6476c""",2021-05-27
 CZ0724089,Rhinolophus hipposideros,"77,""6377c""",2020-04-28
@@ -17840,6 +18174,7 @@ CZ0724089,Triturus cristatus,"88,""6574a""",2008-04-20
 CZ0724089,Triturus cristatus,"99,""6573b""",2008-05-29
 CZ0724089,Unio crassus,6674c,2025-05-21
 CZ0724089,Unio crassus,6674d,2007-03-24
+CZ0724089,Ursus arctos,"01,""6775b""",2024-05-25
 CZ0724089,Ursus arctos,"02,""6774b""",2001-06-08
 CZ0724089,Ursus arctos,"08,""6576a""",2004-11-06
 CZ0724089,Ursus arctos,"14,""6576a""",2004-05-14
@@ -18036,6 +18371,7 @@ CZ0724090,Eriogaster catax,"96,""7171a""",2007-04-17
 CZ0724090,Eriogaster catax,"96,""7171b""",2007-04-17
 CZ0724090,Eriogaster catax,"96,""7171c""",2007-04-17
 CZ0724090,Eriogaster catax,"96,""7171d""",2007-04-17
+CZ0724090,Eriogaster catax,NA,2004-04-18
 CZ0724090,Euphydryas maturna,7072c,2018-05-26
 CZ0724090,Euplagia quadripunctaria,"01,""7171a""",2007-08-12
 CZ0724090,Euplagia quadripunctaria,"01,""7171c""",2010-08-13
@@ -18453,6 +18789,7 @@ CZ0724091,Euplagia quadripunctaria,"96,""6969b""",2006-01-01
 CZ0724091,Euplagia quadripunctaria,"96,""6969c""",2006-01-01
 CZ0724091,Euplagia quadripunctaria,"96,""6969d""",2006-01-01
 CZ0724091,Euplagia quadripunctaria,"98,""6870c""",2003-08-08
+CZ0724091,Hipparchia semele,NA,2003-01-01
 CZ0724091,Lucanus cervus,"54,""6869d""",2010-08-11
 CZ0724091,Lucanus cervus,6770c,2010-10-01
 CZ0724091,Lucanus cervus,6869c,2020-08-02
@@ -18656,6 +18993,8 @@ CZ0724120,Castor fiber,6870d,2025-05-17
 CZ0724120,Castor fiber,6871c,2002-01-01
 CZ0724120,Castor fiber,6970b,2024-03-05
 CZ0724120,Cucujus cinnaberinus,6870d,2022-06-15
+CZ0724120,Eriogaster catax,NA,2008-04-01
+CZ0724120,Hipparchia semele,NA,1995-01-01
 CZ0724120,Leuciscus aspius,6870d,2001-03-11
 CZ0724120,Lucanus cervus,6870d,2019-06-01
 CZ0724120,Lucanus cervus,6970b,2019-06-19
@@ -18674,6 +19013,7 @@ CZ0724120,Scardinius erythrophthalmus,6870d,2023-04-30
 CZ0724120,Scardinius erythrophthalmus,6970b,2011-04-27
 CZ0724120,Triturus cristatus,6970b,2011-03-01
 CZ0724121,Bombina variegata,6673b,2018-05-28
+CZ0724121,Canis lupus,"33,""6673b""",2025-01-29
 CZ0724121,Castor fiber,"97,""6673b""",2011-10-01
 CZ0724121,Cucujus cinnaberinus,6673b,2020-12-14
 CZ0724121,Euplagia quadripunctaria,6673b,2016-08-05
@@ -18927,7 +19267,7 @@ CZ0810018,Myotis emarginatus,"35,""6169a""",2009-12-29
 CZ0810018,Myotis emarginatus,6169a,2024-02-24
 CZ0810018,Myotis myotis,"35,""6169a""",2009-12-29
 CZ0810018,Myotis myotis,"45,""6169a""",2010-06-12
-CZ0810018,Myotis myotis,6169a,2024-02-24
+CZ0810018,Myotis myotis,6169a,2025-01-30
 CZ0810018,Myotis myotis,"96,""6169a""",2012-06-21
 CZ0810018,Myotis myotis,"96,""6169b""",2012-06-21
 CZ0810018,Myotis myotis,"96,""6169c""",2012-06-21
@@ -18940,7 +19280,7 @@ CZ0810018,Phengaris nausithous,"96,""6169c""",2005-01-01
 CZ0810018,Phengaris nausithous,"96,""6169d""",2005-01-01
 CZ0810018,Rhinolophus hipposideros,"35,""6169a""",2009-12-29
 CZ0810018,Rhinolophus hipposideros,"45,""6169a""",1983-01-30
-CZ0810018,Rhinolophus hipposideros,6169a,2024-02-24
+CZ0810018,Rhinolophus hipposideros,6169a,2025-01-30
 CZ0810018,Rhinolophus hipposideros,"96,""6169a""",2012-06-21
 CZ0810018,Rhinolophus hipposideros,"96,""6169b""",2012-06-21
 CZ0810018,Rhinolophus hipposideros,"96,""6169c""",2012-06-21
@@ -19241,10 +19581,10 @@ CZ0813468,Carabus variolosus,5870a,2020-09-03
 CZ0813468,Salmo trutta,5870a,2015-07-20
 CZ0813469,Bombina variegata,5872c,2023-07-27
 CZ0813469,Triturus cristatus,5872c,2025-09-26
-CZ0813472,Myotis bechsteinii,5970a,2023-02-13
-CZ0813472,Myotis emarginatus,5970a,2023-02-13
-CZ0813472,Myotis myotis,5970a,2023-02-13
-CZ0813472,Rhinolophus hipposideros,5970a,2024-01-27
+CZ0813472,Myotis bechsteinii,5970a,2025-02-22
+CZ0813472,Myotis emarginatus,5970a,2025-02-22
+CZ0813472,Myotis myotis,5970a,2025-02-22
+CZ0813472,Rhinolophus hipposideros,5970a,2025-02-22
 CZ0813472,Triturus cristatus,5970a,2025-09-22
 CZ0813474,Barbastella barbastellus,6173c,2014-08-05
 CZ0813474,Barbastella barbastellus,"95,""6173c""",2015-05-05
@@ -19309,28 +19649,28 @@ CZ0813516,Salmo trutta,6478b,2025-09-22
 CZ0813516,Salmo trutta,6479a,2007-04-01
 CZ0813516,Salmo trutta,"74,""6378c""",1996-01-01
 CZ0813516,Salmo trutta,"75,""6478b""",2004-01-01
-CZ0813760,Barbastella barbastellus,6272a,2024-01-28
-CZ0813760,Myotis emarginatus,6272a,2024-01-28
-CZ0813760,Myotis myotis,6272a,2024-01-28
-CZ0813760,Rhinolophus hipposideros,6272a,2024-01-28
+CZ0813760,Barbastella barbastellus,6272a,2025-01-18
+CZ0813760,Myotis emarginatus,6272a,2025-01-18
+CZ0813760,Myotis myotis,6272a,2025-01-18
+CZ0813760,Rhinolophus hipposideros,6272a,2025-01-18
 CZ0813763,Barbastella barbastellus,"53,""5969d""",2006-02-05
 CZ0813763,Barbastella barbastellus,5969b,2024-02-10
-CZ0813763,Barbastella barbastellus,5969d,2024-02-10
+CZ0813763,Barbastella barbastellus,5969d,2025-02-15
 CZ0813763,Carabus variolosus,5969d,2020-06-04
 CZ0813763,Myotis bechsteinii,"53,""5969d""",2004-02-07
 CZ0813763,Myotis bechsteinii,5969b,2019-08-16
 CZ0813763,Myotis bechsteinii,5969d,2021-02-06
 CZ0813763,Myotis dasycneme,5969d,2020-02-08
 CZ0813763,Myotis emarginatus,"53,""5969d""",2005-02-05
-CZ0813763,Myotis emarginatus,5969b,2016-02-06
-CZ0813763,Myotis emarginatus,5969d,2020-02-08
+CZ0813763,Myotis emarginatus,5969b,2025-02-15
+CZ0813763,Myotis emarginatus,5969d,2025-02-15
 CZ0813763,Myotis myotis,"53,""5969d""",2006-02-05
-CZ0813763,Myotis myotis,5969b,2023-01-28
-CZ0813763,Myotis myotis,5969d,2024-02-10
+CZ0813763,Myotis myotis,5969b,2025-02-15
+CZ0813763,Myotis myotis,5969d,2025-02-15
 CZ0813763,Myotis sp.,5969d,2024-02-10
 CZ0813763,Rhinolophus hipposideros,"53,""5969d""",2006-02-05
 CZ0813763,Rhinolophus hipposideros,5969b,2023-01-28
-CZ0813763,Rhinolophus hipposideros,5969d,2024-02-10
+CZ0813763,Rhinolophus hipposideros,5969d,2025-02-15
 CZ0813764,Barbastella barbastellus,6271b,2008-01-06
 CZ0813764,Myotis emarginatus,6271b,2009-12-27
 CZ0813764,Myotis myotis,6271b,2009-12-27
@@ -19340,18 +19680,18 @@ CZ0813765,Myotis bechsteinii,6069b,2017-02-04
 CZ0813765,Myotis emarginatus,6069b,2022-02-12
 CZ0813765,Myotis myotis,6069b,2022-02-12
 CZ0813765,Rhinolophus hipposideros,6069b,2022-02-12
-CZ0813766,Barbastella barbastellus,6071d,2024-01-06
-CZ0813766,Myotis emarginatus,6071d,2024-01-06
-CZ0813766,Myotis myotis,6071d,2023-01-06
-CZ0813766,Rhinolophus hipposideros,6071d,2024-01-06
+CZ0813766,Barbastella barbastellus,6071d,2024-12-21
+CZ0813766,Myotis emarginatus,6071d,2024-12-21
+CZ0813766,Myotis myotis,6071d,2024-12-21
+CZ0813766,Rhinolophus hipposideros,6071d,2024-12-21
 CZ0813767,Barbastella barbastellus,6172c,2010-02-20
 CZ0813767,Myotis emarginatus,6172c,2010-02-20
 CZ0813767,Myotis myotis,6172c,2010-02-20
 CZ0813767,Rhinolophus hipposideros,6172c,2010-02-20
-CZ0813770,Barbastella barbastellus,6272a,2024-01-15
+CZ0813770,Barbastella barbastellus,6272a,2025-01-18
 CZ0813770,Myotis bechsteinii,6272a,2023-01-28
-CZ0813770,Myotis emarginatus,6272a,2024-01-15
-CZ0813770,Myotis myotis,6272a,2024-01-15
+CZ0813770,Myotis emarginatus,6272a,2025-01-18
+CZ0813770,Myotis myotis,6272a,2025-01-18
 CZ0813770,Rhinolophus hipposideros,6272a,2024-01-15
 CZ0813810,Cottus gobio,"46,""6272c""",2001-01-01
 CZ0813810,Cottus gobio,6272c,2023-10-21
@@ -19365,7 +19705,7 @@ CZ0813810,Phengaris nausithous,6272c,2021-08-18
 CZ0813810,Salmo trutta,6272c,2015-08-09
 CZ0813810,Salmo trutta,6272d,2015-08-09
 CZ0814092,Abramis brama,6175c,2014-06-11
-CZ0814092,Abramis brama,6274d,2014-07-25
+CZ0814092,Abramis brama,6274d,2026-03-20
 CZ0814092,Abramis brama,6275a,2004-01-01
 CZ0814092,Abramis brama,6275c,2021-06-04
 CZ0814092,Abramis brama,6373d,1997-01-01
@@ -19376,6 +19716,7 @@ CZ0814092,Ameiurus nebulosus,6373b,2024-08-27
 CZ0814092,Ameiurus nebulosus,6373c,2025-10-20
 CZ0814092,Anisus vorticulus,6274c,2020-07-07
 CZ0814092,Anisus vorticulus,6274d,2024-08-21
+CZ0814092,Anodonta sp.,6274d,2026-03-20
 CZ0814092,Barbastella barbastellus,6274d,2015-06-05
 CZ0814092,Barbastella barbastellus,6275a,2015-06-03
 CZ0814092,Barbastella barbastellus,6374a,2015-06-05
@@ -19431,7 +19772,7 @@ CZ0814092,Castor fiber,"48,""6275c""",2017-02-20
 CZ0814092,Castor fiber,"51,""6373c""",2016-03-10
 CZ0814092,Castor fiber,6175c,2025-09-09
 CZ0814092,Castor fiber,6274c,2022-09-20
-CZ0814092,Castor fiber,6274d,2026-02-26
+CZ0814092,Castor fiber,6274d,2026-03-20
 CZ0814092,Castor fiber,6275a,2025-07-09
 CZ0814092,Castor fiber,6275c,2021-10-11
 CZ0814092,Castor fiber,6373b,2026-01-19
@@ -19496,7 +19837,7 @@ CZ0814092,Lutra lutra,"38,""6274d""",2007-03-18
 CZ0814092,Lutra lutra,6175c,2025-09-09
 CZ0814092,Lutra lutra,6274b,2007-03-17
 CZ0814092,Lutra lutra,6274c,2016-10-26
-CZ0814092,Lutra lutra,6274d,2025-01-25
+CZ0814092,Lutra lutra,6274d,2026-03-20
 CZ0814092,Lutra lutra,6275a,2025-07-09
 CZ0814092,Lutra lutra,6275c,2019-02-12
 CZ0814092,Lutra lutra,6373b,2026-01-19
@@ -19724,3 +20065,14 @@ CZ0814093,Scardinius erythrophthalmus,"96,""6076c""",2004-01-01
 CZ0815031,Bombina bombina,6069c,2025-04-27
 CZ0815031,Hamatocaulis vernicosus,6069c,2021-09-16
 CZ0815031,Leucorrhinia pectoralis,6069c,2014-07-13
+NA,Eriogaster catax,NA,2025-12-07
+NA,Euphydryas aurinia,NA,2025-09-24
+NA,Euphydryas maturna,NA,2025-06-22
+NA,Gentianella amarella,NA,2025-09-09
+NA,Gentianella obtusifolia subsp. sturmiana,NA,2017-09-21
+NA,Gentianella praecox subsp. bohemica,NA,2025-10-12
+NA,Gladiolus palustris,NA,2025-06-29
+NA,Hipparchia semele,NA,2025-09-20
+NA,Chazara briseis,NA,2025-08-07
+NA,Ornithogalum pyrenaicum subsp. sphaerocarpum,NA,2025-07-29
+NA,Pulsatilla patens,NA,2025-05-16
