@@ -1,6 +1,24 @@
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+# N2k stanoviste klic
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+
+# Tento skript slouzi k vypoctu zakladnich parametru Hodnoceni stavu stanovist
+# v Evropsky vyznamnych lokalitach. Ridi se podle Metodiky hodnoceni stanovist [[??]].
+
+# VSTUPY:
+# - Vrstva mapovani biotopu (nactena pomoci funkce load_vmb())
+# - paseky (vypocteno skriptem paseky)
+# 
+
+# VYSTUPY:
+
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+
 # LOAD DATA ----
 
 # VRSTVA HRANIC CZ 
+# ?? nacita se uz v 00_n2k_config.R
+# ?? hranice CR se v tomto skriptu nepouziva
 czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
   st_transform(., CRS("+init=epsg:5514"))
 czechia_line <- st_cast(czechia, "LINESTRING")
@@ -11,7 +29,9 @@ load_vmb(vmb_x = 0)
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # VÝPOČET HODNOCENÍ ----
+
 n2k_hab_klic <- function(hab_code, evl_site) {
+  
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
     sf::st_intersection(dplyr::filter(evl, SITECODE == evl_site)) %>% # ořez segmentů VMB podle hranic EVL
@@ -26,9 +46,10 @@ n2k_hab_klic <- function(hab_code, evl_site) {
     # kolik je realne plocha biotopu v segmentu v EVL (relevantni u mozaik, kde STEJ_PR != 100)
     dplyr::mutate(PLO_BIO_M2_EVL = STEJ_PR/100*AREA_real)
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # CELKOVÁ PLOCHA HABITATU VČETNĚ PASEK
-  # plocha pasek
-  area_paseky_ha <- paseky %>%
+  # plocha pasek, pro dany habitat v danem EVL vytahne plochu pasek
+  area_paseky_ha <- paseky %>% # nutne mit paseky v globenv ?? upravit nacitani
     dplyr::filter(SITECODE == evl_site) %>%
     dplyr::filter(HABITAT_CODE == hab_code) %>%
     dplyr::pull(ROZLOHA_PASEKY)
@@ -36,7 +57,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   if (length(area_paseky_ha) == 0) {
     area_paseky_ha <- NA
   } else {
-    area_paseky_ha <- area_paseky_ha
+    area_paseky_ha <- area_paseky_ha # ?? zbytecne
   }
   
   # celkova plocha biotopu včetně pasek v celem EVL
@@ -46,7 +67,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
                      area_paseky_ha*10000,
                      na.rm = TRUE)
   
-  target_area_ha <- SUM_PLO_BIO/10000
+  target_area_ha <- SUM_PLO_BIO/10000 # prevod na hektary
   
   # plocha degradovanych a nereprezentativnich biotopu
   area_w_ha <- vmb_target_sjtsk %>%
@@ -66,6 +87,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   # paseky perc
   area_paseky_perc <- area_paseky_ha/target_area_ha*100
 
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # KVALITATIVNÍ PARAMETRY HODNOCENÍ
   vmb_qual <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
@@ -106,18 +128,19 @@ n2k_hab_klic <- function(hab_code, evl_site) {
                                           SF == "MP" ~ "B",
                                           SF == "N" ~ "C",
                                           RB == "W" ~ "C",
-                                          is.na(SF) == TRUE & DG == 0 ~ "A", ### ???
+                                          is.na(SF) == TRUE & DG == 0 ~ "A", ### ??
                                           is.na(SF) == TRUE & DG == 1 ~ "A",
                                           is.na(SF) == TRUE & DG == 2 ~ "B",
                                           is.na(SF) == TRUE & DG == 3 ~ "C",
                                           is.na(SF) == TRUE & is.na(DG) == TRUE ~ "B"),
-      REPRE_SDF_SEG = dplyr::case_when(REPRESENTAVITY_SEG == "D" ~ 0, # proc toto neni uz vyse u REPRESENTAVITY_SEG?
+      REPRE_SDF_SEG = dplyr::case_when(REPRESENTAVITY_SEG == "D" ~ 0, # proc toto neni uz vyse u REPRESENTAVITY_SEG??
                                        REPRESENTAVITY_SEG == "C" ~ 1,
                                        REPRESENTAVITY_SEG == "B" ~ 2,
                                        REPRESENTAVITY_SEG == "A" ~ 3),
-      CON_SEG = dplyr::case_when(CONSERVATION_SEG == "C" ~ 0, # stejna otazka
+      CON_SEG = dplyr::case_when(CONSERVATION_SEG == "C" ~ 0, # stejna otazka ??
                                  CONSERVATION_SEG == "B" ~ 1,
                                  CONSERVATION_SEG == "A" ~ 2),
+      # REPRE_SDF_SEG a CON_SEG 
       DEGREEOFCONS_SEG = dplyr::case_when(DG == "W" ~ 0,
                                           RB == "W" ~ 0,
                                           SF == "N" ~ 0,
@@ -152,9 +175,9 @@ n2k_hab_klic <- function(hab_code, evl_site) {
       TD_SEG = TYP_DRUHY_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
       RB_SEG = REPREZENTAVITA_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
       RB_SDF_SEG = REPRE_SDF_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
-      CS_SEG = CON_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,            ### stejný, ale tohle už pak nikde
+      CS_SEG = CON_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,            ### stejný, ale tohle už pak nikde ??
       DC_SEG = DEGREEOFCONS_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
-      CN_SEG = CON_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,            ### stejný
+      CN_SEG = CON_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,            ### stejný ??
       QUAL_SEG = KVALITA_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO,
       MD_SEG = dplyr::case_when(substr(hab_code, 1, 1) != 9 ~ NA_real_,
                                 TRUE ~ MRTVE_DREVO_SEG*PLO_BIO_M2_EVL/SUM_PLO_BIO), # nahradit ifelse?
@@ -253,7 +276,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   # Akt po roce 2012
   perc_seg_2 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
-    dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2024) %>% # zaměnit 2024 za něco flexibilnějšího
+    dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2024) %>% # ?? zaměnit 2024 za něco flexibilnějšího
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
@@ -282,7 +305,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
         MRTVE_DREVO = unique(MD_FIN)[1],
         KALAMITA_POLOM = unique(KP_FIN)[1],
         RELATIVE_AREA_PERC = area_relative_perc,
-        EVL_AREA_PERC = area_evl_perc, # NUTNO PŘEPSAT PŘI AKTUALIZACI EVL
+        EVL_AREA_PERC = area_evl_perc, # NUTNO PŘEPSAT PŘI AKTUALIZACI EVL ??
         GOOD_DOC_AREA_HA = area_good_ha,
         W_AREA_HA = area_w_ha,
         W_AREA_PERC = area_w_perc,
