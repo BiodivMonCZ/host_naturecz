@@ -375,6 +375,10 @@ getfeature_url_biotopzvld <- paste0(
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_biotopzvld
 )
 
+vodstvo <- sf::st_read(
+  "https://geoportal.cuzk.gov.cz/geoserver/hy-p/wfs?"
+)
+
 #--------------------------------------------------#
 ### Funkce pro načtení vrstvy: nejprve lokálně, jinak z WFS ----
 #--------------------------------------------------#
@@ -440,9 +444,22 @@ n2k_export <- readr::read_csv(
   locale = readr::locale(encoding = "UTF-8")
 )
 
+volna_export <- readr::read_csv(
+  paste0(
+    slozka_lokal,
+    "export_data_zprap.csv"
+  ), 
+  locale = readr::locale(encoding = "UTF-8")
+)
+
 ncol_orig <- ncol(n2k_export)
 
 n2k_load <- n2k_export %>%
+  dplyr::bind_rows(
+    .,
+    volna_export
+  ) %>%
+  dplyr::distinct() %>%
   dplyr::rename(
     POLE = POLE_1_RAD
   ) %>% 
