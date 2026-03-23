@@ -68,9 +68,6 @@ habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_ro
 # find_evl_CODE_TO_NAME() ‒ KDE SE NACITA?
 
 hvezdice_eval <- function(hab_code, evl_site) {
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-  # duplicitni blok START
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
     sf::st_intersection(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
@@ -245,9 +242,6 @@ hvezdice_eval <- function(hab_code, evl_site) {
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # až sem skoro identické jako 11_n2k_stanoviste_klic.R
   # navic je vypocet SUM_PLO_BIO_MINIMI
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-  # duplicitni blok STOP
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   #### MINIMIAREÁL ####
@@ -280,7 +274,10 @@ hvezdice_eval <- function(hab_code, evl_site) {
   }
   
   # vypocet spat celistvosti (0/1)
-  # bere jen kvalitni segmenty, buffer, shluky a tem prirazeni ID_COMB, priradi puvodni segmenty do shluku, pro kazdy shluk spocita COMB_SIZE (soucet PLO_BIO_M2_EVL [plochy biotopu v segmentu v evl]), priradi binarni 1/0 ‒ porovnani COMB_SIZE s minimisize (viz vyse)
+  # bere jen kvalitni segmenty, buffer, shluky a tem prirazeni ID_COMB,
+  # priradi puvodni segmenty do shluku, pro kazdy shluk
+  # spocita COMB_SIZE (soucet PLO_BIO_M2_EVL [plochy biotopu v segmentu v evl]),
+  # priradi binarni 1/0 ‒ porovnani COMB_SIZE s minimisize (viz vyse)
   spat_celistvost <- vmb_target_sjtsk %>%
     dplyr::filter(DG != "W" & RB != "W") %>%
     sf::st_buffer(., 50) %>% # buffer a sjednoceni
@@ -447,10 +444,6 @@ hvezdice_eval <- function(hab_code, evl_site) {
     mozaika_kompil <- 100 - mozaika_inner
   }
   
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-  # duplicitni blok START
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-  
   # !!!! NUTNO PŘEPSAT PŘI AKTUALIZACI EVL !!!!!
   area_evl_perc <- unique(target_area_ha/(unique(vmb_target_sjtsk$SHAPE_AREA)/10000)*100)
   area_relative_perc <- target_area_ha/habitat_areas_2022 %>%
@@ -469,10 +462,6 @@ hvezdice_eval <- function(hab_code, evl_site) {
     area_evl_perc <- 0
     area_good_ha <- 0
   }
-  
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-  # duplicitni blok STOP
-  # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
   
   # VYPLNĚNOST PARAMETRŮ
   fill_TD <- sum(filter(vmb_target_sjtsk, is.na(TD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
@@ -1045,8 +1034,6 @@ n2k_hab_klic <- function(hab_code, evl_site) {
 }
 # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
 
-# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
-# spolecny problem techto funkci je, ze se pri vytvareni "result" spolehaji na objekt "vmb_qual", ktery se ale v ramci techto funkci nevytvari. obzvlast nebezpecne, pokud je "vmb_qual" v globalnim prostredi
 # trochu bordel, počítají se pouze prostorové proměnné, ale výpočet result předpokládá i výpočet kvalitativních parametrů a redlist/invasive/expansive species
 n2k_hab_spat <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
