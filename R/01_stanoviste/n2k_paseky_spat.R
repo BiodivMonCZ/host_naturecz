@@ -55,7 +55,7 @@ paseky_spat <- function(
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
-  # 
+  # Lesní biotop check
   
   # inicializace výsledku pro případ krachu
   result <- NULL
@@ -94,45 +94,6 @@ paseky_spat <- function(
   # check existence území
   if(nrow(uzemi_filter) == 0){
     message("Kód území ", evl_site, " nebyl nalezen.")
-    return(invisible(NULL))
-  }
-  
-  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
-  # VMB AKTU
-  
-  # prefilter ‒ vybere jenom ty segmenty, které interagují s uzemi
-  vmb_aktu_filtered <- sf::st_filter(
-    x = vmb_aktu,
-    y = uzemi_filter,
-    .predicate = sf::st_intersects
-  )
-  
-  # check jestli se uzemi potkava s vmb_aktu
-  if(nrow(vmb_aktu_filtered) == 0){
-    message("Pro ", evl_site, " není v novějším mapování žádný segment.")
-    return(invisible(NULL))
-  }
-  
-  # intersection samotná
-  vmb_target_sjtsk_update <- 
-    sf::st_intersection(vmb_aktu_filtered, uzemi_filter) %>%
-    dplyr::filter(
-      base::as.character(sf::st_geometry_type(.)) %in% base::c("POLYGON", "MULTIPOLYGON")
-    ) %>%
-    dplyr::mutate(
-      AREA_real_update = units::drop_units(sf::st_area(.)),
-      PLO_BIO_M2_EVL_update = STEJ_PR / 100 * AREA_real_update
-    ) %>%
-    dplyr::rename(
-      FSB_update = FSB,
-      BIOTOP_update = BIOTOP,
-      STEJ_PR_update = STEJ_PR,
-      ROK_AKT_update = ROK_AKT.x
-    )
-  
-  # safe check, tohle by se nikdy nemělo spustit, protože to testuje už st_intersects
-  if(nrow(vmb_target_sjtsk_update) == 0){
-    message("Pro ", evl_site, " jsou ve vmb_aktu segmenty, ale po průniku nevznikla žádná polygonová geometrie.")
     return(invisible(NULL))
   }
   
@@ -177,6 +138,45 @@ paseky_spat <- function(
   # safe check, tohle by se nikdy nemělo spustit, protože to testuje už st_intersects
   if(nrow(vmb_target_sjtsk_orig) == 0){
     message("Pro ", evl_site, " a ", hab_code, " po průniku starší vrstvy nevznikla žádná polygonová geometrie.")
+    return(invisible(NULL))
+  }
+  
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # VMB AKTU
+  
+  # prefilter ‒ vybere jenom ty segmenty, které interagují s uzemi
+  vmb_aktu_filtered <- sf::st_filter(
+    x = vmb_aktu,
+    y = uzemi_filter,
+    .predicate = sf::st_intersects
+  )
+  
+  # check jestli se uzemi potkava s vmb_aktu
+  if(nrow(vmb_aktu_filtered) == 0){
+    message("Pro ", evl_site, " není v novějším mapování žádný segment.")
+    return(invisible(NULL))
+  }
+  
+  # intersection samotná
+  vmb_target_sjtsk_update <- 
+    sf::st_intersection(vmb_aktu_filtered, uzemi_filter) %>%
+    dplyr::filter(
+      base::as.character(sf::st_geometry_type(.)) %in% base::c("POLYGON", "MULTIPOLYGON")
+    ) %>%
+    dplyr::mutate(
+      AREA_real_update = units::drop_units(sf::st_area(.)),
+      PLO_BIO_M2_EVL_update = STEJ_PR / 100 * AREA_real_update
+    ) %>%
+    dplyr::rename(
+      FSB_update = FSB,
+      BIOTOP_update = BIOTOP,
+      STEJ_PR_update = STEJ_PR,
+      ROK_AKT_update = ROK_AKT.x
+    )
+  
+  # safe check, tohle by se nikdy nemělo spustit, protože to testuje už st_intersects
+  if(nrow(vmb_target_sjtsk_update) == 0){
+    message("Pro ", evl_site, " jsou ve vmb_aktu segmenty, ale po průniku nevznikla žádná polygonová geometrie.")
     return(invisible(NULL))
   }
   
