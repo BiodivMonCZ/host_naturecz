@@ -21,6 +21,8 @@ paseky_spat <- function(
 ){
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # Načíst data z .GlobalEnv
+  
   # výběr typu chráněného území
   if(typ_chu == "EVL"){
     uzemi <- evl
@@ -53,6 +55,7 @@ paseky_spat <- function(
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # 
   
   # inicializace výsledku pro případ krachu
   result <- NULL
@@ -64,8 +67,8 @@ paseky_spat <- function(
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
-  
   # CRS check
+  
   target_crs <- sf::st_crs(uzemi)
   
   if(sf::st_crs(vmb_aktu) != target_crs){
@@ -79,6 +82,7 @@ paseky_spat <- function(
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # Vyber uzemi
   
   # tvorba prosotorového filtru podle SITECODE
   if(!"SITECODE" %in% names(uzemi)){
@@ -89,14 +93,14 @@ paseky_spat <- function(
   
   # check existence území
   if(nrow(uzemi_filter) == 0){
-    message("Pro kód území ", evl_site, " nebyl nalezen žádný záznam ve vrstvě uzemi.")
+    message("Kód území ", evl_site, " nebyl nalezen.")
     return(invisible(NULL))
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # VMB AKTU
   
-  # prefilter 
+  # prefilter ‒ vybere jenom ty segmenty, které interagují s uzemi
   vmb_aktu_filtered <- sf::st_filter(
     x = vmb_aktu,
     y = uzemi_filter,
@@ -135,25 +139,24 @@ paseky_spat <- function(
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # VMB ZAKL
   
+  # zachovat pouze segmenty zakladniho mapovani s target biotopem
   vmb_zakl_target <- vmb_zakl %>%
     dplyr::filter(HABITAT == hab_code | BIOTOP == hab_code)
   
-  if(nrow(vmb_zakl_target) == 0){
-    message("Pro ", evl_site, " není ", hab_code, " ve starším mapování.")
-    return(invisible(NULL))
-  }
-  
+  # prefilter
   vmb_zakl_filtered <- sf::st_filter(
     x = vmb_zakl_target,
     y = uzemi_filter,
     .predicate = sf::st_intersects
   )
   
+  # je target biotop ve starsim mapovani v danem uzemi?
   if(nrow(vmb_zakl_filtered) == 0){
     message("Pro ", evl_site, " není ", hab_code, " ve starším mapování v daném území.")
     return(invisible(NULL))
   }
   
+  # intersection, kde je paseka?
   vmb_target_sjtsk_orig <- sf::st_intersection(
     vmb_zakl_filtered,
     uzemi_filter
@@ -171,41 +174,41 @@ paseky_spat <- function(
       STEJ_PR_orig = STEJ_PR
     )
   
+  # safe check, tohle by se nikdy nemělo spustit, protože to testuje už st_intersects
   if(nrow(vmb_target_sjtsk_orig) == 0){
     message("Pro ", evl_site, " a ", hab_code, " po průniku starší vrstvy nevznikla žádná polygonová geometrie.")
     return(invisible(NULL))
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # Příprava dat pro výpočet pasek
   
-  
+  # T/F dotčené segmenty, které má cenu uvažovat při výpočtu
   hit_list <- sf::st_intersects(
     vmb_target_sjtsk_update,
     vmb_target_sjtsk_orig
   )
   
+  # safe check, nemělo by nikdy proběhnout, dokud je vmb_aktu kompletní
   if(!any(lengths(hit_list) > 0)){
-    message(
-      "Pro ", evl_site, " a ", hab_code,
-      " je biotop ve starším mapování přítomen, ale nepřekrývá se s žádným segmentem nového mapování."
-    )
+    message("Pro ", evl_site, " a ", hab_code, " je biotop ve starším mapování přítomen, ale nepřekrývá se s žádným segmentem nového mapování.")
     return(invisible(NULL))
   }
   
-  update_sub <- vmb_target_sjtsk_update[lengths(hit_list) > 0, ]
+  # vyber dotčené segmenty pro výpočet
+  update_sub <- vmb_target_sjtsk_update[lengths(hit_list) > 0,] # vyber hit_list z vmb_aktu
+  orig_sub <- vmb_target_sjtsk_orig[sort(unique(unlist(hit_list))),] # vyber hit_list z vmb_zakl
   
-  orig_sub <- vmb_target_sjtsk_orig[
-    sort(unique(unlist(hit_list))),
-  ]
-  
+  # safe check, chytá to i safecheck hit_listu výše
   if(nrow(update_sub) == 0 || nrow(orig_sub) == 0){
     message("Pro ", evl_site, " a ", hab_code, " nevznikl žádný relevantní subset pro finální průnik.")
     return(invisible(NULL))
   }
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # Výpočet pasek
   
-  
+  # hlavní výpočet pasek a holin
   result <- sf::st_intersection(
     update_sub,
     orig_sub
@@ -229,48 +232,44 @@ paseky_spat <- function(
       )
     )
   
+  # check, že nějaký průnik vzniknul
   if(nrow(result) == 0){
     message("Pro ", evl_site, " a ", hab_code, " nevznikl žádný průnik.")
     return(invisible(NULL))
   }
   
+  # deduplicate sloupců
   result <- janitor::clean_names(result)
   
   # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # Zápis výsledků
   
-  # out_dir <- file.path(
-  #   "Outputs",
-  #   "Data",
-  #   "stanoviste",
-  #   "paseky",
-  #   paste0(zakl, "_", aktu)
-  # )
-  # 
-  # dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+  # outdir
+  out_dir <- file.path("Outputs", "Data", "stanoviste", "paseky", typ_chu, paste0(zakl, "_", aktu))
+  dir.create(out_dir, recursive = TRUE)
   
-  file_path <- file.path(
-    out_dir,
-    paste0(typ_chu, "_", evl_site, "_", hab_code, "_", zakl, "_", aktu, ".gpkg")
-  )
+  # outfile
+  file_path <- file.path(out_dir, paste0(typ_chu, "_", evl_site, "_", hab_code, "_", zakl, "_", aktu, ".gpkg"))
   
+  # vymazat, jestli už existuje
   if(file.exists(file_path)){
     ok_remove <- file.remove(file_path)
-    
     if(!ok_remove){
       stop("Nelze smazat existující soubor: ", file_path, ". Ujisti se, že není otevřený v GISu.")
     }
   }
   
+  # zápis dat na disk
   sf::st_write(
     obj = result,
     dsn = file_path,
     layer = paste0(typ_chu, "_", evl_site, "_", hab_code, "_", zakl, "_", aktu),
-    driver = "GPKG",
-    quiet = TRUE
+    driver = "GPKG"
   )
   
   message("Pro ", evl_site, " a ", hab_code, " vrstva zapsána.")
   
+  # návrat pokud, chci výsledek rovnou do objektu
   return(invisible(result))
 }
 
