@@ -8,6 +8,25 @@ dir_vmb2_vmb0 <- "../host_data/VMB2_VMB0"
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # predmety ochrany
 
+sites_subjects <- openxlsx::read.xlsx(
+  "Data/Input/seznam_predmetolokalit_Natura2000_2_2025.xlsx",
+  sheet = 1
+) %>%
+  dplyr::rename(
+    site_code = `Kód.lokality`,
+    site_name = `Název.lokality`,
+    site_type = `Typ.lokality`,
+    feature_type = `Typ.předmětu.ochrany`,
+    sdf_code = `Kód.SDF`,
+    feature_code = `Kód.ISOP`,
+    nazev_cz = `Název.česky`,
+    nazev_lat = `Název.latinsky.(druh)`
+  )
+
+sites_habitats <- sites_subjects %>%
+  dplyr::filter(feature_type == "stanoviště")
+
+
 protected_habitats <- sites_habitats |>
   dplyr::transmute(
     sitecode = base::as.character(site_code),
@@ -105,4 +124,13 @@ latest_choice <- pair_summary |>
   dplyr::ungroup()
 
 latest_choice
+
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+# zapis vysledku
+
+write.csv(all_paseky, file = file.path("..", "host_data", "paseky_results", "all_paseky.csv"))
+write.csv(all_paseky_po, file = file.path("..", "host_data", "paseky_results", "all_paseky_po.csv"))
+write.csv(pair_summary, file = file.path("..", "host_data", "paseky_results", "pair_summary.csv"))
+write.csv(latest_choice, file = file.path("..", "host_data", "paseky_results", "latest_choice.csv"))
+
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
