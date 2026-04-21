@@ -27,11 +27,11 @@ sites_habitats <- sites_subjects %>%
   dplyr::filter(feature_type == "stanoviště")
 
 
-protected_habitats <- sites_habitats |>
+protected_habitats <- sites_habitats %>%
   dplyr::transmute(
     sitecode = base::as.character(site_code),
     habitat = base::as.character(feature_code)
-  ) |>
+  ) %>%
   dplyr::distinct()
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
@@ -44,14 +44,14 @@ read_paseky_simple <- function(dir_path, pair_name) {
     path = dir_path,
     glob = "*.gpkg",
     recurse = FALSE
-  ) |>
+  ) %>%
     base::as.character()
   
   purrr::map_dfr(files, function(f) {
     
-    sf::st_read(f, quiet = TRUE) |>
-      sf::st_drop_geometry() |>
-      janitor::clean_names() |>
+    sf::st_read(f, quiet = TRUE) %>%
+      sf::st_drop_geometry() %>%
+      janitor::clean_names() %>%
       dplyr::mutate(
         pair = pair_name,
         source_file = base::basename(f),
@@ -60,7 +60,7 @@ read_paseky_simple <- function(dir_path, pair_name) {
         region_id = base::as.character(region_id_x),
         datum_new = base::as.Date(datum_x),
         datum_old = base::as.Date(datum_x_1)
-      ) |>
+      ) %>%
       dplyr::select(
         sitecode,
         habitat,
@@ -77,10 +77,6 @@ read_paseky_simple <- function(dir_path, pair_name) {
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # load data
 
-system.time(
-  x <- read_paseky_simple(dir_vmb1_vmb0, "VMB1_VMB0")
-)
-
 all_paseky <- dplyr::bind_rows(
   read_paseky_simple(dir_vmb1_vmb0, "VMB1_VMB0"),
   read_paseky_simple(dir_vmb1_vmb2, "VMB1_VMB2"),
@@ -90,7 +86,7 @@ all_paseky <- dplyr::bind_rows(
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # prune, nechat jen predmety ochrany
 
-all_paseky_po <- all_paseky |>
+all_paseky_po <- all_paseky %>%
   dplyr::inner_join(
     protected_habitats,
     by = c("sitecode", "habitat")
@@ -100,8 +96,8 @@ all_paseky_po <- all_paseky |>
 # sumarizace
 # pro kombinaci EVL-habitat(PO)-okrsek-casovy prurez VMBx-VMBx vezmi stare a nove datum
 
-pair_summary <- all_paseky_po |>
-  dplyr::group_by(sitecode, habitat, region_id, pair) |>
+pair_summary <- all_paseky_po %>%
+  dplyr::group_by(sitecode, habitat, region_id, pair) %>%
   dplyr::summarise(
     datum_new = base::max(datum_new, na.rm = TRUE),
     datum_old = base::max(datum_old, na.rm = TRUE),
@@ -113,14 +109,14 @@ pair_summary <- all_paseky_po |>
 # napric casovymi prurezy VMBx-VMBx pro dane EVL-habitat-okrsek serad sestupne
 # data (terminy), nasledne vezmi jenom prvni radek
 
-latest_choice <- pair_summary |>
-  dplyr::group_by(sitecode, habitat, region_id) |>
+latest_choice <- pair_summary %>%
+  dplyr::group_by(sitecode, habitat, region_id) %>%
   dplyr::arrange(
     dplyr::desc(datum_new),
     dplyr::desc(datum_old),
     .by_group = TRUE
-  ) |>
-  dplyr::slice(1) |>
+  ) %>%
+  dplyr::slice(1) %>%
   dplyr::ungroup()
 
 latest_choice
