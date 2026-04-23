@@ -102,6 +102,17 @@ pair_summary <- all_paseky_po %>%
     datum_new = base::max(datum_new, na.rm = TRUE),
     datum_old = base::max(datum_old, na.rm = TRUE),
     .groups = "drop"
+  ) %>%
+  dplyr::mutate(
+    has_update = !base::is.na(datum_new) &
+      !base::is.na(datum_old) &
+      datum_new > datum_old,
+    pair_priority = dplyr::case_when(
+      pair == "VMB2_VMB0" ~ 1L,
+      pair == "VMB1_VMB2" ~ 2L,
+      pair == "VMB1_VMB0" ~ 3L,
+      TRUE ~ 999L
+    )
   )
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
@@ -110,14 +121,17 @@ pair_summary <- all_paseky_po %>%
 # data (terminy), nasledne vezmi jenom prvni radek
 
 latest_choice <- pair_summary %>%
+  dplyr::filter(has_update) %>%
   dplyr::group_by(sitecode, habitat, region_id) %>%
   dplyr::arrange(
+    pair_priority,
     dplyr::desc(datum_new),
     dplyr::desc(datum_old),
     .by_group = TRUE
   ) %>%
   dplyr::slice(1) %>%
-  dplyr::ungroup()
+  dplyr::ungroup() %>%
+  dplyr::select(-has_update, -pair_priority)
 
 latest_choice
 

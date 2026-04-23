@@ -166,7 +166,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         DATUM = DATUM.x
       )
     
-    paseky_23 <- utils::read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
+    paseky_23 <- utils::read.csv2("../host_data/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
     
     # Uložení do výstupu
     output <- list(
@@ -336,7 +336,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         )
       )
     
-    paseky_a1 <- utils::read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/paseky_a1_results_20240814.csv")
+    paseky_a1 <- utils::read.csv2("../host_data/hodnoceni_stanovist_grafy/paseky_a1_results_20240814.csv")
     
     output <- list(
       vmb_shp_sjtsk_a1 = vmb_shp_sjtsk_a1,
