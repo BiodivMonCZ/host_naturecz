@@ -1,9 +1,12 @@
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # cesty k adresarum
 
-dir_vmb1_vmb0 <- "../host_data/VMB1_VMB0"
-dir_vmb1_vmb2 <- "../host_data/VMB1_VMB2"
-dir_vmb2_vmb0 <- "../host_data/VMB2_VMB0"
+dir_vmb1_vmb0 <- file.path("Outputs", "Data", "stanoviste", "paseky", "EVL", "VMB1_VMB0")
+dir_vmb1_vmb2 <- file.path("Outputs", "Data", "stanoviste", "paseky", "EVL", "VMB1_VMB2")
+dir_vmb2_vmb0 <- file.path("Outputs", "Data", "stanoviste", "paseky", "EVL", "VMB2_VMB0")
+
+# kam zapsat vysledky
+out_dir <- file.path("Outputs", "Data", "stanoviste", "paseky", "EVL", "latest_paseky")
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # predmety ochrany
@@ -29,8 +32,8 @@ sites_habitats <- sites_subjects %>%
 
 protected_habitats <- sites_habitats %>%
   dplyr::transmute(
-    sitecode = base::as.character(site_code),
-    habitat = base::as.character(feature_code)
+    sitecode = as.character(site_code),
+    habitat = as.character(feature_code)
   ) %>%
   dplyr::distinct()
 
@@ -45,7 +48,7 @@ read_paseky_simple <- function(dir_path, pair_name) {
     glob = "*.gpkg",
     recurse = FALSE
   ) %>%
-    base::as.character()
+    as.character()
   
   purrr::map_dfr(files, function(f) {
     
@@ -54,12 +57,12 @@ read_paseky_simple <- function(dir_path, pair_name) {
       janitor::clean_names() %>%
       dplyr::mutate(
         pair = pair_name,
-        source_file = base::basename(f),
-        sitecode = base::as.character(sitecode),
-        habitat = base::as.character(habitat),
-        region_id = base::as.character(region_id_x),
-        datum_new = base::as.Date(datum_x),
-        datum_old = base::as.Date(datum_x_1)
+        source_file = basename(f),
+        sitecode = as.character(sitecode),
+        habitat = as.character(habitat),
+        region_id = as.character(region_id_x),
+        datum_new = as.Date(datum_x),
+        datum_old = as.Date(datum_x_1)
       ) %>%
       dplyr::select(
         sitecode,
@@ -99,13 +102,13 @@ all_paseky_po <- all_paseky %>%
 pair_summary <- all_paseky_po %>%
   dplyr::group_by(sitecode, habitat, region_id, pair) %>%
   dplyr::summarise(
-    datum_new = base::max(datum_new, na.rm = TRUE),
-    datum_old = base::max(datum_old, na.rm = TRUE),
+    datum_new = max(datum_new, na.rm = TRUE),
+    datum_old = max(datum_old, na.rm = TRUE),
     .groups = "drop"
   ) %>%
   dplyr::mutate(
-    has_update = !base::is.na(datum_new) &
-      !base::is.na(datum_old) &
+    has_update = !is.na(datum_new) &
+      !is.na(datum_old) &
       datum_new > datum_old,
     pair_priority = dplyr::case_when(
       pair == "VMB2_VMB0" ~ 1L,
@@ -117,7 +120,8 @@ pair_summary <- all_paseky_po %>%
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # vyber nenjnovejsi kombinace
-# napric casovymi prurezy VMBx-VMBx pro dane EVL-habitat-okrsek serad sestupne
+# napric casovymi prurezy VMBx-VMBx pro dane EVL-habitat-okrsek vem pouze ty,
+# kde doslo ke zmene, serad sestupne podle priority paru a podle
 # data (terminy), nasledne vezmi jenom prvni radek
 
 latest_choice <- pair_summary %>%
@@ -138,9 +142,9 @@ latest_choice
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 # zapis vysledku
 
-write.csv(all_paseky, file = file.path("..", "host_data", "paseky_results", "all_paseky.csv"))
-write.csv(all_paseky_po, file = file.path("..", "host_data", "paseky_results", "all_paseky_po.csv"))
-write.csv(pair_summary, file = file.path("..", "host_data", "paseky_results", "pair_summary.csv"))
-write.csv(latest_choice, file = file.path("..", "host_data", "paseky_results", "latest_choice.csv"))
+write.csv(all_paseky, file = file.path(out_dir, "all_paseky.csv"))
+write.csv(all_paseky_po, file = file.path(out_dir, "all_paseky_po.csv"))
+write.csv(pair_summary, file = file.path(out_dir, "pair_summary.csv"))
+write.csv(latest_choice, file = file.path(out_dir, "latest_choice.csv"))
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
