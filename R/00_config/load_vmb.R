@@ -78,22 +78,22 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     # Načtení dat
     vmb_shp_sjtsk_akt_read <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Aktualni_Segment.shp", 
+        "../host_data/CR_AKTUALNI/Aktualni_Segment.shp", 
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_hab_dbf_akt <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/HAB_BIOTOP.dbf", 
+        "../host_data/CR_AKTUALNI/Biotop/HAB_BIOTOP.dbf", 
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_pb_dbf_akt <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf", 
+        "../host_data/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf", 
         options = "ENCODING=WINDOWS-1250"
       ) 
     vmb_x_dbf_akt <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf", 
+        "../host_data/CR_AKTUALNI/Biotop/X_biotop.dbf", 
         options = "ENCODING=WINDOWS-1250"
       )
     
@@ -166,7 +166,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         DATUM = DATUM.x
       )
     
-    paseky_23 <- utils::read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
+    paseky_23 <- utils::read.csv2("../host_data/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
     
     # Uložení do výstupu
     output <- list(
@@ -182,17 +182,17 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     
     vmb_shp_sjtsk_orig_read <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/20060501_Segment.shp", 
+        "../host_data/CR_20060501/20060501_Segment.shp", 
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_hab_dbf_orig <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf", 
+        "../host_data/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf", 
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_pb_dbf_orig <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/PB20060501_BIOTOP.dbf", 
+        "../host_data/CR_20060501/Biotop/PB20060501_BIOTOP.dbf", 
         options = "ENCODING=WINDOWS-1250"
       ) %>%
       dplyr::filter(
@@ -253,19 +253,19 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     
     vmb_shp_sjtsk_a1_read <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Aktualizace1_Segment.shp", 
+        "../host_data/CR_Aktualizace1/Aktualizace1_Segment.shp", 
         options = "ENCODING=WINDOWS-1250"
       )
     
     vmb_hab_dbf_a1 <- 
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Hab_biotop.dbf", 
+        "../host_data/CR_Aktualizace1/Biotop/Aktualizace1_Hab_biotop.dbf", 
         options = "ENCODING=WINDOWS-1250"
       )
     
     vmb_pb_dbf_a1 <-
       sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Biotop.dbf",
+        "../host_data/CR_Aktualizace1/Biotop/Aktualizace1_Biotop.dbf",
         options = "ENCODING=WINDOWS-1250"
       )
     
@@ -336,7 +336,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         )
       )
     
-    paseky_a1 <- utils::read.csv2("S:/Složky uživatelů/Gaigr/hodnoceni_stanovist_grafy/paseky_a1_results_20240814.csv")
+    paseky_a1 <- utils::read.csv2("../host_data/hodnoceni_stanovist_grafy/paseky_a1_results_20240814.csv")
     
     output <- list(
       vmb_shp_sjtsk_a1 = vmb_shp_sjtsk_a1,
