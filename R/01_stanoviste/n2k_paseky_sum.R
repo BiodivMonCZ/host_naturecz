@@ -1,37 +1,77 @@
-# Define folder with your GPKG files
-data_folder <- "Outputs/Data/stanoviste/paseky/MZCHU" 
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+# Paseky sumarizace
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+#
+# Jediné, co je potřeba upravovat při opakovaném běhu jsou položky v CONFIG.
+#
+# data_folder = root dir pro 3 podsložky "VMBx_VMBy" (obsahující GPKG soubory) &
+#               "latest_paseky" s výstupy ze skriptu pro výpočet nejnovějších
+#               kombinací pasek
+# input_data = definuje kombinace předmětů ochrany a sitecode, načítá se ze
+#              skriptu 00_n2k_config.R
+# tpchu = typ chráněného území, tj. "EVL" nebo "MZCHU"
+#
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
-# Load all GPKG files into one data frame
-# We drop geometry immediately to save RAM, as we only need the attributes for the summary.
-cached_data <- dir_ls(data_folder, glob = "*.gpkg") %>% 
-  map_dfr(function(file_path) {
-    
-    st_read(file_path, quiet = TRUE) %>%
-      st_drop_geometry() %>% 
-      # Standardize column names to lowercase to avoid case-sensitivity issues
-      rename_with(tolower) %>% 
-      # Ensure numeric columns are actually numeric
-      mutate(
-        sitecode = as.character(sitecode),
-        habitat = as.character(habitat),
-        plo_bio_m2_evl_intersection = as.numeric(plo_bio_m2_evl_intersection),
-        paseka = as.numeric(paseka),
-        holina = as.numeric(holina)
-      )
-    
-  }, .id = "source_file")
+# CONFIG
+data_folder <- "Outputs/Data/stanoviste/paseky/EVL"
+input_data <- sites_habitats
+tpchu <- "EVL"
 
-# Create an index for faster filtering (optional but good for large data)
-# We assume 'sitecode' and 'habitat' are the key lookups
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+
+# Load latest combination for paseky
+latest_choice <- readr::read_csv(
+  file.path(data_folder, "latest_paseky", "latest_choice.csv"),
+  show_col_types = FALSE
+) %>%
+  dplyr::rename_with(tolower) %>%
+  dplyr::select(-dplyr::any_of(c("...1", "x"))) %>%
+  dplyr::mutate(
+    sitecode = as.character(sitecode),
+    habitat = as.character(habitat),
+    region_id = as.character(region_id),
+    pair = as.character(pair)
+  )
+
+# Folders with GPKG data
+pair_folders <- c(
+  VMB1_VMB2 = file.path(data_folder, "VMB1_VMB2"),
+  VMB2_VMB0 = file.path(data_folder, "VMB2_VMB0"),
+  VMB1_VMB0 = file.path(data_folder, "VMB1_VMB0")
+)
+
+# Load data into cache
+cached_data <- purrr::imap_dfr(pair_folders, function(folder_path, pair_name) {
+  
+  fs::dir_ls(folder_path, glob = "*.gpkg") %>%
+    purrr::map_dfr(function(file_path) {
+      
+      sf::st_read(file_path, quiet = TRUE) %>%
+        sf::st_drop_geometry() %>%
+        dplyr::rename_with(tolower) %>%
+        dplyr::mutate(
+          pair = as.character(pair_name),
+          source_file = basename(file_path),
+          
+          sitecode_1 = as.character(sitecode),
+          region_id = as.character(`region_id.x`),
+          habitat = as.character(habitat),
+          biotop_orig = as.character(biotop_orig),
+          
+          plo_bio_m2_evl_intersection = as.numeric(plo_bio_m2_evl_intersection),
+          paseka = as.numeric(paseka),
+          holina = as.numeric(holina)
+        )
+    })
+})
 
 #----------------------------------------------------------#
 # Sumarizacni funkce pro vypocet pasek ----
 #----------------------------------------------------------#
 paseky <- function(
     hab_code, 
-    evl_site, 
-    zakl = "VMB1", 
-    aktu = "VMB0", 
+    evl_site,
     typ_chu
 ) {
   
@@ -39,13 +79,31 @@ paseky <- function(
   if(substr(hab_code, 1, 1) == 9 | substr(hab_code, 1, 1) == "L") {
     
     # 1. Filter the pre-loaded data instead of calculating intersection
-    # We filter by site and habitat. 
-    # Note: We use 'sitecode' and 'habitat' (lowercase) to match the standardized cached_data
+    # Select the newest available pair separately for each region_id
+    latest_current <- latest_choice %>%
+      dplyr::filter(
+        sitecode == evl_site,
+        habitat == hab_code
+      ) %>%
+      dplyr::select(
+        sitecode,
+        habitat,
+        region_id,
+        pair
+      ) %>%
+      dplyr::distinct()
+    
     vmb_target_data <- cached_data %>%
-      filter(
-        sitecode_1 == evl_site) %>%
-      filter(
-        habitat == hab_code | biotop_orig == hab_code
+      dplyr::inner_join(
+        latest_current,
+        by = c(
+          "sitecode_1" = "sitecode",
+          "region_id" = "region_id",
+          "pair" = "pair"
+        )
+      ) %>%
+      dplyr::filter(
+        habitat.x == hab_code | biotop_orig == hab_code
       )
     
     # 2. Calculate summaries using the existing columns
@@ -93,16 +151,10 @@ paseky <- function(
 }
 
 #----------------------------------------------------------#
-# Vypocet GIS vrstvy ----
+# Loop pres sitecode-habitat ----
 #----------------------------------------------------------#
-paseky("L6.3", "5874", typ_chu = "MZCHU")
 
-#----------------------------------------------------------#
-# Vypocet sumarizace ----
-#----------------------------------------------------------#
-# Ensure 'sites_habitats' is defined. 
-# Using a generic name here - replace with 'sites_habitats_mzchu_test' if needed
-input_data <- sites_habitats_mzchu_test 
+# Ensure 'input_data' is defined.
 
 # Initialize Result Storage
 # We create an empty tibble with the correct columns to start
@@ -132,11 +184,11 @@ for(i in 1:nrow(input_data)) {
     withCallingHandlers({
       
       # 1. Run the calculation
-      # Using columns 5 (hab_code) and 1 (sitecode) as per your snippet
+      # Using columns 5 (hab_code) and 1 (sitecode)
       current_row <- paseky(
         hab_code = input_data[i, 5], 
         evl_site = input_data[i, 1], 
-        typ_chu = "MZCHU"
+        typ_chu = tpchu
       )
       
       # 2. Bind to main results
@@ -157,13 +209,9 @@ for(i in 1:nrow(input_data)) {
 #-------------------------------------------------------------------------#
 # 4. SAVE OUTPUT
 #-------------------------------------------------------------------------#
-# Create directory if it doesn't exist
-dir_create("Outputs/Data/stanoviste/paseky/MZCHU/")
 
 write.csv2(
   paseky_results, 
-  "Outputs/Data/stanoviste/paseky/MZCHU/paseky_results_20260127.csv", 
+  file.path(data_folder, paste0("paseky_results_", format(Sys.Date(), "%Y%m%d"), ".csv")), 
   row.names = FALSE
 )
-
-print("Hotovo!")
