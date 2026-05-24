@@ -1,3 +1,147 @@
+# MZCHU 2025 ----
+## MZCHU - klicove 2025 ----
+hu <- n2k_hab_klic(sites_habitats_mzchu_test[1,5], sites_habitats_mzchu_test[1,1], typ_chu = "MZCHU")
+habresults_mzchu <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
+habresults_mzchu <- hu
+
+for(i in 1:nrow(sites_habitats_mzchu_test)) {
+  habresults_mzchu <- dplyr::bind_rows(
+    habresults_mzchu, 
+    as.data.frame(
+      n2k_hab_klic(
+        sites_habitats_mzchu_test[i,5], 
+        sites_habitats_mzchu_test[i,1],
+        typ_chu = "MZCHU"
+        )
+      )
+    )
+}
+
+path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_klic_", 
+               gsub('-','',Sys.Date()), 
+               ".csv")
+write.csv2(
+  habresults_mzchu[c(2:nrow(habresults_mzchu)),], 
+  path, 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+
+habresults_mzchu_long <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_klic_20260217.csv", 
+  fileEncoding = "Windows-1250"
+) %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  dplyr::select(-c(DATE_MEAN, DATE_MEDIAN)) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:PERC_2),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  )
+
+write.csv(
+  habresults_mzchu_long, 
+  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_klic_", 
+         gsub('-','',Sys.Date()), "_long",
+         ".csv"), 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+## MZCHU - druhy 2025 ----
+hu <- n2k_hab_druhy(sites_habitats_mzchu_test[8,5], sites_habitats_mzchu_test[8,1], typ_chu = "MZCHU")
+habresults_mzchu_druhy <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()
+habresults_mzchu_druhy <- hu
+
+for(i in 1:nrow(sites_habitats_mzchu_test)) {
+  habresults_mzchu_druhy <- dplyr::bind_rows(
+    habresults_mzchu_druhy, 
+    as.data.frame(
+      n2k_hab_druhy(
+        sites_habitats_mzchu_test[i,5], 
+        sites_habitats_mzchu_test[i,1],
+        typ_chu = "MZCHU"
+      )
+    )
+  )
+}
+
+path <- paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_", 
+               gsub('-','',Sys.Date()), 
+               ".csv")
+write.csv2(
+  habresults_mzchu_druhy[c(2:nrow(habresults_mzchu_druhy)),], 
+  path, 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+
+habresults_mzchu_long <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.csv", 
+  fileEncoding = "Windows-1250"
+) %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:EXPANSIVE_LIST),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  )
+
+write.csv(
+  habresults_mzchu_long, 
+  paste0("Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_", 
+         gsub('-','',Sys.Date()), "_long",
+         ".csv"), 
+  row.names = FALSE,
+  fileEncoding = "Windows-1250"
+)
+
+## MZCHU - napojeni 2025 ----
+results_klic <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_klic_20260217.csv",
+  fileEncoding = "Windows-1250"
+  )
+results_druhy <- read.csv2(
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260219.csv",
+  fileEncoding = "Windows-1250"
+)
+
+results <- 
+  dplyr::full_join(
+    results_klic,
+    results_druhy
+  ) %>%
+  dplyr::arrange(
+    SITECODE,
+    HABITAT_CODE
+  ) %>%
+  dplyr::select(
+    -c(REPRE, REPRE_SDF, CONSERVATION, DEGREE_OF_CONSERVATION, 
+       EVL_AREA_PERC, GOOD_DOC_AREA_HA, W_AREA_HA, W_AREA_PERC,
+       PASEKY_AREA_HA, PASEKY_AREA_PERC, DEGRAD_AREA_HA, DEGRAD_AREA_PERC,
+       PERC_0, PERC_1, PERC_2, DATE_MEAN, DATE_MEDIAN)
+    )  %>%
+  dplyr::mutate(
+    across(where(is.numeric), ~ round(., 4))
+  ) %>%
+  tidyr::pivot_longer(
+    cols = c(ROZLOHA:KALAMITA_POLOM, RED_LIST:EXPANSIVE_LIST),
+    names_to = "indikator",
+    values_transform = list(value = as.character)
+  ) %>%
+  dplyr::distinct()
+
+openxlsx::write.xlsx(
+  results,
+  "Outputs/Data/stanoviste/mzchu_25_biotopy_druhy_20260217.xlsx"
+  )
+
 # RESULTS 2024 ----
 hu <- n2k_hab_klic(sites_habitats[89,5], sites_habitats[89,1])
 habresults_100_110 <- base::matrix(NA, 1, ncol(hu)) %>% dplyr::as_tibble()

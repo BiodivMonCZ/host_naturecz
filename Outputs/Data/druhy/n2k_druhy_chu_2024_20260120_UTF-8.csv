@@ -1,0 +1,55 @@
+typ_predmetu_hodnoceni;kod_chu;nazev_chu;druh;feature_code;hodnocene_obdobi_od;hodnocene_obdobi_do;oop;parametr_nazev;parametr_hodnota;parametr_limit;parametr_jednotka;stav;trend;datum_hodnoceni;pracoviste;ind_nadr;metodika
+Druh;CZ0213009;Vlašimská Blanice;Lampetra planeri;NA;1950-01-01;2023-11-14;AOPK ČR - RP Střední Čechy, Krajský úřad Jihočeského kraje, Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213009;Vlašimská Blanice;Lampetra planeri;NA;1950-01-01;2023-11-14;AOPK ČR - RP Střední Čechy, Krajský úřad Jihočeského kraje, Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213042;Losinský potok;Lampetra planeri;NA;2015-05-29;2023-10-22;Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213042;Losinský potok;Lampetra planeri;NA;2015-05-29;2023-10-22;Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213069;Sedlečský potok;Lampetra planeri;NA;2002-01-01;2023-09-08;Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213069;Sedlečský potok;Lampetra planeri;NA;2002-01-01;2023-09-08;Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213076;Štěpánovský potok;Lampetra planeri;NA;1987-01-01;2023-10-22;Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213076;Štěpánovský potok;Lampetra planeri;NA;1987-01-01;2023-10-22;Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213817;Obecnický potok;Lampetra planeri;NA;1950-01-01;2023-09-03;Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213817;Obecnický potok;Lampetra planeri;NA;1950-01-01;2023-09-03;Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213818;Octárna;Lampetra planeri;NA;1950-01-01;2023-09-03;AOPK ČR - RP Střední Čechy;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0213818;Octárna;Lampetra planeri;NA;1950-01-01;2023-09-03;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0214041;Niva Kotelského potoka;Lampetra planeri;NA;2000-01-01;2023-09-03;AOPK ČR - RP Střední Čechy, Krajský úřad Středočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0214041;Niva Kotelského potoka;Lampetra planeri;NA;2000-01-01;2023-09-03;AOPK ČR - RP Střední Čechy, Krajský úřad Středočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Střední Čechy;NA;15087
+Druh;CZ0313092;Bedřichovský potok;Lampetra planeri;NA;2001-07-09;2023-10-22;Krajský úřad Jihočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0313092;Bedřichovský potok;Lampetra planeri;NA;2001-07-09;2023-10-22;Krajský úřad Jihočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0313137;Veveřský potok;Lampetra planeri;NA;2000-10-13;2023-10-08;Krajský úřad Jihočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0313137;Veveřský potok;Lampetra planeri;NA;2000-10-13;2023-10-08;Krajský úřad Jihočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0314024;Šumava;Lampetra planeri;NA;1997-01-01;2024-12-06;Krajský úřad Jihočeského kraje, Krajský úřad Plzeňského kraje, Správa NP Šumava;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0314024;Šumava;Lampetra planeri;NA;1997-01-01;2024-12-06;Krajský úřad Jihočeského kraje, Krajský úřad Plzeňského kraje, Správa NP Šumava;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0314124;Blanský les;Lampetra planeri;NA;2000-01-01;2024-03-25;AOPK ČR - RP Jižní Čechy, Krajský úřad Jihočeského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0314124;Blanský les;Lampetra planeri;NA;2000-01-01;2024-03-25;AOPK ČR - RP Jižní Čechy, Krajský úřad Jihočeského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Jižní Čechy;NA;15087
+Druh;CZ0323165;Radbuza;Lampetra planeri;NA;2000-01-01;2024-10-22;Krajský úřad Plzeňského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0323165;Radbuza;Lampetra planeri;NA;2000-01-01;2024-10-22;Krajský úřad Plzeňského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0323824;Ostružná;Lampetra planeri;NA;2000-01-01;2023-10-27;Krajský úřad Plzeňského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0323824;Ostružná;Lampetra planeri;NA;2000-01-01;2023-10-27;Krajský úřad Plzeňského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0324026;Niva Nemanického potoka;Lampetra planeri;NA;2012-10-17;2022-09-24;AOPK ČR - RP SCHKO Český les;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0324026;Niva Nemanického potoka;Lampetra planeri;NA;2012-10-17;2022-09-24;AOPK ČR - RP SCHKO Český les;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO Český les;NA;15087
+Druh;CZ0413177;Bystřina - Lužní potok;Lampetra planeri;NA;2004-01-01;2023-08-16;AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO Slavkovský les;NA;15087
+Druh;CZ0413177;Bystřina - Lužní potok;Lampetra planeri;NA;2004-01-01;2023-08-16;AOPK ČR - RP SCHKO Slavkovský les, Krajský úřad Karlovarského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO Slavkovský les;NA;15087
+Druh;CZ0413194;Střela;Lampetra planeri;NA;1950-01-01;2023-08-11;Krajský úřad Karlovarského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO Slavkovský les;NA;15087
+Druh;CZ0413194;Střela;Lampetra planeri;NA;1950-01-01;2023-08-11;Krajský úřad Karlovarského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO Slavkovský les;NA;15087
+Druh;CZ0424031;České Švýcarsko;Lampetra planeri;NA;2005-10-07;2024-04-27;Správa NP České Švýcarsko, AOPK ČR - RP Liberecko;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP SCHKO České středohoří;NA;15087
+Druh;CZ0424031;České Švýcarsko;Lampetra planeri;NA;2005-10-07;2024-04-27;Správa NP České Švýcarsko, AOPK ČR - RP Liberecko;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP SCHKO České středohoří;NA;15087
+Druh;CZ0513254;Luční potok;Lampetra planeri;NA;1950-01-01;2023-08-13;Krajský úřad Libereckého kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0513254;Luční potok;Lampetra planeri;NA;1950-01-01;2023-08-13;Krajský úřad Libereckého kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0513256;Smědá;Lampetra planeri;NA;1950-01-01;2023-09-09;Krajský úřad Libereckého kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0513256;Smědá;Lampetra planeri;NA;1950-01-01;2023-09-09;Krajský úřad Libereckého kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0513509;Svitavka;Lampetra planeri;NA;2000-01-01;2023-11-02;AOPK ČR - RP Liberecko, Krajský úřad Libereckého kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0513509;Svitavka;Lampetra planeri;NA;2000-01-01;2023-11-02;AOPK ČR - RP Liberecko, Krajský úřad Libereckého kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Liberecko;NA;15087
+Druh;CZ0523007;Dědina u Dobrušky;Lampetra planeri;NA;2005-10-01;2023-10-17;Krajský úřad Královéhradeckého kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0523007;Dědina u Dobrušky;Lampetra planeri;NA;2005-10-01;2023-10-17;Krajský úřad Královéhradeckého kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0523280;Metuje a Dřevíč;Lampetra planeri;NA;1950-01-01;2023-09-16;AOPK ČR - RP Východní Čechy;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0523280;Metuje a Dřevíč;Lampetra planeri;NA;1950-01-01;2023-09-16;AOPK ČR - RP Východní Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0533301;Údolí Chrudimky;Lampetra planeri;NA;2002-01-01;2023-10-15;AOPK ČR - RP Vysočina;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Vysočina;NA;15087
+Druh;CZ0533301;Údolí Chrudimky;Lampetra planeri;NA;2002-01-01;2023-10-15;AOPK ČR - RP Vysočina;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Vysočina;NA;15087
+Druh;CZ0533314;Tichá Orlice;Lampetra planeri;NA;1950-01-01;2023-10-02;Krajský úřad Pardubického kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0533314;Tichá Orlice;Lampetra planeri;NA;1950-01-01;2023-10-02;Krajský úřad Pardubického kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Východní Čechy;NA;15087
+Druh;CZ0713374;Horní Morava;Lampetra planeri;NA;2000-01-01;2023-10-23;Krajský úřad Olomouckého kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Olomoucko;NA;15087
+Druh;CZ0713374;Horní Morava;Lampetra planeri;NA;2000-01-01;2023-10-23;Krajský úřad Olomouckého kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Olomoucko;NA;15087
+Druh;CZ0813456;Moravice;Lampetra planeri;NA;2000-01-01;2023-10-24;Krajský úřad Moravskoslezského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Olomoucko;NA;15087
+Druh;CZ0813456;Moravice;Lampetra planeri;NA;2000-01-01;2023-10-24;Krajský úřad Moravskoslezského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Olomoucko;NA;15087
+Druh;CZ0813516;Olše;Lampetra planeri;NA;1950-01-01;2023-08-19;Krajský úřad Moravskoslezského kraje;LOK_PROCDOBR;0;50;% lokalit v dobrém stavu;špatný;neznámý;2026-01-20;RP Moravskoslezské;NA;15087
+Druh;CZ0813516;Olše;Lampetra planeri;NA;1950-01-01;2023-08-19;Krajský úřad Moravskoslezského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-01-20;RP Moravskoslezské;NA;15087

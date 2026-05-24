@@ -21,6 +21,9 @@ run_n2k_druhy_uzemi <- function(
   
   pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
   is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+  if(species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
+    is_pole_druh <- FALSE
+  }
   
   #----------------------------------------------------------#
   # 2. Priprava kontextu (CELKOVE jako sloupec) ----
@@ -68,6 +71,7 @@ run_n2k_druhy_uzemi <- function(
         POLE = toString(unique(POLE)),
         NAZEV_LOK = toString(unique(NAZEV_LOK)),
         ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+        ID_ND_LOK = toString(unique(ID_ND_LOK)),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
         # Zde staci pocitat radky s hodnocenim
@@ -121,7 +125,7 @@ run_n2k_druhy_uzemi <- function(
         POP_POCETMAX = sum(dplyr::case_when(ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(na.rm = TRUE),
-
+        
         # Nyni pouzijeme sloupec "CELKOVE_CTX", ktery jsme pripojili na zacatku
         POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(na.rm = TRUE),
         POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
@@ -176,7 +180,7 @@ run_n2k_druhy_uzemi <- function(
       )
     ) %>%
     tidyr::pivot_longer(
-      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU), 
+      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU), 
       names_to = "ID_IND",
       values_to = "HOD_IND"
     ) %>%
@@ -192,7 +196,7 @@ run_n2k_druhy_uzemi <- function(
       by = c("DRUH" = "DRUH", "ID_IND" = "ID_IND")
     ) %>%
     dplyr::group_by(kod_chu, DRUH) %>%
-    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, CILMON_CHU, .direction = "downup") %>%
+    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU, .direction = "downup") %>%
     dplyr::ungroup() %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND) %>%
     dplyr::arrange(dplyr::desc(!is.na(HOD_IND)), HOD_IND) %>% 
@@ -231,6 +235,7 @@ run_n2k_druhy_uzemi <- function(
       POLE = toString(unique(POLE)),
       NAZEV_LOK = toString(unique(NAZEV_LOK)),
       ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+      ID_ND_LOK = toString(unique(ID_ND_LOK)),
       HOD_IND = toString(stats::na.omit(unique(HOD_IND))),        
       TYP_IND = unique(TYP_IND),
       LIM_IND = unique(LIM_IND),
@@ -277,6 +282,7 @@ run_n2k_druhy_uzemi <- function(
       POLE = toString(unique(POLE)),
       NAZEV_LOK = toString(unique(NAZEV_LOK)),
       ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
+      ID_ND_LOK = toString(unique(ID_ND_LOK)),
       UROVEN = "chu",
       CILMON_CHU = max(CILMON_CHU, na.rm = TRUE),
       STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), 
@@ -295,7 +301,7 @@ run_n2k_druhy_uzemi <- function(
       JEDNOTKA = NA_character_,
       LIM_INDLIST = NA_character_
     ) %>%
-    dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
+    dplyr::select(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, ID_IND, HOD_IND, KLIC, UROVEN, TYP_IND, LIM_IND, JEDNOTKA, LIM_INDLIST, STAV_IND, CILMON_CHU)
   
   n2k_druhy_chu_final <- dplyr::bind_rows(
     n2k_druhy_chu_vypocet %>% 
@@ -338,177 +344,3 @@ run_n2k_druhy_uzemi <- function(
   return(n2k_druhy_chu_final)
   
 }
-
-#----------------------------------------------------------#
-# Napocet a temp zapis ---- 
-#----------------------------------------------------------#
-
-n2k_druhy_chu_write <-
-  n2k_druhy_uzemi %>%
-  dplyr::left_join(
-    .,
-    evl %>%
-      sf::st_drop_geometry() %>%
-      dplyr::select(
-        SITECODE,
-        NAZEV
-      ),
-    by = c(
-      "kod_chu" = "SITECODE"
-    )
-  ) %>%
-  dplyr::left_join(.,
-                   rp_code,
-                   by = join_by(
-                     "kod_chu"
-                   )
-  ) %>%
-  dplyr::left_join(
-    ., 
-    n2k_oop,
-    by = c(
-      "kod_chu" = "SITECODE"
-    )
-  ) %>%
-  dplyr::mutate(
-    typ_predmetu_hodnoceni = "Druh",
-    feature_code = NA,
-    trend = "neznámý",
-    datum_hodnoceni = Sys.Date()
-  ) %>%
-  dplyr::filter(
-    CILMON_CHU == 1
-  ) %>%
-  dplyr::rename(
-    nazev_chu = NAZEV, 
-    druh = DRUH, #feature_code, 
-    hodnocene_obdobi_od = HODNOCENE_OBDOBI_OD, 
-    hodnocene_obdobi_do = HODNOCENE_OBDOBI_DO, 
-    parametr_nazev = ID_IND, 
-    parametr_hodnota = HOD_IND, 
-    parametr_limit = LIM_IND, 
-    parametr_jednotka = JEDNOTKA, 
-    stav = STAV_IND
-  ) %>%
-  dplyr::select(
-    typ_predmetu_hodnoceni, 
-    kod_chu, 
-    nazev_chu, 
-    druh, 
-    feature_code, 
-    hodnocene_obdobi_od, 
-    hodnocene_obdobi_do, 
-    oop, 
-    parametr_nazev, 
-    parametr_hodnota, 
-    parametr_limit, 
-    parametr_jednotka, 
-    stav, 
-    trend, 
-    datum_hodnoceni, 
-    pracoviste, 
-    ID_ND_AKCE
-  ) %>%
-  dplyr::left_join(
-    ., 
-    indikatory_id, 
-    by = c("parametr_nazev" = "ind_r")
-  ) %>%
-  dplyr::mutate(
-    parametr_nazev = ind_id,
-    pracoviste = gsub(
-      ",",
-      "",
-      pracoviste
-    ),
-    metodika = 15087
-  ) %>%
-  # navazani pouze na predmety ochrany, dropnuti nepredmetu
-  dplyr::right_join(
-    .,
-    sites_subjects %>%
-      dplyr::select(
-        site_code,
-        nazev_lat
-      ),
-    by = c(
-      "kod_chu" = "site_code",
-      "druh" = "nazev_lat"
-    )
-  ) %>%
-  dplyr::select(
-    -c(
-      ind_id,
-      ind_popis, 
-      #oop,
-      ID_ND_AKCE
-    )
-  ) %>%
-  dplyr::distinct()
-
-#----------------------------------------------------------#
-# Zapis dat -----
-#----------------------------------------------------------#
-  
-chu_export <-
-  function() {
-    
-    # oddelovace a enkodovani pro import do ISOP
-    sep_isop <- ";"
-    quote_env_isop <- FALSE
-    encoding_isop <- "UTF-8"
-    
-    # oddelovace a enkodovani pro import do MS Excel
-    sep <- ","
-    quote_env <- TRUE
-    encoding <- "Windows-1250"
-    
-    write.table(
-      n2k_druhy_chu,
-      paste0("Outputs/Data/druhy/",
-             "n2k_druhy_chu",
-             "_",
-             current_year,
-             "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
-             "_",
-             encoding,
-             ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep,
-      quote = quote_env,
-      fileEncoding = encoding
-    )  
-    
-    write.table(
-      n2k_druhy_chu,
-      paste0("Outputs/Data/druhy/",
-             "n2k_druhy_chu",
-             "_",
-             current_year,
-             "_",
-             gsub(
-               "-", 
-               "", 
-               Sys.Date()
-             ),
-             "_",
-             encoding_isop,
-             ".csv"
-      ),
-      row.names = FALSE,
-      sep = sep_isop,
-      quote = quote_env_isop,
-      fileEncoding = encoding_isop
-    )  
-    
-  }
-
-#----------------------------------------------------------#
-# KONEC ----
-#----------------------------------------------------------#
