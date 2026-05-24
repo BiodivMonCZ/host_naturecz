@@ -1,3 +1,6 @@
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+# Vypocet prostorovych charakteristik
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # LOAD DATA ----
 # VRSTVA EVL 
@@ -28,14 +31,18 @@ sites_habitats <- sites_subjects %>%
 
 # ČÍSELNÍK HABITATŮ
 habitats <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/habitats.csv", encoding = "UTF-8")
+
 # SEZNAM MINIMIAREÁLŮ
 minimisize <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/minimiarealy/minimisize.csv", encoding = "UTF-8")
+
 # rozloze stanoviště v ČR v rámci AVMB2022
 habitat_areas_2022 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", encoding = "Windows-1250")
+
 # MAXIMÁLNÍ VZDÁLENOST MEZI 2 BODY PRO KAŽDOU EVL - LINESTRINGY BYLY PŘEVEDENY NA MULTIPOINT 
 # PRO EVL S OBVODEM < 10 KM BYLY POUŽITY VŠECHNY BODY, PRO VĚTŠÍ EVL KAŽDÝ SEDMÝ
 evl_lengths <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/evl/evl_max_dist.csv", encoding = "UTF-8")
 #evl_species <- read.csv("https://media.githubusercontent.com/media/jonasgaigr/N2K.CZ/main/cevnate_evl.csv", encoding = "UTF-8")
+
 # LIMITNÍ HODNOTY PARAMETRŮ HODNOCENÍ
 hablimits <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/hablimits.csv", encoding = "UTF-8") %>%
   filter(REG != "alp" | is.na(REG) == TRUE)
@@ -43,8 +50,23 @@ hablimits <- read.csv("https://raw.githubusercontent.com/jonasgaigr/N2K.CZ/main/
 habitat_areas_a1 <- read.csv("S:/Složky uživatelů/Gaigr/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
                              fileEncoding = "Windows-1250")
 
+# - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
 # VÝPOČET HODNOCENÍ ----
+
+## hvezdice_eval vstupy:
+
+# vmb_shp_sjtsk_akt ‒ sf objekt s VMB
+# evl_sjtsk ‒ sf objekt EVL
+# paseky ‒ tab paseky
+# minimisize ‒ tab limitnich hodnot minimiarealu
+# czechia_line ‒ sf objekt hranice CZ
+# habitat_areas_2022 ‒ tab celkovych rozloh habitatu v CZ?
+# red_list_species ‒ KDE SE NACITA?
+# invasive_species ‒ KDE SE NACITA?
+# expansive_species ‒ KDE SE NACITA?
+# find_evl_CODE_TO_NAME() ‒ KDE SE NACITA?
+
 hvezdice_eval <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -216,10 +238,16 @@ hvezdice_eval <- function(hab_code, evl_site) {
       # KVALITA
       QUALITY = 4 - sum(QUAL_SEG, na.rm = TRUE)) %>%
     dplyr::distinct()
+
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # až sem skoro identické jako 11_n2k_stanoviste_klic.R
+  # navic je vypocet SUM_PLO_BIO_MINIMI
   
-  # MINIMIAREÁL
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### MINIMIAREÁL ####
+  
   if(nrow(vmb_target_sjtsk) > 0) {
-    
+    # vypocet/prirazeni minimiarealu z objektu minimisize
     minimi_value <- vmb_target_sjtsk %>%
       sf::st_drop_geometry() %>%
       dplyr::mutate(MINIMI_SIZE = case_when("V6" %in% unique(BIOTOP) ~ 1000/10000,
@@ -231,7 +259,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
                                             "M4.3" %in% unique(BIOTOP) ~ 1000/10000,
                                             TRUE ~ minimisize %>% 
                                               dplyr::filter(HABITAT == hab_code) %>%
-                                              dplyr::pull(MINIMISIZE) %>%
+                                              dplyr::pull(MINIMISIZE) %>% # redundantni?
                                               unique() %>%
                                               .[1]/10000)) %>%
       dplyr::pull(MINIMI_SIZE) %>%
@@ -245,18 +273,23 @@ hvezdice_eval <- function(hab_code, evl_site) {
                        .[1]/10000)
   }
   
+  # vypocet spat celistvosti (0/1)
+  # bere jen kvalitni segmenty, buffer, shluky a tem prirazeni ID_COMB,
+  # priradi puvodni segmenty do shluku, pro kazdy shluk
+  # spocita COMB_SIZE (soucet PLO_BIO_M2_EVL [plochy biotopu v segmentu v evl]),
+  # priradi binarni 1/0 ‒ porovnani COMB_SIZE s minimisize (viz vyse)
   spat_celistvost <- vmb_target_sjtsk %>%
     dplyr::filter(DG != "W" & RB != "W") %>%
-    sf::st_buffer(., 50) %>%
+    sf::st_buffer(., 50) %>% # buffer a sjednoceni
     sf::st_union() %>%
     sf::st_cast(., "POLYGON") %>%
     sf::st_make_valid() %>%
     base::as.data.frame() %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(ID_COMB = row_number()) %>%
+    dplyr::mutate(ID_COMB = row_number()) %>% # id segment nest
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
-    dplyr::filter(DG != "W" & RB != "W") %>%
+    dplyr::filter(DG != "W" & RB != "W") %>% # uz nahore??
     dplyr::group_by(ID_COMB) %>%
     dplyr::mutate(COMB_SIZE = sum(PLO_BIO_M2_EVL, na.rm = TRUE)) %>%
     dplyr::mutate(MINIMI_SIZE = case_when("V6" %in% unique(BIOTOP) & COMB_SIZE >= 1000 ~ 1,
@@ -285,16 +318,22 @@ hvezdice_eval <- function(hab_code, evl_site) {
                                             .[1] ~ 0)) %>%
     dplyr::ungroup()
   
+  # vystup:
+  # pocita se z procento rozlohy celistveho stanoviste (MINIMI_SIZE == 1) z celkove rozlohy biotopu v EVL
   if(nrow(vmb_target_sjtsk %>%
           sf::st_drop_geometry() %>% 
           dplyr::filter(DG != "W" & RB != "W")) > 0) {
     
+    # celistva plocha biotopu
     celistvost_minimi <- spat_celistvost %>%
       dplyr::filter(MINIMI_SIZE == 1) %>%
       dplyr::pull(PLO_BIO_M2_EVL) %>%
       sum()
+    
+    # procenta celistve plochy z celkove plochy
     celistvost <- celistvost_minimi/SUM_PLO_BIO*100
     
+    # pocet vhodnych mikrostanovist
     celistvost_num <- spat_celistvost %>%
       dplyr::filter(MINIMI_SIZE == 1) %>%
       dplyr::pull(ID_COMB) %>%
@@ -306,31 +345,37 @@ hvezdice_eval <- function(hab_code, evl_site) {
     celistvost_num <- NA
   }
   
-  # PARAMETR MOZAIKA
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### MOZAIKA ####
   
   # PŘÍPRAVA VRSTVY PRO VÝPOČET PARAMETRU "MOZAIKA"
   vmb_buff <- vmb_shp_sjtsk_akt %>%
+    # buffer okolo EVL
     sf::st_filter(., evl_sjtsk %>%
                     dplyr::filter(., SITECODE == evl_site) %>%
                     sf::st_buffer(., 500)) %>%
     sf::st_make_valid() %>%
+    # nechat jen polygony
     dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
                     sf::st_geometry_type(geometry) != "MULTIPOINT" & 
                     sf::st_geometry_type(geometry) != "LINESTRING" & 
                     sf::st_geometry_type(geometry) != "MULTILINESTRING" & 
                     sf::st_geometry_type(geometry) != "GEOMETRYCOLLECTION") %>%
+    # nechat jen habitaty
     dplyr::filter(FSB_EVAL != "X" &
                     FSB_EVAL != "-" &
                     FSB_EVAL != "-1" &
                     HABITAT != hab_code) %>% 
     dplyr::rename(SEGMENT_ID_buff = SEGMENT_ID) %>%
     dplyr::group_by(SEGMENT_ID_buff) %>% 
-    dplyr::slice(1) %>%
+    dplyr::slice(1) %>% # keep only 1 obs
     dplyr::ungroup()
   
+  # FSB mimo X
   vmb_spat <- vmb_target_sjtsk %>%
     dplyr::filter(FSB_EVAL != "X")
   
+  # prevod na df, vytvoreni ID_COMB
   spat_union <- vmb_spat %>%
     sf::st_cast(., "POLYGON") %>%
     as.data.frame() %>%
@@ -364,8 +409,9 @@ hvezdice_eval <- function(hab_code, evl_site) {
       sum()
     
     # VÝPOČET PARAMETRU MOZAIKA
+    # opatreni proti umele penalizaci hranici CZ
     mozaika_bord <- 1 - border_hsl/border_all
-    
+    # skalovane podle delky hranice segmentu s hranici CR
     mozaika <- border_nat/(border_all-border_hsl)*mozaika_bord*100
 
     if(mozaika > 100) {
@@ -378,6 +424,7 @@ hvezdice_eval <- function(hab_code, evl_site) {
   }
   
   # VNITŘNÍ MOZAIKA
+  # procento plochy segmentu, který v názvu obsahuje 'X'
   mozaika_inner <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(grepl("X", BIOTOP_SEZ, ignore.case = TRUE)) %>%
@@ -385,16 +432,17 @@ hvezdice_eval <- function(hab_code, evl_site) {
     na.omit() %>%
     sum()/SUM_PLO_BIO*100
   
+  # ?? podíl v procentech, podivné
   perc_spat <- sum(vmb_spat$PLO_BIO_M2_EVL)/100/target_area_ha
   
-
+  # kompilace mozaiky
   if (is.na(perc_spat) == TRUE | is.null(perc_spat) == TRUE) {
     mozaika_kompil <- NA
   } else if (perc_spat >= 25) {
     mozaika_kompil <- mozaika
   } else {
     mozaika_kompil <- 100 - mozaika_inner
-  } 
+  }
   
   # !!!! NUTNO PŘEPSAT PŘI AKTUALIZACI EVL !!!!!
   area_evl_perc <- unique(target_area_ha/(unique(vmb_target_sjtsk$SHAPE_AREA)/10000)*100)
@@ -419,22 +467,28 @@ hvezdice_eval <- function(hab_code, evl_site) {
   fill_TD <- sum(filter(vmb_target_sjtsk, is.na(TD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
   fill_QUAL <- sum(filter(vmb_target_sjtsk, is.na(KVALITA) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
   fill_MD <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
-  fill_KP <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL)
+  fill_KP <- sum(filter(vmb_target_sjtsk, is.na(MD) == FALSE)$PLO_BIO_M2_EVL)/sum(vmb_target_sjtsk$PLO_BIO_M2_EVL) ## chyba??
   
-  # RED LIST SPECIES
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### RED LIST SPECIES ####
+  
+  # seznam redlist druhu v segmentech?? metodika rika ze cele EVL
   redlist_list <- red_list_species %>%
-    #dplyr::filter(SITECODE == evl_site) %>%
-    sf::st_filter(., vmb_target_sjtsk) %>%
-    dplyr::pull(DRUH) %>%
+    #dplyr::filter(SITECODE == evl_site) %>% # neni potreba, to je uz implicitne v vmb_target_sjtsk
+    sf::st_filter(., vmb_target_sjtsk) %>% # jen occur co lezi v segmentech daneho biotopu
+    dplyr::pull(DRUH) %>% # ktere jsou to druhy
     unique() 
   
+  # hlavni metrika
   redlist <- redlist_list %>%
     length()/log(SUM_PLO_BIO)*4
   
+  # pojistka maxima
   if(redlist > 10) {
     redlist <- 10
   } 
   
+  # pojistky nul
   if(length(redlist_list) == 0) {
     redlist_list <- NA
   } 
@@ -444,11 +498,13 @@ hvezdice_eval <- function(hab_code, evl_site) {
     redlist <- NA
   }
   
-  # INVASIVE SPECIES
-  if(hab_code == 6510) {
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### INVASIVE SPECIES ####
+  
+  if(hab_code == 6510) { # specialni pripad T1.1
     invaders_all <- invasive_species %>%
       dplyr::filter(SITECODE == evl_site) %>%
-      dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
+      dplyr::filter(DRUH != "Arrhenatherum elatius") %>% # arrela neni invaz spec na T1.1
       sf::st_intersection(., vmb_target_sjtsk) %>%
       sf::st_drop_geometry() %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -460,37 +516,41 @@ hvezdice_eval <- function(hab_code, evl_site) {
   } else {
     invaders_all <- invasive_species %>%
       dplyr::filter(SITECODE == evl_site) %>%
-      sf::st_intersection(., vmb_target_sjtsk) %>%
+      sf::st_intersection(., vmb_target_sjtsk) %>% # spojit invaz s VMB
       sf::st_drop_geometry() %>%
-      dplyr::filter(is.na(HABITAT) == FALSE) %>%
-      dplyr::group_by(OBJECTID.y, DRUH) %>%
+      dplyr::filter(is.na(HABITAT) == FALSE) %>% # zachovat pouze habitaty
+      dplyr::group_by(OBJECTID.y, DRUH) %>% # co je tady OBJECTID.y ??
       dplyr::filter(DATUM_OD >= DATUM) %>%
-      dplyr::slice(which.max(DATUM_OD)) %>%
-      dplyr::filter(NEGATIVNI == 0) %>%
+      dplyr::slice(which.max(DATUM_OD)) %>% # zachovat nejnovejsi pozorovani
+      dplyr::filter(NEGATIVNI == 0) %>% # ??
       dplyr::ungroup()
   }
   
+  # zachovat prvni pozorovani z OBJECTID.y
   invaders_calc <- invaders_all %>%
     dplyr::group_by(OBJECTID.y) %>%
     dplyr::slice(1) %>%
     dplyr::ungroup()
   
+  # seznam unikatnich invazek
   invaders_list <- invaders_all %>%
     dplyr::pull(DRUH) %>%
     unique() 
     
-  
+  # hlavni metrika ‒ !! rozchod s metodikou !! ??
   invaders <- sum(invaders_calc$PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO*100
   
-  if(length(invaders_list) == 0 |
-     nrow(vmb_target_sjtsk) == 0) {
+  # pojistka nul
+  if(length(invaders_list) == 0 | nrow(vmb_target_sjtsk) == 0) {
     invaders_list <- NA
   }
   
-  # EXPANZNÍ DRUHY
-  expanders_all <- expansive_species %>%
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### EXPANZNÍ DRUHY ####
+  
+  expanders_all <- expansive_species %>% # skoro stejne jak invasivni
     dplyr::filter(SITECODE == evl_site) %>%
-    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>%
+    dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>% # expanzni druhy jsou ty, co maji vysoke pokryvnosti
     sf::st_intersection(., vmb_target_sjtsk) %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(is.na(HABITAT) == FALSE) %>%
@@ -500,18 +560,21 @@ hvezdice_eval <- function(hab_code, evl_site) {
     dplyr::filter(NEGATIVNI == 0) %>%
     dplyr::ungroup()
   
+  # zachovat prvni pozorovani
   expanders_calc <- expanders_all %>%
     dplyr::group_by(OBJECTID.y) %>%
     dplyr::slice(1) %>%
     dplyr::ungroup()
   
+  # extrahovat seznam unikatnich druhu, ktere se chovaji jako expanzni
   expanders_list <- expanders_all %>%
     dplyr::pull(DRUH) %>%
     unique() 
   
+  # hlavni metrika ‒ !! rozchod s metodikou !! ??
   expanders <- sum(expanders_calc$PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO*100
   
-  
+  # pojistky
   if(length(expanders_list) == 0 &
      nrow(vmb_target_sjtsk) == 0) {
     expanders <- NA
@@ -522,51 +585,55 @@ hvezdice_eval <- function(hab_code, evl_site) {
     expanders_list <- NA
   }
   
+  ## ?? redundantni?
   if(nrow(vmb_target_sjtsk) == 0) {
     perc_spat <- NA
   }
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### DATUM ####
+  
   vmb_target_date <- vmb_target_sjtsk %>%
     pull(DATUM)
   
-  min_date <- vmb_target_date %>%
-    min() %>%
-    unique()
-  
-  max_date <- vmb_target_date %>%
-    max() %>%
-    unique()
-  
+  # zakldani temporalni metriky
+  min_date <- vmb_target_date %>% min() %>% unique()
+  max_date <- vmb_target_date %>% max() %>% unique()
   mean_date <- mean(vmb_target_date)
-  
   median_date <- median(vmb_target_date)
   
+  # metriky spatio-temporalni
+  # 1. nikdy neaktalizovano
   perc_seg_0 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y == 0) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # 2. aktualizovano pred rokem 2012
   perc_seg_1 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y > 0 & ROK_AKT.y <= 2012) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # 3. aktualizovano mezi lety 2012 a 2024
   perc_seg_2 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
     dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2024) %>%
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   
+  # pojistka
   if(nrow(vmb_target_sjtsk) == 0) {
     perc_seg_0 <- NA
     perc_seg_1 <- NA
     perc_seg_2 <- NA
   }
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  #### VÝSLEDKY ####
   
-  # VÝSLEDKY
   if(target_area_ha > 0 & is.na(target_area_ha) == FALSE) {
     result <- vmb_qual %>%
       dplyr::reframe(SITECODE = unique(SITECODE)[1],
@@ -587,8 +654,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
                        MOZAIKA_VNITRNI = (100 - mozaika_inner),
                        MOZAIKA_FIN = mozaika_kompil,
                        RED_LIST = redlist,
-                       INVASIVE = invaders,
-                       EXPANSIVE = expanders,
+                       INVASIVE = invaders, # 100-
+                       EXPANSIVE = expanders, # 100-
                        MRTVE_DREVO = unique(MD_FIN)[1],
                        KALAMITA_POLOM = unique(KP_FIN)[1],
                        RED_LIST_SPECIES = paste(redlist_list, collapse = ", "),
@@ -670,6 +737,8 @@ hvezdice_eval <- function(hab_code, evl_site) {
   
 }
 
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
+# duplicitni s 11_n2k_stanoviste_klic.R
 n2k_hab_klic <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -963,7 +1032,9 @@ n2k_hab_klic <- function(hab_code, evl_site) {
            distinct())
   
 }
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
 
+# trochu bordel, počítají se pouze prostorové proměnné, ale výpočet result předpokládá i výpočet kvalitativních parametrů a redlist/invasive/expansive species
 n2k_hab_spat <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -1321,6 +1392,7 @@ n2k_hab_spat <- function(hab_code, evl_site) {
   
 }
 
+# podobny priklad jako n2k_hab_spat, ale tentokrat uz vysledek neocekava kvalitativni a prostorove parametry
 n2k_hab_druhy <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -1549,7 +1621,7 @@ n2k_hab_druhy <- function(hab_code, evl_site) {
            distinct())
   
 }
-
+# & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & # & #
 
 hvezdice_eval_a1 <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
@@ -1585,6 +1657,7 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
   
   target_area_ha <- SUM_PLO_BIO/10000
   
+  # super řešení oproti sum(vmb$SHAPE_AREA) v hvezdice_eval
   evl_area <- sf::st_area(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
     units::drop_units() %>%
     unique()
@@ -1720,6 +1793,8 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
                                 TRUE ~ sum(na.omit(KAL_SEG))),
       # KVALITA
       QUALITY = 4 - sum(na.omit(QUAL_SEG)))
+  
+  ## ?? chybí distinct()
   
   # MINIMIAREÁL
   if(nrow(vmb_target_sjtsk) > 0) {
@@ -1899,7 +1974,7 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
     mozaika_kompil <- 100 - mozaika_inner
   } 
   
-  area_evl_perc <- target_area_ha/evl_area/10000*100
+  area_evl_perc <- target_area_ha/evl_area/10000*100 ## ?? chyba ?? má být ha/(m^2/10000)*100
   area_relative_perc <- target_area_ha/habitat_areas_a1 %>%
     dplyr::filter(., HABITAT == hab_code) %>%
     pull(TOTAL_AREA_ALL)/10000*100
@@ -2142,10 +2217,10 @@ hvezdice_eval_a1 <- function(hab_code, evl_site) {
       GOOD_DOC_AREA_HA = NA,
       W_AREA_HA = NA,
       W_AREA_PERC = NA,
-      PASEKY_AREA_HA = NA,
-      PASEKY_AREA_PERC = NA,
-      DEGRAD_AREA_HA = NA,
-      DEGRAD_AREA_PERC = NA,
+      PASEKY_AREA_HA = NA, # ?? zbytecne
+      PASEKY_AREA_PERC = NA, # ?? zbytecne
+      DEGRAD_AREA_HA = NA, # ?? zbytecne
+      DEGRAD_AREA_PERC = NA, # ?? zbytecne
       PASEKY_AREA_HA = area_paseky_ha,
       PASEKY_AREA_PERC = area_paseky_perc,
       DEGRAD_AREA_HA = area_degrad_ha,
@@ -2171,6 +2246,9 @@ hvezdice_eval_a1("3260", "CZ0323142")
 hvezdice_eval_a1(sites_habitats[1205,5], sites_habitats[1205,1])
 
 hvezdice_update <- function(evl_site) {
+  # funkce pro pruzkum aktualizovanosti mapovani v danem EVL
+  # nebere v potaz prislusnost ke skupinam biotopu, sype vse na jednu hromadu
+  # vystupem je tabulka ukazujici jak velke casti EVL byly mapovany v jakych letech
   
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_akt %>%
@@ -2190,11 +2268,11 @@ hvezdice_update <- function(evl_site) {
   
   result <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
-    dplyr::mutate(YEAR = stringr::str_sub(DATUM.x, 1, 4)) %>%
+    dplyr::mutate(YEAR = stringr::str_sub(DATUM.x, 1, 4)) %>% # DATUM.x je z vmb_target_sjtsk ??
     dplyr::group_by(YEAR) %>%
     dplyr::summarize(SITECODE = unique(SITECODE),
-                     PLOCHA_HA = sum(PLO_BIO_M2_EVL, na.rm = TRUE), 
-                     PLOCHA_PERC = sum(PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO) %>%
+                     PLOCHA_HA = sum(PLO_BIO_M2_EVL, na.rm = TRUE), # ?? PLO_BIO_... je v m^2, vysledek je taky v m^2
+                     PLOCHA_PERC = sum(PLO_BIO_M2_EVL, na.rm = TRUE)/SUM_PLO_BIO) %>% # ?? podil, pro procenta chybi *100
     dplyr::ungroup() %>%
     dplyr::filter(PLOCHA_HA > 0)
   
@@ -2202,6 +2280,7 @@ hvezdice_update <- function(evl_site) {
   
 }
 
+# stará verze ?? 
 hvezdice_eval_orig <- function(hab_code, evl_site) {
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_orig %>%
@@ -2643,25 +2722,30 @@ hvezdice_eval_orig <- function(hab_code, evl_site) {
 }
 
 # HODNOCENI MAPA ----
+
 # SEGMENTY S INFORMACÍ O ROZLOZE, KVALITĚ, TYPICKÝCH DRUZÍCH, MRTVÉ DŘEVO, 
 # INVAZKY BIN, EXPANZKY BIN, INVAZKY LIST, EXPANZKY LIST, CELISTVOST BIN
+
 hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
+  # narodzdíl od běžných fcí rodiny hvezdice_eval tato vrací informace pro jednotlivé segmenty, nikoli pro souhrnné statistiky pro daný habitat v celém EVL
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_orig %>%
-    sf::st_intersection(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>%
-    dplyr::filter(HABITAT == hab_code) %>%
+    sf::st_intersection(dplyr::filter(evl_sjtsk, SITECODE == evl_site)) %>% # vybrat jen dane EVL
+    dplyr::filter(HABITAT == hab_code) %>% # vybrat jen segmenty daneho habitatu
     sf::st_make_valid() %>%
-    dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & 
+    dplyr::filter(sf::st_geometry_type(geometry) != "POINT" & # vyhodit nevalidni geometrie
                     sf::st_geometry_type(geometry) != "MULTIPOINT" & 
                     sf::st_geometry_type(geometry) != "LINESTRING" & 
                     sf::st_geometry_type(geometry) != "MULTILINESTRING") %>%
-    dplyr::mutate(AREA_real = units::drop_units(sf::st_area(geometry))) %>%
+    dplyr::mutate(AREA_real = units::drop_units(sf::st_area(geometry))) %>% # spocitat realnou plochu
     dplyr::filter(AREA_real > 0) %>%
-    dplyr::mutate(PLO_BIO_M2_EVL = STEJ_PR/100*AREA_real)
+    dplyr::mutate(PLO_BIO_M2_EVL = STEJ_PR/100*AREA_real) # relana plocha habitatu (kvuli mozaikam)
   
   # CELKOVÁ PLOCHA HABITATU VČETNĚ PASEK
-  area_paseky_ha <- find_habitat_PASEKY(evl_site, hab_code)
+  # ?? je to potřeba vůbec počítat?
+  area_paseky_ha <- find_habitat_PASEKY(evl_site, hab_code) # ?? neexistujici funkce
   
   SUM_PLO_BIO <- sum(vmb_target_sjtsk %>%
                        dplyr::pull(PLO_BIO_M2_EVL) %>%
@@ -2669,8 +2753,9 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
                      area_paseky_ha*10000,
                      na.rm = TRUE)
   
-  
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # KVALITATIVNÍ PARAMETRY HODNOCENÍ
+  
   vmb_eval <- vmb_target_sjtsk %>%
     dplyr::mutate(
       KVALITA_SEG = dplyr::case_when(REPRE == "W" ~ 4,
@@ -2680,7 +2765,7 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
       MRTVE_DREVO_SEG = NA,
       KALAMITA_SEG = NA
     ) %>%
-    dplyr::select(SEGMENT_ID,
+    dplyr::select(SEGMENT_ID, # zmenseni datasetu, ztrata geometrie
                   HABITAT,
                   BIOTOP,
                   STEJ_PR,
@@ -2690,9 +2775,11 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
                   MRTVE_DREVO_SEG,
                   KALAMITA_SEG)
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # MINIMIAREÁL
+  
+  # ?? minimi_value se uz dale nikde nepouzije !!
   if(nrow(vmb_target_sjtsk) > 0) {
-    
     minimi_value <- vmb_target_sjtsk %>%
       dplyr::mutate(MINIMI_SIZE = case_when("V6" %in% unique(BIOTOP) ~ 1000/10000,
                                             "M2.2" %in% unique(BIOTOP) ~ 1000/10000,
@@ -2708,13 +2795,12 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
       unique()
     
   } else {
-    
     minimi_value <- (minimisize %>% 
                        dplyr::filter(HABITAT == hab_code) %>%
                        dplyr::pull(MINIMISIZE)/10000)
-    
   }
   
+  # Celistvost
   spat_celistvost <- vmb_target_sjtsk %>%
     dplyr::filter(REPRE != "W") %>%
     sf::st_buffer(., 50) %>%
@@ -2762,19 +2848,22 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
     sf::st_drop_geometry()
   
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # RED LIST SPECIES, vraci seznam druhu a jejich pocet
+  # ?? chybi filtrace casem, zamer?
   
-  # RED LIST SPECIES
   redlist <- red_list_species %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
     dplyr::group_by(SEGMENT_ID) %>%
     dplyr::mutate(DRUHY_RL = toString(unique(DRUH)),
-                  DRUHY_RL_POCET = length(unique(DRUH))) %>%
+                  DRUHY_RL_POCET = length(unique(DRUH))) %>% # spocita se, ale hned zahodi
     dplyr::select(DRUHY_RL, SEGMENT_ID) %>%
     distinct() %>%
     sf::st_drop_geometry()
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # INVASIVE SPECIES, vraci seznam druhu a jejich pocet
   
-  # INVASIVE SPECIES
   if(hab_code == 6510) {
     invaders_all <- invasive_species %>%
       dplyr::filter(DRUH != "Arrhenatherum elatius") %>%
@@ -2797,15 +2886,17 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
   }
   
   invaders <- invaders_all %>%
-    sf::st_intersection(., vmb_target_sjtsk) %>%
+    sf::st_intersection(., vmb_target_sjtsk) %>% # zbytecne? intersection spocitano uz drive
     dplyr::group_by(SEGMENT_ID) %>%
     dplyr::mutate(DRUHY_INV = toString(unique(DRUH)),
-                  DRUHY_INV_POCET = length(unique(DRUH))) %>%
+                  DRUHY_INV_POCET = length(unique(DRUH))) %>% # spocita se, ale hned zahodi
     dplyr::select(DRUHY_INV, SEGMENT_ID) %>%
     distinct() %>%
     sf::st_drop_geometry() 
   
-  # EXPANZNÍ DRUHY
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
+  # EXPANZNÍ DRUHY, vraci seznam druhu a jejich pocet
+  
   expanders_all <- expansive_species %>%
     dplyr::filter(POKRYVN %in% c("3", "4", "5")) %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
@@ -2817,14 +2908,15 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
     dplyr::ungroup()
   
   expanders <- expanders_all %>%
-    sf::st_intersection(., vmb_target_sjtsk) %>%
+    sf::st_intersection(., vmb_target_sjtsk) %>% # zbytecne? intersection spocitano uz drive
     dplyr::group_by(SEGMENT_ID) %>%
     dplyr::mutate(DRUHY_EXP = toString(unique(DRUH)),
-                  DRUHY_EXP_POCET = length(unique(DRUH))) %>%
+                  DRUHY_EXP_POCET = length(unique(DRUH))) %>% # spocita se, ale hned zahodi
     dplyr::select(DRUHY_EXP, SEGMENT_ID) %>%
     distinct() %>%
     sf::st_drop_geometry() 
   
+  # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
   # VÝSLEDKY
   
   result <- vmb_eval %>%
@@ -2852,6 +2944,8 @@ hvezdice_eval_orig_geom <- function(hab_code, evl_site) {
 }
 
 hvezdice_eval_a1_geom <- function(hab_code, evl_site) {
+  # komplikovanejsi prepocet metrik u vmb_eval
+  # 
   
   # VÝBĚR KOMBINACE EVL A PŘEDMĚTU OCHRANY, PŘEPOČÍTÁNÍ PLOCHY BIOTOPU
   vmb_target_sjtsk <- vmb_shp_sjtsk_a1 %>%
@@ -2918,6 +3012,8 @@ hvezdice_eval_a1_geom <- function(hab_code, evl_site) {
                   KALAMITA_SEG)
   
   # MINIMIAREÁL
+  
+  # asi zase zbytecne
   if(nrow(vmb_target_sjtsk) > 0) {
     
     minimi_value <- vmb_target_sjtsk %>%
@@ -2952,7 +3048,7 @@ hvezdice_eval_a1_geom <- function(hab_code, evl_site) {
     sf::st_as_sf() %>%
     dplyr::mutate(ID_COMB = row_number()) %>%
     sf::st_intersection(., vmb_target_sjtsk) %>%
-    sf::st_drop_geometry() %>%
+    sf::st_drop_geometry() %>% # ??
     dplyr::filter(DG != "W" & RB != "W") %>%
     dplyr::group_by(ID_COMB) %>%
     dplyr::mutate(COMB_SIZE = sum(PLO_BIO_M2_EVL, na.rm = TRUE)) %>%
@@ -3008,7 +3104,7 @@ hvezdice_eval_a1_geom <- function(hab_code, evl_site) {
       sf::st_intersection(., vmb_target_sjtsk) %>%
       dplyr::filter(is.na(HABITAT) == FALSE) %>%
       dplyr::group_by(OBJECTID_1.y, DRUH) %>%
-      dplyr::filter(OBJECTID_1.y >= DATUM.x) %>%
+      dplyr::filter(OBJECTID_1.y >= DATUM.x) %>% ###################################### ??
       dplyr::slice(which.max(DATUM_OD)) %>%
       dplyr::filter(NEGATIVNI == 0) %>%
       dplyr::ungroup()
