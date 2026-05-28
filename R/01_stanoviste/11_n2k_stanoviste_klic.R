@@ -23,8 +23,12 @@ czechia <- st_read("//bali.nature.cz/du/SpravniCleneni/CR/HraniceCR.shp") %>%
   st_transform(., CRS("+init=epsg:5514"))
 czechia_line <- st_cast(czechia, "LINESTRING")
 
-load_vmb(vmb_x = 0)
+data <- load_vmb(vmb_x = 0)
 #load_vmb(vmb_x = 2)
+
+vmb_shp_sjtsk_akt <- data$vmb_shp_sjtsk_akt
+vmb_pb_x_akt <- data$vmb_pb_x_akt
+paseky <- data$paseky
 
 # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - # - #
 
@@ -193,7 +197,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
       RB_SDF_FIN = 4 - sum(RB_SDF_SEG, na.rm = TRUE),
       RB_SDF_FIN_KAT = dplyr::case_when(RB_SDF_FIN < 1.5 ~ "A",
                                         RB_SDF_FIN >= 1.5 & RB_SDF_FIN < 2.5 ~ "B",
-                                        RB_SDF_FIN < 2.5 & RB_SDF_FIN < 3.5 ~ "C", # CHYBA??
+                                        RB_SDF_FIN >= 2.5 & RB_SDF_FIN < 3.5 ~ "C",
                                         RB_SDF_FIN >= 3.5 ~ "D",
                                         TRUE ~ NA_character_),
       # DEGREE OF CONSERVATION
@@ -276,7 +280,7 @@ n2k_hab_klic <- function(hab_code, evl_site) {
   # Akt po roce 2012
   perc_seg_2 <- vmb_target_sjtsk %>%
     sf::st_drop_geometry() %>%
-    dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2024) %>% # ?? zaměnit 2024 za něco flexibilnějšího
+    dplyr::filter(ROK_AKT.y > 2012 & ROK_AKT.y <= 2025) %>% # ?? zaměnit 2024 za něco flexibilnějšího
     dplyr::pull(PLO_BIO_M2_EVL) %>%
     sum()/target_area_ha/100
   

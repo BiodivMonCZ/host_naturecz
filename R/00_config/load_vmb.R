@@ -166,7 +166,7 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
         DATUM = DATUM.x
       )
     
-    paseky_23 <- utils::read.csv2("../host_data/hodnoceni_stanovist_grafy/paseky_results_20220927.csv")
+    paseky_23 <- utils::read.csv2("../host_data/paseky_results_20260523.csv")
     
     # Uložení do výstupu
     output <- list(
