@@ -1,0 +1,168 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0">
+  <diagram name="Page-1" id="nAgLdaa45l6TaBDVkBuS">
+    <mxGraphModel dx="3144" dy="1804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-1" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1380" y="1657" as="sourcePoint" />
+            <mxPoint x="1370" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="90" width="248.5" x="110" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-3" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="398.50000000000006" y="180" as="sourcePoint" />
+            <mxPoint x="448.5" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#ABCD4C;strokeColor=none;fontStyle=1" value="HODNOCENÍ NA&lt;br&gt;DÍLČÍ LOKALITĚ" vertex="1">
+          <mxGeometry height="110" width="320" x="508.66999999999996" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-5" parent="1" style="whiteSpace=wrap;html=1;fontSize=27;fontFamily=Verdana;fillColor=#BACE8F;strokeColor=none;rounded=1;fontStyle=1;fontColor=default;" value="&lt;font style=&quot;&quot;&gt;HODNOCENÍ V RÁMCI CHRÁNĚNÉHO ÚZEMÍ&lt;/font&gt;" vertex="1">
+          <mxGeometry height="193" width="360" x="970" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="77" width="248.5" x="110" y="223" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-7" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="326.84" y="510" as="sourcePoint" />
+            <mxPoint x="405.84" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="80" width="248.5" x="110" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-9" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-10" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="329" y="580" as="sourcePoint" />
+            <mxPoint x="508.6700000000001" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#ABCD4C;strokeColor=none;fontStyle=1" value="HODNOCENÍ NA&lt;br&gt;DÍLČÍ LOKALITĚ" vertex="1">
+          <mxGeometry height="110" width="320" x="508.66999999999996" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-11" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="163" as="sourcePoint" />
+            <mxPoint x="1130" y="223" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-12" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="Qz3c8ocs7O0_X4stISlL-5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="839" y="205" as="sourcePoint" />
+            <mxPoint x="980" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-13" parent="1" style="whiteSpace=wrap;html=1;fontSize=27;fontFamily=Verdana;fillColor=#006047;strokeColor=none;rounded=1;fontStyle=1;" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;HODNOCENÍ NA ÚROVNI OBLASTI&lt;/font&gt;" vertex="1">
+          <mxGeometry height="193" width="360" x="1500" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="90" width="248.5" x="120" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-15" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="408.5" y="650" as="sourcePoint" />
+            <mxPoint x="458.5" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#ABCD4C;strokeColor=none;fontStyle=1" value="HODNOCENÍ NA&lt;br&gt;DÍLČÍ LOKALITĚ" vertex="1">
+          <mxGeometry height="110" width="320" x="518.6700000000001" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-17" parent="1" style="whiteSpace=wrap;html=1;fontSize=27;fontFamily=Verdana;fillColor=#BACE8F;strokeColor=none;rounded=1;fontStyle=1;fontColor=default;" value="&lt;font style=&quot;&quot;&gt;HODNOCENÍ V RÁMCI CHRÁNĚNÉHO ÚZEMÍ&lt;/font&gt;" vertex="1">
+          <mxGeometry height="193" width="360" x="980" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="77" width="248.5" x="120" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-19" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="336.8399999999999" y="980" as="sourcePoint" />
+            <mxPoint x="415.8399999999999" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#abcd4c;strokeColor=none;fontStyle=1" value="HODNOCENÍ NÁLEZU DRUHU" vertex="1">
+          <mxGeometry height="80" width="248.5" x="120" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-21" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#ABCD4C;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-22" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="339" y="1050" as="sourcePoint" />
+            <mxPoint x="518.6700000000001" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=27;fillColor=#ABCD4C;strokeColor=none;fontStyle=1" value="HODNOCENÍ NA&lt;br&gt;DÍLČÍ LOKALITĚ" vertex="1">
+          <mxGeometry height="110" width="320" x="518.6700000000001" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-23" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-17" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="633" as="sourcePoint" />
+            <mxPoint x="1140" y="693" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-24" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="Qz3c8ocs7O0_X4stISlL-17" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="849" y="675" as="sourcePoint" />
+            <mxPoint x="990" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-25" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-13" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1420" y="306" />
+              <mxPoint x="1420" y="546" />
+            </Array>
+            <mxPoint x="1660" y="220" as="sourcePoint" />
+            <mxPoint x="1801" y="332" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-26" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=#bace8f;strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-13" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1420" y="776" />
+              <mxPoint x="1420" y="546" />
+            </Array>
+            <mxPoint x="1400" y="370" as="sourcePoint" />
+            <mxPoint x="1500" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1120" y="860" as="sourcePoint" />
+            <mxPoint x="1170" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-29" parent="1" style="whiteSpace=wrap;html=1;fontSize=27;fontFamily=Verdana;fillColor=#006047;strokeColor=none;rounded=1;fontStyle=1;" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;HODNOCENÍ NA ÚROVNI ČESKA&lt;/font&gt;" vertex="1">
+          <mxGeometry height="193" width="360" x="1960" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-30" edge="1" parent="1" source="Qz3c8ocs7O0_X4stISlL-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;fillColor=light-dark(#006047,#000000);strokeColor=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Qz3c8ocs7O0_X4stISlL-29" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1960" y="547" />
+            </Array>
+            <mxPoint x="1960" y="41" as="sourcePoint" />
+            <mxPoint x="2130" y="281" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;NASTAVENÍ PÉČE NA ÚROVNI DÍLČÍCH LOKALIT A OPATŘENÍ&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;PRŮNIK HODNOCENÍ DÍLČÍ PLOCHY A REALIZOVANÉ PÉČE&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;PRÁCE S DETAILNÍMI INFORMACEMI O PŘÍČINÁCH ŠPATNÉHO STAVU&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;SLEDOVÁNÍ DÍLČÍCH INDIKÁTORŮ STAVU POPULACE A PROSTŘEDÍ DRUHU&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="660" x="130" y="1259" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;KONCEPČNÍ PLÁNOVÁNÍ NA ÚROVNI NÁSTROJŮ ÚZEMNÍ OCHRANY&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;HODNOCENÍ PLNĚNÍ PLÁNOVACÍ DOKUMENTACE&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;font-size: 36px;&quot;&gt;SLEDOVÁNÍ DÍLČÍCH INDIKÁTORŮ, JEJICH TRENDU A CELKOVÉHO HODNOCENÍ STAVU&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="450" x="900" y="1289" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;b style=&quot;font-size: 36px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;STRATEGICKÉ PLÁNOVÁNÍ&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;TVORBA NÁSTROJŮ A POSKYTOVÁNÍ INCENTIV&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;OSVĚTA NA REGIONÁLÍ A NÁRODNÍ ÚROVNI&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;HODNOCENÍ ROZSAHU REALIZOVANÝCH OPATŘENÍ&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;font-size: 36px;&quot;&gt;SLEDOVÁNÍ CELKOVÉ VELIKOSTI POPULACE, ROZŠÍŘENÍ A TRENDŮ&lt;/b&gt;&lt;span style=&quot;font-size: 36px;&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;font-size: 36px;&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b style=&quot;font-size: 36px;&quot;&gt;VAZBA CÍLŮ NA ČERVENÝ SEZNAM A EVROPSKÝ REPORTING&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="852" x="1458" y="1289" as="geometry" />
+        </mxCell>
+        <mxCell id="Qz3c8ocs7O0_X4stISlL-34" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=5;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="870" y="1657" as="sourcePoint" />
+            <mxPoint x="860" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,19 @@
+typ_predmetu_hodnoceni;kod_chu;nazev_chu;druh;feature_code;hodnocene_obdobi_od;hodnocene_obdobi_do;oop;parametr_nazev;parametr_hodnota;parametr_limit;parametr_jednotka;stav;trend;datum_hodnoceni;pracoviste;ind_nadr;metodika
+Druh;CZ0623026;Studánkový vrch;Eriogaster catax;NA;2005-05-01;2023-04-19;Krajský úřad Jihomoravského kraje;27;ne;ano;přítomnost druhu;špatný;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0623026;Studánkový vrch;Eriogaster catax;NA;2005-05-01;2023-04-19;Krajský úřad Jihomoravského kraje;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0623026;Studánkový vrch;Eriogaster catax;NA;2005-05-01;2023-04-19;Krajský úřad Jihomoravského kraje;10;zhoršený;NA;NA;zhoršený;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0624072;Čertoryje;Eriogaster catax;NA;2001-04-28;2024-04-10;AOPK ČR - RP SCHKO Bílé Karpaty;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0624072;Čertoryje;Eriogaster catax;NA;2001-04-28;2024-04-10;AOPK ČR - RP SCHKO Bílé Karpaty;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0624072;Čertoryje;Eriogaster catax;NA;2001-04-28;2024-04-10;AOPK ČR - RP SCHKO Bílé Karpaty;10;dobrý;NA;NA;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0624100;Milovický les;Eriogaster catax;NA;2001-09-02;2024-04-17;AOPK ČR - RP Jižní Morava;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0624100;Milovický les;Eriogaster catax;NA;2001-09-02;2024-04-17;AOPK ČR - RP Jižní Morava;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0624100;Milovický les;Eriogaster catax;NA;2001-09-02;2024-04-17;AOPK ČR - RP Jižní Morava;10;dobrý;NA;NA;dobrý;neznámý;2026-03-14;RP Jižní Morava;NA;15087
+Druh;CZ0723024;Rochus;Eriogaster catax;NA;2008-01-01;2024-04-12;Krajský úřad Zlínského kraje;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0723024;Rochus;Eriogaster catax;NA;2008-01-01;2024-04-12;Krajský úřad Zlínského kraje;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0723024;Rochus;Eriogaster catax;NA;2008-01-01;2024-04-12;Krajský úřad Zlínského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724087;Újezdecký les;Eriogaster catax;NA;2000-01-01;2024-10-11;Krajský úřad Zlínského kraje;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724087;Újezdecký les;Eriogaster catax;NA;2000-01-01;2024-10-11;Krajský úřad Zlínského kraje;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724087;Újezdecký les;Eriogaster catax;NA;2000-01-01;2024-10-11;Krajský úřad Zlínského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724090;Bílé Karpaty;Eriogaster catax;NA;2000-01-01;2024-10-11;AOPK ČR - RP SCHKO Bílé Karpaty;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724090;Bílé Karpaty;Eriogaster catax;NA;2000-01-01;2024-10-11;AOPK ČR - RP SCHKO Bílé Karpaty;63;;10;procento pokryvnosti preferovaných biotopů;špatný;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0724090;Bílé Karpaty;Eriogaster catax;NA;2000-01-01;2024-10-11;AOPK ČR - RP SCHKO Bílé Karpaty;10;dobrý;NA;NA;dobrý;neznámý;2026-03-14;RP SCHKO Bílé Karpaty;NA;15087

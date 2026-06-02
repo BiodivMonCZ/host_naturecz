@@ -9,7 +9,9 @@ packages <- c(
   "openxlsx",
   "fuzzyjoin", 
   "remotes",
-  "ggplot2"
+  "ggplot2",
+  "progress",
+  "fs"
 )
 
 # Standardni package
@@ -43,7 +45,7 @@ current_year <- as.numeric(format(Sys.Date(), "%Y")) - 1
 limity_cev <- readr::read_csv(
   "Data/Input/limity_cevky.csv", 
   locale = readr::locale(encoding = "Windows-1250")
-  )
+)
 
 #------------------------------------------#
 ### Limity - ryby ---- 
@@ -59,18 +61,18 @@ limity_ryb <- readr::read_csv2(
 limity <- readr::read_csv(
   "Data/Input/limity_vse.csv", 
   locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
+) %>%
   dplyr::bind_rows(
     ., 
     limity_cev,
     limity_ryb
-    ) %>%
+  ) %>%
   dplyr::group_by(
     DRUH, 
     ID_IND, 
     TYP_IND, 
     UROVEN
-    ) %>%
+  ) %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
     LIM_INDLIST = dplyr::case_when(
@@ -78,32 +80,32 @@ limity <- readr::read_csv(
         "nejvýš", 
         LIM_IND, 
         JEDNOTKA
-        ),
+      ),
       TYP_IND == "min" ~ paste(
         "alespoň", 
         LIM_IND, 
         JEDNOTKA
-        ),
+      ),
       TYP_IND == "val" ~ paste(
         paste0(
           unique(LIM_IND), 
           collapse = ", "
-          )
-        ),
+        )
+      ),
       TRUE ~ NA_character_)
   ) %>%
   dplyr::ungroup() %>%
   dplyr::group_by(
     DRUH, 
     ID_IND
-    ) %>%
+  ) %>%
   dplyr::mutate(
     LIM_INDLIST = toString(
       na.omit(
         unique(LIM_INDLIST)
-        )
       )
-    ) %>%
+    )
+  ) %>%
   dplyr::ungroup()
 
 #--------------------------------------------------#
@@ -140,6 +142,30 @@ sites_subjects <- openxlsx::read.xlsx(
 
 sites_habitats <- sites_subjects %>%
   dplyr::filter(feature_type == "stanoviště")
+
+#--------------------------------------------------#
+### Seznam predmetu ochrany MZCHU ---- 
+#--------------------------------------------------#
+sites_subjects_mzchu <- openxlsx::read.xlsx(
+  "Data/Input/DatabazePrO_2025.xlsx",
+  sheet = 1
+) %>%
+  dplyr::rename(
+    site_code = `kód`,
+    site_name = `název`,
+    site_type = `kategorie`,
+    feature_type = `typ.předmětu.ochrany`,
+    #sdf_code = `Kód.SDF`,
+    feature_code = `kód.biotopu`,
+    nazev_cz = `název.biotopu`,
+    nazev_lat = `latinský.název`
+  )
+
+sites_habitats_mzchu <- sites_subjects_mzchu %>%
+  dplyr::filter(feature_type == "ekosystém")
+
+sites_habitats_mzchu_test <- sites_habitats_mzchu %>%
+  dplyr::filter(site_code %in% c("5874", "681", "2213", "1183"))
 
 #--------------------------------------------------#
 ### Seznam EVL SDO II ---- 
@@ -315,14 +341,21 @@ czechia <- sf::st_read("Data/Input/HraniceCR.shp")
 czechia_line <- sf::st_cast(czechia, "LINESTRING")
 
 #--------------------------------------------------#
+## Aktualizaceni okrsky mapovani biotopu ---- 
+#--------------------------------------------------#
+akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
+  dplyr::rename(SITECODE = kod)
+
+#--------------------------------------------------#
 ## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 
 endpoint <- "http://gis.nature.cz/arcgis/services/Aplikace/Opendata/MapServer/WFSServer?"
 caps_url <- paste0(endpoint, "request=GetCapabilities&service=WFS")
 
-layer_name_evl      <- "Opendata:Evropsky_vyznamne_lokality"
-layer_name_po       <- "Opendata:Ptaci_oblasti"
+layer_name_evl <- "Opendata:Evropsky_vyznamne_lokality"
+layer_name_po <- "Opendata:Ptaci_oblasti"
+layer_name_mzchu <- "Opendata:Maloplosna_zvlaste_chranena_uzemi__MZCHU_"
 layer_name_biotopzvld <- "Opendata:Biotop_zvlaste_chranenych_druhu_velkych_savcu"
 
 getfeature_url_evl <- paste0(
@@ -333,9 +366,17 @@ getfeature_url_po <- paste0(
   endpoint,
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_po
 )
+getfeature_url_mzchu <- paste0(
+  endpoint,
+  "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_mzchu
+)
 getfeature_url_biotopzvld <- paste0(
   endpoint,
   "service=WFS&version=2.0.0&request=GetFeature&typeName=", layer_name_biotopzvld
+)
+
+vodstvo <- sf::st_read(
+  "https://geoportal.cuzk.gov.cz/geoserver/hy-p/wfs?"
 )
 
 #--------------------------------------------------#
@@ -354,9 +395,9 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
   shp <- sf::st_transform(
     shp, 
     st_crs("+init=epsg:5514")
-    )
+  )
   
-  if (!is.null(n2k)) {
+  if (!is.null(n2k) & local_path != "Data/Input/MaloplZCHU.shp") {
     shp <- dplyr::left_join(shp, n2k, by = "SITECODE")
   }
   
@@ -369,6 +410,8 @@ read_layer <- function(local_path, wfs_url, n2k = NULL) {
 
 evl <- read_layer("Data/Input/EvVyzLok.shp", getfeature_url_evl, n2k = n2k_oop)
 po  <- read_layer("Data/Input/PtaciObl.shp", getfeature_url_po,  n2k = n2k_oop)
+mzchu  <- read_layer("Data/Input/MaloplZCHU.shp", getfeature_url_mzchu,  n2k = n2k_oop) %>%
+  dplyr::rename(SITECODE = KOD)
 biotop_zvld <- read_layer("Data/Input/BiotopZvld.shp", getfeature_url_biotopzvld)
 
 #--------------------------------------------------#
@@ -393,17 +436,30 @@ slozka_lokal <- "C:/Users/jonas.gaigr/Documents/host_data/"
 # kompletni pouze pro overene uzivatele,
 # bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
 #------------------------------------------------------#
-n2k_export <- readr::read_csv2(
+n2k_export <- readr::read_csv(
   paste0(
     slozka_lokal,
-    "evl_data_export_20250408.csv"
+    "export_data_evl.csv"
   ), 
-  locale = readr::locale(encoding = "Windows-1250")
+  locale = readr::locale(encoding = "UTF-8")
+)
+
+volna_export <- readr::read_csv(
+  paste0(
+    slozka_lokal,
+    "export_data_zprap.csv"
+  ), 
+  locale = readr::locale(encoding = "UTF-8")
 )
 
 ncol_orig <- ncol(n2k_export)
 
 n2k_load <- n2k_export %>%
+  dplyr::bind_rows(
+    .,
+    volna_export
+  ) %>%
+  dplyr::distinct() %>%
   dplyr::rename(
     POLE = POLE_1_RAD
   ) %>% 
@@ -531,6 +587,114 @@ n2k_load <- n2k_export %>%
       TRUE ~ 0)
   ) 
 
+
+#------------------------------------------------------#
+## RL druhy ----
+# export obsahuje data o vyskytu citlivych druhu: 
+# kompletni pouze pro overene uzivatele,
+# bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
+#------------------------------------------------------#
+# 1. Read the data with strict encoding and column specifications
+redlist_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_redlist.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+redlist_species <- redlist_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
+  mutate(
+    DRUH = as.factor(DRUH),
+    DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
+    DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
+    DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
+
+#------------------------------------------------------#
+## Invazni nepuvodni druhy ----
+# export obsahuje data o vyskytu citlivych druhu: 
+# kompletni pouze pro overene uzivatele,
+# bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
+#------------------------------------------------------#
+# 1. Read the data with strict encoding and column specifications
+invasive_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_invaze.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+invasive_species <- invasive_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
+  mutate(
+    DRUH = as.factor(DRUH),
+    DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
+    DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
+    DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
+
+#------------------------------------------------------#
+## Expanzivni druhy ----
+# export obsahuje data o vyskytu citlivych druhu: 
+# kompletni pouze pro overene uzivatele,
+# bez vyskytu citlivych druhu na vyzadani na jonas.gaigr@aopk.gov.cz
+#------------------------------------------------------#
+# 1. Read the data with strict encoding and column specifications
+expansive_species_raw <- read_csv(
+  paste0(slozka_lokal, "export_expanze.csv"), 
+  locale = locale(encoding = "UTF-8"), # Reverting to your original choice
+  col_types = cols(
+    .default = col_guess(),
+    NEGATIVNI = col_character(), # Forces this to character so "ano"/"ne" works
+    EVL = col_character()        # Ensures EVL is strictly text for substr()
+  )
+)
+
+# 2. Apply your transformations
+expansive_species <- expansive_species_raw %>%
+  # filter(SKUPINA == "Cévnaté rostliny") %>%
+  # filter(DRUH %in% invaz_list$TAXON) %>%
+  mutate(
+    DRUH = as.factor(DRUH),
+    DATE = as.Date(as.character(DATUM_OD), format = '%d.%m.%Y'),
+    DATUM_OD = as.Date(DATUM_OD, format = '%d.%m.%Y'),
+    DATUM_DO = as.Date(DATUM_DO, format = '%d.%m.%Y'),
+    YEAR = substring(DATE, 1, 4),
+    # 1. Purge invalid bytes: This reads the string, and if it finds an invalid 
+    # multibyte character anywhere, it silently drops it (sub = "")
+    EVL_SAFE = iconv(as.character(EVL), from = "UTF-8", to = "UTF-8", sub = ""),
+    
+    # 2. Use stringr for extraction: It handles encodings much better than base R
+    SITECODE = stringr::str_sub(EVL_SAFE, 1, 9)
+  ) %>% 
+  st_as_sf(coords = c("X", "Y"), crs = "+init=epsg:5514")
 
 #----------------------------------------------------------#
 # Vlastní funkce na úpravu dat ----
