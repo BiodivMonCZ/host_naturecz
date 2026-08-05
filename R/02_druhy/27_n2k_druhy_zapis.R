@@ -16,6 +16,7 @@ species_list <- n2k_load %>%
   dplyr::pull(DRUH) %>% 
   unique() %>% 
   as.character()
+species_list <- unique(subset(n2k_load, SKUPINA == "Letouni")$DRUH) %>% as.character()
 
 #----------------------------------------------------------#
 # Zapis dat nalez -----
@@ -432,7 +433,7 @@ chu_export <- function(
     n2k_oop,
     indikatory_id,
     n2k_druhy_obdobi_chu,
-    current_year = 2024,
+    current_year = 2025,
     input_path = "Data/Temp/n2k_druhy_lok.csv"
 ) {
   
@@ -540,3 +541,4 @@ kukchu <-
   indikatory_id = indikatory_id,
   n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu # Zde předáváme vypočtená období
 )
+

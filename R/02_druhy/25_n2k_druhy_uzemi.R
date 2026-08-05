@@ -6,7 +6,7 @@ run_n2k_druhy_uzemi <- function(
     biotop_evd, 
     n2k_druhy_obdobi_chu,
     n2k_druhy_posledni_chu,
-    current_year = 2024
+    current_year = 2025
 ) {
   
   #----------------------------------------------------------#
@@ -114,6 +114,7 @@ run_n2k_druhy_uzemi <- function(
         POLE = toString(unique(POLE)), 
         NAZEV_LOK = toString(unique(NAZEV_LOK)), 
         ID_ND_AKCE = toString(unique(ID_ND_AKCE)), 
+        ID_ND_LOK = toString(unique(ID_ND_LOK)),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
         POP_PRESENCE = dplyr::case_when(

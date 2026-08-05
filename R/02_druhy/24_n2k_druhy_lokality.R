@@ -3,7 +3,7 @@ run_n2k_druhy_lok <- function(
     species_name,
     sites_subjects,
     limity, # Ponechano pro budouci pouziti
-    current_year = 2024
+    current_year = 2025
 ) {
   
   #----------------------------------------------------------#
