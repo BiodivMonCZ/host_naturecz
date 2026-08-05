@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36">
+  <diagram name="Stránka-1" id="7PcppeHKwv7UdlwQksqB">
+    <mxGraphModel dx="1563" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-7" edge="1" parent="1" source="vXuHGcVOdWhQ6hNjRbVp-34" style="curved=1;endArrow=block;html=1;rounded=0;strokeWidth=20;align=left;spacingLeft=5;fillColor=#dae8fc;strokeColor=#006648;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=1;targetPerimeterSpacing=-5;" target="vXuHGcVOdWhQ6hNjRbVp-34" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="854" y="510" />
+              <mxPoint x="994" y="510" />
+              <mxPoint x="1054" y="400" />
+              <mxPoint x="984" y="300" />
+              <mxPoint x="834" y="300" />
+            </Array>
+            <mxPoint x="357" y="360" as="sourcePoint" />
+            <mxPoint x="357" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-28" edge="1" parent="1" source="vXuHGcVOdWhQ6hNjRbVp-21" style="curved=1;endArrow=block;html=1;rounded=0;strokeWidth=20;align=left;spacingLeft=5;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#006648;endFill=1;sourcePerimeterSpacing=-5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="vXuHGcVOdWhQ6hNjRbVp-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="452" y="280" />
+              <mxPoint x="692" y="280" />
+              <mxPoint x="824" y="400" />
+              <mxPoint x="692" y="520" />
+              <mxPoint x="452" y="520" />
+            </Array>
+            <mxPoint x="347" y="549" as="sourcePoint" />
+            <mxPoint x="332" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-1" edge="1" parent="1" source="vXuHGcVOdWhQ6hNjRbVp-40" style="curved=1;endArrow=block;html=1;rounded=0;strokeWidth=20;align=left;spacingLeft=5;fillColor=#dae8fc;strokeColor=#006648;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endFill=1;targetPerimeterSpacing=-5;" target="vXuHGcVOdWhQ6hNjRbVp-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="310" />
+              <mxPoint x="50" y="410" />
+              <mxPoint x="134" y="490" />
+              <mxPoint x="284" y="500" />
+            </Array>
+            <mxPoint x="300" y="270" as="sourcePoint" />
+            <mxPoint x="300" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Setting long-term nature conservation objectives&lt;/b&gt; for individual species and habitats and indicators for their achievement in planning documentation" vertex="1">
+          <mxGeometry height="100" width="180" x="10" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fontSize=12;fillColor=#FEE4C4;strokeColor=none;fontStyle=0" value="&lt;b&gt;Condition evaluation &lt;/b&gt;of species and habitats and the impacts of conservation measures" vertex="1">
+          <mxGeometry height="90" width="170" x="404" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fontStyle=1;fillColor=#FEE4C4;strokeColor=none;" value="Implementation plan, establishing specific principles for the administration and management of protected areas" vertex="1">
+          <mxGeometry height="90" width="190" x="474" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Audit&lt;/b&gt; of conservation objectives fulfilment" vertex="1">
+          <mxGeometry height="60" width="130" x="130" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;horizontal=1;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Administration and management::&lt;/b&gt;&lt;br&gt;- exercise of state administration&lt;br&gt;- prioritisation of measures&lt;br&gt;- management implementation&lt;br&gt;-&amp;nbsp;controlled experiments" vertex="1">
+          <mxGeometry height="100" width="210" x="675" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-37" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;horizontal=1;spacingLeft=5;fontStyle=1;fillColor=#FEE4C4;strokeColor=none;" value="Monitoring &lt;span style=&quot;font-weight: normal;&quot;&gt;of species and habitats&lt;/span&gt;&lt;br&gt;Monitoring &lt;span style=&quot;font-weight: 400;&quot;&gt;of implemented conservation measures&lt;/span&gt;&lt;br&gt;Data collection &lt;span style=&quot;font-weight: normal;&quot;&gt;on threats, pressures, and other influences&lt;/span&gt;" vertex="1">
+          <mxGeometry height="90" width="201" x="590" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-38" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;horizontal=1;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Monitoring &lt;/b&gt;of the implementation of planned measures, compliance with issued decisions, and the current state of the site, including the effects of other pressures" vertex="1">
+          <mxGeometry height="100" width="200" x="950" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-10" edge="1" parent="1" style="curved=1;endArrow=block;html=1;rounded=0;strokeWidth=12;align=left;spacingLeft=5;fillColor=#FEE4C4;strokeColor=#FEE4C4;textOpacity=60;startFill=1;endFill=1;sourcePerimeterSpacing=-18;entryX=0.5;entryY=1;entryDx=0;entryDy=0;targetPerimeterSpacing=32;startSize=43;" target="vXuHGcVOdWhQ6hNjRbVp-32" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="489" y="400" />
+            </Array>
+            <mxPoint x="540" y="500" as="sourcePoint" />
+            <mxPoint x="532" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-12" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="&lt;div&gt;continuously&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(ad-hoc)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="437" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-14" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="yearly" vertex="1">
+          <mxGeometry height="40" width="70" x="880" y="374" as="geometry" />
+        </mxCell>
+        <mxCell id="zaWb61ioJ3Mk8AOoXQ7T-15" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" value="10+ years" vertex="1">
+          <mxGeometry height="40" width="70" x="190" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="yXXeu-wbmC5aOXSwHJNB-1" edge="1" parent="1" source="vXuHGcVOdWhQ6hNjRbVp-21" style="curved=1;endArrow=none;html=1;rounded=0;strokeWidth=20;align=left;spacingLeft=5;fillColor=#dae8fc;strokeColor=#006648;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;targetPerimeterSpacing=-5;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="vXuHGcVOdWhQ6hNjRbVp-40" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="300" />
+              <mxPoint x="150" y="300" />
+            </Array>
+            <mxPoint x="345" y="350" as="sourcePoint" />
+            <mxPoint x="345" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Prioritisation &lt;/b&gt;of nature conservation objectives" vertex="1">
+          <mxGeometry height="60" width="120" x="150" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="vXuHGcVOdWhQ6hNjRbVp-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=5;fillColor=#FEE4C4;strokeColor=none;" value="&lt;b&gt;Setting the target status&lt;/b&gt; for target features and &lt;b&gt;prioritisation of measures &lt;/b&gt;to support them" vertex="1">
+          <mxGeometry height="100" width="170" x="260" y="350" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

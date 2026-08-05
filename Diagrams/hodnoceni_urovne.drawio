@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.0">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36">
   <diagram name="Page-1" id="nAgLdaa45l6TaBDVkBuS">
-    <mxGraphModel dx="3144" dy="1804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3096" dy="1804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -127,12 +127,6 @@
             </Array>
             <mxPoint x="1400" y="370" as="sourcePoint" />
             <mxPoint x="1500" y="550" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="Qz3c8ocs7O0_X4stISlL-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="1120" y="860" as="sourcePoint" />
-            <mxPoint x="1170" y="810" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Qz3c8ocs7O0_X4stISlL-29" parent="1" style="whiteSpace=wrap;html=1;fontSize=27;fontFamily=Verdana;fillColor=#006047;strokeColor=none;rounded=1;fontStyle=1;" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;HODNOCENÍ NA ÚROVNI ČESKA&lt;/font&gt;" vertex="1">
