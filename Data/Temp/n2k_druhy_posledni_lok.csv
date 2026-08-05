@@ -1,11 +1,11 @@
 kod_chu,DRUH,KOD_LOKAL,POLE,POSLEDNI_NALEZ
 CZ0110040,Barbastella barbastellus,Velká Chuchle,5952c,2020-07-02
+CZ0110040,Chazara briseis,5952,NA,1995-01-01
 CZ0110040,Euplagia quadripunctaria,Lokace00102,5952c,2021-07-27
 CZ0110040,Euplagia quadripunctaria,Pod Akáty,5952c,2022-08-09
 CZ0110040,Euplagia quadripunctaria,Praha - Velká Chuchle,5952c,2017-07-29
 CZ0110040,Gentianella amarella,5952-3,NA,2001-09-05
 CZ0110040,Hipparchia semele,5952,NA,2011-08-23
-CZ0110040,Chazara briseis,5952,NA,1995-01-01
 CZ0110040,Myotis myotis,Chuchle PR Homolka,5952c,2021-05-28
 CZ0110040,Myotis myotis,PR Chuchelský háj,5952c,2007-06-27
 CZ0110040,Myotis myotis,"Praha - Malá Chuchle, Chuchelský háj",5952c,2007-06-27
@@ -18,6 +18,7 @@ CZ0110050,Barbastella barbastellus,"Jinonice, Prokopské údolí, štola",5952c,
 CZ0110050,Barbastella barbastellus,"Praha - Prokopské údolí, štola",5952c,2024-01-20
 CZ0110050,Barbastella barbastellus,"Prokopské údolí, štola",5952c,2025-12-07
 CZ0110050,Barbastella barbastellus,Štola v Prokopském údolí,5952c,2022-01-29
+CZ0110050,Chazara briseis,5952,NA,1995-01-01
 CZ0110050,Euplagia quadripunctaria,"Jinonice 713, 158 00 Praha 5",5952c,2020-08-12
 CZ0110050,Euplagia quadripunctaria,MOTYLI1296,5952c,2022-08-02
 CZ0110050,Euplagia quadripunctaria,"Nad J svahem Prokopského údolí, nedaleko vyústění žlutě značené stezky nahoru.",5952c,2017-07-30
@@ -36,7 +37,6 @@ CZ0110050,Euplagia quadripunctaria,XSJE1,5952c,2006-08-11
 CZ0110050,Gentianella amarella,5952-3,NA,2001-09-05
 CZ0110050,Hipparchia semele,5952,NA,2011-08-23
 CZ0110050,Hipparchia semele,KÚ: Hlubočepy,NA,2012-08-01
-CZ0110050,Chazara briseis,5952,NA,1995-01-01
 CZ0110050,Lucanus cervus,CZ0110050,5952c,2021-09-03
 CZ0110050,Myotis myotis,Jinonice,5952c,2019-07-07
 CZ0110050,Myotis myotis,Jinonice - štola v Prokopském údolí,5952c,2014-01-24
@@ -99,6 +99,7 @@ CZ0113002,Myotis myotis,Milíčovské rybníky,5953c,2019-07-21
 CZ0113002,Sanguisorba officinalis,149 00 Praha-Újezd,5953c,2018-08-04
 CZ0113002,Sanguisorba officinalis,Újezd u Průhonic_27710113,5953c,2017-10-31
 CZ0113002,Scardinius erythrophthalmus,CZ0113002,5953c,2024-05-08
+CZ0113005,Chazara briseis,5952,NA,1995-01-01
 CZ0113005,Euplagia quadripunctaria,1103,"82,""6052a""",2011-05-19
 CZ0113005,Euplagia quadripunctaria,Lokace00204,6052a,2023-08-18
 CZ0113005,Euplagia quadripunctaria,"Radotínské údolí - přírodní památky Cikánka I, Cikánka II a lom Špička",5951d,2022-07-28
@@ -107,15 +108,14 @@ CZ0113005,Hipparchia semele,5951,NA,2007-07-21
 CZ0113005,Hipparchia semele,5952,NA,2011-08-23
 CZ0113005,Hipparchia semele,6051,NA,2009-08-01
 CZ0113005,Hipparchia semele,6052,NA,2004-01-01
-CZ0113005,Chazara briseis,5952,NA,1995-01-01
 CZ0113005,Lucanus cervus,CZ0113005,"37,""6052a""",2015-04-01
 CZ0113005,Lutra lutra,CZ0113005,"45,""6052a""",2024-04-05
 CZ0113005,Myotis myotis,EVL Lochkovský profil,6051b,2015-05-21
 CZ0113773,Castor fiber,CZ0113773,5952a,2004-01-01
+CZ0113773,Chazara briseis,5952,NA,1995-01-01
 CZ0113773,Euplagia quadripunctaria,"Petřín, Praha",5952a,2020-08-12
 CZ0113773,Euplagia quadripunctaria,"Šermířská 3180/1C, 169 00 Praha 5-Smíchov, Tschechien",5952a,2018-06-30
 CZ0113773,Hipparchia semele,5952,NA,2011-08-23
-CZ0113773,Chazara briseis,5952,NA,1995-01-01
 CZ0113773,Lucanus cervus,CZ0113773,5952a,2025-06-04
 CZ0113773,Myotis myotis,Malá Strana - 5952,5952a,1900-01-01
 CZ0113773,Myotis myotis,PP Petřín,5952a,2022-06-10
@@ -262,13 +262,13 @@ CZ0210047,Myotis myotis,Hutě pod Třemšínem,6448b,2015-08-30
 CZ0210047,Myotis myotis,Třemšín,6448b,2015-06-28
 CZ0210047,Myotis myotis,Voltuš,6448b,2015-06-28
 CZ0210047,Myotis myotis,"lokalita ""Hengst""",6448b,2015-08-30
+CZ0210053,Chazara briseis,6252,NA,1995-01-01
 CZ0210053,Euplagia quadripunctaria,"1191, Nalžovice",6252c,2020-08-06
 CZ0210053,Euplagia quadripunctaria,"1192, Radíč",6252c,2020-08-05
 CZ0210053,Euplagia quadripunctaria,Chotilsko,6252c,2021-09-02
 CZ0210053,Euplagia quadripunctaria,Přední Hluboká,6252c,2015-07-31
 CZ0210053,Euplagia quadripunctaria,Častoboř,6252c,2020-08-06
 CZ0210053,Hipparchia semele,6252,NA,1995-01-01
-CZ0210053,Chazara briseis,6252,NA,1995-01-01
 CZ0210053,Lucanus cervus,CZ0210053,6252c,2023-06-11
 CZ0210053,Myotis myotis,Smilovice,6252c,2014-08-15
 CZ0210054,Canis lupus,CZ0210054,6249c,2025-03-24
@@ -1330,12 +1330,12 @@ CZ0213017,Bombina bombina,CZ0213017_1,6449c,2025-06-25
 CZ0213017,Bombina bombina,CZ0213017_2,6449c,2025-06-25
 CZ0213017,Triturus cristatus,CZ0213017,6449c,2024-06-24
 CZ0213017,Triturus cristatus,CZ0213017_2,6449c,2023-06-03
+CZ0213023,Chazara briseis,6252,NA,1995-01-01
 CZ0213023,Euplagia quadripunctaria,2535,6252a,2021-08-04
 CZ0213023,Euplagia quadripunctaria,Hrdlička,"5,""6252a""",2003-07-25
 CZ0213023,Euplagia quadripunctaria,XRDB1,6252a,2006-08-05
 CZ0213023,Euplagia quadripunctaria,XRDB2,6252a,2006-08-05
 CZ0213023,Hipparchia semele,6252,NA,1995-01-01
-CZ0213023,Chazara briseis,6252,NA,1995-01-01
 CZ0213028,Bombina bombina,BSVC34,5748d,2003-05-15
 CZ0213028,Bombina bombina,BSVC35,5748d,2003-06-09
 CZ0213028,Bombina bombina,BSVC67,5749c,2003-06-09
@@ -1442,7 +1442,7 @@ CZ0213058,Leucorrhinia pectoralis,CZ0213058,5954c,2014-05-26
 CZ0213058,Leucorrhinia pectoralis,VAZKY111,5954c,2023-06-07
 CZ0213058,Leucorrhinia pectoralis,VAZKY112,5954c,2023-06-16
 CZ0213058,Lycaena dispar,250 83 Škvorec,5954c,2021-08-22
-CZ0213058,Triturus cristatus,CZ0213058,5954c,2026-03-22
+CZ0213058,Triturus cristatus,CZ0213058,5954c,2025-07-13
 CZ0213059,Hipparchia semele,KÚ: Vinařice u Kladna,NA,2015-01-01
 CZ0213059,Vertigo angustior,CZ0213059,5850a,2023-10-13
 CZ0213059,Vertigo angustior,Mekkysi1593,5850a,2006-11-12
@@ -1771,8 +1771,8 @@ CZ0213600,Myotis myotis,Bělá p/Bezdězem,5454d,2003-05-30
 CZ0213600,Myotis myotis,Bělá pod Bezdězem,5454d,2018-06-17
 CZ0213600,Myotis myotis,Bělá pod Bezdězem - zámek,5454d,2020-06-05
 CZ0213600,Myotis myotis,"Bělá pod Bezdězem, Zámek",5454d,2006-06-22
-CZ0213601,Hipparchia semele,Beroun - 6050,NA,2005-01-01
 CZ0213601,Chazara briseis,Beroun - 6050,NA,2005-01-01
+CZ0213601,Hipparchia semele,Beroun - 6050,NA,2005-01-01
 CZ0213601,Myotis myotis,Beroun - ZŠ Jungmannova,6050a,2019-07-17
 CZ0213602,Myotis myotis,Dobříš - zámek,6251a,2002-07-18
 CZ0213602,Myotis myotis,zámek Dobříš,6251a,2005-06-26
@@ -4401,6 +4401,9 @@ CZ0214017,Castor fiber,CZ0214017,"56,""6050b""",2019-11-19
 CZ0214017,Castor fiber,CZ0214017,6050b,2025-04-22
 CZ0214017,Castor fiber,CZ0214017,6050d,2026-02-19
 CZ0214017,Castor fiber,CZ0214017,"85,""6050b""",2025-01-15
+CZ0214017,Chamaecytisus sp.,Tetín u Berouna_600381,6050d,2007-07-18
+CZ0214017,Chazara briseis,Beroun - 6050,NA,2005-01-01
+CZ0214017,Chazara briseis,Koněprusy - 6050,NA,2003-07-27
 CZ0214017,Cottus gobio,CZ0214017,6050b,2023-08-17
 CZ0214017,Cottus gobio,CZ0214017,6050d,2020-07-31
 CZ0214017,Cucujus cinnaberinus,CZ0214017,6050b,2025-12-29
@@ -4620,9 +4623,6 @@ CZ0214017,Hipparchia semele,Beroun - 6050,NA,2005-01-01
 CZ0214017,Hipparchia semele,Hlásná Třebaň,NA,2016-08-20
 CZ0214017,Hipparchia semele,Koněprusy - 6050,NA,2011-08-25
 CZ0214017,Hipparchia semele,KÚ: Koněprusy,NA,2013-08-14
-CZ0214017,Chamaecytisus sp.,Tetín u Berouna_600381,6050d,2007-07-18
-CZ0214017,Chazara briseis,Beroun - 6050,NA,2005-01-01
-CZ0214017,Chazara briseis,Koněprusy - 6050,NA,2003-07-27
 CZ0214017,Lemna trisulca,Šanův kout_B_05,6050b,2013-05-02
 CZ0214017,Leuciscus aspius,CZ0214017,"14,""5950a""",1950-01-01
 CZ0214017,Leuciscus aspius,CZ0214017,6050b,2004-01-01
@@ -4643,7 +4643,7 @@ CZ0214017,Lutra lutra,6050_0r,"96,""6050c""",2007-01-01
 CZ0214017,Lutra lutra,6050_0r,"96,""6050d""",2007-01-01
 CZ0214017,Lutra lutra,CZ0214017,"09,""6050b""",2021-02-18
 CZ0214017,Lutra lutra,CZ0214017,6050b,2025-04-01
-CZ0214017,Lutra lutra,CZ0214017,6050d,2026-03-19
+CZ0214017,Lutra lutra,CZ0214017,6050d,2026-01-19
 CZ0214017,Lutra lutra,Vydra1225,6050b,2006-10-26
 CZ0214017,Lycaena dispar,6050bb,6050b,2020-08-06
 CZ0214017,Lycaena dispar,Hostim u Berouna,6050b,2021-08-25
@@ -5024,6 +5024,7 @@ CZ0214025,Trichomanes speciosum,Vesecký Plakánek - severní strana rokle,5556b
 CZ0214025,Trichomanes speciosum,Vesecký Plakánek 1 (Tspe1,5556b,2002-09-04
 CZ0214025,Trichomanes speciosum,Vesecký Plakánek 2 (Tspe1,5556b,2002-09-04
 CZ0214025,Trichomanes speciosum,Vesecký Plakánek 3 (Tspe1,5556b,2002-09-04
+CZ0214037,Chazara briseis,Koněprusy - 6050,NA,2003-07-27
 CZ0214037,Euplagia quadripunctaria,1007,6050c,2020-07-31
 CZ0214037,Euplagia quadripunctaria,6050-341-413,6050c,2005-07-27
 CZ0214037,Euplagia quadripunctaria,EVL Kotýz,6050c,2015-08-10
@@ -5031,7 +5032,6 @@ CZ0214037,Euplagia quadripunctaria,NPP Kotýz,6050c,2001-07-31
 CZ0214037,Hipparchia semele,6050,NA,2010-07-20
 CZ0214037,Hipparchia semele,Koněprusy - 6050,NA,2011-08-25
 CZ0214037,Hipparchia semele,KÚ: Koněprusy,NA,2013-08-14
-CZ0214037,Chazara briseis,Koněprusy - 6050,NA,2003-07-27
 CZ0214037,Lucanus cervus,1007,6050c,2019-06-02
 CZ0214037,Myotis emarginatus,NPP Kotýz,6050c,2019-08-27
 CZ0214037,Myotis myotis,NPP Kotýz,6050c,2019-09-20
@@ -8143,7 +8143,7 @@ CZ0314024,Canis lupus,CZ0314024,6845c,2026-01-06
 CZ0314024,Canis lupus,CZ0314024,6845d,2026-03-15
 CZ0314024,Canis lupus,CZ0314024,6846a,2025-10-18
 CZ0314024,Canis lupus,CZ0314024,6846b,2022-09-12
-CZ0314024,Canis lupus,CZ0314024,6846c,2026-03-13
+CZ0314024,Canis lupus,CZ0314024,6846c,2026-01-20
 CZ0314024,Canis lupus,CZ0314024,6846d,2026-03-05
 CZ0314024,Canis lupus,CZ0314024,6847c,2024-11-25
 CZ0314024,Canis lupus,CZ0314024,6847d,2023-06-28
@@ -8165,7 +8165,7 @@ CZ0314024,Canis lupus,CZ0314024,7046a,2024-03-23
 CZ0314024,Canis lupus,CZ0314024,7046b,2025-09-28
 CZ0314024,Canis lupus,CZ0314024,7046d,2022-01-12
 CZ0314024,Canis lupus,CZ0314024,7047a,2025-11-21
-CZ0314024,Canis lupus,CZ0314024,7047b,2026-03-18
+CZ0314024,Canis lupus,CZ0314024,7047b,2026-01-08
 CZ0314024,Canis lupus,CZ0314024,7047d,2026-01-13
 CZ0314024,Canis lupus,CZ0314024,7048a,2026-03-08
 CZ0314024,Canis lupus,CZ0314024,7048b,2026-02-04
@@ -8179,18 +8179,18 @@ CZ0314024,Canis lupus,CZ0314024,7050c,2023-07-08
 CZ0314024,Canis lupus,CZ0314024,7050d,2023-07-08
 CZ0314024,Canis lupus,CZ0314024,7148a,2026-02-27
 CZ0314024,Canis lupus,CZ0314024,7148b,2026-03-16
-CZ0314024,Canis lupus,CZ0314024,7148d,2026-03-04
+CZ0314024,Canis lupus,CZ0314024,7148d,2026-02-14
 CZ0314024,Canis lupus,CZ0314024,7149a,2026-02-03
 CZ0314024,Canis lupus,CZ0314024,7149b,2025-11-06
 CZ0314024,Canis lupus,CZ0314024,7149c,2026-02-26
 CZ0314024,Canis lupus,CZ0314024,7149d,2025-01-13
 CZ0314024,Canis lupus,CZ0314024,7248b,2023-09-08
-CZ0314024,Canis lupus,CZ0314024,7249a,2026-03-20
+CZ0314024,Canis lupus,CZ0314024,7249a,2026-03-02
 CZ0314024,Canis lupus,CZ0314024,7249b,2026-02-02
 CZ0314024,Canis lupus,CZ0314024,7249d,2025-03-20
 CZ0314024,Canis lupus,CZ0314024,7250a,2026-02-05
 CZ0314024,Canis lupus,CZ0314024,7250b,2022-10-28
-CZ0314024,Canis lupus,CZ0314024,7250c,2026-03-06
+CZ0314024,Canis lupus,CZ0314024,7250c,2026-02-09
 CZ0314024,Canis lupus,CZ0314024,7250d,2023-12-25
 CZ0314024,Canis lupus,CZ0314024,7350a,2025-04-27
 CZ0314024,Canis lupus,CZ0314024,7350b,2025-01-14
@@ -8272,7 +8272,7 @@ CZ0314024,Castor fiber,CZ0314024,6746c,2024-01-05
 CZ0314024,Castor fiber,CZ0314024,6746d,2018-12-29
 CZ0314024,Castor fiber,CZ0314024,"68,""6847c""",2002-01-01
 CZ0314024,Castor fiber,CZ0314024,6844b,2022-10-27
-CZ0314024,Castor fiber,CZ0314024,6845a,2026-03-18
+CZ0314024,Castor fiber,CZ0314024,6845a,2025-12-10
 CZ0314024,Castor fiber,CZ0314024,6845b,2025-12-02
 CZ0314024,Castor fiber,CZ0314024,6845c,2026-03-13
 CZ0314024,Castor fiber,CZ0314024,6845d,2026-03-05
@@ -8287,9 +8287,9 @@ CZ0314024,Castor fiber,CZ0314024,6946b,2025-11-26
 CZ0314024,Castor fiber,CZ0314024,6946d,2026-03-09
 CZ0314024,Castor fiber,CZ0314024,6947a,2026-02-27
 CZ0314024,Castor fiber,CZ0314024,6947b,2023-08-15
-CZ0314024,Castor fiber,CZ0314024,6947c,2026-03-09
+CZ0314024,Castor fiber,CZ0314024,6947c,2026-03-05
 CZ0314024,Castor fiber,CZ0314024,6947d,2025-12-15
-CZ0314024,Castor fiber,CZ0314024,6948a,2026-03-17
+CZ0314024,Castor fiber,CZ0314024,6948a,2026-02-04
 CZ0314024,Castor fiber,CZ0314024,6948c,2024-01-31
 CZ0314024,Castor fiber,CZ0314024,7046b,2026-02-27
 CZ0314024,Castor fiber,CZ0314024,7047a,2025-02-17
@@ -8308,10 +8308,10 @@ CZ0314024,Castor fiber,CZ0314024,7050b,2020-10-29
 CZ0314024,Castor fiber,CZ0314024,7050c,2024-02-29
 CZ0314024,Castor fiber,CZ0314024,7050d,2024-02-29
 CZ0314024,Castor fiber,CZ0314024,7147b,2024-10-06
-CZ0314024,Castor fiber,CZ0314024,7148a,2026-03-19
+CZ0314024,Castor fiber,CZ0314024,7148a,2026-03-16
 CZ0314024,Castor fiber,CZ0314024,7148b,2026-02-28
 CZ0314024,Castor fiber,CZ0314024,7148d,2026-03-09
-CZ0314024,Castor fiber,CZ0314024,7149a,2026-03-17
+CZ0314024,Castor fiber,CZ0314024,7149a,2026-03-09
 CZ0314024,Castor fiber,CZ0314024,7149b,2026-02-11
 CZ0314024,Castor fiber,CZ0314024,7149c,2025-11-29
 CZ0314024,Castor fiber,CZ0314024,7149d,2026-03-16
@@ -8322,10 +8322,10 @@ CZ0314024,Castor fiber,CZ0314024,7249d,2026-03-12
 CZ0314024,Castor fiber,CZ0314024,7250a,2026-03-06
 CZ0314024,Castor fiber,CZ0314024,7250b,2025-11-14
 CZ0314024,Castor fiber,CZ0314024,7250c,2026-03-16
-CZ0314024,Castor fiber,CZ0314024,7250d,2026-03-19
-CZ0314024,Castor fiber,CZ0314024,7350a,2026-03-20
-CZ0314024,Castor fiber,CZ0314024,7350b,2026-03-19
-CZ0314024,Castor fiber,CZ0314024,7350c,2026-02-20
+CZ0314024,Castor fiber,CZ0314024,7250d,2025-07-23
+CZ0314024,Castor fiber,CZ0314024,7350a,2025-12-24
+CZ0314024,Castor fiber,CZ0314024,7350b,2025-05-31
+CZ0314024,Castor fiber,CZ0314024,7350c,2025-08-28
 CZ0314024,Castor fiber,CZ0314024,7350d,2024-09-19
 CZ0314024,Castor fiber,CZ0314024,7351c,2024-07-12
 CZ0314024,Castor fiber,CZ0314024,7450b,2023-11-01
@@ -8334,6 +8334,7 @@ CZ0314024,Castor fiber,CZ0314024,"78,""6845b""",2019-04-05
 CZ0314024,Castor fiber,CZ0314024,"93,""6946a""",2000-01-01
 CZ0314024,Castor fiber,CZ0314024,"99,""6745d""",2008-01-01
 CZ0314024,Castor fiber,CZ0314024,"99,""7149b""",2007-01-01
+CZ0314024,Chamaecytisus sp.,Frymburk_10940177,7350b,2012-06-16
 CZ0314024,Cottus gobio,BOL_010_Boletice,7050d,2019-10-28
 CZ0314024,Cottus gobio,BOL_011_Boletice,7050d,2023-08-23
 CZ0314024,Cottus gobio,BOL_016_Boletice,7250a,2023-09-01
@@ -8647,7 +8648,6 @@ CZ0314024,Hamatocaulis vernicosus,CZ0314024,7049b,2023-10-13
 CZ0314024,Hamatocaulis vernicosus,CZ0314024,7148a,2023-09-07
 CZ0314024,Hamatocaulis vernicosus,CZ0314024,"76,""6846a""",2004-01-01
 CZ0314024,Hamatocaulis vernicosus,CZ0314024,"97,""6845b""",2025-05-01
-CZ0314024,Chamaecytisus sp.,Frymburk_10940177,7350b,2012-06-16
 CZ0314024,Lampetra planeri,CRS2742,6846b,2004-01-01
 CZ0314024,Lampetra planeri,CZ0314024,"01,""7048d""",2004-01-01
 CZ0314024,Lampetra planeri,CZ0314024,"01,""7050d""",2002-01-01
@@ -9106,7 +9106,7 @@ CZ0314024,Lycaena helle,"Nové Údolí,bývalá hájenka",7148d,2013-06-20
 CZ0314024,Lycaena helle,Nové údolí,7148d,2024-06-07
 CZ0314024,Lycaena helle,"Spálený luh, SZ lemy",7148d,2022-05-29
 CZ0314024,Lycaena helle,"Spálený luh, severní lemy",7148d,2022-05-29
-CZ0314024,Lycaena helle,Stožec,7148d,2025-06-29
+CZ0314024,Lycaena helle,Stožec,7148d,2025-06-04
 CZ0314024,Lycaena helle,"Stožec, Nové Údolí - jižní enkláva u býv. čp.6",7148d,2013-06-18
 CZ0314024,Lycaena helle,"Stožec, Nové Údolí, J býv. hájenky",7148d,2025-05-31
 CZ0314024,Lycaena helle,"Stožec, Nové Údolí, louky a okolo cesty ke Spálenému luhu",7148d,2013-06-21
@@ -13837,7 +13837,7 @@ CZ0314123,Castor fiber,CZ0314123,7149d,2023-07-06
 CZ0314123,Castor fiber,CZ0314123,7150c,2025-03-01
 CZ0314123,Castor fiber,CZ0314123,7150d,2025-05-18
 CZ0314123,Castor fiber,CZ0314123,7250a,2025-02-09
-CZ0314123,Castor fiber,CZ0314123,7250b,2026-03-17
+CZ0314123,Castor fiber,CZ0314123,7250b,2025-12-20
 CZ0314123,Cottus gobio,BOL_001_Boletice,7149b,2023-09-05
 CZ0314123,Cottus gobio,BOL_002_Boletice,7149b,2023-09-05
 CZ0314123,Cottus gobio,BOL_003_Boletice,7150a,2023-09-05
@@ -17834,8 +17834,8 @@ CZ0323147,Triturus cristatus,Ob-F3,6343c,2006-07-11
 CZ0323149,Sanguisorba officinalis,517154 - Mešno,6347b,2007-05-30
 CZ0323149,Sanguisorba officinalis,Mešno_7670245,6347b,2008-06-07
 CZ0323149,Triturus cristatus,CZ0323149,6347b,2025-07-13
-CZ0323150,Hipparchia semele,6147,NA,1995-01-01
 CZ0323150,Chazara briseis,6147,NA,1995-01-01
+CZ0323150,Hipparchia semele,6147,NA,1995-01-01
 CZ0323150,Phengaris nausithous,Kamenec,6147b,2018-07-12
 CZ0323150,Phengaris nausithous,M.nau. Kamenec,6147b,2001-07-01
 CZ0323150,Phengaris nausithous,Radnice - Radnice u Rokycan,6147b,2021-07-26
@@ -23008,6 +23008,7 @@ CZ0420021,Osmoderma barnabita,CZ0420021,5545c,2015-10-01
 CZ0420021,Rhinolophus hipposideros,Hasištejn - sklepení hradu,5545d,2025-01-14
 CZ0420021,Sanguisorba officinalis,Prunéřov_1310300,5545d,2013-08-24
 CZ0420026,Barbastella barbastellus,NPR Bořeň,5448d,2013-10-19
+CZ0420026,Chazara briseis,5448,NA,1995-01-01
 CZ0420026,Euplagia quadripunctaria,Bořeň NPP-J. svah,5448d,2005-07-28
 CZ0420026,Euplagia quadripunctaria,"Bořeň u Bíliny, JZ úbočí",5448d,2015-08-08
 CZ0420026,Euplagia quadripunctaria,"Bořeň u Bíliny, úbočí",5448d,2015-08-07
@@ -23015,7 +23016,6 @@ CZ0420026,Euplagia quadripunctaria,Bílina,5448d,2024-08-07
 CZ0420026,Euplagia quadripunctaria,Hrobčice,5448d,2024-08-07
 CZ0420026,Euplagia quadripunctaria,MOTYLI755_,5448d,2022-07-26
 CZ0420026,Euplagia quadripunctaria,"SO Aufstieg, Hrobčice",5448d,2022-07-26
-CZ0420026,Chazara briseis,5448,NA,1995-01-01
 CZ0420026,Lucanus cervus,CZ0420026,5448d,2025-10-27
 CZ0420026,Myotis myotis,NPR Bořeň,5448d,2013-07-21
 CZ0420026,Rhinolophus hipposideros,NPR Bořeň,5448d,2013-07-21
@@ -23052,10 +23052,10 @@ CZ0420044,Cypripedium calceolus,Evaňská rokle - pod borovičkou,5650a,2021-06-
 CZ0420044,Cypripedium calceolus,PP Evaňská rokle,5650a,2021-06-16
 CZ0420044,Cypripedium calceolus,Poplze,5650a,2023-05-26
 CZ0420053,Canis lupus,CZ0420053,5248c,2024-04-27
+CZ0420063,Chazara briseis,5646,NA,1995-01-01
 CZ0420063,Cucujus cinnaberinus,CZ0420063,5647a,2021-12-31
 CZ0420063,Hipparchia semele,5646,NA,2009-01-01
 CZ0420063,Hipparchia semele,Stroupeč - 5647,NA,2007-07-26
-CZ0420063,Chazara briseis,5646,NA,1995-01-01
 CZ0420069,Euplagia quadripunctaria,Detansky chlum,"23,""5745d""",2014-08-08
 CZ0420073,Euplagia quadripunctaria,"České středohoří, Kamenný vrch, jihovýchodní úbočí",5650a,2022-08-08
 CZ0420073,Lucanus cervus,CZ0420073,5650b,2024-08-20
@@ -23173,11 +23173,11 @@ CZ0420171,Barbastella barbastellus,EVL Údolí Hačky,5546a,2015-05-20
 CZ0420171,Euplagia quadripunctaria,Domina,5546a,2015-08-14
 CZ0420171,Euplagia quadripunctaria,EVL Údolí Hačky,5546a,2015-08-14
 CZ0420171,Euplagia quadripunctaria,Údolí Hačky,5546a,2019-08-18
+CZ0420406,Chazara briseis,5548,NA,2007-08-26
 CZ0420406,Euplagia quadripunctaria,"Křížové vršky, 5548db",5548d,2022-07-17
 CZ0420406,Euplagia quadripunctaria,Libčeves,5548d,2025-08-07
 CZ0420406,Euplagia quadripunctaria,Louny,5548d,2025-08-07
 CZ0420406,Hipparchia semele,5548,NA,2010-08-22
-CZ0420406,Chazara briseis,5548,NA,2007-08-26
 CZ0420406,Stipa glabrata,9140061,5548d,2023-06-03
 CZ0420416,Barbastella barbastellus,NPR Milešovka,5449b,2013-10-22
 CZ0420416,Euplagia quadripunctaria,Liščí vrch,5449b,2018-08-09
@@ -23228,14 +23228,14 @@ CZ0420451,Succisa pratensis,PR Bohyňská lada DP: 9,5250d,2018-05-01
 CZ0420451,Succisa pratensis,Vilsnice,5250d,2015-06-09
 CZ0420454,Cucujus cinnaberinus,CZ0420454,5449d,2022-04-18
 CZ0420454,Euplagia quadripunctaria,Mrsklesy,5449c,2018-08-15
+CZ0420459,Chazara briseis,5450,NA,1995-01-01
+CZ0420459,Chazara briseis,5549,NA,2007-08-07
 CZ0420459,Cucujus cinnaberinus,CZ0420459,5549b,2017-03-16
 CZ0420459,Euplagia quadripunctaria,"00818, Vchynice",5450c,2024-08-12
 CZ0420459,Euplagia quadripunctaria,187,5549b,2018-07-16
 CZ0420459,Euplagia quadripunctaria,Košťál (vrch),5549b,2022-08-09
 CZ0420459,Euplagia quadripunctaria,Třebenice,5549b,2021-08-21
 CZ0420459,Euplagia quadripunctaria,louka pod Holým vrchem u Sutomi,5449d,2013-08-04
-CZ0420459,Chazara briseis,5450,NA,1995-01-01
-CZ0420459,Chazara briseis,5549,NA,2007-08-07
 CZ0420459,Lucanus cervus,CZ0420459,5549b,2013-06-20
 CZ0420459,Lycaena dispar,"Sutom, Jezerka hill env., 5449dd",5449d,2023-06-11
 CZ0420459,Myotis myotis,Sutom - 5449,5449d,2005-07-15
@@ -23247,9 +23247,9 @@ CZ0420459,Stipa glabrata,"Sutom, Holý vrch","7,""5449d""",2009-01-01
 CZ0420459,Stipa glabrata,Sutom_33220083,5449d,2015-05-02
 CZ0420459,Stipa glabrata,Szal002,5449d,2025-05-13
 CZ0420460,Chazara briseis,5549,NA,2007-08-07
+CZ0420462,Chazara briseis,5450,NA,1995-01-01
 CZ0420462,Euplagia quadripunctaria,Kamýk - lom,5450b,2003-07-01
 CZ0420462,Euplagia quadripunctaria,"Kamýk, Silnice bez názvu",5450b,2022-07-31
-CZ0420462,Chazara briseis,5450,NA,1995-01-01
 CZ0420462,Myotis myotis,PP Plešivec,5450b,2020-08-18
 CZ0420500,Abramis brama,CZ0420500,5250a,2004-01-01
 CZ0420500,Barbastella barbastellus,"PR Libouchecké rybníčky, k. ú. Libouchec",5250a,2019-09-05
@@ -23520,14 +23520,14 @@ CZ0423211,Bombina bombina,Ob-nove97,5348c,2006-06-11
 CZ0423211,Bombina bombina,Ob-nove98,5348c,2006-06-11
 CZ0423211,Lemna trisulca,Hajniště u Duchcova_9420117,5348c,2009-03-03
 CZ0423211,Triturus cristatus,CZ0423211,5348c,2015-08-21
+CZ0423212,Chazara briseis,5548,NA,2007-08-26
+CZ0423212,Chazara briseis,Hořenec - 5548,NA,2009-07-30
+CZ0423212,Chazara briseis,KÚ: Hořenec,NA,2012-08-21
 CZ0423212,Euplagia quadripunctaria,Hořenec - Čičov,5548b,2001-01-01
 CZ0423212,Euplagia quadripunctaria,"pod Číčovem, 5548bd",5548b,2022-07-15
 CZ0423212,Euplagia quadripunctaria,Číčov,5548b,2005-01-01
 CZ0423212,Hipparchia semele,5548,NA,2010-08-22
 CZ0423212,Hipparchia semele,Hořenec - 5548,NA,1995-01-01
-CZ0423212,Chazara briseis,5548,NA,2007-08-26
-CZ0423212,Chazara briseis,Hořenec - 5548,NA,2009-07-30
-CZ0423212,Chazara briseis,KÚ: Hořenec,NA,2012-08-21
 CZ0423213,Lucanus cervus,CZ0423213,"29,""5546b""",2009-06-26
 CZ0423213,Lucanus cervus,CZ0423213,"49,""5546b""",2001-06-24
 CZ0423213,Lucanus cervus,CZ0423213,5546b,2001-05-01
@@ -23614,6 +23614,7 @@ CZ0423224,Osmoderma barnabita,CZ0423224,5451a,2022-11-28
 CZ0423224,Rhinolophus hipposideros,Zámek Ploskovice - podzemní štola s potokem,5451a,2025-03-09
 CZ0423224,Rhinolophus hipposideros,Zámek Ploskovice – grotty a sklepení,5451a,2024-08-10
 CZ0423224,Rhinolophus hipposideros,Zámek Ploskovice – věž (kopule),5451a,2025-08-11
+CZ0423225,Chazara briseis,5450,NA,1995-01-01
 CZ0423225,Euplagia quadripunctaria,"261, Žalhostice",5450d,2021-07-22
 CZ0423225,Euplagia quadripunctaria,EVL Radobýl,5450d,2015-08-08
 CZ0423225,Euplagia quadripunctaria,Lom Čedič Žalhostice,5450d,2010-06-01
@@ -23621,9 +23622,11 @@ CZ0423225,Euplagia quadripunctaria,PP Radobýl,5450d,2024-08-06
 CZ0423225,Euplagia quadripunctaria,Radobýl,5450d,2023-07-27
 CZ0423225,Euplagia quadripunctaria,Radobýl (vrch),5450d,2023-08-10
 CZ0423225,Euplagia quadripunctaria,"Radobýl, listnatý les na S straně nedaleko od vrcholu",5450d,2020-08-09
-CZ0423225,Chazara briseis,5450,NA,1995-01-01
 CZ0423225,Stenobothrus eurasius bohemicus,356,5450d,2015-08-12
 CZ0423225,Stenobothrus eurasius bohemicus,CZ0423225,5450d,2021-08-12
+CZ0423227,Chazara briseis,5548,NA,2007-08-26
+CZ0423227,Chazara briseis,KÚ: Sinutec,NA,2012-08-21
+CZ0423227,Chazara briseis,Sinutec - 5548,NA,2010-08-20
 CZ0423227,Euplagia quadripunctaria,Dlouhá hora,5548b,2019-08-21
 CZ0423227,Euplagia quadripunctaria,"Dlouhá hora, 5548bc",5548b,2022-07-15
 CZ0423227,Euplagia quadripunctaria,EVL Sinutec - Dlouhý kopec,5548b,2015-08-08
@@ -23634,9 +23637,6 @@ CZ0423227,Euplagia quadripunctaria,XKTA1,5548b,2006-07-23
 CZ0423227,Hipparchia semele,5548,NA,2010-08-22
 CZ0423227,Hipparchia semele,KÚ: Sinutec,NA,2013-09-06
 CZ0423227,Hipparchia semele,Sinutec - 5548,NA,1995-01-01
-CZ0423227,Chazara briseis,5548,NA,2007-08-26
-CZ0423227,Chazara briseis,KÚ: Sinutec,NA,2012-08-21
-CZ0423227,Chazara briseis,Sinutec - 5548,NA,2010-08-20
 CZ0423227,Myotis myotis,EVL Sinutec - Dlouhý kopec,"76,""5548b""",2015-05-05
 CZ0423228,Bombina bombina,CZ0423228,5349b,2025-05-27
 CZ0423228,Bombina bombina,CZ0423228_2,5349b,2025-07-11
@@ -23653,13 +23653,13 @@ CZ0423232,Euplagia quadripunctaria,Klapý - Hazmburk,5550c,1989-07-01
 CZ0423232,Euplagia quadripunctaria,PP Vrch Hazmburk,5550c,2021-08-12
 CZ0423232,Stenobothrus eurasius bohemicus,5744,5550c,2015-07-30
 CZ0423232,Stenobothrus eurasius bohemicus,CZ0423232,5550c,2021-08-12
+CZ0423233,Chazara briseis,5548,NA,2007-08-26
+CZ0423233,Chazara briseis,Milá - 5548,NA,2002-08-02
 CZ0423233,Euplagia quadripunctaria,Milá,5548d,2008-08-07
 CZ0423233,Euplagia quadripunctaria,Milá (vrch),5548d,2022-07-29
 CZ0423233,Euplagia quadripunctaria,PR Milá,5548d,2008-08-07
 CZ0423233,Hipparchia semele,5548,NA,2010-08-22
 CZ0423233,Hipparchia semele,Milá - 5548,NA,2002-08-02
-CZ0423233,Chazara briseis,5548,NA,2007-08-26
-CZ0423233,Chazara briseis,Milá - 5548,NA,2002-08-02
 CZ0423233,Lucanus cervus,CZ0423233,5548d,2021-07-23
 CZ0423233,Osmoderma barnabita,CZ0423233,5548d,2020-04-29
 CZ0423233,Stenobothrus eurasius bohemicus,CZ0423233,5548d,2024-09-06
@@ -23720,6 +23720,9 @@ CZ0423510,Castor fiber,CZ0423510,5648b,2022-01-18
 CZ0423510,Castor fiber,CZ0423510,5648c,2023-08-19
 CZ0423510,Castor fiber,CZ0423510,5649a,2021-04-10
 CZ0423510,Castor fiber,CZ0423510,5650a,2025-12-21
+CZ0423510,Chazara briseis,5450,NA,1995-01-01
+CZ0423510,Chazara briseis,5549,NA,2007-08-07
+CZ0423510,Chazara briseis,Libochovice - 5550,NA,1995-01-01
 CZ0423510,Cottus gobio,CZ0423510,5550b,2024-07-21
 CZ0423510,Cottus gobio,CZ0423510,5550d,2021-09-03
 CZ0423510,Cottus gobio,CZ0423510,5647c,2015-09-01
@@ -23729,9 +23732,6 @@ CZ0423510,Cottus gobio,CZ0423510,5649a,2025-04-21
 CZ0423510,Cucujus cinnaberinus,CZ0423510,5648b,2021-03-30
 CZ0423510,Hipparchia semele,Libochovice - 5550,NA,1995-01-01
 CZ0423510,Hipparchia semele,Žatec - 5647,NA,2010-06-09
-CZ0423510,Chazara briseis,5450,NA,1995-01-01
-CZ0423510,Chazara briseis,5549,NA,2007-08-07
-CZ0423510,Chazara briseis,Libochovice - 5550,NA,1995-01-01
 CZ0423510,Lampetra planeri,CZ0423510,5647c,2015-09-01
 CZ0423510,Lampetra planeri,CZ0423510,5648a,2015-09-01
 CZ0423510,Lampetra planeri,CZ0423510,5648b,2015-09-01
@@ -24120,6 +24120,7 @@ CZ0424031,Trichomanes speciosum,Vysoká Lípa (Tspe3),5152c,2001-01-01
 CZ0424031,Trichomanes speciosum,Vysoká Lípa 2 (Tspe179),5152a,2002-01-01
 CZ0424031,Triturus cristatus,CZ0424031,5152c,2018-06-22
 CZ0424031,Triturus cristatus,amp106,5152c,2025-07-20
+CZ0424033,Chazara briseis,5548,NA,2007-08-26
 CZ0424033,Crambe tataria,Raná u Loun,5548d,2018-05-26
 CZ0424033,Euplagia quadripunctaria,NPR Raná,5548d,2018-07-17
 CZ0424033,Euplagia quadripunctaria,Raná,5548d,2023-08-14
@@ -24130,7 +24131,6 @@ CZ0424033,Euplagia quadripunctaria,XKTD3,5548d,2006-08-03
 CZ0424033,Euplagia quadripunctaria,vrch Raná,5548d,2005-07-24
 CZ0424033,Euplagia quadripunctaria,"České středohoří, Raná",5548d,2018-07-13
 CZ0424033,Hipparchia semele,5548,NA,2010-08-22
-CZ0424033,Chazara briseis,5548,NA,2007-08-26
 CZ0424033,Lycaena dispar,"250, Raná",5548d,2023-07-11
 CZ0424033,Myotis myotis,NPR Raná,5548d,2013-09-27
 CZ0424033,Ophiogomphus cecilia,361,5548d,2018-08-07
@@ -24185,9 +24185,9 @@ CZ0424034,Adenophora liliifolia,PP Babinské louk,5450b,2005-08-05
 CZ0424034,Adenophora liliifolia,PP Babinské louky,"56,""5450b""",2001-01-01
 CZ0424034,Adenophora liliifolia,"PP Babinské louky, Adenophora 2019",5450b,2019-04-01
 CZ0424034,Adenophora liliifolia,"PP Babinské louky, louky a další bezlesí","27,""5450b""",2019-01-01
+CZ0424034,Chazara briseis,5450,NA,1995-01-01
 CZ0424034,Euplagia quadripunctaria,Malečov,5450b,2020-08-13
 CZ0424034,Euplagia quadripunctaria,PP Babinské louky,5450b,2008-05-27
-CZ0424034,Chazara briseis,5450,NA,1995-01-01
 CZ0424034,Lycaena dispar,Babiny I,5450b,2016-06-22
 CZ0424034,Myotis myotis,PP Babinské louky,"85,""5450b""",2020-09-23
 CZ0424034,Phengaris nausithous,Babiny I,"52,""5450b""",2012-08-01
@@ -24236,27 +24236,27 @@ CZ0424034,Succisa pratensis,"Epipactis palustris, Babinské louky",5450b,2024-07
 CZ0424034,Succisa pratensis,"PP Babinské louky, louky a další bezlesí","27,""5450b""",2019-01-01
 CZ0424034,Succisa pratensis,u0200cs_024118_340_T1.5,5450b,2002-07-18
 CZ0424034,Succisa pratensis,u0200cs_024118_342_T1.5,"88,""5450b""",2002-07-18
+CZ0424036,Chazara briseis,5646,NA,1995-01-01
 CZ0424036,Hipparchia semele,5646,NA,2009-01-01
 CZ0424036,Hipparchia semele,KÚ: Tušimice,NA,2012-08-20
 CZ0424036,Hipparchia semele,"Tušimice, odkaliště elektrárny",NA,2015-08-07
-CZ0424036,Chazara briseis,5646,NA,1995-01-01
 CZ0424036,Lucanus cervus,CZ0424036,5646a,2025-06-28
 CZ0424037,Barbastella barbastellus,NPR Lovoš,5450c,2013-10-20
+CZ0424037,Chazara briseis,5450,NA,1995-01-01
 CZ0424037,Euplagia quadripunctaria,Lovoš (vrch),5450c,2022-08-02
 CZ0424037,Euplagia quadripunctaria,Lovoš-Panenské kameny (486m),5450c,2018-08-04
 CZ0424037,Euplagia quadripunctaria,"Lovošská, Lovosice - Lovosice",5450c,2022-08-14
 CZ0424037,Euplagia quadripunctaria,MOTYLI1150,5450c,2022-07-28
 CZ0424037,Euplagia quadripunctaria,NPR Lovoš,5450c,2022-08-04
 CZ0424037,Euplagia quadripunctaria,Velemín,5450c,2023-08-12
-CZ0424037,Chazara briseis,5450,NA,1995-01-01
 CZ0424037,Lucanus cervus,CZ0424037,5450c,2014-06-15
 CZ0424037,Myotis myotis,NPR Lovoš,5450c,2013-07-20
 CZ0424037,Rhinolophus hipposideros,NPR Lovoš,5450c,2013-07-20
 CZ0424037,Spermophilus citellus,CZ0424037,5450c,2002-01-01
 CZ0424038,Canis lupus,821,5450b,2024-09-16
+CZ0424038,Chazara briseis,5450,NA,1995-01-01
 CZ0424038,Euplagia quadripunctaria,Lysá hora,5450b,2017-08-01
 CZ0424038,Euplagia quadripunctaria,PR Holý vrch u Hlinné,5450b,2022-08-02
-CZ0424038,Chazara briseis,5450,NA,1995-01-01
 CZ0424038,Pulsatilla patens,"24719, Hlinná",5450b,2025-04-04
 CZ0424038,Pulsatilla patens,"EVL Holý vrch u Hlinné, snímek 2 - plocha s P.patens - s managementem",5450b,2020-08-12
 CZ0424038,Pulsatilla patens,Hlinná,5450b,2023-04-04
@@ -24280,6 +24280,8 @@ CZ0424038,Pulsatilla patens,Ppat022,5450b,2025-05-02
 CZ0424038,Pulsatilla patens,u0002cs_024122_58_T3.3D,5450b,2001-07-05
 CZ0424038,Pulsatilla patens,u0002cs_024122_73_T3.3D,5450b,2001-07-05
 CZ0424038,Succisa pratensis,Hlinná_1250033,5450b,2013-06-30
+CZ0424039,Chazara briseis,5548,NA,2007-08-26
+CZ0424039,Chazara briseis,5549,NA,2007-08-07
 CZ0424039,Cucujus cinnaberinus,CZ0424039,5548d,2025-05-05
 CZ0424039,Euplagia quadripunctaria,Brník (vrch),5548d,2022-07-25
 CZ0424039,Euplagia quadripunctaria,"Brník Mt., 5548dd",5548d,2022-07-17
@@ -24301,8 +24303,6 @@ CZ0424039,Euplagia quadripunctaria,XKTB1,5548d,2006-08-23
 CZ0424039,Euplagia quadripunctaria,XKTB2,5548d,2006-08-09
 CZ0424039,Euplagia quadripunctaria,XKTB3,5548d,2006-08-08
 CZ0424039,Hipparchia semele,5548,NA,2010-08-22
-CZ0424039,Chazara briseis,5548,NA,2007-08-26
-CZ0424039,Chazara briseis,5549,NA,2007-08-07
 CZ0424039,Lucanus cervus,CZ0424039,5548d,2025-06-19
 CZ0424039,Myotis myotis,NPR Oblík,5548d,2013-08-05
 CZ0424039,Ophiogomphus cecilia,CZ0424039,5548d,2024-07-29
@@ -24729,6 +24729,7 @@ CZ0424125,Castor fiber,CZ0424125,5645b,2025-12-17
 CZ0424125,Castor fiber,CZ0424125,5743d,2025-01-06
 CZ0424125,Castor fiber,CZ0424125,5744a,2025-01-21
 CZ0424125,Castor fiber,CZ0424125,5844a,2021-05-16
+CZ0424125,Chazara briseis,5646,NA,1995-01-01
 CZ0424125,Cottus gobio,CZ0424125,"12,""5743b""",2004-01-01
 CZ0424125,Cottus gobio,CZ0424125,"15,""5645d""",2004-01-01
 CZ0424125,Cottus gobio,CZ0424125,"34,""5743a""",2004-01-01
@@ -24904,7 +24905,6 @@ CZ0424125,Euplagia quadripunctaria,"Úhošťany, pod Lipovou",5645c,2018-08-03
 CZ0424125,Euplagia quadripunctaria,"Černýš, Na vyhlídce",5644b,2021-08-26
 CZ0424125,Euplagia quadripunctaria,"Černýš, u kaple",5644b,2021-08-26
 CZ0424125,Hipparchia semele,5646,NA,2009-01-01
-CZ0424125,Chazara briseis,5646,NA,1995-01-01
 CZ0424125,Lampetra planeri,CZ0424125,"01,""5646c""",1900-01-01
 CZ0424125,Lampetra planeri,CZ0424125,"01,""5646d""",1900-01-01
 CZ0424125,Lampetra planeri,CZ0424125,"15,""5645d""",2004-01-01
@@ -25788,6 +25788,7 @@ CZ0424127,Succisa pratensis,Šumný důl,5347d,2004-01-01
 CZ0424127,Triturus cristatus,2012,"99,""5249c""",2010-08-20
 CZ0424127,Triturus cristatus,CZ0424127,5446d,2011-04-22
 CZ0424129,Barbastella barbastellus,NPP Bílé stráně,5450b,2011-09-06
+CZ0424129,Chazara briseis,5450,NA,1995-01-01
 CZ0424129,Cypripedium calceolus,2415,5450b,2009-05-15
 CZ0424129,Cypripedium calceolus,"2613, Žitenice",5450b,2015-06-03
 CZ0424129,Cypripedium calceolus,Bílé stráně,5450b,2022-06-01
@@ -25807,7 +25808,6 @@ CZ0424129,Euplagia quadripunctaria,bílé stráně u Knoblošky-jih,5450d,2022-0
 CZ0424129,Euplagia quadripunctaria,bílé stráně u Knoblošky-sever,5450d,2020-07-20
 CZ0424129,Euplagia quadripunctaria,bílé stráně u Pokratic,5450b,2020-07-28
 CZ0424129,Euplagia quadripunctaria,bílé stráně u Žitenic,5450b,2022-08-02
-CZ0424129,Chazara briseis,5450,NA,1995-01-01
 CZ0424129,Lucanus cervus,CZ0424129,5450b,2024-07-06
 CZ0424129,Lycaena dispar,bílé stráně u Pokratic,5450b,2015-07-06
 CZ0424129,Myotis myotis,Malíč,5450d,2015-10-24
@@ -25930,6 +25930,7 @@ CZ0424141,Castor fiber,CZ0424141,"99,""5251a""",2005-01-01
 CZ0424141,Castor fiber,CZ0424141,"99,""5251c""",2020-03-01
 CZ0424141,Castor fiber,CZ0424141,"99,""5350b""",2017-02-11
 CZ0424141,Castor fiber,CZ0424141,"99,""5451c""",2018-03-01
+CZ0424141,Chazara briseis,5450,NA,1995-01-01
 CZ0424141,Cottus gobio,CHKO České Středohoří,5251a,2021-09-08
 CZ0424141,Cottus gobio,CHKO České Středohoří,5251c,2021-09-02
 CZ0424141,Cottus gobio,CHKO České Středohoří,5450a,2021-08-25
@@ -25969,7 +25970,6 @@ CZ0424141,Euplagia quadripunctaria,Vrabinec (vrch),5251c,2023-08-02
 CZ0424141,Euplagia quadripunctaria,Ústí nad Labem - Brná,5350c,2009-08-15
 CZ0424141,Euplagia quadripunctaria,Čertova jizba (vrch),5350c,2019-08-07
 CZ0424141,Euplagia quadripunctaria,Řehlovice,5450a,2020-07-31
-CZ0424141,Chazara briseis,5450,NA,1995-01-01
 CZ0424141,Leuciscus aspius,CZ0424141,5251a,2025-08-21
 CZ0424141,Leuciscus aspius,CZ0424141,5251c,2021-09-03
 CZ0424141,Leuciscus aspius,CZ0424141,5350a,2020-10-31
@@ -27329,7 +27329,6 @@ CZ0514042,Canis lupus,CZ0514042,"73,""5454a""",2015-02-05
 CZ0514042,Canis lupus,CZ0514042,"75,""5454b""",2025-04-08
 CZ0514042,Canis lupus,CZ0514042,"79,""5353d""",2025-01-14
 CZ0514042,Castor fiber,CZ0514042,5353d,2022-01-24
-CZ0514042,Colias myrmidone,Doksy,5454a,2026-03-21
 CZ0514042,Cottus gobio,CHKO Kokořínsko,5353c,2023-09-11
 CZ0514042,Cottus gobio,CHKO Kokořínsko,5353d,2023-10-11
 CZ0514042,Cottus gobio,CHKO Kokořínsko,5454a,2023-09-11
@@ -32716,7 +32715,7 @@ CZ0524044,Phengaris nausithous,5361c2,5361c,2021-08-06
 CZ0524044,Phengaris nausithous,5460b1,5460b,2021-07-27
 CZ0524044,Phengaris nausithous,5460b2,5460b,2021-07-27
 CZ0524044,Phengaris nausithous,5460b3,5460b,2021-07-27
-CZ0524044,Phengaris nausithous,Dolní Dvůr,5359b,2025-08-14
+CZ0524044,Phengaris nausithous,Dolní Dvůr,5359b,2023-07-29
 CZ0524044,Phengaris nausithous,Horní Branná - krvavcová louka s modrásky bahenními,5359c,2019-08-03
 CZ0524044,Phengaris nausithous,Horní Maršov,5360b,2014-07-25
 CZ0524044,Phengaris nausithous,"Horní Staré Město, Kalnovodská 148",5361c,2024-07-25
@@ -32727,7 +32726,6 @@ CZ0524044,Phengaris nausithous,"Krkonošská, Jilemnice",5359c,2023-07-19
 CZ0524044,Phengaris nausithous,Labská,5359a,2023-08-12
 CZ0524044,Phengaris nausithous,"Labská, Labská",5259c,2023-07-20
 CZ0524044,Phengaris nausithous,Lokace00005,5361c,2025-07-29
-CZ0524044,Phengaris nausithous,Lokace00006,5361c,2025-08-11
 CZ0524044,Phengaris nausithous,Lánov,5359d,2024-07-31
 CZ0524044,Phengaris nausithous,M.nau. Bolkovské louky,5360c,2001-01-01
 CZ0524044,Phengaris nausithous,M.nau. Za kravím vrchem,5360d,2001-01-01
@@ -32764,10 +32762,8 @@ CZ0524044,Phengaris nausithous,Trutnov-Trutnov 1,5361c,2025-07-29
 CZ0524044,Phengaris nausithous,"Třídomí, Vrchlabí - Vrchlabí",5359d,2024-07-19
 CZ0524044,Phengaris nausithous,Vrchlabí,5359d,2021-07-31
 CZ0524044,Phengaris nausithous,Víchovská Lhota,5358b,2016-08-07
-CZ0524044,Phengaris nausithous,Víchová,5360c,2025-08-14
-CZ0524044,Phengaris nausithous,Víchová nad Jizerou,5358d,2025-08-14
+CZ0524044,Phengaris nausithous,Víchová nad Jizerou,5358d,2022-07-28
 CZ0524044,Phengaris nausithous,"Víchová nad Jizerou, mez",5358d,2020-08-12
-CZ0524044,Phengaris nausithous,Černý Důl,5359b,2025-08-14
 CZ0524044,Phengaris nausithous,Černý Důl,5360c,2024-08-05
 CZ0524044,Phengaris nausithous,Špindlerův Mlýn,5359b,2025-07-27
 CZ0524044,Phengaris nausithous,Špindlerův Mlýn (5359a),5359a,2021-07-31
@@ -34814,7 +34810,7 @@ CZ0524045,Bombina bombina,CZ0524045,"8,""5762a""",2022-07-03
 CZ0524045,Bombina bombina,CZ0524045_1,5762a,2025-06-27
 CZ0524045,Bombina bombina,CZ0524045_2,5762a,2025-06-27
 CZ0524045,Bombina bombina,CZ0524045_3,5762a,2025-06-27
-CZ0524045,Castor fiber,CZ0524045,5762a,2026-03-19
+CZ0524045,Castor fiber,CZ0524045,5762a,2025-03-22
 CZ0524045,Hamatocaulis vernicosus,1714,"86,""5762a""",2001-01-01
 CZ0524045,Lutra lutra,CZ0524045,5762a,2025-03-22
 CZ0524045,Lycaena dispar,1714,"86,""5762a""",2010-08-20
@@ -36612,7 +36608,7 @@ CZ0533308,Phengaris nausithous,NPR Bohdanečský rybník a rybník Matka,5960a,2
 CZ0533308,Phengaris nausithous,NPR Bohdanečský rybník1,5960a,2005-07-16
 CZ0533308,Phengaris nausithous,NPR Bohdanečský rybník3,5960a,2005-07-16
 CZ0533308,Phengaris nausithous,"Na Baště, Lázně Bohdaneč",5960a,2021-08-15
-CZ0533308,Rhodeus amarus,CZ0533308,5960a,2026-03-20
+CZ0533308,Rhodeus amarus,CZ0533308,5960a,2016-11-01
 CZ0533308,Sanguisorba officinalis,-,5959b,2000-01-01
 CZ0533308,Sanguisorba officinalis,-,5960a,2000-01-01
 CZ0533308,Sanguisorba officinalis,2419,"58,""5960a""",2005-01-01
@@ -36650,7 +36646,7 @@ CZ0533308,Sanguisorba officinalis,"NPR Bohdanečský rybník - dílčí plocha 9
 CZ0533308,Sanguisorba officinalis,"NPR Bohdanečský rybník - dílčí plocha 9 - 50°5'54.100""N, 15°41'10.500""",5960a,2019-08-26
 CZ0533308,Sanguisorba officinalis,"NPR Bohdanečský rybník u Lázní Bohdaneč, Dolanská louka",5960a,2021-08-28
 CZ0533308,Scardinius erythrophthalmus,CZ0533308,5959b,2020-11-29
-CZ0533308,Scardinius erythrophthalmus,CZ0533308,5960a,2026-03-20
+CZ0533308,Scardinius erythrophthalmus,CZ0533308,5960a,2025-09-03
 CZ0533308,Succisa pratensis,-,5960a,2000-01-01
 CZ0533308,Succisa pratensis,2419,"58,""5960a""",2005-01-01
 CZ0533308,Succisa pratensis,"NPR Bohdanečský rybník - dílčí plocha 3a - 50°5'52.5984""N, 15°41'9.9286""E",5960a,2019-06-22
@@ -36847,7 +36843,7 @@ CZ0533698,Sanguisorba officinalis,Selmice_8130743,5958d,2014-07-28
 CZ0533698,Scardinius erythrophthalmus,CZ0533698,5958d,2004-01-01
 CZ0533702,Hamatocaulis vernicosus,1633,6261d,2010-05-01
 CZ0533702,Hamatocaulis vernicosus,22290421,6261d,2022-06-03
-CZ0533702,Hamatocaulis vernicosus,CZ0533702,6261d,2025-11-08
+CZ0533702,Hamatocaulis vernicosus,CZ0533702,6261d,2023-09-28
 CZ0533702,Phengaris nausithous,1633,6261d,2010-03-01
 CZ0533702,Phengaris nausithous,Jeníkov u Hlinska,6261d,2014-08-09
 CZ0533702,Phengaris nausithous,PP Louky v Jeníkově,6261d,2019-07-15
@@ -39023,7 +39019,7 @@ CZ0614059,Gentianella praecox subsp. bohemica,Štíří důl,6361a,2022-09-23
 CZ0614059,Gentianella praecox subsp. bohemica,Štíří důl (Gpra45),6361a,2000-01-01
 CZ0614059,Gentianella praecox subsp. bohemica,štíří důl,6361a,2001-05-01
 CZ0614059,Hamatocaulis vernicosus,7130244,6361a,2021-06-21
-CZ0614059,Hamatocaulis vernicosus,CZ0614059,6361a,2025-11-08
+CZ0614059,Hamatocaulis vernicosus,CZ0614059,6361a,2022-09-21
 CZ0614059,Myotis bechsteinii,"35014, Radostín",6361a,2020-09-03
 CZ0614059,Myotis emarginatus,"35014, Radostín",6361a,2020-09-03
 CZ0614059,Myotis myotis,"35014, Radostín",6361a,2020-09-03
@@ -39318,6 +39314,10 @@ CZ0614134,Castor fiber,NPR Mohelenská h,6863c,2005-07-01
 CZ0614134,Cerambyx cerdo,CZ0614134,6862d,2021-08-08
 CZ0614134,Cerambyx cerdo,CZ0614134,6863c,2025-06-19
 CZ0614134,Cerambyx cerdo,CZ0614134,6963a,2025-10-26
+CZ0614134,Chamaecytisus sp.,Dukovany_13020178,6963a,2013-07-04
+CZ0614134,Chamaecytisus sp.,Dukovany_13020229,6962b,2013-08-10
+CZ0614134,Chamaecytisus sp.,Kramolín_13020692,6862d,2013-08-31
+CZ0614134,Chamaecytisus sp.,Mohelno_13020302,6962b,2013-09-29
 CZ0614134,Cottus gobio,CZ0614134,6963a,2022-08-04
 CZ0614134,Cottus gobio,CZ0614134,"84,""6863c""",2004-01-01
 CZ0614134,Cucujus cinnaberinus,BROUCI250_192,6863c,2023-05-20
@@ -39353,10 +39353,6 @@ CZ0614134,Euplagia quadripunctaria,NPR Moh. hadstep,6863c,2005-08-01
 CZ0614134,Euplagia quadripunctaria,NPR Mohele,6863c,2005-07-27
 CZ0614134,Euplagia quadripunctaria,NPR Mohelenská ste,6863c,2004-09-07
 CZ0614134,Euplagia quadripunctaria,Třebíč-JK,6863c,2019-08-10
-CZ0614134,Chamaecytisus sp.,Dukovany_13020178,6963a,2013-07-04
-CZ0614134,Chamaecytisus sp.,Dukovany_13020229,6962b,2013-08-10
-CZ0614134,Chamaecytisus sp.,Kramolín_13020692,6862d,2013-08-31
-CZ0614134,Chamaecytisus sp.,Mohelno_13020302,6962b,2013-09-29
 CZ0614134,Limoniscus violaceus,CZ0614134,6963a,2004-04-09
 CZ0614134,Lucanus cervus,1,6863c,2012-04-20
 CZ0614134,Lucanus cervus,2,6863c,2012-04-20
@@ -39757,6 +39753,7 @@ CZ0620037,Pulsatilla grandis,24-41-22,"09,""6766d""",2001-06-01
 CZ0620037,Pulsatilla grandis,Pgra341,6766d,2025-03-21
 CZ0620037,Pulsatilla grandis,Pod Štumperkem (k. ú. Sivice),6766d,2023-04-04
 CZ0620037,Triturus cristatus,CZ0620037,"21,""6766d""",2003-03-15
+CZ0620048,Chamaecytisus sp.,Sedlec u Mikulova_4480041,7266a,2009-08-15
 CZ0620048,Eriogaster catax,CZ0620048,7266a,2009-05-21
 CZ0620048,Eriogaster catax,MOTYLI1070,7266a,2022-05-12
 CZ0620048,Eriogaster catax,MOTYLI2238,7266a,2023-04-19
@@ -39773,7 +39770,6 @@ CZ0620048,Eriogaster catax,XHVC3,7266a,2006-05-10
 CZ0620048,Euplagia quadripunctaria,PP Skalky u Sedlece 5905,7266a,2023-07-22
 CZ0620048,Euplagia quadripunctaria,Sedlec,7266a,2024-07-14
 CZ0620048,Euplagia quadripunctaria,Sedlec u Mikulova - PP Skalky u Sedlece,7266a,2024-07-14
-CZ0620048,Chamaecytisus sp.,Sedlec u Mikulova_4480041,7266a,2009-08-15
 CZ0620048,Lucanus cervus,CZ0620048,7266a,2025-06-24
 CZ0620048,Lycaena dispar,PR Skalky - Sedlec u Mikulova 1,7266a,2009-05-09
 CZ0620048,Lycaena dispar,Skalky - CHKO Pálava,7266a,2007-04-20
@@ -40436,6 +40432,8 @@ CZ0622218,Artemisia pancicii,Liščí kopec 1,7165c,2021-09-15
 CZ0622218,Artemisia pancicii,Liščí kopec 2,7165c,2021-09-15
 CZ0622218,Artemisia pancicii,Liščí kopec 3,7165c,2021-09-15
 CZ0622218,Artemisia pancicii,Liščí kopec 4,7165c,2021-09-15
+CZ0622218,Chamaecytisus sp.,3009,7165c,2018-04-20
+CZ0622218,Chamaecytisus sp.,6250_1865,7165c,2019-05-23
 CZ0622218,Crambe tataria,0009_341224,7165a,2002-07-01
 CZ0622218,Crambe tataria,0015_341404,7165c,2002-07-01
 CZ0622218,Crambe tataria,0016_341404,7165c,2002-07-01
@@ -40511,8 +40509,6 @@ CZ0622218,Eriogaster catax,MOTYLI4327,"01,""7165c""",2025-04-22
 CZ0622218,Eriogaster catax,NPP Dunajovické kopce,7165a,2020-04-15
 CZ0622218,Euplagia quadripunctaria,NPP Dunajovické kopce,"34,""7165c""",2021-07-29
 CZ0622218,Euplagia quadripunctaria,NPP Dunajovické kopce,7165c,2018-07-25
-CZ0622218,Chamaecytisus sp.,3009,7165c,2018-04-20
-CZ0622218,Chamaecytisus sp.,6250_1865,7165c,2019-05-23
 CZ0622218,Klasea lycopifolia,CT5,7165c,2005-05-10
 CZ0622218,Klasea lycopifolia,Danielsbergen,7165c,2017-05-31
 CZ0622218,Klasea lycopifolia,Dobré Pole,7165c,2014-06-27
@@ -40569,7 +40565,6 @@ CZ0622224,Iris arenaria,U Michálka (Ihum8),7064a,2002-01-01
 CZ0622224,Iris arenaria,b0117_341206_112_T1.1,7064a,2002-07-05
 CZ0622224,Iris arenaria,b0117_341206_113_T3.3A,7064a,2002-07-05
 CZ0622226,Pulsatilla grandis,Pgra075a,6963a,2025-04-02
-CZ0622226,Pulsatilla grandis,Pgra075b,6963a,2025-04-02
 CZ0622226,Pulsatilla grandis,Velký kopec (Pgra75),6963a,2001-01-01
 CZ0622226,Pulsatilla grandis,Velký kopec-1,6963a,2021-04-02
 CZ0622226,Pulsatilla grandis,Velký kopec-2,6963a,2021-04-02
@@ -40895,10 +40890,10 @@ CZ0623329,Rhinolophus hipposideros,Prudká č.p.257,6564c,2015-07-02
 CZ0623329,Rhinolophus hipposideros,"Prudká č.p.257, areál papírny",6564c,2024-07-31
 CZ0623344,Cerambyx cerdo,BROUCI392_313,6764b,2023-07-25
 CZ0623344,Cerambyx cerdo,CZ0623344,6764b,2025-06-29
+CZ0623344,Chamaecytisus sp.,Podkomorské lesy. PR Břenčák,6764b,2018-06-12
 CZ0623344,Euplagia quadripunctaria,"384, Brno - Bystrc",6764b,2021-07-27
 CZ0623344,Euplagia quadripunctaria,"Brno-Kníničky 925, 635 00 Brno",6764b,2021-08-13
 CZ0623344,Euplagia quadripunctaria,"Kníničky, Brno",6764b,2021-07-27
-CZ0623344,Chamaecytisus sp.,Podkomorské lesy. PR Břenčák,6764b,2018-06-12
 CZ0623344,Lucanus cervus,BROUCI277_217,6764d,2023-10-01
 CZ0623344,Lucanus cervus,CZ0623344,"41,""6764d""",1999-05-01
 CZ0623344,Lucanus cervus,CZ0623344,6764b,2019-07-18
@@ -41664,7 +41659,7 @@ CZ0624043,Pulsatilla grandis,Klentnice_4830484,7165d,2009-06-23
 CZ0624043,Pulsatilla grandis,Klentnice_4830488,7165d,2009-07-02
 CZ0624043,Pulsatilla grandis,Nad Sirotčím hrádkem,7165d,2021-03-30
 CZ0624043,Pulsatilla grandis,Pgra034a,7165d,2025-03-19
-CZ0624043,Pulsatilla grandis,Pgra034b,7165d,2025-03-19
+CZ0624043,Pulsatilla grandis,Pgra034b,7165d,2022-04-19
 CZ0624043,Pulsatilla grandis,Pgra200,7165d,2024-03-13
 CZ0624043,Pulsatilla grandis,Pgra201,7165d,2025-03-19
 CZ0624043,Pulsatilla grandis,Pgra339,7165d,2024-04-26
@@ -41806,7 +41801,6 @@ CZ0624060,Crambe tataria,b0148_341215_1012_K3,7065d,2002-10-19
 CZ0624060,Crambe tataria,b0148_341215_1061_T3.3B,7065d,2002-10-19
 CZ0624060,Crambe tataria,b0148_341215_1068_T3.3B,7065d,2002-10-19
 CZ0624060,Cucujus cinnaberinus,CZ0624060,7065d,2015-06-20
-CZ0624060,Euplagia quadripunctaria,"4205, Pouzdřany",7065d,2025-08-07
 CZ0624060,Euplagia quadripunctaria,C.qua. Pouzdřany,7065d,2001-07-28
 CZ0624060,Euplagia quadripunctaria,EVL Pouzdřanská step - Kolby,7065b,2015-08-11
 CZ0624060,Euplagia quadripunctaria,Kolby,7065d,2023-08-18
@@ -42047,7 +42041,6 @@ CZ0624067,Pulsatilla grandis,PR Kamenný vrch,6865a,2022-03-26
 CZ0624067,Pulsatilla grandis,Pgra015,6865a,2024-04-06
 CZ0624067,Pulsatilla grandis,Travní,6865a,2020-03-17
 CZ0624067,Pulsatilla grandis,"Travní 1, Brno, Jihomoravský",6865a,2019-03-31
-CZ0624067,Pulsatilla grandis,"Travní 240/9, Travní Kamenný vrch",6865a,2026-03-22
 CZ0624067,Pulsatilla grandis,"Travní 240/9, Travní Koniklecová louka",6865a,2024-03-03
 CZ0624067,Pulsatilla grandis,"Travní, Brno, Jihomoravský",6865a,2021-05-30
 CZ0624067,Pulsatilla grandis,b0127_243404_1_T3.4D,6865a,2002-09-29
@@ -42268,6 +42261,8 @@ CZ0624070,Cerambyx cerdo,CZ0624070,"51,""7168b""",2014-06-16
 CZ0624070,Cerambyx cerdo,CZ0624070,7068c,2024-06-13
 CZ0624070,Cerambyx cerdo,CZ0624070,7168a,2025-07-23
 CZ0624070,Cerambyx cerdo,CZ0624070,7168b,2025-07-23
+CZ0624070,Chamaecytisus sp.,Hodonín_4390144,7168b,2010-05-07
+CZ0624070,Chamaecytisus sp.,Hodonín_4390325,7168b,2010-05-07
 CZ0624070,Cucujus cinnaberinus,CZ0624070,7068c,2023-05-22
 CZ0624070,Cucujus cinnaberinus,CZ0624070,7168b,2020-06-22
 CZ0624070,Emys orbicularis,CZ0624070,7068c,2025-07-21
@@ -42494,8 +42489,6 @@ CZ0624070,Gladiolus palustris,"Zbrodský les, porost 37 C 11 střed + 37 D 11 v�
 CZ0624070,Gladiolus palustris,Ztracená alej (Gpal4),7168a,2000-07-01
 CZ0624070,Gladiolus palustris,b0025_342222_232_L6.3,7168b,2001-07-11
 CZ0624070,Gladiolus palustris,b0061_342217_123_L6.3,7168b,2001-07-29
-CZ0624070,Chamaecytisus sp.,Hodonín_4390144,7168b,2010-05-07
-CZ0624070,Chamaecytisus sp.,Hodonín_4390325,7168b,2010-05-07
 CZ0624070,Lucanus cervus,CZ0624070,"51,""7168b""",2014-06-16
 CZ0624070,Lucanus cervus,CZ0624070,7068c,2025-06-01
 CZ0624070,Lucanus cervus,CZ0624070,7068d,2013-06-30
@@ -43680,6 +43673,7 @@ CZ0624072,Succisa pratensis,z0163bk_351301_998_T1.9,7170c,2004-07-15
 CZ0624072,Vertigo angustior,CZ0624072,7170a,2000-06-28
 CZ0624072,Vertigo angustior,CZ0624072,7170c,2018-09-24
 CZ0624072,Vertigo angustior,CZ0624072,7170d,2000-06-28
+CZ0624094,Chamaecytisus sp.,13690387,6864b,2024-08-14
 CZ0624094,Cypripedium calceolus,0253_243403,6865a,2003-06-01
 CZ0624094,Cypripedium calceolus,13690159,6865a,2024-06-23
 CZ0624094,Cypripedium calceolus,642 00 Brno,6865a,2020-05-31
@@ -43690,7 +43684,6 @@ CZ0624094,Cypripedium calceolus,CC05,6865a,2005-06-21
 CZ0624094,Cypripedium calceolus,Unnamed Road,6865a,2020-05-20
 CZ0624094,Euplagia quadripunctaria,PR Bosonožský hájek,6865a,2011-08-18
 CZ0624094,Euplagia quadripunctaria,Popůvky,6865a,2016-06-01
-CZ0624094,Chamaecytisus sp.,13690387,6864b,2024-08-14
 CZ0624094,Lucanus cervus,CZ0624094,6864b,2025-08-20
 CZ0624095,Barbastella barbastellus,7060,"96,""7060a""",2011-12-21
 CZ0624095,Barbastella barbastellus,7060,"96,""7060b""",2011-12-21
@@ -44700,7 +44693,7 @@ CZ0624096,Sanguisorba officinalis,Čížov_11082648,7161a,2016-05-20
 CZ0624096,Scardinius erythrophthalmus,CZ0624096,"01,""7162c""",2004-01-01
 CZ0624096,Scardinius erythrophthalmus,CZ0624096,7160b,2023-05-04
 CZ0624096,Scardinius erythrophthalmus,CZ0624096,7161a,2020-06-04
-CZ0624096,Spermophilus citellus,CZ0624096,7161d,2026-03-20
+CZ0624096,Spermophilus citellus,CZ0624096,7161d,2026-03-14
 CZ0624096,Succisa pratensis,"Havraníky, HAV7",7161d,2020-05-14
 CZ0624096,Succisa pratensis,"Havraníky, Hovorkova tůň",7161d,2019-08-07
 CZ0624096,Succisa pratensis,Horní Břečkov,7161a,2016-09-07
@@ -44719,8 +44712,8 @@ CZ0624096,Triturus carnifex,CZ0624096,7160b,2023-05-04
 CZ0624096,Triturus carnifex,CZ0624096,7161a,2025-04-13
 CZ0624096,Triturus carnifex,CZ0624096,7161d,2025-04-20
 CZ0624096,Triturus carnifex,CZ0624096,7162c,2023-04-26
-CZ0624096,Triturus carnifex,amp193,7161a,2025-06-12
-CZ0624096,Triturus carnifex,amp194,7162c,2025-06-11
+CZ0624096,Triturus carnifex,amp193,7161a,2024-03-12
+CZ0624096,Triturus carnifex,amp194,7162c,2024-06-19
 CZ0624096,Triturus cristatus s. l.,7160_12,7160b,2010-05-27
 CZ0624096,Triturus cristatus s. l.,7161_113,7161a,2010-05-26
 CZ0624096,Triturus cristatus s. l.,CZ0624096,7061c,2016-01-01
@@ -44738,7 +44731,6 @@ CZ0624097,Pulsatilla grandis,433,6867d,2017-04-01
 CZ0624097,Pulsatilla grandis,482019 - Mouřínov,6867d,2002-06-29
 CZ0624097,Pulsatilla grandis,EVL Šévy - Trinia glauca,6867d,2023-05-04
 CZ0624097,Pulsatilla grandis,Mouřínov,6867d,2023-06-22
-CZ0624097,Pulsatilla grandis,"Mouřínov, PR Šévy",6867d,2026-03-18
 CZ0624097,Pulsatilla grandis,Mouřínov_12470010,6867d,2009-08-20
 CZ0624097,Pulsatilla grandis,Pgra178,6867d,2022-03-25
 CZ0624097,Pulsatilla grandis,Šévy,6867d,2018-04-11
@@ -45208,6 +45200,7 @@ CZ0624100,Cerambyx cerdo,CZ0624100,"14,""7166c""",2002-03-15
 CZ0624100,Cerambyx cerdo,CZ0624100,7165d,2015-06-19
 CZ0624100,Cerambyx cerdo,CZ0624100,7166c,2025-05-25
 CZ0624100,Cerambyx cerdo,CZ0624100,"74,""7166c""",2013-07-05
+CZ0624100,Chamaecytisus sp.,palava-173,7166c,2002-04-26
 CZ0624100,Cucujus cinnaberinus,CZ0624100,"14,""7166c""",2002-03-15
 CZ0624100,Cucujus cinnaberinus,CZ0624100,7166c,2019-10-24
 CZ0624100,Cucujus cinnaberinus,CZ0624100,7266a,2023-05-10
@@ -45254,7 +45247,6 @@ CZ0624100,Eriogaster catax,XHVD2,7166c,2005-01-01
 CZ0624100,Eriogaster catax,XHVD3,7166c,2004-01-01
 CZ0624100,Euplagia quadripunctaria,1229,7266a,2010-08-20
 CZ0624100,Euplagia quadripunctaria,1710,"94,""7166c""",2020-08-06
-CZ0624100,Euplagia quadripunctaria,"421, Mikulov - Mikulov na Moravě",7166c,2025-08-19
 CZ0624100,Euplagia quadripunctaria,"42124, Sedlec",7266a,2023-08-12
 CZ0624100,Euplagia quadripunctaria,Bulhary,7166c,2021-07-20
 CZ0624100,Euplagia quadripunctaria,C.qua. CHKO Pálava,"39,""7166c""",2000-01-01
@@ -45297,7 +45289,6 @@ CZ0624100,Euplagia quadripunctaria,"Sedlec, Moravia Meridionale",7166c,2021-07-1
 CZ0624100,Euplagia quadripunctaria,"Sedlec, Silnice bez názvu",7166c,2022-08-08
 CZ0624100,Euplagia quadripunctaria,XFAA6,7166c,2006-08-20
 CZ0624100,Euplagia quadripunctaria,obora Bulhary,7166c,2015-07-29
-CZ0624100,Chamaecytisus sp.,palava-173,7166c,2002-04-26
 CZ0624100,Lemna trisulca,palava-154,"73,""7166c""",2003-06-17
 CZ0624100,Lucanus cervus,1710,"97,""7166c""",2014-06-18
 CZ0624100,Lucanus cervus,BROUCI167,"8,""7166c""",2015-08-28
@@ -45506,6 +45497,7 @@ CZ0624104,Carabus hungaricus,CZ0624104,7165b,2024-09-20
 CZ0624104,Carabus hungaricus,CZ0624104,"99,""7165b""",2000-08-01
 CZ0624104,Cerambyx cerdo,2475,7165b,2014-07-08
 CZ0624104,Cerambyx cerdo,CZ0624104,7165b,2023-07-11
+CZ0624104,Chazara briseis,Dolní Věstonice - 7165,NA,1995-01-01
 CZ0624104,Cucujus cinnaberinus,CZ0624104,7165b,2015-03-24
 CZ0624104,Dianthus lumnitzeri,0152_341225,7165b,2001-07-15
 CZ0624104,Dianthus lumnitzeri,0264_341225,7165b,2001-07-15
@@ -45668,7 +45660,6 @@ CZ0624104,Euplagia quadripunctaria,Perná - lomy,7165b,2008-08-06
 CZ0624104,Euplagia quadripunctaria,"Pálava, Soutěska",7165b,2005-08-29
 CZ0624104,Euplagia quadripunctaria,"Rudolfa Gajdoše, Pavlov",7165b,2022-07-12
 CZ0624104,Euplagia quadripunctaria,Soutěska,7165b,2005-09-01
-CZ0624104,Chazara briseis,Dolní Věstonice - 7165,NA,1995-01-01
 CZ0624104,Iris arenaria,0031_341225,7165b,2001-07-15
 CZ0624104,Iris arenaria,439033 - Klentnice,7165b,2001-05-14
 CZ0624104,Iris arenaria,4830041,7165b,2022-07-07
@@ -45772,10 +45763,7 @@ CZ0624104,Pulsatilla grandis,Perná_4830028,7165b,2009-07-15
 CZ0624104,Pulsatilla grandis,Perná_4830041,7165b,2009-07-15
 CZ0624104,Pulsatilla grandis,Perná_4830042,7165b,2009-06-05
 CZ0624104,Pulsatilla grandis,Pgra035,7165b,2024-03-18
-CZ0624104,Pulsatilla grandis,Pgra036a,7165b,2025-03-11
-CZ0624104,Pulsatilla grandis,Pgra036b,7165b,2025-03-11
-CZ0624104,Pulsatilla grandis,Pgra036c,7165b,2025-03-11
-CZ0624104,Pulsatilla grandis,Pgra036d,7165b,2025-03-11
+CZ0624104,Pulsatilla grandis,Pgra036a,7165b,2023-03-26
 CZ0624104,Pulsatilla grandis,Pgra037,7165b,2023-04-06
 CZ0624104,Pulsatilla grandis,Pgra185,7165b,2024-03-18
 CZ0624104,Pulsatilla grandis,Pgra197,7165b,2022-03-26
@@ -46939,7 +46927,7 @@ CZ0624129,Sanguisorba officinalis,Křtiny_4651017,6666c,2012-07-24
 CZ0624129,Sanguisorba officinalis,Křtiny_4651153,6666c,2012-07-24
 CZ0624129,Sanguisorba officinalis,Od arboreta k Rybníčkům,6666c,2004-07-21
 CZ0624129,Sanguisorba officinalis,U arboreta,6666c,2004-07-21
-CZ0624129,Triturus cristatus,CZ0624129,6666c,2026-03-21
+CZ0624129,Triturus cristatus,CZ0624129,6666c,2025-03-19
 CZ0624129,Triturus cristatus,CZ0624129,"89,""6666c""",2022-04-27
 CZ0624129,Triturus cristatus,CZ0624129_1,6666c,2024-06-10
 CZ0624129,Triturus cristatus,CZ0624129_2,6666c,2021-05-08
@@ -47090,6 +47078,7 @@ CZ0624130,Castor fiber,CZ0624130,6666c,2024-05-05
 CZ0624130,Castor fiber,CZ0624130,6765d,2026-02-19
 CZ0624130,Castor fiber,CZ0624130,6766c,2026-02-19
 CZ0624130,Cerambyx cerdo,CZ0624130,6766c,1995-06-01
+CZ0624130,Chamaecytisus sp.,Hády - u Velké Klajdovky,6766c,2002-07-06
 CZ0624130,Cottus gobio,1,"21,""6666c""",2000-01-01
 CZ0624130,Cottus gobio,CHKO Moravský kras,6666a,2022-10-27
 CZ0624130,Cottus gobio,CHKO Moravský kras,6666b,2022-10-27
@@ -47274,7 +47263,6 @@ CZ0624130,Euplagia quadripunctaria,"lesní cesta Březinka, Březina",6766a,2022
 CZ0624130,Euplagia quadripunctaria,"lesní cesta Rossenauerova, Babice nad Svitavou",6766a,2021-08-19
 CZ0624130,Euplagia quadripunctaria,"lesní cesta Úzký Příhon, Habrůvka",6666c,2019-08-12
 CZ0624130,Euplagia quadripunctaria,Údolí Říčky,6766c,2018-08-11
-CZ0624130,Chamaecytisus sp.,Hády - u Velké Klajdovky,6766c,2002-07-06
 CZ0624130,Lemna trisulca,VII - Panské boudy,6666c,2007-06-01
 CZ0624130,Lemna trisulca,VIII - Kaplička,6666c,2007-06-01
 CZ0624130,Lemna trisulca,XXIII,6666c,2007-06-01
@@ -47833,7 +47821,7 @@ CZ0624130,Myotis myotis,jeskyně Dolina překvapení,6666a,2025-04-02
 CZ0624130,Myotis myotis,jeskyně Hladomorna,6566d,2017-02-13
 CZ0624130,Myotis myotis,jeskyně Horní v Chobotu,6666a,2024-03-09
 CZ0624130,Myotis myotis,jeskyně Jestřábka,6766a,2025-02-22
-CZ0624130,Myotis myotis,jeskyně Jáchymka,6666c,2026-03-20
+CZ0624130,Myotis myotis,jeskyně Jáchymka,6666c,2025-12-02
 CZ0624130,Myotis myotis,jeskyně Kanibalka,6766a,2025-02-22
 CZ0624130,Myotis myotis,jeskyně Komínová,6666a,2026-02-04
 CZ0624130,Myotis myotis,jeskyně Kostelík,6666c,2026-02-20
@@ -48856,7 +48844,6 @@ CZ0712191,Succisa pratensis,114080 - Protivanov,6566b,2001-08-23
 CZ0712192,Lycaena dispar,PP U bílých hlin,6469d,2004-01-01
 CZ0712192,Pulsatilla grandis,3125,6469d,2018-07-29
 CZ0712192,Pulsatilla grandis,Krčmaň,6469d,2023-03-25
-CZ0712192,Pulsatilla grandis,"Krčmaň, PP U bílých hlin",6469d,2026-03-11
 CZ0712192,Pulsatilla grandis,Krčmaň_17220045,6469d,2012-09-20
 CZ0712192,Pulsatilla grandis,PP U Bílých hlin,6469d,2025-03-20
 CZ0712192,Pulsatilla grandis,"PP U Bílých hlin, Krčmaň",6469d,2021-05-12
@@ -48900,16 +48887,10 @@ CZ0712225,Pulsatilla grandis,6440047,6567b,2023-06-13
 CZ0712225,Pulsatilla grandis,6440052,6567b,2023-06-13
 CZ0712225,Pulsatilla grandis,NPP Za hrnčířkou,6567b,2013-01-01
 CZ0712225,Pulsatilla grandis,Ohrozim,6567b,2024-04-08
-CZ0712225,Pulsatilla grandis,"Ohrozim-Plumlov,  Za Hrnčířkou,  východ",6567b,2026-03-21
-CZ0712225,Pulsatilla grandis,"Ohrozim-Plumlov, Za Hrnčířskou střed",6567b,2026-03-21
 CZ0712225,Pulsatilla grandis,Ohrozim_6440045,6567b,2009-07-26
 CZ0712225,Pulsatilla grandis,Ohrozim_6440047,6567b,2009-07-26
 CZ0712225,Pulsatilla grandis,Ohrozim_6440052,6567b,2009-07-26
 CZ0712225,Pulsatilla grandis,Pgra049,6567b,2024-04-05
-CZ0712225,Pulsatilla grandis,"Vícov-Plumlov,  Za Hrnčířskou stred b",6567b,2026-03-21
-CZ0712225,Pulsatilla grandis,"Vícov-Plumlov,  Za Hrnčířskou vychod b",6567b,2026-03-21
-CZ0712225,Pulsatilla grandis,"Vícov-Plumlov,  Za Hrnčířskou, západ",6567b,2026-03-21
-CZ0712225,Pulsatilla grandis,"Vícov-Plumlov, Za Hrnčířkou střed c",6567b,2026-03-21
 CZ0712225,Pulsatilla grandis,Za Hrnčířkou,6567b,2004-05-29
 CZ0712225,Pulsatilla grandis,Za hrnčířkou,6567b,2021-06-09
 CZ0712225,Pulsatilla grandis,Za hrnčířkou (Pgra49),6567b,2000-01-01
@@ -49473,7 +49454,7 @@ CZ0714073,Castor fiber,CZ0714073,6267d,2026-01-19
 CZ0714073,Castor fiber,CZ0714073,6268c,2026-01-20
 CZ0714073,Castor fiber,CZ0714073,6268d,2019-07-18
 CZ0714073,Castor fiber,CZ0714073,6368a,2012-05-24
-CZ0714073,Castor fiber,CZ0714073,6368b,2026-03-18
+CZ0714073,Castor fiber,CZ0714073,6368b,2025-03-26
 CZ0714073,Castor fiber,CZ0714073,6369a,2026-03-04
 CZ0714073,Castor fiber,CZ0714073,6369c,2023-04-22
 CZ0714073,Castor fiber,CZ0714073,6369d,2019-01-14
@@ -52748,6 +52729,7 @@ CZ0723813,Vertigo angustior,CZ0723813,6674a,2024-09-07
 CZ0723813,Vertigo angustior,Mekkysi1610,6674a,2006-09-29
 CZ0724087,Bombina variegata,CZ0724087,"59,""6972a""",2001-09-16
 CZ0724087,Bombina variegata,CZ0724087,6972a,2017-07-13
+CZ0724087,Chamaecytisus sp.,5500206,"13,""6971d""",2022-05-09
 CZ0724087,Colias myrmidone,Prakšice - 6971,"79,""6971b""",1995-01-01
 CZ0724087,Eriogaster catax,6971,NA,2008-04-01
 CZ0724087,Eriogaster catax,6972,NA,2010-05-02
@@ -52781,7 +52763,6 @@ CZ0724087,Euplagia quadripunctaria,Prakšice - 6971,"79,""6971b""",2005-01-01
 CZ0724087,Euplagia quadripunctaria,Újezdec,6972a,2018-08-03
 CZ0724087,Euplagia quadripunctaria,"Újezdec, Újezdské vinohrady","65,""6972c""",2008-01-01
 CZ0724087,Hipparchia semele,6971,NA,1995-01-01
-CZ0724087,Chamaecytisus sp.,5500206,"13,""6971d""",2022-05-09
 CZ0724087,Lucanus cervus,CZ0724087,"05,""6972c""",2007-04-24
 CZ0724087,Lycaena dispar,9110_567,6972c,2013-01-01
 CZ0724087,Lycaena dispar,PP Újezdecký les,6972c,2025-08-13
@@ -54380,7 +54361,7 @@ CZ0724089,Canis lupus,CZ0724089,6377c,2026-02-06
 CZ0724089,Canis lupus,CZ0724089,6377d,2026-02-20
 CZ0724089,Canis lupus,CZ0724089,"64,""6377d""",2000-08-19
 CZ0724089,Canis lupus,CZ0724089,6474c,2024-11-25
-CZ0724089,Canis lupus,CZ0724089,6474d,2026-02-20
+CZ0724089,Canis lupus,CZ0724089,6474d,2024-07-01
 CZ0724089,Canis lupus,CZ0724089,6475c,2025-02-07
 CZ0724089,Canis lupus,CZ0724089,6475d,2023-04-05
 CZ0724089,Canis lupus,CZ0724089,6476a,2004-05-29
@@ -54396,7 +54377,7 @@ CZ0724089,Canis lupus,CZ0724089,6478c,2026-01-23
 CZ0724089,Canis lupus,CZ0724089,"65,""6577a""",2001-04-01
 CZ0724089,Canis lupus,CZ0724089,6574b,2013-09-10
 CZ0724089,Canis lupus,CZ0724089,6574c,2024-05-17
-CZ0724089,Canis lupus,CZ0724089,6574d,2026-03-19
+CZ0724089,Canis lupus,CZ0724089,6574d,2022-12-04
 CZ0724089,Canis lupus,CZ0724089,6575a,2026-02-26
 CZ0724089,Canis lupus,CZ0724089,6575b,2026-02-06
 CZ0724089,Canis lupus,CZ0724089,6575c,2024-03-30
@@ -54410,7 +54391,7 @@ CZ0724089,Canis lupus,CZ0724089,6577b,2026-01-23
 CZ0724089,Canis lupus,CZ0724089,6577c,2003-02-22
 CZ0724089,Canis lupus,CZ0724089,6578a,2023-09-25
 CZ0724089,Canis lupus,CZ0724089,6674a,2022-11-14
-CZ0724089,Canis lupus,CZ0724089,6674b,2026-03-20
+CZ0724089,Canis lupus,CZ0724089,6674b,2025-09-08
 CZ0724089,Canis lupus,CZ0724089,6674c,2023-06-05
 CZ0724089,Canis lupus,CZ0724089,6674d,2023-07-29
 CZ0724089,Canis lupus,CZ0724089,6675a,2026-03-12
@@ -57486,6 +57467,19 @@ CZ0724090,Castor fiber,CZ0724090,7073c,2025-03-30
 CZ0724090,Castor fiber,CZ0724090,7171a,2022-09-05
 CZ0724090,Castor fiber,CZ0724090,7171b,2023-05-25
 CZ0724090,Castor fiber,CZ0724090,7171c,2025-05-09
+CZ0724090,Chamaecytisus sp.,0134_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0135_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0143_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0147_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0153_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0263_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0268_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,0269_351123,7171a,2003-08-01
+CZ0724090,Chamaecytisus sp.,Horní Němčí_10540286,7071d,2012-06-05
+CZ0724090,Chamaecytisus sp.,Horní Němčí_10541012,7071d,2012-06-05
+CZ0724090,Chamaecytisus sp.,Javorník nad Veličkou_10220393,7171c,2010-05-15
+CZ0724090,Chamaecytisus sp.,Javorník nad Veličkou_10221214,7171a,2010-06-17
+CZ0724090,Chamaecytisus sp.,Nová Lhota u Veselí nad Moravou_10230157,7171b,2017-09-07
 CZ0724090,Colias myrmidone,7071,"96,""7071a""",1995-01-01
 CZ0724090,Colias myrmidone,7071,"96,""7071b""",1995-01-01
 CZ0724090,Colias myrmidone,7071,"96,""7071c""",1995-01-01
@@ -57767,19 +57761,6 @@ CZ0724090,Euplagia quadripunctaria,Vápenky 6,7171b,2004-08-21
 CZ0724090,Euplagia quadripunctaria,Zahrady pod Hájem - sever,7171a,2012-08-11
 CZ0724090,Euplagia quadripunctaria,Žítková,7073a,2023-08-02
 CZ0724090,Euplagia quadripunctaria,"Žítková, Hutiska",7073a,2023-08-16
-CZ0724090,Chamaecytisus sp.,0134_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0135_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0143_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0147_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0153_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0263_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0268_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,0269_351123,7171a,2003-08-01
-CZ0724090,Chamaecytisus sp.,Horní Němčí_10540286,7071d,2012-06-05
-CZ0724090,Chamaecytisus sp.,Horní Němčí_10541012,7071d,2012-06-05
-CZ0724090,Chamaecytisus sp.,Javorník nad Veličkou_10220393,7171c,2010-05-15
-CZ0724090,Chamaecytisus sp.,Javorník nad Veličkou_10221214,7171a,2010-06-17
-CZ0724090,Chamaecytisus sp.,Nová Lhota u Veselí nad Moravou_10230157,7171b,2017-09-07
 CZ0724090,Klasea lycopifolia,0341_351124,7171a,2001-04-01
 CZ0724090,Klasea lycopifolia,14006060_Nová Lhota,7171b,2020-06-04
 CZ0724090,Klasea lycopifolia,14006061_Slavkov,7171b,2020-05-21
@@ -61007,7 +60988,7 @@ CZ0813810,Phengaris nausithous,6272c3,6272c,2021-08-18
 CZ0813810,Salmo trutta,CZ0813810,6272c,2015-08-09
 CZ0813810,Salmo trutta,CZ0813810,6272d,2015-08-09
 CZ0814092,Abramis brama,CZ0814092,6175c,2014-06-11
-CZ0814092,Abramis brama,CZ0814092,6274d,2026-03-20
+CZ0814092,Abramis brama,CZ0814092,6274d,2014-07-25
 CZ0814092,Abramis brama,CZ0814092,6275a,2004-01-01
 CZ0814092,Abramis brama,CZ0814092,6275c,2021-06-04
 CZ0814092,Abramis brama,CZ0814092,6373d,1997-01-01
@@ -61024,7 +61005,6 @@ CZ0814092,Ameiurus nebulosus,ryby-2205,6373b,2024-08-27
 CZ0814092,Ameiurus nebulosus,ryby-5835,6373c,2025-10-20
 CZ0814092,Anisus vorticulus,CZ0814092,6274c,2020-07-07
 CZ0814092,Anisus vorticulus,CZ0814092,6274d,2024-08-21
-CZ0814092,Anodonta sp.,CZ0814092,6274d,2026-03-20
 CZ0814092,Barbastella barbastellus,6274,"96,""6274a""",2011-06-21
 CZ0814092,Barbastella barbastellus,6274,"96,""6274b""",2011-06-21
 CZ0814092,Barbastella barbastellus,6274,"96,""6274c""",2011-06-21
@@ -61107,7 +61087,7 @@ CZ0814092,Castor fiber,CZ0814092,"48,""6275c""",2017-02-20
 CZ0814092,Castor fiber,CZ0814092,"51,""6373c""",2016-03-10
 CZ0814092,Castor fiber,CZ0814092,6175c,2025-09-09
 CZ0814092,Castor fiber,CZ0814092,6274c,2022-09-20
-CZ0814092,Castor fiber,CZ0814092,6274d,2026-03-20
+CZ0814092,Castor fiber,CZ0814092,6274d,2026-02-26
 CZ0814092,Castor fiber,CZ0814092,6275a,2025-07-09
 CZ0814092,Castor fiber,CZ0814092,6275c,2021-10-11
 CZ0814092,Castor fiber,CZ0814092,6373b,2026-01-19
@@ -61228,7 +61208,7 @@ CZ0814092,Lutra lutra,CZ0814092,"38,""6274d""",2007-03-18
 CZ0814092,Lutra lutra,CZ0814092,6175c,2025-09-09
 CZ0814092,Lutra lutra,CZ0814092,6274b,2007-03-17
 CZ0814092,Lutra lutra,CZ0814092,6274c,2016-10-26
-CZ0814092,Lutra lutra,CZ0814092,6274d,2026-03-20
+CZ0814092,Lutra lutra,CZ0814092,6274d,2025-01-25
 CZ0814092,Lutra lutra,CZ0814092,6275a,2025-07-09
 CZ0814092,Lutra lutra,CZ0814092,6275c,2019-02-12
 CZ0814092,Lutra lutra,CZ0814092,6373b,2026-01-19
@@ -61897,6 +61877,45 @@ CZ0815031,Hamatocaulis vernicosus,393,6069c,2018-07-01
 CZ0815031,Hamatocaulis vernicosus,CZ0815031,6069c,2021-09-16
 CZ0815031,Leucorrhinia pectoralis,4732,6069c,2014-07-13
 CZ0815031,Leucorrhinia pectoralis,4733,6069c,2005-06-11
+NA,Chazara briseis,"25017, Bečov",NA,2024-08-10
+NA,Chazara briseis,447,NA,2018-08-04
+NA,Chazara briseis,"Areni, E117",NA,2021-09-19
+NA,Chazara briseis,Bečov,NA,2019-08-07
+NA,Chazara briseis,Církvice,NA,2022-08-18
+NA,Chazara briseis,Eggendorf,NA,2025-08-07
+NA,Chazara briseis,Großmittelstraße,NA,2024-08-08
+NA,Chazara briseis,Großmittler Straße,NA,2025-07-23
+NA,Chazara briseis,"Hrádek, 5548d",NA,2024-08-20
+NA,Chazara briseis,Hundheim,NA,2017-09-08
+NA,Chazara briseis,Hundsheim,NA,2023-07-29
+NA,Chazara briseis,"Hundsheim, Altenburgerstraße",NA,2023-07-29
+NA,Chazara briseis,"Hundsheim, Kalkofengasse",NA,2021-08-10
+NA,Chazara briseis,"Hundsheim, Zum Berg",NA,2023-07-29
+NA,Chazara briseis,KÚ: Měrunice,NA,2012-08-21
+NA,Chazara briseis,Lenešický chlum,NA,2017-07-23
+NA,Chazara briseis,"Libčeves, Vraníky",NA,2024-07-29
+NA,Chazara briseis,Lokace00906,NA,2023-07-20
+NA,Chazara briseis,Lokace00908,NA,2023-07-20
+NA,Chazara briseis,Louny - 5649,NA,1995-01-01
+NA,Chazara briseis,"Mnichovský Týnec, pod Prťákem",NA,2019-08-10
+NA,Chazara briseis,Měrunice,NA,2010-08-22
+NA,Chazara briseis,Měrunice - 5548,NA,2006-09-10
+NA,Chazara briseis,Měrunice - vrch Vraník,NA,2008-08-06
+NA,Chazara briseis,Odolický vrch,NA,2019-07-15
+NA,Chazara briseis,PR Písečný vrch,NA,2021-08-12
+NA,Chazara briseis,Praha 16,NA,2022-08-25
+NA,Chazara briseis,Písečný vrch,NA,2022-07-28
+NA,Chazara briseis,Radobýl (vrch),NA,2023-08-10
+NA,Chazara briseis,Radotínské údolí - louky nad Maškovým mlýnem,NA,2022-07-24
+NA,Chazara briseis,Raná (vrch),NA,2019-08-09
+NA,Chazara briseis,"Sollenau Ebenfurth, Unnamed Road",NA,2020-08-16
+NA,Chazara briseis,Straße Ohne Straßennamen,NA,2025-08-07
+NA,Chazara briseis,Straße ohne Straßennamen,NA,2024-08-08
+NA,Chazara briseis,Tobiášův vrch,NA,2023-08-11
+NA,Chazara briseis,"Tobiášův vrch, 5548bc",NA,2022-08-16
+NA,Chazara briseis,Vraník (vrch),NA,2023-08-18
+NA,Chazara briseis,Vraník (vrch) 2,NA,2012-08-17
+NA,Chazara briseis,kóta 286m u Církvic,NA,2023-07-24
 NA,Eriogaster catax,2184,NA,2008-04-11
 NA,Eriogaster catax,351,NA,2007-04-16
 NA,Eriogaster catax,"421, Mikulov - Mikulov na Moravě",NA,2023-10-07
@@ -63019,45 +63038,6 @@ NA,Hipparchia semele,ČSA svahy pod Jezerim,NA,2020-06-26
 NA,Hipparchia semele,Černé rokle,NA,2004-07-07
 NA,Hipparchia semele,Želenice u Mostu,NA,2023-09-09
 NA,Hipparchia semele,Želina,NA,2010-06-09
-NA,Chazara briseis,"25017, Bečov",NA,2024-08-10
-NA,Chazara briseis,447,NA,2018-08-04
-NA,Chazara briseis,"Areni, E117",NA,2021-09-19
-NA,Chazara briseis,Bečov,NA,2019-08-07
-NA,Chazara briseis,Církvice,NA,2022-08-18
-NA,Chazara briseis,Eggendorf,NA,2025-08-07
-NA,Chazara briseis,Großmittelstraße,NA,2024-08-08
-NA,Chazara briseis,Großmittler Straße,NA,2025-07-23
-NA,Chazara briseis,"Hrádek, 5548d",NA,2024-08-20
-NA,Chazara briseis,Hundheim,NA,2017-09-08
-NA,Chazara briseis,Hundsheim,NA,2023-07-29
-NA,Chazara briseis,"Hundsheim, Altenburgerstraße",NA,2023-07-29
-NA,Chazara briseis,"Hundsheim, Kalkofengasse",NA,2021-08-10
-NA,Chazara briseis,"Hundsheim, Zum Berg",NA,2023-07-29
-NA,Chazara briseis,KÚ: Měrunice,NA,2012-08-21
-NA,Chazara briseis,Lenešický chlum,NA,2017-07-23
-NA,Chazara briseis,"Libčeves, Vraníky",NA,2024-07-29
-NA,Chazara briseis,Lokace00906,NA,2023-07-20
-NA,Chazara briseis,Lokace00908,NA,2023-07-20
-NA,Chazara briseis,Louny - 5649,NA,1995-01-01
-NA,Chazara briseis,"Mnichovský Týnec, pod Prťákem",NA,2019-08-10
-NA,Chazara briseis,Měrunice,NA,2010-08-22
-NA,Chazara briseis,Měrunice - 5548,NA,2006-09-10
-NA,Chazara briseis,Měrunice - vrch Vraník,NA,2008-08-06
-NA,Chazara briseis,Odolický vrch,NA,2019-07-15
-NA,Chazara briseis,PR Písečný vrch,NA,2021-08-12
-NA,Chazara briseis,Praha 16,NA,2022-08-25
-NA,Chazara briseis,Písečný vrch,NA,2022-07-28
-NA,Chazara briseis,Radobýl (vrch),NA,2023-08-10
-NA,Chazara briseis,Radotínské údolí - louky nad Maškovým mlýnem,NA,2022-07-24
-NA,Chazara briseis,Raná (vrch),NA,2019-08-09
-NA,Chazara briseis,"Sollenau Ebenfurth, Unnamed Road",NA,2020-08-16
-NA,Chazara briseis,Straße Ohne Straßennamen,NA,2025-08-07
-NA,Chazara briseis,Straße ohne Straßennamen,NA,2024-08-08
-NA,Chazara briseis,Tobiášův vrch,NA,2023-08-11
-NA,Chazara briseis,"Tobiášův vrch, 5548bc",NA,2022-08-16
-NA,Chazara briseis,Vraník (vrch),NA,2023-08-18
-NA,Chazara briseis,Vraník (vrch) 2,NA,2012-08-17
-NA,Chazara briseis,kóta 286m u Církvic,NA,2023-07-24
 NA,Ornithogalum pyrenaicum subsp. sphaerocarpum,0342_251421,NA,2002-05-01
 NA,Ornithogalum pyrenaicum subsp. sphaerocarpum,0380_351211,NA,2001-07-01
 NA,Ornithogalum pyrenaicum subsp. sphaerocarpum,120896 - Chvalčov,NA,2011-07-08

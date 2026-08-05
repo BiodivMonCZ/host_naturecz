@@ -1,0 +1,15 @@
+typ_predmetu_hodnoceni;kod_chu;nazev_chu;druh;feature_code;hodnocene_obdobi_od;hodnocene_obdobi_do;oop;parametr_nazev;parametr_hodnota;parametr_limit;parametr_jednotka;stav;trend;datum_hodnoceni;pracoviste;ind_nadr;metodika
+Druh;CZ0214003;Zlatý kůň;Rhinolophus hipposideros;NA;1955-01-01;2026-01-20;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214003;Zlatý kůň;Rhinolophus hipposideros;NA;1955-01-01;2026-01-20;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0213621;Štoly Velké Ameriky;Barbastella barbastellus;NA;1969-01-01;2026-01-23;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0213621;Štoly Velké Ameriky;Barbastella barbastellus;NA;1969-01-01;2026-01-23;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214017;Karlštejn - Koda;Barbastella barbastellus;NA;1955-01-01;2026-01-25;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214017;Karlštejn - Koda;Barbastella barbastellus;NA;1955-01-01;2026-01-25;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0213621;Štoly Velké Ameriky;Myotis myotis;NA;1969-01-01;2026-01-23;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0213621;Štoly Velké Ameriky;Myotis myotis;NA;1969-01-01;2026-01-23;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214003;Zlatý kůň;Myotis myotis;NA;1956-01-01;2026-01-31;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214003;Zlatý kůň;Myotis myotis;NA;1956-01-01;2026-01-31;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214017;Karlštejn - Koda;Myotis myotis;NA;1955-01-01;2026-01-31;AOPK ČR - RP Střední Čechy;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0214017;Karlštejn - Koda;Myotis myotis;NA;1955-01-01;2026-01-31;AOPK ČR - RP Střední Čechy;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP Střední Čechy;NA;15087
+Druh;CZ0723750;Jankovice - kostel;Myotis myotis;NA;1990-01-01;2015-07-01;Krajský úřad Zlínského kraje;27;ano;ano;přítomnost druhu;dobrý;neznámý;2026-05-10;RP SCHKO Bílé Karpaty;NA;15087
+Druh;CZ0723750;Jankovice - kostel;Myotis myotis;NA;1990-01-01;2015-07-01;Krajský úřad Zlínského kraje;10;dobrý;NA;NA;dobrý;neznámý;2026-05-10;RP SCHKO Bílé Karpaty;NA;15087
