@@ -3,7 +3,7 @@ run_n2k_druhy <- function(
     species_name,
     sites_subjects,
     limity,
-    current_year = 2024
+    current_year = 2025
 ) {
   
   # Kontrola limitu pro pocet (POP_POCET)
