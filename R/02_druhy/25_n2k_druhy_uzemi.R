@@ -154,10 +154,18 @@ run_n2k_druhy_uzemi <- function(
           TRUE ~ round(POP_POCETLETS2/POP_POCETLETS1, 3)
         ),
         
-        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
+        # Metodika: "Procento dobre hodnocenych dilcich ploch" = pocet DP v dobrem stavu /
+        # pocet DP v dobrem, zhorsenem ci spatnem stavu * 100. DP s neznamym stavem se do
+        # vypoctu (citatele ani jmenovatele) nezapocitavaji.
+        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
         LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND == "dobrý", na.rm = TRUE),
         LOK_PROCDOBR = dplyr::case_when(is.na(LOK_POCETDOB) | is.na(LOK_POCETSUM) ~ NA_real_, LOK_POCETSUM == 0 ~ NA_real_, TRUE ~ round(LOK_POCETDOB / LOK_POCETSUM * 100, 3)),
-        
+        # Stejne pocty pod nazvy z ciselniku cis_indikatory_popis.csv (ind_id 130 / 131),
+        # aby se pri exportu do ISOP (chu_export, viz 27_n2k_druhy_zapis.R) spravne
+        # napojily na oficialni kod indikatoru misto surove textove hodnoty ID_IND.
+        LOK_DILCDOBRE = LOK_POCETDOB,
+        LOK_DILCPOCET = LOK_POCETSUM,
+
         STA_HABPOKRYVPRE = {
           k_chu <- unique(kod_chu)
           x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
@@ -229,6 +237,14 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   # 5. Konsolidace a finalni hodnoceni uzemi (CHU) -----
   #----------------------------------------------------------#
+  # POZNAMKA (obojzivelnici, Tabulka 2 metodiky): hodnoceni stavu druhu na urovni EVL
+  # kombinuje DVA indikatory - (1) "% dobre hodnocenych DP" (LOK_PROCDOBR, limit min 70,
+  # viz limity_vse.csv) a (2) "pocetnost populace" jako klouzavy prumer za posledni 3 roky
+  # porovnany s revidovanym cilovym stavem evidovanym v ISOP (u EVL) resp. planu pece (u MZCHU).
+  # Indikator (1) je nize implementovan pres generickou minmax logiku. Indikator (2) NENI
+  # implementovan - repozitar aktualne neobsahuje zdroj dat s per-lokalitnim cilovym stavem
+  # (viz Data/Input/). Bez nej CELKOVE hodnoceni uzemi vychazi jen z indikatoru (1), coz
+  # neodpovida plne Tabulce 2 metodiky.
   n2k_druhy_chu_vypocet <- n2k_druhy_chu_pre %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND, KLIC) %>%
     dplyr::reframe(
@@ -259,7 +275,12 @@ run_n2k_druhy_uzemi <- function(
     dplyr::distinct() %>%
     dplyr::ungroup() %>%
     dplyr::mutate(
-      STAV_IND = ifelse(is.infinite(STAV_IND), 0, STAV_IND)
+      # Inf vznika z min()/max() nad prazdnym vektorem, tj. kdyz pro dany indikator
+      # neexistuje zadna nenulova (nechybejici) hodnota STAV_IND ke shrnuti (indikator
+      # nebyl zjisten/vyhodnocen). Puvodne se toto tise mapovalo na 0 (spatny), coz
+      # nespravne oznacovalo "nemame data" jako "nepriznivy stav" - opraveno na NA
+      # ("neznamy"), v souladu s existujicim osetrenim is.na(STAV_IND) nize.
+      STAV_IND = ifelse(is.infinite(STAV_IND), NA_real_, STAV_IND)
     ) %>%
     dplyr::group_by(kod_chu, DRUH) %>%
     dplyr::mutate(

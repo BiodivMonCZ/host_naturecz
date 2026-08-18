@@ -2,16 +2,20 @@
 # Nacteni knihoven -----
 #----------------------------------------------------------#
 packages <- c(
-  "tidyverse", 
-  "sf", 
-  "sp", 
-  "proj4", 
+  "tidyverse",
+  "sf",
+  "sp",
+  "proj4",
   "openxlsx",
-  "fuzzyjoin", 
+  "fuzzyjoin",
   "remotes",
   "ggplot2",
   "progress",
-  "fs"
+  "fs",
+  # data.table se pouziva pouze pro agregaci STAV_IND v R/02_druhy/21_2_...R,
+  # ktera je pri poctu skupin v radu statisicu v dplyr neunosne pomala
+  # (pres 20 minut na jeden druh vs. ~2 s) - viz komentar u agg_stav_ind()
+  "data.table"
 )
 
 # Standardni package

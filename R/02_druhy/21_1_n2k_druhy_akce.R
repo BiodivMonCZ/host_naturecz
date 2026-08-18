@@ -386,10 +386,17 @@ run_n2k_druhy <- function(
       is.na(STA_STAVVODA) == FALSE ~ 0L,
       TRUE ~ NA_integer_
     ),
-    # STA_VODAMANIPULACE: Detekce manipulace s hladinou z poznamky
-    STA_VODAMANIPULACE = dplyr::case_when(
-      grepl("manipulace s vodní hladinou", STRUKT_POZN, ignore.case = TRUE) ~ "ano",
-      TRUE ~ "ne"
+    # STA_MANIPULACE: Manipulace s vodni hladinou (extrakce ze strukturovane poznamky)
+    # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE, ind_id = 33)
+    # Metodika: indikator se hodnoti pouze v obdobi vyvoje snusek/pulcu (duben az cervenec)
+    STA_MANIPULACE = dplyr::case_when(
+      MESIC >= 4 & MESIC <= 7 ~ readr::parse_character(
+        stringr::str_extract(
+          STRUKT_POZN,
+          "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
+        )
+      ),
+      TRUE ~ NA_character_
     ),
     # STA_ZTRATABIO: Indikator ztraty biotopu (zazemeni nebo zanik)
     STA_ZTRATABIO = dplyr::case_when(
@@ -404,11 +411,18 @@ run_n2k_druhy <- function(
         "(?<=<STA_KACHNAPRITOMNOST>).*(?=</STA_KACHNAPRITOMNOST>)"
       )
     ),
-    STA_RYBY = dplyr::case_when(
-      grepl("akvakultur", STRUKT_POZN, ignore.case = TRUE) | 
-        grepl("rybolov", STRUKT_POZN, ignore.case = TRUE) 
-      ~ "ano",
-      TRUE ~ "ne"),
+    # STA_RYBY: Nadmerny tlak ryb.
+    # POZOR: ve skutecnych datech (STRUKT_POZN) neexistuje tag <STA_RYBY> - overeno na
+    # exportu z NDOP, kde je pole ulozeno pod tagem <STA_INVDRUHRYBA> (ano/ne), ktery se
+    # u obojzivelniku tyka prakticky vyhradne tohoto indikatoru. Nazev promenne v kodu
+    # (STA_RYBY) je zachovan, aby odpovidal ciselniku cis_indikatory_popis.csv (ind_id 32)
+    # a tabulce limitu (limity_vse.csv), zdrojovy tag je ale STA_INVDRUHRYBA.
+    STA_RYBY = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_INVDRUHRYBA>).*(?=</STA_INVDRUHRYBA>)"
+      )
+    ),
     STA_ZOOPLANKTON = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
@@ -437,6 +451,11 @@ run_n2k_druhy <- function(
     STA_PRUHLEDNOSTVODA = dplyr::case_when(
       is.na(STA_PRUHLEDNOSTVODAT) == FALSE ~ STA_PRUHLEDNOSTVODAT,
       TRUE ~ STA_PRUHLEDNOSTVODA),
+    # Metodika: pruhlednost vody se hodnoti jen v pozdejsim jarnim obdobi (kveten az 15. cervna)
+    STA_PRUHLEDNOSTVODA = dplyr::case_when(
+      MESIC == 5 | (MESIC == 6 & DEN <= 15) ~ STA_PRUHLEDNOSTVODA,
+      TRUE ~ NA_character_
+    ),
     STA_UHYNOBOJZIVELNIK = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
@@ -451,14 +470,33 @@ run_n2k_druhy <- function(
     ),
     STA_ZASTINENILITORAL = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_ZASTINENILITORAL>).*(?=</STA_ZASTINENILITORAL>)"
       )
     ),
-    # Sjednoceni zastineni hladiny (bere se mensi hodnota z hladiny/litoralu)
-    STA_ZASTINENIHLADINA = dplyr::case_when(
-      STA_ZASTINENIHLADINA <= STA_ZASTINENILITORAL ~ STA_ZASTINENILITORAL,
-      TRUE ~ STA_ZASTINENIHLADINA)
+    # Sjednoceni zastineni hladiny (bere se horsi, tj. vyssi kategorie z hladiny/litoralu)
+    # POZOR: puvodni logika porovnavala textove kategorie operatorem <=, coz neodpovida
+    # poradi procentnich pasem - nahrazeno poradim dle skutecne hodnoty zastineni
+    STA_ZASTINENIHLADINA = {
+      poradi <- c("0-25 %" = 1, "26-50 %" = 2, "51-75 %" = 3, "76-100 %" = 4)
+      r_hladina = unname(poradi[STA_ZASTINENIHLADINA])
+      r_litoral = unname(poradi[STA_ZASTINENILITORAL])
+      dplyr::case_when(
+        is.na(r_litoral) ~ STA_ZASTINENIHLADINA,
+        is.na(r_hladina) ~ STA_ZASTINENILITORAL,
+        r_litoral >= r_hladina ~ STA_ZASTINENILITORAL,
+        TRUE ~ STA_ZASTINENIHLADINA
+      )
+    },
+    # STA_HLOUBKAMENSI20: Plocha s hloubkou mensi nez 20 cm (%) - indikator dle metodiky verze 2026
+    # POZOR: nazev tagu ve STRUKT_POZN nelze overit bez pristupu k ostrym datum ze Survey123;
+    # pred nasazenim je nutne zkontrolovat proti aktualnimu exportu z NDOP
+    STA_HLOUBKAMENSI20 = readr::parse_number(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_HLOUBKAMENSI20>).*(?=</STA_HLOUBKAMENSI20>)"
+      )
+    )
   ) %>%
     # ------------------------------------------#
     ## Ryby a mihule ----- 
@@ -845,9 +883,12 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::reframe(
       # ------------------------------------------#
-      ### Společné indikátory ----- 
+      ### Společné indikátory -----
       # ------------------------------------------#
       CELKOVE = NA,
+      # CILMON_MAX: Byl v danem roce na teto DP cileny monitoring?
+      # Pouzito jako referencni rok pro POP_ZMENARAD (viz nize)
+      CILMON_MAX = max(CILMON, na.rm = TRUE),
       # POP_POCETSUMLOKAL: Soucet populace za lokalitu
       # DULEZITE: Pouzivame !duplicated(IDX_ND_AKCE) pro zamezeni nasobeni stejnych akci
       POP_POCETSUMLOKAL = sum(POP_POCET[!duplicated(IDX_ND_AKCE)], na.rm = TRUE),
@@ -1013,7 +1054,46 @@ run_n2k_druhy <- function(
       POP_REPROCHI = POP_POCETLETS2/POP_POCETLETS1
     ) %>%
     dplyr::ungroup()
-  
+
+  # Lokalita - zmena kategorie pocetnosti (POP_ZMENARAD) -----
+  # Metodika (obojzivelnici): "porovnani odhadovane pocetnosti" je klicovy populacni
+  # indikator - nepriznivy stav je pokles o vice nez 1 kategorii pocetnosti (POP_POCETNOST,
+  # skala 0-5) oproti referencni hodnote, kterou je POSLEDNI PREDCHOZI ROK S CILENYM
+  # MONITORINGEM (CILMON == 1) na teze DP. Pokud takovy referencni rok neexistuje
+  # (napr. prvni rok cileneho monitoringu na dane DP), indikator zustava NA (nelze hodnotit).
+  n2k_druhy_lokpop_zmenarad_ref <- n2k_druhy_lokpop %>%
+    dplyr::filter(CILMON_MAX == 1) %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK_REF = ROK, POP_POCETNOST_REF = POP_POCETNOST) %>%
+    dplyr::distinct()
+
+  n2k_druhy_lokpop_zmenarad <- n2k_druhy_lokpop %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_POCETNOST) %>%
+    dplyr::distinct() %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_zmenarad_ref,
+      by = c("KOD_LOKAL", "DRUH"),
+      relationship = "many-to-many"
+    ) %>%
+    # Referencni rok musi predchazet hodnocenemu roku
+    dplyr::filter(ROK_REF < ROK) %>%
+    # Vezmeme nejblizsi (nejnovejsi) predchozi rok s cilenym monitoringem
+    dplyr::group_by(KOD_LOKAL, DRUH, ROK) %>%
+    dplyr::slice_max(order_by = ROK_REF, n = 1, with_ties = FALSE) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      # POP_ZMENARAD: zmena kategorie pocetnosti oproti referencnimu roku
+      # (zaporne cislo = pokles o X kategorii; limit v limity_vse.csv je min -1,
+      # tj. pokles o vice nez 1 kategorii = nepriznivy stav)
+      POP_ZMENARAD = POP_POCETNOST - POP_POCETNOST_REF
+    ) %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_ZMENARAD)
+
+  n2k_druhy_lokpop <- n2k_druhy_lokpop %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_zmenarad,
+      by = c("KOD_LOKAL", "DRUH", "ROK")
+    )
+
   # Lokalita - trendy akualni----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%

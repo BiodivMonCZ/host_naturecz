@@ -5,20 +5,8 @@ stanoviste,INVASIVE,,NA,NA,ne,lok
 stanoviste,INVASIVE_LIST,,NA,NA,ne,lok
 stanoviste,KALAMITA_POLOM,,NA,NA,ne,lok
 stanoviste,KVALITA,,NA,NA,ne,lok
-Bombina bombina,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Bombina variegata,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Lissotriton montandoni,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus carnifex,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus cristatus,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus dobrogicus,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Bombina bombina,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Bombina variegata,LOK_POCETDOBR,NA,NA,NA,ne,chu
 Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Lissotriton montandoni,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus carnifex,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus cristatus,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Triturus dobrogicus,LOK_POCETDOBR,NA,NA,NA,ne,chu
 stanoviste,MINIMIAREAL,,NA,NA,ne,lok
 stanoviste,MINIMIAREAL_HODNOTA,,NA,NA,ne,lok
 stanoviste,MINIMIAREAL_JADRA,,NA,NA,ne,lok
@@ -256,12 +244,12 @@ Triturus dobrogicus,POP_REPRO,val,NA,amplexus,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex,NA,lok
 Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
 Bombina bombina,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
-Bombina variegata,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
+Bombina variegata,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
-Lissotriton montandoni,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
-Triturus carnifex,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
-Triturus cristatus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
-Triturus dobrogicus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
+Lissotriton montandoni,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus carnifex,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus cristatus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
+Triturus dobrogicus,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
 Barbastella barbastellus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
 Barbastella barbastellus,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
 Myotis bechsteinii,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
@@ -272,13 +260,13 @@ Myotis myotis,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I
 Myotis myotis,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
 Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
 Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
-Bombina bombina,POP_ZMENARAD,max,-1,NA,ano,lok
-Bombina variegata,POP_ZMENARAD,max,-1,NA,ano,lok
+Bombina bombina,POP_ZMENARAD,min,-1,NA,ano,lok
+Bombina variegata,POP_ZMENARAD,min,-1,NA,ano,lok
 Epidalea calamita,POP_ZMENARAD,max,-1,NA,ano,lok
-Lissotriton montandoni,POP_ZMENARAD,max,-1,NA,ano,lok
-Triturus carnifex,POP_ZMENARAD,max,-1,NA,ano,lok
-Triturus cristatus,POP_ZMENARAD,max,-1,NA,ano,lok
-Triturus dobrogicus,POP_ZMENARAD,max,-1,NA,ano,lok
+Lissotriton montandoni,POP_ZMENARAD,min,-1,NA,ano,lok
+Triturus carnifex,POP_ZMENARAD,min,-1,NA,ano,lok
+Triturus cristatus,POP_ZMENARAD,min,-1,NA,ano,lok
+Triturus dobrogicus,POP_ZMENARAD,min,-1,NA,ano,lok
 stanoviste,RED_LIST,,NA,NA,ne,lok
 stanoviste,RED_LIST_SPECIES,,NA,NA,ne,lok
 stanoviste,ROZLOHA,,NA,NA,ne,lok
@@ -310,11 +298,11 @@ Lycaena dispar,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Phengaris nausithous,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Phengaris teleius,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
 Graphoderus bilineatus,STA_LITVEGET,min,70,procento pokryvnosti litorální vegetace,ano,lok
-Bombina bombina,STA_VODAMANIPULACE,val,ne,NA,ne,lok
-Lissotriton montandoni,STA_VODAMANIPULACE,val,ne,NA,ne,lok
-Triturus carnifex,STA_VODAMANIPULACE,val,ne,NA,ne,lok
-Triturus cristatus,STA_VODAMANIPULACE,val,ne,NA,ne,lok
-Triturus dobrogicus,STA_VODAMANIPULACE,val,ne,NA,ne,lok
+Bombina bombina,STA_MANIPULACE,val,ne,NA,ne,lok
+Lissotriton montandoni,STA_MANIPULACE,val,ne,NA,ne,lok
+Triturus carnifex,STA_MANIPULACE,val,ne,NA,ne,lok
+Triturus cristatus,STA_MANIPULACE,val,ne,NA,ne,lok
+Triturus dobrogicus,STA_MANIPULACE,val,ne,NA,ne,lok
 Euphydryas maturna,STA_MIKRPROSTLINA,val,dominantnì,kategorie relativní poèetnosti,ne,lok
 Carabus variolosus,STA_MRTDREVO,val,jednotlivé kmeny,stupnice relativní škály,ano,lok
 Carabus variolosus,STA_MRTDREVO,val,hojnì,stupnice relativní škály,ano,lok
@@ -459,13 +447,7 @@ Bombina variegata,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
 Bombina variegata,STA_ZASTINENILITORAL,max,75,NA,ne,lok
 Leucorrhinia pectoralis,STA_ZAZEMNENI,max,60,%,ne,lok
 Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,NA,ne,lok
-Bombina bombina,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Bombina variegata,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 Epidalea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Lissotriton montandoni,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Triturus carnifex,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Triturus cristatus,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-Triturus dobrogicus,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 stanoviste,TYPICKE_DRUHY,,NA,NA,ne,lok
 Bolbelamus unicornis,VLV_VLIVY,NA,NA,NA,ne,lok
 Bombina bombina,VLV_VLIVY,NA,NA,NA,ne,lok
@@ -491,3 +473,32 @@ Rosalia alpina,VLV_VLIVY,NA,NA,NA,ne,lok
 Triturus carnifex,VLV_VLIVY,NA,NA,NA,ne,lok
 Triturus cristatus,VLV_VLIVY,NA,NA,NA,ne,lok
 Triturus dobrogicus,VLV_VLIVY,NA,NA,NA,ne,lok
+Bombina bombina,LOK_PROCDOBR,min,70,NA,ano,chu
+Bombina variegata,LOK_PROCDOBR,min,70,NA,ano,chu
+Lissotriton montandoni,LOK_PROCDOBR,min,70,NA,ano,chu
+Triturus carnifex,LOK_PROCDOBR,min,70,NA,ano,chu
+Triturus cristatus,LOK_PROCDOBR,min,70,NA,ano,chu
+Triturus dobrogicus,LOK_PROCDOBR,min,70,NA,ano,chu
+Bombina variegata,POP_PRESENCE,val,ano,NA,ano,lok
+Lissotriton montandoni,POP_PRESENCE,val,ano,NA,ano,lok
+Triturus carnifex,POP_PRESENCE,val,ano,NA,ano,lok
+Triturus cristatus,POP_PRESENCE,val,ano,NA,ano,lok
+Triturus dobrogicus,POP_PRESENCE,val,ano,NA,ano,lok
+Bombina bombina,STA_HLOUBKAMENSI20,min,25,NA,ne,lok
+Bombina variegata,STA_HLOUBKAMENSI20,min,75,NA,ne,lok
+Lissotriton montandoni,STA_HLOUBKAMENSI20,min,75,NA,ne,lok
+Triturus carnifex,STA_HLOUBKAMENSI20,min,25,NA,ne,lok
+Triturus cristatus,STA_HLOUBKAMENSI20,min,25,NA,ne,lok
+Triturus dobrogicus,STA_HLOUBKAMENSI20,min,25,NA,ne,lok
+Bombina bombina,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Bombina bombina,LOK_DILCPOCET,NA,NA,NA,ne,chu
+Bombina variegata,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Bombina variegata,LOK_DILCPOCET,NA,NA,NA,ne,chu
+Lissotriton montandoni,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Lissotriton montandoni,LOK_DILCPOCET,NA,NA,NA,ne,chu
+Triturus carnifex,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Triturus carnifex,LOK_DILCPOCET,NA,NA,NA,ne,chu
+Triturus cristatus,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Triturus cristatus,LOK_DILCPOCET,NA,NA,NA,ne,chu
+Triturus dobrogicus,LOK_DILCDOBRE,NA,NA,NA,ne,chu
+Triturus dobrogicus,LOK_DILCPOCET,NA,NA,NA,ne,chu

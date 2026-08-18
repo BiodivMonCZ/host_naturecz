@@ -117,10 +117,15 @@ run_n2k_druhy_lok <- function(
   n2k_eval <- n2k_druhy_lim_post %>%
     dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
     dplyr::summarise(
-      # Pocet OCEKAVANYCH indikatoru (maji definovany limit a nejsou prazdne)
-      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
-      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
-      
+      # Pocet OCEKAVANYCH indikatoru: maji definovany limit A ZAROVEN byly pro tuto
+      # DP a rok skutecne vyhodnotitelne (STAV_IND neni NA). Metodika: "Indikator se
+      # hodnoti pouze, jsou-li dostupne informace k jeho hodnoceni" - indikator, ktery
+      # nebyl v danem roce zmeren (napr. mimo sezonni okno u STA_PRUHLEDNOSTVODA/
+      # STA_MANIPULACE, nebo proste nezaznamenan), se NESMI pocitat jako "ocekavany a
+      # nesplneny", jinak by chybejici udaj byl nespravne penalizovan jako selhani.
+      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
+      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
+
       # Pocet SPLNENYCH indikatoru (STAV_IND je 1)
       N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
       N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
@@ -131,16 +136,23 @@ run_n2k_druhy_lok <- function(
       .groups = "drop"
     ) %>%
     dplyr::mutate(
-      # Logika semaforu pro celkove hodnoceni
+      # Logika hodnoceni DP dle Tabulky 1 metodiky (obojzivelnici):
+      #   pocet spatne hodnocenych populacnich (klicovych) indikatoru | pocet spatne hodnocenych
+      #   stanovistnich (ostatnich) indikatoru | celkovy stav
+      #   max 0                                | 0 - 1                                          | dobry
+      #   max 0                                | min 2                                          | zhorseny
+      #   min 1                                | -                                              | spatny
+      # Tzn. "spatny" muze zpusobit jen selhani klicoveho (populacniho) indikatoru; sebevic
+      # spatnych stanovistnich indikatoru samo o sobe vede nejvyse na "zhorseny".
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
       CELKOVE = dplyr::case_when(
         is.na(MAX_CILMON) ~ NA_real_,
-        # Klicove indikatory musi byt splneny vsechny
+        # Alespon 1 spatne hodnoceny klicovy (populacni) indikator = spatny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        # Ostatni indikatory - tolerance selhani
-        N_OTH_FAIL > 1 ~ 0,   # Vice nez 1 chyba = Spatny
-        N_OTH_FAIL == 1 ~ 0.5, # Prave 1 chyba = Zhorseny
-        TRUE ~ 1               # Bez chyb = Dobry
+        # 0 spatnych klicovych indikatoru, ale >=2 spatne stanovistni indikatory = zhorseny
+        N_OTH_FAIL >= 2 ~ 0.5,
+        # 0 spatnych klicovych indikatoru a max 1 spatny stanovistni indikator = dobry
+        TRUE ~ 1
       )
     )
   
