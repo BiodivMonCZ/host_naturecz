@@ -29,7 +29,6 @@ poèet dílèích lokalit v dobrém stavu,130,LOK_DILCDOBRE,
 ,130,POP_POCETPOLE1D,
 poèet hodnocených dílèích lokalit,131,LOK_DILCPOCET,
 ,131,POP_POCETPOLE1,
-,189,POP_PROCPOLE1D,
 rozloha,128,ROZLOHA,5
 kvalita,129,KVALITA,5
 minimiareál,133,MINIMIAREAL,5
@@ -44,3 +43,4 @@ minimiareál (hodnota),,MINIMIAREAL_HODNOTA,5
 mrtvé døevo,162,MRTVE_DREVO,5
 mrtvé døevo (potenciál),,KALAMITA_POLOM,5
 plocha s hloubkou pod 20 cm (nutno overit nazev tagu ve Survey123),,STA_HLOUBKAMENSI20,
+procento dílèích lokalit v dobrém stavu,189,LOK_PROCDOBR,2
