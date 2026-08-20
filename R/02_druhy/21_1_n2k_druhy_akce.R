@@ -499,16 +499,52 @@ run_n2k_druhy <- function(
       STA_STAVVODAPROC <= 25  ~ 1L,
       TRUE                    ~ 0L
     ),
-    # STA_MANIPULACE: Manipulace s vodni hladinou (extrakce ze strukturovane poznamky)
-    # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE, ind_id = 33)
-    # Metodika: indikator se hodnoti pouze v obdobi vyvoje snusek/pulcu (duben az cervenec)
-    STA_MANIPULACE = dplyr::case_when(
-      MESIC >= 4 & MESIC <= 7 ~ readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
+    # STA_MANIPULACE: Manipulace s vodni hladinou
+    # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE,
+    # ind_id = 33). Metodika (par. Vyhodnoceni): "Hodnoti se tedy manipulace
+    # od dubna do cervence."
+    #
+    # ZDROJ (nalez H-18): terenni cast metodiky uvadi "Zaznamenava se VE VLIVECH
+    # v casti Voda", nikoli jako samostatny tag. Rozhodnuti autoru 2026-08-20:
+    # "STA_MANIPULACE odvozovat podle metodiky", tj. z VLV_VLIVY.
+    # Tag <STA_MANIPULACE> je ale PONECHAN jako druhy zdroj, protoze v exportu
+    # je 25 z 57 jeho zaznamu "ano", ktere se ve VLV_VLIVY neobjevuji - vyrazenim
+    # tagu bychom o ne prisli. Metodika (par. Vyhodnoceni) navic u stanovistnich
+    # indikatoru rika, ze "do celkoveho hodnoceni vstupuje NEJHORSI pozorovana
+    # hodnota", takze zaznam manipulace v kterémkoli ze zdroju je manipulace.
+    #
+    # VLV_VLIVY je seznam, jehoz nazvy kategorii samy obsahuji carky
+    # ("abiotické přírodní procesy (eroze, zanášení, vysychání apod.)"), proto se
+    # NIKDY nedeli podle carky, ale paruje se vzorem nad celym retezcem.
+    STA_MANIPULACE_TAG = dplyr::na_if(
+      stringr::str_squish(
+        readr::parse_character(
+          stringr::str_extract(
+            STRUKT_POZN,
+            "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
+          )
         )
       ),
+      ""
+    ),
+    STA_MANIPULACE_VLV = dplyr::case_when(
+      is.na(stringr::str_squish(VLV_VLIVY)) |
+        stringr::str_squish(VLV_VLIVY) == "" ~ NA_character_,
+      grepl(
+        "manipulace s vodní hladinou|regulování vodní hladiny|regulace vodní hladiny",
+        VLV_VLIVY,
+        ignore.case = TRUE
+      ) ~ "ano",
+      TRUE ~ "ne"
+    ),
+    # Sjednoceni obou zdroju + sezonni omezeni dle metodiky (duben az cervenec).
+    # Prazdny retezec v tagu se diky na_if() vyse stal NA (nalez H-12) - drive
+    # se 402 nevyplnenych zaznamu porovnavalo s limitem val "ne" a vychazelo
+    # jako ZJISTENA MANIPULACE, tedy nepriznivy stav.
+    STA_MANIPULACE = dplyr::case_when(
+      !(MESIC >= 4 & MESIC <= 7) ~ NA_character_,
+      STA_MANIPULACE_TAG %in% "ano" | STA_MANIPULACE_VLV %in% "ano" ~ "ano",
+      !is.na(STA_MANIPULACE_TAG) | !is.na(STA_MANIPULACE_VLV) ~ "ne",
       TRUE ~ NA_character_
     ),
     # STA_ZTRATABIO: Indikator ztraty biotopu (zazemeni nebo zanik)
