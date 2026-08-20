@@ -74,6 +74,15 @@ run_n2k_druhy <- function(
     current_year = 2025
 ) {
   
+  # Druhy resene metodikou obojzivelniku (Priloha 1: BBOM, BVAR, LMON, TRITURUS).
+  # Nektera pravidla nize plati POUZE pro ne - sdileny kod obsluhuje i ryby,
+  # hmyz, savce a rostliny, kde se skala pocetnosti i zdroje indikatoru lisi.
+  obojzivelnici_metodika <- c(
+    "Bombina bombina", "Bombina variegata", "Lissotriton montandoni",
+    "Triturus cristatus", "Triturus carnifex", "Triturus dobrogicus"
+  )
+  je_obojzivelnik <- species_name %in% obojzivelnici_metodika
+
   # Kontrola limitu pro pocet (POP_POCET)
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
@@ -212,14 +221,30 @@ run_n2k_druhy <- function(
       grepl("počet samců: cca 100", POZN_TAX) ~ 4,
       grepl("počet samců: řádově vyšší desítky", POZN_TAX) ~ 3,
       POP_RELPOC == "řádově vyšší desítky" ~ 3,
-      POP_POCET > 51 & POP_POCET <= 100 ~ 3,
+      # Metodika obojzivelniku: vyssi desitky = 51-100. Puvodne "> 51", takze
+      # hodnota POCET == 51 nespadala nikam a koncila jako NA.
+      POP_POCET >= 51 & POP_POCET <= 100 ~ 3,
       POP_RELPOC == "řádově nižší desítky" ~ 2,
       grepl("počet samců: řádově nižší desítky", POZN_TAX) ~ 2,
+      # Metodika obojzivelniku definuje sestistupnovou skalu, kde nizsi desitky
+      # jsou 11-50 a vyssi desitky 51-100. Kategorie NDOP "11-100" tuto hranici
+      # PRESAHUJE - v exportu jde o 1 630 zaznamu. Rozhodnuti autoru metodiky
+      # (2026-08-20): "bere nizsi kategorie, konzervativni predbezna opatrnost",
+      # tedy 2. U ostatnich skupin (ryby, hmyz, savci, rostliny) zustava puvodni
+      # zarazeni 3, aby se nezmenilo jejich hodnoceni.
+      je_obojzivelnik & POP_RELPOC == "11-100" ~ 2,
       POP_RELPOC == "11-100" ~ 3,
-      POP_POCET > 10 & POP_POCET < 50 ~ 2,
+      # Metodika: nizsi desitky = 11-50. Puvodne "> 10 & < 50", takze hodnota
+      # POCET == 50 nespadala nikam a koncila jako NA.
+      POP_POCET >= 11 & POP_POCET <= 50 ~ 2,
       POP_POCET > 0 & POP_POCET <= 10 ~ 1,
       POP_RELPOC == "do 10" ~ 1,
       POP_RELPOC == "1-10" ~ 1,
+      # Mezerove varianty zapisu z NDOP - drive nerozpoznane, koncily jako NA
+      # ("1 - 10" 79 zaznamu, "101 - 1000" 31, "1001 - 10 000" 1).
+      POP_RELPOC == "1 - 10" ~ 1,
+      POP_RELPOC == "101 - 1000" ~ 4,
+      POP_RELPOC == "1001 - 10 000" ~ 5,
       grepl("počet samců: do 10", POZN_TAX) ~ 1
       ),
     # POP_PASTIPOCET: Extrakce poctu pasti ze strukturovane poznamky (XML tag)
@@ -534,19 +559,40 @@ run_n2k_druhy <- function(
     ),
     STA_PRUHLEDNOSTVODAT = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_PRUHLEDNOSTVODAT>).*(?=</STA_PRUHLEDNOSTVODAT>)"
       )
     ),
-    # Sjednoceni pruhlednosti vody (priorita STA_PRUHLEDNOSTVODAT)
-    STA_PRUHLEDNOSTVODA = dplyr::case_when(
-      is.na(STA_PRUHLEDNOSTVODAT) == FALSE ~ STA_PRUHLEDNOSTVODAT,
-      TRUE ~ STA_PRUHLEDNOSTVODA),
-    # Metodika: pruhlednost vody se hodnoti jen v pozdejsim jarnim obdobi (kveten az 15. cervna)
-    STA_PRUHLEDNOSTVODA = dplyr::case_when(
-      MESIC == 5 | (MESIC == 6 & DEN <= 15) ~ STA_PRUHLEDNOSTVODA,
-      TRUE ~ NA_character_
+    # STA_PRUHLEDNOSTVODAR: varianta pro rybniky. Puvodne se tento tag VUBEC
+    # NECETL, pritom jde o 1 931 zaznamu - u rybnicnich DP tak pruhlednost
+    # chybela, ackoli data existovala.
+    STA_PRUHLEDNOSTVODAR = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_PRUHLEDNOSTVODAR>).*(?=</STA_PRUHLEDNOSTVODAR>)"
+      )
     ),
+    # Sjednoceni pruhlednosti vody.
+    # Poradi priority: nejprve typove varianty (tune, rybnik), ktere nesou
+    # kategorie ("nad 50 cm", "do 30 cm", "az na dno"), az pak obecny tag,
+    # ktery nese hodnotu v centimetrech. Duvod: obe varianty se v jednom
+    # zaznamu prakticky nekombinuji a puvodni kod uz davel prednost variante
+    # STA_PRUHLEDNOSTVODAT pred obecnou - toto poradi je zachovano a jen
+    # doplneno o rybnicni variantu.
+    STA_PRUHLEDNOSTVODA = dplyr::coalesce(
+      STA_PRUHLEDNOSTVODAT,
+      STA_PRUHLEDNOSTVODAR,
+      STA_PRUHLEDNOSTVODA
+    ),
+    # ZRUSENO 2026-08-20 (nalez H-15): puvodne zde bylo sezonni omezeni
+    #   MESIC == 5 | (MESIC == 6 & DEN <= 15) ~ STA_PRUHLEDNOSTVODA,
+    #   TRUE ~ NA_character_
+    # ktere zahazovalo vsechny zaznamy mimo kveten az 15. cervna. Toto pravidlo
+    # NEMA oporu v textu metodiky - par. Vyhodnoceni zadne casove omezeni
+    # pruhlednosti neuvadi a terenni cast obsahuje pouze doporuceni k poradi
+    # navstev ("vhodne predevsim pro zaznamenani pruhlednosti v reprezentativ-
+    # nejsim obdobi"), nikoli limit pro vyhodnoceni. Rozhodnuti autoru metodiky
+    # (2026-08-20): "zrus casove omezeni, ale popis zmenu".
     STA_UHYNOBOJZIVELNIK = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
