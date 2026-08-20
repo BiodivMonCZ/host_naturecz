@@ -52,6 +52,20 @@ stav_vody_slovni <- function(x) {
   )
 }
 
+# Klouzavy soucet pres POSLEDNI TRI MONITOROVANE SEZONY VCETNE aktualniho radku.
+# Vstupem je vektor serazeny vzestupne podle roku v ramci jedne DP a druhu.
+# Metodika pracuje se "tremi poslednimi sezonami s monitoringem dane DP", nikoli
+# se tremi kalendarnimi roky - okno se proto pocita pres radky, ne pres roky.
+# Vraci NA, pokud v okne neni ani jedna nechybejici hodnota.
+roll3_sum <- function(x) {
+  x <- as.numeric(x)
+  x[is.infinite(x)] <- NA_real_
+  vapply(seq_along(x), function(i) {
+    v <- x[max(1L, i - 2L):i]
+    if (all(is.na(v))) NA_real_ else sum(v, na.rm = TRUE)
+  }, numeric(1))
+}
+
 run_n2k_druhy <- function(
     n2k_load,
     species_name,
@@ -1171,6 +1185,41 @@ run_n2k_druhy <- function(
       by = c("KOD_LOKAL", "DRUH", "ROK")
     )
 
+  # Lokalita - trilete indikatory POCITANE PRO KAZDY HODNOCENY ROK ZVLAST -----
+  # Metodika:
+  #   reprodukce - "spatne, neni-li reprodukce dolozena ani jednou ze TRI
+  #                 POSLEDNICH SEZON S MONITORINGEM dane DP",
+  #   vysychani  - "spatne, pokud vodni plocha vyschla v KAZDEM ZE TRI
+  #                 POSLEDNICH HODNOCENYCH LET".
+  # Obojí je okno koncici v hodnocenem roce. Puvodne se obe hodnoty pocitaly
+  # jednou za celou DP a pripojovaly se bez ROKU, takze historicke rocniky
+  # dedily hodnotu odvozenou z pozdejsich dat a zpetne hodnoceni nebylo
+  # reprodukovatelne.
+  #
+  # POZOR na semantiku prazdneho okna: roll3_sum() vraci NA, kdyz v okne neni
+  # ani jedna nechybejici hodnota. Puvodni sum(na.rm = TRUE) vracel v takovem
+  # pripade 0, coz u POP_REPROPERIOD3 (limit min 1) znamenalo NESPLNENY KLICOVY
+  # indikator jen proto, ze reprodukce nebyla vubec zjistovana. To odporuje vete
+  # metodiky "Indikator se hodnoti pouze, jsou-li dostupne informace k jeho
+  # hodnoceni." (viz nalez H-19 v harmonizace_registr.md).
+  n2k_druhy_lokpop_period3 <- n2k_druhy_lokpop %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_REPROMAX, STA_VYSYCHMAX) %>%
+    dplyr::distinct() %>%
+    dplyr::arrange(KOD_LOKAL, DRUH, ROK) %>%
+    dplyr::group_by(KOD_LOKAL, DRUH) %>%
+    dplyr::mutate(
+      POP_REPROPERIOD3     = roll3_sum(POP_REPROMAX),
+      STA_VYSYCHANIPERIOD3 = roll3_sum(STA_VYSYCHMAX)
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_REPROPERIOD3, STA_VYSYCHANIPERIOD3)
+
+  n2k_druhy_lokpop <- n2k_druhy_lokpop %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_period3,
+      by = c("KOD_LOKAL", "DRUH", "ROK")
+    )
+
   # Lokalita - trendy akualni----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%
@@ -1210,24 +1259,20 @@ run_n2k_druhy <- function(
       # POP_ABUNDANCEMEAN: Prumerna abundance za posledni 3 roky
       POP_ABUNDANCEMEAN = mean(head(POP_ABUNDANCE, 3), na.rm = TRUE),
       # POP_POCETNOSTMAX: Maximalni pocetnost
+      # POZN.: POP_REPROPERIOD3 a STA_VYSYCHANIPERIOD3 se odsud PRESUNULY do
+      # samostatne tabulky n2k_druhy_lokpop_period3 (viz nize). Puvodne se
+      # pocitaly zde, tj. jednou za KOD_LOKAL + DRUH ze tri nejnovejsich radku,
+      # a pripojovaly se BEZ ROKU - vsechny rocniky dane DP tak dostaly tutez
+      # hodnotu odvozenou z nejnovejsich dat (hodnoceni roku 2019 mohlo byt
+      # ovlivneno pozorovanim z roku 2025). Metodika pritom mluvi o "trech
+      # poslednich sezonach s monitoringem dane DP", tedy o oknu koncicim
+      # v hodnocenem roce.
       POP_POCETNOSTMAX = max(
-        POP_POCETNOST, 
+        POP_POCETNOST,
         na.rm = TRUE
-      ),
-      # POP_REPROPERIOD3: Suma reprodukce za 3 roky
-      POP_REPROPERIOD3 = {
-        v <- as.numeric(POP_REPROMAX[1:3])
-        v[is.infinite(v)] <- NA_real_
-        sum(v, na.rm = TRUE)
-      },
-      # STA_VYSYCHANIPERIOD3: Suma vysychani za 3 roky
-      STA_VYSYCHANIPERIOD3 = {
-        v <- as.numeric(STA_VYSYCHMAX[1:3])
-        v[is.infinite(v)] <- NA_real_
-        sum(v, na.rm = TRUE)
-      }
+      )
     ) %>%
-    dplyr::ungroup() 
+    dplyr::ungroup()
   
   # Lokalita - trendy referencni----
   n2k_druhy_lokpop_trend_ascd <- n2k_druhy_lokpop %>%
