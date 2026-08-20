@@ -1,3 +1,57 @@
+#----------------------------------------------------------#
+# Pomocne funkce - stav vody (obojzivelnici) ----
+#----------------------------------------------------------#
+# Metodika (par. Sledovane indikatory, "Stav vody"): "Zaznamenava se mira
+# zaplaveni dna DP v procentech, kde 100 % odpovida plne zaplavenemu dnu,
+# tj. zaplaveni cele panve v jejim maximalnim rozsahu; 0 % odpovida zcela
+# vyschle plose."
+#
+# NDOP ale tentyz udaj nese ve TRECH ruznych tvarech soucasne:
+#   - holym cislem v procentech ...... "100", "80", "0"
+#   - procentnim pasmem .............. "26-50 %", "0-25 %", "76-100 %"
+#   - slovnim stavem ................. "vyschle", "zanikla", "zazemnena"
+#
+# Puvodni case_when znal jen pasma a slovni tvar "vyschla" (zensky rod), ktery
+# se v datech NEVYSKYTUJE ANI JEDNOU - data pouzivaji tvar "vyschle". Vyschle
+# plochy proto propadaly na vetev is.na(...) == FALSE ~ 0L, tedy "nevysycha".
+# Mereno na exportu z NDOP (31 733 zaznamu 6 druhu metodiky) rozpoznaval
+# puvodni prevod: STA_STAVVODATUNE 82,3 %, STA_STAVVODARYBNIK 56,5 %,
+# STA_STAVVODAPERTUNE 29,8 %, STA_STAVVODALITORAL 0,0 % hodnot.
+#
+# norm_stavvody() prevadi vsechny tri tvary na jedno cislo = procento zaplaveni.
+# U pasma se bere HORNI mez, aby zustalo zachovano puvodni chovani ("1-25 %"
+# znamenalo vysychani, horni mez 25 <= 25 dava totez). Nerozpoznana hodnota
+# vraci NA - NIKDY ne 0 ani 100, aby chybejici udaj nebyl vydavan za mereni.
+norm_stavvody <- function(x) {
+  v <- stringr::str_squish(as.character(x))
+  v[v == ""] <- NA_character_
+  vl <- tolower(v)
+  out <- rep(NA_real_, length(v))
+  # slovni stavy = zcela bez vody
+  out[!is.na(vl) & grepl("^(vyschl|zanikl|zazem)", vl)] <- 0
+  # procentni pasmo "A-B" / "A-B %" -> horni mez
+  i <- is.na(out) & !is.na(vl) & grepl("^[0-9]+ *- *[0-9]+ *%?$", vl)
+  out[i] <- as.numeric(sub("^[0-9]+ *- *([0-9]+) *%?$", "\\1", vl[i]))
+  # hole cislo, volitelne s procentem
+  i <- is.na(out) & !is.na(vl) & grepl("^[0-9]+([.,][0-9]+)? *%?$", vl)
+  out[i] <- as.numeric(sub(",", ".", sub(" *%$", "", vl[i]), fixed = TRUE))
+  out[!is.na(out) & (out < 0 | out > 100)] <- NA_real_
+  out
+}
+
+# Slovni stav plochy - odlisuje ZANIK/ZAZEMNENI (ztrata biotopu) od pouheho
+# VYSCHNUTI (docasny stav). Osetruje oba rodove tvary, ktere se v datech
+# vyskytuji ("vyschla" i "vyschle").
+stav_vody_slovni <- function(x) {
+  vl <- tolower(stringr::str_squish(as.character(x)))
+  dplyr::case_when(
+    !is.na(vl) & grepl("^vyschl", vl) ~ "vyschla",
+    !is.na(vl) & grepl("^zanikl", vl) ~ "zanikla",
+    !is.na(vl) & grepl("^zazem",  vl) ~ "zazemnena",
+    TRUE ~ NA_character_
+  )
+}
+
 run_n2k_druhy <- function(
     n2k_load,
     species_name,
@@ -358,33 +412,53 @@ run_n2k_druhy <- function(
     ),
     STA_STAVVODATUNE = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_STAVVODATUNE>).*(?=</STA_STAVVODATUNE>)"
       )
     ),
-    # STA_STAVVODA: Sjednoceni stavu vody (priorita: tune -> litoral -> rybnik)
-    STA_STAVVODA = dplyr::case_when(
-      is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
-      is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
-      is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
-    # STA_STAVVODAKAT: Prevod slovniho hodnoceni stavu vody na ciselnou kategorii
-    STA_STAVVODAKAT = dplyr::case_when(
-      STA_STAVVODA == "zaniklá" ~ 0L,
-      STA_STAVVODA == "vyschlá" ~ 0L,
-      STA_STAVVODA == "1-25 %" ~ 1L,
-      STA_STAVVODA == "26-50 %" ~ 2L,
-      STA_STAVVODA == "51-75 %" ~ 3L,
-      STA_STAVVODA == "76-90 %" ~ 4L,
-      STA_STAVVODA == "91-100 %" ~ 5L,
-      TRUE ~ NA_integer_
+    # STA_STAVVODAPERTUNE: periodicke tune. Puvodne se tento tag VUBEC NECETL,
+    # pritom jde o 2 411 zaznamu - a zrovna o plochy, u nichz je vysychani
+    # sledovanym jevem. Rozhodnuti autoru metodiky (2026-08-20): periodicke tune
+    # se do hodnoceni vysychani zapocitavaji STEJNOU VAHOU jako trvale.
+    STA_STAVVODAPERTUNE = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_STAVVODAPERTUNE>).*(?=</STA_STAVVODAPERTUNE>)"
+      )
     ),
-    # STA_VYSYCHANI: Indikator vysychani (1 = vysycha, 0 = nevysycha)
+    # STA_STAVVODA: Sjednoceni stavu vody
+    # (priorita: tune -> periodicke tune -> litoral -> rybnik)
+    STA_STAVVODA = dplyr::coalesce(
+      STA_STAVVODATUNE,
+      STA_STAVVODAPERTUNE,
+      STA_STAVVODALITORAL,
+      STA_STAVVODARYBNIK
+    ),
+    # STA_STAVVODAPROC: zaplaveni dna v procentech, sjednocene ze vsech tvaru
+    # zapisu (holé cislo / pasmo / slovni stav) - viz norm_stavvody() nahore.
+    STA_STAVVODAPROC = norm_stavvody(STA_STAVVODA),
+    # STA_STAVVODASLOVNI: odlisuje zanik a zazemneni od pouheho vyschnuti
+    STA_STAVVODASLOVNI = stav_vody_slovni(STA_STAVVODA),
+    # STA_STAVVODAKAT: Prevod na ciselnou kategorii 0-5 dle procenta zaplaveni.
+    # Prahy odpovidaji puvodnim pasmum (25 / 50 / 75 / 90 / 100).
+    STA_STAVVODAKAT = dplyr::case_when(
+      is.na(STA_STAVVODAPROC) ~ NA_integer_,
+      STA_STAVVODAPROC <= 0   ~ 0L,
+      STA_STAVVODAPROC <= 25  ~ 1L,
+      STA_STAVVODAPROC <= 50  ~ 2L,
+      STA_STAVVODAPROC <= 75  ~ 3L,
+      STA_STAVVODAPROC <= 90  ~ 4L,
+      TRUE                    ~ 5L
+    ),
+    # STA_VYSYCHANI: Indikator vysychani (1 = vysycha, 0 = nevysycha, NA = neznamo)
+    # Metodika: 0 % zaplaveni = zcela vyschla plocha. Prah 25 % zachovava puvodni
+    # chovani (pasmo "1-25 %" znamenalo vysychani); nove sem spada i "0-25 %"
+    # a hole hodnoty 0-25, ktere puvodni prevod nerozpoznal.
+    # NEROZPOZNANA HODNOTA ZUSTAVA NA - nikdy se nemapuje na "nevysycha".
     STA_VYSYCHANI = dplyr::case_when(
-      STA_STAVVODA == "zaniklá" ~ 1L,
-      STA_STAVVODA == "vyschlá" ~ 1L,
-      STA_STAVVODA == "1-25 %" ~ 1L,
-      is.na(STA_STAVVODA) == FALSE ~ 0L,
-      TRUE ~ NA_integer_
+      is.na(STA_STAVVODAPROC) ~ NA_integer_,
+      STA_STAVVODAPROC <= 25  ~ 1L,
+      TRUE                    ~ 0L
     ),
     # STA_MANIPULACE: Manipulace s vodni hladinou (extrakce ze strukturovane poznamky)
     # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE, ind_id = 33)
@@ -399,9 +473,12 @@ run_n2k_druhy <- function(
       TRUE ~ NA_character_
     ),
     # STA_ZTRATABIO: Indikator ztraty biotopu (zazemeni nebo zanik)
+    # Nove pres stav_vody_slovni(), ktera osetruje oba rodove tvary
+    # ("zanikla"/"zanikle", "zazemnena"/"zazemnene"). Zaverecna vetev
+    # TRUE ~ "ne" je PONECHANA zamerne - indikator pouziva i Epidalea calamita
+    # (limit val "ne") a zmena teto vetve na NA by zmenila jeji hodnoceni.
     STA_ZTRATABIO = dplyr::case_when(
-      STA_STAVVODA == "zazeměná" ~ "ano",
-      STA_STAVVODA == "zaniklá" ~ "ano",
+      STA_STAVVODASLOVNI %in% c("zazemnena", "zanikla") ~ "ano",
       TRUE ~ "ne"
     ),
     # Extrakce dalsich parametru (kachny, ryby, zooplankton, vegetace, pruhlednost)
