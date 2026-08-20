@@ -192,11 +192,11 @@ Rosalia alpina,POP_PROCPOLE1D,min,50,procento mapovacích polí 1. øádu v dobré st
 Bombina bombina,POP_REPRO,val,NA,larvy,NA,lok
 Bombina bombina,POP_REPRO,val,NA,juvenilové,NA,lok
 Bombina bombina,POP_REPRO,val,NA,snùšky,NA,lok
-Bombina bombina,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Bombina bombina,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Bombina variegata,POP_REPRO,val,NA,larvy,NA,lok
 Bombina variegata,POP_REPRO,val,NA,juvenilové,NA,lok
 Bombina variegata,POP_REPRO,val,NA,snùšky,NA,lok
-Bombina variegata,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Bombina variegata,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Epidalea calamita,POP_REPRO,val,NA,larvy,NA,lok
 Epidalea calamita,POP_REPRO,val,NA,juvenilové,NA,lok
 Epidalea calamita,POP_REPRO,val,NA,snùšky,NA,lok
@@ -214,7 +214,7 @@ Lissotriton montandoni,POP_REPRO,val,NA,snùšky m3,NA,lok
 Lissotriton montandoni,POP_REPRO,val,NA,snùšky dm2,NA,lok
 Lissotriton montandoni,POP_REPRO,val,NA,snùšky cm2,NA,lok
 Lissotriton montandoni,POP_REPRO,val,NA,amplexus,NA,lok
-Lissotriton montandoni,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Lissotriton montandoni,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,larvy,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,juvenilové,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,snùšky,NA,lok
@@ -223,7 +223,7 @@ Triturus carnifex,POP_REPRO,val,NA,snùšky m3,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,snùšky dm2,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,snùšky cm2,NA,lok
 Triturus carnifex,POP_REPRO,val,NA,amplexus,NA,lok
-Triturus carnifex,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus carnifex,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,larvy,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,juvenilové,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,snùšky,NA,lok
@@ -232,7 +232,7 @@ Triturus cristatus,POP_REPRO,val,NA,snùšky m3,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,snùšky dm2,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,snùšky cm2,NA,lok
 Triturus cristatus,POP_REPRO,val,NA,amplexus,NA,lok
-Triturus cristatus,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus cristatus,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,larvy,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,juvenilové,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,snùšky,NA,lok
@@ -241,7 +241,7 @@ Triturus dobrogicus,POP_REPRO,val,NA,snùšky m3,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,snùšky dm2,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,snùšky cm2,NA,lok
 Triturus dobrogicus,POP_REPRO,val,NA,amplexus,NA,lok
-Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex,NA,lok
+Triturus dobrogicus,POP_REPRO,val,NA,metamorf. ex.,NA,lok
 Epidalea calamita,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
 Bombina bombina,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ne,lok
 Bombina variegata,POP_REPROPERIOD3,min,1,rozmnožování za 3 roky,ano,lok
@@ -307,6 +307,7 @@ Euphydryas maturna,STA_MIKRPROSTLINA,val,dominantnì,kategorie relativní poèetnos
 Carabus variolosus,STA_MRTDREVO,val,jednotlivé kmeny,stupnice relativní škály,ano,lok
 Carabus variolosus,STA_MRTDREVO,val,hojnì,stupnice relativní škály,ano,lok
 Bombina variegata,STA_POKRVEGETACE,val,0,NA,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,0 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
 Bombina variegata,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
