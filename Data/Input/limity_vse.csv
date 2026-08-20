@@ -367,12 +367,18 @@ Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,až na dno,NA,ne,lok
 Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
 Triturus dobrogicus,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
 Bombina bombina,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Bombina bombina,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Bombina variegata,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Bombina variegata,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Epidalea calamita,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Lissotriton montandoni,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Lissotriton montandoni,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus carnifex,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Triturus carnifex,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus cristatus,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Triturus cristatus,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus dobrogicus,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
+Triturus dobrogicus,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Graphoderus bilineatus,STA_SIRKALIT,min,3,metry,ano,lok
 Rosalia alpina,STA_SKLADREVO,val,ne,NA,ne,lok
 Carabus variolosus,STA_TEKVODA,val,ano,ano/ne,ano,lok
@@ -399,36 +405,12 @@ Osmoderma barnabita,STA_VHSTROMN,val,ano,NA,ne,lok
 Osmoderma barnabita,STA_VHSTROMN,val,ano,NA,ne,lok
 Rhysodes sulcatus,STA_VHSTROMN,val,ano,NA,ne,lok
 Rosalia alpina,STA_VHSTROMN,val,ano,NA,ne,lok
-Bombina bombina,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Bombina bombina,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Bombina bombina,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Bombina bombina,STA_VYSYCHANI,min,25,NA,ne,lok
-Bombina variegata,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Bombina variegata,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Bombina variegata,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Bombina variegata,STA_VYSYCHANI,min,25,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,val,76-90 %,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,val,91-100 %,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANI,min,25,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANI,min,25,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANI,min,25,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANI,min,25,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANI,min,25,NA,ne,lok
 Bombina bombina,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Bombina variegata,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Epidalea calamita,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
@@ -437,7 +419,7 @@ Triturus carnifex,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Triturus cristatus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Triturus dobrogicus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
 Graphoderus bilineatus,STA_ZASTIN,val,ano,stupnice relativní škály,ano,lok
-Bombina bombina,STA_ZASTINENIHLADINA,val,0-25 %,NA,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,0-25 %,NA,ne,lok
 Bombina bombina,STA_ZASTINENILITORAL,val,26-50 %,NA,ne,lok
 Bombina bombina,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
 Bombina bombina,STA_ZASTINENILITORAL,max,75,NA,ne,lok
