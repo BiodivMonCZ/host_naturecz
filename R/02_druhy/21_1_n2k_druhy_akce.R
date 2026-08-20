@@ -569,11 +569,27 @@ run_n2k_druhy <- function(
     # u obojzivelniku tyka prakticky vyhradne tohoto indikatoru. Nazev promenne v kodu
     # (STA_RYBY) je zachovan, aby odpovidal ciselniku cis_indikatory_popis.csv (ind_id 32)
     # a tabulce limitu (limity_vse.csv), zdrojovy tag je ale STA_INVDRUHRYBA.
-    STA_RYBY = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_INVDRUHRYBA>).*(?=</STA_INVDRUHRYBA>)"
-      )
+    # Domena dle metodiky (par. Sledovane indikatory): ano / ne / nelze vyloucit
+    # / nehodnoceno. "nehodnoceno" znamena, ze plochu nebylo mozne metodicky
+    # proverit (zejmena rybniky a velke tune) - jde tedy o NEZNAMY stav, ne
+    # o nepriznivy, a normalizuje se na NA, aby indikator do hodnoceni nevstoupil.
+    # "nelze vyloucit" se dle rozhodnuti zadavatele 2026-08-20 hodnoti jako
+    # PRIZNIVY stav a je explicitne uvedeno v limity_vse.csv vedle "ne".
+    # V dosavadnim exportu se vyskytuji jen hodnoty "ano" (427) a "ne" (3 018);
+    # osetreni je tedy pripravou na prechod Survey123 na novou skalu.
+    STA_RYBY = dplyr::na_if(
+      dplyr::na_if(
+        stringr::str_squish(
+          readr::parse_character(
+            stringr::str_extract(
+              STRUKT_POZN,
+              "(?<=<STA_INVDRUHRYBA>).*(?=</STA_INVDRUHRYBA>)"
+            )
+          )
+        ),
+        ""
+      ),
+      "nehodnoceno"
     ),
     STA_ZOOPLANKTON = readr::parse_character(
       stringr::str_extract(
@@ -641,33 +657,38 @@ run_n2k_druhy <- function(
         "(?<=<STA_ZASTINENIHLADINA>).*(?=</STA_ZASTINENIHLADINA>)"
       )
     ),
+    # STA_ZASTINENILITORAL: hodnoceny indikator dle Prilohy 1 revize metodiky
+    # 2026-08-20 ("zastineni litoralu okolni vegetaci", spatne nad 75 % u BBOM
+    # a BVAR). Pouziva se PRIMO, v surove podobe.
+    #
+    # ZRUSENO (nalez H-13): puvodne se zde STA_ZASTINENIHLADINA prepisovala horsi
+    # z dvojice hladina/litoral. Po revizi metodiky je hodnocenym indikatorem
+    # litoral a STA_ZASTINENIHLADINA uz nema radek v Priloze 1 ani limit - slo
+    # tedy o mrtvy kod, ktery vyrabel sloupec, jejz uz nikdo nekonzumuje.
+    # Zastineni vodni hladiny zustava terenne zaznamenavanym, ale NEHODNOCENYM
+    # udajem (viz par. Sledovane indikatory).
     STA_ZASTINENILITORAL = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN,
         "(?<=<STA_ZASTINENILITORAL>).*(?=</STA_ZASTINENILITORAL>)"
       )
     ),
-    # Sjednoceni zastineni hladiny (bere se horsi, tj. vyssi kategorie z hladiny/litoralu)
-    # POZOR: puvodni logika porovnavala textove kategorie operatorem <=, coz neodpovida
-    # poradi procentnich pasem - nahrazeno poradim dle skutecne hodnoty zastineni
-    STA_ZASTINENIHLADINA = {
-      poradi <- c("0-25 %" = 1, "26-50 %" = 2, "51-75 %" = 3, "76-100 %" = 4)
-      r_hladina = unname(poradi[STA_ZASTINENIHLADINA])
-      r_litoral = unname(poradi[STA_ZASTINENILITORAL])
-      dplyr::case_when(
-        is.na(r_litoral) ~ STA_ZASTINENIHLADINA,
-        is.na(r_hladina) ~ STA_ZASTINENILITORAL,
-        r_litoral >= r_hladina ~ STA_ZASTINENILITORAL,
-        TRUE ~ STA_ZASTINENIHLADINA
-      )
-    },
-    # STA_HLOUBKAMENSI20: Plocha s hloubkou mensi nez 20 cm (%) - indikator dle metodiky verze 2026
-    # POZOR: nazev tagu ve STRUKT_POZN nelze overit bez pristupu k ostrym datum ze Survey123;
-    # pred nasazenim je nutne zkontrolovat proti aktualnimu exportu z NDOP
-    STA_HLOUBKAMENSI20 = readr::parse_number(
+    # STA_PLOCHA50CM: Plocha s hloubkou mensi nez 50 cm (% aktualne zaplavene
+    # plochy DP) - indikator Prilohy 1, hodnoceny u vsech 6 druhu.
+    #
+    # POZOR (nalez H-04): tento tag se v exportu z NDOP zatim NEVYSKYTUJE ANI
+    # JEDNOU - overeno inventurou vsech tagu ve STRUKT_POZN u 31 733 zaznamu
+    # 6 druhu metodiky. Sdeleni autoru metodiky 2026-08-20: tag bude
+    # STA_PLOCHA50CM a indikator se bude hodnotit AZ OD ROKU 2027.
+    # Do te doby zustava hodnota NA, takze indikator do poctu hodnocenych
+    # indikatoru nevstupuje (par. Vyhodnoceni: "Indikator se hodnoti pouze,
+    # jsou-li dostupne informace k jeho hodnoceni.").
+    # Puvodni nazev byl STA_HLOUBKAMENSI20 (prah 20 cm), metodika ale prah
+    # zmenila na 50 cm.
+    STA_PLOCHA50CM = readr::parse_number(
       stringr::str_extract(
         STRUKT_POZN,
-        "(?<=<STA_HLOUBKAMENSI20>).*(?=</STA_HLOUBKAMENSI20>)"
+        "(?<=<STA_PLOCHA50CM>).*(?=</STA_PLOCHA50CM>)"
       )
     )
   ) %>%
