@@ -185,6 +185,45 @@ nal_export <- function(
   )
 
   #----------------------------------------------------------#
+  # 1b. Rada pocetnosti pro uroven uzemi (Tabulka 2 metodiky) -----
+  #----------------------------------------------------------#
+  # Metodika, Tabulka 2, druhy indikator: "Predmetem hodnoceni je soucet
+  # maximalnich pocetnosti zaznamenanych na kazde DP v danem roce", ktery se
+  # porovnava jako KLOUZAVY PRUMER ZA POSLEDNI 3 ROKY s cilovym stavem uzemi.
+  #
+  # PROC ZDE, A NE AZ VE FAZI 4: faze 2 (run_n2k_druhy_lim) prevadi do dlouheho
+  # formatu POUZE indikatory, ktere maji vyplneny LIM_IND. POP_POCET ma
+  # v limity_vse.csv LIM_IND = NA (slouzi jen jako vycet jednotek), takze se
+  # do faze 3 ani 4 vubec nedostane. Faze 3 navic vybira reprezentativni
+  # navstevu a na kazde DP ponechava jediny rok, takze klouzavy prumer za tri
+  # roky uz z jejiho vystupu spocitat nelze. Faze 1 je tedy posledni misto,
+  # kde jsou k dispozici vsechny roky i surove pocty.
+  #
+  # Vysledek se uklada do samostatneho temp souboru, aby zustala zachovana
+  # existujici architektura oddelenych fazi propojenych pres Data/Temp.
+  pocetnost_uzemi <- n2k_druhy %>%
+    dplyr::filter(CILMON == 1, !is.na(POP_POCET)) %>%
+    # maximum za dilci plochu a rok
+    dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, ROK) %>%
+    dplyr::summarise(POP_POCETDP = max(POP_POCET, na.rm = TRUE), .groups = "drop") %>%
+    # soucet pres vsechny DP v ramci roku
+    dplyr::group_by(kod_chu, DRUH, ROK) %>%
+    dplyr::summarise(POP_POCETSUMROK = sum(POP_POCETDP, na.rm = TRUE), .groups = "drop") %>%
+    # klouzavy prumer za posledni tri hodnocene roky
+    dplyr::group_by(kod_chu, DRUH) %>%
+    dplyr::slice_max(order_by = ROK, n = 3, with_ties = FALSE) %>%
+    dplyr::summarise(
+      POP_POCETPRUM3 = round(mean(POP_POCETSUMROK, na.rm = TRUE), 1),
+      POP_POCETPRUM3_LET = dplyr::n(),
+      .groups = "drop"
+    )
+
+  readr::write_csv(
+    pocetnost_uzemi,
+    paste0("Data/Temp/n2k_druhy_pocetnost", ".csv")
+  )
+
+  #----------------------------------------------------------#
   # 2. Porovnani s limity -----
   #----------------------------------------------------------#
   progress_line(paste0("--- ZACINAM VYPOCET FAZE 2 (LIMITY) ---"))
@@ -548,9 +587,12 @@ chu_export <- function(
     n2k_oop,
     indikatory_id,
     n2k_druhy_obdobi_chu,
+    cilove_stavy = NULL,
     current_year = 2025,
     input_path = "Data/Temp/n2k_druhy_lok.csv",
-    n2k_druhy_lok_data = NULL
+    n2k_druhy_lok_data = NULL,
+    pocetnost_path = "Data/Temp/n2k_druhy_pocetnost.csv",
+    pocetnost_uzemi_data = NULL
 ) {
 
   if (!is.null(n2k_druhy_lok_data)) {
@@ -560,6 +602,21 @@ chu_export <- function(
       stop(paste0("Input file not found: ", input_path))
     }
     n2k_druhy_lok <- readr::read_csv(input_path, show_col_types = FALSE)
+  }
+
+  # Rada pocetnosti pro Tabulku 2 (viz faze 1b). Neni-li k dispozici, druhy
+  # indikator Tabulky 2 se nepocita a uroven uzemi vychazi jen z LOK_PROCDOBR -
+  # to je stav pred harmonizaci, proto jen varovani, ne chyba.
+  if (!is.null(pocetnost_uzemi_data)) {
+    pocetnost_uzemi <- pocetnost_uzemi_data
+  } else if (file.exists(pocetnost_path)) {
+    pocetnost_uzemi <- readr::read_csv(pocetnost_path, show_col_types = FALSE)
+  } else {
+    warning(glue::glue(
+      "Soubor {pocetnost_path} neexistuje - druhy indikator Tabulky 2 ",
+      "(pocetnost vs. cilovy stav) nebude vyhodnocen."
+    ))
+    pocetnost_uzemi <- NULL
   }
 
   progress_line("--- ZACINAM VYPOCET FAZE 4 (UZEMI/CHU) ---")
@@ -575,6 +632,8 @@ chu_export <- function(
       limity = limity,
       biotop_evd = biotop_evd,
       n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu,
+      cilove_stavy = cilove_stavy,
+      pocetnost_uzemi = pocetnost_uzemi,
       current_year = current_year
     )
   }

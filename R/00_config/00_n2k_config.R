@@ -214,9 +214,55 @@ rp_code <- readr::read_csv2(
 ### Ciselnik indikatoru hodnoceni stavu ---- 
 #------------------------------------------#
 indikatory_id <- readr::read_csv(
-  "Data/Input/cis_indikatory_popis.csv", 
+  "Data/Input/cis_indikatory_popis.csv",
   locale = readr::locale(encoding = "Windows-1250")
 )
+
+#------------------------------------------#
+### Cilove stavy populaci pro uzemi (SDO) ----
+#------------------------------------------#
+# Druhy indikator Tabulky 2 metodiky obojzivelniku: "pocet jedincu (klouzavy
+# prumer za posledni 3 roky)" se porovnava s cilovym stavem pro dane uzemi.
+# Zdroj: BiodivMonCZ/digitalizaceSDO, Outputs/Data/sdo_cilove_druhy.csv
+# (staženo 2026-08-20), sloupec navrzena_hodnota.
+#
+# Snapshot je ZAMERNE vendorovan do Data/Input/ - hodnoceni musi byt
+# reprodukovatelne a nesmi zaviset na siti ani na cizim 'main'.
+#
+# Soubor je v UTF-8, ale ceske textove sloupce jsou uz ze zdroje poskozene
+# na U+FFFD. Sloupce pouzivane nize (sitecode, nazev_lat, navrzena_hodnota,
+# varovani) jsou ASCII a nedotcene - na poskozenych sloupcich nestavime nic.
+cilove_stavy <- readr::read_csv(
+  "Data/Input/sdo_cilove_druhy_20260820.csv",
+  locale = readr::locale(encoding = "UTF-8"),
+  show_col_types = FALSE
+) %>%
+  dplyr::mutate(
+    # Lissotriton montandoni je v SDO veden pod synonymem Triturus montandoni
+    # (sdf_code 2001). Bez tohoto mapovani by se join TISE minul a druh by
+    # zustal bez cilove hodnoty.
+    DRUH = dplyr::case_when(
+      nazev_lat == "Triturus montandoni" ~ "Lissotriton montandoni",
+      TRUE ~ nazev_lat
+    )
+  ) %>%
+  dplyr::filter(!is.na(navrzena_hodnota)) %>%
+  dplyr::select(
+    kod_chu = sitecode,
+    DRUH,
+    POP_CILSTAV = navrzena_hodnota,
+    CIL_VAROVANI = varovani
+  ) %>%
+  # Tyz SDO byval nacten dvakrat pod dvema variantami nazvu zdrojoveho PDF
+  # (s diakritikou a bez ni). U 171 ze 174 dvojic sitecode x druh je hodnota
+  # shodna, u 3 se lisi - bereme NIZSI hodnotu, tedy mirnejsi cil, aby
+  # nejednoznacnost zdroje nesla k tizi hodnoceneho uzemi.
+  dplyr::group_by(kod_chu, DRUH) %>%
+  dplyr::summarise(
+    POP_CILSTAV = min(POP_CILSTAV, na.rm = TRUE),
+    CIL_VAROVANI = any(CIL_VAROVANI, na.rm = TRUE),
+    .groups = "drop"
+  )
 
 #--------------------------------------------------#
 ### Ciselnik periody hodnoceni stavu ---- 
