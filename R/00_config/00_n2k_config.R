@@ -351,52 +351,6 @@ cis_habitat <-
   )
 
 #--------------------------------------------------#
-### Ciselnik minimiarealu typu prirodnich stanovist ---- 
-#--------------------------------------------------#
-minimisize <- 
-  readr::read_csv(
-    "Data/Input/minimisize.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-  ) %>%
-  dplyr::group_by(
-    HABITAT
-  ) %>%
-  dplyr::reframe(
-    MINIMISIZE = max(MINIMISIZE)/10000
-  ) %>%
-  dplyr::ungroup()
-
-#--------------------------------------------------#
-### Rozloha stanovišť v ČR v rámci AVMB2022 ----
-#--------------------------------------------------#
-habitat_areas_2022 <- 
-  readr::read_csv(
-    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-  )
-
-#--------------------------------------------------#
-### Rozloha stanovišť v ČR v rámci VMB2----
-#--------------------------------------------------#
-habitat_areas_a1 <- 
-  readr::read_csv(
-    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
-    locale = readr::locale(encoding = "Windows-1250")
-  )
-
-#--------------------------------------------------#
-## Stažení hranice CR ---- 
-#--------------------------------------------------#
-czechia <- sf::st_read("Data/Input/HraniceCR.shp")
-czechia_line <- sf::st_cast(czechia, "LINESTRING")
-
-#--------------------------------------------------#
-## Aktualizaceni okrsky mapovani biotopu ---- 
-#--------------------------------------------------#
-akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
-  dplyr::rename(SITECODE = kod)
-
-#--------------------------------------------------#
 ## Stazeni GIS vrstev AOPK CR ---- 
 #--------------------------------------------------#
 
@@ -637,6 +591,51 @@ n2k_load <- n2k_export %>%
       TRUE ~ 0)
   ) 
 
+#--------------------------------------------------#
+### Ciselnik minimiarealu typu prirodnich stanovist ---- 
+#--------------------------------------------------#
+minimisize <- 
+  readr::read_csv(
+    "Data/Input/minimisize.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  ) %>%
+  dplyr::group_by(
+    HABITAT
+  ) %>%
+  dplyr::reframe(
+    MINIMISIZE = max(MINIMISIZE)/10000
+  ) %>%
+  dplyr::ungroup()
+
+#--------------------------------------------------#
+### Rozloha stanovišť v ČR v rámci AVMB2022 ----
+#--------------------------------------------------#
+habitat_areas_2022 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  )
+
+#--------------------------------------------------#
+### Rozloha stanovišť v ČR v rámci VMB2----
+#--------------------------------------------------#
+habitat_areas_a1 <- 
+  readr::read_csv(
+    "Outputs/Data/stanoviste/celkova_rozloha/stanoviste_rozloha_cr_a1.csv", 
+    locale = readr::locale(encoding = "Windows-1250")
+  )
+
+#--------------------------------------------------#
+## Stažení hranice CR ---- 
+#--------------------------------------------------#
+czechia <- sf::st_read("Data/Input/HraniceCR.shp")
+czechia_line <- sf::st_cast(czechia, "LINESTRING")
+
+#--------------------------------------------------#
+## Aktualizaceni okrsky mapovani biotopu ---- 
+#--------------------------------------------------#
+akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
+  dplyr::rename(SITECODE = kod)
 
 #------------------------------------------------------#
 ## RL druhy ----

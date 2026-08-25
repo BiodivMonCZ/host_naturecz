@@ -715,6 +715,10 @@ kukchu <-
   n2k_oop = n2k_oop,
   indikatory_id = indikatory_id,
   n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu, # Zde predavame vypoctena obdobi
+  # Cilove stavy pro druhy indikator Tabulky 2 (viz 00_n2k_config.R).
+  # Bez nich se druhy indikator nevyhodnocuje a uroven uzemi vychazi jen
+  # z LOK_PROCDOBR - proto se predava i zde, nejen v run_one_uzemi().
+  cilove_stavy = if (exists("cilove_stavy")) cilove_stavy else NULL,
   current_year = current_year,
   n2k_druhy_lok_data = kuklok_raw$druhy_lok
 )
