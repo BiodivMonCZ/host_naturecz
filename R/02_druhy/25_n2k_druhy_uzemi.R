@@ -430,6 +430,22 @@ run_n2k_druhy_uzemi <- function(
   # Radky s hodnotami druheho indikatoru Tabulky 2, aby byl vysledek dohledatelny
   # ve vystupu a nezustal jen skryty uvnitr CELKOVE. JEDNOTKA nese upozorneni na
   # nesoulad jednotek (nalez S-4) a priznak varovani ze zdroje SDO.
+  #
+  # PROC SE PRIPOJUJI METADATA UZEMI (nalez H-22): zaver funkce filtruje
+  # `is.na(ROK) == FALSE & ROK != "NA"`. Puvodni `transmute()` zadny ROK
+  # nevytvarel, takze vsem radkum POP_POCETPRUM3 vysel po `bind_rows()` ROK = NA
+  # a tento filtr je bezezbytku zahodil - druhy indikator Tabulky 2 sice
+  # ovlivnoval CELKOVE, ale ve vystupu po nem nezustala ani stopa. Stejne by je
+  # pozdeji zahodil i `dplyr::filter(CILMON_CHU == 1)` v chu_export()
+  # (27_n2k_druhy_zapis.R), ktery na chybejicim CILMON_CHU take vraci NA.
+  #
+  # Metadata se berou z `metadata_chu`, aby radek nesl TYZ hodnocene obdobi i
+  # tytez identifikatory akci jako ostatni radky daneho uzemi. ROK je tedy
+  # obdobi hodnoceni uzemi jako celku, NIKOLI vycet let, ze kterych je spocitan
+  # klouzavy prumer za posledni 3 roky (ten se odvozuje ve faze 1b v
+  # 27_n2k_druhy_zapis.R). `inner_join` je zameny: uzemi, ktere nema v tomto
+  # bloku zadny radek, by nemelo k cemu pripojit vysledek a bylo by stejne
+  # zahozeno dale v toku dat.
   radky_cil <- NULL
   if (!is.null(cil_chu) && nrow(cil_chu) > 0) {
     radky_cil <- cil_chu %>%
@@ -451,6 +467,14 @@ run_n2k_druhy_uzemi <- function(
           paste("alespoň", POP_CILSTAV, "jedinců (cílový stav území)")
         ),
         STAV_IND = STAV_CIL
+      ) %>%
+      dplyr::inner_join(
+        metadata_chu %>%
+          dplyr::select(
+            kod_chu, DRUH, ROK, POLE, NAZEV_LOK,
+            ID_ND_AKCE, ID_ND_LOK, CILMON_CHU
+          ),
+        by = c("kod_chu", "DRUH")
       )
   }
 
