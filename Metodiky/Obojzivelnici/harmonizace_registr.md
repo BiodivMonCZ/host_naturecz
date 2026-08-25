@@ -27,6 +27,8 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | **Vysoká** — mění výsledek u části dat | 6 | H-07 … H-12 |
 | **Střední** — konzistence, dohledatelnost | 6 | H-13 … H-18 |
 | **Potvrzeno OK** — bez akce | 5 | viz §Potvrzeno |
+| *Nálezy z implementace* | 2 | H-19, H-20 |
+| *Nálezy z testovacího běhu (2026-08-25)* | 3 | H-21, H-22, H-23 |
 
 ---
 
@@ -451,14 +453,111 @@ Sdílený kód obsluhuje i ryby a mihule, hmyz, savce a cévnaté rostliny.
 
 ---
 
+# Nálezy z testovacího běhu (2026-08-25, *Triturus cristatus*)
+
+Zdroj: běh kaskády `21_1` → `27` nad jediným druhem (8 322 záznamů,
+**724 DP ve 191 EVL**). Plný `00_n2k_config.R` nelze na pracovní stanici
+spustit (chybí `export_redlist.csv`, `export_invaze.csv`, `export_expanze.csv`,
+`BiotopZvld.shp`, `AktualizacniOkrsky.shp` a sahá za běhu na WFS ČÚZK), proto
+byl použit ořezaný konfigurační skript, který příslušné bloky configu přebírá
+doslovně a omezuje `n2k_load` na jeden druh. Všechny následné transformace jsou
+řádkové, předfiltrování je tedy vůči plnému běhu ekvivalentní.
+
+### H-21 ✅ — nevyhodnocený indikátor se počítal jako splněný (Tabulka 1)
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** implementováno (commit `e7460ba`)
+- **Metodika:** Tabulka 1 — „min 1 špatně hodnocený populační (klíčový) indikátor
+  → **špatný**"; „0 špatných klíčových a min 2 špatné stanovištní → **zhoršený**".
+- **Stav v kódu:** [`24:130-131`](../../R/02_druhy/24_n2k_druhy_lokality.R#L130-L131) —
+  `n_distinct(ID_IND[... & STAV_IND == 1])`. Pro řádek se `STAV_IND = NA` se celá
+  podmínka vyhodnotí na `NA`, `ID_IND[NA]` vrátí `NA_character_` a `n_distinct()`
+  jej započítá jako další hodnotu. `N_KEY_EXPECTED` / `N_OTH_EXPECTED` (ř. 126–127)
+  filtr `!is.na(STAV_IND)` **už obsahovaly** — nesouměrnost byla jen u `*_PASSED`.
+- **Důsledek:** každá DP s alespoň jedním nevyhodnoceným indikátorem dostala
+  k počtu splněných indikátorů **+1**. Podmínka `N_KEY_PASSED < N_KEY_EXPECTED`
+  proto vyšla nepravdivá i tam, kde klíčový indikátor skutečně selhal, a DP se
+  vykázala jako „dobrý". U stanovištních indikátorů se hranice „min 2" fakticky
+  posunula na „min 3" — u obojživelníků **univerzálně**, protože `STA_PLOCHA50CM`
+  má vyplněný limit, ale hodnota se sbírá až od r. 2027, takže je `NA` pro
+  **100 % DP** (724/724). Stav „zhoršený" tak na úrovni DP vůbec nevznikal.
+- **Rozsah v testovacím běhu:** inflace se projevila u **487/724 DP** u klíčových
+  a u **724/724 DP** u stanovištních indikátorů.
+- **Doklad o dopadu:**
+
+  | úroveň | před | po |
+  |---|---|---|
+  | DP | 377 dobrý / **0** zhoršený / 347 špatný | 334 / 16 / 374 |
+  | EVL | 39 dobrý / 33 zhoršený / 31 špatný / 88 neznámý | 38 / 28 / 37 / 88 |
+
+  **27 DP** mělo selhávající klíčový indikátor a přesto stav „dobrý".
+  Přes `LOK_PROCDOBR` se změna promítla do **7 ze 103** hodnocených EVL,
+  z toho 6× zhoršený → **špatný**.
+- **Minimální příklad:** `POP_PRESENCE = 1`, `POP_REPROPERIOD3 = 0`,
+  `POP_ZMENARAD = NA` ⇒ `N_KEY_EXPECTED = 2`, `N_KEY_PASSED = 2` (správně 1)
+  ⇒ „dobrý" místo „špatný".
+- **Kontrola neregrese:** větev je sdílená i pro ryby, hmyz, savce a rostliny;
+  změna tam **není neutrální**. Je však **jednosměrná** — opravený počet splněných
+  indikátorů je vždy ≤ původnímu, hodnocení DP se proto může jen zhoršit, nikdy
+  zlepšit, a dotkne se pouze DP, kde některý indikátor s vyplněným limitem zůstal
+  nevyhodnocen. Podmínit opravu druhem/skupinou by znamenalo vědomě ponechat
+  „chybějící údaj = splněný indikátor" u ostatních skupin.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — zejména potvrzení, že se oprava
+  má uplatnit i mimo obojživelníky)_
+
+### H-22 ✅ — řádky `POP_POCETPRUM3` se ztrácely před zápisem
+- **Závažnost:** vysoká · **Typ:** BUG / STOPA-DO-ISOP · **Stav:** implementováno (commit `83e41e2`)
+- **Metodika:** Tabulka 2 — druhý vstup je *počet jedinců (klouzavý průměr za
+  poslední 3 roky)* porovnaný s cílovým stavem území. Rozhodnutí zadavatele
+  k [H-06](#h-06--druhý-indikátor-tabulky-2-početnost-vs-cílový-stav-není-implementován)
+  navíc **podmínkou** ukládá propsat rozdíl jednotek do výstupu.
+- **Stav v kódu:** blok `radky_cil` v [`25`](../../R/02_druhy/25_n2k_druhy_uzemi.R)
+  vytvářel řádky přes `transmute()`, který **nevytvářel sloupec `ROK`**. Závěrečný
+  filtr téže funkce `filter(is.na(ROK) == FALSE & ROK != "NA")` je proto po
+  `bind_rows()` beze zbytku zahodil. Totéž by později udělal filtr
+  `CILMON_CHU == 1` v `chu_export()` ([`27`](../../R/02_druhy/27_n2k_druhy_zapis.R)).
+- **Důsledek:** druhý indikátor Tabulky 2 správně ovlivňoval `CELKOVE`, ale ve
+  výstupu po něm nezůstala **žádná stopa** — z exportu nebylo poznat, proč bylo
+  území sraženo na „zhoršený" či „špatný". Podmínka u H-06 tím nebyla splněna.
+- **Doklad o dopadu:** před opravou obsahoval výstup `chu` pouze
+  `CELKOVE_HODNOCENI`, `LOK_PROCDOBR`, `LOK_DILCDOBRE`, `LOK_DILCPOCET`.
+  Po opravě navíc **97 řádků `POP_POCETPRUM3`** (62 s cílovým stavem → 11 „dobrý"
+  / 51 „špatný"; 35 bez cílového stavu → „nehodnocen"), z toho **63** se dostane
+  až do exportu pro ISOP — stejný počet území jako u ostatních indikátorů.
+- **Kontrola neregrese:** blok je ohraničen podmínkou `!is.null(cil_chu)`, tj. běží
+  jen tam, kde volající předá cílové stavy i řadu početností — dnes výhradně větev
+  obojživelníků. Pro ostatní skupiny je `radky_cil` `NULL` a `bind_rows()` jej ignoruje.
+- **Zbývá:** `POP_POCETPRUM3` **nemá řádek v `cis_indikatory_popis.csv`**, takže se
+  do exportu propisuje surový název `POP_POCETPRUM3` místo kódu ISOP. Před opravou
+  bylo toto skryté, protože řádek do exportu vůbec nedošel. Viz §Co zbývá, položka 8.
+
+### H-23 ⚠ — oba indikátory Tabulky 2 pracují s jiným časovým oknem
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **neřešeno**, pouze zaznamenáno
+- **Kontext:** `LOK_PROCDOBR` staví na jedné reprezentativní návštěvě každé DP
+  (výběr v [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R), libovolný rok
+  2013–2026), zatímco `POP_POCETPRUM3` průměruje **poslední 3 monitorované roky**
+  daného území ([`27:214`](../../R/02_druhy/27_n2k_druhy_zapis.R#L214),
+  `slice_max(ROK, n = 3)` bez ukotvení na `current_year`).
+- **Zjištěno v testovacím běhu:** okna se rozcházejí u 4 ze 103 EVL; u 6 EVL končí
+  okno početnosti před rokem 2023. Krajní případ **CZ0523003**: DP hodnocena podle
+  roku 2025, početnost průměrována z let **2014–2016**. Dále **29 z 97** území
+  průměruje z méně než tří let (15 z jediného roku) a `POP_POCETPRUM3_LET` se
+  nikam neexportuje, takže to není z výstupu poznat.
+- **Otevřená otázka pro autory metodiky:** znamená „klouzavý průměr za poslední
+  3 roky" tři poslední **kalendářní** roky hodnoceného období, nebo tři poslední
+  roky **s monitoringem**? A jak se má hodnotit území, kde jsou k dispozici méně
+  než tři roky?
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
 |---|---|---|
-| 1 | Potvrdit H-19 a H-20 | zadavatel |
+| 1 | Potvrdit H-19, H-20 a H-23; u H-21 potvrdit dopad mimo obojživelníky | zadavatel |
 | 2 | Promítnout přesun `ind_id` 30 a 34 do ISOP (potvrzeno 2026-08-20) | zadavatel |
 | 3 | Přidělit `ind_id` pro `STA_PLOCHA50CM` | ISOP |
 | 4 | Zavést tag `STA_PLOCHA50CM` do Survey123 (hodnocení od 2027) | správce formuláře |
 | 5 | Expertní revize cílových stavů — vyřešit jednotky u *Bombina bombina* (S-4) | autoři metodiky |
 | 6 | Plný běh kaskády po doplnění `AktualizacniOkrsky.shp` | provoz |
 | 7 | Samostatná harmonizace `Epidalea calamita` dle jejího vlastního dokumentu | zadavatel |
+| 8 | Přidělit `ind_id` pro `POP_POCETPRUM3` a doplnit řádek do `cis_indikatory_popis.csv` (viz H-22) | ISOP |
