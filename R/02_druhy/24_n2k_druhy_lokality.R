@@ -126,9 +126,35 @@ run_n2k_druhy_lok <- function(
       N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
       N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
 
-      # Pocet SPLNENYCH indikatoru (STAV_IND je 1)
-      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
-      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
+      # Pocet SPLNENYCH indikatoru (STAV_IND je 1).
+      #
+      # PROC JE ZDE `!is.na(STAV_IND)` NAVIC: bez nej se do poctu splnenych
+      # indikatoru zapocital i indikator, ktery vubec nebyl vyhodnocen.
+      # Pro radek se STAV_IND = NA se totiz cela podminka v hranatych zavorkach
+      # vyhodnoti na NA, `ID_IND[NA]` vrati NA_character_ a `n_distinct()`
+      # pocita NA jako plnohodnotnou hodnotu. Kazda DP, ktera mela alespon
+      # jeden nezmereny indikator, tak dostala k poctu splnenych indikatoru +1.
+      #
+      # Metodika (Tab. 1): "min 1 spatne hodnoceny populacni indikator ->
+      # spatny". Bez tohoto filtru vysel vyraz `N_KEY_PASSED < N_KEY_EXPECTED`
+      # nepravdivy i tam, kde jeden klicovy indikator skutecne selhal, a DP se
+      # vykazala jako "dobry". Priklad: POP_PRESENCE = 1, POP_REPROPERIOD3 = 0,
+      # POP_ZMENARAD = NA dava N_KEY_EXPECTED = 2 a N_KEY_PASSED = 2 (misto 1).
+      #
+      # Stejny posun o +1 se tykal i stanovistnich indikatoru, kde srazel
+      # hranici "min 2 spatne hodnocene stanovistni indikatory -> zhorseny"
+      # fakticky na "min 3". U obojzivelniku je posun univerzalni, protoze
+      # STA_PLOCHA50CM ma vyplneny limit, ale hodnota se sbira az od r. 2027,
+      # takze je NA pro kazdou DP.
+      #
+      # POZOR, oprava neni neutralni pro ostatni skupiny: tato vetev obsluhuje
+      # i ryby, hmyz, savce a rostliny. Zmena je vsak jednosmerna - opraveny
+      # pocet splnenych indikatoru je vzdy <= puvodnimu, takze se hodnoceni DP
+      # muze pouze zhorsit, nikdy zlepsit, a dotkne se jen tech DP, kde nejaky
+      # indikator s limitem zustal nevyhodnocen. Viz nalez H-21 v
+      # Metodiky/Obojzivelnici/harmonizace_registr.md.
+      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
+      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
       
       # Metadata pro razeni nejlepsi navstevy
       MAX_CILMON = max(CILMON, na.rm = TRUE),
