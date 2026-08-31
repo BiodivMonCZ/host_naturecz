@@ -22,6 +22,22 @@
 # U pasma se bere HORNI mez, aby zustalo zachovano puvodni chovani ("1-25 %"
 # znamenalo vysychani, horni mez 25 <= 25 dava totez). Nerozpoznana hodnota
 # vraci NA - NIKDY ne 0 ani 100, aby chybejici udaj nebyl vydavan za mereni.
+# PRAH_VYSYCHANI: horni mez zaplaveni dna (v procentech), pri ktere se plocha
+# jeste povazuje za vysychajici.
+#
+# Metodika (par. Sledovane indikatory, "Stav vody"): "0 % odpovida zcela
+# vyschle plose." Prah je proto 0 - hodnoti se jen skutecne vyschla plocha.
+#
+# Drive zde bylo 25, prevzate ze stareho pasma "1-25 %", ktere puvodni prevod
+# povazoval za vysychani. Rozhodnuti zadavatele 2026-08-31: rovnat se
+# doslovnemu zneni metodiky (nalez H-30).
+#
+# POZOR na interakci s norm_stavvody(): u procentniho pasma se bere HORNI mez,
+# takze zaznam "0-25 %" da 25 a pri prahu 0 se za vysychani NEPOVAZUJE,
+# prestoze jeho dolni konec je nula. Tvary, ktere prah 0 zachyti, jsou slovni
+# stavy (vyschle / zanikla / zazemnena -> 0) a hole cislo 0.
+PRAH_VYSYCHANI <- 0
+
 norm_stavvody <- function(x) {
   v <- stringr::str_squish(as.character(x))
   v[v == ""] <- NA_character_
@@ -532,14 +548,18 @@ run_n2k_druhy <- function(
       TRUE                    ~ 5L
     ),
     # STA_VYSYCHANI: Indikator vysychani (1 = vysycha, 0 = nevysycha, NA = neznamo)
-    # Metodika: 0 % zaplaveni = zcela vyschla plocha. Prah 25 % zachovava puvodni
-    # chovani (pasmo "1-25 %" znamenalo vysychani); nove sem spada i "0-25 %"
-    # a hole hodnoty 0-25, ktere puvodni prevod nerozpoznal.
+    # Prah viz konstanta PRAH_VYSYCHANI na zacatku souboru (dnes 0 % dle
+    # doslovneho zneni metodiky).
     # NEROZPOZNANA HODNOTA ZUSTAVA NA - nikdy se nemapuje na "nevysycha".
+    #
+    # Indikator sam se NEHODNOTI proti limitu (nalezy H-01 a H-02) - slouzi
+    # jako vstup pro tribety STA_VYSYCHANIPERIOD3 a jako informativni radek
+    # ve vystupu, aby bylo videt, ktere roky byly suche (radek TYP_IND = "info"
+    # v limity_vse.csv, viz H-31).
     STA_VYSYCHANI = dplyr::case_when(
-      is.na(STA_STAVVODAPROC) ~ NA_integer_,
-      STA_STAVVODAPROC <= 25  ~ 1L,
-      TRUE                    ~ 0L
+      is.na(STA_STAVVODAPROC)             ~ NA_integer_,
+      STA_STAVVODAPROC <= PRAH_VYSYCHANI  ~ 1L,
+      TRUE                                ~ 0L
     ),
     # STA_MANIPULACE: Manipulace s vodni hladinou
     # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE,
