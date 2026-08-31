@@ -1165,14 +1165,26 @@ run_n2k_druhy <- function(
       POP_POCETSUMLOKAL = sum(POP_POCET[!duplicated(IDX_ND_AKCE)], na.rm = TRUE),
       # POP_POCETMIN: Minimalni hodnota populace
       POP_POCETMIN = min(
-        POP_POCET, 
+        POP_POCET,
         na.rm = TRUE
-      ), 
+      ),
+      # Osetreni nekonecnych hodnot u minima.
+      # min() nad samymi NA vraci Inf; bez tohoto radku se Inf propisovalo
+      # do vystupu (73 ze 724 DP testovaciho behu). Bylo to videt az po
+      # oprave H-35, drive byl cely indikator neviditelny.
+      #
+      # POZOR na asymetrii vuci maximu nize: tam se Inf prevadi na 0, zde na
+      # NA. Nula by tvrdila "napocitano nula jedincu", zatimco skutecnost je
+      # "pocet nebyl zaznamenan" - pro nove zviditelneny informativni radek
+      # se proto pouziva NA = "neznamy". U maxima zustava puvodni prevod na 0,
+      # protoze vstupuje do POP_TRENDLM a POP_TREND1/2 u 34 druhu cevnatych
+      # rostlin - zmena by tam nebyla neutralni. Viz nalez H-36.
+      POP_POCETMIN = ifelse(is.infinite(POP_POCETMIN), NA_real_, POP_POCETMIN),
       # POP_POCETMAX: Maximalni hodnota populace
       POP_POCETMAX = max(
-        POP_POCET, 
+        POP_POCET,
         na.rm = TRUE
-      ), 
+      ),
       # Osetreni nekonecnych hodnot u maxima
       POP_POCETMAX = ifelse(is.infinite(POP_POCETMAX), 0, POP_POCETMAX),
       # POP_POCETNOST: Maximalni kategorie pocetnosti
@@ -1530,14 +1542,28 @@ run_n2k_druhy <- function(
   #--------------------------------------------------#
   n2k_druhy <- n2k_druhy_pre %>%
     # Pripojeni agregovanych dat za lokalitu a rok
+    #
+    # SUFFIX (nalez H-35): tri sloupce existuji na obou stranach joinu -
+    # POP_POCETMIN, POP_POCETMAX a POP_POCETNOSTMAX. Vychozi suffixy ".x"/".y"
+    # zpusobily, ze sloupec s PRESNYM nazvem indikatoru v tabulce vubec nebyl,
+    # takze se nesparoval s tabulkou limitu (21_2 paruje pres
+    # intersect(nazvy sloupcu, ID_IND limitu)) a oba indikatory byly ve VSECH
+    # vystupech neviditelne. Zaroven to znamenalo, ze soucet
+    # sum(ID_IND == "POP_POCETMIN") na urovni uzemi v 25 vzdy vracel 0.
+    #
+    # Indikatorem je hodnota za DILCI PLOCHU a rok (limity maji UROVEN = lok),
+    # tedy strana `y` = agregace z n2k_druhy_lokpop - ta si proto nechava holy
+    # nazev. Hodnota za jednotlivy nalez (strana `x`) zustava zachovana pod
+    # priponou _NAL, aby se nic neztratilo a bylo poznat, o kterou uroven jde.
     dplyr::left_join(
-      ., 
+      .,
       n2k_druhy_lokpop,
       by = join_by(
-        ROK, 
+        ROK,
         KOD_LOKAL,
         DRUH
-      )
+      ),
+      suffix = c("_NAL", "")
     ) %>%
     # Pripojeni trendu (jen za lokalitu, ne rok - trend je jeden pro lokalitu)
     dplyr::left_join(
