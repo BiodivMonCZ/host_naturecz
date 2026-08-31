@@ -79,11 +79,22 @@ run_n2k_druhy_lim <- function(
   ind_cols_all <- names(n2k_druhy)
   ind_cols_all <- ind_cols_all[match("POP_PRESENCE_N", ind_cols_all):length(ind_cols_all)]
 
+  # Krome indikatoru s platnym limitem se propousteji i INFORMATIVNI indikatory,
+  # tj. radky s TYP_IND == "info" a prazdnym LIM_IND. Ty se nehodnoti (STAV_IND
+  # zustava NA a do poctu ocekavanych ani splnenych indikatoru v 24 nevstupuji,
+  # protoze ten pocita jen radky s vyplnenym LIM_IND), ale propisou se do
+  # vystupu, aby byla dohledatelna hodnota, ze ktere odvozeny indikator vychazi.
+  #
+  # Bez tohoto markeru nelze informativni radek na urovni DP vubec zobrazit:
+  # zdejsi filtr je zahodi jak z ind_cols_keep, tak z right_joinu nize. Na
+  # urovni uzemi to nevadi, protoze 25_n2k_druhy_uzemi.R filtruje pouze podle
+  # UROVEN == "chu" - proto tam LOK_DILCDOBRE s prazdnym limitem projde.
+  # Viz nalez H-31 v harmonizace_registr.md.
   lim_inds_lok <- limity %>%
     dplyr::filter(
       DRUH == species_name,
       UROVEN == "lok",
-      is.na(LIM_IND) == FALSE
+      !is.na(LIM_IND) | (!is.na(TYP_IND) & TYP_IND == "info")
     ) %>%
     dplyr::pull(ID_IND) %>%
     unique()
@@ -125,7 +136,10 @@ run_n2k_druhy_lim <- function(
           UROVEN == "lok" # Pouze limity pro lokalitu
         ) %>%
         dplyr::filter(
-          is.na(LIM_IND) == FALSE # Pouze platne limity
+          # Platne limity + informativni indikatory (viz komentar vyse).
+          # Informativnimu radku nize nesedne zadna vetev vypoctu STAV_IND,
+          # takze zustane NA = "nehodnocen".
+          !is.na(LIM_IND) | (!is.na(TYP_IND) & TYP_IND == "info")
         ),
       by = c("DRUH" = "DRUH",
              "ID_IND" = "ID_IND")
