@@ -34,38 +34,38 @@ Myotis myotis,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abunda
 Myotis myotis,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok
 Rhinolophus hipposideros,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,chu
 Rhinolophus hipposideros,POP_DIFZIM,min,0.5,podíl zimní abundance k referenèní zimní abundanci,ano,lok
-Bombina bombina,POP_POCET,NA,NA,samci,NA,lok
-Bombina variegata,POP_POCET,NA,NA,samci,NA,lok
-Bombina variegata,POP_POCET,NA,NA,jedinci,NA,lok
-Bombina variegata,POP_POCET,NA,NA,adulti,NA,lok
-Epidalea calamita,POP_POCET,NA,NA,samci,NA,lok
-Epidalea calamita,POP_POCET,NA,NA,jedinci,NA,lok
-Epidalea calamita,POP_POCET,NA,NA,adulti,NA,lok
-Eriogaster catax,POP_POCET,NA,NA,hnízda housenek,NA,lok
-Euphydryas aurinia,POP_POCET,NA,NA,hnízda housenek,NA,lok
-Euphydryas maturna,POP_POCET,NA,NA,hnízda housenek,ne,lok
-Lissotriton montandoni,POP_POCET,NA,NA,adulti,NA,lok
-Lissotriton montandoni,POP_POCET,NA,NA,jedinci,NA,lok
-Triturus carnifex,POP_POCET,NA,NA,adulti,NA,lok
-Triturus carnifex,POP_POCET,NA,NA,jedinci,NA,lok
-Triturus cristatus,POP_POCET,NA,NA,adulti,NA,lok
-Triturus cristatus,POP_POCET,NA,NA,jedinci,NA,lok
-Triturus dobrogicus,POP_POCET,NA,NA,adulti,NA,lok
-Triturus dobrogicus,POP_POCET,NA,NA,jedinci,NA,lok
-Bombina bombina,POP_POCETMAX,NA,NA,NA,ne,lok
-Bombina variegata,POP_POCETMAX,NA,NA,NA,ne,lok
-Epidalea calamita,POP_POCETMAX,NA,NA,NA,ne,lok
-Lissotriton montandoni,POP_POCETMAX,NA,NA,NA,ne,lok
-Triturus carnifex,POP_POCETMAX,NA,NA,NA,ne,lok
-Triturus cristatus,POP_POCETMAX,NA,NA,NA,ne,lok
-Triturus dobrogicus,POP_POCETMAX,NA,NA,NA,ne,lok
-Bombina bombina,POP_POCETMIN,NA,NA,NA,ne,lok
-Bombina variegata,POP_POCETMIN,NA,NA,NA,ne,lok
-Epidalea calamita,POP_POCETMIN,NA,NA,NA,ne,lok
-Lissotriton montandoni,POP_POCETMIN,NA,NA,NA,ne,lok
-Triturus carnifex,POP_POCETMIN,NA,NA,NA,ne,lok
-Triturus cristatus,POP_POCETMIN,NA,NA,NA,ne,lok
-Triturus dobrogicus,POP_POCETMIN,NA,NA,NA,ne,lok
+Bombina bombina,POP_POCET,info,NA,samci,NA,lok
+Bombina variegata,POP_POCET,info,NA,samci,NA,lok
+Bombina variegata,POP_POCET,info,NA,jedinci,NA,lok
+Bombina variegata,POP_POCET,info,NA,adulti,NA,lok
+Epidalea calamita,POP_POCET,info,NA,samci,NA,lok
+Epidalea calamita,POP_POCET,info,NA,jedinci,NA,lok
+Epidalea calamita,POP_POCET,info,NA,adulti,NA,lok
+Eriogaster catax,POP_POCET,info,NA,hnízda housenek,NA,lok
+Euphydryas aurinia,POP_POCET,info,NA,hnízda housenek,NA,lok
+Euphydryas maturna,POP_POCET,info,NA,hnízda housenek,ne,lok
+Lissotriton montandoni,POP_POCET,info,NA,adulti,NA,lok
+Lissotriton montandoni,POP_POCET,info,NA,jedinci,NA,lok
+Triturus carnifex,POP_POCET,info,NA,adulti,NA,lok
+Triturus carnifex,POP_POCET,info,NA,jedinci,NA,lok
+Triturus cristatus,POP_POCET,info,NA,adulti,NA,lok
+Triturus cristatus,POP_POCET,info,NA,jedinci,NA,lok
+Triturus dobrogicus,POP_POCET,info,NA,adulti,NA,lok
+Triturus dobrogicus,POP_POCET,info,NA,jedinci,NA,lok
+Bombina bombina,POP_POCETMAX,info,NA,NA,ne,lok
+Bombina variegata,POP_POCETMAX,info,NA,NA,ne,lok
+Epidalea calamita,POP_POCETMAX,info,NA,NA,ne,lok
+Lissotriton montandoni,POP_POCETMAX,info,NA,NA,ne,lok
+Triturus carnifex,POP_POCETMAX,info,NA,NA,ne,lok
+Triturus cristatus,POP_POCETMAX,info,NA,NA,ne,lok
+Triturus dobrogicus,POP_POCETMAX,info,NA,NA,ne,lok
+Bombina bombina,POP_POCETMIN,info,NA,NA,ne,lok
+Bombina variegata,POP_POCETMIN,info,NA,NA,ne,lok
+Epidalea calamita,POP_POCETMIN,info,NA,NA,ne,lok
+Lissotriton montandoni,POP_POCETMIN,info,NA,NA,ne,lok
+Triturus carnifex,POP_POCETMIN,info,NA,NA,ne,lok
+Triturus cristatus,POP_POCETMIN,info,NA,NA,ne,lok
+Triturus dobrogicus,POP_POCETMIN,info,NA,NA,ne,lok
 Bolbelamus unicornis,POP_POCETPOLE0,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Carabus menetriesi pacholei,POP_POCETPOLE0,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Carabus variolosus,POP_POCETPOLE0,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
@@ -86,14 +86,14 @@ Phengaris nausithous,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. ø
 Phengaris teleius,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Rhysodes sulcatus,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
 Rosalia alpina,POP_POCETPOLE1,NA,NA,poèet sledovaných mapovacích polí 1. øádu,NA,chu
-Lissotriton montandoni,POP_POCETSUM,NA,NA,samci,NA,lok
-Lissotriton montandoni,POP_POCETSUM,NA,NA,samice,NA,lok
-Triturus carnifex,POP_POCETSUM,NA,NA,samci,NA,lok
-Triturus carnifex,POP_POCETSUM,NA,NA,samice,NA,lok
-Triturus cristatus,POP_POCETSUM,NA,NA,samci,NA,lok
-Triturus cristatus,POP_POCETSUM,NA,NA,samice,NA,lok
-Triturus dobrogicus,POP_POCETSUM,NA,NA,samci,NA,lok
-Triturus dobrogicus,POP_POCETSUM,NA,NA,samice,NA,lok
+Lissotriton montandoni,POP_POCETSUM,info,NA,samci,NA,lok
+Lissotriton montandoni,POP_POCETSUM,info,NA,samice,NA,lok
+Triturus carnifex,POP_POCETSUM,info,NA,samci,NA,lok
+Triturus carnifex,POP_POCETSUM,info,NA,samice,NA,lok
+Triturus cristatus,POP_POCETSUM,info,NA,samci,NA,lok
+Triturus cristatus,POP_POCETSUM,info,NA,samice,NA,lok
+Triturus dobrogicus,POP_POCETSUM,info,NA,samci,NA,lok
+Triturus dobrogicus,POP_POCETSUM,info,NA,samice,NA,lok
 Eriogaster catax,POP_POCETSUMLOKAL,min,10,hnízda housenek,ano,lok
 Euphydryas aurinia,POP_POCETSUMLOKAL,min,10,hnízda housenek,ano,lok
 Euphydryas maturna,POP_POCETSUMLOKAL,min,10,hnízda housenek,ano,lok
@@ -432,30 +432,30 @@ Leucorrhinia pectoralis,STA_ZAZEMNENI,max,60,%,ne,lok
 Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,NA,ne,lok
 Epidalea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
 stanoviste,TYPICKE_DRUHY,,NA,NA,ne,lok
-Bolbelamus unicornis,VLV_VLIVY,NA,NA,NA,ne,lok
-Bombina bombina,VLV_VLIVY,NA,NA,NA,ne,lok
-Bombina variegata,VLV_VLIVY,NA,NA,NA,ne,lok
-Carabus menetriesi pacholei,VLV_VLIVY,NA,NA,NA,ne,lok
-Cerambyx cerdo,VLV_VLIVY,NA,NA,NA,ne,lok
-Cucujus cinnaberinus,VLV_VLIVY,NA,NA,NA,ne,lok
-Epidalea calamita,VLV_VLIVY,NA,NA,NA,ne,lok
-Eriogaster catax,VLV_VLIVY,NA,NA,NA,ne,lok
-Euphydryas aurinia,VLV_VLIVY,NA,NA,NA,NA,lok
-Euphydryas maturna,VLV_VLIVY,NA,NA,NA,ne,lok
-Euplagia quadripunctaria,VLV_VLIVY,NA,NA,NA,ne,lok
-Leucorrhinia pectoralis,VLV_VLIVY,NA,NA,NA,ne,lok
-Limoniscus violaceus,VLV_VLIVY,NA,NA,NA,ne,lok
-Lissotriton montandoni,VLV_VLIVY,NA,NA,NA,ne,lok
-Lucanus cervus,VLV_VLIVY,NA,NA,NA,ne,lok
-Lycaena dispar,VLV_VLIVY,NA,NA,NA,ne,lok
-Osmoderma barnabita,VLV_VLIVY,NA,NA,NA,ne,lok
-Osmoderma barnabita,VLV_VLIVY,NA,NA,NA,ne,lok
-Phengaris nausithous,VLV_VLIVY,NA,NA,NA,ne,lok
-Phengaris teleius,VLV_VLIVY,NA,NA,NA,ne,lok
-Rosalia alpina,VLV_VLIVY,NA,NA,NA,ne,lok
-Triturus carnifex,VLV_VLIVY,NA,NA,NA,ne,lok
-Triturus cristatus,VLV_VLIVY,NA,NA,NA,ne,lok
-Triturus dobrogicus,VLV_VLIVY,NA,NA,NA,ne,lok
+Bolbelamus unicornis,VLV_VLIVY,info,NA,NA,ne,lok
+Bombina bombina,VLV_VLIVY,info,NA,NA,ne,lok
+Bombina variegata,VLV_VLIVY,info,NA,NA,ne,lok
+Carabus menetriesi pacholei,VLV_VLIVY,info,NA,NA,ne,lok
+Cerambyx cerdo,VLV_VLIVY,info,NA,NA,ne,lok
+Cucujus cinnaberinus,VLV_VLIVY,info,NA,NA,ne,lok
+Epidalea calamita,VLV_VLIVY,info,NA,NA,ne,lok
+Eriogaster catax,VLV_VLIVY,info,NA,NA,ne,lok
+Euphydryas aurinia,VLV_VLIVY,info,NA,NA,NA,lok
+Euphydryas maturna,VLV_VLIVY,info,NA,NA,ne,lok
+Euplagia quadripunctaria,VLV_VLIVY,info,NA,NA,ne,lok
+Leucorrhinia pectoralis,VLV_VLIVY,info,NA,NA,ne,lok
+Limoniscus violaceus,VLV_VLIVY,info,NA,NA,ne,lok
+Lissotriton montandoni,VLV_VLIVY,info,NA,NA,ne,lok
+Lucanus cervus,VLV_VLIVY,info,NA,NA,ne,lok
+Lycaena dispar,VLV_VLIVY,info,NA,NA,ne,lok
+Osmoderma barnabita,VLV_VLIVY,info,NA,NA,ne,lok
+Osmoderma barnabita,VLV_VLIVY,info,NA,NA,ne,lok
+Phengaris nausithous,VLV_VLIVY,info,NA,NA,ne,lok
+Phengaris teleius,VLV_VLIVY,info,NA,NA,ne,lok
+Rosalia alpina,VLV_VLIVY,info,NA,NA,ne,lok
+Triturus carnifex,VLV_VLIVY,info,NA,NA,ne,lok
+Triturus cristatus,VLV_VLIVY,info,NA,NA,ne,lok
+Triturus dobrogicus,VLV_VLIVY,info,NA,NA,ne,lok
 Bombina bombina,LOK_PROCDOBR,min,70,NA,ano,chu
 Bombina variegata,LOK_PROCDOBR,min,70,NA,ano,chu
 Lissotriton montandoni,LOK_PROCDOBR,min,70,NA,ano,chu
