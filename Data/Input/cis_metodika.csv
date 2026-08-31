@@ -34,7 +34,7 @@ kod_druhu,druh,druh_cz,SKUPINA,SKUPINA_0,metodika
 35231,Aldrovanda vesiculosa,aldrovandka mìchýøkatá,Cévnaté rostliny,ROSTLINY,19192
 35497,Artemisia pancicii,pelynìk Panèiæùv,Cévnaté rostliny,ROSTLINY,19192
 32764,Euplagia quadripunctaria,pøástevník kostivalový,Motýli,BEZOBRATLÍ,
-21,Triturus cristatus,èolek velký,Obojživelníci,OBRATLOVCI,19269
+21,Triturus cristatus,èolek velký,Obojživelníci,OBRATLOVCI,22257
 4157,Carabus menetriesi pacholei,støevlík Ménétriésùv,Brouci,BEZOBRATLÍ,
 34988,Cobitis taenia,sekavec píseèný,Ryby a mihule,OBRATLOVCI,
 36306,Coleanthus subtilis,puchýøka útlá,Cévnaté rostliny,ROSTLINY,19192
@@ -52,7 +52,7 @@ kod_druhu,druh,druh_cz,SKUPINA,SKUPINA_0,metodika
 8765,Rhysodes sulcatus,rýhovec pralesní,Brouci,BEZOBRATLÍ,
 31643,Lycaena helle,ohniváèek rdesnový,Motýli,BEZOBRATLÍ,
 1845,Hamatocaulis vernicosus,srpnatka fermežová,Mechorosty,ROSTLINY,
-3,Bombina variegata,kuòka žlutobøichá,Obojživelníci,OBRATLOVCI,19269
+3,Bombina variegata,kuòka žlutobøichá,Obojživelníci,OBRATLOVCI,22257
 29364,Myotis myotis,netopýr velký,Letouni,OBRATLOVCI,
 98277,Rutilus virgo,plotice podunajská,Ryby a mihule,OBRATLOVCI,
 31645,Lycaena dispar,ohniváèek èernoèárný,Motýli,BEZOBRATLÍ,
@@ -80,7 +80,7 @@ kod_druhu,druh,druh_cz,SKUPINA,SKUPINA_0,metodika
 35045,Salmo salar,losos obecný,Ryby a mihule,OBRATLOVCI,
 34579,Margaritifera margaritifera,perlorodka øíèní,Mìkkýši,BEZOBRATLÍ,
 35085,Aconitum firmum subsp. moravicum,omìj tuhý moravský,Cévnaté rostliny,ROSTLINY,19192
-22,Triturus dobrogicus,èolek dunajský,Obojživelníci,OBRATLOVCI,19269
+22,Triturus dobrogicus,èolek dunajský,Obojživelníci,OBRATLOVCI,22257
 38264,Minuartia smejkalii,kuøièka hadcová,Cévnaté rostliny,ROSTLINY,19192
 36562,Dianthus arenarius subsp. bohemicus,hvozdík píseèný èeský,Cévnaté rostliny,ROSTLINY,19192
 35026,Misgurnus fossilis,piskoø pruhovaný,Ryby a mihule,OBRATLOVCI,
@@ -91,14 +91,14 @@ kod_druhu,druh,druh_cz,SKUPINA,SKUPINA_0,metodika
 34378,Ursus arctos,medvìd hnìdý,Savci,OBRATLOVCI,
 70672,Osmoderma barnabita,páchník hnìdý,Brouci,BEZOBRATLÍ,
 39041,Pulsatilla patens,koniklec otevøený,Cévnaté rostliny,ROSTLINY,19192
-75608,Triturus cristatus s. l.,èolek velký komplex,Obojživelníci,OBRATLOVCI,19269
+75608,Triturus cristatus s. l.,èolek velký komplex,Obojživelníci,OBRATLOVCI,22257
 53760,Anthrenochernes stellae,,Štírci,BEZOBRATLÍ,
 6707,Lucanus cervus,roháè obecný,Brouci,BEZOBRATLÍ,
 29358,Myotis bechsteinii,netopýr velkouchý,Letouni,OBRATLOVCI,
 3837,Bolbelasmus unicornis,chrobák jednorohý,Brouci,BEZOBRATLÍ,
 96205,Mustela eversmanii,tchoø stepní,Savci,OBRATLOVCI,
 37179,Gentianella praecox subsp. bohemica,hoøeèek mnohotvarý èeský,Cévnaté rostliny,ROSTLINY,19192
-1,Bombina bombina,kuòka obecná,Obojživelníci,OBRATLOVCI,19269
+1,Bombina bombina,kuòka obecná,Obojživelníci,OBRATLOVCI,22257
 8772,Rosalia alpina,tesaøík alpský,Brouci,BEZOBRATLÍ,
 1712,Dicranum viride,dvouhrotec zelený,Mechorosty,ROSTLINY,
 1964,Mannia triandra,mozolka skalní,Mechorosty,ROSTLINY,
@@ -120,9 +120,9 @@ kod_druhu,druh,druh_cz,SKUPINA,SKUPINA_0,metodika
 38057,Luronium natans,žabníèek vzplývavý,Cévnaté rostliny,ROSTLINY,19192
 35889,Campanula gelida,zvonek jesenický,Cévnaté rostliny,ROSTLINY,19192
 74717,Romanogobio belingi,hrouzek Belingùv,Ryby a mihule,OBRATLOVCI,
-20,Triturus carnifex,èolek dravý,Obojživelníci,OBRATLOVCI,19269
+20,Triturus carnifex,èolek dravý,Obojživelníci,OBRATLOVCI,22257
 37503,Himantoglossum adriaticum,jazýèek jadranský,Cévnaté rostliny,ROSTLINY,19192
-108459,Lissotriton montandoni,èolek karpatský,Obojživelníci,OBRATLOVCI,19269
+108459,Lissotriton montandoni,èolek karpatský,Obojživelníci,OBRATLOVCI,22257
 35371,Angelica palustris,matizna bahenní,Cévnaté rostliny,ROSTLINY,19192
 36665,Echium maculatum,hadinec èervený,Cévnaté rostliny,ROSTLINY,19192
 37959,Ligularia sibirica,popelivka sibiøská,Cévnaté rostliny,ROSTLINY,19192

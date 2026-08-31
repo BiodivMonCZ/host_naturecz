@@ -5,6 +5,12 @@
 # 1. Definice klicove promenne pro urceni sloupcu
 ncol_orig <- ncol(n2k_load)
 
+# 2. Zalozni kod metodiky pro export do ISOP.
+# Pouzije se u druhu, ktere nemaji v Data/Input/cis_metodika.csv vyplneny
+# sloupec 'metodika' - dnes vsechny skupiny krome obojzivelniku (22257)
+# a cevnatych rostlin (19192). Drive byla tato hodnota natvrdo u vsech druhu.
+METODIKA_VYCHOZI <- 15087
+
 #----------------------------------------------------------#
 # Druhovy seznam -----
 #----------------------------------------------------------#
@@ -587,6 +593,9 @@ chu_export <- function(
     n2k_oop,
     indikatory_id,
     n2k_druhy_obdobi_chu,
+    # Ciselnik metodik (Data/Input/cis_metodika.csv, sloupce druh + metodika).
+    # Neni-li predan, pouzije se pro vsechny druhy zalozni kod METODIKA_VYCHOZI.
+    cis_metodika = NULL,
     cilove_stavy = NULL,
     current_year = 2025,
     input_path = "Data/Temp/n2k_druhy_lok.csv",
@@ -652,7 +661,15 @@ chu_export <- function(
   progress_line("--- PRIPRAVA DAT PRO EXPORT (CHU) ---")
 
   n2k_druhy_chu_write <- n2k_druhy_uzemi %>%
-    dplyr::inner_join(sites_subjects %>% dplyr::select(site_code, nazev_lat), by = c("kod_chu" = "site_code", "DRUH" = "nazev_lat")) %>%
+    # Pripojeni seznamu predmetu ochrany. Krome omezeni na oficialni dvojice
+    # uzemi x druh se odsud bere i sdf_code = kod druhu podle Natura 2000
+    # (SDF), ktery jde do exportu jako 'feature_code' - viz nize.
+    dplyr::inner_join(
+      sites_subjects %>%
+        dplyr::select(site_code, nazev_lat, sdf_code) %>%
+        dplyr::distinct(),
+      by = c("kod_chu" = "site_code", "DRUH" = "nazev_lat")
+    ) %>%
     # Pripojeni informaci o obdobich
     dplyr::left_join(
       .,
@@ -662,7 +679,21 @@ chu_export <- function(
     dplyr::left_join(evl %>% sf::st_drop_geometry() %>% dplyr::select(SITECODE, NAZEV), by = c("kod_chu" = "SITECODE")) %>%
     dplyr::left_join(rp_code, by = dplyr::join_by("kod_chu")) %>%
     dplyr::left_join(n2k_oop, by = c("kod_chu" = "SITECODE")) %>%
-    dplyr::mutate(typ_predmetu_hodnoceni = "Druh", feature_code = NA, trend = "neznámý", datum_hodnoceni = Sys.Date()) %>%
+    # feature_code = kod druhu podle Natura 2000 (SDF), napr. 1166 pro
+    # Triturus cristatus, 1188 pro Bombina bombina. Drive se sem natvrdo
+    # zapisovalo NA, prestoze hodnota je k dispozici v seznamu predmetu
+    # ochrany - importni sablona i soubor, ktery ISOP prijal
+    # (amp_evl_2024_20250908), ji maji vyplnenou.
+    #
+    # POZOR: musi to byt 'sdf_code', NE 'feature_code' ze sites_subjects -
+    # ten nese Kod.ISOP (pro Triturus cristatus 21), coz je jiny ciselnik
+    # a do importu by sel spatny kod.
+    dplyr::mutate(
+      typ_predmetu_hodnoceni = "Druh",
+      feature_code = sdf_code,
+      trend = "neznámý",
+      datum_hodnoceni = Sys.Date()
+    ) %>%
     dplyr::filter(CILMON_CHU == 1) %>%
     dplyr::rename(
       nazev_chu = NAZEV,
@@ -677,13 +708,32 @@ chu_export <- function(
     ) %>%
     dplyr::select(typ_predmetu_hodnoceni, kod_chu, nazev_chu, druh, feature_code, hodnocene_obdobi_od, hodnocene_obdobi_do, oop, parametr_nazev, parametr_hodnota, parametr_limit, parametr_jednotka, stav, trend, datum_hodnoceni, pracoviste, ID_ND_AKCE) %>%
     dplyr::left_join(indikatory_id, by = c("parametr_nazev" = "ind_r")) %>%
+    # Pripojeni kodu metodiky z ciselniku (druh -> metodika).
+    # Drive zde bylo natvrdo metodika = 15087 pro VSECHNY druhy, prestoze
+    # Data/Input/cis_metodika.csv prirazeni druh -> metodika obsahuje a config
+    # ho nacita. U obojzivelniku tak sla do ISOP cizi metodika.
+    #
+    # Ciselnik ma vyplnenou metodiku jen u obojzivelniku (22257) a cevnatych
+    # rostlin (19192); u zbylych 12 skupin je sloupec prazdny. Proto coalesce
+    # na METODIKA_VYCHOZI - jinak by ostatnim skupinam metodika zmizela.
+    dplyr::left_join(
+      if (is.null(cis_metodika)) {
+        tibble::tibble(druh = character(0), metodika_cis = numeric(0))
+      } else {
+        cis_metodika %>%
+          dplyr::select(druh, metodika_cis = metodika) %>%
+          dplyr::filter(!is.na(metodika_cis)) %>%
+          dplyr::distinct()
+      },
+      by = "druh"
+    ) %>%
     # --- ZDE BYLA CHYBA: Pridano as.character() pro sjednoceni typu ---
     dplyr::mutate(
       parametr_nazev = dplyr::coalesce(as.character(ind_id), as.character(parametr_nazev)),
       pracoviste = gsub(",", "", pracoviste),
-      metodika = 15087
+      metodika = dplyr::coalesce(metodika_cis, METODIKA_VYCHOZI)
     ) %>%
-    dplyr::select(-c(ind_id, ind_popis, ID_ND_AKCE)) %>%
+    dplyr::select(-c(ind_id, ind_popis, ID_ND_AKCE, metodika_cis)) %>%
     dplyr::distinct()
 
   sep_isop <- ";"
@@ -715,6 +765,9 @@ kukchu <-
   n2k_oop = n2k_oop,
   indikatory_id = indikatory_id,
   n2k_druhy_obdobi_chu = n2k_druhy_obdobi_chu, # Zde predavame vypoctena obdobi
+  # Ciselnik metodik (viz 00_n2k_config.R). Bez nej by vsem druhum zustal
+  # zalozni kod METODIKA_VYCHOZI.
+  cis_metodika = if (exists("cis_metodika")) cis_metodika else NULL,
   # Cilove stavy pro druhy indikator Tabulky 2 (viz 00_n2k_config.R).
   # Bez nich se druhy indikator nevyhodnocuje a uroven uzemi vychazi jen
   # z LOK_PROCDOBR - proto se predava i zde, nejen v run_one_uzemi().
