@@ -83,6 +83,48 @@ run_n2k_druhy <- function(
   )
   je_obojzivelnik <- species_name %in% obojzivelnici_metodika
 
+  # Pocitat populacni trendy? Ridi se VYHRADNE tabulkou limitu - trendovy blok
+  # (POP_POCETMAXREF, POP_TREND1, POP_TREND2, POP_TREND, POP_TRENDLM) se
+  # vyhodnocuje jen u druhu, ktere maji nektery z indikatoru POP_TREND* uvedeny
+  # v limitech. Dnes je to 34 druhu cevnatych rostlin (limity_cevky.csv,
+  # POP_TREND: max 1, KLIC = ano, UROVEN = lok).
+  #
+  # PROC: u obojzivelniku metodika zadny populacni trend nezna a v limitech pro
+  # ne zadny radek POP_TREND* neni - hodnoty se pocitaly, prosly celou fazi 1
+  # a teprve ve fazi 2 je zahodil right_join na limity. Slo tedy o praci navic
+  # bez vlivu na vysledek, ktera navic svadela k tomu cist POP_TRENDLM jako
+  # platny udaj. Regrese se u zaznamu bez ciselneho poctu pocitala z dosazenych
+  # mezi kategorii, takze cislo bylo i vecne zavadejici.
+  #
+  # Podminka je zamerne datova, ne "neni obojzivelnik" - pribude-li trendovy
+  # limit dalsi skupine, zacne se pocitat sam od sebe.
+  pocitat_trend <- any(
+    limity$DRUH == species_name &
+      grepl("^POP_TREND", limity$ID_IND),
+    na.rm = TRUE
+  )
+  if (!pocitat_trend) {
+    message(glue::glue(
+      "Druh {species_name}: zadny limit POP_TREND* - trendovy blok se nepocita."
+    ))
+  }
+
+  # Kontrola ciselniku kategorii pocetnosti.
+  # POP_POCETMIN a POP_POCETMAX se z nej odvozuji primo (viz nize), takze
+  # chybejici sloupec by se jinak projevil az nesrozumitelnou chybou delky
+  # uvnitr dplyr::if_else().
+  if (!exists("cis_pocet_kat")) {
+    stop("Objekt 'cis_pocet_kat' neexistuje - spustte R/00_config/02_n2k_data_druhy.R")
+  }
+  cis_pocet_kat_sloupce <- c("POP_POCETNOSTMAX", "POP_POCETNMIN", "POP_POCETNMAX")
+  if (!all(cis_pocet_kat_sloupce %in% names(cis_pocet_kat))) {
+    stop(
+      "Ciselnik 'cis_pocet_kat' nema ocekavane sloupce (",
+      paste(setdiff(cis_pocet_kat_sloupce, names(cis_pocet_kat)), collapse = ", "),
+      ") - zkontrolujte Data/Input/cis_pocet_kat.csv."
+    )
+  }
+
   # Kontrola limitu pro pocet (POP_POCET)
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
@@ -911,28 +953,43 @@ run_n2k_druhy <- function(
       )
     ) %>%
     dplyr::mutate(
-      # POP_POCETMIN: Minimalni odhad populace na zaklade kategorie pocetnosti
-      POP_POCETMIN = dplyr::case_when(
-        is.na(POP_POCET) == FALSE ~ as.numeric(POP_POCET),
-        POP_POCETNOSTNAL == 8 ~ 1000000,
-        POP_POCETNOSTNAL == 7 ~ 100001,
-        POP_POCETNOSTNAL == 6 ~ 10001,
-        POP_POCETNOSTNAL == 5 ~ 1001,
-        POP_POCETNOSTNAL == 4 ~ 101,
-        POP_POCETNOSTNAL == 3 ~ 50,
-        POP_POCETNOSTNAL == 2 ~ 11,
-        POP_POCETNOSTNAL == 1 ~ 1,
-        TRUE ~ NA_real_
+      # POP_POCETMIN / POP_POCETMAX: hranice kategorie pocetnosti
+      #
+      # Obe meze se berou z ciselniku Data/Input/cis_pocet_kat.csv (sloupce
+      # POP_POCETNMIN a POP_POCETNMAX), klicem je kategorie POP_POCETNOSTNAL.
+      # Drive byly obe skaly natvrdo vypsane v case_when a rozchazely se
+      # s ciselnikem, ktery je definuje:
+      #   - POP_POCETMIN mel u kategorie 3 hodnotu 50, ciselnik uvadi 51
+      #     (50 patri jeste do kategorie 2)
+      #   - POP_POCETMAX mel u kategorii 1, 2 i 3 shodne 10000 misto 10, 50
+      #     a 100, a pro kategorie 6, 7 a 8 nemel vetev vubec, takze propadal
+      #     na NA. POP_POCETMAX pritom vstupuje do POP_TRENDLM a POP_TREND1/2,
+      #     ktere se tak u zaznamu bez ciselneho poctu pocitaly z konstanty.
+      #
+      # match() vraci pro neznamou nebo chybejici kategorii (vc. POP_POCETNOSTNAL
+      # = 0, coz je nepritomnost druhu) NA, indexace pak da NA_real_ - tedy
+      # stejny vysledek jako puvodni vetev TRUE ~ NA_real_.
+      #
+      # POZOR: semantika zustava zamerne NEZMENENA - dosazuje se DOLNI mez
+      # kategorie, ne jeji median (POP_POCETSTRED). Zmena na median je
+      # metodicke rozhodnuti, ne oprava chyby.
+      POP_POCETMIN = dplyr::if_else(
+        is.na(POP_POCET) == FALSE,
+        as.numeric(POP_POCET),
+        as.numeric(
+          cis_pocet_kat$POP_POCETNMIN[
+            match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)
+          ]
+        )
       ),
-      # POP_POCETMAX: Maximalni odhad populace na zaklade kategorie pocetnosti
-      POP_POCETMAX = dplyr::case_when(
-        is.na(POP_POCET) == FALSE ~ as.numeric(POP_POCET),
-        POP_POCETNOSTNAL == 5 ~ 10000,
-        POP_POCETNOSTNAL == 4 ~ 1000,
-        POP_POCETNOSTNAL == 3 ~ 10000,
-        POP_POCETNOSTNAL == 2 ~ 10000,
-        POP_POCETNOSTNAL == 1 ~ 10000,
-        TRUE ~ NA_real_
+      POP_POCETMAX = dplyr::if_else(
+        is.na(POP_POCET) == FALSE,
+        as.numeric(POP_POCET),
+        as.numeric(
+          cis_pocet_kat$POP_POCETNMAX[
+            match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)
+          ]
+        )
       ),
       POP_POCETPRUM = 50,
       # POP_POCETLODYHSUM: Celkovy soucet lodyh
@@ -1336,25 +1393,48 @@ run_n2k_druhy <- function(
     ) %>%
     #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
-      # POP_POCETMAXREF: Referencni maximum pred 3 lety
-      POP_POCETMAXREF = POP_POCETMAX[3],
-      # POP_TREND1/2: Porovnani aktualnich hodnot s referenci (1 = lepsi, 0 = horsi)
-      POP_TREND1 = dplyr::case_when(
-        POP_POCETMAX[1] >= POP_POCETMAXREF ~ 1,
-        POP_POCETMAX[1] < POP_POCETMAXREF ~ 0
-      ),
-      POP_TREND2 = dplyr::case_when(
-        POP_POCETMAX[2] >= POP_POCETMAXREF ~ 1,
-        POP_POCETMAX[2] < POP_POCETMAXREF ~ 0
-      ),
-      # POP_TREND: Suma trendu (hodnoceni stability)
-      POP_TREND = sum(
-        POP_TREND1, 
-        POP_TREND2, 
-        na.rm = TRUE
-      ),
-      # POP_TRENDLM: Linearni trend (smernice regrese)
-      POP_TRENDLM = if (sum(!is.na(POP_POCETMAX)) > 1) {
+      # Trendovy blok se pocita jen u druhu, ktere maji limit POP_TREND*
+      # (viz 'pocitat_trend' na zacatku funkce). U ostatnich druhu zustavaji
+      # sloupce prazdne - NEsmi se ale vypustit uplne, protoze faze 2
+      # pivotuje pevny rozsah sloupcu (POP_PRESENCE_N az po posledni) a
+      # zmena sirky tabulky by rozhodila 'ncol_orig'.
+      #
+      # POP_POCETMAXREF: Referencni maximum pred 3 lety (3. nejnovejsi rok)
+      POP_POCETMAXREF = if (pocitat_trend) {
+        POP_POCETMAX[3]
+      } else {
+        NA_real_
+      },
+      # POP_TREND1/2: Porovnani dvou nejnovejsich roku s referenci
+      # (1 = stejne nebo lepsi, 0 = horsi)
+      POP_TREND1 = if (pocitat_trend) {
+        dplyr::case_when(
+          POP_POCETMAX[1] >= POP_POCETMAXREF ~ 1,
+          POP_POCETMAX[1] < POP_POCETMAXREF ~ 0
+        )
+      } else {
+        NA_real_
+      },
+      POP_TREND2 = if (pocitat_trend) {
+        dplyr::case_when(
+          POP_POCETMAX[2] >= POP_POCETMAXREF ~ 1,
+          POP_POCETMAX[2] < POP_POCETMAXREF ~ 0
+        )
+      } else {
+        NA_real_
+      },
+      # POP_TREND: Suma trendu (hodnoceni stability), limit max 1
+      POP_TREND = if (pocitat_trend) {
+        sum(
+          POP_TREND1,
+          POP_TREND2,
+          na.rm = TRUE
+        )
+      } else {
+        NA_real_
+      },
+      # POP_TRENDLM: Linearni trend (smernice regrese POP_POCETMAX na ROK)
+      POP_TRENDLM = if (pocitat_trend && sum(!is.na(POP_POCETMAX)) > 1) {
         coef(lm(POP_POCETMAX ~ ROK))[2]
       } else {
         NA_real_
