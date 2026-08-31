@@ -32,6 +32,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Nálezy z revize kategorií početnosti (2026-08-30)* | 3 | H-24, H-25, H-26 |
 | *Nálezy z kontroly exportu proti šabloně (2026-08-31)* | 3 | H-27, H-28, H-29 |
 | *Dořešení H-01 a H-02 (2026-08-31)* | 3 | H-30, H-31, H-32 |
+| *Rozšíření kategorie `info` (2026-08-31)* | 4 | H-33, H-34, H-35, H-36 |
 
 ---
 
@@ -803,6 +804,122 @@ indikátor.
 
 ---
 
+# Rozšíření kategorie `info` (2026-08-31)
+
+Zadavatel: *„info kategorie pro limity, které se mají zobrazit, ale nemají
+přispívat k hodnocení — zavést i pro ostatní, kde min/max/val neplatí."*
+
+Při procházení se ukázalo, že „`min`/`max`/`val` neplatí" pokrývá **tři
+různé věci**, ne jednu — proto H-33 (skutečné `info`), H-34 (`neg`, jiný
+problém) a H-35 (chyba, kterou to odhalilo).
+
+### H-33 ✅ — kategorie `info` rozšířena na ostatní nehodnocené indikátory
+- **Závažnost:** střední · **Typ:** STOPA-DO-ISOP · **Stav:** implementováno
+- **Provedeno:** v `limity_vse.csv` označeno `TYP_IND = "info"` u **64 řádků**
+  na úrovni `lok` u 23 druhů (7 obojživelníků + 16 druhů hmyzu):
+
+  | indikátor | řádků | co to je |
+  |---|---|---|
+  | `POP_POCET` | 18 | výčet jednotek pro `lim_pocet` |
+  | `POP_POCETSUM` | 8 | výčet jednotek pro `lim_pocetsum` |
+  | `POP_POCETMIN` | 7 | placeholder bez limitu |
+  | `POP_POCETMAX` | 7 | placeholder bez limitu |
+  | `VLV_VLIVY` | 24 | placeholder bez limitu |
+
+- **Doklad o dopadu** (testovací běh *Triturus cristatus*): výstup DP má nově
+  16 indikátorů místo 13 — přibyly `POP_POCET`, `POP_POCETSUM` a `VLV_VLIVY`,
+  vždy 724 řádků se `STAV_IND = NA`.
+  **Celkové hodnocení DP se nezměnilo** (336 / 14 / 374 před i po) a
+  `CELKOVE_SUM` se nezměnil u ani jedné ze 724 ploch — řešení je tedy
+  prokazatelně neutrální vůči verdiktu.
+- **`POP_POCET` je z nich nejcennější:** je to surový počet a zároveň vstup
+  do `POP_POCETPRUM3` (druhý indikátor Tabulky 2). Dosud se do výstupu DP
+  nedostal vůbec.
+- **Známé omezení:** u indikátorů s více jednotkami (`POP_POCET`:
+  `adulti` / `jedinci`, `POP_POCETSUM`: `samci` / `samice`) nechá fáze 2 po
+  `slice(1)` jeden řádek, takže `HOD_IND` je správně, ale `JEDNOTKA` je jedna
+  ze dvou. Pro informativní řádek přijatelné.
+
+**Vědomě neoznačeno:**
+
+| co | proč |
+|---|---|
+| 17 řádků `DRUH = "stanoviste"` (`ROZLOHA`, `KVALITA`, `MINIMIAREAL`, `MOZAIKA_FIN`, `TYPICKE_DRUHY`, `MRTVE_DREVO`, `RED_LIST`, `INVASIVE` …) | pseudodruh, do druhové kaskády se nikdy nedostane (`species_list` je průnik s daty NDOP); patří do `R/01_stanoviste`, dopad neověřen |
+| 34 řádků na úrovni `chu` (`LOK_DILCDOBRE`, `LOK_DILCPOCET`, `LOK_POCETDOBR`, `POP_POCETPOLE0/1`) | ve výstupu EVL **už jsou** a hlásí se jako „nehodnocen“, protože `25` filtruje jen podle `UROVEN == "chu"`; přeznačení by bylo kosmetické a u `LOK_PROCDOBR` by míchalo `info` řádky s reálným `min 70` do téhož `slice(1)` |
+| `limity_cevky.csv`, `limity_ryby.csv` | stejná změna by dávala smysl, ale týká se rostlin a ryb, kde nebyl změřen dopad |
+
+### H-34 ⚠ — `TYP_IND = "neg"` se nikdy nevyhodnotí
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **neřešeno**, pouze zaznamenáno
+- **Kontext:** `limity_ryby.csv` používá **čtvrtý** typ limitu `neg`, který
+  se v `limity_vse.csv` ani `limity_cevky.csv` nevyskytuje — 12 řádků,
+  6 druhů ryb, indikátory `STA_TRASATOKU` (`uměle napřímený`) a
+  `STA_VARIABILITAHLOUBEK` (`antropogenní nízká`).
+- **Stav v kódu:** výpočet `STAV_IND` v
+  [`21_2`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R) i v
+  [`25`](../../R/02_druhy/25_n2k_druhy_uzemi.R) zná jen větve `min`, `max`
+  a `val`. Pro `neg` nesedne žádná, takže `STAV_IND` zůstane `NA`.
+  `IND_GRP` se navíc nastaví na `"neg"`, na který nesedne ani agregace.
+- **Důsledek:** oba indikátory mají vyplněný limit, jsou tedy započítány do
+  `N_OTH_EXPECTED`, ale nikdy nemohou být splněny — chovají se jako trvale
+  nevyhodnocené. Jde o stejnou třídu jako H-01.
+- **Význam `neg` je zřejmý z hodnot** („uměle napřímený", „antropogenní
+  nízká"): pravděpodobně „shoda s touto hodnotou = nepříznivý stav", tedy
+  opak `val`. **Nedopočítáváno analogií** — potřebuje potvrzení autorů
+  metodiky ryb.
+- **Mimo rozsah harmonizace obojživelníků**, zaznamenáno pro úplnost.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+### H-35 ✅ — `POP_POCETMIN` a `POP_POCETMAX` byly neviditelné kvůli příponám `.x` / `.y`
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** implementováno
+- **Kontext:** odhaleno až rozšířením `info` v H-33 — po označení se oba
+  indikátory ve výstupu **stále neobjevily**.
+- **Stav v kódu:** `n2k_druhy_pre` (úroveň nálezu) i `n2k_druhy_lokpop`
+  (agregace za DP a rok) obsahují sloupce `POP_POCETMIN`, `POP_POCETMAX`
+  a `POP_POCETNOSTMAX`. Jejich `left_join` v
+  [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R) je proto rozdvojil na
+  `.x` a `.y` a sloupec s **přesným názvem indikátoru v tabulce vůbec
+  neexistoval**.
+- **Důsledek:** `21_2` páruje indikátory přes
+  `intersect(názvy sloupců, ID_IND limitů)`, takže `POP_POCETMIN` ani
+  `POP_POCETMAX` se nespárovaly **nikdy** — byly neviditelné ve všech
+  výstupech, přestože mají řádek v limitech. Navíc součet
+  `sum(ID_IND == "POP_POCETMIN")` na úrovni území v `25` vracel **vždy 0**,
+  protože takové `ID_IND` nikdy nevzniklo. Stejná třída jako H-22.
+- **Provedeno:** join dostal `suffix = c("_NAL", "")`. Indikátorem je hodnota
+  za dílčí plochu a rok (limity mají `UROVEN = lok`), tedy strana `y`, která
+  si nechává holý název; hodnota za jednotlivý nález zůstává zachována pod
+  příponou `_NAL`.
+- **Kontrola neregrese:** `POP_POCETMIN` ani `POP_POCETMAX` nemají **v žádném
+  ze tří souborů limitů** vyhodnotitelný limit (7 + 7 řádků, všechny nově
+  `info`, `LIM_IND` prázdný). Oprava proto nemůže nic nově *hodnotit* —
+  pouze zviditelňuje. Totéž platí pro `POP_POCETNOSTMAX`, který join rozdvojil
+  také a který nemá limit vůbec žádný.
+- **Doklad o dopadu:** výstup DP má po opravě **18 indikátorů**
+  (13 před dnešními změnami + 3 z H-33 + 2 zde), oba nové vždy 724 řádků
+  se `STAV_IND = NA`. Celkové hodnocení DP zůstalo 336 / 14 / 374.
+
+### H-36 ⚠ — `POP_POCETMIN` vracelo `Inf`, `POP_POCETMAX` vrací zavádějící `0`
+- **Závažnost:** střední · **Typ:** BUG (částečně opraveno) · **Stav:** minimum opraveno, maximum **k rozhodnutí**
+- **Kontext:** odhaleno až opravou H-35 — po zviditelnění obou indikátorů se
+  ukázalo, co vlastně obsahují. `min(POP_POCET, na.rm = TRUE)` nad samými `NA`
+  vrací `Inf`; u maxima ošetření `Inf → 0` existovalo, u minima **chybělo**.
+- **Doklad:** ve výstupu DP testovacího běhu **73 ze 724 řádků**
+  `POP_POCETMIN` neslo hodnotu `Inf`.
+- **Provedeno:** u minima doplněno `Inf → NA`. Záměrně **ne** na 0 — nula by
+  tvrdila „napočítáno nula jedinců", zatímco skutečnost je „počet nebyl
+  zaznamenán". Po opravě je ve výstupu 73× „neznámý" a `Inf` se nevyskytuje
+  nikde.
+- **Zůstává k rozhodnutí:** `POP_POCETMAX` převádí `Inf` na **0** u
+  **426 ze 724** řádků, tedy tvrdí „nula jedinců" tam, kde počet nebyl
+  zaznamenán — stejná vada. Neopraveno, protože `POP_POCETMAX` vstupuje do
+  `POP_TRENDLM` a `POP_TREND1`/`POP_TREND2` u **34 druhů cévnatých rostlin**
+  (jediná skupina s limitem `POP_TREND`), kde by změna nebyla neutrální
+  a nebyla změřena. Asymetrie je zdokumentována přímo v kódu.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — má se `Inf → 0` u maxima
+  změnit na `NA` i za cenu zásahu do trendů cévnatých rostlin?)_
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -819,3 +936,6 @@ indikátor.
 | 10 | Rozhodnout H-29 — má import přepisovat `trend` hodnotou „neznámý"? | zadavatel |
 | 11 | Ověřit proti importu ISOP konce řádků (LF vs CRLF) a gzip vs prostý `.csv` | ISOP / provoz |
 | 12 | Rozhodnout H-32 — má pásmo „0-25 %" platit za vysychání? | autoři metodiky |
+| 13 | Rozhodnout H-34 — význam `TYP_IND = "neg"` u ryb (dnes se nikdy nevyhodnotí) | autoři metodiky ryb |
+| 14 | Rozhodnout H-36 — má `POP_POCETMAX` vracet `NA` místo `0`, i za cenu zásahu do trendů rostlin? | zadavatel |
+| 15 | Zvážit `info` i pro `limity_cevky.csv` a `limity_ryby.csv` (dopad nezměřen) | zadavatel |
