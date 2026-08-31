@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>readme</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="README_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting-261f789220898115d1f0b2d66d52cc9d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="testovací-běh-hodnocení-triturus-cristatus-2026-08-28" class="level1">
+<h1>Testovací běh hodnocení — <em>Triturus cristatus</em>, 2026-08-28</h1>
+<p>Kompletní běh kaskády <code>R/02_druhy</code> pro jediný druh, všechny úrovně hodnocení, a srovnání s posledním zakomitovaným během na větvi.</p>
+<section id="co-se-testovalo" class="level2">
+<h2 class="anchored" data-anchor-id="co-se-testovalo">Co se testovalo</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Kód</strong></td>
+<td>větev <code>202608-obojzivelnici</code>, HEAD <code>2a7e036</code></td>
+</tr>
+<tr class="even">
+<td><strong>Druh</strong></td>
+<td><em>Triturus cristatus</em></td>
+</tr>
+<tr class="odd">
+<td><strong>Vstup</strong></td>
+<td><code>host_data/export_data_evl.csv</code> + <code>export_data_zprap.csv</code> (NDOP)</td>
+</tr>
+<tr class="even">
+<td><strong>Rozsah</strong></td>
+<td>8 322 záznamů → 724 dílčích ploch ve 191 EVL</td>
+</tr>
+<tr class="odd">
+<td><strong>Doba běhu</strong></td>
+<td>7,5 min (fáze 1: 4:12, fáze 2: 0:03, fáze 3: 1:04, fáze 4: 0:05)</td>
+</tr>
+<tr class="even">
+<td><strong>Srovnáváno s</strong></td>
+<td>commit <code>9a108a2</code> (2026-08-25), exporty <code>nal_20260820</code>, <code>lok_20260821</code>, <code>chu_20260821</code></td>
+</tr>
+</tbody>
+</table>
+<p>Mezi porovnávanými commity se změnily <strong>pouze</strong> <code>24_n2k_druhy_lokality.R</code> a <code>25_n2k_druhy_uzemi.R</code> (nálezy H-21 a H-22). Úroveň nálezu je proto kontrolní vzorek — musí vyjít shodně.</p>
+</section>
+<section id="provedené-úrovně" class="level2">
+<h2 class="anchored" data-anchor-id="provedené-úrovně">Provedené úrovně</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Skript</th>
+<th>Úroveň</th>
+<th>Výstup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>21_1</code></td>
+<td>nález / akce — extrakce indikátorů ze <code>STRUKT_POZN</code></td>
+<td><code>mezivysledky/n2k_druhy.csv.gz</code></td>
+</tr>
+<tr class="even">
+<td><code>21_1</code> fáze 1b</td>
+<td>řada početností pro Tabulku 2</td>
+<td><code>mezivysledky/n2k_druhy_pocetnost.csv</code></td>
+</tr>
+<tr class="odd">
+<td><code>21_2</code></td>
+<td>nález — porovnání s limity → <code>STAV_IND</code></td>
+<td><code>mezivysledky/n2k_druhy_lim.csv.gz</code></td>
+</tr>
+<tr class="even">
+<td><code>22</code></td>
+<td>hodnocená období (lok / pole / chu)</td>
+<td><code>mezivysledky/n2k_druhy_obdobi_*.csv</code></td>
+</tr>
+<tr class="odd">
+<td><code>23</code></td>
+<td>poslední nález (lok / pole / chu)</td>
+<td><code>mezivysledky/n2k_druhy_posledni_*.csv</code></td>
+</tr>
+<tr class="even">
+<td><code>24</code></td>
+<td>dílčí plocha — Tabulka 1</td>
+<td><code>mezivysledky/n2k_druhy_lok.csv.gz</code></td>
+</tr>
+<tr class="odd">
+<td><code>25</code></td>
+<td>území / EVL — Tabulka 2</td>
+<td><code>mezivysledky/n2k_druhy_chu.csv</code></td>
+</tr>
+<tr class="even">
+<td><code>27</code></td>
+<td>exporty pro ISOP</td>
+<td><code>export/*.csv.gz</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="výsledek-srovnání" class="level2">
+<h2 class="anchored" data-anchor-id="výsledek-srovnání">Výsledek srovnání</h2>
+<section id="úroveň-nálezu-beze-změny-kontrola" class="level3">
+<h3 class="anchored" data-anchor-id="úroveň-nálezu-beze-změny-kontrola">Úroveň nálezu — beze změny (kontrola)</h3>
+<p>81 891 řádků, <strong>všechny shodné</strong>. Setříděný export je s původním během bajt po bajtu identický. Potvrzuje to, že ořezaný config reprodukuje vstup původního běhu věrně.</p>
+</section>
+<section id="úroveň-dílčí-plochy-43-z-724-změněno" class="level3">
+<h3 class="anchored" data-anchor-id="úroveň-dílčí-plochy-43-z-724-změněno">Úroveň dílčí plochy — 43 z 724 změněno</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>stav</th>
+<th>původní</th>
+<th>nový</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dobrý</td>
+<td>377</td>
+<td><strong>334</strong></td>
+</tr>
+<tr class="even">
+<td>zhoršený</td>
+<td><strong>0</strong></td>
+<td><strong>16</strong></td>
+</tr>
+<tr class="odd">
+<td>špatný</td>
+<td>347</td>
+<td><strong>374</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Všech 43 změn je na řádku <code>CELKOVE_HODNOCENI</code>; <strong>žádný jednotlivý indikátor se nezměnil</strong>. Přechody: 27× dobrý → špatný, 16× dobrý → zhoršený. Odpovídá nálezu H-21 (nevyhodnocený indikátor se počítal jako splněný).</p>
+<p>Doložený příklad — DP <code>CZ0213790 / 2598</code>, dobrý → špatný:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>indikátor</th>
+<th>hodnota</th>
+<th><code>STAV_IND</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>POP_PRESENCE</code> (klíčový)</td>
+<td>ano</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>POP_REPROPERIOD3</code> (klíčový)</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr class="odd">
+<td><code>POP_ZMENARAD</code> (klíčový)</td>
+<td>neznámý</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>ostatní stanovištní</td>
+<td>neznámý</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<p>Klíčový indikátor <code>POP_REPROPERIOD3</code> selhal, přesto původní běh vykázal „dobrý”: <code>NA</code> u <code>POP_ZMENARAD</code> se přes <code>n_distinct()</code> započítalo jako další splněný indikátor, takže <code>N_KEY_PASSED</code> (2) nebylo menší než <code>N_KEY_EXPECTED</code> (2). Nově <code>N_KEY_PASSED = 1 &lt; 2</code> → „špatný”, jak Tabulka 1 vyžaduje.</p>
+</section>
+<section id="úroveň-evl-7-z-63-změněno" class="level3">
+<h3 class="anchored" data-anchor-id="úroveň-evl-7-z-63-změněno">Úroveň EVL — 7 z 63 změněno</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>stav</th>
+<th>původní</th>
+<th>nový</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dobrý</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>zhoršený</td>
+<td>26</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>špatný</td>
+<td>31</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+<p>Změněná území: <code>CZ0214006</code>, <code>CZ0323147</code>, <code>CZ0323149</code>, <code>CZ0424125</code>, <code>CZ0813469</code>, <code>CZ0813472</code> (zhoršený → špatný) a <code>CZ0314639</code> (dobrý → zhoršený).</p>
+<p>Export navíc obsahuje <strong>63 nových řádků <code>POP_POCETPRUM3</code></strong> (252 → 315 řádků, 4 → 5 indikátorů), které původní běh ztrácel — nález H-22.</p>
+</section>
+</section>
+<section id="vzorek-10-evl-50-dp" class="level2">
+<h2 class="anchored" data-anchor-id="vzorek-10-evl-50-dp">Vzorek (10 EVL, 50 DP)</h2>
+<p>Losováno se <code>set.seed(20260828)</code>; seznamy v <code>srovnani/vzorek_evl.csv</code> a <code>srovnani/vzorek_dp.csv</code>. EVL se losují z území, která mají hodnocení na úrovni EVL (63), ne ze všech 191.</p>
+<p>Ve vzorku <strong>nevyšla žádná změna celkového hodnocení</strong> — 50/50 DP i 10/10 EVL shodně, všech 4 569 porovnaných řádků nálezů shodně. Při 43 změnách ze 724 DP je pravděpodobnost takového losu ≈ 5 %, jde tedy o shodu náhody, ne o rozpor. Jediné rozdíly ve vzorku: 10 nových řádků <code>POP_POCETPRUM3</code> a 4 změny hodnot <code>LOK_DILCDOBRE</code> / <code>LOK_PROCDOBR</code>.</p>
+<p>Úplné seznamy změn mimo vzorek jsou v <code>srovnani/zmenene_DP_vse.csv</code> a <code>srovnani/zmenene_EVL_vse.csv</code>.</p>
+</section>
+<section id="omezení-běhu" class="level2">
+<h2 class="anchored" data-anchor-id="omezení-běhu">Omezení běhu</h2>
+<p>Použit <strong>ořezaný konfigurační skript</strong> (<code>skripty/00_config_test_tc.R</code>), který <code>R/00_config/00_n2k_config.R</code> vyhodnocuje výraz po výrazu doslovně a přeskakuje 11 výrazů nejvyšší úrovně, jež na této stanici nelze spustit:</p>
+<ul>
+<li><code>vodstvo</code> — WFS ČÚZK (síť)</li>
+<li><code>biotop_zvld</code> / <code>BiotopZvld.shp</code> — soubor chybí</li>
+<li><code>n2k_union</code> — drahý prostorový join, nepoužívá se</li>
+<li><code>akt_okrsky</code> / <code>AktualizacniOkrsky.shp</code> — soubor chybí (viz registr, „Co zbývá” č. 6)</li>
+<li><code>redlist_species</code>, <code>invasive_species</code>, <code>expansive_species</code> — exporty chybí v <code>host_data</code></li>
+<li><code>rn2kcz</code> z GitHubu — balíček se v <code>R/02_druhy</code> nepoužívá</li>
+</ul>
+<p><strong>Žádný z těchto objektů se v <code>R/02_druhy</code> nepoužívá</strong>, běh druhové části je tedy úplný. Omezení na jeden druh se aplikuje po zjištění <code>ncol_orig</code>; všechny transformace v bloku <code>n2k_load</code> jsou řádkové, předfiltrování je proto vůči plnému běhu ekvivalentní.</p>
+</section>
+<section id="poznámka-k-datům" class="level2">
+<h2 class="anchored" data-anchor-id="poznámka-k-datům">Poznámka k datům</h2>
+<p>Při běhu <code>24</code> se hlásí varování:</p>
+<pre><code>Druh Triturus cristatus: Indikatory s nekonzistentnimi metadaty:
+STA_POKRVEGETACE, STA_PRUHLEDNOSTVODA</code></pre>
+<p>Oba indikátory mají v <code>limity_vse.csv</code> pro tentýž <code>DRUH × ID_IND</code> současně řádky <code>val</code> i <code>min</code>/<code>max</code>. Varování je přítomno v obou porovnávaných bězích, nejde o regresi — ale stojí za prověření, protože <code>run_n2k_druhy_lok()</code> u takového indikátoru bere <code>TYP_IND</code>, <code>KLIC</code> a <code>UROVEN</code> z prvního řádku (<code>dplyr::first()</code>).</p>
+</section>
+<section id="reprodukce" class="level2">
+<h2 class="anchored" data-anchor-id="reprodukce">Reprodukce</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># v pracovním stromu na větvi 202608-obojzivelnici</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Test/01_run_test_tc.R"</span>)     <span class="co"># kaskáda 21 -&gt; 27</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"Test/02_compare_test_tc.R"</span>) <span class="co"># srovnání s původním během</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cache konfigurace (<code>Test/.cache_config_tc.rds</code>) se vytvoří při prvním běhu, aby se 142MB export NDOP nemusel číst znovu; smazáním se vynutí nové načtení.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
