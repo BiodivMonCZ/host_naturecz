@@ -29,6 +29,8 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | **Potvrzeno OK** — bez akce | 5 | viz §Potvrzeno |
 | *Nálezy z implementace* | 2 | H-19, H-20 |
 | *Nálezy z testovacího běhu (2026-08-25)* | 3 | H-21, H-22, H-23 |
+| *Nálezy z revize kategorií početnosti (2026-08-30)* | 3 | H-24, H-25, H-26 |
+| *Nálezy z kontroly exportu proti šabloně (2026-08-31)* | 3 | H-27, H-28, H-29 |
 
 ---
 
@@ -549,15 +551,180 @@ doslovně a omezuje `n2k_load` na jeden druh. Všechny následné transformace j
 
 ---
 
+# Nálezy z revize převodu kategorií početnosti (2026-08-30, *Triturus cristatus*)
+
+Podnět: kontrola, zda se relativní početnost `REL_POC` převádí na medián
+kategorie podle číselníku `Data/Input/cis_pocet_kat.csv`.
+
+### H-24 ✅ — žebříčky `POP_POCETMIN` a `POP_POCETMAX` se rozcházely s číselníkem
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** implementováno
+- **Číselník:** `cis_pocet_kat.csv` definuje pro každou kategorii početnosti
+  dolní mez (`POP_POCETNMIN`), medián (`POP_POCETSTRED`) a horní mez
+  (`POP_POCETNMAX`).
+- **Stav v kódu:** [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R) měl obě meze
+  **natvrdo vypsané** v `case_when` a číselník se na jejich výpočtu nepodílel.
+  Rozcházely se ve dvou bodech:
+
+  | kategorie | `POP_POCETMIN` před → po | `POP_POCETMAX` před → po |
+  |---|---|---|
+  | 1 | 1 → 1 | **10000 → 10** |
+  | 2 | 11 → 11 | **10000 → 50** |
+  | 3 | **50 → 51** | **10000 → 100** |
+  | 4–5 | beze změny | beze změny |
+  | 6–8 | beze změny | **NA → 100000 / 1000000 / 1000000** |
+
+- **Důsledek:** `POP_POCETMIN` vstupuje přes `POP_POCETFIN` do `POP_POCET`,
+  tedy i do `POP_POCETPRUM3` (druhý indikátor Tabulky 2). `POP_POCETMAX`
+  vstupuje do celého trendového bloku — u záznamů bez číselného počtu se
+  regrese počítala z konstanty 10000, takže kategorie 1, 2 a 3 byly z hlediska
+  trendu nerozlišitelné.
+- **Doklad o dopadu** (testovací běh, 8 723 řádků fáze 1):
+  `POP_POCETMIN` 10 změn, `POP_POCETMAX` **182**, `POP_POCET` 10,
+  `POP_TRENDLM` 193. `POP_POCETPRUM3` se změnil u **3 z 97** území
+  (CZ0723423 50,0 → 51,0; CZ0813444 46,3 → 46,7; CZ0813455 29,7 → 30,0).
+  **Celkový stav DP i EVL zůstal beze změny** (334/16/374 a 5/21/37).
+- **Provedeno:** obě meze se čtou z číselníku přes
+  `match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)`. Kategorie `0`
+  (nepřítomnost) a `NA` dávají dál `NA`, tedy shodně s původní větví
+  `TRUE ~ NA_real_`. Na začátku `run_n2k_druhy()` přibyla kontrola, že
+  číselník existuje a má očekávané sloupce.
+- **Semantika ZŮSTÁVÁ:** dosazuje se **dolní mez** kategorie, nikoli medián.
+  Přechod na `POP_POCETSTRED` je metodické rozhodnutí, ne oprava chyby —
+  viz H-26.
+- **Kontrola neregrese:** větev je sdílená. Kategorie 6–8 dřív u
+  `POP_POCETMAX` propadaly na `NA`, nově vracejí hodnotu — obojživelníků se
+  to netýká (tak vysoké kategorie u nich nejsou), ale skupin s velkými počty
+  (rostliny, hmyz) ano. **Ověřeno pouze pro obojživelníky.**
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — potvrzení dopadu mimo obojživelníky)_
+
+### H-25 ✅ — trendový blok se počítal i pro druhy bez limitu `POP_TREND*`
+- **Závažnost:** střední · **Typ:** BUG / ÚKLID · **Stav:** implementováno
+- **Metodika:** metodika obojživelníků žádný populační trend nezná; v
+  `limity_vse.csv` nemá žádný z druhů Přílohy 1 řádek `POP_TREND*`.
+  Trendové limity existují jen v `limity_cevky.csv` — indikátor `POP_TREND`
+  (`max 1`, `KLIC = ano`, `UROVEN = lok`) u **34 druhů cévnatých rostlin**.
+- **Stav v kódu:** blok `n2k_druhy_lokpop_trend_desc` v
+  [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R) počítal
+  `POP_POCETMAXREF`, `POP_TREND1`, `POP_TREND2`, `POP_TREND` a `POP_TRENDLM`
+  **pro každý druh**. U obojživelníků hodnoty prošly celou fází 1 a teprve ve
+  fázi 2 je zahodil `right_join` na limity.
+- **Důsledek:** práce navíc bez vlivu na výsledek — a hlavně zavádějící údaj.
+  `POP_TRENDLM` se u záznamů bez číselného počtu počítal z dosazených mezí
+  kategorie (před H-24 dokonce z konstanty 10000), takže číslo vypadalo jako
+  platný populační trend, ač jím nebylo.
+- **Provedeno:** blok je podmíněn příznakem `pocitat_trend`, odvozeným
+  **z tabulky limitů**, ne ze skupiny druhů — přibude-li trendový limit další
+  skupině, začne se počítat sám od sebe. Sloupce zůstávají v tabulce
+  (prázdné), protože fáze 2 pivotuje pevný rozsah sloupců a změna šířky by
+  rozhodila `ncol_orig`.
+- **Kontrola neregrese:** u 34 druhů cévnatých rostlin s limitem `POP_TREND`
+  se blok počítá dál, beze změny. Pro ostatní skupiny byly hodnoty stejně
+  zahazovány ve fázi 2.
+
+### H-26 ⚠ — dolní mez kategorie místo mediánu (`POP_POCETSTRED`)
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **neřešeno**, pouze zaznamenáno
+- **Kontext:** nemá-li záznam číselný `POCET`, dosadí se za `POP_POCET`
+  **dolní mez** kategorie (kat. 2 „11-100" → 11). Číselník přitom nese i
+  sloupec `POP_POCETSTRED` s mediánem (kat. 2 → 25), který se **načte,
+  přes `POP_POCETNOSTMAX` připojí a nikde nepoužije** — nemá řádek v
+  `limity_vse.csv`, takže ho fáze 2 zahodí.
+- **Rozsah:** v testovacím běhu má **3 414 z 8 723** řádků fáze 1 `POP_POCET`
+  odvozený z kategorie, ne ze spočítaného čísla (z toho 3 204 je nepřítomnost).
+  Přechod na medián by změnil `POP_POCETPRUM3` u **15 z 97** území
+  (např. CZ0513244 1,0 → 5,0), **ale stav ani jednoho z 62 území s cílovým
+  stavem by se nezměnil** (`STAV_CIL` splněn 11× v obou variantách).
+- **Proč to není jen oprava:** `POP_POCETPRUM3` se porovnává s
+  `navrzena_hodnota` ze SDO, u níž je nesoulad jednotek vědomě tolerován
+  (nález S-4). Dolní mez je konzervativní odhad; medián je méně konzervativní
+  proti cíli, jehož jednotky zatím nejsou vyjasněné.
+- **Otázka pro autory metodiky:** má se za relativní kategorii dosazovat dolní
+  mez (konzervativně), nebo medián kategorie?
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+
+# Nálezy z kontroly exportu proti importní šabloně (2026-08-31)
+
+Podnět: srovnání závěrečné kompilace úrovní DP a EVL s
+`Data/Templates/import_vzor_obojzivelnici.csv` — názvy sloupců, struktura,
+kódování, oddělovače.
+
+**Struktura je v pořádku.** Export `chu` (UTF-8) má všech 18 sloupců šablony
+ve shodném pořadí a se shodnými názvy, oddělovač `;`, bez uvozovek, kódování
+UTF-8, desetinná tečka, datum `YYYY-MM-DD`. Ověřeno, že **žádná hodnota
+neobsahuje `;`**, takže neuvozovaný zápis je bezpečný — drží to konfigurace,
+která u `oop` nahrazuje `;` čárkou. Dvě odchylky proti šabloně i proti
+souboru, který ISOP přijal (`amp_evl_2024_20250908`): exporty mají **konce
+řádků LF** místo CRLF a jsou **gzipované** (`.csv.gz`) místo prostého `.csv`.
+Obojí je důsledek přechodu na `write_export_gz()`; neověřeno proti importu ISOP.
+
+**Úroveň DP (`lok`) šablonu nemá** — má 26 sloupců interních názvů
+(`ROK`, `KOD_LOKAL`, `ID_IND`, `HOD_IND`, `STAV_IND`, …) a není importním
+formátem ISOP. Jako pracovní/auditní výstup je konzistentní.
+
+### H-27 ✅ — `feature_code` se do exportu zapisoval jako `NA`
+- **Závažnost:** vysoká · **Typ:** BUG / STOPA-DO-ISOP · **Stav:** implementováno
+- **Stav v kódu:** [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R) měl
+  `dplyr::mutate(… feature_code = NA …)`, přestože `chu_export()` seznam
+  předmětů ochrany už připojoval — jen z něj bral pouze `site_code`
+  a `nazev_lat`.
+- **Doklad:** šablona i soubor přijatý ISOP nesou kód druhu podle SDF:
+
+  | druh | šablona | `sites_subjects$sdf_code` |
+  |---|---|---|
+  | *Triturus cristatus* | 1166 | 1166 |
+  | *Bombina bombina* | 1188 | 1188 |
+  | *Bombina variegata* | 1193 | 1193 |
+  | *Triturus carnifex* | 1167 | 1167 |
+  | *Triturus dobrogicus* | 1993 | 1993 |
+
+- **Provedeno:** `feature_code` se bere z `sites_subjects$sdf_code`.
+  **POZOR:** nikoli ze sloupce `sites_subjects$feature_code` — ten nese
+  `Kód.ISOP` (pro *Triturus cristatus* hodnotu 21), tedy jiný číselník;
+  jeho použití by do importu poslalo špatný kód.
+
+### H-28 ✅ — `metodika` byla natvrdo 15087 pro všechny druhy
+- **Závažnost:** vysoká · **Typ:** BUG / STOPA-DO-ISOP · **Stav:** implementováno
+- **Stav v kódu:** [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R) zapisoval
+  `metodika = 15087` všem druhům. `Data/Input/cis_metodika.csv` přitom přiřazení
+  druh → metodika obsahuje a config ho načítá — objekt `cis_metodika` se ale
+  **nikde v kódu nepoužíval** (stejný vzorec jako H-16 a H-24).
+- **Doklad:** šablona i soubor přijatý ISOP mají u obojživelníků `19269`,
+  export `15087` — tedy cizí metodika u každého exportovaného řádku.
+- **Rozhodnutí zadavatele (2026-08-31):** kód metodiky pro obojživelníky je
+  **22257** (ne 19269 ze šablony — ta pochází z běhu 2025). Hodnota zapsána do
+  `cis_metodika.csv` u všech 7 řádků skupiny *Obojživelníci*.
+- **Provedeno:** `metodika` se připojuje z `cis_metodika` podle druhu.
+- **Kontrola neregrese:** číselník má metodiku vyplněnou **jen** u
+  obojživelníků (22257) a cévnatých rostlin (19192); zbylých 12 skupin
+  (ryby, brouci, motýli, letouni, savci, měkkýši, mechorosty, vážky …) má
+  sloupec prázdný. Proto `dplyr::coalesce(metodika_cis, METODIKA_VYCHOZI)`
+  se zálohou `METODIKA_VYCHOZI = 15087` — bez ní by těmto skupinám metodika
+  zmizela. *Epidalea calamita* v číselníku není, zůstává tedy na 15087,
+  v souladu s jejím vyřazením z rozsahu harmonizace.
+
+### H-29 ⚠ — `trend` je natvrdo „neznámý"
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **neřešeno**, pouze zaznamenáno
+- **Kontext:** [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R) zapisuje všem
+  řádkům `trend = "neznámý"`. Šablona i soubor přijatý ISOP obsahují všechny
+  čtyři hodnoty (`setrvalý`, `zlepšující se`, `zhoršující se`, `neznámý`).
+- **Otázka:** vyplňují trend hodnotitelé až v ISOP? Pokud ano, import
+  s natvrdo „neznámý" jim dříve zapsanou hodnotu přepíše.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
 |---|---|---|
-| 1 | Potvrdit H-19, H-20 a H-23; u H-21 potvrdit dopad mimo obojživelníky | zadavatel |
+| 1 | Potvrdit H-19, H-20 a H-23; u H-21 a H-24 potvrdit dopad mimo obojživelníky | zadavatel |
 | 2 | Promítnout přesun `ind_id` 30 a 34 do ISOP (potvrzeno 2026-08-20) | zadavatel |
 | 3 | Přidělit `ind_id` pro `STA_PLOCHA50CM` | ISOP |
 | 4 | Zavést tag `STA_PLOCHA50CM` do Survey123 (hodnocení od 2027) | správce formuláře |
 | 5 | Expertní revize cílových stavů — vyřešit jednotky u *Bombina bombina* (S-4) | autoři metodiky |
 | 6 | Plný běh kaskády po doplnění `AktualizacniOkrsky.shp` | provoz |
 | 7 | Samostatná harmonizace `Epidalea calamita` dle jejího vlastního dokumentu | zadavatel |
-| 8 | Přidělit `ind_id` pro `POP_POCETPRUM3` a doplnit řádek do `cis_indikatory_popis.csv` (viz H-22) | ISOP |
+| 8 | ~~Přidělit `ind_id` pro `POP_POCETPRUM3`~~ — **hotovo 2026-08-30**, přiděleno `ind_id = 190`, řádek doplněn do `cis_indikatory_popis.csv` (`ind_nadr = 2` podle sesterského `LOK_PROCDOBR`, k potvrzení) | ISOP |
+| 9 | Rozhodnout H-26 — dolní mez vs. medián kategorie početnosti | autoři metodiky |
+| 10 | Rozhodnout H-29 — má import přepisovat `trend` hodnotou „neznámý"? | zadavatel |
+| 11 | Ověřit proti importu ISOP konce řádků (LF vs CRLF) a gzip vs prostý `.csv` | ISOP / provoz |
