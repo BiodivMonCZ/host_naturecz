@@ -33,6 +33,12 @@ n2k_druhy_posledni_chu <- n2k_druhy_posledni_lok %>%
 #----------------------------------------------------------#
 # Zapis temp dat ----
 #----------------------------------------------------------#
+# Viz poznamka v 22_n2k_obdobi.R - Data/Temp/ je v .gitignore a na cerstvem
+# klonu neexistuje, zatimco skript, ktery ji zaklada, bezi v kaskade pozdeji.
+if (!dir.exists("Data/Temp/")) {
+  dir.create("Data/Temp/", recursive = TRUE)
+}
+
 readr::write_csv(
   n2k_druhy_posledni_lok,
   paste0("Data/Temp/n2k_druhy_posledni_lok", ".csv")

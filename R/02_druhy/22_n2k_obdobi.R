@@ -28,6 +28,14 @@ n2k_druhy_obdobi_chu <- n2k_druhy_obdobi_lok %>%
 #----------------------------------------------------------#
 # Zapis temp dat ----
 #----------------------------------------------------------#
+# Slozka Data/Temp/ je v .gitignore, takze na cerstvem klonu neexistuje
+# (git neverzuje prazdne adresare). Vytvori ji az 27_n2k_druhy_zapis.R, ktery
+# ale v kaskade bezi AZ PO tomto skriptu - bez teto pojistky spadne cely beh
+# uz zde na "Cannot open file for writing".
+if (!dir.exists("Data/Temp/")) {
+  dir.create("Data/Temp/", recursive = TRUE)
+}
+
 readr::write_csv(
   n2k_druhy_obdobi_lok,
   paste0("Data/Temp/n2k_druhy_obdobi_lok", ".csv")
