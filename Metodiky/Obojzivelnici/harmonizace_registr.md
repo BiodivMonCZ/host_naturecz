@@ -31,12 +31,13 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Nálezy z testovacího běhu (2026-08-25)* | 3 | H-21, H-22, H-23 |
 | *Nálezy z revize kategorií početnosti (2026-08-30)* | 3 | H-24, H-25, H-26 |
 | *Nálezy z kontroly exportu proti šabloně (2026-08-31)* | 3 | H-27, H-28, H-29 |
+| *Dořešení H-01 a H-02 (2026-08-31)* | 3 | H-30, H-31, H-32 |
 
 ---
 
 # Kritické nálezy
 
-### H-01 — `STA_VYSYCHANI`: doména 0/1 proti procentním limitům ⇒ indikátor selhává vždy
+### H-01 ✅ — `STA_VYSYCHANI`: doména 0/1 proti procentním limitům ⇒ indikátor selhává vždy
 - **Závažnost:** kritická · **Typ:** BUG
 - **Metodika:** Příloha 1, *pravidelné vysychání vodních ploch* — jediný řádek, pravidlo „špatně ve všech třech letech po sobě". Per-roční indikátor vysychání **v Příloze 1 není**.
 - **Stav v kódu:** [`21_1:382`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L382) — `STA_VYSYCHANI` je `case_when(... ~ 1L, ... ~ 0L)`, tedy **celé číslo 0/1**.
@@ -46,7 +47,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 - **Návrh řešení:** odstranit limity `STA_VYSYCHANI` z `limity_vse.csv` (viz H-02); indikátor ponechat jako neomezený vstup pro `STA_VYSYCHANIPERIOD3`. Alternativa — pokud mají limity platit pro *stav vody* — vyžaduje nový `ID_IND`, ale Příloha 1 pro něj nemá řádek.
 - **Rozhodnutí zadavatele (2026-08-20):** ✅ **schváleno** dle návrhu — limity `STA_VYSYCHANI` odstranit.
 
-### H-02 — `STA_VYSYCHANI` duplikuje řádek Přílohy 1
+### H-02 ✅ — `STA_VYSYCHANI` duplikuje řádek Přílohy 1
 - **Závažnost:** kritická · **Typ:** BUG
 - **Metodika:** Příloha 1 má pro vysychání **jeden** řádek; implementuje jej `STA_VYSYCHANIPERIOD3` (`max 2`, tj. špatně při 3 ze 3 let) — to je správně.
 - **Stav v datech:** `limity_vse.csv` má vyhodnocované limity pro `STA_VYSYCHANI` **i** `STA_VYSYCHANIPERIOD3`.
@@ -713,6 +714,95 @@ formátem ISOP. Jako pracovní/auditní výstup je konzistentní.
 
 ---
 
+# Dořešení H-01 a H-02 (2026-08-31)
+
+Rozhodnutí z 2026-08-20 (odstranit limity `STA_VYSYCHANI`, ponechat jej jako
+informativní hodnotu) bylo implementováno jen zčásti a při kontrole vyšly
+najevo dvě navazující věci. Zadavatel je rozhodl 2026-08-31.
+
+### H-30 ✅ — práh vysychání 25 % neměl oporu v metodice
+- **Závažnost:** vysoká · **Typ:** ZMĚNA PRAVIDLA · **Stav:** implementováno
+- **Metodika:** §Sledované indikátory, *Stav vody*: „0 % odpovídá zcela
+  vyschlé ploše."
+- **Stav v kódu:** `STA_VYSYCHANI` se odvozoval prahem
+  `STA_STAVVODAPROC <= 25`. Hodnota 25 byla převzatá ze starého pásma
+  „1-25 %", které původní převod považoval za vysychání (viz H-03), nikoli
+  z věty metodiky. Ze 331 příznaků „vysychá" jich 248 pocházelo z pásma
+  1-25 %, jen 83 ze skutečné nuly.
+- **Rozhodnutí zadavatele (2026-08-31):** rovnat se doslovnému znění, tedy
+  práh **0 %**.
+- **Provedeno:** zavedena pojmenovaná konstanta `PRAH_VYSYCHANI = 0`
+  v [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R); práh už není zapsán
+  natvrdo v `case_when`, takže jde příště změnit na jednom místě.
+- **Doklad o dopadu** (testovací běh *Triturus cristatus*):
+
+  | `STA_VYSYCHANIPERIOD3` | před | po |
+  |---|---|---|
+  | 0 | 422 | 486 |
+  | 1 | 62 | 28 |
+  | 2 | 26 | 5 |
+  | **3 (nesplněno)** | **11** | **2** |
+  | neznámý | 203 | 203 |
+
+  Na úrovni DP se změnily **2 z 724** ploch, obě zhoršený → dobrý
+  (CZ0323147 `PERIOD3` 3 → 0; CZ0613322 / amp291 3 → 1). U dalších **77 DP**
+  se `PERIOD3` změnil, ale verdikt ne — padaly už na jiném indikátoru.
+  Na úrovni EVL: špatný 37 → 36, zhoršený 21 → 22.
+
+### H-31 ✅ — informativní řádek se na úroveň DP nedostal
+- **Závažnost:** střední · **Typ:** BUG / STOPA-DO-ISOP · **Stav:** implementováno
+- **Kontext:** rozhodnutí u H-02 znělo „ponechat jako informativní hodnotu bez
+  `LIM_IND`, **obdobně jako `LOK_DILCDOBRE`**". Ta analogie ale na úrovni
+  dílčí plochy neplatí.
+- **Stav v kódu:** [`21_2`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R)
+  filtroval `is.na(LIM_IND) == FALSE` na **dvou** místech — jednou při
+  sestavení `ind_cols_keep` (sloupec se tím ztratil z celé široké tabulky)
+  a podruhé v `right_join` na limity. Naproti tomu
+  [`25`](../../R/02_druhy/25_n2k_druhy_uzemi.R) filtruje jen podle
+  `UROVEN == "chu"`, bez podmínky na limit — proto `LOK_DILCDOBRE`
+  s prázdným limitem ve výstupu EVL je, ale `STA_VYSYCHANI` ve výstupu DP
+  nebyl **ani jednou** (ověřeno: 12 indikátorů × 724 DP, `STA_VYSYCHANI`
+  mezi nimi chyběl).
+- **Důsledek:** hodnotitel viděl verdikt `STA_VYSYCHANIPERIOD3` = 3 →
+  „špatný", ale neměl jak zjistit, které roky byly suché. Stejná třída jako
+  H-22.
+- **Provedeno:** zaveden marker `TYP_IND = "info"` pro řádky bez limitu, které
+  se mají propsat do výstupu. `21_2` je na obou místech propouští; výpočtu
+  `STAV_IND` nesedne žádná větev, takže zůstává `NA`, a `24` je do
+  `N_KEY_EXPECTED` ani `N_OTH_EXPECTED` nezapočítá, protože ty berou jen
+  řádky s vyplněným `LIM_IND`. Do `limity_vse.csv` přidáno 6 řádků
+  (`<DRUH>,STA_VYSYCHANI,info,NA,NA,ne,lok`) pro druhy Přílohy 1.
+- **Doklad:** výstup DP nově obsahuje 724 řádků `STA_VYSYCHANI`
+  (489× „0", 14× „1", 221× „neznámý"), vždy se `STAV_IND = NA`. Počty všech
+  ostatních dvanácti indikátorů zůstaly na 724, celkové hodnocení DP se
+  změnou nedotčeno — řešení je tedy prokazatelně neutrální vůči verdiktu.
+- **Řešení je obecné:** stejným markerem lze zviditelnit i další podkladové
+  indikátory (např. `STA_STAVVODAPROC`), aniž by vstoupily do hodnocení.
+
+### H-32 ⚠ — pásmo „0-25 %" se při prahu 0 % nepozná jako vysychání
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **neřešeno**, pouze zaznamenáno
+- **Kontext:** `norm_stavvody()` bere u procentního pásma **horní mez**
+  (zdokumentováno u H-03, aby zůstalo zachováno původní chování). Při prahu
+  0 % z toho plyne, že záznam **„0-25 %" dá 25 a za vysychání se nepovažuje**,
+  přestože jeho dolní konec je nula. Týká se **84 záznamů** testovacího běhu.
+- **Tvary, které práh 0 % zachytí:** `vyschlé` (58), holá `0` (24),
+  `zaniklá` (1). Naopak nezachytí `1-25 %` (130), `0-25 %` (84) a holá čísla
+  5-20 (34).
+- **Otázka pro autory metodiky:** má se pásmo číst horní mezí (pak je stav
+  správný), nebo má pásmo obsahující nulu platit za vysychání (pak je nutné
+  upravit i `norm_stavvody()`)?
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+### *Epidalea calamita* — limity `STA_VYSYCHANI` ponechány
+Původní vadné limity H-01 (`val 26-50 %`, `51-75 %`, `76-100 %`, `76-90 %`,
+`91-100 %`, `min 25` proti doméně 0/1) u tohoto druhu **zůstávají**.
+Rozhodnutí zadavatele 2026-08-31: vyřešit až v samostatné harmonizaci
+*Epidalea calamita* (položka 7 v §Co zbývá). Do té doby dostává každá DP
+tohoto druhu se záznamem stavu vody jeden zaručeně nesplněný stanovištní
+indikátor.
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -728,3 +818,4 @@ formátem ISOP. Jako pracovní/auditní výstup je konzistentní.
 | 9 | Rozhodnout H-26 — dolní mez vs. medián kategorie početnosti | autoři metodiky |
 | 10 | Rozhodnout H-29 — má import přepisovat `trend` hodnotou „neznámý"? | zadavatel |
 | 11 | Ověřit proti importu ISOP konce řádků (LF vs CRLF) a gzip vs prostý `.csv` | ISOP / provoz |
+| 12 | Rozhodnout H-32 — má pásmo „0-25 %" platit za vysychání? | autoři metodiky |
