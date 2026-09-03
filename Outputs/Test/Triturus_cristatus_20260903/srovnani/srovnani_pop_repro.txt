@@ -1,0 +1,57 @@
+Warning messages:
+1: package 'readr' was built under R version 4.6.1 
+2: package 'dplyr' was built under R version 4.6.1 
+
+############ UROVEN LOK ############
+radku pred: 13032   po: 13756 
+
+--- indikatory ve vystupu ---
+               ID_IND pred  po
+    CELKOVE_HODNOCENI  724 724
+          CELKOVE_SUM  724 724
+            POP_POCET  724 724
+         POP_POCETMAX  724 724
+         POP_POCETMIN  724 724
+         POP_POCETSUM  724 724
+         POP_PRESENCE  724 724
+            POP_REPRO   NA 724
+     POP_REPROPERIOD3  724 724
+         POP_ZMENARAD  724 724
+       STA_MANIPULACE  724 724
+       STA_PLOCHA50CM  724 724
+     STA_POKRVEGETACE  724 724
+  STA_PRUHLEDNOSTVODA  724 724
+             STA_RYBY  724 724
+ STA_UHYNOBOJZIVELNIK  724 724
+        STA_VYSYCHANI  724 724
+ STA_VYSYCHANIPERIOD3  724 724
+            VLV_VLIVY  724 724
+
+--- rozdeleni CELKOVE_HODNOCENI ---
+ hodnoceni pred  po
+     dobrý  336 336
+  zhoršený   14  14
+    špatný  374 374
+
+porovnanych jednotek: 724    ZMENENYCH VERDIKTU: 0 
+CELKOVE_SUM - porovnano: 724   zmeneno: 0 
+
+############ UROVEN CHU ############
+radku pred: 861   po: 861 
+
+--- indikatory ve vystupu ---
+            ID_IND pred  po
+ CELKOVE_HODNOCENI  191 191
+     LOK_DILCDOBRE  191 191
+     LOK_DILCPOCET  191 191
+      LOK_PROCDOBR  191 191
+    POP_POCETPRUM3   97  97
+
+--- rozdeleni CELKOVE_HODNOCENI ---
+ hodnoceni pred po
+     dobrý   38 38
+  zhoršený   29 29
+    špatný   36 36
+      <NA>   88 88
+
+porovnanych jednotek: 191    ZMENENYCH VERDIKTU: 0 
