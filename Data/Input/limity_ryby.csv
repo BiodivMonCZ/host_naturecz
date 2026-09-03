@@ -37,10 +37,16 @@ Gymnocephalus baloni;STA_DNOTYP;val;štìrk;NA;ne;lok
 Gymnocephalus baloni;STA_PROUD;val;mírný;NA;ne;lok
 Gymnocephalus baloni;STA_PROUD;val;peøeje;NA;ne;lok
 Gymnocephalus baloni;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Gymnocephalus baloni;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Gymnocephalus baloni;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Gymnocephalus baloni;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Gymnocephalus baloni;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Gymnocephalus baloni;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Gymnocephalus baloni;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Gymnocephalus baloni;STA_UPRAVABREHU;max;49;%;ne;lok
 Gymnocephalus baloni;STA_UPRAVADNA;max;49;%;ne;lok
-Gymnocephalus baloni;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Gymnocephalus baloni;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Gymnocephalus baloni;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Gymnocephalus baloni;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Gymnocephalus baloni;POP_POCET;NA;NA;jedinci;NA;NA
 Gymnocephalus schraetser;POP_PRESENCE;min;1;jedinci;ano;lok
 Gymnocephalus schraetser;STA_DNOTYP;val;kameny;NA;ne;lok
@@ -48,10 +54,16 @@ Gymnocephalus schraetser;STA_POCETTYPU;min;3;NA;ne;lok
 Gymnocephalus schraetser;STA_PROUD;val;mírný;NA;ne;lok
 Gymnocephalus schraetser;STA_PROUD;val;peøeje;NA;ne;lok
 Gymnocephalus schraetser;STA_PROUD;val;tùnì;NA;ne;lok
-Gymnocephalus schraetser;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Gymnocephalus schraetser;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Gymnocephalus schraetser;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Gymnocephalus schraetser;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Gymnocephalus schraetser;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Gymnocephalus schraetser;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Gymnocephalus schraetser;STA_UPRAVABREHU;max;49;%;ne;lok
 Gymnocephalus schraetser;STA_UPRAVADNA;max;49;%;ne;lok
-Gymnocephalus schraetser;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Gymnocephalus schraetser;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Gymnocephalus schraetser;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Gymnocephalus schraetser;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Gymnocephalus schraetser;POP_POCET;NA;NA;jedinci;NA;NA
 Lampetra planeri;POP_DYN;max;50;%;ano;lok
 Lampetra planeri;POP_VITALITA;min;3;kategorie;ano;lok
@@ -69,10 +81,16 @@ Leuciscus aspius;STA_PROUD;val;mírný;NA;ne;lok
 Leuciscus aspius;STA_PROUD;val;peøeje;NA;ne;lok
 Leuciscus aspius;STA_PROUD;val;tùnì;NA;ne;lok
 Leuciscus aspius;STA_PROUDPOCETTYPU;min;3;NA;ne;lok
-Leuciscus aspius;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Leuciscus aspius;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Leuciscus aspius;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Leuciscus aspius;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Leuciscus aspius;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Leuciscus aspius;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Leuciscus aspius;STA_UPRAVABREHU;max;49;%;ne;lok
 Leuciscus aspius;STA_UPRAVADNA;max;49;%;ne;lok
-Leuciscus aspius;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Leuciscus aspius;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Leuciscus aspius;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Leuciscus aspius;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Leuciscus aspius;POP_POCET;NA;NA;jedinci;NA;NA
 Misgurnus fossilis;STA_DNOPOCETTYPU;min;2;NA;;lok
 Misgurnus fossilis;POP_DYN;max;50;%;ano;lok
@@ -93,10 +111,16 @@ Pelecus cultratus;STA_DNOTYP;val;štìrk;NA;ne;lok
 Pelecus cultratus;STA_PROUD;val;mírný;NA;ne;lok
 Pelecus cultratus;STA_PROUD;val;tùnì;NA;ne;lok
 Pelecus cultratus;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Pelecus cultratus;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Pelecus cultratus;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Pelecus cultratus;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Pelecus cultratus;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Pelecus cultratus;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Pelecus cultratus;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Pelecus cultratus;STA_UPRAVABREHU;max;49;%;ne;lok
 Pelecus cultratus;STA_UPRAVADNA;max;49;%;ne;lok
-Pelecus cultratus;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Pelecus cultratus;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Pelecus cultratus;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Pelecus cultratus;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Pelecus cultratus;POP_POCET;NA;NA;jedinci;NA;NA
 Rhodeus amarus;POP_DYN;max;50;%;ano;lok
 Rhodeus amarus;POP_VITALITA;min;2;kategorie;ano;lok
@@ -150,10 +174,16 @@ Sabanejewia balcanica;STA_PROUD;val;mírný;NA;ne;lok
 Sabanejewia balcanica;STA_PROUD;val;peøeje;NA;ne;lok
 Sabanejewia balcanica;STA_PROUD;val;tùnì;NA;ne;lok
 Sabanejewia balcanica;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Sabanejewia balcanica;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Sabanejewia balcanica;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Sabanejewia balcanica;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Sabanejewia balcanica;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Sabanejewia balcanica;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Sabanejewia balcanica;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Sabanejewia balcanica;STA_UPRAVABREHU;max;49;%;ne;lok
 Sabanejewia balcanica;STA_UPRAVADNA;max;49;%;ne;lok
-Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Sabanejewia balcanica;POP_POCET;NA;NA;jedinci;NA;NA
 Salmo salar;POP_DYN;info;;;ano;lok
 Salmo salar;POP_VITALITA;info;;;ano;lok
@@ -170,11 +200,17 @@ Zingel streber;STA_PROUD;val;mírný;NA;ne;lok
 Zingel streber;STA_PROUD;val;peøeje;NA;ne;lok
 Zingel streber;STA_PROUD;val;tùnì;NA;ne;lok
 Zingel streber;STA_PROUDPOCETTYPU;min;3;;ne;lok
-Zingel streber;STA_TRASATOKU;neg;umìle napøímený;NA;ne;lok
+Zingel streber;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Zingel streber;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Zingel streber;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Zingel streber;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Zingel streber;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Zingel streber;STA_UPRAVABREHU;max;49;%;ne;lok
 Zingel streber;STA_UPRAVADNA;max;49;%;ne;lok
 Zingel streber;POP_POCET;NA;NA;jedinci;NA;NA
-Zingel streber;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
+Zingel streber;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Zingel streber;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Zingel streber;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Zingel zingel;POP_PRESENCE;min;1;jedinci;ano;lok
 Zingel zingel;STA_DNO;val;kameny;NA;ne;lok
 Zingel zingel;STA_DNO;val;písek;NA;ne;lok
