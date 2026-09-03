@@ -155,8 +155,8 @@ Sabanejewia balcanica;STA_UPRAVABREHU;max;49;%;ne;lok
 Sabanejewia balcanica;STA_UPRAVADNA;max;49;%;ne;lok
 Sabanejewia balcanica;STA_VARIABILITAHLOUBEK;neg;antropogenní nízká;NA;ne;lok
 Sabanejewia balcanica;POP_POCET;NA;NA;jedinci;NA;NA
-Salmo salar;POP_DYN;;;;ano;lok
-Salmo salar;POP_VITALITA;;;;ano;lok
+Salmo salar;POP_DYN;info;;;ano;lok
+Salmo salar;POP_VITALITA;info;;;ano;lok
 Salmo salar;STA_DNOTYP;val;kameny;NA;ne;lok
 Salmo salar;STA_DNOTYP;val;písek;NA;ne;lok
 Salmo salar;STA_DNOTYP;val;štìrk;NA;ne;lok
