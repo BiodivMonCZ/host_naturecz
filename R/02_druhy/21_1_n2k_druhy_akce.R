@@ -38,6 +38,16 @@
 # stavy (vyschle / zanikla / zazemnena -> 0) a hole cislo 0.
 PRAH_VYSYCHANI <- 0
 
+# Druhy resene metodikou obojzivelniku (Priloha 1: BBOM, BVAR, LMON, TRITURUS).
+#
+# Konstanta je na urovni SOUBORU, protoze ji potrebuje i 25_n2k_druhy_uzemi.R
+# k omezeni Tabulky 2 (nalez H-50). 21_1 se ve 20_n2k_druhy_run.R sourcuje
+# driv nez 25, takze je v okamziku pouziti dostupna.
+DRUHY_METODIKY_OBOJ <- c(
+  "Bombina bombina", "Bombina variegata", "Lissotriton montandoni",
+  "Triturus cristatus", "Triturus carnifex", "Triturus dobrogicus"
+)
+
 norm_stavvody <- function(x) {
   v <- stringr::str_squish(as.character(x))
   v[v == ""] <- NA_character_
@@ -159,6 +169,31 @@ SLOVNIK_ZAHLOUBENI <- c(
   "značné zahloubení"          = "značné"
 )
 
+# Nejvyssi cislo v retezci (nalez H-52).
+#
+# <vyska_bar> uvadi u vice barier vsechny vysky oddelene carkou - 103 z 521
+# hodnot, napr. "100, 300", "50, 50, 50" nebo "0, 5". Puvodni parse_number()
+# vracel PRVNI cislo, takze se u "0, 5" vyhodnotila nulova bariera a
+# peticentimetrova se ztratila, u "100, 300" naopak zmizela ta vyssi. Pro limit
+# typu "max N cm" je rozhodujici bariera NEJVYSSI - ta urcuje pruchodnost useku.
+#
+# Desetinna carka tu nehrozi: v <vyska_bar> se carka mezi cislicemi nevyskytuje
+# ANI JEDNOU (overeno na vsech 521 hodnotach), vzdy oddeluje jednotlive bariery.
+# Rozsahy typu "20-30" nebo "151-200cm" davaji horni mez, coz je u vysky
+# bariery konzervativni odhad spravnym smerem.
+#
+# ZNAME OMEZENI: jedina hodnota v datech uvadi metry ("více než 1 m") a vyjde
+# z ni 1, tedy jako by slo o 1 cm. Prevod jednotek se kvuli jedinemu zaznamu
+# nezavadi, ale je to duvod, proc se ma vyska barier zapisovat cislem v cm.
+max_cislo <- function(x) {
+  x <- as.character(x)
+  vapply(seq_along(x), function(i) {
+    if (is.na(x[i])) return(NA_real_)
+    v <- stringr::str_extract_all(x[i], "[0-9]+")[[1]]
+    if (length(v) == 0) NA_real_ else max(as.numeric(v))
+  }, numeric(1))
+}
+
 # Vytazeni hodnoty tagu ze STRUKT_POZN. Prazdny retezec -> NA, aby se
 # nevyplneny udaj nevydaval za mereni (tataz zasada jako u nalezu H-12).
 tag_hodnota <- function(x, tag) {
@@ -262,14 +297,11 @@ run_n2k_druhy <- function(
     current_year = 2025
 ) {
   
-  # Druhy resene metodikou obojzivelniku (Priloha 1: BBOM, BVAR, LMON, TRITURUS).
-  # Nektera pravidla nize plati POUZE pro ne - sdileny kod obsluhuje i ryby,
-  # hmyz, savce a rostliny, kde se skala pocetnosti i zdroje indikatoru lisi.
-  obojzivelnici_metodika <- c(
-    "Bombina bombina", "Bombina variegata", "Lissotriton montandoni",
-    "Triturus cristatus", "Triturus carnifex", "Triturus dobrogicus"
-  )
-  je_obojzivelnik <- species_name %in% obojzivelnici_metodika
+  # Nektera pravidla nize plati POUZE pro druhy metodiky obojzivelniku -
+  # sdileny kod obsluhuje i ryby, hmyz, savce a rostliny, kde se skala
+  # pocetnosti i zdroje indikatoru lisi. Seznam je konstanta
+  # DRUHY_METODIKY_OBOJ na zacatku souboru.
+  je_obojzivelnik <- species_name %in% DRUHY_METODIKY_OBOJ
 
   # Pocitat populacni trendy? Ridi se VYHRADNE tabulkou limitu - trendovy blok
   # (POP_POCETMAXREF, POP_TREND1, POP_TREND2, POP_TREND, POP_TRENDLM) se
@@ -486,12 +518,35 @@ run_n2k_druhy <- function(
     ),
     # K DOŘEŠENÍ START !!!!!
     # POP_PLOCHALOV: Extrakce plochy odlovu ze strukturovane poznamky (XML tag)
-    POP_PLOCHALOV = readr::parse_number(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<plocha_prolov_p>).*(?=</plocha_prolov_p>)"
-      )
-    ), # ze strukturovane poznamky
+    # POP_PLOCHALOV: plocha odlovu, jmenovatel abundance.
+    #
+    # KAZDA METODA ODLOVU MA VLASTNI TAG (nalez H-48). Vazba je v datech
+    # naprosto tesna:
+    #   <metod_lov> = "Kontinuální lov"     -> <plocha_prolov_p>    1 064 zaznamu
+    #   <metod_lov> = "Lov bodovou metodou" -> <plocha_prolov_pbm>    625 zaznamu
+    # Puvodni kod cetl jen prvni z nich, takze u vsech 625 pruzkumu bodovou
+    # metodou zustala plocha NA -> abundance NA -> POP_DYN (KLICOVY indikator)
+    # i cely trendovy blok NA. Chyba byla ticha, indikator se proste nevyhodnotil.
+    #
+    # PRIORITA: prednost ma <plocha_prolov_p>, <plocha_prolov_pbm> se pouzije jen
+    # tam, kde prvni chybi. Oba tagy se v jednom zaznamu vyskytnou zaroven jen
+    # jednou z 2 458, takze na poradi prakticky nezalezi - pravidlo je uvedeno
+    # explicitne, aby bylo dohledatelne (obdoba pravidla priority u H-10).
+    #
+    # POZOR NA SROVNATELNOST: plocha prolovena bodovou metodou nemusi byt
+    # metodicky srovnatelna s kontinualnim prolovem, takze trend slozeny
+    # z obou metod muze byt zkresleny. Metoda se proto propisuje do sloupce
+    # POP_METODALOV, aby to bylo ve vystupu videt.
+    POP_METODALOV = tag_hodnota(STRUKT_POZN, "metod_lov"),
+    POP_PLOCHALOV = {
+      p   <- tag_hodnota(STRUKT_POZN, "plocha_prolov_p")
+      pbm <- tag_hodnota(STRUKT_POZN, "plocha_prolov_pbm")
+      v <- dplyr::coalesce(p, pbm)
+      # desetinna carka: <plocha_prolov_pbm> ji pouziva u 81 hodnot
+      v <- suppressWarnings(as.numeric(gsub(",", ".", v, fixed = TRUE)))
+      # nulova plocha je chyba zapisu, ne mereni - delenim nulou by vznikl Inf
+      dplyr::if_else(!is.na(v) & v > 0, v, NA_real_)
+    },
     # POP_ABUNDANCENAL: Vypocet abundance (pocet jedincu / plocha odlovu)
     POP_ABUNDANCENAL = POP_POCET/POP_PLOCHALOV,
     # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
@@ -943,7 +998,9 @@ run_n2k_druhy <- function(
         "(?<=<pocet_bar>)\\d+(?=</pocet_bar>)"
       )
     ),
-    STA_MIGBARVYS = readr::parse_number(
+    # STA_MIGBARVYS: vyska migracni bariery. Bere se NEJVYSSI z uvedenych
+    # barier, ne prvni v poradi - viz max_cislo() a nalez H-52.
+    STA_MIGBARVYS = max_cislo(
       str_extract(
         STRUKT_POZN,
         "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
@@ -1445,6 +1502,25 @@ run_n2k_druhy <- function(
         POP_PRESENCE == "ano" & POP_VITALITA_N_CATS == 0 ~ NA_integer_,
         # 3. Druh je přítomen a máme data -> Vracíme počet kategorií
         TRUE ~ as.integer(POP_VITALITA_N_CATS)
+      ),
+      # POP_VITALITAYOY: pritomnost letosniho pludku (nalez H-51).
+      #
+      # Dva druhy - Leuciscus aspius a Sabanejewia balcanica - maji limit
+      # "min 1" s jednotkou "jedinci tohorocni", tedy doklad letosniho
+      # rozmnozeni. POP_VITALITA ale vraci POCET DELKOVYCH KATEGORII, takze se
+      # podminka "min 1" splnila vzdy, kdyz byla k dispozici jakakoli delka -
+      # indikator meril neco jineho, nez tvrdila jeho jednotka.
+      #
+      # Zde se testuje to, co limit rika: pritomnost NEJMENSI delkove kategorie
+      # (KAT = 1) z ciselniku cis_ryby_delky_strukt.csv. U vsech osmi druhu
+      # v ciselniku je kategorie 1 nejnizsi velikostni trida, tedy letosni
+      # pludek. Ostatnim druhum limit na tento indikator nevznika, takze se
+      # u nich nevyhodnocuje.
+      POP_VITALITAYOY = dplyr::case_when(
+        POP_PRESENCE == "ne" ~ 0L,
+        POP_VITALITA_N_CATS == 0 ~ NA_integer_,
+        any(POP_DELKYJEDINCIKAT == 1, na.rm = TRUE) ~ 1L,
+        TRUE ~ 0L
       ),
       # POP_ABUNDANCE: Maximalni abundance na lokalite
       POP_ABUNDANCE = max(POP_ABUNDANCENAL, na.rm = TRUE),

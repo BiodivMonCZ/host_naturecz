@@ -271,8 +271,20 @@ run_n2k_druhy_uzemi <- function(
   # VOKALIZUJICI SAMCI. Rozhodnuti autoru metodiky 2026-08-20: porovnavat
   # BEZ PREPOCTU, nesoulad se dokoncí v pristi expertne revidovane verzi
   # cilovych stavu. Rozdil je proto propsan do vystupu ve sloupci JEDNOTKA.
+  # OMEZENO NA DRUHY METODIKY OBOJZIVELNIKU (nalez H-50). Tabulka 2 pochazi
+  # z metodiky obojzivelniku a pro ryby nebyla nikdy overena. Cilove stavy
+  # v sdo_cilove_druhy.csv ale existuji i pro nektere ryby (napr. Lampetra
+  # planeri), takze se blok dosud aktivoval i pro ne a verdikt EVL u ryb
+  # vznikal rozhodovaci tabulkou 2x2 z jine metodiky. Kontrola neregrese
+  # u Faze B to pro ryby neoverovala.
+  #
+  # Rozhodnuti zadavatele 2026-09-04: omezit na sest druhu metodiky. Ryby se
+  # tim vraceji k puvodni aritmetice nad klicovymi indikatory urovne chu.
+  # Konstanta DRUHY_METODIKY_OBOJ je definovana v 21_1_n2k_druhy_akce.R,
+  # ktery se sourcuje driv.
   cil_chu <- NULL
-  if (!is.null(cilove_stavy) && !is.null(pocetnost_uzemi)) {
+  if (!is.null(cilove_stavy) && !is.null(pocetnost_uzemi) &&
+      species_name %in% DRUHY_METODIKY_OBOJ) {
     cil_chu <- pocetnost_uzemi %>%
       dplyr::filter(DRUH == species_name) %>%
       dplyr::left_join(
