@@ -871,6 +871,10 @@ problém) a H-35 (chyba, kterou to odhalilo).
   trvalé selhání — mírnější, než registr uváděl.
 - **Význam `neg` je zřejmý z hodnot** („uměle napřímený", „antropogenní
   nízká"): „shoda s touto hodnotou = nepříznivý stav", tedy opak `val`.
+- **Upřesnění zadavatele (2026-09-04):** `neg` **nebyla jiná logika, ale
+  zkratka.** Místo vyjmenování hodnot znamenajících dobrý stav byl zapsán
+  jejich doplněk, tedy jediná nepříznivá hodnota. Převod na `val` proto tuto
+  zkratku jen **rozepisuje** — nezavádí nový typ a nemění význam.
 - **Rozhodnutí zadavatele (2026-09-03):** ✅ **převést na úplnou `val` logiku.**
 - **Provedeno:** 12 řádků `neg` nahrazeno 48 řádky `val` s výčtem **příznivých**
   hodnot, tj. doplňkem k původní nepříznivé hodnotě. Retězce jsou převzaty
@@ -887,6 +891,38 @@ problém) a H-35 (chyba, kterou to odhalilo).
   přes `val` není — nová kategorie v Survey123 se stane nepříznivou, aniž by
   to bylo vidět. Stejná třída rizika jako H-01 a H-03; **při každé změně
   číselníku formuláře je nutné výčet zkontrolovat.**
+
+**Dokončeno 2026-09-04** (commit `b09e371`) — tři bloky rodu *Romanogobio*,
+u H-34 vědomě vynechané, nesly **tutéž obrácenou zkratku**, jen zapsanou jako
+`val`. Po zapnutí indikátorů ryb (H-42) už to neškodné není: kdyby se opravily
+názvy druhů (H-40), začaly by se vyhodnocovat obráceně.
+
+| druh · indikátor | bylo | nyní |
+|---|---|---|
+| *R. albipinatus* · `STA_TRASATOKU` | `uměle napřímený` — právě ta **nepříznivá** hodnota | 5 příznivých tvarů |
+| *R. albipinatus* · `STA_VARIABILITAHLOUBEK` | `mírný / střední / vysoká` — malá písmena, `mírný` v doméně vůbec není, chyběla `Přirozeně nízká` | `Střední / Přirozeně nízká / Vysoká` |
+| *R. kessleri* · `STA_VARIABILITAHLOUBEK` | `střední / vysoká` | totéž |
+
+Všech **8 druhů** s těmito indikátory má nyní shodný výčet, který přesně
+doplňuje jedinou nepříznivou hodnotu (`Uměle napřímený tok`, resp.
+`Antropogenně nízká (úprava)`). Ověřeno proti doméně v datech: každá hodnota
+vyskytující se v NDOP je zařazena a výčet neobsahuje tvar, který by v datech
+nebyl.
+
+**Dopad dnes nulový** — změněné řádky patří druhům, které neprojdou filtrem
+předmětů ochrany (H-40). Čtyři vyhodnocované druhy s těmito indikátory
+(*Gymnocephalus baloni*, *Pelecus cultratus*, *Sabanejewia balcanica*,
+*Zingel streber*) měly správný výčet už od H-34 a jejich řádky se neměnily,
+takže kaskáda nebyla znovu spouštěna.
+
+> **Podmínka platnosti převodu — zapsána i v kódu u `val_shoda()`.**
+> Doplňkový výčet je rovnocennou náhradou `neg` **jen u jednohodnotových**
+> indikátorů. U vícehodnotového by se obě formulace rozešly: pro množinu
+> `dobrá, špatná` vrátí doplňkový výčet **1** (nějaká dobrá hodnota je
+> přítomna), zatímco `neg` by vrátil **0** (špatná hodnota je přítomna).
+> Oba přepsané indikátory jednohodnotové jsou — ověřeno, že `<tr_tok_char>`
+> (2 179 hodnot) ani `<var_hl_pr>` (2 172) neobsahují oddělovač `", "` ani
+> jednou. **U vícehodnotového indikátoru se doplňkový výčet použít nesmí.**
 - **Dopad dnes nulový** — ani jeden z obou indikátorů nemá v kódu výpočet
   (viz H-38), takže `21_2` řádky odfiltruje jako sirotčí limit bez nálezu.
   Až se tagy zavedou, začnou oba vstupovat do `N_OTH_EXPECTED` u šesti
@@ -1394,6 +1430,24 @@ indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
   bývalý typ `neg` z H-34 („shoda s touto hodnotou = nepříznivý stav").
   `limity_ryby.csv` typ `neg` skutečně používal a jinde v souboru se
   vyskytoval, takže záměna je pravděpodobná.
+- **Upřesnění zadavatele k H-34 (2026-09-04) tuto domněnku posiluje:** obrácený
+  výběr byl zkratka, kterou se v souboru šetřil čas, a vyskytl se i u řádků
+  zapsaných jako `val` (rod *Romanogobio*). Tentýž vzorec u *Lampetra planeri*
+  je tedy pravděpodobný — **potvrzení ale musí přijít od autorů metodiky ryb**,
+  protože jde o obsah limitu, ne o jeho zápis.
+- **⚠ Pozor: zde nelze použít týž postup jako u H-34.** `<sub_dno>` je
+  **vícehodnotový** (dno bývá zároveň `kameny, písek, štěrk`), a pro takový
+  indikátor doplňkový výčet `neg` nenahrazuje:
+
+  | zápis | množina `bahno, kompaktní jílovité dno` |
+  |---|---|
+  | `neg kompaktní jílové dno` | **0** — nepříznivá hodnota je přítomna |
+  | `val` = doplněk (bahno, písek, kameny …) | **1** — nějaká příznivá hodnota je přítomna |
+
+  Kdyby tedy limit měl znamenat „kompaktní jíl je špatný", je potřeba buď
+  vyjmenovat příznivé typy **a zároveň** vyřešit, co s plochami, kde je jíl
+  spolu s nimi, nebo zavést zápis pro nepřítomnost hodnoty. **Proto zde
+  nepřepisuji nic ani po upřesnění zadavatele.**
 - **Neopraveno záměrně:** extrakce je ověřená (slovník `kompaktní jílovité dno`
   → `kompaktní jílové dno` odpovídá doslovnému tvaru limitu) a obsah limitu je
   normativní. Přepsat jej znamená rozhodnout, co má pro mihuli platit za
