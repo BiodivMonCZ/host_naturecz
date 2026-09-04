@@ -36,6 +36,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Dokončení `info` a revize limitů ryb (2026-09-03)* | 3 | H-37, H-38, H-39 |
 | *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 7 | H-40 … H-46 |
 | *Podrobný audit modulu ryb (2026-09-04)* | 12 | H-47 … H-58 |
+| *Srovnání kódu s metodikou — plný běh *T. cristatus* (2026-09-04)* | 6 | H-59 … H-64 |
 
 ---
 
@@ -1777,6 +1778,176 @@ nepřítomnost druhu, kterou `POP_PRESENCE` nově skutečně zachytí.
 
 ---
 
+# Srovnání kódu s metodikou — plný běh *Triturus cristatus* (2026-09-04)
+
+Zadavatel: *„Make a test run for Triturus cristatus on all levels. Inspect the
+results and compare the code action with the latest metodika file… we need to be
+perfectly aligned with the metodika file."*
+
+Zdroj normativního textu: `met_ssEVL_SLOUCENE_…_zmeny.docx`, revize **přijaty**
+(odstraněny `<w:del>`, `<w:delText>`, `<w:moveFrom>`) — 1 196 řádků, 4 tabulky.
+Běh: kaskáda `21_1` → `27`, 7,1 min, bez chyb.
+
+## Co běh vydal
+
+| Úroveň | Rozsah | Výsledek |
+|---|---|---|
+| nález (`21_2`) | 127 775 řádků · 6 555 nálezů · 724 DP | 16 indikátorů |
+| dílčí plocha (`24`) | 724 DP × 19 indikátorů | **336 dobrý · 14 zhoršený · 374 špatný** |
+| území (`25`) | 191 EVL | **38 dobrý · 29 zhoršený · 36 špatný · 88 neznámý** |
+
+## Co odpovídá metodice ✅
+
+| Pravidlo metodiky | Stav |
+|---|---|
+| **Příloha 1** — všech 11 řádků × 4 sloupce druhů | **přesná shoda** s `limity_vse.csv`, včetně oboustranného rozsahu u *Triturus* (`min 1` + `max 75`) i prázdných políček |
+| **Tabulka 1** — rozhodovací pravidlo DP | přesná shoda; ověřeno rozpadem 724 DP: „dobrý" jen při 0–1 špatných stanovištních, „zhoršený" právě při 2, „špatný" vždy při ≥1 špatném klíčovém |
+| **Tabulka 2** — rozhodovací pravidlo EVL | přesná shoda všech čtyř kombinací |
+| „Indikátor se hodnotí pouze, jsou-li dostupné informace" | ✅ (nález H-21) |
+| Manipulace s hladinou **od dubna do července** | ✅ implementováno |
+| Vysychání: „alespoň jeden nález … roven 0 %" | ✅ (nález H-30) |
+| „Lokality … neznámý do výpočtu nevstupují" | ✅ |
+| Přítomnost: „nepříznivý pouze negativní záznam nebo počet 0" | ✅ |
+| Populační indikátory → **nejvyšší** pozorovaná hodnota | ✅ |
+
+## Nálezy
+
+### H-59 ⚠⚠ — stanovištní indikátory se agregují na NEJLEPŠÍ, ne nejhorší hodnotu
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Metodika (§Stav stanoviště druhu):** *„Pro každý indikátor jsou pro danou DP
+  ve sledovaném roce agregovány všechny zaznamenané hodnoty. Do celkového
+  hodnocení druhu na DP za daný rok vstupuje **nejhorší** pozorovaná hodnota.
+  **Stačí tedy jedno překročení limitní hodnoty** ve sledovaném roce a indikátor
+  je hodnocen ve špatném stavu."*
+- **Stav v kódu:** [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L77-L82) agreguje
+  `IND_GRP == "val"` funkcí **`max()`**, tedy nejlepším pozorováním. Větev
+  `minmax` pro stanovištní indikátory `min()` používá správně — vada se týká
+  **výhradně limitů typu `val`**.
+- **Doklad (běh *T. cristatus*):** dvojic DP × rok, kde se nálezy rozcházejí
+  (jeden 0, jiný 1) a kód ponechá tu příznivou:
+
+  | indikátor | DP × rok |
+  |---|---|
+  | `STA_POKRVEGETACE` | 116 |
+  | `STA_PRUHLEDNOSTVODA` | 101 |
+  | `STA_RYBY` | 21 |
+  | `STA_MANIPULACE` | 9 |
+  | `STA_UHYNOBOJZIVELNIK` | 2 |
+  | **celkem** | **249** |
+
+  (`POP_PRESENCE` má rozpor u 447 dvojic, tam je `max()` **správně** — jde
+  o populační indikátor.)
+- **Důsledek:** zaznamenané překročení limitu se zahodí, pokud jiná návštěva
+  téhož roku dopadla dobře. Chyba jde vždy jedním směrem — plocha se jeví lepší.
+- **Návrh:** v `24` rozdělit větev `val` podle toho, zda `ID_IND` začíná `POP_`
+  (→ `max`), nebo ne (→ `min`). Je to táž logika, jakou už má větev `minmax`.
+
+### H-60 ⚠⚠ — početnost za EVL nezahrnuje DP s pouze relativní početností
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Metodika (§Hodnocení na úrovni území, *Početnost populace*):** *„Předmětem
+  hodnocení je součet maximálních početností zaznamenaných na každé DP v daném
+  roce. **V případě, že pro danou DP existuje záznam relativní početnosti,
+  převádí se na odpovídající hodnotu mediánu dané kategorie** dle převodní
+  tabulky (např. 500 jedinců pro kategorii stovky)."*
+- **Stav v kódu:** [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R#L210-L211)
+  staví `pocetnost_uzemi` z `filter(CILMON == 1, !is.na(POP_POCET))`. `POP_POCET`
+  vzniká jen tam, kde je zaznamenán **číselný počet** v odpovídající jednotce —
+  záznam s pouhou relativní kategorií (`REL_POC`) tedy propadne úplně.
+- **Doklad:** *T. cristatus* má **754 záznamů** s relativní početností bez
+  použitelného počtu; na úrovni dvojic DP × rok jde o **131 z 1 780 (7,4 %)**,
+  které dnes do součtu za EVL přispívají **nulou** místo mediánu kategorie.
+- **Převodní tabulka už existuje a je nevyužitá:** `cis_pocet_kat.csv` má sloupec
+  `POP_POCETSTRED` s hodnotou **500 pro kategorii 4 (stovky)** — přesně příklad
+  uvedený v metodice.
+- **Tím se zároveň uzavírá nález H-26.** Registr jej vedl jako otevřenou otázku
+  „dolní mez vs. medián"; metodika odpovídá jednoznačně — **medián**. Kód dnes
+  dosazuje `POP_POCETNMIN` (dolní mez) a komentář to označuje za metodické
+  rozhodnutí; to rozhodnutí je v metodice zapsáno.
+
+### H-61 ⚠⚠ — hodnocená množina EVL a DP neodpovídá Příloze 2
+- **Závažnost:** kritická · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Metodika:** Příloha 2 *„Specifikace výběru reprezentativních ploch"* jmenovitě
+  určuje, ve kterých EVL a v kolika DP se druh sleduje. Pro *Triturus cristatus*
+  uvádí **66 EVL a 192 dílčích ploch**.
+- **Stav v kódu:** Příloha 2 se **nepoužívá vůbec**. Množina EVL vzniká průnikem
+  dat NDOP se seznamem předmětů ochrany, množina DP z toho, co je v NDOP.
+- **Doklad:**
+
+  | | Příloha 2 | běh |
+  |---|---|---|
+  | EVL | 66 | **191** |
+  | z toho průnik | — | 64 |
+  | ve výstupu, ale mimo Přílohu 2 | — | **127** |
+  | v Příloze 2, ale chybí ve výstupu | — | **2** |
+  | DP | 192 | **724** |
+
+- **Dvě chybějící EVL** — `CZ0213008` Bezděkovský lom a `CZ0523287` Rybník
+  Spáleniště — nejsou v `seznam_predmetolokalit_Natura2000_2_2025.xlsx` vedeny
+  jako lokalita tohoto druhu, takže je filtr předmětů ochrany zahodí. Je to
+  **rozpor mezi metodikou a seznamem předmětů ochrany**, ne chyba kódu.
+- **Výsledky se mezi oběma množinami zásadně liší:**
+
+  | | dobrý | zhoršený | špatný | neznámý |
+  |---|---|---|---|---|
+  | EVL **v** Příloze 2 (64) | 5 | 23 | 36 | 0 |
+  | EVL **mimo** Přílohu 2 (127) | 33 | 6 | 0 | **88** |
+
+  Všech 88 „neznámých" EVL leží mimo Přílohu 2 — jde o území, kde jsou jen
+  nahodilé nálezy bez cíleného monitoringu. Hodnocení je tedy z velké části
+  vedeno územími, která metodika pro sledování tohoto druhu neurčuje.
+- **Otázka k rozhodnutí:** má se výstup omezit na Přílohu 2, nebo se má Příloha 2
+  brát jen jako doporučení pro sběr dat a hodnotit všechna území, kde je druh
+  předmětem ochrany?
+
+### H-62 ⚠ — `CILMON` se uplatňuje nesouměrně mezi úrovněmi
+- **Závažnost:** vysoká · **Typ:** KONZISTENCE · **Stav:** **zaznamenáno**
+- **Zjištění:** DP **bez** cíleného monitoringu (`CILMON = 0`) dostane na úrovni
+  DP plnohodnotný verdikt, ale do `LOK_PROCDOBR` na úrovni EVL nevstoupí,
+  protože ten čítá jen `CILMON == 1`.
+- **Doklad:** z 724 DP jich má `CILMON = 1` jen **428**. Do procenta dobře
+  hodnocených DP tedy nevstupuje **296 DP**, které přesto ve výstupu DP figurují
+  s verdiktem (77 dobrý + 127 špatný v hodnocených EVL, dalších 92 v těch
+  neznámých).
+- **Metodika** zmiňuje cílený monitoring **jedinkrát**, a to jako definici
+  referenčního roku pro `POP_ZMENARAD` (*„poslední předchozí roku s cíleným
+  monitoringem na téže DP"*). U výpočtu procenta dobře hodnocených DP žádné
+  omezení neuvádí — počítá *„počet DP v dobrém, zhoršeném či špatném stavu"*.
+- **Buď — anebo:** pokud nahodilý nález nestačí na hodnocení DP, neměl by DP
+  dostat verdikt ani na své úrovni; pokud stačí, měl by se počítat i do procenta.
+  Dnešní stav je nekonzistentní a je **hlavní příčinou 88 neznámých EVL**.
+
+### H-63 ⚠ — `amplexus` se počítá jako doklad reprodukce
+- **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Metodika:** *„Prokázaná reprodukce druhu – přítomností vývojových stádií.
+  Předmětem hodnocení je prokázaný výskyt **snůšek, pulců, larev či juvenilních
+  jedinců**."*
+- **Stav v datech:** jednotky `POP_REPRO` u *Lissotriton montandoni* a všech tří
+  *Triturus* obsahují **`amplexus`** — tedy spojení dospělců při páření, které
+  vývojovým stádiem není. Metodika je nevyjmenovává.
+- **Rozsah:** `amplexus` má v exportu 15 záznamů u šesti druhů metodiky — dopad
+  je malý, ale jde o rozpor s výčtem v metodice.
+- **Poznámka k `metamorf. ex.`:** metamorfovaní jedinci jsou po metamorfóze,
+  tedy juvenilní — jejich zahrnutí (nález H-07) metodice **neodporuje**.
+
+### H-64 ⚠ — jednotky `POP_POCET` jsou širší, než metodika připouští
+- **Závažnost:** střední · **Typ:** KONZISTENCE · **Stav:** **zaznamenáno**
+- **Metodika:** *„Hodnocenou jednotkou je počet **vokalizujících samců** u
+  Bombina bombina, u ostatních druhů jsou jednotkou **dospělci**."*
+- **Stav v datech:**
+
+  | druh | jednotky v limitech | dle metodiky |
+  |---|---|---|
+  | *Bombina bombina* | `samci` | ✅ |
+  | *Bombina variegata* | `samci` · `jedinci` · `adulti` | má být jen `adulti` |
+  | *Lissotriton montandoni*, *Triturus* ×3 | `adulti` · `jedinci` | má být jen `adulti` |
+
+- **Důsledek:** `jedinci` je nespecifikovaná jednotka, která může zahrnovat i
+  nedospělé jedince; u *B. variegata* navíc `samci`, ačkoli vokalizující samci
+  jsou jednotkou jen u *B. bombina*. Ovlivňuje `POP_POCET`, a tím i početnost
+  za EVL (H-60) a škálu `POP_POCETNOSTNAL` vstupující do `POP_ZMENARAD`.
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -1789,7 +1960,7 @@ nepřítomnost druhu, kterou `POP_PRESENCE` nově skutečně zachytí.
 | 6 | Plný běh kaskády po doplnění `AktualizacniOkrsky.shp` | provoz |
 | 7 | Samostatná harmonizace `Epidalea calamita` dle jejího vlastního dokumentu | zadavatel |
 | 8 | ~~Přidělit `ind_id` pro `POP_POCETPRUM3`~~ — **hotovo 2026-08-30**, přiděleno `ind_id = 190`, řádek doplněn do `cis_indikatory_popis.csv` (`ind_nadr = 2` podle sesterského `LOK_PROCDOBR`, k potvrzení) | ISOP |
-| 9 | Rozhodnout H-26 — dolní mez vs. medián kategorie početnosti | autoři metodiky |
+| 9 | ~~Rozhodnout H-26 — dolní mez vs. medián~~ — **zodpovězeno metodikou 2026-09-04**: *„převádí se na odpovídající hodnotu mediánu dané kategorie (např. 500 jedinců pro kategorii stovky)"*. Zbývá promítnout do kódu, viz **H-60** | — |
 | 10 | Rozhodnout H-29 — má import přepisovat `trend` hodnotou „neznámý"? | zadavatel |
 | 11 | Ověřit proti importu ISOP konce řádků a kompresi. **Zjištěno 2026-09-03:** export je **LF**, UTF-8, `;`, bez uvozovek, **gzipovaný** (`.csv.gz`) — `write.table()` má výchozí `eol = "\n"` a připojení nepřekládá na CRLF. Otázka tedy zní, zda import LF a `.gz` přijme. | ISOP / provoz |
 | 12 | Rozhodnout H-32 — má pásmo „0-25 %" platit za vysychání? | autoři metodiky |
@@ -1815,3 +1986,10 @@ nepřítomnost druhu, kterou `POP_PRESENCE` nově skutečně zachytí.
 | 32 | **H-57** — dodat velikostní třídy pro *Salmo salar* do `cis_ryby_delky_strukt.csv` | autoři metodiky ryb |
 | 33 | Rozhodnout tři řádky, které nově hlásí kontrola vstupu (H-53): `Eriogaster catax` a `Euphydryas aurinia` mají u `STA_HABPOKRYV` prázdnou `UROVEN` (tiše se nevyhodnocuje), `Cypripedium calceolus` má u `POP_POCETVITAL` limit bez `TYP_IND` | zadavatel |
 | 34 | Změřit dopad opravy `KLIC` u čtyř druhů hmyzu (H-53) — zpřísňující, hmyz nebyl v testovacích bězích | provoz |
+| 35 | **H-59** — opravit agregaci stanovištních `val` indikátorů na nejhorší hodnotu (249 dvojic DP × rok u *T. cristatus*). Čistá oprava dle metodiky, nevyžaduje rozhodnutí | provoz |
+| 36 | **H-60** — zahrnout do početnosti za EVL i DP s pouze relativní početností, přes medián kategorie (`POP_POCETSTRED`). Uzavírá i H-26 | provoz |
+| 37 | **H-61** — rozhodnout, zda se hodnocení má omezit na EVL a DP z Přílohy 2 (66 EVL / 192 DP), nebo pokrývat všechna území, kde je druh předmětem ochrany (dnes 191 EVL / 724 DP) | zadavatel + autoři metodiky |
+| 38 | **H-61b** — vyjasnit dvě EVL z Přílohy 2, které nejsou v seznamu předmětů ochrany: `CZ0213008`, `CZ0523287` | zadavatel |
+| 39 | **H-62** — sjednotit uplatnění `CILMON` mezi úrovní DP a EVL; hlavní příčina 88 neznámých EVL | autoři metodiky |
+| 40 | **H-63** — vyřadit `amplexus` z jednotek `POP_REPRO`? Metodika jmenuje snůšky, pulce, larvy a juvenilní jedince | autoři metodiky |
+| 41 | **H-64** — zúžit jednotky `POP_POCET` na `adulti` (a `samci` jen u *B. bombina*) | autoři metodiky |
