@@ -1,14 +1,14 @@
 DRUH;ID_IND;TYP_IND;LIM_IND;JEDNOTKA;KLIC;UROVEN
-Cobitis elangotoides;POP_DYN;max;50;;ano;lok
-Cobitis elangotoides;POP_VITALITA;min;2;;ano;lok
-Cobitis elangotoides;STA_DNOPOCETTYPU;min;1;NA;ne;lok
-Cobitis elangotoides;STA_DNOTYP;val;bahno;NA;ne;lok
-Cobitis elangotoides;STA_DNOTYP;val;písek;NA;ne;lok
-Cobitis elangotoides;STA_POCETTYPU;min;1;NA;ne;lok
-Cobitis elangotoides;STA_PROUD;val;mírný;NA;ne;lok
-Cobitis elangotoides;STA_PROUD;val;tùnì;NA;ne;lok
-Cobitis elangotoides;STA_VEGETACE;val;submerzní;NA;ne;lok
-Cobitis elangotoides;POP_POCET;NA;NA;jedinci;NA;NA
+Cobitis elongatoides;POP_DYN;max;50;;ano;lok
+Cobitis elongatoides;POP_VITALITA;min;2;;ano;lok
+Cobitis elongatoides;STA_DNOPOCETTYPU;min;1;NA;ne;lok
+Cobitis elongatoides;STA_DNOTYP;val;bahno;NA;ne;lok
+Cobitis elongatoides;STA_DNOTYP;val;písek;NA;ne;lok
+Cobitis elongatoides;STA_POCETTYPU;min;1;NA;ne;lok
+Cobitis elongatoides;STA_PROUD;val;mírný;NA;ne;lok
+Cobitis elongatoides;STA_PROUD;val;tùnì;NA;ne;lok
+Cobitis elongatoides;STA_VEGETACE;val;submerzní;NA;ne;lok
+Cobitis elongatoides;POP_POCET;NA;NA;jedinci;NA;NA
 Cottus gobio;POP_DYN;max;50;%;ano;lok
 Cottus gobio;POP_VITALITA;min;3;;ano;lok
 Cottus gobio;STA_DNO;val;balvany;NA;ne;lok
