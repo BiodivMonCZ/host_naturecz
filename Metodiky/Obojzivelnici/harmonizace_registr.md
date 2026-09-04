@@ -1608,17 +1608,65 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
 - **Návrh:** brát maximum ze všech uvedených hodnot. Totéž prověřit
   u `<pocet_bar>`.
 
-### H-53 ⚠ — chybějící `KLIC` u dvou řádků ⇒ indikátor se hodnotí, ale do verdiktu nevstupuje
-- **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
-- **Zjištění:** `KLIC` je prázdný u `LOK_PROCDOBR` (*Lampetra planeri*, úroveň
-  `chu`) a u `STA_DNOPOCETTYPU` (*Misgurnus fossilis*, úroveň `lok`).
-- **Důsledek:** čítače v [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L127-L128)
-  testují `KLIC == "ano"` a `KLIC == "ne"`; prázdná hodnota nesplní **ani jednu**,
-  takže indikátor sice dostane `STAV_IND`, ale do `N_KEY_*` ani `N_OTH_*`
-  nevstoupí a **na verdikt DP nemá vliv**. U `STA_DNOPOCETTYPU` je to nově
-  relevantní, protože indikátor se od H-42 počítá.
-- **Na úrovni `chu`** má prázdný `KLIC` u `LOK_PROCDOBR` obdobný efekt na
-  `LENIND_SUMKLIC`; dnes je zastíněný tím, že verdikt přebírá Tabulka 2 (H-50).
+### H-53 ✅ — chybějící `KLIC` u dvou řádků: na DP vynucuje „špatný", na EVL vynucuje „dobrý"
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **opraveno 2026-09-04**
+- **Zjištění:** `KLIC` chybí u dvou řádků, pokaždé jinou chybou zápisu:
+
+  | řádek | pole `KLIC` v souboru |
+  |---|---|
+  | `Misgurnus fossilis;STA_DNOPOCETTYPU;min;2;NA;;lok` | **prázdné** (`;;`) |
+  | `Lampetra planeri;LOK_PROCDOBR;min;50;…;NA;chu` | literál **`NA`** |
+
+  Obojí načte `readr` jako `NA` (`na = c("", "NA")`).
+
+> **Oprava původního znění tohoto nálezu.** První verze tvrdila, že prázdný
+> `KLIC` „nevstoupí do `N_KEY_*` ani `N_OTH_*` a na verdikt DP nemá vliv".
+> **To je nesprávně** — ověřeno simulací obou čítačů. Skutečnost je horší
+> a na každé úrovni jiná.
+
+**Úroveň DP (`24`) — prázdný `KLIC` se chová jako FANTOMOVÝ klíčový indikátor.**
+`KLIC == "ano"` dá nad `NA` hodnotu `NA`, takže `ID_IND[...]` vrátí
+`NA_character_` a `n_distinct()` jej **počítá jako plnohodnotnou hodnotu** —
+totožná past, jakou popisuje H-21. Rozhodující je, že se obě strany chovají
+různě:
+
+| | `N_KEY_EXPECTED` | `N_KEY_PASSED` | verdikt |
+|---|---|---|---|
+| řádek **splněn** (`STAV_IND = 1`) | 3 (= 2 + fantom) | 3 (`NA & TRUE` = `NA` → počítá se) | dobrý |
+| řádek **nesplněn** (`STAV_IND = 0`) | 3 (= 2 + fantom) | **2** (`NA & FALSE` = `FALSE` → vypadne) | **špatný** |
+| po opravě na `KLIC = "ne"`, nesplněn | 2 | 2 | dobrý |
+
+Nesplněný řádek s prázdným `KLIC` tedy srazí DP na „špatný" **přes větev
+klíčových indikátorů**, přestože o klíčový indikátor vůbec nejde. Chyba jde
+jen jedním směrem — uškodit může, pomoci nikdy. U `STA_DNOPOCETTYPU` se stala
+živou až nálezem **H-42**, který indikátor zapnul.
+
+**Úroveň EVL (`25`) — týž prázdný `KLIC` naopak vynucuje „dobrý".**
+Zde se používá `length(unique(na.omit(ID_IND[...])))`, a `na.omit()` fantomovou
+hodnotu **odstraní**. Jediný klíčový `chu` indikátor tím zmizí:
+
+| | `IND_SUMKLIC` | `LENIND_SUMKLIC` | verdikt |
+|---|---|---|---|
+| `KLIC` prázdný, indikátor splněn | 0 | 0 | dobrý |
+| `KLIC` prázdný, indikátor **nesplněn** | 0 | 0 | **dobrý** |
+| po opravě na `KLIC = "ano"`, nesplněn | 0 | 1 | zhoršený |
+
+Podmínka `IND_SUMKLIC >= LENIND_SUMKLIC` se zvrhne na `0 >= 0`, takže EVL
+vyjde „dobrá" bez ohledu na data. Dokud verdikt přebírala Tabulka 2, bylo to
+zastíněné; **rozhodnutím H-50 (omezit Tabulku 2 na obojživelníky) by se to
+stalo živým u všech EVL ryb**, proto byla oprava tohoto řádku podmínkou H-50,
+ne volitelným úklidem.
+
+- **Provedeno:**
+  - `STA_DNOPOCETTYPU` → `KLIC = "ne"` — shodně s pěti ostatními druhy;
+    žádný stanovištní indikátor ryb není klíčový.
+  - `LOK_PROCDOBR` → `KLIC = "ano"` — shodně s `limity_vse.csv`, kde je
+    `LOK_PROCDOBR` klíčový u všech druhů.
+- **Poučení pro číselníky:** prázdné `KLIC` není neutrální, je to **třetí,
+  nezamýšlený stav** s různým chováním podle toho, zda navazující kód použije
+  `n_distinct()` (počítá `NA`) nebo `na.omit()` (zahazuje `NA`). Stálo by za
+  úvahu doplnit do kaskády kontrolu, která prázdné `KLIC` u řádku s vyplněným
+  `LIM_IND` ohlásí jako chybu vstupu.
 
 ### H-54 ⚠ — tentýž indikátor má u různých druhů neslučitelný `TYP_IND`
 - **Závažnost:** střední · **Typ:** KONZISTENCE · **Stav:** **zaznamenáno**
