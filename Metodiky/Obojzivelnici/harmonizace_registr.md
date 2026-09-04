@@ -34,6 +34,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Dořešení H-01 a H-02 (2026-08-31)* | 3 | H-30, H-31, H-32 |
 | *Rozšíření kategorie `info` (2026-08-31)* | 4 | H-33, H-34, H-35, H-36 |
 | *Dokončení `info` a revize limitů ryb (2026-09-03)* | 3 | H-37, H-38, H-39 |
+| *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 5 | H-40 … H-44 |
 
 ---
 
@@ -1025,8 +1026,8 @@ testovací běh obojživelníků) — na rozdíl od H-37 níže.
   jednotky dvě; **zde jich je devět, takže údaj může přímo svádět ke špatnému
   čtení** („reprodukce doložena larvami"). Oprava vyžaduje zásah do sdíleného
   kódu `21_2` nebo `24`, proto není součástí této změny.
-- **Rozhodnutí zadavatele:** ⚠ _(má se `JEDNOTKA` u informativních řádků
-  s více jednotkami vyprazdňovat?)_
+- **Návrh řešení viz H-43** (2026-09-04).
+
 
 ### H-38 ⚠ — `limity_ryby.csv`: 19 z 26 indikátorů nemá v kódu žádný výpočet
 - **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** GAP · **Stav:** **zaznamenáno**
@@ -1056,6 +1057,9 @@ testovací běh obojživelníků) — na rozdíl od H-37 níže.
   Z celé této sady čte kód **jediný tag** — `<pocet_bar>`
   ([`21_1:771`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L771)). Velkými písmeny
   se v datech ryb vyskytují jen `<STA_PRUHLEDNOSTVODA>` a `<VLV_VLIVY>`.
+  *(Upřesnění 2026-09-04: mimo tuto tabulku čte kód ještě `<vyska_bar>` →
+  `STA_MIGBARVYS` na [`21_1:777`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L777).
+  Oba tagy migračních bariér jsou tedy obsloužené; počet sirotků 19 se nemění.)*
 - **Důsledek:** `21_2` sirotčí limity odfiltruje (`filter(is.na(ID_ND_NALEZ) == FALSE)`),
   takže se do výstupu nedostanou vůbec a **hodnocení ryb stojí na 7
   indikátorech místo 26**, aniž by to bylo kdekoli vidět. Jde o tutéž tichou
@@ -1066,41 +1070,275 @@ testovací běh obojživelníků) — na rozdíl od H-37 níže.
   úprava limitů — a patří autorům metodiky ryb spolu se správcem formuláře.
 - **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
 
-### H-39 ⚠ — tři názvy druhů v `limity_ryby.csv` nemají v NDOP jediný záznam
-- **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** BUG · **Stav:** **zaznamenáno**
-- **Stav v datech:** limity se napojují přes `DRUH`; tři názvy se neshodují
-  s ničím v exportu:
+### H-39 ⚠ — názvy druhů v `limity_ryby.csv` neodpovídají zbytku systému
+- **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** BUG · **Stav:** `Cobitis` **opraveno 2026-09-03**, zbytek zaznamenán
+- **Poznámka k první verzi tohoto nálezu:** původní znění porovnávalo názvy
+  **jen s NDOP** a tvrdilo, že limity `Romanogobio kessleri` patří druhu
+  `R. banaticus`. **To je oprava:** `R. banaticus` je samostatný druh, který
+  není předmětem ochrany a má vlastní 2 řádky; skutečné dvojice jsou
+  `kessleri` → `kesslerii` a `albipinatus` → `vladykovi`. Úplný obrázek dává
+  až **trojcestné porovnání** (NDOP × seznam předmětů ochrany × limity), viz
+  **H-40**.
 
-  | název v limitech | řádků | co je v NDOP |
-  |---|---|---|
-  | `Cobitis elangotoides` | 10 | **překlep** — správně `Cobitis elongatoides` (211 záznamů) |
-  | `Romanogobio albipinatus` | 19 | zastaralé jméno — NDOP vede `R. vladykovi` (250), `R. belingi` (19) |
-  | `Romanogobio kessleri` | 13 | zastaralé jméno — NDOP vede `R. banaticus` (80) |
+**Opraveno 2026-09-03 — `Cobitis elangotoides` → `Cobitis elongatoides`**
+(10 řádků, commit `ff54c01`). Druh byl rozdělen na dva bloky a limity se
+napojovaly jen z toho menšího; po sjednocení má 12 řádků bez duplicit.
 
-- **Důsledek u `Cobitis elongatoides` je nejzávažnější:** pod překlepem leží
-  **oba klíčové indikátory** druhu — `POP_DYN` (`max 50`, `KLIC = ano`) a
-  `POP_VITALITA` (`min 2`, `KLIC = ano`) — plus 8 dalších. Pod správným
-  názvem zbývají jen `STA_MIGBARVYS` a `STA_MIGBARPOCET`, oba `KLIC = ne`.
-- **Následek v hodnocení:** `N_KEY_EXPECTED = 0`, takže větev
+- **Proč to bylo nejzávažnější:** pod překlepem ležely **oba klíčové
+  indikátory** — `POP_DYN` (`max 50`, `KLIC = ano`) a `POP_VITALITA`
+  (`min 2`, `KLIC = ano`), oba s hotovým výpočtem v kódu. Pod správným názvem
+  zbývaly jen `STA_MIGBARVYS` a `STA_MIGBARPOCET`, oba `KLIC = ne`, takže
+  `N_KEY_EXPECTED = 0` a větev
   `N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0` v
-  [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L175) nemůže nikdy nastat a
-  **DP tohoto druhu nelze vyhodnotit jako „špatnou"** — nejvýš „zhoršenou".
-  Je to táž vada jako H-05, jen na úrovni DP a u ryb.
-- **Rozsah:** ze **15 druhů ryb**, které v NDOP záznamy mají, nemá jediný
-  vyhodnotitelný klíčový indikátor **3** — `Cobitis elongatoides` (překlep),
-  `Romanogobio banaticus` (limity leží pod zastaralými jmény) a `Salmo salar`
-  (`POP_DYN` i `POP_VITALITA` mají `KLIC = ano`, ale prázdný limit — právě ty
-  dva řádky dostaly v položce 15 značku `info`; ta gap nezpůsobila, jen ji
-  zviditelnila).
-- **Neopraveno záměrně:** přejmenování druhu je věcný zásah do limitů ryb a
-  u rodu *Romanogobio* navíc taxonomické rozhodnutí (jedno zastaralé jméno
-  vs. dvě až tři dnešní) — patří autorům metodiky ryb.
-- **Souvislost s H-34:** obě `val` sady rodu *Romanogobio* proto zůstaly
-  nedotčeny, včetně `R. albipinatus;STA_TRASATOKU;val;uměle napřímený`, což
-  je oproti `neg` u šesti druhů **obrácené znaménko** („dobrý stav = uměle
-  napřímené koryto"), a výčtu `mírný / střední / vysoká`, který se s doménou
-  dat nekryje.
+  [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L175) nemohla nikdy nastat —
+  **DP tohoto druhu nešlo vyhodnotit jako „špatnou"**. Táž vada jako H-05, jen
+  na úrovni DP.
+- **Měřený dopad** (testovací běh *Cobitis elongatoides*, 211 záznamů NDOP,
+  8 lokalit, 19 DP, kaskáda `21_1` → `27` před i po):
+
+  | Co | Před | Po |
+  |---|---|---|
+  | indikátorů ve výstupu DP | 4 | **6** (`POP_DYN`, `POP_VITALITA` po 19 řádcích) |
+  | `CELKOVE_HODNOCENI` | 19× dobrý | **17× dobrý · 2× špatný** |
+  | změněných DP | — | **2 z 19**, obě k horšímu |
+
+  Změna **není neutrální a být nemá** — dvě DP se dosud vykazovaly jako
+  v dobrém stavu jen proto, že se jejich klíčové indikátory nepočítaly.
+- **Úroveň EVL se nezměnila, protože pro tento druh žádná nevzniká** — nemá
+  jediný řádek s `UROVEN = "chu"`. Není to důsledek opravy, viz **H-41**.
+
+**Neopraveno — čeká na rozhodnutí** (zadavatel potvrdil pouze `Cobitis`):
+
+| název v limitech | řádků | správně podle seznamu předmětů ochrany |
+|---|---|---|
+| `Gymnocephalus schraetser` | 19 | `Gymnocephalus schraetzer` — **překlep `s`/`z`** |
+| `Leuciscus aspius` | 22 | `Aspius aspius` — synonymum, SDF vede starší jméno |
+| `Romanogobio kessleri` | 13 | `Romanogobio kesslerii` — **překlep, jedno `i` vs. dvě** |
+| `Romanogobio albipinatus` | 19 | `Romanogobio vladykovi` — zastaralé jméno |
+
+- **Vedlejší zjištění:** `STA_UPRAVABREHU` a `STA_UPRAVADNA` mají u šesti druhů
+  `max 49 %`, ale u `Romanogobio albipinatus` **`min 49 %`** — obrácené
+  znaménko („dobrý stav = alespoň 49 % upraveného břehu"). Dnes bez dopadu,
+  protože se tento název stejně nikdy nenapojí.
+- **Souvislost s H-34:** obě `val` sady rodu *Romanogobio* zůstaly nedotčeny,
+  včetně `R. albipinatus;STA_TRASATOKU;val;uměle napřímený`, což je oproti
+  `neg` u šesti druhů **obrácené znaménko**, a výčtu `mírný / střední /
+  vysoká`, který se s doménou dat nekryje.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — přejmenovat i zbývající
+  čtyři, nebo zavést tabulku synonym?)_
+
+---
+
+# Nálezy z pokusu o zprovoznění indikátorů ryb (2026-09-04)
+
+Zadavatel: *„Cobitis elongatoides je správný název"* a *„scan the data and pull
+those indicators from STRUKT_POZN"*. Při přípravě extrakce se ukázalo, že
+samotné vytažení tagů problém neřeší — a že napojení limitů ryb selhává ještě
+o krok dřív, na názvu druhu.
+
+### H-40 ⚠ — filtr předmětů ochrany zahazuje pět druhů ryb dřív, než se dostanou k limitům
+- **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Kontext:** [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L182-L186) filtruje
+  `DRUH %in% sites_subjects$nazev_lat`, tedy proti
+  `seznam_predmetolokalit_Natura2000_2_2025.xlsx`. Druh, který v tomto seznamu
+  není **pod týmž názvem jako v NDOP**, se zahodí bez ohledu na limity.
+  Rozhodují tedy **tři** názvové prostory, ne dva.
+- **Trojcestné porovnání** (NDOP × seznam předmětů ochrany × `limity_ryby.csv`):
+
+  | druh | NDOP | lokalit | řádků limitu | hodnotí se |
+  |---|---|---|---|---|
+  | `Cobitis elongatoides` | 211 | 8 | 12 | ✅ (po opravě H-39) |
+  | `Cottus gobio` | 3 045 | 30 | 17 | ✅ |
+  | `Lampetra planeri` | 1 849 | 28 | 9 | ✅ |
+  | `Rhodeus amarus` | 1 044 | 14 | 14 | ✅ |
+  | `Misgurnus fossilis` | 790 | 9 | 13 | ✅ |
+  | `Salmo salar` | 327 | 9 | 9 | ✅ |
+  | *(dalších 6 druhů s jednotkami lokalit)* | | | | ✅ |
+  | **`Leuciscus aspius`** | **606** | **0** | 22 | ❌ seznam vede `Aspius aspius` (6 lokalit) |
+  | **`Gymnocephalus schraetser`** | **20** | **0** | 19 | ❌ seznam vede `G. schraetzer` (1) |
+  | **`Romanogobio albipinatus`** | 0 | 0 | 19 | ❌ seznam vede `R. vladykovi` (5 lokalit, 250 záznamů) |
+  | **`Romanogobio kessleri`** | 0 | 0 | 13 | ❌ seznam vede `R. kesslerii` (2) |
+  | **`Romanogobio banaticus`** | 80 | 0 | 2 | ❌ není předmětem ochrany |
+
+- **Důsledek — vada je oboustranná:**
+  1. **5 bloků limitů (75 řádků) se nikdy nenapojí**, protože jejich název
+     filtrem neprojde. Nejcitelnější je `Leuciscus aspius` (bolen dravý) —
+     **606 záznamů v NDOP a 22 řádků limitů, hodnocení nula.**
+  2. **`Romanogobio vladykovi` filtrem projde** (je předmětem ochrany, 5 lokalit,
+     250 záznamů), ale **nemá jediný řádek limitu** — jeho limity leží pod
+     `albipinatus`. Hodnotí se tedy rovněž nula.
+- **Vzor je známý:** je to táž třída jako **S-1** u obojživelníků
+  (`Lissotriton montandoni` vs. `Triturus montandoni` v SDO), kde se problém
+  řešil mapováním synonym. U ryb takové mapování neexistuje.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — přejmenovat v limitech, nebo
+  zavést sdílenou tabulku synonym pro celou kaskádu?)_
+
+### H-41 ⚠ — 16 ze 17 druhů ryb nemá žádný indikátor na úrovni EVL
+- **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Zjištění:** v `limity_ryby.csv` má řádek s `UROVEN = "chu"` **jediný druh** —
+  `Lampetra planeri` (`LOK_PROCDOBR`, `min 50`). Pro srovnání:
+
+  | soubor limitů | druhů | z toho s úrovní `chu` |
+  |---|---|---|
+  | `limity_vse.csv` | 33 | **32** |
+  | `limity_cevky.csv` | 34 | **34** |
+  | `limity_ryby.csv` | 17 | **1** |
+
+- **Důsledek:** [`25`](../../R/02_druhy/25_n2k_druhy_uzemi.R) filtruje
+  `UROVEN == "chu"`, takže pro 16 druhů ryb **nevzniká žádný výstup na úrovni
+  EVL** — ani „neznámý". Ověřeno při testovacím běhu *Cobitis elongatoides*:
+  soubor `Data/Temp/n2k_druhy_chu.csv` se vůbec nepřepsal.
+- **Pozor na past při čtení výsledků:** protože se soubor nepřepíše, zůstane
+  v něm obsah **předchozího běhu jiného druhu**. Při srovnávání běhů je nutné
+  kontrolovat čas změny souboru, jinak se snadno vykáže „beze změny" tam, kde
+  ve skutečnosti nevznikl žádný výstup.
 - **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+### H-42 ⚠ — extrakce tagů sama o sobě indikátory ryb nezprovozní, ale zapne je
+- **Závažnost:** kritická (mimo rozsah obojživelníků) · **Typ:** BUG-V-ZÁRODKU · **Stav:** **proto neimplementováno**
+- **Kontext:** zadání znělo vytáhnout chybějící indikátory ze `STRUKT_POZN`.
+  Sken dat (2 771 záznamů ryb, 101 různých tagů) ukázal, že **vytvořit sloupec
+  znamená indikátor zapnout** — `21_2` páruje limity přes
+  `intersect(názvy sloupců, ID_IND limitů)`, takže jakmile sloupec vznikne,
+  limit se začne vyhodnocovat. **Pokud se přitom netrefí do hodnot, vyjde
+  `STAV_IND = 0` — tedy nepříznivý stav — u všech záznamů.** To je přesně
+  mechanismus H-01.
+- **Tři překážky, které je nutné vyřešit společně s extrakcí:**
+
+  | # | Překážka | Příklad |
+  |---|---|---|
+  | 1 | **Slovník limitů neodpovídá datům** | limit `val kameny` × data `Kameny (6-25 cm)`; `val submerzní` × `Submerzní`; `val přirozeně nízký` × `Přirozené nízké zahloubení (0-1 m)` |
+  | 2 | **Data jsou vícehodnotová, porovnání je na rovnost** | `<sub_dno>` = `Kameny (6-25 cm), Štěrk (0,2-6 cm), Písek (0,1-2 mm)`; `HOD_IND == LIM_IND` nesedne nikdy |
+  | 3 | **Limit je v procentech, data v pásmech** | `STA_UPRAVABREHU max 49 %` × `<breh_upr_bu>` = `26-50%`, `>75%`, `Dominantní 100%` |
+
+- **Pořadí hodnot navíc není stabilní** — `<char_prou>` má **101 různých
+  řetězců** z několika kategorií, protože se liší pořadím; v datech je i
+  překlep ve zdroji (`Mírny proud` vs. `Mírný proud`), takže i členění
+  na položky musí být odolné.
+- **Co by šlo zapnout bez normativního rozhodnutí** (mapování 1:1, doména
+  ověřena proti datům):
+
+  | ID_IND | tag | hodnot | poznámka |
+  |---|---|---|---|
+  | `STA_TRASATOKU` | `<tr_tok_char>` | 2 179 | limity srovnány s daty už v H-34 |
+  | `STA_VARIABILITAHLOUBEK` | `<var_hl_pr>` | 2 172 | totéž |
+
+  U obou ale platí, že se stanou **hodnocenými** indikátory u šesti druhů —
+  proto ani je nezapínám bez potvrzení.
+- **Co potřebuje rozhodnutí autorů metodiky ryb:** slovník pro `STA_DNO`,
+  `STA_DNOTYP`, `STA_DNOPREF`, `STA_PROUD`, `STA_VEGETACE`,
+  `STA_ZAHLOUBENIKORYTA`; způsob výpočtu pro `STA_UPRAVABREHU`,
+  `STA_UPRAVADNA`, `STA_DNOTYPSOUCETPROCENT`; a zdroj pro
+  `STA_DALSIPARAMETRY`, `STA_DNOPOCET`, `STA_POCETTYPU`,
+  `STA_VARIABILITAHLOUBEKPOCET` a oba `STA_ODHADCELKOVEPLOCHY…`, ke kterým se
+  v datech nenašel žádný odpovídající tag.
+- **Zmírňující okolnost:** všechny sirotčí indikátory mají `KLIC = ne`, takže
+  ani po zapnutí nemohou samy způsobit verdikt „špatný" — nejvýš „zhoršený"
+  přes pravidlo „min 2 špatné stanovištní indikátory".
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+---
+
+### H-43 ⚠ — `POP_REPRO` na úrovni DP: `JEDNOTKA` klame a hodnota bere první nález místo nejlepšího
+- **Závažnost:** střední · **Typ:** BUG + ZOBRAZENÍ · **Stav:** **návrh, čeká na rozhodnutí**
+- **Kontext:** vzniklo z požadavku zadavatele *„accommodate other JEDNOTKA
+  apart from larvy"*. Při měření se ukázalo, že jde o **dvě vady**, ne jednu.
+
+**Vada 1 — `JEDNOTKA` hlásí vždy `larvy`.** Devět řádků limitu (jeden na
+jednotku) `right_join` rozdvojí a `distinct()` ponechá první. Skutečné doklady
+reprodukce v testovacím běhu ale jsou:
+
+| doklad na úrovni DP | DP |
+|---|---|
+| larvy | 177 |
+| juvenilové | 6 |
+| metamorf. ex. | 6 |
+| juvenilové + larvy | 4 |
+| larvy + metamorf. ex. | 4 |
+
+Tedy **u 20 ze 197 DP s doloženou reprodukcí je vypsaná jednotka nesprávná**
+a u 8 z nich byly doklady dokonce dva různé.
+
+**Vada 2 — hodnota se bere z prvního nálezu, ne z nejlepšího.**
+[`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L72) počítá
+`HOD_IND_VAL = first(na.omit(HOD_IND))`, zatímco `STAV_IND` se u populačních
+indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
+*(dospělci → „ne", larvy → „ano")* zobrazí **„ne"**.
+
+- **Rozsah:** ve 221 z 1 663 dvojic DP × rok se nálezy rozcházejí; po výběru
+  reprezentativní návštěvy zbývá **8 ze 724 DP s chybnou hodnotou** — 6× `ne`
+  a 2× `neznámý` tam, kde reprodukce doložena byla. Chyba jde **vždy směrem
+  k horšímu stavu**.
+- **Návrh — dvě změny, obě v `21_1`, žádná ve sdíleném porovnávacím kódu:**
+
+  **A · `POP_REPRO` počítat za DP a rok.** V bloku `n2k_druhy_lokpop`, kde už
+  vzniká `POP_REPROMAX`, doplnit:
+
+  ```r
+  POP_REPRO = dplyr::case_when(
+    POP_REPROMAX == 1 ~ "ano",
+    POP_REPROMAX == 0 ~ "ne",
+    TRUE              ~ NA_character_
+  ),
+  ```
+
+  Stávající `left_join(..., suffix = c("_NAL", ""))` z H-35 pak sám přiřkne
+  holý název straně za DP a rok a hodnotu za jednotlivý nález zachová jako
+  `POP_REPRO_NAL`. **Je to přesně vzorec H-35, žádný nový mechanismus.**
+  `POP_REPRONUM`, `POP_REPROMAX` i `POP_REPROPERIOD3` se počítají *před*
+  joinem, takže klíčový indikátor zůstává nedotčen.
+
+  **B · nést skutečné jednotky dokladu.** Tamtéž:
+
+  ```r
+  POP_REPROJEDN = paste(sort(unique(POCITANO_CLEAN[POP_REPRONUM == 1])),
+                        collapse = ", "),
+  ```
+
+  Kam se má propsat, jsou tři možnosti:
+
+  | | Řešení | Pro | Proti |
+  |---|---|---|---|
+  | **B1** | přepsat `JEDNOTKA` pro `POP_REPRO` v `21_2` | žádný nový indikátor, žádné `ind_id`, výsledek přesně jak zadáno | jeden `if_else` na konkrétní `ID_IND` ve sdíleném kódu |
+  | **B2** | samostatný informativní indikátor `POP_REPROJEDN` | plně obecné, samopopisný řádek výstupu | nový `ID_IND` + `ind_id` z ISOP, další řádek na DP |
+  | **B3** | `JEDNOTKA` u vícejednotkových `info` řádků vyprázdnit | nejmenší zásah, obecné, opraví i `POP_POCET` z H-33 | zahodí informaci, kterou zadavatel chce vidět |
+
+- **Doporučení:** **A + B1.** Vada 2 je věcná chyba a měla by se opravit tak
+  jako tak; B1 dává žádaný výsledek nejmenším zásahem. B3 je vhodné doplnit
+  pro `POP_POCET` a `POP_POCETSUM`, kde se stejný klam týká dvou jednotek.
+- **Očekávaný dopad:** 8 DP změní `HOD_IND` na správnou hodnotu, `JEDNOTKA`
+  přestane u 20 DP klamat. **`STAV_IND` zůstává `NA`** (řádek je `info`),
+  takže **verdikty se změnit nemohou** — na rozdíl od H-44 níže.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel — varianta B1, B2, nebo B3?)_
+
+### H-44 ⚠ — `subadulti` se nepočítají jako doklad reprodukce
+- **Závažnost:** vysoká · **Typ:** GAP · **Stav:** **otázka na autory metodiky**
+- **Kontext:** vyplynulo ze zadání *„like subadulti, snůšky etc."* — `subadulti`
+  ale **nejsou** mezi jednotkami `POP_REPRO`, takže se dnes nezapočítávají.
+- **Stav v datech:** `subadulti` má u šesti druhů metodiky **970 záznamů**
+  (BBOM 458, BVAR 282, Tcri 211, Tcar 9, LMON 7, Tdob 3). Dnes u nich
+  `POP_REPRO` vychází `NA` — tedy ani doklad, ani jeho vyvrácení.
+- **Věcná otázka:** `juvenilové` (mladí letošního roku) se za doklad **považují**.
+  Subadultní jedinec je rovněž po metamorfóze, ale u čolků dospívá **2–3 roky**,
+  takže dokládá reprodukci, která proběhla **v některém z minulých let**, ne
+  nutně v hodnoceném. Per-roční indikátor by tím ztratil přesnou dataci;
+  tříleté okno `POP_REPROPERIOD3` by naopak odpovídalo dobře.
+- **Měřený dopad, kdyby `subadulti` platili za doklad** (6 druhů, dvojice
+  lokalita × rok):
+
+  | | |
+  |---|---|
+  | dvojic lokalita × rok celkem | 5 807 |
+  | s dokladem reprodukce dnes | 1 110 |
+  | **nově by přibylo** | **266** (+24 %) |
+  | z toho BBOM 118 · BVAR 71 · Tcri 68 · LMON 6 · Tdob 2 · Tcar 1 | |
+
+- **Proč to nedělám sám:** `POP_REPRO` vstupuje přes `POP_REPROMAX` do
+  `POP_REPROPERIOD3`, což je **klíčový** indikátor. Změna by tedy posunula
+  verdikty DP — směrem k lepšímu hodnocení — u téměř čtvrtiny ploch
+  s reprodukcí. To je normativní rozhodnutí, ne technická oprava.
+- **Rozhodnutí autorů metodiky:** _(mají `subadulti` dokládat reprodukci?
+  Pokud ano, jen pro tříleté okno, nebo i pro roční indikátor?)_
 
 ---
 
@@ -1123,5 +1361,9 @@ testovací běh obojživelníků) — na rozdíl od H-37 níže.
 | 13 | ~~Rozhodnout H-34 — význam `TYP_IND = "neg"` u ryb~~ — **hotovo 2026-09-03**, převedeno na úplnou `val` logiku. **Nově místo toho:** rozhodnout **H-38** (19 z 26 indikátorů ryb bez výpočtu — mapování malých tagů) a **H-39** (tři názvy druhů neodpovídají NDOP). Bez H-38 nemá `neg` ani `val` u těchto dvou indikátorů žádný efekt. | autoři metodiky ryb |
 | 14 | Rozhodnout H-36 — má `POP_POCETMAX` vracet `NA` místo `0`, i za cenu zásahu do trendů rostlin? | zadavatel |
 | 15 | ~~Zvážit `info` i pro `limity_cevky.csv` a `limity_ryby.csv`~~ — **hotovo 2026-09-03** (41 řádků, commit `8fc5f1c`); dopad na rostliny a ryby stále nezměřen | zadavatel |
-| 16 | Rozhodnout H-37 — má se `JEDNOTKA` u informativních řádků s více jednotkami vyprazdňovat? Dnes `POP_REPRO` hlásí u všech 724 DP `larvy`. | zadavatel |
+| 16 | Rozhodnout **H-43** — varianta B1 / B2 / B3 pro `JEDNOTKA` u `POP_REPRO`; součástí je i oprava `first()` → `max()` na úrovni DP (8 chybných DP) | zadavatel |
 | 17 | Změřit dopad položky 15 na cévnaté rostliny a ryby (obdoba testovacího běhu u obojživelníků) | zadavatel / provoz |
+| 18 | Rozhodnout **H-44** — mají `subadulti` (970 záznamů) dokládat reprodukci? Dopad +266 dvojic lokalita × rok, tj. +24 % | autoři metodiky |
+| 19 | Rozhodnout **H-40** — přejmenovat zbývající 4 druhy ryb v limitech, nebo zavést sdílenou tabulku synonym? Dnes propadá `Leuciscus aspius` s 606 záznamy | zadavatel |
+| 20 | Rozhodnout **H-41** — má 16 ze 17 druhů ryb zůstat bez hodnocení na úrovni EVL? | autoři metodiky ryb |
+| 21 | Rozhodnout **H-42** — slovník a způsob výpočtu pro 19 sirotčích indikátorů ryb; teprve pak lze extrakci ze `STRUKT_POZN` zapnout | autoři metodiky ryb |
