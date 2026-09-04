@@ -125,8 +125,56 @@ limity <- readr::read_csv(
   ) %>%
   dplyr::ungroup()
 
+#------------------------------------------#
+### Kontrola uplnosti limitu ----
+#------------------------------------------#
+# Radek s vyplnenym LIM_IND, ale prazdnym KLIC nebo UROVEN, se NECHOVA jako
+# "nezarazeny" - je to treti, nezamysleny stav, ktery se navic projevuje ruzne
+# podle toho, jak s nim navazujici kod zachazi (nalez H-53):
+#
+#   prazdny KLIC na urovni DP (24_n2k_druhy_lokality.R)
+#     `KLIC == "ano"` da nad NA hodnotu NA, `ID_IND[NA]` vrati NA_character_
+#     a n_distinct() jej pocita jako plnohodnotnou hodnotu. Radek se tak chova
+#     jako FANTOMOVY KLICOVY INDIKATOR: kdyz je splnen, zvedne oba citace
+#     a nic se nestane, ale kdyz NENI splnen, zvedne jen N_KEY_EXPECTED
+#     a DP spadne na "spatny" pres vetev klicovych indikatoru.
+#
+#   prazdny KLIC na urovni EVL (25_n2k_druhy_uzemi.R)
+#     tam se pouziva na.omit(), ktery NA naopak zahodi. Kdyz je takovy radek
+#     jedinym klicovym indikatorem urovne chu, vyjde LENIND_SUMKLIC = 0
+#     a podminka se zvrhne na `0 >= 0`, takze EVL je vzdy "dobra".
+#
+#   prazdna UROVEN
+#     radek neprojde filtrem `UROVEN == "lok"` ani `UROVEN == "chu"`,
+#     takze se indikator tise nevyhodnocuje vubec.
+#
+# Kontrola jen varuje, nic neopravuje - obsah limitu je normativni.
+lim_neuplne <- limity %>%
+  dplyr::filter(
+    !is.na(LIM_IND) & LIM_IND != "",
+    is.na(KLIC) | KLIC == "" | is.na(UROVEN) | UROVEN == ""
+  ) %>%
+  dplyr::distinct(DRUH, ID_IND, TYP_IND, KLIC, UROVEN)
+
+if (nrow(lim_neuplne) > 0) {
+  warning(
+    glue::glue(
+      "Limity: {nrow(lim_neuplne)} radku ma vyplneny LIM_IND, ale prazdny ",
+      "KLIC nebo UROVEN - takovy indikator se chova nepredvidatelne ",
+      "(nalez H-53). Dotcene radky:\n",
+      paste0(
+        "  ", lim_neuplne$DRUH, " / ", lim_neuplne$ID_IND,
+        " (KLIC = ", ifelse(is.na(lim_neuplne$KLIC), "prazdny", lim_neuplne$KLIC),
+        ", UROVEN = ", ifelse(is.na(lim_neuplne$UROVEN), "prazdna", lim_neuplne$UROVEN), ")",
+        collapse = "\n"
+      )
+    )
+  )
+}
+rm(lim_neuplne)
+
 #--------------------------------------------------#
-## Ciselniky - sdilene ---- 
+## Ciselniky - sdilene ----
 #--------------------------------------------------#
 #--------------------------------------------------#
 ### Seznam predmetu ochrany EVL ---- 

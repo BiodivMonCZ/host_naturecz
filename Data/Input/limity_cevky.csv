@@ -521,7 +521,7 @@ Poa riphaea,STA_STUPENZACH,val,dobrý,,ne,lok,
 Poa riphaea,STA_STUPENZACH,val,støední,,ne,lok,
 Poa riphaea,LOK_PROCDOBR,min,50,% lokalit v dobrém stavu,ano,chu,
 Klasea lycopifolia,POP_POPULACE,min,100,m2,ano,lok,nový parametr
-Klasea lycopifolia,POP_TREND,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,NA,lok,
+Klasea lycopifolia,POP_TREND,max,1,posledních dvou let s menším poètem jedincù než je referenèní hodnota,ano,lok,
 Klasea lycopifolia,POP_POCETVITAL,info,NA,kvetoucí a plodné prýty,ano,lok,
 Klasea lycopifolia,POP_VITAL,min,30,podíl kvetoucích a plodných prýtù a plochy populace,ano,lok,
 Klasea lycopifolia,POP_POSKPOC,max,2,poèet typù poškození rostlin,ne,lok,

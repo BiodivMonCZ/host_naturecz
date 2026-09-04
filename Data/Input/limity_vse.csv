@@ -273,8 +273,8 @@ stanoviste,ROZLOHA,,NA,NA,ne,lok
 Bolbelamus unicornis,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Carabus menetriesi pacholei,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Carabus variolosus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
-Cerambyx cerdo,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
-Cucujus cinnaberinus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
+Cerambyx cerdo,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
+Cucujus cinnaberinus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Eriogaster catax,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,NA
 Euphydryas aurinia,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,NA
 Euphydryas maturna,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
@@ -282,10 +282,10 @@ Euplagia quadripunctaria,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných
 Graphoderus bilineatus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Leucorrhinia pectoralis,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Limoniscus violaceus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
-Lucanus cervus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
+Lucanus cervus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Lycaena dispar,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Ophiogomphus cecilia,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
-Osmoderma barnabita,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,NA,chu
+Osmoderma barnabita,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Phengaris nausithous,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Phengaris teleius,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Rhysodes sulcatus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
