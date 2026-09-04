@@ -46,6 +46,23 @@
 # "kameny" netrefi do polozky "kameny drobne" - porovnavaji se cele polozky,
 # ne podretezce.
 #
+# POZOR PRI PREPISU BYVALEHO TYPU "neg" (nalez H-34). Zruseny typ "neg"
+# znamenal "shoda s touto hodnotou = nepriznivy stav" a prepisuje se tak, ze se
+# misto nepriznive hodnoty vyjmenuji vsechny PRIZNIVE, tedy doplnek. To je
+# rovnocenna nahrada JEN U JEDNOHODNOTOVYCH indikatoru:
+#
+#   jednohodnotovy ... hodnota je prave jedna, takze "neni to ta spatna"
+#                      a "je to nektera z dobrych" znamena totez
+#   vicehodnotovy .... hodnota je mnozina, a pak se obe formulace ROZCHAZEJI:
+#                      pro mnozinu "dobra, spatna" vraci doplnkovy vycet 1
+#                      (nejaka dobra hodnota je pritomna), zatimco "neg" by
+#                      vratil 0 (spatna hodnota je pritomna)
+#
+# Oba dosud prepsane indikatory jsou jednohodnotove - overeno na datech, kde
+# <tr_tok_char> (2 179 hodnot) ani <var_hl_pr> (2 172) neobsahuji oddelovac
+# ", " ani jednou. U vicehodnotoveho indikatoru by se doplnkovy vycet pouzit
+# NESMEL; tam je potreba bud hodnotu rozlozit, nebo typ limitu rozsirit.
+#
 # ROZSIRENI JE BEZPECNE, tedy zpetne kompatibilni: pro hodnotu bez oddelovace
 # ", " dava presne totez co puvodni rovnost. Zmenit vysledek muze jen tam, kde
 # hodnota oddelovac obsahuje - a takova hodnota se drive nemohla trefit do

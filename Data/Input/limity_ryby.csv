@@ -142,12 +142,16 @@ Romanogobio albipinatus;STA_DNOTYPSOUCETPROCENT;min;50;%;ne;lok
 Romanogobio albipinatus;STA_PROUD;val;mírný;NA;ne;lok
 Romanogobio albipinatus;STA_PROUD;val;peøeje;NA;ne;lok
 Romanogobio albipinatus;STA_PROUDPOCETTYPU;val;2;NA;ne;lok
-Romanogobio albipinatus;STA_TRASATOKU;val;umìle napøímený;NA;ne;lok
+Romanogobio albipinatus;STA_TRASATOKU;val;Zákruty;NA;ne;lok
+Romanogobio albipinatus;STA_TRASATOKU;val;Meandrující tok;NA;ne;lok
+Romanogobio albipinatus;STA_TRASATOKU;val;Pøirozenì pøímý tok;NA;ne;lok
+Romanogobio albipinatus;STA_TRASATOKU;val;Divoèící tok;NA;ne;lok
+Romanogobio albipinatus;STA_TRASATOKU;val;Rozvìtvený tok;NA;ne;lok
 Romanogobio albipinatus;STA_UPRAVABREHU;min;49;%;ne;lok
 Romanogobio albipinatus;STA_UPRAVADNA;min;49;%;ne;lok
-Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;mírný;NA;ne;lok
-Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;støední;NA;ne;lok
-Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;vysoká;NA;ne;lok
+Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Romanogobio albipinatus;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Romanogobio albipinatus;STA_VARIABILITAHLOUBEKPOCET;min;1;NA;ne;lok
 Romanogobio albipinatus;STA_ZAHLOUBENIKORYTA;val;pøirozenì nízký;NA;ne;lok
 Romanogobio albipinatus;POP_POCET;NA;NA;jedinci;NA;NA
@@ -160,8 +164,9 @@ Romanogobio kessleri;STA_PROUD;val;mírný;NA;ne;lok
 Romanogobio kessleri;STA_PROUD;val;peøeje;NA;ne;lok
 Romanogobio kessleri;STA_PROUD;val;tùnì;NA;ne;lok
 Romanogobio kessleri;STA_PROUDPOCETTYPU;min;2;NA;ne;lok
-Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;støední;NA;ne;lok
-Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;vysoká;NA;ne;lok
+Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;Støední;NA;ne;lok
+Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;Pøirozenì nízká;NA;ne;lok
+Romanogobio kessleri;STA_VARIABILITAHLOUBEK;val;Vysoká;NA;ne;lok
 Romanogobio kessleri;STA_VARIABILITAHLOUBEKPOCET;min;1;NA;ne;lok
 Romanogobio kessleri;POP_POCET;NA;NA;jedinci;NA;NA
 Sabanejewia balcanica;POP_DYN;min;50;%;ano;lok
