@@ -220,8 +220,13 @@ run_n2k_druhy_uzemi <- function(
         TYP_IND == "min" & as.numeric(HOD_IND) >= as.numeric(LIM_IND) ~ 1,
         TYP_IND == "max" & as.numeric(HOD_IND) > as.numeric(LIM_IND) ~ 0,
         TYP_IND == "max" & as.numeric(HOD_IND) <= as.numeric(LIM_IND) ~ 1,
-        TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
-        TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
+        # Shodne s 21_2: rovnost, nebo prislusnost limitu do vicehodnotove
+        # mnoziny "a, b, c". val_shoda() je definovana v
+        # 21_2_n2k_druhy_akce_lim.R, ktery se sourcuje driv (nalez H-42).
+        # Vetev is.na(HOD_IND) uz je osetrena na zacatku tohoto case_when.
+        TYP_IND == "val" & is.na(LIM_IND) ~ NA_real_,
+        TYP_IND == "val" & val_shoda(HOD_IND, LIM_IND) ~ 1,
+        TYP_IND == "val" ~ 0
       )
     ) %>%
     dplyr::mutate(

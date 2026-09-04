@@ -82,6 +82,178 @@ roll3_sum <- function(x) {
   }, numeric(1))
 }
 
+#----------------------------------------------------------#
+# Pomocne funkce - stanovistni indikatory ryb a mihuli ----
+#----------------------------------------------------------#
+# Data ryb nesou strukturovane poznamky pod JINOU konvenci nez obojzivelnici:
+# male zkracene tagy (<sub_dno>, <char_prou>, <tr_tok_char> ...) misto nazvu
+# ID_IND. Kod je proto dlouho vubec necetl a 19 z 26 indikatoru v
+# limity_ryby.csv zustavalo sirotky - viz nalez H-38 v harmonizace_registr.md.
+#
+# Samotna extrakce ale nestaci. 21_2_n2k_druhy_akce_lim.R paruje limity pres
+# intersect(nazvy sloupcu, ID_IND limitu), takze VYTVORENIM SLOUPCE SE
+# INDIKATOR ZAPNE - a kdyby se hodnoty netrefily do limitu, vratil by
+# STAV_IND = 0, tedy nepriznivy stav, u vsech zaznamu. To je presne mechanismus
+# nalezu H-01. Extrakce proto resi tri veci najednou (nalez H-42):
+#
+#   1. SLOVNIK. Limity pouzivaji kratke tvary ("kameny", "submerzní"), data
+#      plne ("Kameny (6-25 cm)", "Submerzní"). Prevod je rizeny slovnikem nize
+#      a jde smerem DATA -> SLOVNIK LIMITU; limity zustavaji nedotcene,
+#      protoze jsou normativni artefakt.
+#   2. VICEHODNOTOVOST. <sub_dno> a spol. jsou vyber z vice moznosti oddeleny
+#      carkou a poradi NENI stabilni - <char_prou> ma v datech 101 ruznych
+#      retezcu ze sesti kategorii. Hodnota se proto sklada jako SERAZENA
+#      MNOZINA a porovnani typu "val" v 21_2 i 25 se rozsirilo na prislusnost.
+#   3. PASMA MISTO PROCENT. STA_UPRAVABREHU a STA_UPRAVADNA maji limit
+#      "max 49 %", data ale nesou pasma - viz uprava_procent() nize.
+#
+# Kategorie se NEHLEDAJI rozdelenim retezce podle carky, ale detekci znamych
+# tvaru. Duvod: hodnota "Umělý substrát (dlažba, beton)" obsahuje carku uvnitr
+# (45 zaznamu) a rozdeleni by ji roztrhlo na dve neexistujici kategorie, cimz
+# by se nafoukl i pocet typu pro STA_DNOPOCETTYPU.
+
+# Slovniky: jmeno prvku = tvar hledany v datech (mala pismena),
+# hodnota = tvar pouzity v limity_ryby.csv.
+#
+# Dvojice s TYMZ cilem osetruji preklepy primo ve zdrojovych datech:
+# "Mírny proud" (634 zaznamu) vedle spravneho "Mírný proud" (1 399)
+# a "vodopad" vedle "Vodopád".
+SLOVNIK_DNO <- c(
+  "balvany"                 = "balvany",
+  "kameny"                  = "kameny",
+  "štěrk"                   = "štěrk",
+  "písek"                   = "písek",
+  "bahno"                   = "bahno",
+  "kompaktní jílovité dno"  = "kompaktní jílové dno",
+  "skalní podloží"          = "skalní podloží",
+  "umělý substrát"          = "umělý substrát",
+  "jiný"                    = "jiný"
+)
+
+SLOVNIK_PROUD <- c(
+  "peřejnatý úsek"    = "peřeje",
+  "mírný proud"       = "mírný",
+  "mírny proud"       = "mírný",
+  "tůně"              = "tůně",
+  "stupně a kaskády"  = "kaskády",
+  "vzdutí"            = "vzdutí",
+  "vodopád"           = "vodopád",
+  "vodopad"           = "vodopád"
+)
+
+SLOVNIK_VEGETACE <- c(
+  "bez vegetace" = "bez vegetace",
+  "submerzní"    = "submerzní",
+  "emerzní"      = "emerzní",
+  "plovoucí"     = "plovoucí"
+)
+
+# <zahl_kor> je jednohodnotovy; limit zna jen "přirozeně nízký", ostatni
+# kategorie se prevadeji na kratky tvar, aby bylo ve vystupu videt, co bylo
+# zaznamenano.
+SLOVNIK_ZAHLOUBENI <- c(
+  "přirozené nízké zahloubení" = "přirozeně nízký",
+  "umělé střední zahloubení"   = "uměle střední",
+  "umělé značné zahloubení"    = "uměle značné",
+  "střední zahloubení"         = "střední",
+  "značné zahloubení"          = "značné"
+)
+
+# Vytazeni hodnoty tagu ze STRUKT_POZN. Prazdny retezec -> NA, aby se
+# nevyplneny udaj nevydaval za mereni (tataz zasada jako u nalezu H-12).
+tag_hodnota <- function(x, tag) {
+  v <- stringr::str_match(
+    as.character(x),
+    paste0("<", tag, ">([^<]*)</", tag, ">")
+  )[, 2]
+  v <- stringr::str_squish(v)
+  v[!is.na(v) & v == ""] <- NA_character_
+  v
+}
+
+# Mnozina kategorii pritomnych v hodnote tagu, prevedena do slovniku limitu.
+# Vraci retezec "a, b, c" se SERAZENYMI a odduplikovanymi polozkami, aby na
+# poradi zapisu v datech nezalezelo. Nenajde-li se zadna znama kategorie,
+# vraci NA (ne prazdny retezec), aby indikator zustal nehodnoceny.
+#
+# Kategorie se hledaji od NEJDELSIHO tvaru k nejkratsimu a kazdy nalezeny tvar
+# se ze vstupu ODEBERE. Bez toho by se kratsi tvar trefil do tehoz useku textu
+# jako delsi: "Umělé střední zahloubení (1-2 m)" obsahuje jako podretezec
+# i "střední zahloubení" a vysledkem by byly DVE kategorie misto jedne.
+# Odebiranim se zaroven nepokazi vicehodnotove tagy - odstraneni "kameny"
+# z "Kameny (6-25 cm), Štěrk (0,2-6 cm)" ostatni polozky nijak nezasahne.
+kat_mnozina <- function(x, slovnik) {
+  # Zkratka pro skupiny bez techto tagu (obojzivelnici, hmyz, rostliny...):
+  # kdyz je vstup cely NA, je NA i vysledek, takze se nemusi nic prochazet.
+  # Kaskada bezi pres cca sto druhu, z nichz tyto tagy ma jen hrstka ryb.
+  if (all(is.na(x))) return(rep(NA_character_, length(x)))
+  vl <- tolower(ifelse(is.na(x), "", as.character(x)))
+  klice <- names(slovnik)[order(nchar(names(slovnik)), decreasing = TRUE)]
+  hodnoty <- unname(slovnik[klice])
+  nalez <- matrix(FALSE, nrow = length(vl), ncol = length(klice))
+  for (j in seq_along(klice)) {
+    m <- stringr::str_detect(vl, stringr::fixed(klice[j]))
+    nalez[, j] <- m
+    vl[m] <- stringr::str_remove_all(vl[m], stringr::fixed(klice[j]))
+  }
+  vapply(seq_along(x), function(i) {
+    if (is.na(x[i])) return(NA_character_)
+    k <- sort(unique(hodnoty[nalez[i, ]]))
+    if (length(k) == 0L) NA_character_ else paste(k, collapse = ", ")
+  }, character(1))
+}
+
+# Pocet ruznych kategorii v mnozine vracene funkci kat_mnozina().
+kat_pocet <- function(x) {
+  ifelse(is.na(x), NA_real_, stringr::str_count(x, ", ") + 1)
+}
+
+# Dolni mez procentniho pasma. Data pouzivaji dve stupnice:
+#   uprava brehu / dna ... "0-10%", "10-25%", "26-50%", "51-75%", ">75%",
+#                          "Dominantní 100%"
+#   substrat / proud ..... "Vzácný (0-10 %)", "Běžný (11-25 %)", ...
+pasmo_dolni_mez <- function(x) {
+  vl <- tolower(stringr::str_squish(as.character(x)))
+  out <- rep(NA_real_, length(vl))
+  out[!is.na(vl) & grepl("dominantn", vl)] <- 100
+  i <- is.na(out) & !is.na(vl) & grepl("^>", vl)
+  out[i] <- as.numeric(sub("^>[^0-9]*([0-9]+).*$", "\\1", vl[i]))
+  i <- is.na(out) & !is.na(vl) & grepl("[0-9]+ *- *[0-9]+", vl)
+  out[i] <- as.numeric(sub("^[^0-9]*([0-9]+) *- *[0-9]+.*$", "\\1", vl[i]))
+  out
+}
+
+# Procento UPRAVENE casti brehu / dna, odvozene z pasma NEUPRAVENE casti.
+#
+#   souhrn ...... <breh_upr> / <upr_dno>, vycet typu uprav
+#   pasmo ....... <breh_upr_bu> / <upr_dno_r_b_u>, pasmo podilu casti bez uprav
+#   bez_uprav ... text, kterym se v souhrnu pozna kategorie "bez uprav"
+#
+# Overeno na datech (2 507 zaznamu se souhrnnym tagem): pasmo je vyplneno
+# PRAVE TEHDY, kdyz souhrn kategorii "bez uprav" obsahuje - jinak je prazdne
+# (267 zaznamu u brehu, 62 u dna) a nikdy nenese pasmo. Chybejici pasmo pri
+# chybejici kategorii tedy znamena "neupraveno 0 %", ne "neznamo".
+#
+# Vraci HORNI mez upraveneho podilu, tj. 100 - dolni mez neupraveneho. Prah
+# metodiky je "max 49 %" a lezi PRESNE na hranici pasem:
+#   neupraveno 51-75 % -> upraveno nejvyse 49 % -> splneno
+#   neupraveno 26-50 % -> upraveno nejmene 50 % -> nesplneno
+# Volba bodu uvnitr pasma proto vysledek nemeni a nepredjima nerozhodnuty
+# nalez H-26 (dolni mez vs. median kategorie).
+uprava_procent <- function(souhrn, pasmo, bez_uprav) {
+  ma_souhrn <- !is.na(souhrn)
+  ma_bez <- ma_souhrn &
+    stringr::str_detect(tolower(ifelse(is.na(souhrn), "", souhrn)),
+                        stringr::fixed(bez_uprav))
+  mez <- pasmo_dolni_mez(pasmo)
+  dplyr::case_when(
+    !ma_souhrn  ~ NA_real_,     # tag vubec nezaznamenan
+    !ma_bez     ~ 100,          # zadna cast bez uprav -> upraveno cele
+    !is.na(mez) ~ 100 - mez,    # zname pasmo neupravene casti
+    TRUE        ~ NA_real_      # kategorie uvedena, ale pasmo nevyplneno
+  )
+}
+
 run_n2k_druhy <- function(
     n2k_load,
     species_name,
@@ -773,9 +945,53 @@ run_n2k_druhy <- function(
     ),
     STA_MIGBARVYS = readr::parse_number(
       str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
       )
+    ),
+    # ----- Stanovistni indikatory ze zkracenych tagu (nalez H-42) -----
+    # Pomocne funkce a slovniky viz zacatek souboru. Sloupce vznikaji pro
+    # vsechny druhy, ale u skupin bez techto tagu zustanou NA a bez radku
+    # v limitech je 21_2 stejne zahodi, takze mimo ryby a mihule nemaji efekt.
+
+    # Substrat dna. Tentyz zdroj obsluhuje tri ID_IND, ktere se lisi jen tim,
+    # ktere typy dna jsou pro dany druh prijatelne (STA_DNO, STA_DNOTYP a
+    # STA_DNOPREF maji v limitech ruzne vycty, samotna namerena hodnota je
+    # ale jedna a tataz).
+    STA_DNO = kat_mnozina(tag_hodnota(STRUKT_POZN, "sub_dno"), SLOVNIK_DNO),
+    STA_DNOTYP = STA_DNO,
+    STA_DNOPREF = STA_DNO,
+    STA_DNOPOCETTYPU = kat_pocet(STA_DNO),
+
+    # Charakter proudeni.
+    STA_PROUD = kat_mnozina(tag_hodnota(STRUKT_POZN, "char_prou"), SLOVNIK_PROUD),
+    STA_PROUDPOCETTYPU = kat_pocet(STA_PROUD),
+
+    # Vodni vegetace v toku.
+    STA_VEGETACE = kat_mnozina(tag_hodnota(STRUKT_POZN, "veg_tok"), SLOVNIK_VEGETACE),
+
+    # Trasa toku a variabilita hloubek jsou jednohodnotove a jejich limity uz
+    # byly srovnany s domenou dat pri reseni nalezu H-34, takze se predavaji
+    # beze zmeny.
+    STA_TRASATOKU = tag_hodnota(STRUKT_POZN, "tr_tok_char"),
+    STA_VARIABILITAHLOUBEK = tag_hodnota(STRUKT_POZN, "var_hl_pr"),
+
+    # Zahloubeni koryta - jednohodnotove, prevedeno na kratky tvar limitu.
+    STA_ZAHLOUBENIKORYTA = kat_mnozina(
+      tag_hodnota(STRUKT_POZN, "zahl_kor"),
+      SLOVNIK_ZAHLOUBENI
+    ),
+
+    # Podil upravene casti brehu a dna v procentech.
+    STA_UPRAVABREHU = uprava_procent(
+      tag_hodnota(STRUKT_POZN, "breh_upr"),
+      tag_hodnota(STRUKT_POZN, "breh_upr_bu"),
+      "bez známek úprav"
+    ),
+    STA_UPRAVADNA = uprava_procent(
+      tag_hodnota(STRUKT_POZN, "upr_dno"),
+      tag_hodnota(STRUKT_POZN, "upr_dno_r_b_u"),
+      "bez úprav"
     )
   ) %>%
     # ------------------------------------------#

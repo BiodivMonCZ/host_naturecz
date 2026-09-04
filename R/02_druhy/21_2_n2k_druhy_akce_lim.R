@@ -29,6 +29,48 @@
 # Navazujici krok `is.infinite(STAV_IND) ~ NA` ale tento rozdil srovnava,
 # takze vysledek je identicky - overeno na 34 257 radcich / 22 500 skupinach
 # s nulovym poctem odlisnych radku.
+#----------------------------------------------------------#
+# Shoda hodnoty s limitem typu "val" -----
+#----------------------------------------------------------#
+# Puvodne slo o prostou rovnost HOD_IND == LIM_IND. To staci, dokud je namerena
+# hodnota jednohodnotova - u obojzivelniku, hmyzu i rostlin tomu tak je.
+#
+# Stanovistni indikatory ryb ale nesou VYBER Z VICE MOZNOSTI: substrat dna
+# muze byt zaroven "kameny, písek, štěrk" a limit typu val vyjmenovava
+# JEDNOTLIVE prijatelne typy (agregace v agg_stav_ind() pak bere maximum, tedy
+# "staci se trefit do jedne hodnoty"). Prosta rovnost by u nich nesedla nikdy
+# a indikator by vysel nepriznive u vsech zaznamu - viz nalez H-42.
+#
+# val_shoda() proto uznava shodu i tehdy, je-li limit CELOU polozkou
+# vicehodnotove mnoziny. Obe strany se obalí oddelovacem ", ", takze se limit
+# "kameny" netrefi do polozky "kameny drobne" - porovnavaji se cele polozky,
+# ne podretezce.
+#
+# ROZSIRENI JE BEZPECNE, tedy zpetne kompatibilni: pro hodnotu bez oddelovace
+# ", " dava presne totez co puvodni rovnost. Zmenit vysledek muze jen tam, kde
+# hodnota oddelovac obsahuje - a takova hodnota se drive nemohla trefit do
+# zadneho limitu, takze se hodnoceni muze pouze zlepsit z 0 na 1, nikdy naopak.
+# Desetinna carka je v bezpeci, protoze oddelovacem je carka NASLEDOVANA
+# mezerou: "0,2-6 cm" zustava jednou polozkou.
+val_shoda <- function(hod, lim) {
+  # Obe strany se dorovnaji na stejnou delku. Ve vypoctu STAV_IND jsou to vzdy
+  # dva sloupce teze tabulky, ale bez recyklace by funkce tise vracela NA,
+  # kdyby ji nekdo zavolal s jednou hodnotou limitu proti vektoru hodnot.
+  n <- max(length(hod), length(lim))
+  h <- stringr::str_squish(as.character(rep_len(hod, n)))
+  l <- stringr::str_squish(as.character(rep_len(lim, n)))
+  ok <- !is.na(h) & !is.na(l)
+  out <- ok & h == l
+  i <- ok & !out
+  if (any(i)) {
+    out[i] <- stringr::str_detect(
+      paste0(", ", h[i], ", "),
+      stringr::fixed(paste0(", ", l[i], ", "))
+    )
+  }
+  out
+}
+
 agg_stav_ind <- function(df) {
   dt <- data.table::as.data.table(df)
 
@@ -180,9 +222,16 @@ run_n2k_druhy_lim <- function(
         # Pro MAX limit: Hodnota musi byt mensi nebo rovna
         TYP_IND == "max" & HOD_IND_num > LIM_IND_num ~ 0,
         TYP_IND == "max" & HOD_IND_num <= LIM_IND_num ~ 1,
-        # Pro VAL limit (text): Hodnota se musi rovnat
-        TYP_IND == "val" & HOD_IND != LIM_IND ~ 0,
-        TYP_IND == "val" & HOD_IND == LIM_IND ~ 1
+        # Pro VAL limit (text): hodnota se musi rovnat limitu, nebo - jde-li
+        # o vicehodnotovou mnozinu "a, b, c" - limit musi byt jednou z jejich
+        # polozek. Viz val_shoda() nahore a nalez H-42.
+        #
+        # Vetev s NA musi byt PRVNI: bez ni by zaverecny chytac
+        # `TYP_IND == "val" ~ 0` prohlasil nezmereny indikator za nesplneny,
+        # coz je presne to, co opravoval nalez H-21.
+        TYP_IND == "val" & (is.na(HOD_IND) | is.na(LIM_IND)) ~ NA_real_,
+        TYP_IND == "val" & val_shoda(HOD_IND, LIM_IND) ~ 1,
+        TYP_IND == "val" ~ 0
       )
     ) %>%
     dplyr::select(-c(HOD_IND_num, LIM_IND_num)) %>%
