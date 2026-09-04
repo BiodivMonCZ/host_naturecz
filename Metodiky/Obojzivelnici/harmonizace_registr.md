@@ -34,7 +34,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Dořešení H-01 a H-02 (2026-08-31)* | 3 | H-30, H-31, H-32 |
 | *Rozšíření kategorie `info` (2026-08-31)* | 4 | H-33, H-34, H-35, H-36 |
 | *Dokončení `info` a revize limitů ryb (2026-09-03)* | 3 | H-37, H-38, H-39 |
-| *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 5 | H-40 … H-44 |
+| *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 7 | H-40 … H-46 |
 
 ---
 
@@ -1194,8 +1194,8 @@ o krok dřív, na názvu druhu.
   ve skutečnosti nevznikl žádný výstup.
 - **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
 
-### H-42 ⚠ — extrakce tagů sama o sobě indikátory ryb nezprovozní, ale zapne je
-- **Závažnost:** kritická (mimo rozsah obojživelníků) · **Typ:** BUG-V-ZÁRODKU · **Stav:** **proto neimplementováno**
+### H-42 ✅ — extrakce tagů sama o sobě indikátory ryb nezprovozní, ale zapne je
+- **Závažnost:** kritická (mimo rozsah obojživelníků) · **Typ:** BUG-V-ZÁRODKU · **Stav:** **implementováno 2026-09-04** (commit `2c605e5`), viz §Provedeno na konci nálezu
 - **Kontext:** zadání znělo vytáhnout chybějící indikátory ze `STRUKT_POZN`.
   Sken dat (2 771 záznamů ryb, 101 různých tagů) ukázal, že **vytvořit sloupec
   znamená indikátor zapnout** — `21_2` páruje limity přes
@@ -1235,9 +1235,48 @@ o krok dřív, na názvu druhu.
 - **Zmírňující okolnost:** všechny sirotčí indikátory mají `KLIC = ne`, takže
   ani po zapnutí nemohou samy způsobit verdikt „špatný" — nejvýš „zhoršený"
   přes pravidlo „min 2 špatné stanovištní indikátory".
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele (2026-09-04):** ✅ **zapnout.**
 
----
+**Provedeno** — commit `2c605e5`. Zapnuto **12 z 19** sirotků z devíti tagů;
+všechny tři překážky vyřešeny současně, jinak by zapnutí vrátilo `STAV_IND = 0`
+plošně.
+
+| ID_IND | zdroj | jak |
+|---|---|---|
+| `STA_DNO`, `STA_DNOTYP`, `STA_DNOPREF` | `<sub_dno>` | množina přes `SLOVNIK_DNO`; tři `ID_IND` sdílejí jedno měření, liší se jen výčtem přijatelných typů |
+| `STA_DNOPOCETTYPU` | `<sub_dno>` | počet kategorií v množině |
+| `STA_PROUD` | `<char_prou>` | množina přes `SLOVNIK_PROUD` |
+| `STA_PROUDPOCETTYPU` | `<char_prou>` | počet kategorií |
+| `STA_VEGETACE` | `<veg_tok>` | množina přes `SLOVNIK_VEGETACE` |
+| `STA_TRASATOKU` | `<tr_tok_char>` | beze změny, limity srovnány už v H-34 |
+| `STA_VARIABILITAHLOUBEK` | `<var_hl_pr>` | totéž |
+| `STA_ZAHLOUBENIKORYTA` | `<zahl_kor>` | převod na krátký tvar limitu |
+| `STA_UPRAVABREHU` | `<breh_upr>` + `<breh_upr_bu>` | doplněk pásma neupravené části |
+| `STA_UPRAVADNA` | `<upr_dno>` + `<upr_dno_r_b_u>` | totéž |
+
+- **Práh 49 % leží přesně na hranici pásem** (neupraveno `51-75 %` → upraveno
+  nejvýš 49 %, tedy splněno; `26-50 %` → nejméně 50 %, nesplněno), takže volba
+  bodu uvnitř pásma výsledek nemění a **nepředjímá nerozhodnutý H-26**.
+- **Rozšíření `val` na příslušnost je zpětně kompatibilní:** pro hodnotu bez
+  oddělovače `", "` dává totéž co původní rovnost, a hodnota s oddělovačem se
+  dřív nemohla trefit do žádného limitu — hodnocení se proto může jen zlepšit
+  z 0 na 1, nikdy naopak. Ověřeno, že ze všech **52 indikátorů s hodnoceným
+  limitem typu `val`** nemá žádný mimo ryby vícehodnotovou doménu; `VLV_VLIVY`
+  oddělovač obsahuje, ale limit typu `val` nemá nikde.
+- **Měřený dopad:**
+
+  | Běh | DP | Nové indikátory | Změněné verdikty |
+  |---|---|---|---|
+  | *Triturus cristatus* — **regrese** | 724 | — | **0** (336 / 14 / 374) |
+  | *Cottus gobio* | 370 | 4 | **0** (119 / 3 / 248); `CELKOVE_SUM` ↑ u 268 DP |
+  | *Lampetra planeri* | 253 | 1 | **5** z „dobrý" na „zhoršený"; EVL **0 z 80** |
+
+- **Nezapnuto (7):** `STA_DNOPOCET`, `STA_POCETTYPU`,
+  `STA_VARIABILITAHLOUBEKPOCET` (nejednoznačné, ke kterému tagu patří),
+  `STA_DNOTYPSOUCETPROCENT` (součet pásem by vyžadoval volbu bodu uvnitř
+  pásma, tj. rozhodnutí H-26), oba `STA_ODHADCELKOVEPLOCHY…` (v datech není
+  odpovídající tag) a `STA_DALSIPARAMETRY` — viz **H-46**.
+
 
 ### H-43 ⚠ — `POP_REPRO` na úrovni DP: `JEDNOTKA` klame a hodnota bere první nález místo nejlepšího
 - **Závažnost:** střední · **Typ:** BUG + ZOBRAZENÍ · **Stav:** **návrh, čeká na rozhodnutí**
@@ -1341,6 +1380,50 @@ indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
   Pokud ano, jen pro tříleté okno, nebo i pro roční indikátor?)_
 
 ---
+### H-45 ⚠ — `STA_DNOTYP` u *Lampetra planeri* uznává jedinou, ekologicky podezřelou hodnotu
+- **Závažnost:** vysoká (mimo rozsah obojživelníků) · **Typ:** OBSAH LIMITU · **Stav:** **zaznamenáno, limit nedotčen**
+- **Zjištění:** *Lampetra planeri* má u `STA_DNOTYP` jediný přijatelný tvar —
+  `kompaktní jílové dno`. V datech tohoto druhu se vyskytuje u **2,6 %**
+  záznamů (4 z 253 DP), takže po zapnutí H-42 indikátor **selhává u 169 DP**.
+- **Doložený následek:** 5 z 253 DP se posunulo z „dobrý" na „zhoršený".
+  Ostatní „dobré" DP neměly druhé selhání, takže pravidlo „min 2 špatné
+  stanovištní indikátory" nesplnily.
+- **Proč to vypadá na chybu v limitu:** larvy mihule potoční (minohy) se
+  zahrabávají do **jemného sedimentu** — bahna a písku. Kompaktní jíl je pro
+  ně naopak nevhodný. Limit tedy zní, jako by byl **míněn obráceně**, tj. jako
+  bývalý typ `neg` z H-34 („shoda s touto hodnotou = nepříznivý stav").
+  `limity_ryby.csv` typ `neg` skutečně používal a jinde v souboru se
+  vyskytoval, takže záměna je pravděpodobná.
+- **Neopraveno záměrně:** extrakce je ověřená (slovník `kompaktní jílovité dno`
+  → `kompaktní jílové dno` odpovídá doslovnému tvaru limitu) a obsah limitu je
+  normativní. Přepsat jej znamená rozhodnout, co má pro mihuli platit za
+  příznivé dno.
+- **Rozhodnutí autorů metodiky ryb:** _(je `kompaktní jílové dno` opravdu
+  příznivá hodnota, nebo měl být limit záporný, případně mají platit
+  `bahno` a `písek`?)_
+- **Souvislost:** dokud se nerozhodne, jde o nejvýraznější jednotlivý dopad
+  zapnutí indikátorů ryb.
+
+---
+
+### H-46 ⚠ — `STA_DALSIPARAMETRY`: tag existuje, ale nese `Ano`/`Ne` proti limitu `anodonta`
+- **Závažnost:** střední (mimo rozsah obojživelníků) · **Typ:** GAP · **Stav:** **nezapnuto, čeká na rozhodnutí**
+- **Zjištění:** `STA_DALSIPARAMETRY` má jediný řádek — *Rhodeus amarus*,
+  `val anodonta`, `KLIC = ne`. Odpovídající tag v datech **existuje**:
+  `<prit_host_mlz>` (přítomnost hostitelských mlžů), u *Rhodeus amarus*
+  **197 záznamů** (84× `Ano`, 113× `Ne`), navíc 3× u *Cottus gobio*.
+- **Proč to nezapínám:** tag nese jen **přítomnost/nepřítomnost**, limit
+  jmenuje **rod**. Zapnout jej znamená prohlásit, že každý hostitelský mlž je
+  *Anodonta* — což je věcné tvrzení, ne převod tvaru. Hořavka se ale třie i do
+  škeblí rodu *Unio*, takže rovnítko nemusí platit.
+- **Kdyby se zapnulo bez převodu**, hodnota `Ano` by se do limitu `anodonta`
+  netrefila a indikátor by vyšel nepříznivě u všech 197 záznamů — mechanismus
+  H-01. Proto buď převod, nebo nechat vypnuté; třetí možnost není.
+- **Rozhodnutí zadavatele:** _(má `Ano` znamenat splnění limitu `anodonta`,
+  nebo se má limit přepsat na přítomnost hostitelského mlže obecně?)_
+
+---
+
 
 # Co zbývá
 
@@ -1366,4 +1449,8 @@ indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
 | 18 | Rozhodnout **H-44** — mají `subadulti` (970 záznamů) dokládat reprodukci? Dopad +266 dvojic lokalita × rok, tj. +24 % | autoři metodiky |
 | 19 | Rozhodnout **H-40** — přejmenovat zbývající 4 druhy ryb v limitech, nebo zavést sdílenou tabulku synonym? Dnes propadá `Leuciscus aspius` s 606 záznamy | zadavatel |
 | 20 | Rozhodnout **H-41** — má 16 ze 17 druhů ryb zůstat bez hodnocení na úrovni EVL? | autoři metodiky ryb |
-| 21 | Rozhodnout **H-42** — slovník a způsob výpočtu pro 19 sirotčích indikátorů ryb; teprve pak lze extrakci ze `STRUKT_POZN` zapnout | autoři metodiky ryb |
+| 21 | ~~Rozhodnout **H-42** — slovník a způsob výpočtu pro sirotčí indikátory ryb~~ — **hotovo 2026-09-04**, zapnuto 12 z 19 (commit `2c605e5`) | autoři metodiky ryb |
+| 22 | Rozhodnout **H-45** — je `kompaktní jílové dno` u *Lampetra planeri* opravdu příznivá hodnota? Dnes selhává u 169 z 253 DP a posouvá 5 DP na „zhoršený" | autoři metodiky ryb |
+| 23 | Rozhodnout **H-46** — má `Ano` v `<prit_host_mlz>` platit za splnění limitu `anodonta` u *Rhodeus amarus*? | autoři metodiky ryb |
+| 24 | Doplnit zbylých 6 indikátorů ryb (`STA_DNOPOCET`, `STA_POCETTYPU`, `STA_VARIABILITAHLOUBEKPOCET`, `STA_DNOTYPSOUCETPROCENT`, 2× `STA_ODHADCELKOVEPLOCHY…`) — chybí jednoznačný zdroj nebo definice | autoři metodiky ryb |
+| 25 | Změřit dopad zapnutí H-42 na zbývajících 9 hodnocených druhů ryb (změřeny 3) | provoz |
