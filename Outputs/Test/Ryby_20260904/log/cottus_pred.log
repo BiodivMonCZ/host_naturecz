@@ -1,0 +1,132 @@
+Warning: package 'tidyverse' was built under R version 4.6.1
+Warning: package 'ggplot2' was built under R version 4.6.1
+Warning: package 'tibble' was built under R version 4.6.1
+Warning: package 'tidyr' was built under R version 4.6.1
+Warning: package 'readr' was built under R version 4.6.1
+Warning: package 'purrr' was built under R version 4.6.1
+Warning: package 'dplyr' was built under R version 4.6.1
+Warning: package 'stringr' was built under R version 4.6.1
+Warning: package 'forcats' was built under R version 4.6.1
+Warning: package 'lubridate' was built under R version 4.6.1
+Warning: package 'sf' was built under R version 4.6.1
+Warning: package 'sp' was built under R version 4.6.1
+Warning: package 'proj4' was built under R version 4.6.1
+Warning: package 'openxlsx' was built under R version 4.6.1
+Warning: package 'fuzzyjoin' was built under R version 4.6.1
+Warning: package 'remotes' was built under R version 4.6.1
+Warning: package 'progress' was built under R version 4.6.1
+Warning: package 'fs' was built under R version 4.6.1
+Warning: package 'data.table' was built under R version 4.6.1
+=== Nacitam cache konfigurace: Test/.cache_cot.rds ===
+=== Cache nactena: n2k_load = 3045 zaznamu ===
+=== Spoustim: 21_1_n2k_druhy_akce.R ===
+=== Spoustim: 21_2_n2k_druhy_akce_lim.R ===
+=== Spoustim: 22_n2k_obdobi.R ===
+=== Spoustim: 23_n2k_posledni_nalez.R ===
+=== Spoustim: 24_n2k_druhy_lokality.R ===
+=== Spoustim: 25_n2k_druhy_uzemi.R ===
+=== Spoustim: 27_n2k_druhy_zapis.R ===
+--- ZACINAM VYPOCET FAZE 1 (AKCE) PRO 1 DRUHU ---
+[1/4 Akce] druh  1/ 1 | hotovo     0/  111 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cottus gobio (111 lokalit)
+Druh Cottus gobio: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations.
+Warning: There was 1 warning in `dplyr::mutate()`.
+ℹ In argument: `POP_DELKYJEDINCINUM = as.numeric(POP_DELKYJEDINCI)`.
+Caused by warning:
+! NAs introduced by coercion
+Warning: There were 10979 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 38: `KOD_LOKAL = "BLL_CG_009_Blanský les"`, `ROK = 2021`, `DRUH =
+  Cottus gobio`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 10978 remaining warnings.
+Warning: There were 2 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 148: `KOD_LOKAL = "CZ0614134"`, `DRUH = Cottus gobio`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 1 of `x` matches multiple rows in `y`.
+ℹ Row 7174 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] HOTOVO: 1 druhu / 111 lokalit-druh za 00:04:17
+--- UKLADAM MEZIVYSLEDEK 1 DO TEMP ---
+--- ZACINAM VYPOCET FAZE 2 (LIMITY) ---
+[2/4 Limity] druh  1/ 1 | hotovo     0/  111 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cottus gobio (111 lokalit)
+Warning: There was 1 warning in `dplyr::mutate()`.
+ℹ In argument: `LIM_IND_num = dplyr::if_else(is_num_lim,
+  as.numeric(LIM_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+[2/4 Limity] HOTOVO: 1 druhu / 111 lokalit-druh za 00:00:01
+--- UKLADAM MEZIVYSLEDEK 2 DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT (NALEZY) ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_nal_2025_20260904... ---
+--- HOTOVO (NAL_EXPORT) ---
+--- ZACINAM VYPOCET FAZE 3 (LOKALITY) ---
+[3/4 Lokality] druh  1/ 1 | hotovo     0/  111 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cottus gobio (111 lokalit)
+Warning: There were 12312 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0114001"`, `DRUH = "Cottus gobio"`, `KOD_LOKAL =
+  "CZ0114001"`, `POLE = "6051b"`, `ROK = 2016`, `ID_IND = "CELKOVE_SUM"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 12311 remaining warnings.
+[3/4 Lokality] HOTOVO: 1 druhu / 111 lokalit-druh za 00:00:09
+--- UKLADAM MEZIVYSLEDEK DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_lok_2025_20260904... ---
+--- HOTOVO ---
+--- ZACINAM VYPOCET FAZE 4 (UZEMI/CHU) ---
+[4/4 Uzemi] druh  1/ 1 | hotovo     0/  111 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cottus gobio (111 lokalit)
+Warning: There were 1665 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0114001"`, `DRUH = "Cottus gobio"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1664 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 980 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`,
+  `ID_IND = "LOK_PROCDOBR"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 979 remaining warnings.
+Warning: There were 134 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 1: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 133 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] HOTOVO: 1 druhu / 111 lokalit-druh za 00:00:02
+Warning in chu_export(species_list = species_list, sites_subjects = sites_subjects,  :
+  Zadna data nebyla vygenerovana. Export se neprovede.
+=== HOTOVO: vsechny skripty ve slozce 02_druhy byly spusteny ===
+=== CELKOVY CAS: 12.4 min ===

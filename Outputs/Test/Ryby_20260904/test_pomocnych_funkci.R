@@ -1,0 +1,48 @@
+suppressPackageStartupMessages({library(stringr); library(dplyr)})
+src <- readLines("R/02_druhy/21_1_n2k_druhy_akce.R", encoding = "UTF-8")
+konec <- grep("^run_n2k_druhy <- function", src)[1] - 1
+eval(parse(text = paste(src[1:konec], collapse = "\n")), envir = globalenv())
+src2 <- readLines("R/02_druhy/21_2_n2k_druhy_akce_lim.R", encoding = "UTF-8")
+k2 <- grep("^agg_stav_ind <- function", src2)[1] - 1
+eval(parse(text = paste(src2[1:k2], collapse = "\n")), envir = globalenv())
+
+ok <- 0; bad <- 0
+zk <- function(popis, got, exp) {
+  shoda <- identical(as.character(got), as.character(exp))
+  if (shoda) ok <<- ok + 1 else { bad <<- bad + 1
+    cat("  CHYBA:", popis, "\n     ceka:", exp, "\n     dava:", got, "\n") }
+}
+cat("=== kat_mnozina - substrat dna ===\n")
+zk("tri typy, poradi A", kat_mnozina("Kameny (6-25 cm), Štěrk (0,2-6 cm), Písek (0,1-2 mm)", SLOVNIK_DNO), "kameny, písek, štěrk")
+zk("tri typy, poradi B", kat_mnozina("Štěrk (0,2-6 cm), Písek (0,1-2 mm), Kameny (6-25 cm)", SLOVNIK_DNO), "kameny, písek, štěrk")
+zk("carka uvnitr kategorie", kat_mnozina("Umělý substrát (dlažba, beton)", SLOVNIK_DNO), "umělý substrát")
+zk("jilovite -> jilove", kat_mnozina("Bahno (pod 0,1 mm), Kompaktní jílovité dno", SLOVNIK_DNO), "bahno, kompaktní jílové dno")
+zk("NA zustava NA", kat_mnozina(NA_character_, SLOVNIK_DNO), NA_character_)
+zk("nezname -> NA", kat_mnozina("Něco úplně jiného", SLOVNIK_DNO), NA_character_)
+cat("=== kat_mnozina - proudeni (preklep ve zdroji) ===\n")
+zk("spravna diakritika", kat_mnozina("Peřejnatý úsek, Mírný proud, Tůně", SLOVNIK_PROUD), "mírný, peřeje, tůně")
+zk("preklep Mirny", kat_mnozina("Peřejnatý úsek, Mírny proud, Tůně", SLOVNIK_PROUD), "mírný, peřeje, tůně")
+zk("kaskady", kat_mnozina("Stupně a kaskády, Mírný proud", SLOVNIK_PROUD), "kaskády, mírný")
+cat("=== kat_mnozina - zahloubeni (prekryv prefixu) ===\n")
+zk("prirozene nizke", kat_mnozina("Přirozené nízké zahloubení (0-1 m)", SLOVNIK_ZAHLOUBENI), "přirozeně nízký")
+zk("umele stredni", kat_mnozina("Umělé střední zahloubení (1-2 m)", SLOVNIK_ZAHLOUBENI), "uměle střední")
+zk("stredni", kat_mnozina("Střední zahloubení (1-2 m)", SLOVNIK_ZAHLOUBENI), "střední")
+cat("=== kat_pocet ===\n")
+zk("tri", kat_pocet("kameny, písek, štěrk"), 3); zk("jedna", kat_pocet("bahno"), 1); zk("NA", kat_pocet(NA_character_), NA_real_)
+cat("=== uprava_procent ===\n")
+zk("bez uprav 51-75 -> 49", uprava_procent("Břehy bez známek úprav", "51-75%", "bez známek úprav"), 49)
+zk("bez uprav 26-50 -> 74", uprava_procent("Břehy bez známek úprav", "26-50%", "bez známek úprav"), 74)
+zk("dominantni 100 -> 0", uprava_procent("Břehy bez známek úprav", "Dominantní 100%", "bez známek úprav"), 0)
+zk("zadna cast bez uprav -> 100", uprava_procent("Zpevnění břehů betonem", NA, "bez známek úprav"), 100)
+zk("chybi souhrn -> NA", uprava_procent(NA, NA, "bez známek úprav"), NA_real_)
+zk("kategorie ano, pasmo ne -> NA", uprava_procent("Břehy bez známek úprav", NA, "bez známek úprav"), NA_real_)
+cat("=== val_shoda ===\n")
+zk("rovnost", val_shoda("kameny", "kameny"), TRUE)
+zk("neshoda", val_shoda("kameny", "bahno"), FALSE)
+zk("prislusnost", val_shoda("kameny, písek, štěrk", "písek"), TRUE)
+zk("neprislusnost", val_shoda("kameny, písek, štěrk", "bahno"), FALSE)
+zk("cela polozka, ne podretezec", val_shoda("kameny drobne", "kameny"), FALSE)
+zk("desetinna carka nerozdeli", val_shoda("1,5", "1"), FALSE)
+zk("NA hodnota", val_shoda(NA, "kameny"), FALSE)
+zk("vektorove", paste(val_shoda(c("a, b","c"), c("b","c")), collapse=","), "TRUE,TRUE")
+cat("\n=== VYSLEDEK:", ok, "OK,", bad, "chyb ===\n")
