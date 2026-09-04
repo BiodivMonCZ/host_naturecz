@@ -35,6 +35,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Rozšíření kategorie `info` (2026-08-31)* | 4 | H-33, H-34, H-35, H-36 |
 | *Dokončení `info` a revize limitů ryb (2026-09-03)* | 3 | H-37, H-38, H-39 |
 | *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 7 | H-40 … H-46 |
+| *Podrobný audit modulu ryb (2026-09-04)* | 11 | H-47 … H-57 |
 
 ---
 
@@ -1479,6 +1480,196 @@ indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
 ---
 
 
+# Podrobný audit modulu ryb (2026-09-04)
+
+Zadavatel: *„inspect the fish in further detail and list possible issues"*.
+Audit nezměnil žádný kód — je to inventura po zapnutí indikátorů (H-42).
+Vše je ověřeno proti ostrým datům (13 290 záznamů skupiny *Ryby a mihule*,
+z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
+
+**Mimo rozsah harmonizace obojživelníků** — zaznamenáno pro autory metodiky ryb.
+
+### H-47 ⚠⚠ — `POP_DYN`: limit má obrácené znaménko ⇒ stabilní populace selhává
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno, neopraveno**
+- **Stav v kódu:** [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1745)
+  počítá `POP_DYN = (POP_ABUNDANCEMEAN / POP_ABUNDANCEREF) * 100`, tedy
+  **procento referenční abundance**: 100 = stabilní, < 100 = pokles,
+  > 100 = růst.
+- **Stav v datech (limity):** 7 druhů má `max 50 %`, tj. „dobrý stav = nejvýše
+  50 % referenční abundance". **Jediná *Sabanejewia balcanica* má `min 50 %`** —
+  a to je jediné znění, které dává smysl.
+- **Doklad (testovací běh *Cottus gobio*, 370 DP, 217 s hodnotou):**
+
+  | `POP_DYN` | DP | výsledek |
+  |---|---|---|
+  | ≤ 50 (propad na polovinu a méně) | 36 | **splněno** |
+  | 50–100 (pokles) | 124 | nesplněno |
+  | > 100 (stabilní nebo růst) | 56 | nesplněno |
+  | **přesně 100 (zcela stabilní populace)** | **110** | **všech 110 nesplněno** |
+
+- **Důsledek:** `POP_DYN` má `KLIC = ano`, takže jediné selhání sráží DP rovnou
+  na „špatný". Odtud 248 z 370 „špatných" DP u *Cottus gobio*. **Indikátor dnes
+  odměňuje kolaps populace a trestá stabilitu.**
+- **Dvě možná řešení se shodují ve významu**, což diagnózu potvrzuje:
+  (a) obrátit limit na `min 50` (jak to má *Sabanejewia*), nebo
+  (b) změnit metriku na *procento poklesu* (`100 − poměr`) a `max 50` ponechat.
+  Obojí znamená „populace nesmí klesnout pod polovinu reference".
+- **Neopraveno záměrně:** je to obsah limitu, resp. definice metriky — patří
+  autorům metodiky ryb. Zásah by navíc plošně změnil verdikty u 7 druhů.
+
+### H-48 ⚠ — bodová metoda odlovu nedává abundanci ⇒ `POP_DYN` nelze spočítat
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Stav v kódu:** [`21_1:489`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L489)
+  čte plochu odlovu **jen** z tagu `<plocha_prolov_p>`.
+- **Stav v datech:** vazba na metodu odlovu je **naprosto těsná**:
+
+  | `<metod_lov>` | `<plocha_prolov_p>` (čte se) | `<plocha_prolov_pbm>` (nečte se) | žádná |
+  |---|---|---|---|
+  | Kontinuální lov | 1 064 | 1 | 154 |
+  | **Lov bodovou metodou** | **0** | **625** | 26 |
+  | neuvedeno | 595 | 0 | 933 |
+
+- **Důsledek:** u **625 průzkumů bodovou metodou** je `POP_PLOCHALOV = NA`,
+  takže `POP_ABUNDANCENAL = POP_POCET / NA` → `NA`, a tím pádem i
+  `POP_ABUNDANCE`, `POP_DYN` (**klíčový**) a celý trendový blok. Chyba je tichá —
+  indikátor se prostě nevyhodnotí. U *Cottus gobio* nemá `POP_DYN` hodnotu
+  u 153 z 370 DP.
+- **Stejná třída jako H-10** (nečtený `STA_PRUHLEDNOSTVODAR`).
+- **Návrh:** doplnit `<plocha_prolov_pbm>` do extrakce; pravidlo priority mezi
+  oběma tagy stanovit explicitně (obdoba H-10). Pozor: plocha bodové metody
+  nemusí být metodicky srovnatelná s kontinuálním prolovem, takže srovnatelnost
+  abundancí je otázka na autory metodiky.
+
+### H-49 ⚠ — larvy mihulí se nezapočítávají do počtu
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Stav v kódu:** `POP_POCET` se plní jen tam, kde `POCITANO` odpovídá jednotce
+  z limitu; `limity_ryby.csv` uvádí u `POP_POCET` **jedinou jednotku `jedinci`**.
+- **Stav v datech:** u mihulí je `POCITANO = larvy` u **182 záznamů**
+  (*Lampetra planeri* 180, *Eudontomyzon mariae* 2). Celkem **53,3 %** záznamů
+  mihulí nemá `POCITANO = "jedinci"`.
+- **Proč to vadí:** minohy (larvy) jsou u mihule potoční **hlavní sledované
+  stadium** — dospělci žijí krátce a hůř se zjišťují. Vyloučením larev se
+  ztrácí počet → abundance → `POP_DYN` (klíčový) i `POP_VITALITA`.
+- **Stejná třída jako H-07** (`metamorf. ex.` u obojživelníků).
+- **Návrh:** doplnit `larvy` do jednotek `POP_POCET` u obou druhů mihulí.
+  Rozhodnutí, zda se larvy a dospělci mají sčítat nebo vést zvlášť, patří
+  autorům metodiky.
+
+### H-50 ⚠ — na úroveň EVL se u ryb uplatňuje Tabulka 2 z metodiky obojživelníků
+- **Závažnost:** vysoká · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Zjištění:** ve výstupu EVL pro *Lampetra planeri* je indikátor
+  **`POP_POCETPRUM3`** s `KLIC = ano`, `UROVEN = chu` a jednotkou
+  *„jedinci (cílový stav SDO)"*, s hodnotami limitu 1 až 6 000 podle území.
+  To je indikátor zavedený nálezem **H-06 pro obojživelníky**.
+- **Důsledek:** verdikt EVL u ryb vzniká **rozhodovací tabulkou 2×2 z metodiky
+  obojživelníků**, ne z metodiky ryb. Doloženo na kombinacích:
+
+  | `LOK_PROCDOBR` | `POP_POCETPRUM3` | verdikt EVL | EVL |
+  |---|---|---|---|
+  | dobrý | dobrý | dobrý | 1 |
+  | dobrý | nehodnocen | dobrý | 9 |
+  | dobrý | **špatný** | **zhoršený** | 4 |
+  | špatný | dobrý | zhoršený | 9 |
+  | špatný | nehodnocen | zhoršený | 6 |
+  | špatný | špatný | špatný | 10 |
+
+- **Kontext:** H-05/H-06 uvádělo, že se blok aktivuje „jen při předaných
+  `cilove_stavy`" — u *Lampetra planeri* předány **jsou**, takže se aktivuje.
+  Kontrola neregrese u Fáze B to pro ryby neověřovala.
+- **Otázka:** má se stav EVL u ryb odvozovat touto tabulkou? Pokud ano, je
+  třeba to podepřít metodikou ryb; pokud ne, je nutné blok omezit na druhy
+  metodiky obojživelníků.
+
+### H-51 ⚠ — `POP_VITALITA`: jednotka limitu si u dvou druhů odporuje s výpočtem
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Stav v kódu:** `POP_VITALITA` = **počet různých délkových kategorií**
+  zjištěných na DP (0 při nepřítomnosti druhu, `NA` bez délkových dat).
+- **Stav v datech (limity):** 6 druhů má jednotku `kategorie` (`min 2` / `min 3`),
+  ale **`Leuciscus aspius` a `Sabanejewia balcanica` mají `min 1` s jednotkou
+  `jedinci tohoroční`.**
+- **Důsledek:** u těch dvou druhů se limit *tváří* jako „alespoň 1 letošní
+  jedinec" (doklad rozmnožování), ale porovnává se s **počtem délkových
+  kategorií**. Podmínka `min 1` je proto splněná vždy, když je k dispozici
+  jakákoli délka — indikátor tedy neměří to, co jeho jednotka tvrdí, a je
+  fakticky bezzubý.
+- **Souvislost:** *Leuciscus aspius* dnes neprochází filtrem (H-40), takže
+  dopad je zatím jen u *Sabanejewia balcanica*.
+
+### H-52 ⚠ — `STA_MIGBARVYS`: u více bariér se bere první, ne nejvyšší
+- **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Stav v kódu:** `readr::parse_number()` nad `<vyska_bar>` vrací **první číslo**
+  v řetězci.
+- **Stav v datech:** ze **521 hodnot obsahuje 103 více bariér** oddělených
+  čárkou — např. `2000, 50`, `100, 300`, `0, 5`, `50, 50, 50`.
+- **Důsledek:** u `0, 5` se vyhodnotí 0 (bariéra 5 cm se ztratí), u `100, 300`
+  se ztratí ta vyšší. Pro limit `max N cm` je rozhodující **nejvyšší**
+  (nepřekonatelná) bariéra, případně jejich souhrn — výběr prvního údaje je
+  arbitrární a chybu vnáší oběma směry.
+- **Návrh:** brát maximum ze všech uvedených hodnot. Totéž prověřit
+  u `<pocet_bar>`.
+
+### H-53 ⚠ — chybějící `KLIC` u dvou řádků ⇒ indikátor se hodnotí, ale do verdiktu nevstupuje
+- **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Zjištění:** `KLIC` je prázdný u `LOK_PROCDOBR` (*Lampetra planeri*, úroveň
+  `chu`) a u `STA_DNOPOCETTYPU` (*Misgurnus fossilis*, úroveň `lok`).
+- **Důsledek:** čítače v [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L127-L128)
+  testují `KLIC == "ano"` a `KLIC == "ne"`; prázdná hodnota nesplní **ani jednu**,
+  takže indikátor sice dostane `STAV_IND`, ale do `N_KEY_*` ani `N_OTH_*`
+  nevstoupí a **na verdikt DP nemá vliv**. U `STA_DNOPOCETTYPU` je to nově
+  relevantní, protože indikátor se od H-42 počítá.
+- **Na úrovni `chu`** má prázdný `KLIC` u `LOK_PROCDOBR` obdobný efekt na
+  `LENIND_SUMKLIC`; dnes je zastíněný tím, že verdikt přebírá Tabulka 2 (H-50).
+
+### H-54 ⚠ — tentýž indikátor má u různých druhů neslučitelný `TYP_IND`
+- **Závažnost:** střední · **Typ:** KONZISTENCE · **Stav:** **zaznamenáno**
+
+  | indikátor | převažující | výjimka |
+  |---|---|---|
+  | `POP_DYN` | `max 50` (7×) | `min 50` — *Sabanejewia balcanica* (viz **H-47**) |
+  | `STA_UPRAVABREHU`, `STA_UPRAVADNA` | `max 49 %` (6×) | `min 49 %` — *R. albipinatus* |
+  | `STA_PROUDPOCETTYPU` | `min` (9×) | `val 2` — *R. albipinatus*, tj. „právě dva typy" |
+  | `STA_ODHADCELKOVEPLOCHY…` (oba) | `min 10 m²` | `val 10 m²` — *Lampetra planeri*, tj. „přesně 10 m²" |
+
+- **Důsledek:** `val` nad číselnou veličinou vyžaduje **přesnou shodu** —
+  „přesně 10 m²" nebo „právě 2 typy" prakticky nikdy nenastane, takže takový
+  indikátor je trvale nesplněný. Dnes bez dopadu (dotčené druhy neprocházejí
+  filtrem, resp. nemají zdroj), po opravě H-40 by se projevilo.
+
+### H-55 ⚠ — `POP_POCET` má u ryb prázdnou `UROVEN` ⇒ surový počet není ve výstupu
+- **Závažnost:** střední · **Typ:** STOPA-DO-ISOP · **Stav:** **zaznamenáno**
+- **Zjištění:** všech **16 řádků** `POP_POCET` v `limity_ryby.csv` má prázdné
+  `TYP_IND`, `LIM_IND`, `KLIC` **i `UROVEN`**. Řádek slouží jen k tomu, aby
+  `lim_pocet` znal jednotku (`jedinci`).
+- **Důsledek:** [`21_2`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R#L136)
+  filtruje `UROVEN == "lok"`, takže se `POP_POCET` u ryb **nedostane do výstupu
+  vůbec** — ověřeno na testovacím běhu *Cottus gobio*. Správce lokality tedy
+  nevidí surový počet, přestože z něj vychází abundance i `POP_DYN`.
+- **Řešení je hotové jinde:** u obojživelníků tentýž problém vyřešil
+  **H-37** značkou `TYP_IND = "info"` (a `UROVEN = "lok"`). Stejný postup by
+  zpřístupnil `POP_POCET` i u ryb; dopad je neutrální, protože řádek nemá limit.
+
+### H-56 ⚠ — `POP_PRESENCE` má limit jen u 7 ze 17 druhů
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Zjištění:** `POP_PRESENCE` (`min 1 jedinci`, `KLIC = ano`) mají jen
+  *Gymnocephalus baloni*, *G. schraetser*, *Pelecus cultratus*,
+  *Romanogobio albipinatus*, *R. kessleri*, *Zingel streber* a *Z. zingel*.
+  Chybí mj. u *Cottus gobio*, *Lampetra planeri*, *Misgurnus fossilis*,
+  *Rhodeus amarus* a *Cobitis elongatoides*.
+- **Kontext:** u obojživelníků je `POP_PRESENCE` klíčový u všech druhů (P-02).
+  U ryb jej u zbylých 10 druhů nahrazují `POP_DYN` a `POP_VITALITA` — obojí
+  ale závisí na abundanci, tedy na ploše odlovu (H-48), takže u průzkumů bez
+  plochy nezbývá **žádný** vyhodnotitelný klíčový indikátor.
+
+### H-57 ⚠ — *Salmo salar* chybí v číselníku délkových kategorií
+- **Závažnost:** nízká · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Zjištění:** `cis_ryby_delky_strukt.csv` obsahuje **8 druhů**; *Salmo salar*
+  mezi nimi není, přestože má řádek `POP_VITALITA`.
+- **Důsledek:** délky se nespárují s kategorií, `POP_VITALITA` zůstane `NA`.
+  Dopad je dnes nulový, protože řádek je od položky 15 veden jako `info` bez
+  limitu — je to ale nejspíš důsledek téže mezery, ne záměr.
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -1508,3 +1699,8 @@ indikátorů agreguje maximem. U `POP_REPRO` proto DP s nálezy
 | 23 | Rozhodnout **H-46** — má `Ano` v `<prit_host_mlz>` platit za splnění limitu `anodonta` u *Rhodeus amarus*? | autoři metodiky ryb |
 | 24 | Doplnit zbylých 6 indikátorů ryb (`STA_DNOPOCET`, `STA_POCETTYPU`, `STA_VARIABILITAHLOUBEKPOCET`, `STA_DNOTYPSOUCETPROCENT`, 2× `STA_ODHADCELKOVEPLOCHY…`) — chybí jednoznačný zdroj nebo definice | autoři metodiky ryb |
 | 25 | Změřit dopad zapnutí H-42 na zbývajících 9 hodnocených druhů ryb (změřeny 3) | provoz |
+| 26 | **H-47 — nejnaléhavější z auditu ryb:** rozhodnout směr limitu `POP_DYN`. Dnes u 7 druhů odměňuje propad populace a trestá stabilitu (110 DP se zcela stabilní populací selhává na klíčovém indikátoru) | autoři metodiky ryb |
+| 27 | H-48 — doplnit `<plocha_prolov_pbm>` (bodová metoda, 625 průzkumů bez abundance) a stanovit prioritu tagů | autoři metodiky ryb + provoz |
+| 28 | H-49 — mají se `larvy` počítat do `POP_POCET` u mihulí? Týká se 53 % jejich záznamů | autoři metodiky ryb |
+| 29 | H-50 — má se stav EVL u ryb odvozovat Tabulkou 2 z metodiky obojživelníků? | autoři metodiky ryb |
+| 30 | H-51 až H-57 — jednotka `POP_VITALITA`, výška bariér, chybějící `KLIC`, nesourodé `TYP_IND`, zviditelnění `POP_POCET`, chybějící `POP_PRESENCE`, číselník délek | autoři metodiky ryb |
