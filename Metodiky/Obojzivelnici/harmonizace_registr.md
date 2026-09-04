@@ -35,7 +35,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Rozšíření kategorie `info` (2026-08-31)* | 4 | H-33, H-34, H-35, H-36 |
 | *Dokončení `info` a revize limitů ryb (2026-09-03)* | 3 | H-37, H-38, H-39 |
 | *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 7 | H-40 … H-46 |
-| *Podrobný audit modulu ryb (2026-09-04)* | 11 | H-47 … H-57 |
+| *Podrobný audit modulu ryb (2026-09-04)* | 12 | H-47 … H-58 |
 
 ---
 
@@ -1489,8 +1489,8 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
 
 **Mimo rozsah harmonizace obojživelníků** — zaznamenáno pro autory metodiky ryb.
 
-### H-47 ⚠⚠ — `POP_DYN`: limit má obrácené znaménko ⇒ stabilní populace selhává
-- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno, neopraveno**
+### H-47 ⚠ — `POP_DYN`: limit má obrácené znaménko ⇒ stabilní populace selhává
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **prozatímně otočeno na `min 50` 2026-09-04** — rozhodnutí autorů metodiky ryb stále chybí, viz §Řešení
 - **Stav v kódu:** [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1745)
   počítá `POP_DYN = (POP_ABUNDANCEMEAN / POP_ABUNDANCEREF) * 100`, tedy
   **procento referenční abundance**: 100 = stabilní, < 100 = pokles,
@@ -1517,7 +1517,7 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
 - **Neopraveno záměrně:** je to obsah limitu, resp. definice metriky — patří
   autorům metodiky ryb. Zásah by navíc plošně změnil verdikty u 7 druhů.
 
-### H-48 ⚠ — bodová metoda odlovu nedává abundanci ⇒ `POP_DYN` nelze spočítat
+### H-48 ✅ — bodová metoda odlovu nedává abundanci ⇒ `POP_DYN` nelze spočítat
 - **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
 - **Stav v kódu:** [`21_1:489`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L489)
   čte plochu odlovu **jen** z tagu `<plocha_prolov_p>`.
@@ -1540,7 +1540,7 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
   nemusí být metodicky srovnatelná s kontinuálním prolovem, takže srovnatelnost
   abundancí je otázka na autory metodiky.
 
-### H-49 ⚠ — larvy mihulí se nezapočítávají do počtu
+### H-49 ✅ — larvy mihulí se nezapočítávají do počtu
 - **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
 - **Stav v kódu:** `POP_POCET` se plní jen tam, kde `POCITANO` odpovídá jednotce
   z limitu; `limity_ryby.csv` uvádí u `POP_POCET` **jedinou jednotku `jedinci`**.
@@ -1555,7 +1555,7 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
   Rozhodnutí, zda se larvy a dospělci mají sčítat nebo vést zvlášť, patří
   autorům metodiky.
 
-### H-50 ⚠ — na úroveň EVL se u ryb uplatňuje Tabulka 2 z metodiky obojživelníků
+### H-50 ✅ — na úroveň EVL se u ryb uplatňuje Tabulka 2 z metodiky obojživelníků
 - **Závažnost:** vysoká · **Typ:** GAP · **Stav:** **zaznamenáno**
 - **Zjištění:** ve výstupu EVL pro *Lampetra planeri* je indikátor
   **`POP_POCETPRUM3`** s `KLIC = ano`, `UROVEN = chu` a jednotkou
@@ -1580,7 +1580,7 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
   třeba to podepřít metodikou ryb; pokud ne, je nutné blok omezit na druhy
   metodiky obojživelníků.
 
-### H-51 ⚠ — `POP_VITALITA`: jednotka limitu si u dvou druhů odporuje s výpočtem
+### H-51 ✅ — `POP_VITALITA`: jednotka limitu si u dvou druhů odporuje s výpočtem
 - **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
 - **Stav v kódu:** `POP_VITALITA` = **počet různých délkových kategorií**
   zjištěných na DP (0 při nepřítomnosti druhu, `NA` bez délkových dat).
@@ -1595,7 +1595,7 @@ z toho 2 771 se `STRUKT_POZN`) a proti výstupům testovacích běhů.
 - **Souvislost:** *Leuciscus aspius* dnes neprochází filtrem (H-40), takže
   dopad je zatím jen u *Sabanejewia balcanica*.
 
-### H-52 ⚠ — `STA_MIGBARVYS`: u více bariér se bere první, ne nejvyšší
+### H-52 ✅ — `STA_MIGBARVYS`: u více bariér se bere první, ne nejvyšší
 - **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
 - **Stav v kódu:** `readr::parse_number()` nad `<vyska_bar>` vrací **první číslo**
   v řetězci.
@@ -1668,7 +1668,7 @@ ne volitelným úklidem.
   úvahu doplnit do kaskády kontrolu, která prázdné `KLIC` u řádku s vyplněným
   `LIM_IND` ohlásí jako chybu vstupu.
 
-### H-54 ⚠ — tentýž indikátor má u různých druhů neslučitelný `TYP_IND`
+### H-54 ⏸ — tentýž indikátor má u různých druhů neslučitelný `TYP_IND`
 - **Závažnost:** střední · **Typ:** KONZISTENCE · **Stav:** **zaznamenáno**
 
   | indikátor | převažující | výjimka |
@@ -1683,7 +1683,7 @@ ne volitelným úklidem.
   indikátor je trvale nesplněný. Dnes bez dopadu (dotčené druhy neprocházejí
   filtrem, resp. nemají zdroj), po opravě H-40 by se projevilo.
 
-### H-55 ⚠ — `POP_POCET` má u ryb prázdnou `UROVEN` ⇒ surový počet není ve výstupu
+### H-55 ✅ — `POP_POCET` má u ryb prázdnou `UROVEN` ⇒ surový počet není ve výstupu
 - **Závažnost:** střední · **Typ:** STOPA-DO-ISOP · **Stav:** **zaznamenáno**
 - **Zjištění:** všech **16 řádků** `POP_POCET` v `limity_ryby.csv` má prázdné
   `TYP_IND`, `LIM_IND`, `KLIC` **i `UROVEN`**. Řádek slouží jen k tomu, aby
@@ -1696,7 +1696,7 @@ ne volitelným úklidem.
   **H-37** značkou `TYP_IND = "info"` (a `UROVEN = "lok"`). Stejný postup by
   zpřístupnil `POP_POCET` i u ryb; dopad je neutrální, protože řádek nemá limit.
 
-### H-56 ⚠ — `POP_PRESENCE` má limit jen u 7 ze 17 druhů
+### H-56 ✅ — `POP_PRESENCE` má limit jen u 7 ze 17 druhů
 - **Závažnost:** střední · **Typ:** GAP · **Stav:** **zaznamenáno**
 - **Zjištění:** `POP_PRESENCE` (`min 1 jedinci`, `KLIC = ano`) mají jen
   *Gymnocephalus baloni*, *G. schraetser*, *Pelecus cultratus*,
@@ -1708,13 +1708,72 @@ ne volitelným úklidem.
   ale závisí na abundanci, tedy na ploše odlovu (H-48), takže u průzkumů bez
   plochy nezbývá **žádný** vyhodnotitelný klíčový indikátor.
 
-### H-57 ⚠ — *Salmo salar* chybí v číselníku délkových kategorií
+### H-57 ⏸ — *Salmo salar* chybí v číselníku délkových kategorií
 - **Závažnost:** nízká · **Typ:** GAP · **Stav:** **zaznamenáno**
 - **Zjištění:** `cis_ryby_delky_strukt.csv` obsahuje **8 druhů**; *Salmo salar*
   mezi nimi není, přestože má řádek `POP_VITALITA`.
 - **Důsledek:** délky se nespárují s kategorií, `POP_VITALITA` zůstane `NA`.
   Dopad je dnes nulový, protože řádek je od položky 15 veden jako `info` bez
   limitu — je to ale nejspíš důsledek téže mezery, ne záměr.
+- **Rozhodnutí zadavatele (2026-09-04):** vyžádat velikostní třídy od autorů
+  metodiky ryb; vymýšlet je nelze.
+
+### H-58 ✅ — `POP_PRESENCE` u ryb se nikdy nevyhodnotil (limit `min 1` proti textu)
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **opraveno 2026-09-04**
+- **Kontext:** odhaleno až při implementaci H-56 — než šlo indikátor doplnit
+  dalším druhům, bylo nutné zjistit, jak funguje u těch sedmi, které jej měly.
+- **Zjištění:** sloupec `POP_PRESENCE` nese text `ano` / `ne`, ale limit u ryb
+  zněl **`min 1` s jednotkou `jedinci`**. Číselná větev vyžaduje, aby hodnota
+  prošla regexem `^-?\d+(\.\d+)?$`; `"ano"` jím neprojde, takže `HOD_IND_num`
+  je `NA`, nesedne žádná větev a **`STAV_IND` zůstane `NA` vždy**.
+- **Doklad:** simulací obou hodnot vychází `NA (nehodnoceno)`. Všechny ostatní
+  skupiny mají `val ano` — v `limity_vse.csv` je tak zapsáno **57 řádků**.
+- **Důsledek:** klíčový indikátor *přítomnost druhu* byl u ryb **mrtvý u všech
+  sedmi druhů**, které jej vůbec měly. Kdyby se H-56 provedlo doslova („stejně
+  jako u těch sedmi"), přibylo by dalších deset mrtvých řádků.
+- **Provedeno:** všech **17 druhů** má nyní `val ano` s jednotkou
+  `přítomnost druhu`, `KLIC = ano`, `UROVEN = lok`.
+
+---
+
+# Řešení auditu ryb (2026-09-04)
+
+Rozhodnutí zadavatele k jednotlivým nálezům jsou u nich zaznamenána.
+Provedeno ve třech commitech:
+
+| Commit | Nálezy | Soubory |
+|---|---|---|
+| `53e7da1` | H-47 (prozatímně), H-48 … H-53 (ryby), H-55, H-56, H-58 | `21_1`, `25`, `limity_ryby.csv` |
+| `1994c08` | H-53 mimo ryby + kontrola vstupu | `limity_vse.csv`, `limity_cevky.csv`, `00_n2k_config.R` |
+| `3816926` | oprava zápisu H-53 | registr |
+
+## Měřený dopad (kaskáda `21_1` → `27` před a po, proti stavu po H-42)
+
+| Běh | DP | Změněných verdiktů | Z toho k lepšímu | K horšímu |
+|---|---|---|---|---|
+| *Triturus cristatus* — **regrese** | 724 | **0** | — | — |
+| *Cottus gobio* | 370 | **80** | 55 špatný → dobrý | 16 dobrý → špatný · 9 špatný → zhoršený |
+| *Lampetra planeri* | 253 | **41** | 22 špatný → dobrý | 7 dobrý → špatný · 12 špatný → zhoršený |
+
+## Čím jsou změny způsobeny (*Cottus gobio*, změny `STAV_IND`)
+
+| Indikátor | Změna | DP | Nález |
+|---|---|---|---|
+| `POP_DYN` | 0 → 1 | **177** | H-47 — opravená nepravdivá selhání |
+| `POP_DYN` | `NA` → 1 / 0 | 44 / 11 | H-48 — získaná abundance u bodové metody |
+| `POP_DYN` | 1 → 0 | 27 | populace skutečně klesla pod polovinu reference |
+| `POP_PRESENCE` | `NA` → 1 / 0 | 292 / 78 | H-56 + H-58 — indikátor poprvé funguje |
+| `STA_MIGBARVYS` | 1 → 0 | 3 | H-52 — nalezena vyšší bariéra než první v pořadí |
+
+**Převaha změn k lepšímu jsou opravy nepravdivých selhání klíčového
+indikátoru**, ne změkčení hodnocení. Změny k horšímu jsou převážně
+nepřítomnost druhu, kterou `POP_PRESENCE` nově skutečně zachytí.
+
+> ⚠ **H-47 je prozatímní.** Otočení limitu na `min 50` je pracovní předpoklad
+> zadavatele, ne rozhodnutí autorů metodiky ryb. Dokud nepotvrdí, zda se má
+> otočit limit, nebo předefinovat metrika na *procento poklesu*, stojí na tomto
+> předpokladu 177 z 370 změněných hodnocení u *Cottus gobio*. Zpětný krok je
+> změna sedmi řádků `POP_DYN` v `limity_ryby.csv`.
 
 ---
 
@@ -1747,8 +1806,12 @@ ne volitelným úklidem.
 | 23 | Rozhodnout **H-46** — má `Ano` v `<prit_host_mlz>` platit za splnění limitu `anodonta` u *Rhodeus amarus*? | autoři metodiky ryb |
 | 24 | Doplnit zbylých 6 indikátorů ryb (`STA_DNOPOCET`, `STA_POCETTYPU`, `STA_VARIABILITAHLOUBEKPOCET`, `STA_DNOTYPSOUCETPROCENT`, 2× `STA_ODHADCELKOVEPLOCHY…`) — chybí jednoznačný zdroj nebo definice | autoři metodiky ryb |
 | 25 | Změřit dopad zapnutí H-42 na zbývajících 9 hodnocených druhů ryb (změřeny 3) | provoz |
-| 26 | **H-47 — nejnaléhavější z auditu ryb:** rozhodnout směr limitu `POP_DYN`. Dnes u 7 druhů odměňuje propad populace a trestá stabilitu (110 DP se zcela stabilní populací selhává na klíčovém indikátoru) | autoři metodiky ryb |
-| 27 | H-48 — doplnit `<plocha_prolov_pbm>` (bodová metoda, 625 průzkumů bez abundance) a stanovit prioritu tagů | autoři metodiky ryb + provoz |
-| 28 | H-49 — mají se `larvy` počítat do `POP_POCET` u mihulí? Týká se 53 % jejich záznamů | autoři metodiky ryb |
-| 29 | H-50 — má se stav EVL u ryb odvozovat Tabulkou 2 z metodiky obojživelníků? | autoři metodiky ryb |
-| 30 | H-51 až H-57 — jednotka `POP_VITALITA`, výška bariér, chybějící `KLIC`, nesourodé `TYP_IND`, zviditelnění `POP_POCET`, chybějící `POP_PRESENCE`, číselník délek | autoři metodiky ryb |
+| 26 | **H-47 — stále nejnaléhavější:** potvrdit směr `POP_DYN`. Prozatímně otočeno na `min 50`, na tomto předpokladu ale stojí 177 z 370 změněných hodnocení u *Cottus gobio*. Rozhodnout, zda otočit limit, nebo předefinovat metriku na procento poklesu | autoři metodiky ryb |
+| 27 | ~~H-48 — doplnit `<plocha_prolov_pbm>`~~ — **hotovo**; zbývá potvrdit, zda je plocha bodové metody srovnatelná s kontinuálním prolovem (metoda je nově ve sloupci `POP_METODALOV`) | autoři metodiky ryb |
+| 28 | ~~H-49 — larvy mihulí~~ — **hotovo 2026-09-04** |  |
+| 29 | ~~H-50 — Tabulka 2 u ryb~~ — **hotovo**, omezeno na šest druhů metodiky obojživelníků |  |
+| 30 | ~~H-51, H-52, H-53, H-55, H-56, H-58~~ — **hotovo 2026-09-04** |  |
+| 31 | **H-54** — sjednotit nesourodé `TYP_IND`; zadavatel 2026-09-04 ponechal beze změny, protože dotčené řádky jsou dnes inertní. Ožije při opravě názvů druhů (H-40) | autoři metodiky ryb |
+| 32 | **H-57** — dodat velikostní třídy pro *Salmo salar* do `cis_ryby_delky_strukt.csv` | autoři metodiky ryb |
+| 33 | Rozhodnout tři řádky, které nově hlásí kontrola vstupu (H-53): `Eriogaster catax` a `Euphydryas aurinia` mají u `STA_HABPOKRYV` prázdnou `UROVEN` (tiše se nevyhodnocuje), `Cypripedium calceolus` má u `POP_POCETVITAL` limit bez `TYP_IND` | zadavatel |
+| 34 | Změřit dopad opravy `KLIC` u čtyř druhů hmyzu (H-53) — zpřísňující, hmyz nebyl v testovacích bězích | provoz |
