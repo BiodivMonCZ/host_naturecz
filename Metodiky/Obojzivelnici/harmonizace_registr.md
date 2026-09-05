@@ -37,6 +37,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Zprovoznění indikátorů ryb a revize `POP_REPRO` (2026-09-04)* | 7 | H-40 … H-46 |
 | *Podrobný audit modulu ryb (2026-09-04)* | 12 | H-47 … H-58 |
 | *Srovnání kódu s metodikou — plný běh *T. cristatus* (2026-09-04)* | 6 | H-59 … H-64 |
+| *Nová verze metodiky (2026-09-05)* | 2 | H-65, H-66 |
 
 ---
 
@@ -1812,8 +1813,8 @@ Běh: kaskáda `21_1` → `27`, 7,1 min, bez chyb.
 
 ## Nálezy
 
-### H-59 ⚠⚠ — stanovištní indikátory se agregují na NEJLEPŠÍ, ne nejhorší hodnotu
-- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno**
+### H-59 ✅ — stanovištní indikátory se agregují na NEJLEPŠÍ, ne nejhorší hodnotu
+- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **opraveno 2026-09-05**
 - **Metodika (§Stav stanoviště druhu):** *„Pro každý indikátor jsou pro danou DP
   ve sledovaném roce agregovány všechny zaznamenané hodnoty. Do celkového
   hodnocení druhu na DP za daný rok vstupuje **nejhorší** pozorovaná hodnota.
@@ -1841,28 +1842,59 @@ Běh: kaskáda `21_1` → `27`, 7,1 min, bez chyb.
   téhož roku dopadla dobře. Chyba jde vždy jedním směrem — plocha se jeví lepší.
 - **Návrh:** v `24` rozdělit větev `val` podle toho, zda `ID_IND` začíná `POP_`
   (→ `max`), nebo ne (→ `min`). Je to táž logika, jakou už má větev `minmax`.
+- **Provedeno:** větev v [`24`](../../R/02_druhy/24_n2k_druhy_lokality.R) se nově
+  neřídí typem limitu, ale **skupinou indikátoru**: `POP_*` (kromě `POP_POSK`)
+  → `max()`, vše ostatní → `min()`. Odpovídá to obojímu znění metodiky
+  najednou a odstraňuje rozdíl mezi větvemi `val` a `minmax`.
+- **Měřený dopad** (běh *T. cristatus*, proti stavu před opravou):
+  **18 ze 724 DP** se posunulo z „dobrý" na „zhoršený"; do „špatný" se
+  neposunula žádná, protože stanovištní indikátory to podle Tabulky 1 samy
+  způsobit nemohou. Na úrovni EVL se změnilo **6 ze 191** (3× dobrý →
+  zhoršený, 3× zhoršený → špatný). `CELKOVE_SUM` beze změny.
 
-### H-60 ⚠⚠ — početnost za EVL nezahrnuje DP s pouze relativní početností
-- **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno**
+### H-60 ✅ — relativní početnost se převádí dolní mezí kategorie, ne mediánem
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **opraveno 2026-09-05**
 - **Metodika (§Hodnocení na úrovni území, *Početnost populace*):** *„Předmětem
   hodnocení je součet maximálních početností zaznamenaných na každé DP v daném
   roce. **V případě, že pro danou DP existuje záznam relativní početnosti,
   převádí se na odpovídající hodnotu mediánu dané kategorie** dle převodní
   tabulky (např. 500 jedinců pro kategorii stovky)."*
-- **Stav v kódu:** [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R#L210-L211)
-  staví `pocetnost_uzemi` z `filter(CILMON == 1, !is.na(POP_POCET))`. `POP_POCET`
-  vzniká jen tam, kde je zaznamenán **číselný počet** v odpovídající jednotce —
-  záznam s pouhou relativní kategorií (`REL_POC`) tedy propadne úplně.
-- **Doklad:** *T. cristatus* má **754 záznamů** s relativní početností bez
-  použitelného počtu; na úrovni dvojic DP × rok jde o **131 z 1 780 (7,4 %)**,
-  které dnes do součtu za EVL přispívají **nulou** místo mediánu kategorie.
-- **Převodní tabulka už existuje a je nevyužitá:** `cis_pocet_kat.csv` má sloupec
-  `POP_POCETSTRED` s hodnotou **500 pro kategorii 4 (stovky)** — přesně příklad
-  uvedený v metodice.
-- **Tím se zároveň uzavírá nález H-26.** Registr jej vedl jako otevřenou otázku
-  „dolní mez vs. medián"; metodika odpovídá jednoznačně — **medián**. Kód dnes
-  dosazuje `POP_POCETNMIN` (dolní mez) a komentář to označuje za metodické
-  rozhodnutí; to rozhodnutí je v metodice zapsáno.
+
+> **Oprava původního znění tohoto nálezu.** První verze tvrdila, že záznamy
+> s pouhou relativní početností *„propadnou úplně"* a přispívají do součtu
+> **nulou** (131 z 1 780 dvojic DP × rok). **To je nesprávně.** Ověřeno při
+> implementaci: [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1307-L1308) na
+> konci fáze 1 dělá
+> `POP_POCETFIN = coalesce(POP_POCET, POP_POCETMIN); POP_POCET = POP_POCETFIN`,
+> takže záznam bez číselného počtu **už má `POP_POCET` doplněný z kategorie** —
+> ale její **dolní mezí**. Záznamy se tedy neztrácejí, jen se převádějí jinou
+> statistikou, než metodika předepisuje. Původní odhad 131 dvojic měřil něco
+> jiného: dvojice, kde vůbec nebyl záznam v hodnocené jednotce (larvy apod.).
+
+- **Skutečný rozsah:** převodem dolní mezí místo mediánu je dotčeno **184
+  záznamů** *T. cristatus*:
+
+  | kategorie | dolní mez (dnes) | medián (metodika) | záznamů |
+  |---|---|---|---|
+  | 1 — jednotky | 1 | **5** | 64 |
+  | 2 — nižší desítky | 11 (1× 6) | **25** | 109 |
+  | 3 — vyšší desítky | 51 | **75** | 10 |
+  | 4 — stovky | 101 | **500** | 1 |
+
+  Kategorie 4 je přesně příklad z metodiky — „500 jedinců pro kategorii stovky".
+- **Provedeno:** v [`27`](../../R/02_druhy/27_n2k_druhy_zapis.R) se pro tento
+  indikátor rozlišuje podle **surového sloupce `POCET`** z NDOP: je-li vyplněn,
+  jde o skutečně změřený počet a bere se `POP_POCET`; je-li prázdný a existuje
+  kategorie 1–8, dosadí se `POP_POCETSTRED`. Nepřítomnost druhu (kategorie 0)
+  zůstává nulou.
+- **Zásah je záměrně omezen na tento indikátor úrovně území**, protože citace
+  metodiky se týká právě jeho. `POP_POCET` používaný jinde (abundance, trendy,
+  `POP_VITAL`) zůstává nedotčen — jeho změna by byla mnohem širší a metodika ji
+  nežádá.
+- **Tím se uzavírá nález H-26** („dolní mez vs. medián") — metodika odpovídá
+  jednoznačně mediánem.
+- **Měřený dopad:** `POP_POCETPRUM3` vzrostl u **15 z 97 EVL**, které tento
+  indikátor mají (největší posun +24,0 u `CZ0723423`).
 
 ### H-61 ⚠⚠ — hodnocená množina EVL a DP neodpovídá Příloze 2
 - **Závažnost:** kritická · **Typ:** GAP · **Stav:** **zaznamenáno**
@@ -1948,6 +1980,87 @@ Běh: kaskáda `21_1` → `27`, 7,1 min, bez chyb.
 
 ---
 
+# Nová verze metodiky (2026-09-05)
+
+Soubor `met_ssEVL_SLOUCENE_…_zmeny.docx` byl 2026-09-04 aktualizován
+(387 584 → 390 549 B). Nálezy H-59 … H-64 vznikly nad předchozím zněním, proto
+byla obě znění strojově porovnána (revize přijaty, 1 196 → 1 211 řádků).
+
+## Co se změnilo
+
+| Změna | Dopad na kód |
+|---|---|
+| **Nová sekce „Výběr reprezentativních ploch"** — kritéria pro vymezení DP (management plochy; konektivita, 500 m) | podpírá **H-61** |
+| **Nový sledovaný indikátor „Zaplavení litorálu"** + definice vymezení litorálu | **H-65** (nový) |
+| **„Přítomnost nadměrného tlaku ryb"** — poprvé definovány všechny čtyři kategorie | **H-66** (nový), uzavírá otázku 4 / H-17 |
+| Upřesněna „Manipulace s vodní hladinou" — zaznamenává se ve Vlivech, důraz duben–červenec | potvrzuje H-18 i sezónní okno |
+| Upřesněno „Zastínění litorálu" (kolmý průmět, plné olistění) | bez dopadu na výpočet |
+| Doplněny per-druhové postupy výběru DP (*Bombina bombina* …) | podpírá **H-61** |
+| **Odstraněna věta** *„Za vyschnutí je považován alespoň jeden nález v daném roce, kdy je indikátor stavu vody roven 0 %"* | viz níže |
+| Příloha 1, řádek vysychání: „záznam **o vyschnutí** ve všech třech letech" → „záznam / výskyt ve všech třech letech" | beze změny významu |
+
+## Co se nezměnilo — nálezy H-59 … H-64 platí dál
+
+Ověřeno, že věty, na kterých stojí, jsou v novém znění doslova zachovány:
+
+| Nález | Opora v novém znění |
+|---|---|
+| **H-59** | *„Do celkového hodnocení druhu na DP za daný rok vstupuje nejhorší pozorovaná hodnota."* ✅ |
+| **H-60** | *„…převádí se na odpovídající hodnotu mediánu dané kategorie…"* ✅ |
+| **H-61** | Příloha 2 beze změny, navíc **nová** sekce o výběru DP ✅ |
+| **H-62** | omezení na cílený monitoring u procenta DP nadále chybí ✅ |
+| **H-63** | reprodukce = *„snůšky, pulci, larvy a metamorfovaní jedinci"*; `amplexus` nadále nikde ✅ |
+| **H-64** | *„…vokalizujích samců pro Bombina bombina či všech adultů u čolků"* ✅ |
+
+**Práh vysychání 0 % (nález H-30) zůstává v platnosti**, jen se o něj opírá
+nepřímo: věta v hodnotící sekci zmizela, ale v sekci sledovaných indikátorů
+stále platí *„Stav vody … 0 % odpovídá zcela vyschlé ploše"*. Úprava kódu proto
+není potřeba; je ale dobré vědět, že definice už není na jednom místě.
+
+**Sezónní okno duben–červenec u manipulace zůstává** — věta *„Hodnotí se tedy
+manipulace od dubna do července."* je v novém znění doslova zachována.
+
+### H-65 ⚠ — nový sledovaný indikátor „Zaplavení litorálu" se nečte
+- **Závažnost:** střední · **Typ:** GAP · **Stav:** **zaznamenáno**
+- **Metodika (nové znění, §Sledované indikátory):** *„**Zaplavení litorálu.**
+  Zaznamenává se podíl plochy litorálu, který je v době návštěvy zaplaven vodou;
+  76–100 % odpovídá litorálu zaplavenému prakticky v celém rozsahu, 1–25 %
+  litorálu převážně suchému, 0 % odpovídá suchému litorálu. … Hodnota se
+  zaznamenává při každé návštěvě spolu s jejím datem. … Indikátor není sledován
+  v období do tří dnů po silných srážkách."*
+- **Stav v kódu:** indikátor **neexistuje** — žádný sloupec, žádný tag.
+- **V Příloze 1 není**, takže se **nehodnotí** a jeho absence dnes nemění žádný
+  verdikt. Jde o nové pole formuláře, které se má zaznamenávat a mělo by se
+  propisovat do výstupu (obdoba `STA_PLOCHA50CM` z nálezu H-04).
+- **Otevřené:** pod jakým tagem se bude ukládat do `STRUKT_POZN` a jaké `ind_id`
+  dostane v ISOP. Bez toho jej nelze číst — tatáž situace jako u H-04.
+- **Souvislost s vysycháním:** nový indikátor má explicitní sémantiku
+  „0 % = suchý litorál" a vznikl současně s odstraněním věty, která práh
+  vysychání vázala na `Stav vody = 0 %`. **Nepředjímám, že se má vysychání nově
+  odvozovat od zaplavení litorálu** — obě veličiny popisují jiný jev (celá pánev
+  vs. litorální pás). Je to ale otázka, kterou je vhodné autorům položit.
+
+### H-66 ⚠ — „nelze vyloučit" u tlaku ryb je dnes hodnoceno jako příznivé
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Kontext:** registr vedl jako **otázku 4** a nález **H-17**, že metodika
+  kategorii `nelze vyloučit` neřeší. **Nové znění ji definuje.**
+- **Metodika (nové znění):** *„Hodnota **„nelze vyloučit"** se zaznamenává tam,
+  kde ryby nebyly přímo zjištěny, ale monitorovatel má **důvodné podezření na
+  jejich působení**; důvod se vždy uvádí do poznámky. Hodnota **„nehodnoceno"**
+  se zaznamenává tam, kde plochu **nebylo možné metodicky prověřit**…"*
+- **Stav v datech:** `limity_vse.csv` uvádí u `STA_RYBY` `val ne` **i**
+  `val nelze vyloučit`, tedy obě jako **příznivé**. `nehodnoceno` → `NA`.
+- **Rozpor:** „nelze vyloučit" znamená **důvodné podezření na působení ryb** —
+  hodnotit je jako příznivý stav jde proti smyslu indikátoru. Naopak
+  `nehodnoceno` → `NA` je nyní **výslovně potvrzeno** („nebylo možné prověřit").
+- **Dopad dnes:** v exportu se `nelze vyloučit` u šesti druhů metodiky
+  nevyskytuje ani jednou, takže je změna zatím bez následku — to se ale změní,
+  jakmile monitorovatelé začnou novou kategorii zapisovat.
+- **Rozhodnutí autorů metodiky:** _(má „nelze vyloučit" platit za nepříznivý
+  stav, nebo za neznámý — tedy `NA` jako „nehodnoceno"?)_
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -1986,8 +2099,10 @@ Běh: kaskáda `21_1` → `27`, 7,1 min, bez chyb.
 | 32 | **H-57** — dodat velikostní třídy pro *Salmo salar* do `cis_ryby_delky_strukt.csv` | autoři metodiky ryb |
 | 33 | Rozhodnout tři řádky, které nově hlásí kontrola vstupu (H-53): `Eriogaster catax` a `Euphydryas aurinia` mají u `STA_HABPOKRYV` prázdnou `UROVEN` (tiše se nevyhodnocuje), `Cypripedium calceolus` má u `POP_POCETVITAL` limit bez `TYP_IND` | zadavatel |
 | 34 | Změřit dopad opravy `KLIC` u čtyř druhů hmyzu (H-53) — zpřísňující, hmyz nebyl v testovacích bězích | provoz |
-| 35 | **H-59** — opravit agregaci stanovištních `val` indikátorů na nejhorší hodnotu (249 dvojic DP × rok u *T. cristatus*). Čistá oprava dle metodiky, nevyžaduje rozhodnutí | provoz |
-| 36 | **H-60** — zahrnout do početnosti za EVL i DP s pouze relativní početností, přes medián kategorie (`POP_POCETSTRED`). Uzavírá i H-26 | provoz |
+| 35 | ~~**H-59** — agregace stanovištních indikátorů na nejhorší hodnotu~~ — **hotovo 2026-09-05** |  |
+| 36 | ~~**H-60** — početnost za EVL přes medián kategorie~~ — **hotovo 2026-09-05**, uzavírá i H-26 |  |
+| 42 | **H-65** — přidělit tag a `ind_id` novému indikátoru „Zaplavení litorálu" a zavést jej do Survey123; teprve pak jej lze číst | autoři metodiky + správce formuláře |
+| 43 | **H-66** — má „nelze vyloučit" u tlaku ryb platit za nepříznivý stav, nebo za neznámý? Nové znění metodiky kategorii definuje jako **důvodné podezření na působení ryb**, dnes je vedena jako příznivá | autoři metodiky |
 | 37 | **H-61** — rozhodnout, zda se hodnocení má omezit na EVL a DP z Přílohy 2 (66 EVL / 192 DP), nebo pokrývat všechna území, kde je druh předmětem ochrany (dnes 191 EVL / 724 DP) | zadavatel + autoři metodiky |
 | 38 | **H-61b** — vyjasnit dvě EVL z Přílohy 2, které nejsou v seznamu předmětů ochrany: `CZ0213008`, `CZ0523287` | zadavatel |
 | 39 | **H-62** — sjednotit uplatnění `CILMON` mezi úrovní DP a EVL; hlavní příčina 88 neznámých EVL | autoři metodiky |
