@@ -207,11 +207,55 @@ nal_export <- function(
   #
   # Vysledek se uklada do samostatneho temp souboru, aby zustala zachovana
   # existujici architektura oddelenych fazi propojenych pres Data/Temp.
+  # RELATIVNI POCETNOST SE PREVADI NA MEDIAN KATEGORIE, NE NA JEJI DOLNI MEZ
+  # (nalez H-60). Metodika, par. Hodnoceni na urovni sledovaneho uzemi:
+  #   "Predmetem hodnoceni je soucet maximalnich pocetnosti zaznamenanych na
+  #    kazde DP v danem roce. V pripade, ze pro danou DP existuje zaznam
+  #    relativni pocetnosti, prevadi se na odpovidajici hodnotu MEDIANU dane
+  #    kategorie dle prevodni tabulky (napr. 500 jedincu pro kategorii stovky)."
+  #
+  # POZOR NA JIZ PROVEDENY PREVOD: 21_1_n2k_druhy_akce.R na konci faze 1 dela
+  #   POP_POCETFIN = coalesce(POP_POCET, POP_POCETMIN); POP_POCET = POP_POCETFIN
+  # tedy zaznam bez ciselneho poctu UZ MA POP_POCET doplneny z kategorie -
+  # ale DOLNI MEZI (POP_POCETNMIN), ne medianem. Zaznamy se tedy neztraceji;
+  # jsou jen prevedeny jinou statistikou, nez metodika predepisuje. Pro
+  # kategorii "stovky" tak vychazi 101 misto 500, jak uvadi prima citace vyse.
+  #
+  # Rozlisit oba pripady lze podle SUROVEHO sloupce POCET z NDOP, ktery zustava
+  # zachovan: je-li vyplnen, jde o skutecne zmereny pocet; je-li prazdny a
+  # existuje kategorie 1-8, jde o dopocet z relativni pocetnosti.
+  #
+  # Tim se zaroven uzavira nalez H-26 ("dolni mez vs. median") - metodika
+  # odpovida jednoznacne medianem. Zmena je zamerne omezena na TENTO indikator
+  # urovne uzemi, protoze citace se tyka prave jeho; POP_POCET pouzivany jinde
+  # (abundance, trendy, POP_VITAL) zustava nedotcen.
+  if (!exists("cis_pocet_kat")) {
+    stop("Objekt 'cis_pocet_kat' neexistuje - spustte R/00_config/02_n2k_data_druhy.R")
+  }
+  if (!"POP_POCETSTRED" %in% names(cis_pocet_kat)) {
+    stop("Ciselnik 'cis_pocet_kat' nema sloupec POP_POCETSTRED (median kategorie).")
+  }
+
   pocetnost_uzemi <- n2k_druhy %>%
-    dplyr::filter(CILMON == 1, !is.na(POP_POCET)) %>%
+    dplyr::mutate(
+      POP_POCETMEDIAN = as.numeric(
+        cis_pocet_kat$POP_POCETSTRED[
+          match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)
+        ]
+      ),
+      POP_POCETEFEKT = dplyr::case_when(
+        # skutecne zmereny pocet - bere se tak, jak byl zaznamenan
+        !is.na(POCET) ~ as.numeric(POP_POCET),
+        # jen relativni kategorie (1-8) -> median kategorie dle metodiky
+        !is.na(POP_POCETMEDIAN) ~ POP_POCETMEDIAN,
+        # nepritomnost druhu (kategorie 0) i ostatni pripady - beze zmeny
+        TRUE ~ as.numeric(POP_POCET)
+      )
+    ) %>%
+    dplyr::filter(CILMON == 1, !is.na(POP_POCETEFEKT)) %>%
     # maximum za dilci plochu a rok
     dplyr::group_by(kod_chu, DRUH, KOD_LOKAL, ROK) %>%
-    dplyr::summarise(POP_POCETDP = max(POP_POCET, na.rm = TRUE), .groups = "drop") %>%
+    dplyr::summarise(POP_POCETDP = max(POP_POCETEFEKT, na.rm = TRUE), .groups = "drop") %>%
     # soucet pres vsechny DP v ramci roku
     dplyr::group_by(kod_chu, DRUH, ROK) %>%
     dplyr::summarise(POP_POCETSUMROK = sum(POP_POCETDP, na.rm = TRUE), .groups = "drop") %>%

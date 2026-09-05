@@ -73,12 +73,37 @@ run_n2k_druhy_lok <- function(
       # Vytahneme originalni hodnotu mereni
       HOD_IND_VAL = dplyr::first(stats::na.omit(HOD_IND)),
       
-      # Vypocet ciselne hodnoty stavu (STAV_IND) dle typu vyhodnoceni (minmax vs val)
+      # Vypocet ciselne hodnoty stavu (STAV_IND) za DP a rok.
+      #
+      # SMER AGREGACE URCUJE METODIKA a lisi se podle SKUPINY indikatoru, ne
+      # podle typu limitu (nalez H-59):
+      #
+      #   populacni (par. Stav populace)
+      #     "Pro kazdy indikator jsou pro danou DP ve sledovanem roce agregovany
+      #      vsechny zaznamenane hodnoty. Do celkoveho hodnoceni druhu na DP za
+      #      dany rok vstupuje NEJVYSSI pozorovana hodnota."  -> max()
+      #
+      #   stanovistni (par. Stav stanoviste druhu)
+      #     "... vstupuje NEJHORSI pozorovana hodnota. Staci tedy jedno
+      #      prekroceni limitni hodnoty ve sledovanem roce a indikator je
+      #      hodnocen ve spatnem stavu."                      -> min()
+      #
+      # Drive se cela vetev IND_GRP == "val" agregovala maximem bez ohledu na
+      # skupinu, takze u stanovistnich indikatoru s vyctem hodnot (STA_RYBY,
+      # STA_MANIPULACE, STA_POKRVEGETACE, STA_PRUHLEDNOSTVODA,
+      # STA_UHYNOBOJZIVELNIK) staci lo jedno priznive pozorovani a zaznamenane
+      # prekroceni limitu z teze sezony se zahodilo. Vetev "minmax" pritom
+      # totez rozliseni uz delala spravne.
+      #
+      # POP_POSK (poskozeni) zustava vyjimkou mezi populacnimi indikatory -
+      # vyssi poskozeni je horsi, proto se u nej bere minimum.
       STAV_IND_RAW = dplyr::case_when(
-        IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-        # U POP_ (populace) bereme maximum, pokud to neni poskozeni (POP_POSK)
-        IND_GRP == "minmax" & grepl("POP_", ID_IND) & !grepl("POP_POSK", ID_IND) ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-        IND_GRP == "minmax" ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+        # populacni indikatory -> nejvyssi pozorovana hodnota
+        grepl("^POP_", ID_IND) & !grepl("POP_POSK", ID_IND) &
+          IND_GRP %in% c("val", "minmax") ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+        # vse ostatni s vyhodnotitelnym limitem (stanovistni a POP_POSK)
+        # -> nejhorsi pozorovana hodnota
+        IND_GRP %in% c("val", "minmax") ~ min(as.numeric(STAV_IND), na.rm = TRUE),
         TRUE ~ NA_real_
       )
     ) %>%
