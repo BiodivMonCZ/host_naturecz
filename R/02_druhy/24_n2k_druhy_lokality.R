@@ -73,12 +73,37 @@ run_n2k_druhy_lok <- function(
       # Vytahneme originalni hodnotu mereni
       HOD_IND_VAL = dplyr::first(stats::na.omit(HOD_IND)),
       
-      # Vypocet ciselne hodnoty stavu (STAV_IND) dle typu vyhodnoceni (minmax vs val)
+      # Vypocet ciselne hodnoty stavu (STAV_IND) za DP a rok.
+      #
+      # SMER AGREGACE URCUJE METODIKA a lisi se podle SKUPINY indikatoru, ne
+      # podle typu limitu (nalez H-59):
+      #
+      #   populacni (par. Stav populace)
+      #     "Pro kazdy indikator jsou pro danou DP ve sledovanem roce agregovany
+      #      vsechny zaznamenane hodnoty. Do celkoveho hodnoceni druhu na DP za
+      #      dany rok vstupuje NEJVYSSI pozorovana hodnota."  -> max()
+      #
+      #   stanovistni (par. Stav stanoviste druhu)
+      #     "... vstupuje NEJHORSI pozorovana hodnota. Staci tedy jedno
+      #      prekroceni limitni hodnoty ve sledovanem roce a indikator je
+      #      hodnocen ve spatnem stavu."                      -> min()
+      #
+      # Drive se cela vetev IND_GRP == "val" agregovala maximem bez ohledu na
+      # skupinu, takze u stanovistnich indikatoru s vyctem hodnot (STA_RYBY,
+      # STA_MANIPULACE, STA_POKRVEGETACE, STA_PRUHLEDNOSTVODA,
+      # STA_UHYNOBOJZIVELNIK) staci lo jedno priznive pozorovani a zaznamenane
+      # prekroceni limitu z teze sezony se zahodilo. Vetev "minmax" pritom
+      # totez rozliseni uz delala spravne.
+      #
+      # POP_POSK (poskozeni) zustava vyjimkou mezi populacnimi indikatory -
+      # vyssi poskozeni je horsi, proto se u nej bere minimum.
       STAV_IND_RAW = dplyr::case_when(
-        IND_GRP == "val" ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-        # U POP_ (populace) bereme maximum, pokud to neni poskozeni (POP_POSK)
-        IND_GRP == "minmax" & grepl("POP_", ID_IND) & !grepl("POP_POSK", ID_IND) ~ max(as.numeric(STAV_IND), na.rm = TRUE),
-        IND_GRP == "minmax" ~ min(as.numeric(STAV_IND), na.rm = TRUE),
+        # populacni indikatory -> nejvyssi pozorovana hodnota
+        grepl("^POP_", ID_IND) & !grepl("POP_POSK", ID_IND) &
+          IND_GRP %in% c("val", "minmax") ~ max(as.numeric(STAV_IND), na.rm = TRUE),
+        # vse ostatni s vyhodnotitelnym limitem (stanovistni a POP_POSK)
+        # -> nejhorsi pozorovana hodnota
+        IND_GRP %in% c("val", "minmax") ~ min(as.numeric(STAV_IND), na.rm = TRUE),
         TRUE ~ NA_real_
       )
     ) %>%
@@ -117,13 +142,44 @@ run_n2k_druhy_lok <- function(
   n2k_eval <- n2k_druhy_lim_post %>%
     dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
     dplyr::summarise(
-      # Pocet OCEKAVANYCH indikatoru (maji definovany limit a nejsou prazdne)
-      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
-      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
-      
-      # Pocet SPLNENYCH indikatoru (STAV_IND je 1)
-      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
-      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & STAV_IND == 1]),
+      # Pocet OCEKAVANYCH indikatoru: maji definovany limit A ZAROVEN byly pro tuto
+      # DP a rok skutecne vyhodnotitelne (STAV_IND neni NA). Metodika: "Indikator se
+      # hodnoti pouze, jsou-li dostupne informace k jeho hodnoceni" - indikator, ktery
+      # nebyl v danem roce zmeren (napr. mimo sezonni okno u STA_PRUHLEDNOSTVODA/
+      # STA_MANIPULACE, nebo proste nezaznamenan), se NESMI pocitat jako "ocekavany a
+      # nesplneny", jinak by chybejici udaj byl nespravne penalizovan jako selhani.
+      N_KEY_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
+      N_OTH_EXPECTED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND)]),
+
+      # Pocet SPLNENYCH indikatoru (STAV_IND je 1).
+      #
+      # PROC JE ZDE `!is.na(STAV_IND)` NAVIC: bez nej se do poctu splnenych
+      # indikatoru zapocital i indikator, ktery vubec nebyl vyhodnocen.
+      # Pro radek se STAV_IND = NA se totiz cela podminka v hranatych zavorkach
+      # vyhodnoti na NA, `ID_IND[NA]` vrati NA_character_ a `n_distinct()`
+      # pocita NA jako plnohodnotnou hodnotu. Kazda DP, ktera mela alespon
+      # jeden nezmereny indikator, tak dostala k poctu splnenych indikatoru +1.
+      #
+      # Metodika (Tab. 1): "min 1 spatne hodnoceny populacni indikator ->
+      # spatny". Bez tohoto filtru vysel vyraz `N_KEY_PASSED < N_KEY_EXPECTED`
+      # nepravdivy i tam, kde jeden klicovy indikator skutecne selhal, a DP se
+      # vykazala jako "dobry". Priklad: POP_PRESENCE = 1, POP_REPROPERIOD3 = 0,
+      # POP_ZMENARAD = NA dava N_KEY_EXPECTED = 2 a N_KEY_PASSED = 2 (misto 1).
+      #
+      # Stejny posun o +1 se tykal i stanovistnich indikatoru, kde srazel
+      # hranici "min 2 spatne hodnocene stanovistni indikatory -> zhorseny"
+      # fakticky na "min 3". U obojzivelniku je posun univerzalni, protoze
+      # STA_PLOCHA50CM ma vyplneny limit, ale hodnota se sbira az od r. 2027,
+      # takze je NA pro kazdou DP.
+      #
+      # POZOR, oprava neni neutralni pro ostatni skupiny: tato vetev obsluhuje
+      # i ryby, hmyz, savce a rostliny. Zmena je vsak jednosmerna - opraveny
+      # pocet splnenych indikatoru je vzdy <= puvodnimu, takze se hodnoceni DP
+      # muze pouze zhorsit, nikdy zlepsit, a dotkne se jen tech DP, kde nejaky
+      # indikator s limitem zustal nevyhodnocen. Viz nalez H-21 v
+      # Metodiky/Obojzivelnici/harmonizace_registr.md.
+      N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
+      N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
       
       # Metadata pro razeni nejlepsi navstevy
       MAX_CILMON = max(CILMON, na.rm = TRUE),
@@ -131,16 +187,23 @@ run_n2k_druhy_lok <- function(
       .groups = "drop"
     ) %>%
     dplyr::mutate(
-      # Logika semaforu pro celkove hodnoceni
+      # Logika hodnoceni DP dle Tabulky 1 metodiky (obojzivelnici):
+      #   pocet spatne hodnocenych populacnich (klicovych) indikatoru | pocet spatne hodnocenych
+      #   stanovistnich (ostatnich) indikatoru | celkovy stav
+      #   max 0                                | 0 - 1                                          | dobry
+      #   max 0                                | min 2                                          | zhorseny
+      #   min 1                                | -                                              | spatny
+      # Tzn. "spatny" muze zpusobit jen selhani klicoveho (populacniho) indikatoru; sebevic
+      # spatnych stanovistnich indikatoru samo o sobe vede nejvyse na "zhorseny".
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
       CELKOVE = dplyr::case_when(
         is.na(MAX_CILMON) ~ NA_real_,
-        # Klicove indikatory musi byt splneny vsechny
+        # Alespon 1 spatne hodnoceny klicovy (populacni) indikator = spatny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        # Ostatni indikatory - tolerance selhani
-        N_OTH_FAIL > 1 ~ 0,   # Vice nez 1 chyba = Spatny
-        N_OTH_FAIL == 1 ~ 0.5, # Prave 1 chyba = Zhorseny
-        TRUE ~ 1               # Bez chyb = Dobry
+        # 0 spatnych klicovych indikatoru, ale >=2 spatne stanovistni indikatory = zhorseny
+        N_OTH_FAIL >= 2 ~ 0.5,
+        # 0 spatnych klicovych indikatoru a max 1 spatny stanovistni indikator = dobry
+        TRUE ~ 1
       )
     )
   

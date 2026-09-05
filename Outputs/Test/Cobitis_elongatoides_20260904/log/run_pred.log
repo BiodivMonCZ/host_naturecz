@@ -1,0 +1,285 @@
+=== ORIZNUTY CONFIG: 41 vyrazu nejvyssi urovne z 2 souboru ===
+Warning: package 'tidyverse' was built under R version 4.6.1
+Warning: package 'ggplot2' was built under R version 4.6.1
+Warning: package 'tibble' was built under R version 4.6.1
+Warning: package 'tidyr' was built under R version 4.6.1
+Warning: package 'readr' was built under R version 4.6.1
+Warning: package 'purrr' was built under R version 4.6.1
+Warning: package 'dplyr' was built under R version 4.6.1
+Warning: package 'stringr' was built under R version 4.6.1
+Warning: package 'forcats' was built under R version 4.6.1
+Warning: package 'lubridate' was built under R version 4.6.1
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning: package 'sf' was built under R version 4.6.1
+Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.1; sf_use_s2() is TRUE
+Warning: package 'sp' was built under R version 4.6.1
+Warning: package 'proj4' was built under R version 4.6.1
+Warning: package 'openxlsx' was built under R version 4.6.1
+Warning: package 'fuzzyjoin' was built under R version 4.6.1
+Warning: package 'remotes' was built under R version 4.6.1
+Warning: package 'progress' was built under R version 4.6.1
+Warning: package 'fs' was built under R version 4.6.1
+Warning: package 'data.table' was built under R version 4.6.1
+
+Attaching package: 'data.table'
+
+The following objects are masked from 'package:lubridate':
+
+    hour, isoweek, isoyear, mday, minute, month, quarter, second, wday,
+    week, yday, year
+
+The following objects are masked from 'package:dplyr':
+
+    between, first, last
+
+The following object is masked from 'package:purrr':
+
+    transpose
+
+The following object is masked from 'package:base':
+
+    %notin%
+
+  [skip 3] if (!require("rn2kcz", quietly = TRUE)) {   <- rn2kcz
+Rows: 594 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN, pozn
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 254 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (7): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 492 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 1153 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (4): sitecode, kategorie, nazev_chu, oop
+dbl (1): kod_chu
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 1153 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (4): sitecode, typ_chu, nazev_chu, pracoviste
+lgl (1): ,,
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 48 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): ind_popis, ind_r
+dbl (2): ind_id, ind_nadr
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 131 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): TAXON, AUTOR_POPISU, CESKE_JMENO, PRILOHA_SMERNICE, CELED, SKUPINA,...
+dbl (3): ID_TAXON, ID_ZDROJ, PERIODA
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 131 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): druh, druh_cz, SKUPINA, SKUPINA_0
+dbl (2): kod_druhu, metodika
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Reading local file: Data/Input/EvVyzLok.shp
+Warning in CPL_crs_from_input(x) :
+  GDAL Message 1: +init=epsg:XXXX syntax is deprecated. It might return a CRS with a non-EPSG compliant axis order. Further messages of this type will be suppressed.
+Reading local file: Data/Input/PtaciObl.shp
+Rows: 32 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): ZDROJ_NDOP
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 8 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (4): POP_POCETNOSTMAX, POP_POCETSTRED, POP_POCETNMIN, POP_POCETNMAX
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 19 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): DRUH, LIMIT, JEDNOTKA
+dbl (3): KAT, MIN, MAX
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 115 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): SITECODE, NAZEV, DRUH
+dbl (3): FEATURE_CODE, BIOTOP_PLOCHA, BIOTOP_PROCENTO
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat)
+Rows: 203073 Columns: 40
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (28): DRUH, CESKE_JME, AUTOR, DATUM_OD, DATUM_DO, LOKALITA, KOD_LOKALITY...
+dbl (12): ID_ND_NALEZ, IDX_ND_AKCE, IDX_ND_LOK, POCET, ODHAD, X, Y, PRESNOST...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 6752 Columns: 37
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (27): DRUH, CESKE_JME, AUTOR, DATUM_OD, DATUM_DO, LOKALITA, KOD_LOKALITY...
+dbl (10): ID_ND_NALEZ, IDX_ND_AKCE, IDX_ND_LOK, POCET, ODHAD, X, Y, PRESNOST...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  [filtr] Cobitis elongatoides: export_data_evl 203073 -> 211 radku; ncol_orig = 40
+=== CONFIG HOTOV: n2k_load = 211 zaznamu, 48 sloupcu; preskoceno 1 vyrazu ===
+=== Ukladam cache konfigurace: Test/.cache_cob.rds ===
+=== Spoustim: 21_1_n2k_druhy_akce.R ===
+=== Spoustim: 21_2_n2k_druhy_akce_lim.R ===
+=== Spoustim: 22_n2k_obdobi.R ===
+=== Spoustim: 23_n2k_posledni_nalez.R ===
+=== Spoustim: 24_n2k_druhy_lokality.R ===
+=== Spoustim: 25_n2k_druhy_uzemi.R ===
+=== Spoustim: 27_n2k_druhy_zapis.R ===
+--- ZACINAM VYPOCET FAZE 1 (AKCE) PRO 1 DRUHU ---
+[1/4 Akce] druh  1/ 1 | hotovo     0/   13 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cobitis elongatoides (13 lokalit)
+Druh Cobitis elongatoides: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCET' limit for species — POP_POCET will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations.
+Warning: There were 684 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 1: `KOD_LOKAL = "CZ0214013"`, `ROK = 2017`, `DRUH = Cobitis
+  elongatoides`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 683 remaining warnings.
+Warning: There were 13 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 1: `KOD_LOKAL = "CZ0214013"`, `DRUH = Cobitis elongatoides`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 12 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 1 of `x` matches multiple rows in `y`.
+ℹ Row 86 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] HOTOVO: 1 druhu / 13 lokalit-druh za 00:00:06
+--- UKLADAM MEZIVYSLEDEK 1 DO TEMP ---
+Warning: There was 1 warning in `dplyr::summarise()`.
+ℹ In argument: `POP_POCETDP = max(POP_POCET, na.rm = TRUE)`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+--- ZACINAM VYPOCET FAZE 2 (LIMITY) ---
+[2/4 Limity] druh  1/ 1 | hotovo     0/   13 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cobitis elongatoides (13 lokalit)
+Warning: There was 1 warning in `dplyr::mutate()`.
+ℹ In argument: `LIM_IND_num = dplyr::if_else(is_num_lim,
+  as.numeric(LIM_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+[2/4 Limity] HOTOVO: 1 druhu / 13 lokalit-druh za 00:00:00
+--- UKLADAM MEZIVYSLEDEK 2 DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT (NALEZY) ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_nal_2025_20260904... ---
+--- HOTOVO (NAL_EXPORT) ---
+--- ZACINAM VYPOCET FAZE 3 (LOKALITY) ---
+[3/4 Lokality] druh  1/ 1 | hotovo     0/   13 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cobitis elongatoides (13 lokalit)
+Warning: There were 540 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0214013"`, `DRUH = "Cobitis elongatoides"`,
+  `KOD_LOKAL = "CZ0214013"`, `POLE = "5553c"`, `ROK = 2017`, `ID_IND =
+  "CELKOVE_SUM"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 539 remaining warnings.
+[3/4 Lokality] HOTOVO: 1 druhu / 13 lokalit-druh za 00:00:01
+--- UKLADAM MEZIVYSLEDEK DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_lok_2025_20260904... ---
+--- HOTOVO ---
+--- ZACINAM VYPOCET FAZE 4 (UZEMI/CHU) ---
+[4/4 Uzemi] druh  1/ 1 | hotovo     0/   13 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Cobitis elongatoides (13 lokalit)
+Warning: There were 195 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0214013"`, `DRUH = "Cobitis elongatoides"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 194 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 980 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`,
+  `ID_IND = "LOK_PROCDOBR"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 979 remaining warnings.
+Warning: There were 67 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 1: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 66 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] HOTOVO: 1 druhu / 13 lokalit-druh za 00:00:01
+Warning in chu_export(species_list = species_list, sites_subjects = sites_subjects,  :
+  Zadna data nebyla vygenerovana. Export se neprovede.
+=== HOTOVO: vsechny skripty ve slozce 02_druhy byly spusteny ===
+=== CELKOVY CAS: 0.3 min ===

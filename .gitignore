@@ -6,3 +6,22 @@
 .httr-oauth
 .DS_Store
 .quarto
+
+# Credentials / prostredi - nikdy neverzovat.
+# .Renviron obsahuje pristupove udaje (NDOP, ISOP, KoboToolbox) v otevrenem
+# textu; aktualne lezi mimo repozitar (~/Documents/.Renviron), toto je
+# pojistka pro pripad, ze by se kopie nekdy objevila uvnitr projektu.
+.Renviron
+.Renviron.*
+**/.Renviron
+.env
+*.pem
+*.key
+secrets.*
+
+# Pracovni mezivysledky pipeline - neverzovat.
+# Soubory v Data/Temp/ vznikaji za behu (R/02_druhy/27_n2k_druhy_zapis.R je
+# zapisuje, navazujici skripty ctou) a dosahuji stovek MB - n2k_druhy_lim.csv
+# narostl na 212 MB, coz prekracuje limit GitHubu 100 MB na soubor.
+# Kazdy beh pipeline si je vytvori znovu, verzovat je nema smysl.
+Data/Temp/

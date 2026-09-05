@@ -1,0 +1,16 @@
+src <- readLines("R/02_druhy/21_1_n2k_druhy_akce.R", encoding="UTF-8")
+eval(parse(text=paste(src[1:(grep("^run_n2k_druhy <- function", src)[1]-1)], collapse="\n")), globalenv())
+ok<-0; bad<-0
+zk <- function(p,g,e){ if(identical(as.character(g),as.character(e))) ok<<-ok+1 else {bad<<-bad+1; cat("  CHYBA:",p,"ceka",e,"dava",g,"\n")}}
+zk("jedina hodnota", max_cislo("100"), 100)
+zk("dve bariery, vyssi druha", max_cislo("100, 300"), 300)
+zk("dve bariery, vyssi prvni", max_cislo("2000, 50"), 2000)
+zk("nula a peticentimetrova", max_cislo("0, 5"), 5)
+zk("tri stejne", max_cislo("50, 50, 50"), 50)
+zk("rozsah", max_cislo("151-200"), 200)
+zk("s jednotkou", max_cislo("25cm"), 25)
+zk("volny text s cisly", max_cislo("10, ostatní nevím cca 50 cm"), 50)
+zk("NA", max_cislo(NA), NA_real_)
+zk("bez cisla", max_cislo("neuvedeno"), NA_real_)
+zk("vektorove", paste(max_cislo(c("10","20, 5")), collapse=","), "10,20")
+cat("=== max_cislo:", ok, "OK,", bad, "chyb ===\n")

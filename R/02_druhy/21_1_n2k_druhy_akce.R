@@ -1,3 +1,294 @@
+#----------------------------------------------------------#
+# Pomocne funkce - stav vody (obojzivelnici) ----
+#----------------------------------------------------------#
+# Metodika (par. Sledovane indikatory, "Stav vody"): "Zaznamenava se mira
+# zaplaveni dna DP v procentech, kde 100 % odpovida plne zaplavenemu dnu,
+# tj. zaplaveni cele panve v jejim maximalnim rozsahu; 0 % odpovida zcela
+# vyschle plose."
+#
+# NDOP ale tentyz udaj nese ve TRECH ruznych tvarech soucasne:
+#   - holym cislem v procentech ...... "100", "80", "0"
+#   - procentnim pasmem .............. "26-50 %", "0-25 %", "76-100 %"
+#   - slovnim stavem ................. "vyschle", "zanikla", "zazemnena"
+#
+# Puvodni case_when znal jen pasma a slovni tvar "vyschla" (zensky rod), ktery
+# se v datech NEVYSKYTUJE ANI JEDNOU - data pouzivaji tvar "vyschle". Vyschle
+# plochy proto propadaly na vetev is.na(...) == FALSE ~ 0L, tedy "nevysycha".
+# Mereno na exportu z NDOP (31 733 zaznamu 6 druhu metodiky) rozpoznaval
+# puvodni prevod: STA_STAVVODATUNE 82,3 %, STA_STAVVODARYBNIK 56,5 %,
+# STA_STAVVODAPERTUNE 29,8 %, STA_STAVVODALITORAL 0,0 % hodnot.
+#
+# norm_stavvody() prevadi vsechny tri tvary na jedno cislo = procento zaplaveni.
+# U pasma se bere HORNI mez, aby zustalo zachovano puvodni chovani ("1-25 %"
+# znamenalo vysychani, horni mez 25 <= 25 dava totez). Nerozpoznana hodnota
+# vraci NA - NIKDY ne 0 ani 100, aby chybejici udaj nebyl vydavan za mereni.
+# PRAH_VYSYCHANI: horni mez zaplaveni dna (v procentech), pri ktere se plocha
+# jeste povazuje za vysychajici.
+#
+# Metodika (par. Sledovane indikatory, "Stav vody"): "0 % odpovida zcela
+# vyschle plose." Prah je proto 0 - hodnoti se jen skutecne vyschla plocha.
+#
+# Drive zde bylo 25, prevzate ze stareho pasma "1-25 %", ktere puvodni prevod
+# povazoval za vysychani. Rozhodnuti zadavatele 2026-08-31: rovnat se
+# doslovnemu zneni metodiky (nalez H-30).
+#
+# POZOR na interakci s norm_stavvody(): u procentniho pasma se bere HORNI mez,
+# takze zaznam "0-25 %" da 25 a pri prahu 0 se za vysychani NEPOVAZUJE,
+# prestoze jeho dolni konec je nula. Tvary, ktere prah 0 zachyti, jsou slovni
+# stavy (vyschle / zanikla / zazemnena -> 0) a hole cislo 0.
+PRAH_VYSYCHANI <- 0
+
+# Druhy resene metodikou obojzivelniku (Priloha 1: BBOM, BVAR, LMON, TRITURUS).
+#
+# Konstanta je na urovni SOUBORU, protoze ji potrebuje i 25_n2k_druhy_uzemi.R
+# k omezeni Tabulky 2 (nalez H-50). 21_1 se ve 20_n2k_druhy_run.R sourcuje
+# driv nez 25, takze je v okamziku pouziti dostupna.
+DRUHY_METODIKY_OBOJ <- c(
+  "Bombina bombina", "Bombina variegata", "Lissotriton montandoni",
+  "Triturus cristatus", "Triturus carnifex", "Triturus dobrogicus"
+)
+
+norm_stavvody <- function(x) {
+  v <- stringr::str_squish(as.character(x))
+  v[v == ""] <- NA_character_
+  vl <- tolower(v)
+  out <- rep(NA_real_, length(v))
+  # slovni stavy = zcela bez vody
+  out[!is.na(vl) & grepl("^(vyschl|zanikl|zazem)", vl)] <- 0
+  # procentni pasmo "A-B" / "A-B %" -> horni mez
+  i <- is.na(out) & !is.na(vl) & grepl("^[0-9]+ *- *[0-9]+ *%?$", vl)
+  out[i] <- as.numeric(sub("^[0-9]+ *- *([0-9]+) *%?$", "\\1", vl[i]))
+  # hole cislo, volitelne s procentem
+  i <- is.na(out) & !is.na(vl) & grepl("^[0-9]+([.,][0-9]+)? *%?$", vl)
+  out[i] <- as.numeric(sub(",", ".", sub(" *%$", "", vl[i]), fixed = TRUE))
+  out[!is.na(out) & (out < 0 | out > 100)] <- NA_real_
+  out
+}
+
+# Slovni stav plochy - odlisuje ZANIK/ZAZEMNENI (ztrata biotopu) od pouheho
+# VYSCHNUTI (docasny stav). Osetruje oba rodove tvary, ktere se v datech
+# vyskytuji ("vyschla" i "vyschle").
+stav_vody_slovni <- function(x) {
+  vl <- tolower(stringr::str_squish(as.character(x)))
+  dplyr::case_when(
+    !is.na(vl) & grepl("^vyschl", vl) ~ "vyschla",
+    !is.na(vl) & grepl("^zanikl", vl) ~ "zanikla",
+    !is.na(vl) & grepl("^zazem",  vl) ~ "zazemnena",
+    TRUE ~ NA_character_
+  )
+}
+
+# Klouzavy soucet pres POSLEDNI TRI MONITOROVANE SEZONY VCETNE aktualniho radku.
+# Vstupem je vektor serazeny vzestupne podle roku v ramci jedne DP a druhu.
+# Metodika pracuje se "tremi poslednimi sezonami s monitoringem dane DP", nikoli
+# se tremi kalendarnimi roky - okno se proto pocita pres radky, ne pres roky.
+# Vraci NA, pokud v okne neni ani jedna nechybejici hodnota.
+roll3_sum <- function(x) {
+  x <- as.numeric(x)
+  x[is.infinite(x)] <- NA_real_
+  vapply(seq_along(x), function(i) {
+    v <- x[max(1L, i - 2L):i]
+    if (all(is.na(v))) NA_real_ else sum(v, na.rm = TRUE)
+  }, numeric(1))
+}
+
+#----------------------------------------------------------#
+# Pomocne funkce - stanovistni indikatory ryb a mihuli ----
+#----------------------------------------------------------#
+# Data ryb nesou strukturovane poznamky pod JINOU konvenci nez obojzivelnici:
+# male zkracene tagy (<sub_dno>, <char_prou>, <tr_tok_char> ...) misto nazvu
+# ID_IND. Kod je proto dlouho vubec necetl a 19 z 26 indikatoru v
+# limity_ryby.csv zustavalo sirotky - viz nalez H-38 v harmonizace_registr.md.
+#
+# Samotna extrakce ale nestaci. 21_2_n2k_druhy_akce_lim.R paruje limity pres
+# intersect(nazvy sloupcu, ID_IND limitu), takze VYTVORENIM SLOUPCE SE
+# INDIKATOR ZAPNE - a kdyby se hodnoty netrefily do limitu, vratil by
+# STAV_IND = 0, tedy nepriznivy stav, u vsech zaznamu. To je presne mechanismus
+# nalezu H-01. Extrakce proto resi tri veci najednou (nalez H-42):
+#
+#   1. SLOVNIK. Limity pouzivaji kratke tvary ("kameny", "submerzní"), data
+#      plne ("Kameny (6-25 cm)", "Submerzní"). Prevod je rizeny slovnikem nize
+#      a jde smerem DATA -> SLOVNIK LIMITU; limity zustavaji nedotcene,
+#      protoze jsou normativni artefakt.
+#   2. VICEHODNOTOVOST. <sub_dno> a spol. jsou vyber z vice moznosti oddeleny
+#      carkou a poradi NENI stabilni - <char_prou> ma v datech 101 ruznych
+#      retezcu ze sesti kategorii. Hodnota se proto sklada jako SERAZENA
+#      MNOZINA a porovnani typu "val" v 21_2 i 25 se rozsirilo na prislusnost.
+#   3. PASMA MISTO PROCENT. STA_UPRAVABREHU a STA_UPRAVADNA maji limit
+#      "max 49 %", data ale nesou pasma - viz uprava_procent() nize.
+#
+# Kategorie se NEHLEDAJI rozdelenim retezce podle carky, ale detekci znamych
+# tvaru. Duvod: hodnota "Umělý substrát (dlažba, beton)" obsahuje carku uvnitr
+# (45 zaznamu) a rozdeleni by ji roztrhlo na dve neexistujici kategorie, cimz
+# by se nafoukl i pocet typu pro STA_DNOPOCETTYPU.
+
+# Slovniky: jmeno prvku = tvar hledany v datech (mala pismena),
+# hodnota = tvar pouzity v limity_ryby.csv.
+#
+# Dvojice s TYMZ cilem osetruji preklepy primo ve zdrojovych datech:
+# "Mírny proud" (634 zaznamu) vedle spravneho "Mírný proud" (1 399)
+# a "vodopad" vedle "Vodopád".
+SLOVNIK_DNO <- c(
+  "balvany"                 = "balvany",
+  "kameny"                  = "kameny",
+  "štěrk"                   = "štěrk",
+  "písek"                   = "písek",
+  "bahno"                   = "bahno",
+  "kompaktní jílovité dno"  = "kompaktní jílové dno",
+  "skalní podloží"          = "skalní podloží",
+  "umělý substrát"          = "umělý substrát",
+  "jiný"                    = "jiný"
+)
+
+SLOVNIK_PROUD <- c(
+  "peřejnatý úsek"    = "peřeje",
+  "mírný proud"       = "mírný",
+  "mírny proud"       = "mírný",
+  "tůně"              = "tůně",
+  "stupně a kaskády"  = "kaskády",
+  "vzdutí"            = "vzdutí",
+  "vodopád"           = "vodopád",
+  "vodopad"           = "vodopád"
+)
+
+SLOVNIK_VEGETACE <- c(
+  "bez vegetace" = "bez vegetace",
+  "submerzní"    = "submerzní",
+  "emerzní"      = "emerzní",
+  "plovoucí"     = "plovoucí"
+)
+
+# <zahl_kor> je jednohodnotovy; limit zna jen "přirozeně nízký", ostatni
+# kategorie se prevadeji na kratky tvar, aby bylo ve vystupu videt, co bylo
+# zaznamenano.
+SLOVNIK_ZAHLOUBENI <- c(
+  "přirozené nízké zahloubení" = "přirozeně nízký",
+  "umělé střední zahloubení"   = "uměle střední",
+  "umělé značné zahloubení"    = "uměle značné",
+  "střední zahloubení"         = "střední",
+  "značné zahloubení"          = "značné"
+)
+
+# Nejvyssi cislo v retezci (nalez H-52).
+#
+# <vyska_bar> uvadi u vice barier vsechny vysky oddelene carkou - 103 z 521
+# hodnot, napr. "100, 300", "50, 50, 50" nebo "0, 5". Puvodni parse_number()
+# vracel PRVNI cislo, takze se u "0, 5" vyhodnotila nulova bariera a
+# peticentimetrova se ztratila, u "100, 300" naopak zmizela ta vyssi. Pro limit
+# typu "max N cm" je rozhodujici bariera NEJVYSSI - ta urcuje pruchodnost useku.
+#
+# Desetinna carka tu nehrozi: v <vyska_bar> se carka mezi cislicemi nevyskytuje
+# ANI JEDNOU (overeno na vsech 521 hodnotach), vzdy oddeluje jednotlive bariery.
+# Rozsahy typu "20-30" nebo "151-200cm" davaji horni mez, coz je u vysky
+# bariery konzervativni odhad spravnym smerem.
+#
+# ZNAME OMEZENI: jedina hodnota v datech uvadi metry ("více než 1 m") a vyjde
+# z ni 1, tedy jako by slo o 1 cm. Prevod jednotek se kvuli jedinemu zaznamu
+# nezavadi, ale je to duvod, proc se ma vyska barier zapisovat cislem v cm.
+max_cislo <- function(x) {
+  x <- as.character(x)
+  vapply(seq_along(x), function(i) {
+    if (is.na(x[i])) return(NA_real_)
+    v <- stringr::str_extract_all(x[i], "[0-9]+")[[1]]
+    if (length(v) == 0) NA_real_ else max(as.numeric(v))
+  }, numeric(1))
+}
+
+# Vytazeni hodnoty tagu ze STRUKT_POZN. Prazdny retezec -> NA, aby se
+# nevyplneny udaj nevydaval za mereni (tataz zasada jako u nalezu H-12).
+tag_hodnota <- function(x, tag) {
+  v <- stringr::str_match(
+    as.character(x),
+    paste0("<", tag, ">([^<]*)</", tag, ">")
+  )[, 2]
+  v <- stringr::str_squish(v)
+  v[!is.na(v) & v == ""] <- NA_character_
+  v
+}
+
+# Mnozina kategorii pritomnych v hodnote tagu, prevedena do slovniku limitu.
+# Vraci retezec "a, b, c" se SERAZENYMI a odduplikovanymi polozkami, aby na
+# poradi zapisu v datech nezalezelo. Nenajde-li se zadna znama kategorie,
+# vraci NA (ne prazdny retezec), aby indikator zustal nehodnoceny.
+#
+# Kategorie se hledaji od NEJDELSIHO tvaru k nejkratsimu a kazdy nalezeny tvar
+# se ze vstupu ODEBERE. Bez toho by se kratsi tvar trefil do tehoz useku textu
+# jako delsi: "Umělé střední zahloubení (1-2 m)" obsahuje jako podretezec
+# i "střední zahloubení" a vysledkem by byly DVE kategorie misto jedne.
+# Odebiranim se zaroven nepokazi vicehodnotove tagy - odstraneni "kameny"
+# z "Kameny (6-25 cm), Štěrk (0,2-6 cm)" ostatni polozky nijak nezasahne.
+kat_mnozina <- function(x, slovnik) {
+  # Zkratka pro skupiny bez techto tagu (obojzivelnici, hmyz, rostliny...):
+  # kdyz je vstup cely NA, je NA i vysledek, takze se nemusi nic prochazet.
+  # Kaskada bezi pres cca sto druhu, z nichz tyto tagy ma jen hrstka ryb.
+  if (all(is.na(x))) return(rep(NA_character_, length(x)))
+  vl <- tolower(ifelse(is.na(x), "", as.character(x)))
+  klice <- names(slovnik)[order(nchar(names(slovnik)), decreasing = TRUE)]
+  hodnoty <- unname(slovnik[klice])
+  nalez <- matrix(FALSE, nrow = length(vl), ncol = length(klice))
+  for (j in seq_along(klice)) {
+    m <- stringr::str_detect(vl, stringr::fixed(klice[j]))
+    nalez[, j] <- m
+    vl[m] <- stringr::str_remove_all(vl[m], stringr::fixed(klice[j]))
+  }
+  vapply(seq_along(x), function(i) {
+    if (is.na(x[i])) return(NA_character_)
+    k <- sort(unique(hodnoty[nalez[i, ]]))
+    if (length(k) == 0L) NA_character_ else paste(k, collapse = ", ")
+  }, character(1))
+}
+
+# Pocet ruznych kategorii v mnozine vracene funkci kat_mnozina().
+kat_pocet <- function(x) {
+  ifelse(is.na(x), NA_real_, stringr::str_count(x, ", ") + 1)
+}
+
+# Dolni mez procentniho pasma. Data pouzivaji dve stupnice:
+#   uprava brehu / dna ... "0-10%", "10-25%", "26-50%", "51-75%", ">75%",
+#                          "Dominantní 100%"
+#   substrat / proud ..... "Vzácný (0-10 %)", "Běžný (11-25 %)", ...
+pasmo_dolni_mez <- function(x) {
+  vl <- tolower(stringr::str_squish(as.character(x)))
+  out <- rep(NA_real_, length(vl))
+  out[!is.na(vl) & grepl("dominantn", vl)] <- 100
+  i <- is.na(out) & !is.na(vl) & grepl("^>", vl)
+  out[i] <- as.numeric(sub("^>[^0-9]*([0-9]+).*$", "\\1", vl[i]))
+  i <- is.na(out) & !is.na(vl) & grepl("[0-9]+ *- *[0-9]+", vl)
+  out[i] <- as.numeric(sub("^[^0-9]*([0-9]+) *- *[0-9]+.*$", "\\1", vl[i]))
+  out
+}
+
+# Procento UPRAVENE casti brehu / dna, odvozene z pasma NEUPRAVENE casti.
+#
+#   souhrn ...... <breh_upr> / <upr_dno>, vycet typu uprav
+#   pasmo ....... <breh_upr_bu> / <upr_dno_r_b_u>, pasmo podilu casti bez uprav
+#   bez_uprav ... text, kterym se v souhrnu pozna kategorie "bez uprav"
+#
+# Overeno na datech (2 507 zaznamu se souhrnnym tagem): pasmo je vyplneno
+# PRAVE TEHDY, kdyz souhrn kategorii "bez uprav" obsahuje - jinak je prazdne
+# (267 zaznamu u brehu, 62 u dna) a nikdy nenese pasmo. Chybejici pasmo pri
+# chybejici kategorii tedy znamena "neupraveno 0 %", ne "neznamo".
+#
+# Vraci HORNI mez upraveneho podilu, tj. 100 - dolni mez neupraveneho. Prah
+# metodiky je "max 49 %" a lezi PRESNE na hranici pasem:
+#   neupraveno 51-75 % -> upraveno nejvyse 49 % -> splneno
+#   neupraveno 26-50 % -> upraveno nejmene 50 % -> nesplneno
+# Volba bodu uvnitr pasma proto vysledek nemeni a nepredjima nerozhodnuty
+# nalez H-26 (dolni mez vs. median kategorie).
+uprava_procent <- function(souhrn, pasmo, bez_uprav) {
+  ma_souhrn <- !is.na(souhrn)
+  ma_bez <- ma_souhrn &
+    stringr::str_detect(tolower(ifelse(is.na(souhrn), "", souhrn)),
+                        stringr::fixed(bez_uprav))
+  mez <- pasmo_dolni_mez(pasmo)
+  dplyr::case_when(
+    !ma_souhrn  ~ NA_real_,     # tag vubec nezaznamenan
+    !ma_bez     ~ 100,          # zadna cast bez uprav -> upraveno cele
+    !is.na(mez) ~ 100 - mez,    # zname pasmo neupravene casti
+    TRUE        ~ NA_real_      # kategorie uvedena, ale pasmo nevyplneno
+  )
+}
+
 run_n2k_druhy <- function(
     n2k_load,
     species_name,
@@ -6,6 +297,54 @@ run_n2k_druhy <- function(
     current_year = 2025
 ) {
   
+  # Nektera pravidla nize plati POUZE pro druhy metodiky obojzivelniku -
+  # sdileny kod obsluhuje i ryby, hmyz, savce a rostliny, kde se skala
+  # pocetnosti i zdroje indikatoru lisi. Seznam je konstanta
+  # DRUHY_METODIKY_OBOJ na zacatku souboru.
+  je_obojzivelnik <- species_name %in% DRUHY_METODIKY_OBOJ
+
+  # Pocitat populacni trendy? Ridi se VYHRADNE tabulkou limitu - trendovy blok
+  # (POP_POCETMAXREF, POP_TREND1, POP_TREND2, POP_TREND, POP_TRENDLM) se
+  # vyhodnocuje jen u druhu, ktere maji nektery z indikatoru POP_TREND* uvedeny
+  # v limitech. Dnes je to 34 druhu cevnatych rostlin (limity_cevky.csv,
+  # POP_TREND: max 1, KLIC = ano, UROVEN = lok).
+  #
+  # PROC: u obojzivelniku metodika zadny populacni trend nezna a v limitech pro
+  # ne zadny radek POP_TREND* neni - hodnoty se pocitaly, prosly celou fazi 1
+  # a teprve ve fazi 2 je zahodil right_join na limity. Slo tedy o praci navic
+  # bez vlivu na vysledek, ktera navic svadela k tomu cist POP_TRENDLM jako
+  # platny udaj. Regrese se u zaznamu bez ciselneho poctu pocitala z dosazenych
+  # mezi kategorii, takze cislo bylo i vecne zavadejici.
+  #
+  # Podminka je zamerne datova, ne "neni obojzivelnik" - pribude-li trendovy
+  # limit dalsi skupine, zacne se pocitat sam od sebe.
+  pocitat_trend <- any(
+    limity$DRUH == species_name &
+      grepl("^POP_TREND", limity$ID_IND),
+    na.rm = TRUE
+  )
+  if (!pocitat_trend) {
+    message(glue::glue(
+      "Druh {species_name}: zadny limit POP_TREND* - trendovy blok se nepocita."
+    ))
+  }
+
+  # Kontrola ciselniku kategorii pocetnosti.
+  # POP_POCETMIN a POP_POCETMAX se z nej odvozuji primo (viz nize), takze
+  # chybejici sloupec by se jinak projevil az nesrozumitelnou chybou delky
+  # uvnitr dplyr::if_else().
+  if (!exists("cis_pocet_kat")) {
+    stop("Objekt 'cis_pocet_kat' neexistuje - spustte R/00_config/02_n2k_data_druhy.R")
+  }
+  cis_pocet_kat_sloupce <- c("POP_POCETNOSTMAX", "POP_POCETNMIN", "POP_POCETNMAX")
+  if (!all(cis_pocet_kat_sloupce %in% names(cis_pocet_kat))) {
+    stop(
+      "Ciselnik 'cis_pocet_kat' nema ocekavane sloupce (",
+      paste(setdiff(cis_pocet_kat_sloupce, names(cis_pocet_kat)), collapse = ", "),
+      ") - zkontrolujte Data/Input/cis_pocet_kat.csv."
+    )
+  }
+
   # Kontrola limitu pro pocet (POP_POCET)
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
@@ -144,14 +483,30 @@ run_n2k_druhy <- function(
       grepl("počet samců: cca 100", POZN_TAX) ~ 4,
       grepl("počet samců: řádově vyšší desítky", POZN_TAX) ~ 3,
       POP_RELPOC == "řádově vyšší desítky" ~ 3,
-      POP_POCET > 51 & POP_POCET <= 100 ~ 3,
+      # Metodika obojzivelniku: vyssi desitky = 51-100. Puvodne "> 51", takze
+      # hodnota POCET == 51 nespadala nikam a koncila jako NA.
+      POP_POCET >= 51 & POP_POCET <= 100 ~ 3,
       POP_RELPOC == "řádově nižší desítky" ~ 2,
       grepl("počet samců: řádově nižší desítky", POZN_TAX) ~ 2,
+      # Metodika obojzivelniku definuje sestistupnovou skalu, kde nizsi desitky
+      # jsou 11-50 a vyssi desitky 51-100. Kategorie NDOP "11-100" tuto hranici
+      # PRESAHUJE - v exportu jde o 1 630 zaznamu. Rozhodnuti autoru metodiky
+      # (2026-08-20): "bere nizsi kategorie, konzervativni predbezna opatrnost",
+      # tedy 2. U ostatnich skupin (ryby, hmyz, savci, rostliny) zustava puvodni
+      # zarazeni 3, aby se nezmenilo jejich hodnoceni.
+      je_obojzivelnik & POP_RELPOC == "11-100" ~ 2,
       POP_RELPOC == "11-100" ~ 3,
-      POP_POCET > 10 & POP_POCET < 50 ~ 2,
+      # Metodika: nizsi desitky = 11-50. Puvodne "> 10 & < 50", takze hodnota
+      # POCET == 50 nespadala nikam a koncila jako NA.
+      POP_POCET >= 11 & POP_POCET <= 50 ~ 2,
       POP_POCET > 0 & POP_POCET <= 10 ~ 1,
       POP_RELPOC == "do 10" ~ 1,
       POP_RELPOC == "1-10" ~ 1,
+      # Mezerove varianty zapisu z NDOP - drive nerozpoznane, koncily jako NA
+      # ("1 - 10" 79 zaznamu, "101 - 1000" 31, "1001 - 10 000" 1).
+      POP_RELPOC == "1 - 10" ~ 1,
+      POP_RELPOC == "101 - 1000" ~ 4,
+      POP_RELPOC == "1001 - 10 000" ~ 5,
       grepl("počet samců: do 10", POZN_TAX) ~ 1
       ),
     # POP_PASTIPOCET: Extrakce poctu pasti ze strukturovane poznamky (XML tag)
@@ -163,12 +518,35 @@ run_n2k_druhy <- function(
     ),
     # K DOŘEŠENÍ START !!!!!
     # POP_PLOCHALOV: Extrakce plochy odlovu ze strukturovane poznamky (XML tag)
-    POP_PLOCHALOV = readr::parse_number(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<plocha_prolov_p>).*(?=</plocha_prolov_p>)"
-      )
-    ), # ze strukturovane poznamky
+    # POP_PLOCHALOV: plocha odlovu, jmenovatel abundance.
+    #
+    # KAZDA METODA ODLOVU MA VLASTNI TAG (nalez H-48). Vazba je v datech
+    # naprosto tesna:
+    #   <metod_lov> = "Kontinuální lov"     -> <plocha_prolov_p>    1 064 zaznamu
+    #   <metod_lov> = "Lov bodovou metodou" -> <plocha_prolov_pbm>    625 zaznamu
+    # Puvodni kod cetl jen prvni z nich, takze u vsech 625 pruzkumu bodovou
+    # metodou zustala plocha NA -> abundance NA -> POP_DYN (KLICOVY indikator)
+    # i cely trendovy blok NA. Chyba byla ticha, indikator se proste nevyhodnotil.
+    #
+    # PRIORITA: prednost ma <plocha_prolov_p>, <plocha_prolov_pbm> se pouzije jen
+    # tam, kde prvni chybi. Oba tagy se v jednom zaznamu vyskytnou zaroven jen
+    # jednou z 2 458, takze na poradi prakticky nezalezi - pravidlo je uvedeno
+    # explicitne, aby bylo dohledatelne (obdoba pravidla priority u H-10).
+    #
+    # POZOR NA SROVNATELNOST: plocha prolovena bodovou metodou nemusi byt
+    # metodicky srovnatelna s kontinualnim prolovem, takze trend slozeny
+    # z obou metod muze byt zkresleny. Metoda se proto propisuje do sloupce
+    # POP_METODALOV, aby to bylo ve vystupu videt.
+    POP_METODALOV = tag_hodnota(STRUKT_POZN, "metod_lov"),
+    POP_PLOCHALOV = {
+      p   <- tag_hodnota(STRUKT_POZN, "plocha_prolov_p")
+      pbm <- tag_hodnota(STRUKT_POZN, "plocha_prolov_pbm")
+      v <- dplyr::coalesce(p, pbm)
+      # desetinna carka: <plocha_prolov_pbm> ji pouziva u 81 hodnot
+      v <- suppressWarnings(as.numeric(gsub(",", ".", v, fixed = TRUE)))
+      # nulova plocha je chyba zapisu, ne mereni - delenim nulou by vznikl Inf
+      dplyr::if_else(!is.na(v) & v > 0, v, NA_real_)
+    },
     # POP_ABUNDANCENAL: Vypocet abundance (pocet jedincu / plocha odlovu)
     POP_ABUNDANCENAL = POP_POCET/POP_PLOCHALOV,
     # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
@@ -358,43 +736,113 @@ run_n2k_druhy <- function(
     ),
     STA_STAVVODATUNE = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_STAVVODATUNE>).*(?=</STA_STAVVODATUNE>)"
       )
     ),
-    # STA_STAVVODA: Sjednoceni stavu vody (priorita: tune -> litoral -> rybnik)
-    STA_STAVVODA = dplyr::case_when(
-      is.na(STA_STAVVODATUNE) == FALSE ~ STA_STAVVODATUNE,
-      is.na(STA_STAVVODALITORAL) == FALSE ~ STA_STAVVODALITORAL,
-      is.na(STA_STAVVODARYBNIK) == FALSE ~ STA_STAVVODARYBNIK),
-    # STA_STAVVODAKAT: Prevod slovniho hodnoceni stavu vody na ciselnou kategorii
+    # STA_STAVVODAPERTUNE: periodicke tune. Puvodne se tento tag VUBEC NECETL,
+    # pritom jde o 2 411 zaznamu - a zrovna o plochy, u nichz je vysychani
+    # sledovanym jevem. Rozhodnuti autoru metodiky (2026-08-20): periodicke tune
+    # se do hodnoceni vysychani zapocitavaji STEJNOU VAHOU jako trvale.
+    STA_STAVVODAPERTUNE = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_STAVVODAPERTUNE>).*(?=</STA_STAVVODAPERTUNE>)"
+      )
+    ),
+    # STA_STAVVODA: Sjednoceni stavu vody
+    # (priorita: tune -> periodicke tune -> litoral -> rybnik)
+    STA_STAVVODA = dplyr::coalesce(
+      STA_STAVVODATUNE,
+      STA_STAVVODAPERTUNE,
+      STA_STAVVODALITORAL,
+      STA_STAVVODARYBNIK
+    ),
+    # STA_STAVVODAPROC: zaplaveni dna v procentech, sjednocene ze vsech tvaru
+    # zapisu (holé cislo / pasmo / slovni stav) - viz norm_stavvody() nahore.
+    STA_STAVVODAPROC = norm_stavvody(STA_STAVVODA),
+    # STA_STAVVODASLOVNI: odlisuje zanik a zazemneni od pouheho vyschnuti
+    STA_STAVVODASLOVNI = stav_vody_slovni(STA_STAVVODA),
+    # STA_STAVVODAKAT: Prevod na ciselnou kategorii 0-5 dle procenta zaplaveni.
+    # Prahy odpovidaji puvodnim pasmum (25 / 50 / 75 / 90 / 100).
     STA_STAVVODAKAT = dplyr::case_when(
-      STA_STAVVODA == "zaniklá" ~ 0L,
-      STA_STAVVODA == "vyschlá" ~ 0L,
-      STA_STAVVODA == "1-25 %" ~ 1L,
-      STA_STAVVODA == "26-50 %" ~ 2L,
-      STA_STAVVODA == "51-75 %" ~ 3L,
-      STA_STAVVODA == "76-90 %" ~ 4L,
-      STA_STAVVODA == "91-100 %" ~ 5L,
-      TRUE ~ NA_integer_
+      is.na(STA_STAVVODAPROC) ~ NA_integer_,
+      STA_STAVVODAPROC <= 0   ~ 0L,
+      STA_STAVVODAPROC <= 25  ~ 1L,
+      STA_STAVVODAPROC <= 50  ~ 2L,
+      STA_STAVVODAPROC <= 75  ~ 3L,
+      STA_STAVVODAPROC <= 90  ~ 4L,
+      TRUE                    ~ 5L
     ),
-    # STA_VYSYCHANI: Indikator vysychani (1 = vysycha, 0 = nevysycha)
+    # STA_VYSYCHANI: Indikator vysychani (1 = vysycha, 0 = nevysycha, NA = neznamo)
+    # Prah viz konstanta PRAH_VYSYCHANI na zacatku souboru (dnes 0 % dle
+    # doslovneho zneni metodiky).
+    # NEROZPOZNANA HODNOTA ZUSTAVA NA - nikdy se nemapuje na "nevysycha".
+    #
+    # Indikator sam se NEHODNOTI proti limitu (nalezy H-01 a H-02) - slouzi
+    # jako vstup pro tribety STA_VYSYCHANIPERIOD3 a jako informativni radek
+    # ve vystupu, aby bylo videt, ktere roky byly suche (radek TYP_IND = "info"
+    # v limity_vse.csv, viz H-31).
     STA_VYSYCHANI = dplyr::case_when(
-      STA_STAVVODA == "zaniklá" ~ 1L,
-      STA_STAVVODA == "vyschlá" ~ 1L,
-      STA_STAVVODA == "1-25 %" ~ 1L,
-      is.na(STA_STAVVODA) == FALSE ~ 0L,
-      TRUE ~ NA_integer_
+      is.na(STA_STAVVODAPROC)             ~ NA_integer_,
+      STA_STAVVODAPROC <= PRAH_VYSYCHANI  ~ 1L,
+      TRUE                                ~ 0L
     ),
-    # STA_VODAMANIPULACE: Detekce manipulace s hladinou z poznamky
-    STA_VODAMANIPULACE = dplyr::case_when(
-      grepl("manipulace s vodní hladinou", STRUKT_POZN, ignore.case = TRUE) ~ "ano",
+    # STA_MANIPULACE: Manipulace s vodni hladinou
+    # Nazev sjednocen s ciselnikem cis_indikatory_popis.csv (ind_r = STA_MANIPULACE,
+    # ind_id = 33). Metodika (par. Vyhodnoceni): "Hodnoti se tedy manipulace
+    # od dubna do cervence."
+    #
+    # ZDROJ (nalez H-18): terenni cast metodiky uvadi "Zaznamenava se VE VLIVECH
+    # v casti Voda", nikoli jako samostatny tag. Rozhodnuti autoru 2026-08-20:
+    # "STA_MANIPULACE odvozovat podle metodiky", tj. z VLV_VLIVY.
+    # Tag <STA_MANIPULACE> je ale PONECHAN jako druhy zdroj, protoze v exportu
+    # je 25 z 57 jeho zaznamu "ano", ktere se ve VLV_VLIVY neobjevuji - vyrazenim
+    # tagu bychom o ne prisli. Metodika (par. Vyhodnoceni) navic u stanovistnich
+    # indikatoru rika, ze "do celkoveho hodnoceni vstupuje NEJHORSI pozorovana
+    # hodnota", takze zaznam manipulace v kterémkoli ze zdroju je manipulace.
+    #
+    # VLV_VLIVY je seznam, jehoz nazvy kategorii samy obsahuji carky
+    # ("abiotické přírodní procesy (eroze, zanášení, vysychání apod.)"), proto se
+    # NIKDY nedeli podle carky, ale paruje se vzorem nad celym retezcem.
+    STA_MANIPULACE_TAG = dplyr::na_if(
+      stringr::str_squish(
+        readr::parse_character(
+          stringr::str_extract(
+            STRUKT_POZN,
+            "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
+          )
+        )
+      ),
+      ""
+    ),
+    STA_MANIPULACE_VLV = dplyr::case_when(
+      is.na(stringr::str_squish(VLV_VLIVY)) |
+        stringr::str_squish(VLV_VLIVY) == "" ~ NA_character_,
+      grepl(
+        "manipulace s vodní hladinou|regulování vodní hladiny|regulace vodní hladiny",
+        VLV_VLIVY,
+        ignore.case = TRUE
+      ) ~ "ano",
       TRUE ~ "ne"
     ),
+    # Sjednoceni obou zdroju + sezonni omezeni dle metodiky (duben az cervenec).
+    # Prazdny retezec v tagu se diky na_if() vyse stal NA (nalez H-12) - drive
+    # se 402 nevyplnenych zaznamu porovnavalo s limitem val "ne" a vychazelo
+    # jako ZJISTENA MANIPULACE, tedy nepriznivy stav.
+    STA_MANIPULACE = dplyr::case_when(
+      !(MESIC >= 4 & MESIC <= 7) ~ NA_character_,
+      STA_MANIPULACE_TAG %in% "ano" | STA_MANIPULACE_VLV %in% "ano" ~ "ano",
+      !is.na(STA_MANIPULACE_TAG) | !is.na(STA_MANIPULACE_VLV) ~ "ne",
+      TRUE ~ NA_character_
+    ),
     # STA_ZTRATABIO: Indikator ztraty biotopu (zazemeni nebo zanik)
+    # Nove pres stav_vody_slovni(), ktera osetruje oba rodove tvary
+    # ("zanikla"/"zanikle", "zazemnena"/"zazemnene"). Zaverecna vetev
+    # TRUE ~ "ne" je PONECHANA zamerne - indikator pouziva i Epidalea calamita
+    # (limit val "ne") a zmena teto vetve na NA by zmenila jeji hodnoceni.
     STA_ZTRATABIO = dplyr::case_when(
-      STA_STAVVODA == "zazeměná" ~ "ano",
-      STA_STAVVODA == "zaniklá" ~ "ano",
+      STA_STAVVODASLOVNI %in% c("zazemnena", "zanikla") ~ "ano",
       TRUE ~ "ne"
     ),
     # Extrakce dalsich parametru (kachny, ryby, zooplankton, vegetace, pruhlednost)
@@ -404,11 +852,34 @@ run_n2k_druhy <- function(
         "(?<=<STA_KACHNAPRITOMNOST>).*(?=</STA_KACHNAPRITOMNOST>)"
       )
     ),
-    STA_RYBY = dplyr::case_when(
-      grepl("akvakultur", STRUKT_POZN, ignore.case = TRUE) | 
-        grepl("rybolov", STRUKT_POZN, ignore.case = TRUE) 
-      ~ "ano",
-      TRUE ~ "ne"),
+    # STA_RYBY: Nadmerny tlak ryb.
+    # POZOR: ve skutecnych datech (STRUKT_POZN) neexistuje tag <STA_RYBY> - overeno na
+    # exportu z NDOP, kde je pole ulozeno pod tagem <STA_INVDRUHRYBA> (ano/ne), ktery se
+    # u obojzivelniku tyka prakticky vyhradne tohoto indikatoru. Nazev promenne v kodu
+    # (STA_RYBY) je zachovan, aby odpovidal ciselniku cis_indikatory_popis.csv (ind_id 32)
+    # a tabulce limitu (limity_vse.csv), zdrojovy tag je ale STA_INVDRUHRYBA.
+    # Domena dle metodiky (par. Sledovane indikatory): ano / ne / nelze vyloucit
+    # / nehodnoceno. "nehodnoceno" znamena, ze plochu nebylo mozne metodicky
+    # proverit (zejmena rybniky a velke tune) - jde tedy o NEZNAMY stav, ne
+    # o nepriznivy, a normalizuje se na NA, aby indikator do hodnoceni nevstoupil.
+    # "nelze vyloucit" se dle rozhodnuti zadavatele 2026-08-20 hodnoti jako
+    # PRIZNIVY stav a je explicitne uvedeno v limity_vse.csv vedle "ne".
+    # V dosavadnim exportu se vyskytuji jen hodnoty "ano" (427) a "ne" (3 018);
+    # osetreni je tedy pripravou na prechod Survey123 na novou skalu.
+    STA_RYBY = dplyr::na_if(
+      dplyr::na_if(
+        stringr::str_squish(
+          readr::parse_character(
+            stringr::str_extract(
+              STRUKT_POZN,
+              "(?<=<STA_INVDRUHRYBA>).*(?=</STA_INVDRUHRYBA>)"
+            )
+          )
+        ),
+        ""
+      ),
+      "nehodnoceno"
+    ),
     STA_ZOOPLANKTON = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
@@ -429,14 +900,40 @@ run_n2k_druhy <- function(
     ),
     STA_PRUHLEDNOSTVODAT = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_PRUHLEDNOSTVODAT>).*(?=</STA_PRUHLEDNOSTVODAT>)"
       )
     ),
-    # Sjednoceni pruhlednosti vody (priorita STA_PRUHLEDNOSTVODAT)
-    STA_PRUHLEDNOSTVODA = dplyr::case_when(
-      is.na(STA_PRUHLEDNOSTVODAT) == FALSE ~ STA_PRUHLEDNOSTVODAT,
-      TRUE ~ STA_PRUHLEDNOSTVODA),
+    # STA_PRUHLEDNOSTVODAR: varianta pro rybniky. Puvodne se tento tag VUBEC
+    # NECETL, pritom jde o 1 931 zaznamu - u rybnicnich DP tak pruhlednost
+    # chybela, ackoli data existovala.
+    STA_PRUHLEDNOSTVODAR = readr::parse_character(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_PRUHLEDNOSTVODAR>).*(?=</STA_PRUHLEDNOSTVODAR>)"
+      )
+    ),
+    # Sjednoceni pruhlednosti vody.
+    # Poradi priority: nejprve typove varianty (tune, rybnik), ktere nesou
+    # kategorie ("nad 50 cm", "do 30 cm", "az na dno"), az pak obecny tag,
+    # ktery nese hodnotu v centimetrech. Duvod: obe varianty se v jednom
+    # zaznamu prakticky nekombinuji a puvodni kod uz davel prednost variante
+    # STA_PRUHLEDNOSTVODAT pred obecnou - toto poradi je zachovano a jen
+    # doplneno o rybnicni variantu.
+    STA_PRUHLEDNOSTVODA = dplyr::coalesce(
+      STA_PRUHLEDNOSTVODAT,
+      STA_PRUHLEDNOSTVODAR,
+      STA_PRUHLEDNOSTVODA
+    ),
+    # ZRUSENO 2026-08-20 (nalez H-15): puvodne zde bylo sezonni omezeni
+    #   MESIC == 5 | (MESIC == 6 & DEN <= 15) ~ STA_PRUHLEDNOSTVODA,
+    #   TRUE ~ NA_character_
+    # ktere zahazovalo vsechny zaznamy mimo kveten az 15. cervna. Toto pravidlo
+    # NEMA oporu v textu metodiky - par. Vyhodnoceni zadne casove omezeni
+    # pruhlednosti neuvadi a terenni cast obsahuje pouze doporuceni k poradi
+    # navstev ("vhodne predevsim pro zaznamenani pruhlednosti v reprezentativ-
+    # nejsim obdobi"), nikoli limit pro vyhodnoceni. Rozhodnuti autoru metodiky
+    # (2026-08-20): "zrus casove omezeni, ale popis zmenu".
     STA_UHYNOBOJZIVELNIK = readr::parse_character(
       stringr::str_extract(
         STRUKT_POZN, 
@@ -449,16 +946,40 @@ run_n2k_druhy <- function(
         "(?<=<STA_ZASTINENIHLADINA>).*(?=</STA_ZASTINENIHLADINA>)"
       )
     ),
+    # STA_ZASTINENILITORAL: hodnoceny indikator dle Prilohy 1 revize metodiky
+    # 2026-08-20 ("zastineni litoralu okolni vegetaci", spatne nad 75 % u BBOM
+    # a BVAR). Pouziva se PRIMO, v surove podobe.
+    #
+    # ZRUSENO (nalez H-13): puvodne se zde STA_ZASTINENIHLADINA prepisovala horsi
+    # z dvojice hladina/litoral. Po revizi metodiky je hodnocenym indikatorem
+    # litoral a STA_ZASTINENIHLADINA uz nema radek v Priloze 1 ani limit - slo
+    # tedy o mrtvy kod, ktery vyrabel sloupec, jejz uz nikdo nekonzumuje.
+    # Zastineni vodni hladiny zustava terenne zaznamenavanym, ale NEHODNOCENYM
+    # udajem (viz par. Sledovane indikatory).
     STA_ZASTINENILITORAL = readr::parse_character(
       stringr::str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<STA_ZASTINENILITORAL>).*(?=</STA_ZASTINENILITORAL>)"
       )
     ),
-    # Sjednoceni zastineni hladiny (bere se mensi hodnota z hladiny/litoralu)
-    STA_ZASTINENIHLADINA = dplyr::case_when(
-      STA_ZASTINENIHLADINA <= STA_ZASTINENILITORAL ~ STA_ZASTINENILITORAL,
-      TRUE ~ STA_ZASTINENIHLADINA)
+    # STA_PLOCHA50CM: Plocha s hloubkou mensi nez 50 cm (% aktualne zaplavene
+    # plochy DP) - indikator Prilohy 1, hodnoceny u vsech 6 druhu.
+    #
+    # POZOR (nalez H-04): tento tag se v exportu z NDOP zatim NEVYSKYTUJE ANI
+    # JEDNOU - overeno inventurou vsech tagu ve STRUKT_POZN u 31 733 zaznamu
+    # 6 druhu metodiky. Sdeleni autoru metodiky 2026-08-20: tag bude
+    # STA_PLOCHA50CM a indikator se bude hodnotit AZ OD ROKU 2027.
+    # Do te doby zustava hodnota NA, takze indikator do poctu hodnocenych
+    # indikatoru nevstupuje (par. Vyhodnoceni: "Indikator se hodnoti pouze,
+    # jsou-li dostupne informace k jeho hodnoceni.").
+    # Puvodni nazev byl STA_HLOUBKAMENSI20 (prah 20 cm), metodika ale prah
+    # zmenila na 50 cm.
+    STA_PLOCHA50CM = readr::parse_number(
+      stringr::str_extract(
+        STRUKT_POZN,
+        "(?<=<STA_PLOCHA50CM>).*(?=</STA_PLOCHA50CM>)"
+      )
+    )
   ) %>%
     # ------------------------------------------#
     ## Ryby a mihule ----- 
@@ -477,11 +998,57 @@ run_n2k_druhy <- function(
         "(?<=<pocet_bar>)\\d+(?=</pocet_bar>)"
       )
     ),
-    STA_MIGBARVYS = readr::parse_number(
+    # STA_MIGBARVYS: vyska migracni bariery. Bere se NEJVYSSI z uvedenych
+    # barier, ne prvni v poradi - viz max_cislo() a nalez H-52.
+    STA_MIGBARVYS = max_cislo(
       str_extract(
-        STRUKT_POZN, 
+        STRUKT_POZN,
         "(?<=<vyska_bar>)[^<]+(?=</vyska_bar>)"
       )
+    ),
+    # ----- Stanovistni indikatory ze zkracenych tagu (nalez H-42) -----
+    # Pomocne funkce a slovniky viz zacatek souboru. Sloupce vznikaji pro
+    # vsechny druhy, ale u skupin bez techto tagu zustanou NA a bez radku
+    # v limitech je 21_2 stejne zahodi, takze mimo ryby a mihule nemaji efekt.
+
+    # Substrat dna. Tentyz zdroj obsluhuje tri ID_IND, ktere se lisi jen tim,
+    # ktere typy dna jsou pro dany druh prijatelne (STA_DNO, STA_DNOTYP a
+    # STA_DNOPREF maji v limitech ruzne vycty, samotna namerena hodnota je
+    # ale jedna a tataz).
+    STA_DNO = kat_mnozina(tag_hodnota(STRUKT_POZN, "sub_dno"), SLOVNIK_DNO),
+    STA_DNOTYP = STA_DNO,
+    STA_DNOPREF = STA_DNO,
+    STA_DNOPOCETTYPU = kat_pocet(STA_DNO),
+
+    # Charakter proudeni.
+    STA_PROUD = kat_mnozina(tag_hodnota(STRUKT_POZN, "char_prou"), SLOVNIK_PROUD),
+    STA_PROUDPOCETTYPU = kat_pocet(STA_PROUD),
+
+    # Vodni vegetace v toku.
+    STA_VEGETACE = kat_mnozina(tag_hodnota(STRUKT_POZN, "veg_tok"), SLOVNIK_VEGETACE),
+
+    # Trasa toku a variabilita hloubek jsou jednohodnotove a jejich limity uz
+    # byly srovnany s domenou dat pri reseni nalezu H-34, takze se predavaji
+    # beze zmeny.
+    STA_TRASATOKU = tag_hodnota(STRUKT_POZN, "tr_tok_char"),
+    STA_VARIABILITAHLOUBEK = tag_hodnota(STRUKT_POZN, "var_hl_pr"),
+
+    # Zahloubeni koryta - jednohodnotove, prevedeno na kratky tvar limitu.
+    STA_ZAHLOUBENIKORYTA = kat_mnozina(
+      tag_hodnota(STRUKT_POZN, "zahl_kor"),
+      SLOVNIK_ZAHLOUBENI
+    ),
+
+    # Podil upravene casti brehu a dna v procentech.
+    STA_UPRAVABREHU = uprava_procent(
+      tag_hodnota(STRUKT_POZN, "breh_upr"),
+      tag_hodnota(STRUKT_POZN, "breh_upr_bu"),
+      "bez známek úprav"
+    ),
+    STA_UPRAVADNA = uprava_procent(
+      tag_hodnota(STRUKT_POZN, "upr_dno"),
+      tag_hodnota(STRUKT_POZN, "upr_dno_r_b_u"),
+      "bez úprav"
     )
   ) %>%
     # ------------------------------------------#
@@ -679,28 +1246,43 @@ run_n2k_druhy <- function(
       )
     ) %>%
     dplyr::mutate(
-      # POP_POCETMIN: Minimalni odhad populace na zaklade kategorie pocetnosti
-      POP_POCETMIN = dplyr::case_when(
-        is.na(POP_POCET) == FALSE ~ as.numeric(POP_POCET),
-        POP_POCETNOSTNAL == 8 ~ 1000000,
-        POP_POCETNOSTNAL == 7 ~ 100001,
-        POP_POCETNOSTNAL == 6 ~ 10001,
-        POP_POCETNOSTNAL == 5 ~ 1001,
-        POP_POCETNOSTNAL == 4 ~ 101,
-        POP_POCETNOSTNAL == 3 ~ 50,
-        POP_POCETNOSTNAL == 2 ~ 11,
-        POP_POCETNOSTNAL == 1 ~ 1,
-        TRUE ~ NA_real_
+      # POP_POCETMIN / POP_POCETMAX: hranice kategorie pocetnosti
+      #
+      # Obe meze se berou z ciselniku Data/Input/cis_pocet_kat.csv (sloupce
+      # POP_POCETNMIN a POP_POCETNMAX), klicem je kategorie POP_POCETNOSTNAL.
+      # Drive byly obe skaly natvrdo vypsane v case_when a rozchazely se
+      # s ciselnikem, ktery je definuje:
+      #   - POP_POCETMIN mel u kategorie 3 hodnotu 50, ciselnik uvadi 51
+      #     (50 patri jeste do kategorie 2)
+      #   - POP_POCETMAX mel u kategorii 1, 2 i 3 shodne 10000 misto 10, 50
+      #     a 100, a pro kategorie 6, 7 a 8 nemel vetev vubec, takze propadal
+      #     na NA. POP_POCETMAX pritom vstupuje do POP_TRENDLM a POP_TREND1/2,
+      #     ktere se tak u zaznamu bez ciselneho poctu pocitaly z konstanty.
+      #
+      # match() vraci pro neznamou nebo chybejici kategorii (vc. POP_POCETNOSTNAL
+      # = 0, coz je nepritomnost druhu) NA, indexace pak da NA_real_ - tedy
+      # stejny vysledek jako puvodni vetev TRUE ~ NA_real_.
+      #
+      # POZOR: semantika zustava zamerne NEZMENENA - dosazuje se DOLNI mez
+      # kategorie, ne jeji median (POP_POCETSTRED). Zmena na median je
+      # metodicke rozhodnuti, ne oprava chyby.
+      POP_POCETMIN = dplyr::if_else(
+        is.na(POP_POCET) == FALSE,
+        as.numeric(POP_POCET),
+        as.numeric(
+          cis_pocet_kat$POP_POCETNMIN[
+            match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)
+          ]
+        )
       ),
-      # POP_POCETMAX: Maximalni odhad populace na zaklade kategorie pocetnosti
-      POP_POCETMAX = dplyr::case_when(
-        is.na(POP_POCET) == FALSE ~ as.numeric(POP_POCET),
-        POP_POCETNOSTNAL == 5 ~ 10000,
-        POP_POCETNOSTNAL == 4 ~ 1000,
-        POP_POCETNOSTNAL == 3 ~ 10000,
-        POP_POCETNOSTNAL == 2 ~ 10000,
-        POP_POCETNOSTNAL == 1 ~ 10000,
-        TRUE ~ NA_real_
+      POP_POCETMAX = dplyr::if_else(
+        is.na(POP_POCET) == FALSE,
+        as.numeric(POP_POCET),
+        as.numeric(
+          cis_pocet_kat$POP_POCETNMAX[
+            match(POP_POCETNOSTNAL, cis_pocet_kat$POP_POCETNOSTMAX)
+          ]
+        )
       ),
       POP_POCETPRUM = 50,
       # POP_POCETLODYHSUM: Celkovy soucet lodyh
@@ -845,22 +1427,37 @@ run_n2k_druhy <- function(
     ) %>%
     dplyr::reframe(
       # ------------------------------------------#
-      ### Společné indikátory ----- 
+      ### Společné indikátory -----
       # ------------------------------------------#
       CELKOVE = NA,
+      # CILMON_MAX: Byl v danem roce na teto DP cileny monitoring?
+      # Pouzito jako referencni rok pro POP_ZMENARAD (viz nize)
+      CILMON_MAX = max(CILMON, na.rm = TRUE),
       # POP_POCETSUMLOKAL: Soucet populace za lokalitu
       # DULEZITE: Pouzivame !duplicated(IDX_ND_AKCE) pro zamezeni nasobeni stejnych akci
       POP_POCETSUMLOKAL = sum(POP_POCET[!duplicated(IDX_ND_AKCE)], na.rm = TRUE),
       # POP_POCETMIN: Minimalni hodnota populace
       POP_POCETMIN = min(
-        POP_POCET, 
+        POP_POCET,
         na.rm = TRUE
-      ), 
+      ),
+      # Osetreni nekonecnych hodnot u minima.
+      # min() nad samymi NA vraci Inf; bez tohoto radku se Inf propisovalo
+      # do vystupu (73 ze 724 DP testovaciho behu). Bylo to videt az po
+      # oprave H-35, drive byl cely indikator neviditelny.
+      #
+      # POZOR na asymetrii vuci maximu nize: tam se Inf prevadi na 0, zde na
+      # NA. Nula by tvrdila "napocitano nula jedincu", zatimco skutecnost je
+      # "pocet nebyl zaznamenan" - pro nove zviditelneny informativni radek
+      # se proto pouziva NA = "neznamy". U maxima zustava puvodni prevod na 0,
+      # protoze vstupuje do POP_TRENDLM a POP_TREND1/2 u 34 druhu cevnatych
+      # rostlin - zmena by tam nebyla neutralni. Viz nalez H-36.
+      POP_POCETMIN = ifelse(is.infinite(POP_POCETMIN), NA_real_, POP_POCETMIN),
       # POP_POCETMAX: Maximalni hodnota populace
       POP_POCETMAX = max(
-        POP_POCET, 
+        POP_POCET,
         na.rm = TRUE
-      ), 
+      ),
       # Osetreni nekonecnych hodnot u maxima
       POP_POCETMAX = ifelse(is.infinite(POP_POCETMAX), 0, POP_POCETMAX),
       # POP_POCETNOST: Maximalni kategorie pocetnosti
@@ -905,6 +1502,25 @@ run_n2k_druhy <- function(
         POP_PRESENCE == "ano" & POP_VITALITA_N_CATS == 0 ~ NA_integer_,
         # 3. Druh je přítomen a máme data -> Vracíme počet kategorií
         TRUE ~ as.integer(POP_VITALITA_N_CATS)
+      ),
+      # POP_VITALITAYOY: pritomnost letosniho pludku (nalez H-51).
+      #
+      # Dva druhy - Leuciscus aspius a Sabanejewia balcanica - maji limit
+      # "min 1" s jednotkou "jedinci tohorocni", tedy doklad letosniho
+      # rozmnozeni. POP_VITALITA ale vraci POCET DELKOVYCH KATEGORII, takze se
+      # podminka "min 1" splnila vzdy, kdyz byla k dispozici jakakoli delka -
+      # indikator meril neco jineho, nez tvrdila jeho jednotka.
+      #
+      # Zde se testuje to, co limit rika: pritomnost NEJMENSI delkove kategorie
+      # (KAT = 1) z ciselniku cis_ryby_delky_strukt.csv. U vsech osmi druhu
+      # v ciselniku je kategorie 1 nejnizsi velikostni trida, tedy letosni
+      # pludek. Ostatnim druhum limit na tento indikator nevznika, takze se
+      # u nich nevyhodnocuje.
+      POP_VITALITAYOY = dplyr::case_when(
+        POP_PRESENCE == "ne" ~ 0L,
+        POP_VITALITA_N_CATS == 0 ~ NA_integer_,
+        any(POP_DELKYJEDINCIKAT == 1, na.rm = TRUE) ~ 1L,
+        TRUE ~ 0L
       ),
       # POP_ABUNDANCE: Maximalni abundance na lokalite
       POP_ABUNDANCE = max(POP_ABUNDANCENAL, na.rm = TRUE),
@@ -1013,7 +1629,81 @@ run_n2k_druhy <- function(
       POP_REPROCHI = POP_POCETLETS2/POP_POCETLETS1
     ) %>%
     dplyr::ungroup()
-  
+
+  # Lokalita - zmena kategorie pocetnosti (POP_ZMENARAD) -----
+  # Metodika (obojzivelnici): "porovnani odhadovane pocetnosti" je klicovy populacni
+  # indikator - nepriznivy stav je pokles o vice nez 1 kategorii pocetnosti (POP_POCETNOST,
+  # skala 0-5) oproti referencni hodnote, kterou je POSLEDNI PREDCHOZI ROK S CILENYM
+  # MONITORINGEM (CILMON == 1) na teze DP. Pokud takovy referencni rok neexistuje
+  # (napr. prvni rok cileneho monitoringu na dane DP), indikator zustava NA (nelze hodnotit).
+  n2k_druhy_lokpop_zmenarad_ref <- n2k_druhy_lokpop %>%
+    dplyr::filter(CILMON_MAX == 1) %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK_REF = ROK, POP_POCETNOST_REF = POP_POCETNOST) %>%
+    dplyr::distinct()
+
+  n2k_druhy_lokpop_zmenarad <- n2k_druhy_lokpop %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_POCETNOST) %>%
+    dplyr::distinct() %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_zmenarad_ref,
+      by = c("KOD_LOKAL", "DRUH"),
+      relationship = "many-to-many"
+    ) %>%
+    # Referencni rok musi predchazet hodnocenemu roku
+    dplyr::filter(ROK_REF < ROK) %>%
+    # Vezmeme nejblizsi (nejnovejsi) predchozi rok s cilenym monitoringem
+    dplyr::group_by(KOD_LOKAL, DRUH, ROK) %>%
+    dplyr::slice_max(order_by = ROK_REF, n = 1, with_ties = FALSE) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      # POP_ZMENARAD: zmena kategorie pocetnosti oproti referencnimu roku
+      # (zaporne cislo = pokles o X kategorii; limit v limity_vse.csv je min -1,
+      # tj. pokles o vice nez 1 kategorii = nepriznivy stav)
+      POP_ZMENARAD = POP_POCETNOST - POP_POCETNOST_REF
+    ) %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_ZMENARAD)
+
+  n2k_druhy_lokpop <- n2k_druhy_lokpop %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_zmenarad,
+      by = c("KOD_LOKAL", "DRUH", "ROK")
+    )
+
+  # Lokalita - trilete indikatory POCITANE PRO KAZDY HODNOCENY ROK ZVLAST -----
+  # Metodika:
+  #   reprodukce - "spatne, neni-li reprodukce dolozena ani jednou ze TRI
+  #                 POSLEDNICH SEZON S MONITORINGEM dane DP",
+  #   vysychani  - "spatne, pokud vodni plocha vyschla v KAZDEM ZE TRI
+  #                 POSLEDNICH HODNOCENYCH LET".
+  # Obojí je okno koncici v hodnocenem roce. Puvodne se obe hodnoty pocitaly
+  # jednou za celou DP a pripojovaly se bez ROKU, takze historicke rocniky
+  # dedily hodnotu odvozenou z pozdejsich dat a zpetne hodnoceni nebylo
+  # reprodukovatelne.
+  #
+  # POZOR na semantiku prazdneho okna: roll3_sum() vraci NA, kdyz v okne neni
+  # ani jedna nechybejici hodnota. Puvodni sum(na.rm = TRUE) vracel v takovem
+  # pripade 0, coz u POP_REPROPERIOD3 (limit min 1) znamenalo NESPLNENY KLICOVY
+  # indikator jen proto, ze reprodukce nebyla vubec zjistovana. To odporuje vete
+  # metodiky "Indikator se hodnoti pouze, jsou-li dostupne informace k jeho
+  # hodnoceni." (viz nalez H-19 v harmonizace_registr.md).
+  n2k_druhy_lokpop_period3 <- n2k_druhy_lokpop %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_REPROMAX, STA_VYSYCHMAX) %>%
+    dplyr::distinct() %>%
+    dplyr::arrange(KOD_LOKAL, DRUH, ROK) %>%
+    dplyr::group_by(KOD_LOKAL, DRUH) %>%
+    dplyr::mutate(
+      POP_REPROPERIOD3     = roll3_sum(POP_REPROMAX),
+      STA_VYSYCHANIPERIOD3 = roll3_sum(STA_VYSYCHMAX)
+    ) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(KOD_LOKAL, DRUH, ROK, POP_REPROPERIOD3, STA_VYSYCHANIPERIOD3)
+
+  n2k_druhy_lokpop <- n2k_druhy_lokpop %>%
+    dplyr::left_join(
+      n2k_druhy_lokpop_period3,
+      by = c("KOD_LOKAL", "DRUH", "ROK")
+    )
+
   # Lokalita - trendy akualni----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%
@@ -1027,25 +1717,48 @@ run_n2k_druhy <- function(
     ) %>%
     #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
-      # POP_POCETMAXREF: Referencni maximum pred 3 lety
-      POP_POCETMAXREF = POP_POCETMAX[3],
-      # POP_TREND1/2: Porovnani aktualnich hodnot s referenci (1 = lepsi, 0 = horsi)
-      POP_TREND1 = dplyr::case_when(
-        POP_POCETMAX[1] >= POP_POCETMAXREF ~ 1,
-        POP_POCETMAX[1] < POP_POCETMAXREF ~ 0
-      ),
-      POP_TREND2 = dplyr::case_when(
-        POP_POCETMAX[2] >= POP_POCETMAXREF ~ 1,
-        POP_POCETMAX[2] < POP_POCETMAXREF ~ 0
-      ),
-      # POP_TREND: Suma trendu (hodnoceni stability)
-      POP_TREND = sum(
-        POP_TREND1, 
-        POP_TREND2, 
-        na.rm = TRUE
-      ),
-      # POP_TRENDLM: Linearni trend (smernice regrese)
-      POP_TRENDLM = if (sum(!is.na(POP_POCETMAX)) > 1) {
+      # Trendovy blok se pocita jen u druhu, ktere maji limit POP_TREND*
+      # (viz 'pocitat_trend' na zacatku funkce). U ostatnich druhu zustavaji
+      # sloupce prazdne - NEsmi se ale vypustit uplne, protoze faze 2
+      # pivotuje pevny rozsah sloupcu (POP_PRESENCE_N az po posledni) a
+      # zmena sirky tabulky by rozhodila 'ncol_orig'.
+      #
+      # POP_POCETMAXREF: Referencni maximum pred 3 lety (3. nejnovejsi rok)
+      POP_POCETMAXREF = if (pocitat_trend) {
+        POP_POCETMAX[3]
+      } else {
+        NA_real_
+      },
+      # POP_TREND1/2: Porovnani dvou nejnovejsich roku s referenci
+      # (1 = stejne nebo lepsi, 0 = horsi)
+      POP_TREND1 = if (pocitat_trend) {
+        dplyr::case_when(
+          POP_POCETMAX[1] >= POP_POCETMAXREF ~ 1,
+          POP_POCETMAX[1] < POP_POCETMAXREF ~ 0
+        )
+      } else {
+        NA_real_
+      },
+      POP_TREND2 = if (pocitat_trend) {
+        dplyr::case_when(
+          POP_POCETMAX[2] >= POP_POCETMAXREF ~ 1,
+          POP_POCETMAX[2] < POP_POCETMAXREF ~ 0
+        )
+      } else {
+        NA_real_
+      },
+      # POP_TREND: Suma trendu (hodnoceni stability), limit max 1
+      POP_TREND = if (pocitat_trend) {
+        sum(
+          POP_TREND1,
+          POP_TREND2,
+          na.rm = TRUE
+        )
+      } else {
+        NA_real_
+      },
+      # POP_TRENDLM: Linearni trend (smernice regrese POP_POCETMAX na ROK)
+      POP_TRENDLM = if (pocitat_trend && sum(!is.na(POP_POCETMAX)) > 1) {
         coef(lm(POP_POCETMAX ~ ROK))[2]
       } else {
         NA_real_
@@ -1053,24 +1766,20 @@ run_n2k_druhy <- function(
       # POP_ABUNDANCEMEAN: Prumerna abundance za posledni 3 roky
       POP_ABUNDANCEMEAN = mean(head(POP_ABUNDANCE, 3), na.rm = TRUE),
       # POP_POCETNOSTMAX: Maximalni pocetnost
+      # POZN.: POP_REPROPERIOD3 a STA_VYSYCHANIPERIOD3 se odsud PRESUNULY do
+      # samostatne tabulky n2k_druhy_lokpop_period3 (viz nize). Puvodne se
+      # pocitaly zde, tj. jednou za KOD_LOKAL + DRUH ze tri nejnovejsich radku,
+      # a pripojovaly se BEZ ROKU - vsechny rocniky dane DP tak dostaly tutez
+      # hodnotu odvozenou z nejnovejsich dat (hodnoceni roku 2019 mohlo byt
+      # ovlivneno pozorovanim z roku 2025). Metodika pritom mluvi o "trech
+      # poslednich sezonach s monitoringem dane DP", tedy o oknu koncicim
+      # v hodnocenem roce.
       POP_POCETNOSTMAX = max(
-        POP_POCETNOST, 
+        POP_POCETNOST,
         na.rm = TRUE
-      ),
-      # POP_REPROPERIOD3: Suma reprodukce za 3 roky
-      POP_REPROPERIOD3 = {
-        v <- as.numeric(POP_REPROMAX[1:3])
-        v[is.infinite(v)] <- NA_real_
-        sum(v, na.rm = TRUE)
-      },
-      # STA_VYSYCHANIPERIOD3: Suma vysychani za 3 roky
-      STA_VYSYCHANIPERIOD3 = {
-        v <- as.numeric(STA_VYSYCHMAX[1:3])
-        v[is.infinite(v)] <- NA_real_
-        sum(v, na.rm = TRUE)
-      }
+      )
     ) %>%
-    dplyr::ungroup() 
+    dplyr::ungroup()
   
   # Lokalita - trendy referencni----
   n2k_druhy_lokpop_trend_ascd <- n2k_druhy_lokpop %>%
@@ -1125,14 +1834,28 @@ run_n2k_druhy <- function(
   #--------------------------------------------------#
   n2k_druhy <- n2k_druhy_pre %>%
     # Pripojeni agregovanych dat za lokalitu a rok
+    #
+    # SUFFIX (nalez H-35): tri sloupce existuji na obou stranach joinu -
+    # POP_POCETMIN, POP_POCETMAX a POP_POCETNOSTMAX. Vychozi suffixy ".x"/".y"
+    # zpusobily, ze sloupec s PRESNYM nazvem indikatoru v tabulce vubec nebyl,
+    # takze se nesparoval s tabulkou limitu (21_2 paruje pres
+    # intersect(nazvy sloupcu, ID_IND limitu)) a oba indikatory byly ve VSECH
+    # vystupech neviditelne. Zaroven to znamenalo, ze soucet
+    # sum(ID_IND == "POP_POCETMIN") na urovni uzemi v 25 vzdy vracel 0.
+    #
+    # Indikatorem je hodnota za DILCI PLOCHU a rok (limity maji UROVEN = lok),
+    # tedy strana `y` = agregace z n2k_druhy_lokpop - ta si proto nechava holy
+    # nazev. Hodnota za jednotlivy nalez (strana `x`) zustava zachovana pod
+    # priponou _NAL, aby se nic neztratilo a bylo poznat, o kterou uroven jde.
     dplyr::left_join(
-      ., 
+      .,
       n2k_druhy_lokpop,
       by = join_by(
-        ROK, 
+        ROK,
         KOD_LOKAL,
         DRUH
-      )
+      ),
+      suffix = c("_NAL", "")
     ) %>%
     # Pripojeni trendu (jen za lokalitu, ne rok - trend je jeden pro lokalitu)
     dplyr::left_join(

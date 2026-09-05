@@ -6,14 +6,60 @@
 # vyhodnoceni: 21 akce, 22 obdobi, 23 posledni nalez, 24 lokality,
 # 25 uzemi, 27 zapis/export).
 #
-# Predpoklada jiz spusteny R/00_config/00_n2k_config.R, ktery pripravuje
-# vstupni objekty (n2k_load, sites_subjects, limity, evl, rp_code,
-# n2k_oop, biotop_evd, indikatory_id, cis_ryby_delky, cis_pocet_kat).
+# Nacita si jen to, co potrebuje vetev druhu:
+#   R/00_config/00_n2k_config.R      - obecny config (knihovny, limity,
+#                                      sdilene ciselniky, vrstvy EVL a PO)
+#   R/00_config/02_n2k_data_druhy.R  - data druhu (export z NDOP -> n2k_load,
+#                                      ciselniky druhu, cilove stavy)
+#
+# Data stanovist (R/00_config/03_n2k_data_stanoviste.R) se ZAMERNE nenacitaji -
+# vetev druhu je nepotrebuje a jejich zdroje (AktualizacniOkrsky.shp, exporty
+# redlist/invaze/expanze) na bezne stanici casto chybi.
+#
+# Oba skripty se spousti jen tehdy, kdyz jeste nebezely; uz nactena data se
+# znovu necetou (nacteni exportu z NDOP trva radove minuty).
 #----------------------------------------------------------#
 
-if (!exists("n2k_load")) {
-  stop("Objekt 'n2k_load' neexistuje - nejprve spustte R/00_config/00_n2k_config.R")
+nacti_config <- function(path, objekt, popis) {
+
+  if (exists(objekt)) {
+    return(invisible(FALSE))
+  }
+
+  if (!file.exists(path)) {
+    stop(
+      "Objekt '", objekt, "' neexistuje a skript '", path, "' nebyl nalezen",
+      " - spustte kaskadu z korene repozitare, nebo nactete ", popis, " rucne."
+    )
+  }
+
+  message("Objekt '", objekt, "' neexistuje - spoustim ", path)
+  source(path, encoding = "UTF-8")
+
+  # Skript mohl probehnout, aniz by objekt vznikl (napr. chybejici zdrojovy
+  # soubor osetreny uvnitr) - bez nej by kaskada spadla az hloubeji, s daleko
+  # mene srozumitelnou chybou.
+  if (!exists(objekt)) {
+    stop(
+      "Skript '", path, "' probehl, ale objekt '", objekt, "' stale neexistuje",
+      " - zkontrolujte nacteni zdrojovych dat (", popis, ")."
+    )
+  }
+
+  invisible(TRUE)
 }
+
+# Poradi je zavazne: data druhu stoji na objektech z obecneho configu.
+nacti_config(
+  "R/00_config/00_n2k_config.R",
+  "limity",
+  "obecny config"
+)
+nacti_config(
+  "R/00_config/02_n2k_data_druhy.R",
+  "n2k_load",
+  "export z NDOP"
+)
 
 #----------------------------------------------------------#
 # Seznam skriptu ke spusteni -----

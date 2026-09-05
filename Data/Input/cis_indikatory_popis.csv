@@ -5,14 +5,16 @@ maximální odhadovaná velikost populace,22,POP_POCETMAX,
 pøítomnost druhu,27,POP_PRESENCE,
 pøítomnost druhu na zimovišti,28,POP_PRESENCE_ZIM,
 pøítomnost druhu v letní kolonii,29,POP_PRESENCE_LET,
-rozmnožování druhu,30,POP_REPRO,
+rozmnožování druhu,,POP_REPRO,
+rozmnožování alespoò 1x za 3 roky,30,POP_REPROPERIOD3,
 ztráty vodních biotopù,31,STA_ZTRATABIO,
 nadmìrný tlak ryb,32,STA_RYBY,
 manipulace s vodní hladinou,33,STA_MANIPULACE,
-vysychání vodních ploch,34,STA_VYSYCHANI,
+vysychání vodních ploch,,STA_VYSYCHANI,
+vysychání ve všech tøech letech po sobì,34,STA_VYSYCHANIPERIOD3,
 pokryvnost vodní vegetace,35,STA_POKRVEGETACE,
 prùhlednost vody,36,STA_PRUHLEDNOSTVODA,
-zastínìní hladiny okolní vegetací,37,STA_ZASTINENIHLADINA,
+zastínìní litorálu okolní vegetací,37,STA_ZASTINENILITORAL,
 úhyn obojživelníkù,38,STA_UHYNOBOJZIVELNIK,
 ,39,STA_VHSTROMN,
 ,40,STA_VHSTROMK,
@@ -29,7 +31,6 @@ poèet dílèích lokalit v dobrém stavu,130,LOK_DILCDOBRE,
 ,130,POP_POCETPOLE1D,
 poèet hodnocených dílèích lokalit,131,LOK_DILCPOCET,
 ,131,POP_POCETPOLE1,
-,189,POP_PROCPOLE1D,
 rozloha,128,ROZLOHA,5
 kvalita,129,KVALITA,5
 minimiareál,133,MINIMIAREAL,5
@@ -43,3 +44,6 @@ minimiareál (poèet jader),,MINIMIAREAL_JADRA,5
 minimiareál (hodnota),,MINIMIAREAL_HODNOTA,5
 mrtvé døevo,162,MRTVE_DREVO,5
 mrtvé døevo (potenciál),,KALAMITA_POLOM,5
+plocha s hloubkou menší než 50 cm,,STA_PLOCHA50CM,
+procento dílèích lokalit v dobrém stavu,189,LOK_PROCDOBR,2
+poèet jedincù (klouzavý prùmìr za poslední 3 roky),190,POP_POCETPRUM3,2
