@@ -38,6 +38,7 @@ Kolize domén byly ověřeny **proti ostrým datům z NDOP**, ne jen proti kódu
 | *Podrobný audit modulu ryb (2026-09-04)* | 12 | H-47 … H-58 |
 | *Srovnání kódu s metodikou — plný běh *T. cristatus* (2026-09-04)* | 6 | H-59 … H-64 |
 | *Nová verze metodiky (2026-09-05)* | 2 | H-65, H-66 |
+| *Doplnění `JEDNOTKA` v `limity_vse.csv` (2026-09-05)* | 1 | H-67 |
 
 ---
 
@@ -2059,6 +2060,79 @@ manipulace od dubna do července."* je v novém znění doslova zachována.
 - **Rozhodnutí autorů metodiky:** _(má „nelze vyloučit" platit za nepříznivý
   stav, nebo za neznámý — tedy `NA` jako „nehodnoceno"?)_
 
+### H-67 ✅ — prázdná `JEDNOTKA` propisovala řetězec „NA" do čitelného limitu
+- **Závažnost:** střední · **Typ:** BUG + ZOBRAZENÍ · **Stav:** ✅ **implementováno 2026-09-05**
+- **Kontext:** vzniklo ze zadání doplnit `JEDNOTKA` tam, kde v limitech chybí.
+- **Stav v datech:** `limity_vse.csv` mělo `JEDNOTKA` prázdnou u **230 z 492
+  řádků** (v souboru literální řetězec `NA`, ne prázdné pole).
+- **Vada:** [`00_n2k_config.R:95`](../../R/00_config/00_n2k_config.R#L95) staví
+  `LIM_INDLIST` jako `paste("alespoň", LIM_IND, JEDNOTKA)`. `paste()` převádí
+  `NA` na řetězec `"NA"`, takže čitelný limit odcházel do ISOP (sloupec
+  `parametr_limit`) ve tvaru **„alespoň 70 NA", „nejvýš 2 NA", „alespoň 25 NA"**
+  — u **123 řádků limitu** napříč 24 druhy. Doplnění jednotky tedy nebylo jen
+  kosmetické, ale opravné.
+
+**Proč šlo doplnit bez rizika.** `JEDNOTKA` má v kódu dvojí roli:
+
+| role | kde | důsledek doplnění |
+|---|---|---|
+| **funkční** — porovnává se s `POCITANO` | [`21_1:351`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L351) a dále; `POP_POCET`, `POP_POCETSUM`, `POP_REPRO`, `POP_PLOCHA`, `POP_POCETSUMLOD`, `POP_POCETVITAL` | změnilo by, které nálezy se započítají ⇒ **změna verdiktů** |
+| **zobrazovací** — `LIM_INDLIST`, `parametr_jednotka` | config, `24`, `25`, `27` | bez vlivu na hodnocení |
+
+**Žádný z 230 prázdných řádků nepatřil k oněm šesti funkčním indikátorům** —
+všechny byly čistě zobrazovací. `STAV_IND` se navíc počítá výhradně z
+`TYP_IND`, `LIM_IND` a `HOD_IND`; `JEDNOTKA` do něj nevstupuje.
+
+- **Provedeno:** doplněno **189 z 230** prázdných buněk. Odvození stejné jako u
+  ostatních jednotek — podle `POCITANO`, kde je indikátor na něm postaven, jinak
+  podle toho, co indikátor počítá (`POP_VITAL` = `POP_POCETVITAL/POP_POCET*100`
+  ⇒ `%`; `STA_VYSYCHANIPERIOD3` = `roll3_sum()` ⇒ `počet let`;
+  `MINIMIAREAL_JADRA` = `celistvost_num` ⇒ `počet segmentů`).
+  `STA_PLOCHA50CM` ⇒ `%` je doloženo větou metodiky citovanou v **H-04**:
+  *„Zaznamenává se v procentech aktuálně zaplavené plochy DP."*
+- **Pravidlo pro částečně vyplněné indikátory:** kde už indikátor nějakou
+  hodnotu na jiných řádcích měl, **použita ta stávající**, ne nový návrh — tedy
+  `POP_PRESENCE` → `přítomnost druhu` (ne `ano/ne`), `LOK_PROCDOBR` → `procento
+  dílčích lokalit v dobrém stavu` (ne `%`), `STA_PRITOMNOSTROSTLIN` →
+  `kategorie relativní početnosti` (ne `kategorie`).
+  **Není to jen kosmetika:** [`25:317`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L317)
+  dělá `reframe(JEDNOTKA = unique(JEDNOTKA))`, takže dvě různé jednotky uvnitř
+  jedné skupiny `DRUH × ID_IND` by **rozmnožily řádky** na úrovni EVL. Po
+  doplnění ověřeno: **0 takových skupin**.
+- **Ponecháno prázdné (41 řádků), záměrně:**
+  - `VLV_VLIVY` (24), `EXPANSIVE_LIST`, `INVASIVE_LIST`, `RED_LIST_SPECIES`
+    (po 1) — jde o **výčty, ne veličiny**; jednotka neexistuje.
+  - **`POP_POCETMIN` a `POP_POCETMAX` (7 + 7) — nelze vyplnit poctivě.**
+    Odvozují se z `POP_POCET`, jehož jednotka se liší **záznam od záznamu**;
+    dotčené druhy mají po dvou až třech různých jednotkách `POP_POCET`
+    (*Bombina variegata*: `samci` / `jedinci` / `adulti`), zatímco
+    *Bombina bombina* má jen `samci`. Jakákoli jediná statická hodnota by byla
+    u části řádků nesprávná. Je to **tatáž třída problému jako H-43** — jednotku
+    je třeba nést ze skutečného `POCITANO`, ne z buňky tabulky. Viz *Co zbývá*.
+- **Ověření:**
+
+  | kontrola | výsledek |
+  |---|---|
+  | diff souboru | **189 vložení / 189 smazání**; mimo 5. pole **0 lišících se řádků**; 493 řádků × 7 polí, CRLF zachováno |
+  | šest funkčních indikátorů | **bajtově shodné** (79 řádků) |
+  | artefakt `" NA"` v `LIM_INDLIST` | **123 → 39 řádků**; zbytek pochází z `limity_ryby.csv` (mimo zadání) |
+  | `unique(JEDNOTKA)` na úrovni EVL | **0 skupin** s více jednotkami |
+
+- **Regresní běh (fáze 1–2, staré limity vs. nové):**
+
+  | druh | řádků | `HOD_IND` | `STAV_IND` | `JEDNOTKA` změněna | `LIM_INDLIST` změněn |
+  |---|---|---|---|---|---|
+  | *Triturus cristatus* | 127 775 | **shodné** | **shodné** | 58 995 | 32 775 |
+  | *Bombina bombina* | 216 738 | **shodné** | **shodné** | 106 083 | 58 935 |
+
+  Žádná hodnota ani verdikt se nezměnily; veškerá změna je v zobrazovacích
+  sloupcích a každá změna `LIM_INDLIST` je oprava artefaktu — např.
+  `"nejvýš 2 NA"` → `"nejvýš 2 počet let"`, `"alespoň 50 NA"` → `"alespoň 50 cm"`.
+- **K posouzení zadavatelem:** `POP_ZMENARAD` se nyní vypisuje jako
+  **„alespoň -1 kategorie"**. Je to věcně správně, ale čte se to kostrbatě —
+  vhodnější může být `kategorií`, nebo přeformulovat text limitu. Jde o jazykové
+  rozhodnutí nad metodikou, ne o data.
+
 ---
 
 # Co zbývá
@@ -2108,3 +2182,4 @@ manipulace od dubna do července."* je v novém znění doslova zachována.
 | 39 | **H-62** — sjednotit uplatnění `CILMON` mezi úrovní DP a EVL; hlavní příčina 88 neznámých EVL | autoři metodiky |
 | 40 | **H-63** — vyřadit `amplexus` z jednotek `POP_REPRO`? Metodika jmenuje snůšky, pulce, larvy a juvenilní jedince | autoři metodiky |
 | 41 | **H-64** — zúžit jednotky `POP_POCET` na `adulti` (a `samci` jen u *B. bombina*) | autoři metodiky |
+| 44 | **H-67** — `POP_POCETMIN` a `POP_POCETMAX` (14 řádků) zůstávají bez jednotky: odvozují se z `POP_POCET`, jehož jednotka se liší záznam od záznamu. Řeší se týmž mechanismem jako **H-43** (nést jednotku z `POCITANO`), nikoli zápisem do tabulky limitů | zadavatel |

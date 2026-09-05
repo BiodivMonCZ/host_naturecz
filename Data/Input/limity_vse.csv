@@ -1,19 +1,19 @@
 DRUH,ID_IND,TYP_IND,LIM_IND,JEDNOTKA,KLIC,UROVEN
-stanoviste,EXPANSIVE,,NA,NA,ne,lok
+stanoviste,EXPANSIVE,,NA,%,ne,lok
 stanoviste,EXPANSIVE_LIST,,NA,NA,ne,lok
-stanoviste,INVASIVE,,NA,NA,ne,lok
+stanoviste,INVASIVE,,NA,%,ne,lok
 stanoviste,INVASIVE_LIST,,NA,NA,ne,lok
-stanoviste,KALAMITA_POLOM,,NA,NA,ne,lok
-stanoviste,KVALITA,,NA,NA,ne,lok
-Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
-Epidalea calamita,LOK_POCETDOBR,NA,NA,NA,ne,chu
-stanoviste,MINIMIAREAL,,NA,NA,ne,lok
-stanoviste,MINIMIAREAL_HODNOTA,,NA,NA,ne,lok
-stanoviste,MINIMIAREAL_JADRA,,NA,NA,ne,lok
-stanoviste,MOZAIKA_FIN,,NA,NA,ne,lok
-stanoviste,MOZAIKA_VNEJSI,,NA,NA,ne,lok
-stanoviste,MOZAIKA_VNITRNI,,NA,NA,ne,lok
-stanoviste,MRTVE_DREVO,,NA,NA,ne,lok
+stanoviste,KALAMITA_POLOM,,NA,kategorie,ne,lok
+stanoviste,KVALITA,,NA,kategorie,ne,lok
+Epidalea calamita,LOK_POCETDOBR,NA,NA,poèet dílèích lokalit,ne,chu
+Epidalea calamita,LOK_POCETDOBR,NA,NA,poèet dílèích lokalit,ne,chu
+stanoviste,MINIMIAREAL,,NA,%,ne,lok
+stanoviste,MINIMIAREAL_HODNOTA,,NA,m2,ne,lok
+stanoviste,MINIMIAREAL_JADRA,,NA,poèet segmentù,ne,lok
+stanoviste,MOZAIKA_FIN,,NA,%,ne,lok
+stanoviste,MOZAIKA_VNEJSI,,NA,%,ne,lok
+stanoviste,MOZAIKA_VNITRNI,,NA,%,ne,lok
+stanoviste,MRTVE_DREVO,,NA,kategorie,ne,lok
 Barbastella barbastellus,POP_DIFLET,min,0.67,podíl letní abundance k referenèní letní abundanci,ano,chu
 Barbastella barbastellus,POP_DIFLET,min,0.67,podíl letní abundance k referenèní letní abundanci,ano,lok
 Myotis bechsteinii,POP_DIFLET,min,0.5,podíl letní abundance k referenèní letní abundanci,ano,chu
@@ -101,32 +101,32 @@ Barbastella barbastellus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Barbastella barbastellus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Bolbelamus unicornis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Bolbelamus unicornis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
-Bombina bombina,POP_PRESENCE,val,ano,NA,ano,lok
+Bombina bombina,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Carabus menetriesi pacholei,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Carabus menetriesi pacholei,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Carabus variolosus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Carabus variolosus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
-Cerambyx cerdo,POP_PRESENCE,val,ano,NA,ano,lok
+Cerambyx cerdo,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Cerambyx cerdo,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Cucujus cinnaberinus,POP_PRESENCE,val,ano,NA,ano,lok
+Cucujus cinnaberinus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Cucujus cinnaberinus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Eriogaster catax,POP_PRESENCE,val,ano,NA,ano,lok
+Eriogaster catax,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Eriogaster catax,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Euphydryas aurinia,POP_PRESENCE,val,ano,NA,ano,lok
+Euphydryas aurinia,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Euphydryas aurinia,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Euphydryas maturna,POP_PRESENCE,val,ano,NA,ano,lok
+Euphydryas maturna,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Euphydryas maturna,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Euplagia quadripunctaria,POP_PRESENCE,val,ano,NA,ano,lok
+Euplagia quadripunctaria,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Euplagia quadripunctaria,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Graphoderus bilineatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Graphoderus bilineatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
-Leucorrhinia pectoralis,POP_PRESENCE,val,ano,NA,ano,lok
+Leucorrhinia pectoralis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Leucorrhinia pectoralis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Limoniscus violaceus,POP_PRESENCE,val,ano,NA,ano,lok
+Limoniscus violaceus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Limoniscus violaceus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Lucanus cervus,POP_PRESENCE,val,ano,NA,ano,lok
+Lucanus cervus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Lucanus cervus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Lycaena dispar,POP_PRESENCE,val,ano,NA,ano,lok
+Lycaena dispar,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Lycaena dispar,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Myotis bechsteinii,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Myotis bechsteinii,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
@@ -134,20 +134,20 @@ Myotis emarginatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Myotis emarginatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Myotis myotis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Myotis myotis,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
-Ophiogomphus cecilia,POP_PRESENCE,val,ano,NA,ano,lok
+Ophiogomphus cecilia,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Ophiogomphus cecilia,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Osmoderma barnabita,POP_PRESENCE,val,ano,NA,ano,lok
-Osmoderma barnabita,POP_PRESENCE,val,ano,NA,ano,lok
+Osmoderma barnabita,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Osmoderma barnabita,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Osmoderma barnabita,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Phengaris nausithous,POP_PRESENCE,val,ano,NA,ano,lok
+Phengaris nausithous,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Phengaris nausithous,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Phengaris teleius,POP_PRESENCE,val,ano,NA,ano,lok
+Phengaris teleius,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Phengaris teleius,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Rhinolophus hipposideros,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Rhinolophus hipposideros,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
-Rhysodes sulcatus,POP_PRESENCE,val,ano,NA,ano,lok
+Rhysodes sulcatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Rhysodes sulcatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
-Rosalia alpina,POP_PRESENCE,val,ano,NA,ano,lok
+Rosalia alpina,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
 Rosalia alpina,POP_PRESENCE,val,ano,pøítomnost druhu,ano,chu
 Barbastella barbastellus,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,chu
 Barbastella barbastellus,POP_PRESENCELET,val,ano,pøítomnost druhu v letní kolonii,ano,lok
@@ -260,16 +260,16 @@ Myotis myotis,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I
 Myotis myotis,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
 Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,chu
 Rhinolophus hipposideros,POP_REPROVAL,min,1.5,podíl letní abundance II. k letní abundanci I.,ano,lok
-Bombina bombina,POP_ZMENARAD,min,-1,NA,ano,lok
-Bombina variegata,POP_ZMENARAD,min,-1,NA,ano,lok
-Epidalea calamita,POP_ZMENARAD,max,-1,NA,ano,lok
-Lissotriton montandoni,POP_ZMENARAD,min,-1,NA,ano,lok
-Triturus carnifex,POP_ZMENARAD,min,-1,NA,ano,lok
-Triturus cristatus,POP_ZMENARAD,min,-1,NA,ano,lok
-Triturus dobrogicus,POP_ZMENARAD,min,-1,NA,ano,lok
-stanoviste,RED_LIST,,NA,NA,ne,lok
+Bombina bombina,POP_ZMENARAD,min,-1,kategorie,ano,lok
+Bombina variegata,POP_ZMENARAD,min,-1,kategorie,ano,lok
+Epidalea calamita,POP_ZMENARAD,max,-1,kategorie,ano,lok
+Lissotriton montandoni,POP_ZMENARAD,min,-1,kategorie,ano,lok
+Triturus carnifex,POP_ZMENARAD,min,-1,kategorie,ano,lok
+Triturus cristatus,POP_ZMENARAD,min,-1,kategorie,ano,lok
+Triturus dobrogicus,POP_ZMENARAD,min,-1,kategorie,ano,lok
+stanoviste,RED_LIST,,NA,poèet druhù,ne,lok
 stanoviste,RED_LIST_SPECIES,,NA,NA,ne,lok
-stanoviste,ROZLOHA,,NA,NA,ne,lok
+stanoviste,ROZLOHA,,NA,ha,ne,lok
 Bolbelamus unicornis,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Carabus menetriesi pacholei,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Carabus variolosus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
@@ -291,82 +291,82 @@ Phengaris teleius,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotop
 Rhysodes sulcatus,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Rosalia alpina,STA_HABPOKRYV,min,10,procento pokryvnosti preferovaných biotopù,ano,chu
 Euphydryas maturna,STA_JASANOKOLI,min,jednotlivì,kategorie relativní poèetnosti,ne,lok
-Eriogaster catax,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
-Euphydryas aurinia,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
-Euphydryas maturna,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
-Lycaena dispar,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
-Phengaris nausithous,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
-Phengaris teleius,STA_LIKVIDACE,val,nezaznamenána,NA,ne,lok
+Eriogaster catax,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
+Euphydryas aurinia,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
+Euphydryas maturna,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
+Lycaena dispar,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
+Phengaris nausithous,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
+Phengaris teleius,STA_LIKVIDACE,val,nezaznamenána,ano/ne,ne,lok
 Graphoderus bilineatus,STA_LITVEGET,min,70,procento pokryvnosti litorální vegetace,ano,lok
-Bombina bombina,STA_MANIPULACE,val,ne,NA,ne,lok
-Lissotriton montandoni,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus carnifex,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus cristatus,STA_MANIPULACE,val,ne,NA,ne,lok
-Triturus dobrogicus,STA_MANIPULACE,val,ne,NA,ne,lok
+Bombina bombina,STA_MANIPULACE,val,ne,ano/ne,ne,lok
+Lissotriton montandoni,STA_MANIPULACE,val,ne,ano/ne,ne,lok
+Triturus carnifex,STA_MANIPULACE,val,ne,ano/ne,ne,lok
+Triturus cristatus,STA_MANIPULACE,val,ne,ano/ne,ne,lok
+Triturus dobrogicus,STA_MANIPULACE,val,ne,ano/ne,ne,lok
 Euphydryas maturna,STA_MIKRPROSTLINA,val,dominantnì,kategorie relativní poèetnosti,ne,lok
 Carabus variolosus,STA_MRTDREVO,val,jednotlivé kmeny,stupnice relativní škály,ano,lok
 Carabus variolosus,STA_MRTDREVO,val,hojnì,stupnice relativní škály,ano,lok
-Bombina variegata,STA_POKRVEGETACE,val,0,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,0 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
-Bombina variegata,STA_POKRVEGETACE,max,50,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,val,0,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,val,0-25 %,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,val,1-25 %,NA,ne,lok
-Epidalea calamita,STA_POKRVEGETACE,max,50,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,val,51-75 %,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,min,1,NA,ne,lok
-Triturus carnifex,STA_POKRVEGETACE,max,75,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,val,51-75 %,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,min,1,NA,ne,lok
-Triturus cristatus,STA_POKRVEGETACE,max,75,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,val,1-10 %,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,val,11-25 %,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,val,26-50 %,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,val,51-75 %,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,min,1,NA,ne,lok
-Triturus dobrogicus,STA_POKRVEGETACE,max,75,NA,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,0,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,0 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,0-25 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,1-10 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,11-25 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,26-50 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,val,1-25 %,%,ne,lok
+Bombina variegata,STA_POKRVEGETACE,max,50,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,0,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,0-25 %,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,1-10 %,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,11-25 %,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,val,1-25 %,%,ne,lok
+Epidalea calamita,STA_POKRVEGETACE,max,50,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,val,1-10 %,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,val,11-25 %,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,val,26-50 %,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,val,51-75 %,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,min,1,%,ne,lok
+Triturus carnifex,STA_POKRVEGETACE,max,75,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,val,1-10 %,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,val,11-25 %,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,val,26-50 %,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,val,51-75 %,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,min,1,%,ne,lok
+Triturus cristatus,STA_POKRVEGETACE,max,75,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,val,1-10 %,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,val,11-25 %,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,val,26-50 %,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,val,51-75 %,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,min,1,%,ne,lok
+Triturus dobrogicus,STA_POKRVEGETACE,max,75,%,ne,lok
 Leucorrhinia pectoralis,STA_POKRYVNOSTDREVIN,min,5,%,ne,lok
 Ophiogomphus cecilia,STA_POKRYVNOSTDREVIN,max,50,%,ne,lok
 Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,val,jednotlivì,kategorie relativní poèetnosti,ne,lok
 Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,val,dominantnì,kategorie relativní poèetnosti,ne,lok
 Euphydryas aurinia,STA_PRITOMNOSTROSTLIN,val,hojnì,kategorie relativní poèetnosti,ne,lok
-Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,jednotlivì,NA,ne,lok
-Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,dominantnì,NA,ne,lok
-Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,hojnì,NA,ne,lok
-Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,jednotlivì,NA,ne,lok
-Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,dominantnì,NA,ne,lok
-Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,hojnì,NA,ne,lok
-Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,jednotlivì,NA,ne,lok
-Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,dominantnì,NA,ne,lok
-Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,hojnì,NA,ne,lok
-Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,jednotlivì,NA,ne,lok
-Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,dominantnì,NA,ne,lok
-Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,hojnì,NA,ne,lok
-Bombina bombina,STA_PRUHLEDNOSTVODA,val,až na dno,NA,ne,lok
-Bombina bombina,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
-Bombina bombina,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
-Triturus carnifex,STA_PRUHLEDNOSTVODA,val,až na dno,NA,ne,lok
-Triturus carnifex,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
-Triturus carnifex,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
-Triturus cristatus,STA_PRUHLEDNOSTVODA,val,až na dno,NA,ne,lok
-Triturus cristatus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
-Triturus cristatus,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
-Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,až na dno,NA,ne,lok
-Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,NA,ne,lok
-Triturus dobrogicus,STA_PRUHLEDNOSTVODA,min,50,NA,ne,lok
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,jednotlivì,kategorie relativní poèetnosti,ne,lok
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,dominantnì,kategorie relativní poèetnosti,ne,lok
+Euplagia quadripunctaria,STA_PRITOMNOSTROSTLIN,val,hojnì,kategorie relativní poèetnosti,ne,lok
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,jednotlivì,kategorie relativní poèetnosti,ne,lok
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,dominantnì,kategorie relativní poèetnosti,ne,lok
+Lycaena dispar,STA_PRITOMNOSTROSTLIN,val,hojnì,kategorie relativní poèetnosti,ne,lok
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,jednotlivì,kategorie relativní poèetnosti,ne,lok
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,dominantnì,kategorie relativní poèetnosti,ne,lok
+Phengaris nausithous,STA_PRITOMNOSTROSTLIN,val,hojnì,kategorie relativní poèetnosti,ne,lok
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,jednotlivì,kategorie relativní poèetnosti,ne,lok
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,dominantnì,kategorie relativní poèetnosti,ne,lok
+Phengaris teleius,STA_PRITOMNOSTROSTLIN,val,hojnì,kategorie relativní poèetnosti,ne,lok
+Bombina bombina,STA_PRUHLEDNOSTVODA,val,až na dno,cm,ne,lok
+Bombina bombina,STA_PRUHLEDNOSTVODA,val,nad 50 cm,cm,ne,lok
+Bombina bombina,STA_PRUHLEDNOSTVODA,min,50,cm,ne,lok
+Triturus carnifex,STA_PRUHLEDNOSTVODA,val,až na dno,cm,ne,lok
+Triturus carnifex,STA_PRUHLEDNOSTVODA,val,nad 50 cm,cm,ne,lok
+Triturus carnifex,STA_PRUHLEDNOSTVODA,min,50,cm,ne,lok
+Triturus cristatus,STA_PRUHLEDNOSTVODA,val,až na dno,cm,ne,lok
+Triturus cristatus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,cm,ne,lok
+Triturus cristatus,STA_PRUHLEDNOSTVODA,min,50,cm,ne,lok
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,až na dno,cm,ne,lok
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,val,nad 50 cm,cm,ne,lok
+Triturus dobrogicus,STA_PRUHLEDNOSTVODA,min,50,cm,ne,lok
 Bombina bombina,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Bombina bombina,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Bombina variegata,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
@@ -381,57 +381,57 @@ Triturus cristatus,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,l
 Triturus dobrogicus,STA_RYBY,val,ne,zaznamenán nadmìrný tlak ryb,ne,lok
 Triturus dobrogicus,STA_RYBY,val,nelze vylouèit,zaznamenán nadmìrný tlak ryb,ne,lok
 Graphoderus bilineatus,STA_SIRKALIT,min,3,metry,ano,lok
-Rosalia alpina,STA_SKLADREVO,val,ne,NA,ne,lok
+Rosalia alpina,STA_SKLADREVO,val,ne,ano/ne,ne,lok
 Carabus variolosus,STA_TEKVODA,val,ano,ano/ne,ano,lok
-Bombina bombina,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Bombina variegata,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Epidalea calamita,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Lissotriton montandoni,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Triturus carnifex,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Triturus cristatus,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Triturus dobrogicus,STA_UHYNOBOJZIVELNIK,val,ne,NA,ne,lok
-Cerambyx cerdo,STA_VHSTROMK,val,ano,NA,ne,lok
-Cucujus cinnaberinus,STA_VHSTROMK,val,ano,NA,ne,lok
-Limoniscus violaceus,STA_VHSTROMK,val,ano,NA,ne,lok
-Lucanus cervus,STA_VHSTROMK,val,ano,NA,ne,lok
-Osmoderma barnabita,STA_VHSTROMK,val,ano,NA,ne,lok
-Osmoderma barnabita,STA_VHSTROMK,val,ano,NA,ne,lok
-Rhysodes sulcatus,STA_VHSTROMK,val,ano,NA,ne,lok
-Rosalia alpina,STA_VHSTROMK,val,ano,NA,ne,lok
-Cerambyx cerdo,STA_VHSTROMN,val,ano,NA,ne,lok
-Cucujus cinnaberinus,STA_VHSTROMN,val,ano,NA,ne,lok
-Limoniscus violaceus,STA_VHSTROMN,val,ano,NA,ne,lok
-Lucanus cervus,STA_VHSTROMN,val,ano,NA,ne,lok
-Osmoderma barnabita,STA_VHSTROMN,val,ano,NA,ne,lok
-Osmoderma barnabita,STA_VHSTROMN,val,ano,NA,ne,lok
-Rhysodes sulcatus,STA_VHSTROMN,val,ano,NA,ne,lok
-Rosalia alpina,STA_VHSTROMN,val,ano,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,val,26-50 %,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,val,51-75 %,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,val,76-100 %,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,val,76-90 %,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,val,91-100 %,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANI,min,25,NA,ne,lok
-Bombina bombina,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Bombina variegata,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Epidalea calamita,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANIPERIOD3,max,2,NA,ne,lok
+Bombina bombina,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Bombina variegata,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Epidalea calamita,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Lissotriton montandoni,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Triturus carnifex,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Triturus cristatus,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Triturus dobrogicus,STA_UHYNOBOJZIVELNIK,val,ne,ano/ne,ne,lok
+Cerambyx cerdo,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Cucujus cinnaberinus,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Limoniscus violaceus,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Lucanus cervus,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Osmoderma barnabita,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Osmoderma barnabita,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Rhysodes sulcatus,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Rosalia alpina,STA_VHSTROMK,val,ano,ano/ne,ne,lok
+Cerambyx cerdo,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Cucujus cinnaberinus,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Limoniscus violaceus,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Lucanus cervus,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Osmoderma barnabita,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Osmoderma barnabita,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Rhysodes sulcatus,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Rosalia alpina,STA_VHSTROMN,val,ano,ano/ne,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,26-50 %,%,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,51-75 %,%,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,76-100 %,%,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,76-90 %,%,ne,lok
+Epidalea calamita,STA_VYSYCHANI,val,91-100 %,%,ne,lok
+Epidalea calamita,STA_VYSYCHANI,min,25,%,ne,lok
+Bombina bombina,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Bombina variegata,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Epidalea calamita,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Lissotriton montandoni,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Triturus carnifex,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Triturus cristatus,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
+Triturus dobrogicus,STA_VYSYCHANIPERIOD3,max,2,poèet let,ne,lok
 Graphoderus bilineatus,STA_ZASTIN,val,ano,stupnice relativní škály,ano,lok
-Bombina bombina,STA_ZASTINENILITORAL,val,0-25 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENILITORAL,val,26-50 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
-Bombina bombina,STA_ZASTINENILITORAL,max,75,NA,ne,lok
-Bombina variegata,STA_ZASTINENILITORAL,val,0-25 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENILITORAL,val,26-50 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENILITORAL,val,51-75 %,NA,ne,lok
-Bombina variegata,STA_ZASTINENILITORAL,max,75,NA,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,0-25 %,%,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,26-50 %,%,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,val,51-75 %,%,ne,lok
+Bombina bombina,STA_ZASTINENILITORAL,max,75,%,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,0-25 %,%,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,26-50 %,%,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,val,51-75 %,%,ne,lok
+Bombina variegata,STA_ZASTINENILITORAL,max,75,%,ne,lok
 Leucorrhinia pectoralis,STA_ZAZEMNENI,max,60,%,ne,lok
-Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,NA,ne,lok
+Ophiogomphus cecilia,STA_ZAZEMNENI,val,ménì než 10 %,%,ne,lok
 Epidalea calamita,STA_ZTRATABIO,val,ne,zaznamenána ztráta vodních biotopù,ne,lok
-stanoviste,TYPICKE_DRUHY,,NA,NA,ne,lok
+stanoviste,TYPICKE_DRUHY,,NA,kategorie,ne,lok
 Bolbelamus unicornis,VLV_VLIVY,info,NA,NA,ne,lok
 Bombina bombina,VLV_VLIVY,info,NA,NA,ne,lok
 Bombina variegata,VLV_VLIVY,info,NA,NA,ne,lok
@@ -456,38 +456,38 @@ Rosalia alpina,VLV_VLIVY,info,NA,NA,ne,lok
 Triturus carnifex,VLV_VLIVY,info,NA,NA,ne,lok
 Triturus cristatus,VLV_VLIVY,info,NA,NA,ne,lok
 Triturus dobrogicus,VLV_VLIVY,info,NA,NA,ne,lok
-Bombina bombina,LOK_PROCDOBR,min,70,NA,ano,chu
-Bombina variegata,LOK_PROCDOBR,min,70,NA,ano,chu
-Lissotriton montandoni,LOK_PROCDOBR,min,70,NA,ano,chu
-Triturus carnifex,LOK_PROCDOBR,min,70,NA,ano,chu
-Triturus cristatus,LOK_PROCDOBR,min,70,NA,ano,chu
-Triturus dobrogicus,LOK_PROCDOBR,min,70,NA,ano,chu
-Bombina variegata,POP_PRESENCE,val,ano,NA,ano,lok
-Lissotriton montandoni,POP_PRESENCE,val,ano,NA,ano,lok
-Triturus carnifex,POP_PRESENCE,val,ano,NA,ano,lok
-Triturus cristatus,POP_PRESENCE,val,ano,NA,ano,lok
-Triturus dobrogicus,POP_PRESENCE,val,ano,NA,ano,lok
-Bombina bombina,STA_PLOCHA50CM,min,25,NA,ne,lok
-Bombina variegata,STA_PLOCHA50CM,min,75,NA,ne,lok
-Lissotriton montandoni,STA_PLOCHA50CM,min,75,NA,ne,lok
-Triturus carnifex,STA_PLOCHA50CM,min,25,NA,ne,lok
-Triturus cristatus,STA_PLOCHA50CM,min,25,NA,ne,lok
-Triturus dobrogicus,STA_PLOCHA50CM,min,25,NA,ne,lok
-Bombina bombina,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Bombina bombina,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Bombina variegata,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Bombina variegata,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Lissotriton montandoni,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Lissotriton montandoni,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Triturus carnifex,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Triturus carnifex,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Triturus cristatus,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Triturus cristatus,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Triturus dobrogicus,LOK_DILCDOBRE,NA,NA,NA,ne,chu
-Triturus dobrogicus,LOK_DILCPOCET,NA,NA,NA,ne,chu
-Bombina bombina,STA_VYSYCHANI,info,NA,NA,ne,lok
-Bombina variegata,STA_VYSYCHANI,info,NA,NA,ne,lok
-Lissotriton montandoni,STA_VYSYCHANI,info,NA,NA,ne,lok
-Triturus cristatus,STA_VYSYCHANI,info,NA,NA,ne,lok
-Triturus carnifex,STA_VYSYCHANI,info,NA,NA,ne,lok
-Triturus dobrogicus,STA_VYSYCHANI,info,NA,NA,ne,lok
+Bombina bombina,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Bombina variegata,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Lissotriton montandoni,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Triturus carnifex,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Triturus cristatus,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Triturus dobrogicus,LOK_PROCDOBR,min,70,procento dílèích lokalit v dobrém stavu,ano,chu
+Bombina variegata,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Lissotriton montandoni,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Triturus carnifex,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Triturus cristatus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Triturus dobrogicus,POP_PRESENCE,val,ano,pøítomnost druhu,ano,lok
+Bombina bombina,STA_PLOCHA50CM,min,25,%,ne,lok
+Bombina variegata,STA_PLOCHA50CM,min,75,%,ne,lok
+Lissotriton montandoni,STA_PLOCHA50CM,min,75,%,ne,lok
+Triturus carnifex,STA_PLOCHA50CM,min,25,%,ne,lok
+Triturus cristatus,STA_PLOCHA50CM,min,25,%,ne,lok
+Triturus dobrogicus,STA_PLOCHA50CM,min,25,%,ne,lok
+Bombina bombina,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Bombina bombina,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Bombina variegata,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Bombina variegata,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Lissotriton montandoni,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Lissotriton montandoni,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus carnifex,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus carnifex,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus cristatus,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus cristatus,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus dobrogicus,LOK_DILCDOBRE,NA,NA,poèet dílèích lokalit,ne,chu
+Triturus dobrogicus,LOK_DILCPOCET,NA,NA,poèet dílèích lokalit,ne,chu
+Bombina bombina,STA_VYSYCHANI,info,NA,%,ne,lok
+Bombina variegata,STA_VYSYCHANI,info,NA,%,ne,lok
+Lissotriton montandoni,STA_VYSYCHANI,info,NA,%,ne,lok
+Triturus cristatus,STA_VYSYCHANI,info,NA,%,ne,lok
+Triturus carnifex,STA_VYSYCHANI,info,NA,%,ne,lok
+Triturus dobrogicus,STA_VYSYCHANI,info,NA,%,ne,lok
