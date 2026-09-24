@@ -25,3 +25,7 @@ secrets.*
 # narostl na 212 MB, coz prekracuje limit GitHubu 100 MB na soubor.
 # Kazdy beh pipeline si je vytvori znovu, verzovat je nema smysl.
 Data/Temp/
+
+# Cache configu testovacich behu (Test/00_config_test_*.R) - desitky MB,
+# vznika znovu pri kazdem behu.
+Test/.cache_*.rds
