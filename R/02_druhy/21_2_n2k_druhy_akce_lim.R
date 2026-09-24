@@ -30,6 +30,33 @@
 # takze vysledek je identicky - overeno na 34 257 radcich / 22 500 skupinach
 # s nulovym poctem odlisnych radku.
 #----------------------------------------------------------#
+# Indikatory sbirane az od budouciho roku -----
+#----------------------------------------------------------#
+# Nektery indikator ma v limity_vse.csv vyplneny limit, ale jeho hodnota se
+# v terenu zacne sbirat az pozdeji. Za roky pred zacatkem sberu nema smysl
+# takovy indikator vykazovat: hodnota nemuze existovat, takze by se ve vystupu
+# objevil jediny mozny vysledek - radek s HOD_IND = "neznámý" a STAV_IND = NA.
+# Takovy radek nic nesdeluje, jen mate uzivatele a zbytecne jde i do importu
+# do ISOP.
+#
+# Na verdikty to vliv NEMA a mit nesmi: 24_n2k_druhy_lokality.R pocita
+# N_KEY_EXPECTED / N_OTH_EXPECTED vyhradne z radku, kde `!is.na(STAV_IND)`,
+# takze nevyhodnoceny indikator uz dnes do poctu ocekavanych ani splnenych
+# indikatoru nevstupuje (nalez H-21). Tento filtr tedy jen PRESTANE VYPISOVAT
+# to, co se stejne nehodnotilo.
+#
+# STA_PLOCHA50CM (plocha s hloubkou mensi nez 50 cm): tag <STA_PLOCHA50CM> se
+# v exportu z NDOP nevyskytuje ani jednou a dle sdeleni autoru metodiky
+# (2026-08-20) se indikator bude hodnotit AZ OD ROKU 2027 - viz nalez H-04
+# a komentar v 21_1_n2k_druhy_akce.R u extrakce tohoto tagu.
+#
+# Filtr je rocnikovy, ne globalni: od roku 2027 se indikator zacne vykazovat
+# sam, bez dalsiho zasahu do kodu. Staci tedy tabulku rozsirit, ne ji hlidat.
+IND_OD_ROKU <- c(
+  STA_PLOCHA50CM = 2027
+)
+
+#----------------------------------------------------------#
 # Shoda hodnoty s limitem typu "val" -----
 #----------------------------------------------------------#
 # Puvodne slo o prostou rovnost HOD_IND == LIM_IND. To staci, dokud je namerena
@@ -209,8 +236,15 @@ run_n2k_druhy_lim <- function(
         TYP_IND %in% c("min", "max") ~ "minmax",
         TRUE ~ TYP_IND
       )
-    ) 
-  
+    ) %>%
+    # Indikatory, ktere se zacnou sbirat teprve v budoucnu, se za starsi roky
+    # vubec nevykazuji - viz IND_OD_ROKU nahore.
+    dplyr::filter(
+      !(ID_IND %in% names(IND_OD_ROKU) &
+          !is.na(ROK) &
+          ROK < IND_OD_ROKU[ID_IND])
+    )
+
   # ------------------------------------------#
   # 2. Porovnani s limity ----- 
   # ------------------------------------------#

@@ -1,0 +1,22 @@
+﻿"ID_IND","POPIS","UROVEN","JEN_U","LIMIT_SHODNY","TC_TYP","TC_LIM","TC_JEDN","TC_KLIC","BV_TYP","BV_LIM","BV_JEDN","BV_KLIC"
+"LOK_DILCDOBRE","počet dílčích lokalit v dobrém stavu","chu","","ano","","","počet dílčích lokalit","ne","","","počet dílčích lokalit","ne"
+"LOK_DILCPOCET","počet hodnocených dílčích lokalit","chu","","ano","","","počet dílčích lokalit","ne","","","počet dílčích lokalit","ne"
+"LOK_PROCDOBR","procento dílčích lokalit v dobrém stavu","chu","","ano","min","70","procento dílčích lokalit v dobrém stavu","ano","min","70","procento dílčích lokalit v dobrém stavu","ano"
+"POP_POCET",NA,"lok","","ano","info","","adulti | jedinci","","info","","adulti | jedinci | samci",""
+"POP_POCETMAX","maximální odhadovaná velikost populace","lok","","ano","info","","","ne","info","","","ne"
+"POP_POCETMIN","minimální odhadovaná velikost populace","lok","","ano","info","","","ne","info","","","ne"
+"POP_POCETSUM",NA,"lok","jen Triturus cristatus","NE","info","","samci | samice","",NA,NA,NA,NA
+"POP_PRESENCE","přítomnost druhu","lok","","ano","val","ano","přítomnost druhu","ano","val","ano","přítomnost druhu","ano"
+"POP_REPRO","rozmnožování druhu","lok","","ano","info","","amplexus | juvenilové | larvy | metamorf. ex. | snůšky | snůšky cm2 | snůšky dm2 | snůšky m2 | snůšky m3","","info","","juvenilové | larvy | metamorf. ex. | snůšky",""
+"POP_REPROPERIOD3","rozmnožování alespoň 1x za 3 roky","lok","","ano","min","1","rozmnožování za 3 roky","ano","min","1","rozmnožování za 3 roky","ano"
+"POP_ZMENARAD","vývoj početnosti populace","lok","","ano","min","-1","kategorie","ano","min","-1","kategorie","ano"
+"STA_MANIPULACE","manipulace s vodní hladinou","lok","jen Triturus cristatus","NE","val","ne","ano/ne","ne",NA,NA,NA,NA
+"STA_PLOCHA50CM","plocha s hloubkou menší než 50 cm","lok","","NE","min","25","%","ne","min","75","%","ne"
+"STA_POKRVEGETACE","pokryvnost vodní vegetace","lok","","NE","max | min | val","1 | 1-10 % | 11-25 % | 26-50 % | 51-75 % | 75","%","ne","max | val","0 | 0-25 % | 0 % | 1-10 % | 1-25 % | 11-25 % | 26-50 % | 50","%","ne"
+"STA_PRUHLEDNOSTVODA","průhlednost vody","lok","jen Triturus cristatus","NE","min | val","50 | až na dno | nad 50 cm","cm","ne",NA,NA,NA,NA
+"STA_RYBY","nadměrný tlak ryb","lok","","ano","val","ne | nelze vyloučit","zaznamenán nadměrný tlak ryb","ne","val","ne | nelze vyloučit","zaznamenán nadměrný tlak ryb","ne"
+"STA_UHYNOBOJZIVELNIK","úhyn obojživelníků","lok","","ano","val","ne","ano/ne","ne","val","ne","ano/ne","ne"
+"STA_VYSYCHANI","vysychání vodních ploch","lok","","ano","info","","%","ne","info","","%","ne"
+"STA_VYSYCHANIPERIOD3","vysychání ve všech třech letech po sobě","lok","","ano","max","2","počet let","ne","max","2","počet let","ne"
+"STA_ZASTINENILITORAL","zastínění litorálu okolní vegetací","lok","jen Bombina variegata","NE",NA,NA,NA,NA,"max | val","0-25 % | 26-50 % | 51-75 % | 75","%","ne"
+"VLV_VLIVY",NA,"lok","","ano","info","","","ne","info","","","ne"

@@ -44,6 +44,10 @@ jednou** a dle sdělení autorů metodiky (2026-08-20) se indikátor hodnotí
 **až od roku 2027** — viz komentář u `R/02_druhy/21_1_n2k_druhy_akce.R:965`.
 Do počtu hodnocených indikátorů proto nevstupuje.
 
+> **VYŘEŠENO 2026-09-11:** indikátor se za roky před 2027 už nevykazuje vůbec
+> (tabulka `IND_OD_ROKU` v `21_2_n2k_druhy_akce_lim.R`). Verdikty se nezměnily —
+> doklad v [`../TC_BV_20260911_plocha50/`](../TC_BV_20260911_plocha50/).
+
 ### 2. Rozdíl 32 vs. 1 „zhoršený" na úrovni DP je důsledek Tabulky 1
 
 „Zhoršený" vyžaduje **0** špatných klíčových (populačních) indikátorů
@@ -93,6 +97,7 @@ metodika připouští **dospělce** u všech druhů kromě *B. bombina*. Ovlivň
 
 | Co | Kde |
 |---|---|
+| **rozbor příčin „neznámý" a selhání `POP_POCETPRUM3`** | [`analyza/README.md`](analyza/README.md) |
 | **srovnání přes `ID_IND`, úroveň DP** | `srovnani/srovnani_indikatoru_DP.csv` |
 | **srovnání přes `ID_IND`, úroveň EVL** | `srovnani/srovnani_indikatoru_EVL.csv` |
 | definice limitů obou druhů vedle sebe | `srovnani/limity_srovnani.csv` |

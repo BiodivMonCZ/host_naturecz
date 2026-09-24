@@ -1,0 +1,6 @@
+﻿"ID_IND","POPIS","JEN_U","LIM_TC","LIM_BV","TC_ZAZNAMU","TC_EVL","TC_S_HODNOTOU","TC_DOBRY","TC_ZHORSENY","TC_SPATNY","TC_NEZNAMY","TC_NEHODNOCEN","BV_ZAZNAMU","BV_EVL","BV_S_HODNOTOU","BV_DOBRY","BV_ZHORSENY","BV_SPATNY","BV_NEZNAMY","BV_NEHODNOCEN"
+"CELKOVE_HODNOCENI","celkové hodnocení","",NA,NA,191,191,103,35,29,39,88,0,63,63,30,6,12,12,33,0
+"LOK_DILCDOBRE","počet dílčích lokalit v dobrém stavu","","","",191,191,191,0,0,0,0,191,63,63,63,0,0,0,0,63
+"LOK_DILCPOCET","počet hodnocených dílčích lokalit","","","",191,191,191,0,0,0,0,191,63,63,63,0,0,0,0,63
+"LOK_PROCDOBR","procento dílčích lokalit v dobrém stavu","","70","70",191,191,103,47,0,56,88,0,63,63,30,13,0,17,33,0
+"POP_POCETPRUM3","počet jedinců (klouzavý průměr za poslední 3 roky)","",NA,NA,97,97,97,11,0,51,0,35,30,30,30,2,0,19,0,9

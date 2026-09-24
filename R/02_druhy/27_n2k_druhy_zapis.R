@@ -574,7 +574,12 @@ lok_export <- function(
       STAV_IND,
 
       # Zbytek
-      dplyr::everything()
+      dplyr::everything(),
+
+      # Pracovni sloupce z bloku 6 v 24_n2k_druhy_lokality.R: verdikt DP
+      # postaveny jen na cilenem monitoringu je vstupem pro LOK_PROCDOBR na
+      # urovni EVL, do exportu DP nepatri (nalez H-69).
+      -dplyr::any_of(c("CELKOVE_CILMON", "ROK_CILMON"))
     )
 
   #--------------------------------------------------#

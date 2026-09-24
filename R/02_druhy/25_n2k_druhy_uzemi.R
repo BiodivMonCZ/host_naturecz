@@ -32,6 +32,25 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   # Vytvorime mapovaci tabulku: Lokalita+Rok -> Vysledek
   
+  # Zaloha pro pripad, ze uroven DP prisla ze starsiho souboru na disku, ktery
+  # sloupec CELKOVE_CILMON jeste neobsahuje (viz input_path v chu_export).
+  # Chovani je pak totozne se stavem pred nalezem H-69, proto varovani.
+  if (!"CELKOVE_CILMON" %in% names(n2k_druhy_lok)) {
+    warning(glue::glue(
+      "Druh {species_name}: uroven DP neobsahuje sloupec CELKOVE_CILMON - ",
+      "LOK_PROCDOBR se pocita ze zastaraleho filtru CILMON == 1 nad HOD_IND ",
+      "(viz nalez H-69). Prepoctete uroven DP aktualnim 24_n2k_druhy_lokality.R."
+    ))
+    n2k_druhy_lok <- n2k_druhy_lok %>%
+      dplyr::mutate(
+        CELKOVE_CILMON = ifelse(
+          ID_IND == "CELKOVE_HODNOCENI" & !is.na(CILMON) & CILMON == 1,
+          HOD_IND,
+          NA_character_
+        )
+      )
+  }
+
   hodnoceni_lokalit <- n2k_druhy_lok %>%
     dplyr::filter(ID_IND == "CELKOVE_HODNOCENI") %>%
     dplyr::select(
@@ -159,8 +178,18 @@ run_n2k_druhy_uzemi <- function(
         # Metodika: "Procento dobre hodnocenych dilcich ploch" = pocet DP v dobrem stavu /
         # pocet DP v dobrem, zhorsenem ci spatnem stavu * 100. DP s neznamym stavem se do
         # vypoctu (citatele ani jmenovatele) nezapocitavaji.
-        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
-        LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND == "dobrý", na.rm = TRUE),
+        #
+        # Pocita se ze sloupce CELKOVE_CILMON, ne z HOD_IND: je to tyz verdikt
+        # Tabulky 1, ale postaveny VYHRADNE na zaznamech s CILMON == 1 (viz blok
+        # 6 v 24_n2k_druhy_lokality.R). Puvodni podminka `CILMON == 1` nad HOD_IND
+        # filtrovala jen priznak DP, ne data pod nim - CILMON se totiz na urovni
+        # DP agreguje maximem, takze DP-rok, kde se potkal cileny monitoring s
+        # nahodilym nalezem, prosel jako CILMON = 1 i s prispevkem zaznamu
+        # CILMON = 0. CELKOVE_CILMON je NA u DP bez cileneho monitoringu, takze
+        # se takova DP do citatele ani jmenovatele nedostane - stejne jako drive.
+        # Nalez H-69; vecne rozhodnuti, zda se ma filtrovat vubec, zustava H-62.
+        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CELKOVE_CILMON %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
+        LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CELKOVE_CILMON == "dobrý", na.rm = TRUE),
         LOK_PROCDOBR = dplyr::case_when(is.na(LOK_POCETDOB) | is.na(LOK_POCETSUM) ~ NA_real_, LOK_POCETSUM == 0 ~ NA_real_, TRUE ~ round(LOK_POCETDOB / LOK_POCETSUM * 100, 3)),
         # Stejne pocty pod nazvy z ciselniku cis_indikatory_popis.csv (ind_id 130 / 131),
         # aby se pri exportu do ISOP (chu_export, viz 27_n2k_druhy_zapis.R) spravne
