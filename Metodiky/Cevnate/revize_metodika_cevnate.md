@@ -134,7 +134,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Věta nemá přísudek. Nejpravděpodobněji jde o přejmenování na „krátkodobý trend" jako dvojici k „dlouhodobému trendu" z N-2. Není jasné, zda se mění i definice (tři poslední monitoringy, R-20). Přijme-li se návrh JG přejmenovat „dlouhodobý trend" na „početnost populace", dvojice dlouhodobý/krátkodobý trend se rozpadne.
 - **Návrh znění:** pracovně „vývoj početnosti populace (dle zápisu ‚krátkodobý trend‘)", definice beze změny.
 - **Otázka pro autory:** Má se „vývoj početnosti populace" přejmenovat na „krátkodobý trend"? Mění se tím i definice a okno tří posledních monitoringů?
-- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Přejmenovat na **krátkodobý trend populace**. Nová definice: početnost v hodnocené sezóně se porovná s **průměrem tří předchozích hodnocených sezón** (hodnocená sezóna do průměru nevstupuje), v rámci 12letého okna (R-18); splněno, je-li početnost hodnocené sezóny alespoň rovna tomuto průměru (upřesnění zadavatele (2026-10-02)).
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Přejmenovat na **krátkodobý trend populace**. Nová definice: početnost v hodnocené sezóně se porovná s **průměrem tří předchozích hodnocených sezón** (hodnocená sezóna do průměru nevstupuje), v rámci 12letého okna (R-18); splněno, je-li početnost hodnocené sezóny alespoň rovna tomuto průměru (upřesnění zadavatele (2026-10-02)). **Doplněno po Fázi B (2026-10-02):** tři předchozí sezóny jsou ideál, **přípustné jsou dvě**.
 
 ### R-08 — Zápis N-4: „celková početnost populace" na úrovni EVL vs. podmínka 5.3
 - **Typ:** NEJASNOST
@@ -276,7 +276,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   6. **Vztah k N-2** — nahradí-li „dlouhodobý trend" stávající indikátor (R-04, čtení A), zůstane pojem počáteční početnosti potřebný jen pro podmínku 50 % (R-25).
 - **Návrh znění:** text ponechat a vyznačit otázku; po odpovědi doplnit, kde se arbitrární hodnota eviduje.
 - **Otázka pro autory:** Kdo a kde eviduje arbitrárně stanovenou počáteční početnost a z jakých důvodů ji lze stanovit? Počítá se průměr z prvních tří monitoringů podle terénní metodiky, nebo z prvních tří záznamů vůbec? Jak se DP hodnotí, dokud tři monitoringy neexistují? Je počáteční početnost po stanovení pevná a jak postupovat, vyjde-li 0?
-- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) **Částečně.** Počáteční početnost DP = průměr z prvních tří monitoringů DP (projekt Monitoring druhů ČR, R-15); výsledky digitalizace SDO se používají jen na úrovni EVL (upřesnění R-05). Dokud tři monitoringy neexistují, je velikost populace neznámá, a tedy i stav DP (R-27). **Otevřené:** kdo stanoví arbitrární počáteční početnost a jak postupovat, vyjde-li počáteční početnost 0.
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) **Částečně.** Počáteční početnost DP = průměr z prvních tří monitoringů DP (projekt Monitoring druhů ČR, R-15); výsledky digitalizace SDO se používají jen na úrovni EVL (upřesnění R-05). Dokud tři monitoringy neexistují, je velikost populace neznámá, a tedy i stav DP (R-27). **Otevřené:** kdo stanoví arbitrární počáteční početnost a jak postupovat, vyjde-li počáteční početnost 0. **Doplněno po Fázi B (2026-10-02):** tři monitoringy jsou ideál, **počáteční početnost lze spočítat i ze dvou**. Arbitrární počáteční početnost stanoví **samostatný skript pro všechny skupiny a všechny DP — maximální početnost kdy zaznamenaná pro druh na DP** (mimo toto zadání). Otevřené zůstává jen: počáteční početnost 0.
 
 ### R-20 — Vývoj početnosti populace: tři neshodné formulace a délka okna
 - **Typ:** NEJASNOST
@@ -298,7 +298,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   (Sklon přes pořadí = (x3 − x1) / 2; počítá-li se přes skutečné roky monitoringu, vyjde při nestejných intervalech jinak.) **Okno:** „tři poslední monitoringy" pokrývají u intenzivních DP asi 6 let, u extenzivních až asi 24 let. **Jednotka:** Tab. 1 uvádí „počet prýtů", tj. vstup; výsledkem je kategorie trendu. **Méně než tři monitoringy:** neřešeno (R-27).
 - **Návrh znění:** text ponechat a vyznačit otázku; v Příloze 1 uvést jednotku „trend (z počtu prýtů)".
 - **Otázka pro autory:** Které pravidlo pro vývoj početnosti platí — (A) obě poslední hodnoty jsou ≥ první, (B) nesplněno jen tehdy, jsou-li obě nižší než první, nebo (T) směr trendu (a jak se určí, včetně tolerance pro „setrvalý")? Je okno tří monitoringů přijatelné i u DP extenzivního monitoringu (až asi 24 let)? Jak se indikátor hodnotí, jsou-li k dispozici méně než tři monitoringy?
-- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Závazné je pravidlo z R-07. Čtení (A), (B) a trend (T) se namodelují ve srovnávacím výpočtu Fáze B. DP s řídkým monitoringem se hodnotí stejně v 12letém okně (R-18). **Důsledek k vědomí:** u DP extenzivního monitoringu (interval až 12 let) nebudou v okně zpravidla k dispozici tři předchozí sezóny ⇒ krátkodobý trend neznámý ⇒ DP neznámá (R-27); rozsah změří Fáze B.
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Závazné je pravidlo z R-07. Čtení (A), (B) a trend (T) se namodelují ve srovnávacím výpočtu Fáze B. DP s řídkým monitoringem se hodnotí stejně v 12letém okně (R-18). **Důsledek k vědomí:** u DP extenzivního monitoringu (interval až 12 let) nebudou v okně zpravidla k dispozici tři předchozí sezóny ⇒ krátkodobý trend neznámý ⇒ DP neznámá (R-27); rozsah změří Fáze B. **Doplněno po Fázi B (2026-10-02):** viz R-07 (dvě sezóny přípustné). Srovnávací výpočet a rozbor příčin jsou v registru Fáze B (§Srovnávací výpočet, §Rozbor příčin).
 
 ### R-21 — Nulová početnost: vitalita a poškození nejsou definovány
 - **Typ:** GAP
@@ -341,7 +341,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   3. **Název** — „Přítomnost a pokryvnost" invazních/expanzivních druhů, ale hodnocena je jen pokryvnost.
 - **Návrh znění:** v harmonizovaném znění indikátory pojmenovány podle hodnocené veličiny („pokryvnost invazních druhů") s poznámkou o původním názvu; doména vyznačena otázkou.
 - **Otázka pro autory:** Zaznamenávají se pokryvnosti stanovištních indikátorů a poškození rostlin přesným procentem, nebo v třídách (jakých)? Pokud v třídách, jak se vyhodnotí limit, jehož hranice leží uvnitř třídy? Má být pro druh stanoven seznam expanzivních druhů?
-- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Pokryvnosti i poškození se zaznamenávají v **procentních třídách**; soulad hranic tříd s limity ověří Fáze B na datech. **Otevřené:** seznam expanzivních druhů.
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Pokryvnosti i poškození se zaznamenávají v **procentních třídách**; soulad hranic tříd s limity ověří Fáze B na datech. **Otevřené:** seznam expanzivních druhů. **Doplněno po Fázi B (2026-10-02):** expanzivní druhy = **Axmanová et al. (2024)**, Katalog expanzivních rostlin ČR (Preslia 96: 299–327). Otevřené: katalog hodnotí expanzivitu po regionech a biotopech — zda platí celý seznam, nebo jen druhy expanzivní v daném regionu / biotopu.
 
 ### R-25 — Dvě hranice početnosti: 75 % (indikátor) a 50 % (podmínka dobrého stavu DP)
 - **Typ:** NEJASNOST
@@ -445,7 +445,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   **Ilustrace z dat (nejde o audit):** ve snímku cílových stavů ze SDO (`sdo_cilove_druhy_20260820.csv`) má jediná EVL druhu (CZ0724089 Beskydy) navrženou hodnotu **600, jednotka „jedinci"**, zatímco text SDO uvádí (rekonstruováno z poškozeného sloupce): „Na lokalitě se v současnosti vyskytuje cca 30–35 000 prýtů. Cílem je toto množství udržet." Jednotka cílového stavu se tedy liší od hodnocené jednotky (prýt) a obě hodnoty se liší o dva řády; sám snímek řádek označuje varováním. Jde o tutéž třídu problému jako u obojživelníků (registr H-68, S-4).
 - **Návrh znění:** vyznačit otázku u indikátoru 1 Tabulky 2.
 - **Otázka pro autory:** Kde je evidován cílový stav EVL a v jaké jednotce? Jak se počítá celková početnost populace v EVL (součet posledních monitoringů všech DP, roční součet, klouzavý průměr)? Jak se EVL hodnotí, není-li cílový stav stanoven nebo je v jiné jednotce než hodnocená početnost (u *Aconitum*: SDO 600 „jedinců" vs. 30–35 000 prýtů v textu SDO)?
-- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Cílový stav EVL = **navržená hodnota z výsledků digitalizace SDO**. Celková početnost = součet početností z posledního monitoringu každé DP v 12letém okně, bez DP v neznámém stavu (dle 5.3) — **odvozeno z R-18, k potvrzení**. **Otevřené:** hodnocení EVL bez cílového stavu (u *Aconitum* nenastává). Nesoulad jednotek (SDO 600 „jedinců“ vs. prýty) se dokumentuje ve Fázi B.
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Cílový stav EVL = **navržená hodnota z výsledků digitalizace SDO**. Celková početnost = součet početností z posledního monitoringu každé DP v 12letém okně, bez DP v neznámém stavu (dle 5.3) — **odvozeno z R-18, k potvrzení**. **Otevřené:** hodnocení EVL bez cílového stavu (u *Aconitum* nenastává). Nesoulad jednotek (SDO 600 „jedinců“ vs. prýty) se dokumentuje ve Fázi B. **Doplněno po Fázi B (2026-10-02):** **potvrzeno** — celková početnost EVL je součtem za DP a porovnává se s cílem z digitalizace SDO; u *Aconitum* se cíl 600 „jedinců“ zatím ponechává a nesoulad jednotek se vyznačí (registr H-08). Otevřené: EVL bez cílového stavu (u *Aconitum* nenastává).
 
 ### R-32 — Nové a zaniklé DP: nedeterministická pravidla
 - **Typ:** NEJASNOST
@@ -731,14 +731,14 @@ znění a audit Fáze B:
 | Zaniklé DP | 10 let od posledního prokazatelného záznamu; prodloužení: regionální garant s potvrzením koordinátora monitoringu | R-32 |
 | Záznam pokryvností a poškození | procentní třídy | R-22, R-24 |
 
-**Zbývá otevřené (nebrání Fázi B):**
+**Zbývá otevřené (nebrání Fázi B):** *(aktualizováno po Fázi B, 2026-10-02)*
 
 | # | Bod | Nález |
 |---|---|---|
-| 1 | Kdo stanoví arbitrární počáteční početnost DP; postup při počáteční početnosti 0 | R-19 |
-| 2 | Seznam expanzivních druhů | R-24 |
-| 3 | Celková početnost EVL jako součet posledních monitoringů DP v 12letém okně — odvozeno z R-18, **k potvrzení**; hodnocení EVL bez cílového stavu | R-31 |
-| 4 | Plná citace „Kolektiv autorů (2016)“ — v repozitáři není | R-34 |
+| 1 | ~~Kdo stanoví arbitrární počáteční početnost~~ — samostatný skript „maximum kdy zaznamenané" (mimo zadání); **zbývá** postup při počáteční početnosti 0 | R-19 |
+| 2 | ~~Seznam expanzivních druhů~~ — Axmanová et al. (2024); **zbývá** regionální / biotopová platnost katalogu | R-24 |
+| 3 | ~~Součet celkové početnosti EVL~~ — potvrzeno; **zbývá** EVL bez cílového stavu | R-31 |
+| 4 | Plná citace „Kolektiv autorů (2016)" — v repozitáři není | R-34 |
 
 **Důsledky k vědomí** (rozsah změří Fáze B):
 

@@ -7,6 +7,7 @@ zadavatele 2026-10-02 (viz [revize_metodika_cevnate.md](revize_metodika_cevnate.
 R-34), jsou auditovány proti dnešnímu znění a varianty jsou uvedeny u nálezu.
 **Datum:** 2026-10-02 · **Větev:** `harmonizace-cevnate` · **Stav kódu:** commit `c8712d7`
 (beze změny `R/` i `Data/Input/` od `druhy-202609`).
+**Doplněno 2026-10-02:** odpovědi zadavatele k otázkám registru, nález H-20, rozbor příčin srovnávacího výpočtu.
 
 Fáze B **nezměnila žádný kód ani data**. Implementace není součástí zadání — návrhy
 řešení jsou podklad pro samostatné zadání.
@@ -43,13 +44,13 @@ normativního zdroje).
 |---|---|---|
 | **Kritická** — plošně mění výsledek | 8 | H-01 … H-08 |
 | **Vysoká** — mění výsledek části DP | 5 | H-09 … H-13 |
-| **Střední** — konzistence, dohledatelnost, export | 4 | H-14 … H-17 |
+| **Střední** — konzistence, dohledatelnost, export | 5 | H-14 … H-17, H-20 |
 | **Nízká** | 2 | H-18, H-19 |
 | **Potvrzeno — bez akce** | 2 | P-01, P-02 |
 
 | Typ | Počet | Nálezy |
 |---|---|---|
-| BUG | 10 | H-01, H-02, H-03, H-05, H-09, H-10, H-11, H-14, H-18, H-19 |
+| BUG | 11 | H-01, H-02, H-03, H-05, H-09, H-10, H-11, H-14, H-18, H-19, H-20 |
 | ROZPOR-METODIKY | 5 | H-04, H-06, H-07, H-12, H-13 |
 | GAP | 2 | H-08, H-15 |
 | STOPA-DO-ISOP | 1 | H-16 |
@@ -57,7 +58,7 @@ normativního zdroje).
 
 (H-15 je veden jako GAP; část „poslední nález počítá i negativní záznamy" je BUG.)
 
-**Dotčení sdíleného kódu:** H-06, H-07, H-09, H-13, H-14, H-15, H-18 se týkají kódu,
+**Dotčení sdíleného kódu:** H-06, H-07, H-09, H-13, H-14, H-15, H-18, H-20 se týkají kódu,
 který obsluhuje i obojživelníky, ryby, hmyz a savce — u každého je uvedeno, zda musí
 být náprava podmíněna skupinou.
 
@@ -83,7 +84,7 @@ být náprava podmíněna skupinou.
 - **Dotčené skupiny ve sdíleném kódu:** rostliny (řádek 228 je podmíněn skupinou; náhrada názvem na ř. 242 je sdílená, ale u ostatních skupin se uplatní jen tam, kde chybí i `kod_chu`).
 - **Návrh řešení:** vendorovaná převodní tabulka „starý název lokality → kód AFM" v `Data/Input/` (200 jednoznačných dvojic lze odvodit z dat, 53 názvů vyžaduje ruční přiřazení), případně doplnění kódů přímo v NDOP. Mapování musí být explicitní a ověřené garantem, ne odvozované za běhu.
 - **Otevřená otázka:** Kdo potvrdí převodní tabulku a dořeší 2 nejednoznačné a 51 nenamapovatelných názvů? Má se mapování provést v NDOP, nebo jako číselník v repozitáři?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Převodní tabulku starých názvů na kódy AFM potvrdí **centrální koordinátor monitoringu**. Otevřené: forma (oprava v NDOP, nebo vendorovaný číselník).
 
 ### H-02 — Početnost: jednotka „počet prýtů" se netrefí do dat — počty 2013–2020 chybí úplně
 - **Závažnost:** kritická · **Typ:** BUG
@@ -178,7 +179,7 @@ být náprava podmíněna skupinou.
 - **Dotčené skupiny ve sdíleném kódu:** obojživelníci (týž objekt `cilove_stavy`) — přechod na klíč `sdf_code` je pro ně neutrální, pokud se ověří počet napojených řádků (S-1).
 - **Návrh řešení:** napojovat cílové stavy přes `sdf_code` (+ `sitecode`), ne přes jméno; nesoulad jednotek zdokumentovat a propsat do výstupu (vzor H-06 obojživelníků).
 - **Otevřená otázka:** Má se u *Aconitum* porovnávat s hodnotou 600 „jedinců", nebo je cílovým stavem 30–35 000 prýtů z textu SDO? (Rozhodnutí R-31 zní „výsledky digitalizace SDO", tj. 600 — prosím potvrdit s vědomím, že je indikátor pak vždy splněn.)
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⚠ (2026-10-02) **Ponechat** navrženou hodnotu z digitalizace SDO (600 „jedinců“) a nesoulad jednotek **vyznačit** v metodice i ve výstupu (vzor S-4 / H-06 obojživelníků). Do revize cílových stavů je dlouhodobý trend u *Aconitum* fakticky vždy splněn.
 
 ---
 
@@ -231,7 +232,23 @@ být náprava podmíněna skupinou.
 - **Dotčené skupiny ve sdíleném kódu:** žádné.
 - **Návrh řešení:** po rozhodnutí autorů jeden indikátor „poškození rostlin" v % třídách; `POP_POSKPOC` odstranit nebo vést jako informativní.
 - **Otevřená otázka pro autory:** Jak z tříd po typech poškození odvodit „podíl poškozených prýtů" — bere se nejvyšší třída ze všech typů, nebo se má v terénu zaznamenávat celkový podíl?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Navrhnout výpočet přes **střední hodnoty tříd** (obdoba dolní mez / horní mez / střed u kategorií početnosti obojživelníků) — návrh a jeho dopad viz níže; čeká na potvrzení.
+- **Návrh výpočtu (2026-10-02, k potvrzení):**
+  1. **Číselník tříd poškození** (obdoba číselníku kategorií početnosti — dolní mez / horní mez / střed):
+
+     | třída v datech | dolní mez | horní mez | střed |
+     |---|---|---|---|
+     | Nezjištěno, Bez poškození | 0 | 0 | 0 |
+     | 1-10 % | 1 | 10 | 5,5 |
+     | 10-50 % | 10 | 50 | 30 |
+     | 11-50 % | 11 | 50 | 30,5 |
+     | 50-100 % | 50 | 100 | 75 |
+     | 51-100 % | 51 | 100 | 75,5 |
+
+     Mezery kolem pomlčky („11 - 50 %") se před převodem normalizují.
+  2. **Podíl poškozených prýtů za návštěvu = nejvyšší střed ze všech zaznamenaných typů poškození.** Různé typy poškození postihují z velké části tytéž prýty, takže podíl poškozených prýtů je nejméně roven podílu u nejrozšířenějšího typu; součet přes typy by poškození nadhodnotil. Pro dohledatelnost se vedou i meze: dolní = nejvyšší dolní mez, horní = součet horních mezí (nejvýše 100 %).
+  3. Limit ≤ 50 % se porovnává se středem; v DP × rok rozhoduje nejhorší návštěva (R-28).
+- **Dopad návrhu (ostrá data 2014–2025, 262 návštěv se záznamem poškození):** limit splňuje **205** návštěv podle středu (podle dolní meze 252, podle horní 153). Typ poškození je uveden u 317 položek (nejčastěji padlí 111, hmyz 93, sešlap 32, okus 18); 179 položek je bez typu (starší tvar). Nerozpoznány zůstávají 4 slovní položky („pastva", „sesuv" …) → `NA`.
 
 ### H-13 — Zdroj dat: verdikty DP vznikají i z nahodilých záznamů mimo monitoring
 - **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY
@@ -265,7 +282,7 @@ být náprava podmíněna skupinou.
 - **Dotčené skupiny ve sdíleném kódu:** **všechny** (`23` je společný; použití ve `25` by bylo nové) ⇒ podmínit skupinou.
 - **Návrh řešení:** „poslední prokazatelný záznam" = max datum záznamu s přítomností (všechny projekty, R-15); zaniklou DP započítávat 10 let od něj; výjimky vést ve vendorovaném seznamu (DP, do kdy, kdo rozhodl).
 - **Otevřená otázka:** Kde a v jaké podobě budou evidována rozhodnutí regionálního garanta o prodloužení?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⚠ (2026-10-02) Rozhodnutí o prodloužení se **evidovat nebude**. Metodika to popisuje; automatické hodnocení proto započítává zaniklou DP právě 10 let od posledního prokazatelného záznamu a případné prodloužení se v něm neprojeví — vyznačeno v textu.
 
 ### H-16 — Export do ISOP: žádný indikátor rostlin nemá `ind_id`
 - **Závažnost:** střední · **Typ:** STOPA-DO-ISOP
@@ -276,7 +293,7 @@ být náprava podmíněna skupinou.
 - **Dotčené skupiny ve sdíleném kódu:** žádné.
 - **Návrh řešení:** požádat ISOP o `ind_id` pro indikátory Přílohy 1A a 1B; do přidělení vést v číselníku řádky bez `ind_id` (vzor H-04/H-14 obojživelníků).
 - **Otevřená otázka:** Má krátkodobý trend rostlin sdílet kód 80 s „vývojem početnosti" obojživelníků, nebo dostat vlastní?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Krátkodobý trend rostlin **sdílí kód 80**, je-li to v ISOP možné. Kódy pro velikost populace a dlouhodobý trend vyžádat.
 
 ### H-17 — `limity_cevky.csv`: sloupec `pozn`, typ `info` a prázdný `TYP_IND`
 - **Závažnost:** střední · **Typ:** NÁZVOSLOVÍ
@@ -305,6 +322,21 @@ být náprava podmíněna skupinou.
 - **Odkazy:** H-03, H-10
 - **Důsledek:** zavádějící hodnoty ve fázi 1; na verdikt bez vlivu.
 - **Dotčené skupiny ve sdíleném kódu:** rostliny (trendový blok se počítá jen u druhů s limitem `POP_TREND*`); `POP_POCETPRUM` se počítá pro všechny skupiny a nikde nepoužije.
+- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+
+---
+
+# Nálezy z rozboru srovnávacího výpočtu (2026-10-02)
+
+### H-20 — Negativní příznak u dílčího záznamu se čte jako nepřítomnost druhu
+- **Závažnost:** střední · **Typ:** BUG
+- **Odkazy:** revize R-21; §Srovnávací výpočet
+- **Metodika:** 3.1.3 — „Byla-li při monitoringu zjištěna nulová početnost druhu, jsou všechny indikátory stavu populace … hodnoceny jako nesplněné"; nulová je **početnost druhu**, ne jedné kategorie prýtů.
+- **Stav v datech:** od roku 2021 se návštěva zapisuje jako několik záznamů po kategoriích prýtů. Je-li některá kategorie nulová (např. žádné kvetoucí prýty), nese její záznam `NEGATIVNI = 1`, ačkoli jiný záznam téže návštěvy rostliny má (příklad AFM012A, 2021: 60 sterilních prýtů + negativní záznam „plodné prýty"). **36 návštěv, 84 záznamů** (z toho 56 „kvetoucí a plodné prýty", 16 „sterilní prýty", 10 „plodné prýty").
+- **Stav v kódu:** [`21_1:404-409`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L404-L409) — `POP_PRESENCE_N = 0`, je-li `NEGATIVNI == 1`, **po záznamech**; tyto záznamy pak dostanou `POP_POCET = 0` a `POP_VITAL = 0` (nepřítomnost).
+- **Důsledek:** v plném běhu se na verdiktu DP **neprojevil** (0 z 90 nesplněných vitalit na DP pochází z takové návštěvy), protože na DP rozhoduje nejlepší hodnota. Ve výstupu na úrovni nálezů ale návštěva s rostlinami vystupuje i jako „nepřítomnost". První verze srovnávacího výpočtu tuto chybu převzala a vykazovala 110 místo 80 DP s nulovou početností — opraveno.
+- **Dotčené skupiny ve sdíleném kódu:** **všechny** — vzor „jedna návštěva = více záznamů po kategoriích" mají i obojživelníci (dospělci / larvy / snůšky); neověřeno.
+- **Návrh řešení:** nepřítomnost druhu odvozovat **za návštěvu** (všechny záznamy návštěvy negativní nebo s počtem 0); negativní dílčí záznam brát jako nulu jen pro svou kategorii.
 - **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
 
 ---
@@ -364,6 +396,51 @@ názvy jednoznačně namapovanými na kód AFM.
 4. Dlouhodobý trend je při cíli 600 „jedinců" vůči ~9 500 prýtům splněn vždy (H-08).
 5. Krátkodobý trend podle R-07 je nejpřísnější ze čtyř pravidel; nejblíže mu je regresní
    varianta (T), nejvzdálenější (B).
+
+
+## Rozbor příčin (doplněno 2026-10-02)
+
+Zadavatel: *„Výsledek je velmi zvláštní — v dobrém stavu by mělo být víc DP. Je to dáno
+hlavně chybějícími delšími časovými řadami?"* Výpočet byl zopakován s opravou dvou chyb
+srovnávacího skriptu (součet samých chybějících hodnot dával 0; negativní dílčí záznam
+se četl jako nepřítomnost — H-20). Varianta I1, okno 2014–2025:
+
+| Příčina stavu DP | min. 3 sezóny | min. 2 sezóny („3 je ideál, 2 přípustné") |
+|---|---|---|
+| neznámý — krátká časová řada (velikost populace nebo krátkodobý trend) | **140** | **113** |
+| neznámý — chybí vitalita (poslední sezóna před rokem 2021) | 6 | 7 |
+| špatný — při poslední návštěvě nenalezen žádný prýt | **80** | **80** |
+| špatný — velikost populace + krátkodobý trend | 22 | 29 |
+| špatný — velikost + krátkodobý + vitalita | 16 | 25 |
+| špatný — jiná kombinace | 12 | 19 |
+| **dobrý** | **5** | **8** |
+| celkem | 281 | 281 |
+| podíl DP v dobrém stavu | 1,8 % | 2,8 % |
+| podíl populace v neznámých DP | 56,1 % | 47,2 % |
+| stav EVL | neznámý | neznámý (pod hranicí 50 % → podle Tabulky 2 by byl **zhoršený**: podíl DP nesplněn, dlouhodobý trend splněn) |
+
+**Odpověď: krátké časové řady vysvětlují stav „neznámý" (asi polovinu DP), ale málo
+„dobrých" DP mají na svědomí tři další, na délce řady nezávislé příčiny:**
+
+1. **Skutečné nepřítomnosti.** U 80 DP (28 %) nebyl při poslední návštěvě nalezen ani
+   jeden prýt (celá návštěva negativní). Řady tomu odpovídají — např. AFM015: 600 → 275 →
+   95 → 30 (2010–2013) → 0 (2022). Zda jde o vymizení, nebo o přehlédnutí, z dat
+   nepoznáme; metodika (R-21) je hodnotí jako špatný stav.
+2. **Skok mezi obdobími záznamu.** U 121 DP s počty před i po roce 2021 je medián poměru
+   „početnost od 2021 / do 2020" **0,70** a **56 % DP je pod 75 %**. Počáteční početnost se
+   počítá ze starého období („prýty"), aktuální stav z nového („sterilní" + „kvetoucí
+   a plodné"). Velikost populace proto selhává u většiny DP s úplnými daty (splněna jen
+   u 15 z 55). Je-li změna způsobena změnou postupu sčítání, je to artefakt; je-li
+   skutečná, jde o plošný pokles — **z dat to rozlišit nelze**.
+3. **Přísnost kombinace tří indikátorů.** Krátkodobý trend („sezóna ≥ průměr tří
+   předchozích") u kolísající, ale stabilní populace selže zhruba v polovině případů už
+   náhodou; u DP s úplnými daty je splněn jen u 11 z 55. Vitalita (≥ 30 %) je splněna
+   u 32 z 55 (medián vitality 36 %, pod 30 % u 74 ze 185 DP s prýty). Dobrý stav vyžaduje
+   splnění všech tří bez tolerance — při nezávislosti by i u stabilní populace vyšel
+   nejvýše asi u třetiny DP (≈ 0,5 za trend × 0,6 za vitalitu), při poklesu (bod 2) ještě méně.
+
+**Povolení dvou sezón** zvýší počet hodnocených DP (neznámých 146 → 120), ale nově
+hodnocené DP padají převážně do stavu „špatný" (130 → 153) — z důvodů 2 a 3.
 
 ---
 
@@ -444,6 +521,24 @@ Neaudituje se jednotlivě; souhrn pro budoucí druhové listy:
 | 7 | Revize R-19: kdo stanoví arbitrární počáteční početnost; postup při počáteční početnosti 0. | H-04 |
 | 8 | Revize R-31: potvrzení součtu celkové početnosti (poslední monitoring každé DP v 12letém okně); hodnocení EVL bez cílového stavu. | H-07 |
 | 9 | Revize R-24: seznam expanzivních druhů. | H-11 |
+
+
+## Odpovědi zadavatele (2026-10-02)
+
+| # | Odpověď | Promítnuto |
+|---|---|---|
+| 1 | Převodní tabulku potvrdí **centrální koordinátor monitoringu**. | H-01 |
+| 2 | Cíl 600 z digitalizace SDO **zatím ponechat a vyznačit**. | H-08; metodika 3.1.4 |
+| 3 | **Navrhnout** výpočet přes střední hodnoty tříd (jako min / max / střed u obojživelníků). | H-12 (návrh); metodika 2.1 |
+| 4 | Rozhodnutí o prodloužení se **evidovat nebude** — popsat a vyznačit. | H-15; metodika 3.3 |
+| 5 | Krátkodobý trend **sdílí kód 80**, je-li to možné. | H-16 |
+| 6 | **Tři sezóny jsou ideál, dvě se připouštějí.** | metodika 2.1, 3.1.4; §Rozbor příčin |
+| 7 | Arbitrární počáteční početnost stanoví **samostatný skript pro všechny skupiny a všechny DP: maximální početnost kdy zaznamenaná pro druh na DP** (mimo toto zadání). Celková početnost EVL = **součet** za DP, porovnaný s cílem z digitalizace SDO (potvrzeno). Expanzivní druhy = **Axmanová et al. (2024)**, Katalog expanzivních rostlin ČR. | revize R-19, R-24, R-31; metodika 2.1, 3.1.4 |
+
+**Zbývá otevřené:** H-01 (forma převodní tabulky), H-12 (potvrzení návrhu), H-20,
+počáteční početnost 0 (R-19), hodnocení EVL bez cílového stavu (R-31 — u *Aconitum*
+nenastává) a regionální platnost katalogu expanzivních druhů (katalog hodnotí
+expanzivitu po regionech a biotopech).
 
 ---
 

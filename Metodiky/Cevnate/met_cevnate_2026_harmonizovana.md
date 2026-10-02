@@ -3,7 +3,7 @@
 **Autoři:** Ondřej Popelka, Martin Vojík
 **Konzultace:** Jonáš Gaigr; druhový list *Aconitum firmum* subsp. *moravicum*: Martin Kočí
 **Afiliace:** všichni Agentura ochrany přírody a krajiny ČR **[ROZHODNUTÍ R-01]**
-**Verze:** 2026 — harmonizované znění po rozhodnutí zadavatele
+**Verze:** 2026 — harmonizované znění po rozhodnutí zadavatele (doplněno po auditu kódu)
 **Datum:** 2. 10. 2026 (vychází z verze 2024, ze závěrů projednání 13. srpna 2026
 a z rozhodnutí zadavatele 2. 10. 2026)
 
@@ -11,6 +11,9 @@ a z rozhodnutí zadavatele 2. 10. 2026)
 >
 > - **[ROZHODNUTÍ R-xx]** — změna oproti verzi 2024 podle rozhodnutí zadavatele
 >   k nálezu R-xx revize metodiky (2. 10. 2026);
+> - **[ROZHODNUTÍ H-xx]** — změna podle rozhodnutí zadavatele k nálezu H-xx registru
+>   auditu kódu (2. 10. 2026);
+> - **[NÁVRH H-xx]** — návrh zpracovatele k nálezu H-xx, čeká na potvrzení;
 > - **[ZÁPIS N-x]** — změna podle závěrů projednání 13. srpna 2026;
 > - **[OTÁZKA R-xx]** — dosud otevřený bod.
 >
@@ -100,15 +103,16 @@ uvádí druhový list (Příloha 2).
 **[ZÁPIS N-3]** **[ROZHODNUTÍ R-07, R-20]**
 
 - *Definice:* Početnost druhu na DP v hodnocené sezóně se porovná s průměrem
-  početností ze tří předchozích hodnocených sezón téže DP; hodnocená sezóna do
-  průměru nevstupuje. Hodnotou indikátoru je podíl početnosti v hodnocené sezóně
+  početností ze tří předchozích hodnocených sezón téže DP (jsou-li k dispozici jen
+  dvě, z průměru dvou); hodnocená sezóna do průměru nevstupuje. Hodnotou indikátoru je podíl početnosti v hodnocené sezóně
   a tohoto průměru v procentech. Limitní hodnoty je dosaženo, je-li početnost
-  v hodnocené sezóně alespoň rovna průměru tří předchozích hodnocených sezón.
-- *Hodnocená jednotka:* % průměru tří předchozích hodnocených sezón; početnost
+  v hodnocené sezóně alespoň rovna průměru předchozích hodnocených sezón.
+- *Hodnocená jednotka:* % průměru předchozích hodnocených sezón; početnost
   v jednotce dle Přílohy 1 (u *Aconitum* počet prýtů).
 - *Doména hodnot:* nezáporné číslo (%).
-- *Hodnocené období:* hodnocená sezóna a tři předchozí hodnocené sezóny v hodnoceném
-  období (3.1.1). Nejsou-li tři předchozí sezóny k dispozici, je indikátor neznámý.
+- *Hodnocené období:* hodnocená sezóna a tři (nejméně dvě) předchozí hodnocené
+  sezóny v hodnoceném období (3.1.1). Nejsou-li k dispozici alespoň dvě předchozí
+  sezóny, je indikátor neznámý. **[ROZHODNUTÍ R-07 — tři sezóny ideál, dvě přípustné]**
 
 **Vitalita populace.**
 
@@ -131,6 +135,13 @@ uvádí druhový list (Příloha 2).
 - *Hodnocená jednotka:* % počtu hodnocených jednotek, zaznamenává se v procentních
   třídách. **[ROZHODNUTÍ R-24]**
 - *Doména hodnot:* procentní třída; při nulové početnosti viz 3.1.3.
+- *Výpočet:* **[NÁVRH H-12 — k potvrzení]** Každá zaznamenaná třída poškození se
+  převede na dolní mez, horní mez a střed třídy, obdobně jako kategorie početnosti:
+  Nezjištěno / Bez poškození 0; 1–10 % → 5,5; 10–50 % → 30 (11–50 % → 30,5);
+  50–100 % → 75 (51–100 % → 75,5). Podílem poškozených prýtů za návštěvu je nejvyšší
+  střed ze všech zaznamenaných typů poškození (různé typy postihují z velké části
+  tytéž prýty). Dolní mez (nejvyšší dolní mez) a horní mez (součet horních mezí,
+  nejvýše 100 %) se uvádějí pro dohledatelnost; s limitem se porovnává střed.
 - *Hodnocené období:* poslední monitoring.
 
 ### Stav stanoviště druhu — stanovištní indikátory
@@ -166,9 +177,12 @@ výjimky uvádí druhový list. *Hodnocená jednotka:* % plochy hodnocení (tř�
 *Hodnocené období:* poslední monitoring.
 
 **Pokryvnost expanzivních druhů** (ve verzi 2024 „přítomnost a pokryvnost
-expanzivních druhů"). Jako expanzivní druhy jsou chápány druhy, které se na DP šíří
-na úkor monitorovaného druhu a zároveň nejsou považovány za invazní.
-**[OTÁZKA R-24 — seznam expanzivních druhů]** *Hodnocená jednotka:* % plochy
+expanzivních druhů"). Jako expanzivní druhy jsou chápány původní druhy uvedené
+v Katalogu expanzivních rostlin České republiky (Axmanová et al. 2024).
+**[ROZHODNUTÍ R-24]** (Ve verzi 2024: „druhy, které se na DP šíří na úkor
+monitorovaného druhu a zároveň nejsou považovány za invazní“.) **[OTÁZKA R-24 —
+platí celý katalog, nebo jen druhy expanzivní v daném regionu a biotopu?]**
+*Hodnocená jednotka:* % plochy
 hodnocení (třída). *Hodnocené období:* poslední monitoring.
 
 ## 2.2 Vymezení dílčích ploch
@@ -242,14 +256,20 @@ DP tedy není neznámý, ale špatný. **[ROZHODNUTÍ R-21]**
 ### 3.1.4 Referenční hodnoty
 
 - **Počáteční početnost DP** (pro indikátor velikost populace). Za počáteční
-  početnost druhu na DP se považuje průměr početností z prvních tří monitoringů DP.
-  V případě relevantních důvodů může být počáteční početnost populace stanovena
-  arbitrárně. **[OTÁZKA R-19 — kdo arbitrární hodnotu stanoví; postup při počáteční
-  početnosti 0]** Dokud tři monitoringy neexistují, je velikost populace neznámá.
+  početnost druhu na DP se považuje průměr početností z prvních tří monitoringů DP;
+  existují-li jen dva monitoringy, průměr ze dvou. V případě relevantních důvodů může
+  být počáteční početnost populace stanovena arbitrárně; takovou hodnotou je
+  maximální početnost druhu kdy zaznamenaná na DP, kterou stanoví samostatný postup
+  společný pro všechny skupiny a DP. **[ROZHODNUTÍ R-19]** **[OTÁZKA R-19 — postup
+  při počáteční početnosti 0]** Dokud neexistují alespoň dva monitoringy, je
+  velikost populace neznámá.
 - **Cílový stav EVL** (pro indikátor dlouhodobý trend populace). Cílovým stavem je
   navržená hodnota z výsledků digitalizace souhrnů doporučených opatření (SDO) pro
   danou EVL. Cílové hodnoty pro jednotlivé DP se nestanovují. **[ZÁPIS N-2, N-4]**
-  **[ROZHODNUTÍ R-05, R-31]**
+  **[ROZHODNUTÍ R-05, R-31]** U *Aconitum firmum* subsp. *moravicum* je navržená
+  hodnota uvedena v jedincích (600), hodnotí se však v prýtech; do revize cílových
+  stavů se hodnota ponechává a nesoulad jednotek se uvádí ve výstupu.
+  **[ROZHODNUTÍ H-08]**
 - **Minimální početnost populace v EVL** („minimi" princip) — 75 % cílového stavu
   EVL; je limitní hodnotou indikátoru dlouhodobý trend populace (Příloha 1B).
   **[ZÁPIS N-2]** **[ROZHODNUTÍ R-06, R-13]**
@@ -293,9 +313,8 @@ stavu. **[ROZHODNUTÍ R-30]**
 stavu). Celková početnost populace v EVL se vyjádří v procentech cílového stavu EVL
 (3.1.4). Celkovou početností je součet početností z posledního monitoringu každé DP
 v hodnoceném období; početnost DP v neznámém stavu se nezapočítává.
-**[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-04, R-05, R-06, R-08]** **[OTÁZKA R-31 —
-způsob součtu odvozen z 12letého okna, k potvrzení; hodnocení EVL bez cílového
-stavu]**
+**[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-04, R-05, R-06, R-08, R-31]** **[OTÁZKA R-31 —
+hodnocení EVL bez cílového stavu]**
 
 **Tabulka 2:** Celkový stav druhu v EVL
 
@@ -319,7 +338,10 @@ hodnocení na úrovni EVL zpravidla započítávány po dobu deseti let od posle
 prokazatelného záznamu druhu (2.4). O započítávání delší dobu, je-li to relevantní
 z hlediska opětovného výskytu druhu na DP, rozhoduje regionální garant s potvrzením
 koordinátora monitoringu. Zaniklá DP vstupuje s výsledkem posledního hodnocení; při
-nulové početnosti je ve stavu špatném (3.1.3). **[ROZHODNUTÍ R-32]**
+nulové početnosti je ve stavu špatném (3.1.3). **[ROZHODNUTÍ R-32]** Rozhodnutí
+o započítávání delší dobu se v datech neeviduje; automatické hodnocení proto
+započítává zaniklou DP právě deset let od posledního prokazatelného záznamu a případné
+prodloužení se v něm neprojeví. **[ROZHODNUTÍ H-15]**
 
 ## 3.4 Slabé stránky a interpretace výsledků
 
@@ -353,9 +375,9 @@ pokud rozhodnutí zadavatele nestanoví jinak.
 | Indikátor | Skupina | Klíčový | Hodnocené období | *Aconitum firmum* subsp. *moravicum* — limit dobrého stavu | Hodnocená jednotka |
 |---|---|---|---|---|---|
 | velikost populace **[ROZHODNUTÍ R-04]** | populace | ano | poslední monitoring | ≥ 75 % | % počáteční početnosti DP (počet prýtů) |
-| krátkodobý trend populace **[ZÁPIS N-3]** **[ROZHODNUTÍ R-07]** | populace | ano | hodnocená sezóna a tři předchozí hodnocené sezóny | ≥ 100 % (početnost alespoň rovna průměru tří předchozích sezón) | % průměru tří předchozích sezón (počet prýtů) |
+| krátkodobý trend populace **[ZÁPIS N-3]** **[ROZHODNUTÍ R-07]** | populace | ano | hodnocená sezóna a tři (nejméně dvě) předchozí hodnocené sezóny | ≥ 100 % (početnost alespoň rovna průměru předchozích sezón) | % průměru předchozích sezón (počet prýtů) |
 | vitalita populace (podíl kvetoucích a plodných prýtů) | populace | ano | poslední monitoring | ≥ 30 % | % počtu prýtů |
-| poškození rostlin **[ROZHODNUTÍ R-03]** | populace | ne | poslední monitoring | ≤ 50 % | % počtu prýtů (třída) |
+| poškození rostlin **[ROZHODNUTÍ R-03]** | populace | ne | poslední monitoring | ≤ 50 % (střed třídy **[NÁVRH H-12]**) | % počtu prýtů (třída) |
 | hydrologické poměry | stanoviště | ne | poslední monitoring | Dobré nebo Zhoršené | kategorie |
 | pokryvnost E1 | stanoviště | ne | poslední monitoring | ≤ 75 % | % plochy hodnocení (třída) |
 | pokryvnost dřevin vyšších než 1 m | stanoviště | ne | poslední monitoring | ≤ 75 % | % plochy hodnocení (třída) |
@@ -367,7 +389,7 @@ pokud rozhodnutí zadavatele nestanoví jinak.
 | Indikátor | *Aconitum firmum* subsp. *moravicum* — limit dobrého stavu | Jednotka |
 |---|---|---|
 | podíl DP v dobrém stavu **[ROZHODNUTÍ R-09]** | ≥ 50 % | % DP hodnocených v hodnoceném období |
-| dlouhodobý trend populace **[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-06, R-08]** | ≥ 75 % cílového stavu EVL | % cílového stavu (navržená hodnota z digitalizace SDO) |
+| dlouhodobý trend populace **[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-06, R-08]** | ≥ 75 % cílového stavu EVL | % cílového stavu (navržená hodnota z digitalizace SDO; u *Aconitum* cíl v jedincích, hodnocení v prýtech **[ROZHODNUTÍ H-08]**) |
 
 Limit podílu DP je hodnota dobrého stavu z verze 2024 (5.3); limity zhoršeného stavu
 a podmínka „alespoň 75 % populace druhu se nachází v lokalitách v příznivém stavu"
@@ -413,6 +435,12 @@ z počtu prýtů, vitalita a poškození v % počtu prýtů (Příloha 1A).
 Sedláčková (2001) — plné citace v oddílu Literatura.
 
 # Literatura
+
+**Axmanová I., Chytrý K., Boublík K., Chytrý M., Dřevojan P., Ekrtová E., Fajmon K.,
+Hájková P., Härtel H., Hejda M., Horáková V., Jongepier J. W., Kalníková V., Kaplan Z.,
+Koutecký P., Lustyk P., Pergl J., Prach K., Pyšek P., Sádlo J., Vojík M., Těšitel J.,
+2024.** Catalogue of expansive plants of the Czech Republic, Preslia 96, 299–327.
+https://doi.org/10.23855/preslia.2024.299
 
 **Kolektiv autorů (2016).** Příprava a zavedení sledování stavu předmětů ochrany
 evropsky významných lokalit. — plná citace chybí. **[OTÁZKA R-34]**
