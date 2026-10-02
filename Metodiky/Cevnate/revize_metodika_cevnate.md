@@ -4,7 +4,7 @@
 **Revidovaný snímek:** [met_cevnate_2026_for_review.md](met_cevnate_2026_for_review.md) (beze změny)
 **Harmonizované znění:** [met_cevnate_2026_harmonizovana.md](met_cevnate_2026_harmonizovana.md)
 **Datum:** 2026-10-02 · **Větev:** `harmonizace-cevnate` (založena z `druhy-202609`)
-**Stav:** Fáze A dokončena, **čeká na schválení a odpovědi autorů**. Fáze B nezahájena.
+**Stav:** Fáze A dokončena 2026-10-02; **rozhodnutí zadavatele doplněna 2026-10-02** (u každého nálezu a v souhrnu [Rozhodnutí zadavatele](#rozhodnutí-zadavatele--souhrn-2026-10-02)) a promítnuta do harmonizovaného znění. Otevřené zůstávají jen dílčí body R-19, R-24, R-31 a R-34.
 
 > Před zahájením byla složka `Metodiky/Rostliny/` (soubory nebyly v gitu) na pokyn
 > zadavatele přejmenována na `Metodiky/Cevnate/`, aby odpovídala cestám v zadání.
@@ -53,7 +53,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Hlavička uvádí verzi 2024, dokument ale obsahuje zápis z projednání 13. 8. 2026 a soubor je veden jako 2026. Chybí afiliace autorů a datum verze. Název („Metodiky hodnocení…", množné číslo) se liší od vzoru metodiky obojživelníků („Metodika sledování stavu předmětů ochrany — Obojživelníci Přílohy 2 Směrnice o stanovištích"). Konzultant druhové kapitoly (Martin Kočí) je uveden jen u ní.
 - **Návrh znění:** „Metodika sledování stavu předmětů ochrany — Cévnaté rostliny přílohy II směrnice o stanovištích. Autoři: Ondřej Popelka¹, Martin Vojík². Konzultace: Jonáš Gaigr; druhový list *Aconitum firmum* subsp. *moravicum*: Martin Kočí. Verze 2026 (po projednání 13. 8. 2026)." + afiliace.
 - **Otázka pro autory:** Jaké jsou afiliace autorů a jaké číslo a datum má nést nová verze?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Všichni autoři i konzultanti: Agentura ochrany přírody a krajiny ČR. Verze 2026.
 
 ### R-02 — Zápis N-1: které indikátory přispívají k celkovému stavu DP
 - **Typ:** NEJASNOST
@@ -69,7 +69,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Důsledek:** Bez stanovištních indikátorů nemá rozhodovací tabulka DP vstup, ze kterého v metodice obojživelníků vzniká stav „zhoršený" (viz R-26). Pro sdílený výpočet (Fáze B) to znamená, že Tabulku 1 obojživelníků nelze na rostliny použít beze změny.
 - **Návrh znění:** „Na úrovni DP se hodnotí všechny indikátory uvedené v Příloze 1. Do celkového stavu DP vstupují pouze klíčové indikátory (stav populace). Stanovištní indikátory se hodnotí a zobrazují, do celkového stavu DP nevstupují."
 - **Otázka pro autory:** Platí čtení (a), tj. všechny populační indikátory jsou klíčové a stanovištní se jen zobrazují? Nebo (b) — a pak které populační indikátory jsou neklíčové? Nebo (c)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Čtení (b): klíčové jsou populační indikátory **kromě poškození rostlin** — u *Aconitum* velikost populace, krátkodobý trend populace a vitalita populace (shodně s dnešním příznakem klíčovosti v `limity_cevky.csv`). Stanovištní indikátory a poškození se hodnotí a zobrazují, do celkového stavu DP nevstupují.
 
 ### R-03 — Zápis N-1: „Zkusit bez poškození"
 - **Typ:** NEJASNOST
@@ -80,7 +80,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Důsledek:** Mění se počet klíčových indikátorů. Při pravidle 5.2 (dobrý stav snese jeden nesplněný klíčový indikátor) je DP se třemi klíčovými indikátory relativně přísněji hodnocena než se čtyřmi; při pravidle obojživelníků (R-26, varianta B) odpadá jedna z možných příčin stavu „špatný".
 - **Návrh znění:** V Příloze 1 ponechat poškození rostlin jako klíčové s vyznačením otázky; rozhodnutí promítnout do sloupce „klíčový".
 - **Otázka pro autory:** Znamená „Zkusit bez poškození" (i) přeřazení poškození mezi neklíčové indikátory, (ii) srovnávací výpočet s poškozením a bez něj, nebo (iii) vypuštění indikátoru? Pokud (ii), podle čeho se o výsledku rozhodne?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Čtení (i): poškození rostlin je **neklíčový** indikátor (hodnotí se a zobrazuje).
 
 ### R-04 — Zápis N-2: nový indikátor „dlouhodobý trend" vs. stávající „početnost populace"
 - **Typ:** ROZPOR
@@ -93,7 +93,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Důsledek:** V čtení (B) přibývá klíčový indikátor, který nelze hodnotit, dokud neexistují cílové hodnoty (R-05); při pravidle 5.2 „jeden neznámý klíčový ⇒ nelze hodnotit" (R-27) by tím do jejich stanovení byla neznámá **každá** DP.
 - **Návrh znění:** Do rozhodnutí vést oba indikátory odděleně: „početnost populace (vůči počáteční početnosti)" a „dlouhodobý trend (pracovní název; vůči cílové hodnotě DP)"; návrh JG uvést jako návrh konzultanta.
 - **Otázka pro autory:** Nový indikátor „dlouhodobý trend" stávající „početnost populace" (vůči počáteční početnosti) nahrazuje, nebo doplňuje? Pokud doplňuje: jak se mají oba jmenovat (návrh JG „početnost populace" koliduje se stávajícím názvem) a je nový indikátor klíčový?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Doplňuje.** Dva indikátory: **velikost populace** (dosavadní „početnost populace“; DP, vůči počáteční početnosti DP, limit ≥ 75 %) a **dlouhodobý trend populace** (nový). Upřesnění zadavatele (2026-10-02): dlouhodobý trend populace se hodnotí **na úrovni EVL** (viz R-05).
 
 ### R-05 — Zápis N-2: cílová hodnota pro DP zatím neexistuje
 - **Typ:** GAP
@@ -104,7 +104,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Důsledek:** viz R-04 — pokud je indikátor klíčový a platí pravidlo 5.2 o neznámých parametrech, nelze do stanovení cílových hodnot hodnotit žádnou DP.
 - **Návrh znění:** „Cílovou hodnotu pro DP navrhuje příslušné regionální pracoviště AOPK ČR na základě podkladů Ústředí." + otevřená otázka k evidenci a k období do jejího stanovení.
 - **Otázka pro autory:** Kde a v jaké jednotce bude cílová hodnota pro DP evidována, kdo ji schvaluje a jak se indikátor hodnotí, dokud pro DP stanovena není (neznámý stav, nebo se nehodnotí)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Cílové hodnoty se stanoví **na úrovni území (EVL) z výsledků digitalizace SDO** (navržená hodnota). Cílové hodnoty pro jednotlivé DP se nezavádějí. Upřesnění zadavatele (2026-10-02): protože SDO má jednu hodnotu na EVL (*Aconitum*: jedna EVL, ~257 DP), hodnotí se dlouhodobý trend populace na úrovni EVL a výsledky digitalizace SDO se používají jen tam.
 
 ### R-06 — Zápis N-2: výklad „minimi" principu
 - **Typ:** NEJASNOST
@@ -124,7 +124,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   - **(C) jako u stanovišť** — sledovaný ukazatel vývoje bez vlivu na celkový stav. Odporuje formulaci „bude vyžadována", je to ale jediná doslovná role minimiareálu v metodice stanovišť.
 - **Návrh znění:** V harmonizovaném znění citovat zápis bez výkladu; analogii formulovat až po odpovědi.
 - **Otázka pro autory:** Co znamená „minimi princip" u druhů: (A) dolní mez pro cílovou hodnotu DP navrhovanou RP, (B) minimální velikost populace na DP jako podmínka dobrého stavu, nebo (C) sledovaný ukazatel bez vlivu na celkový stav (jako minimiareál u stanovišť)? A je „aktuální limitní hodnotou indikátoru ‚početnost populace‘" míněno 75 % počáteční početnosti (Tab. 1), nebo 50 % (5.2)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) „Minimi“ = **75 %**: dlouhodobý trend populace je splněn, dosahuje-li celková početnost populace v EVL alespoň 75 % cílového stavu podle digitalizace SDO.
 
 ### R-07 — Zápis N-3: neúplná věta o „vývoji početnosti populace"
 - **Typ:** NEJASNOST
@@ -134,7 +134,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Věta nemá přísudek. Nejpravděpodobněji jde o přejmenování na „krátkodobý trend" jako dvojici k „dlouhodobému trendu" z N-2. Není jasné, zda se mění i definice (tři poslední monitoringy, R-20). Přijme-li se návrh JG přejmenovat „dlouhodobý trend" na „početnost populace", dvojice dlouhodobý/krátkodobý trend se rozpadne.
 - **Návrh znění:** pracovně „vývoj početnosti populace (dle zápisu ‚krátkodobý trend‘)", definice beze změny.
 - **Otázka pro autory:** Má se „vývoj početnosti populace" přejmenovat na „krátkodobý trend"? Mění se tím i definice a okno tří posledních monitoringů?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Přejmenovat na **krátkodobý trend populace**. Nová definice: početnost v hodnocené sezóně se porovná s **průměrem tří předchozích hodnocených sezón** (hodnocená sezóna do průměru nevstupuje), v rámci 12letého okna (R-18); splněno, je-li početnost hodnocené sezóny alespoň rovna tomuto průměru (upřesnění zadavatele (2026-10-02)).
 
 ### R-08 — Zápis N-4: „celková početnost populace" na úrovni EVL vs. podmínka 5.3
 - **Typ:** NEJASNOST
@@ -144,7 +144,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** 5.3 podmínku celkové početnosti vůči cílovému stavu už obsahuje, zápis přesto mluví o „doplnění". Možná čtení: **(A)** tentýž ukazatel, zápis jej jen formálně ustavuje jako indikátor (místo „podmínky") a limit přijde s revizí cílového stavu; **(B)** nový, další indikátor — pak má EVL čtyři indikátory, což mění pravidlo N-5 (R-09). Nejasná je i věta „Limitní hodnota bude předmětem revize cílového stavu": zůstávají hranice 95 % / 90 % cílového stavu, nebo se limitem stane přímo (revidovaný) cílový stav?
 - **Návrh znění:** První indikátor Tabulky 2 = „celková početnost populace v EVL" s limity 95 % / 90 % cílového stavu z 5.3 a vyznačenou otázkou.
 - **Otázka pro autory:** Je indikátor „celková početnost populace" ze zápisu totožný s podmínkou 5.3 „celková početnost populace v EVL dosahuje alespoň 95 % (90 %) cílového stavu"? Pokud ano, platí dál hranice 95 % / 90 %, nebo se limitem stane přímo revidovaný cílový stav? Pokud ne, čím se oba indikátory liší?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Ano**, tentýž ukazatel. Sloučen s dlouhodobým trendem populace na úrovni EVL (R-05); limit 75 % cílového stavu (R-06) nahrazuje 95 % / 90 %.
 
 ### R-09 — Zápis N-5: pravidlo počtu špatných indikátorů vs. dvojstupňové hranice 5.3
 - **Typ:** ROZPOR
@@ -164,7 +164,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   EVL 3 ukazuje, že podle N-5 by EVL s polovičním stavem populace vůči cílovému stavu vyšla jako „dobrá".
 - **Návrh znění:** Tabulka 2 obsahuje obě varianty vedle sebe; varianta N-5 označena jako provizorní.
 - **Otázka pro autory:** Nahrazuje pravidlo počtu špatných indikátorů (N-5) dvojstupňové hranice 5.3? Pokud ano, který limit je jediným limitem každého indikátoru — hodnota pro dobrý stav (95/75/50 %), nebo pro zhoršený (90/60/40 %)? Je záměr, že EVL s jediným indikátorem ve špatném stavu (např. početnost na 50 % cílového stavu) vychází jako „dobrá"?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Postupovat jako u obojživelníků.** Upřesnění zadavatele (2026-10-02): na úrovni EVL **dva indikátory** — podíl DP v dobrém stavu (jediný limit = hodnota dobrého stavu z verze 2024, ≥ 50 %) a dlouhodobý trend populace (≥ 75 % cílového stavu); rozhodovací tabulka 2×2 (oba splněny = dobrý, jeden nesplněn = zhoršený, oba nesplněny = špatný). Podmínka „podíl populace v DP v dobrém stavu“ se **vypouští**.
 
 ### R-10 — Terminologie: parametr/indikátor, lokalita/DP, doplňující/stanovištní, příznivý/dobrý
 - **Typ:** TERMINOLOGIE
@@ -178,7 +178,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   - **„příznivý stav" → „dobrý stav"**, „limitní hodnota příznivého stavu" → „limitní hodnota dobrého stavu" — stavy dobrý / zhoršený / špatný / neznámý používá metodika obojživelníků (Tab. 1, 2) i metodika stanovišť („Stav předmětu ochrany … Nabývá hodnot: dobrý, zhoršený, špatný, neznámý"). Kde text verze 2024 dává jen dvojici příznivý/nepříznivý (5.2), je převod na čtyřstupňovou škálu otevřený — viz R-26.
   - **„EVL"** zůstává — metodika nepokrývá MZCHÚ (R-12).
 - **Návrh znění:** promítnuto do harmonizovaného znění.
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel — potvrzení sjednocení lokalita → DP, doplňující → stanovištní, příznivý → dobrý)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Schváleno.
 
 ### R-11 — Úvod: počty druhů a EVL neodpovídají seznamu předmětolokalit
 - **Typ:** NEJASNOST
@@ -189,7 +189,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   Pro kontext Fáze B (nikoli pro text metodiky): `limity_cevky.csv` obsahuje 34 druhů, z toho 6 pod jiným jménem než seznam předmětolokalit; *Artemisia pancicii* a *Crambe tataria* v něm chybí. `SDO_II_predmetolokality.csv` je jen podmnožina (214 lokalit se SDO II) a k ověření počtů se nehodí. *Aconitum firmum* subsp. *moravicum* je předmětem ochrany v **jediné EVL** (CZ0724089 Beskydy).
 - **Návrh znění:** „V České republice je předmětem ochrany v EVL 36 druhů cévnatých rostlin přílohy II, a to ve 175 EVL (stav podle seznamu předmětolokalit Natura 2000, verze 2/2025)." Alternativně čísla vypustit a odkázat na aktuální seznam předmětolokalit.
 - **Otázka pro autory:** Z jakého zdroje a k jakému datu pocházejí údaje „37 původních druhů" a „221 EVL"? Lze je nahradit údajem ze seznamu předmětolokalit 2/2025 (36 druhů ve 175 EVL), nebo čísla z textu vypustit?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Metodika zatím pokrývá jen *Aconitum firmum* subsp. *moravicum*; čísla v úvodu ponechána a v textu vyznačena jako neověřená.
 
 ### R-12 — Úvod: povinnost reportingu „na úrovni jednotlivých EVL"; rozsah EVL vs. MZCHÚ
 - **Typ:** NEJASNOST
@@ -199,7 +199,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Věty si částečně odporují (povinnost reportingu na úrovni EVL vs. „nebylo dosud systematicky řešeno") a tvrzení o povinnosti na úrovni EVL není doloženo odkazem. Metodika obojživelníků formuluje účel jinak: „Výsledky budou podkladem pro vyhotovení Hodnotících zpráv podle článku 17 Směrnice o stanovištích (92/43/EEC; §45f zákona 114/1992 Sb.), péče o druh jako předmět ochrany a jeho stanoviště a případně standardních datových formulářů v rámci sledovaného území." Metodika obojživelníků navíc pokrývá „sledované území" včetně MZCHÚ („V případě hodnocení předmětů ochrany MZCHÚ jde o cílovou hodnotu uvedenou v platném plánu péče."); metodika rostlin mluví jen o EVL.
 - **Návrh znění:** doplnit větu o účelu převzatou z metodiky obojživelníků (vyznačeno jako návrh); větu o povinnosti reportingu na úrovni EVL buď doložit, nebo přeformulovat.
 - **Otázka pro autory:** Je tvrzení o povinnosti reportingu stavu „na úrovni jednotlivých EVL" záměrné (a na jaký předpis se odkazuje), nebo lze účel formulovat jako v metodice obojživelníků (podklad pro zprávy podle čl. 17, péči a standardní datové formuláře)? Vztahuje se metodika rostlin i na předměty ochrany MZCHÚ, nebo jen na EVL?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Metodika je určena **jen pro EVL (Natura 2000)**; MZCHÚ se nehodnotí. Věta autorů o reportingu ponechána beze změny, navržená věta z metodiky obojživelníků vypuštěna.
 
 ### R-13 — Minimální početnost druhu na lokalitě (kap. 2 a 6) není u *Aconitum* vyčíslena
 - **Typ:** GAP
@@ -209,7 +209,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen):** Kapitola *Aconitum* žádnou absolutní minimální početnost neuvádí. Jediná podmínka tohoto druhu je relativní: „aktuální velikost populace dosahuje alespoň 50 % počáteční početnosti" (5.2, R-25). Formulace „při které není možné" je logicky obrácená — míněno je zřejmě „pod kterou". Pojem může souviset s „minimi" principem ze zápisu (R-06).
 - **Návrh znění:** „Kromě jednotlivých indikátorů je pro každý druh stanovena také minimální početnost druhu na DP, pod kterou není možné DP hodnotit jako v dobrém stavu (Příloha 1)."
 - **Otázka pro autory:** Je „minimální početností" míněna podmínka 5.2 „alespoň 50 % počáteční početnosti", nebo má mít každý druh absolutní minimální početnost (počet prýtů / jedinců)? Pokud absolutní, jaká je u *Aconitum*? A je správně „pod kterou" místo „při které"?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Minimální početnost se odvozuje z výsledků digitalizace SDO: na úrovni EVL **75 % cílového stavu** (R-06). Samostatná podmínka minimální početnosti na úrovni DP není (viz R-25); věta v kap. 2 a 6 přeformulována na úroveň EVL.
 
 ### R-14 — Ukládání dat: aplikace Collector for ArcGIS
 - **Typ:** ZASTARALÉ
@@ -218,7 +218,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Souvisí:** seed M-11 (část 2)
 - **Problém (seed potvrzen):** Aplikaci Collector for ArcGIS nahradila u Esri aplikace ArcGIS Field Maps. Metodika obojživelníků uvádí jen „aplikace ESRI ArcGIS Survey123". Zda zákres dnes probíhá ve Field Maps, nebo v mapové otázce Survey123, z repozitáře zjistit nelze — prosím potvrdit při schvalování.
 - **Návrh znění:** „…pomocí aplikací ArcGIS Survey123 (formulář) a ArcGIS Field Maps (zákres)."
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Schváleno (ArcGIS Field Maps).
 
 ### R-15 — „Jiná data z NDOP … pouze jako prezence": k čemu prezence slouží a co je „monitoring"
 - **Typ:** NEJASNOST
@@ -228,7 +228,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Mezi indikátory *Aconitum* žádný indikátor přítomnosti není, takže není jasné, kam „prezence" z jiných dat vstupuje. Kandidáti: (a) poslední prokazatelný záznam u zaniklých DP (5.3), (b) vznik nové DP, (c) nikam (jen informativně). Dále není řečeno, zda „monitoring" v pojmech „poslední monitoring", „první tři monitoringy", „tři poslední monitoringy" znamená výhradně sběr v projektu Monitoring druhů ČR podle terénní metodiky. U obojživelníků vedla nejasnost téhož typu k nesouměrnému uplatnění cíleného monitoringu mezi úrovní DP a EVL (registr obojživelníků H-62) — u rostlin je vhodné ji vyjasnit předem.
 - **Návrh znění:** „Monitoringem se v této metodice rozumí sběr dat v projektu Monitoring druhů ČR podle terénní metodiky monitoringu druhu. Jiná data z NDOP se použijí pouze jako doklad přítomnosti druhu na DP, a to pro …" (doplnit dle odpovědi).
 - **Otázka pro autory:** K čemu slouží „prezence druhu" z jiných dat NDOP — k určení posledního prokazatelného záznamu u zaniklých DP, k vymezení nových DP, nebo k něčemu jinému? Rozumí se „monitoringem" (poslední monitoring, první tři monitoringy) výhradně sběr v projektu Monitoring druhů ČR?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Přítomnost druhu (včetně posledního prokazatelného záznamu) ze **všech záznamů NDOP**; všechny ostatní indikátory výhradně ze záznamů projektu **„Monitoring druhů ČR“**.
 
 ### R-16 — Kapitola 5 obecné části je prázdná
 - **Typ:** GAP
@@ -238,7 +238,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen):** Obecná pravidla vyhodnocení jsou dnes jen v druhové kapitole (5.1–5.3). Harmonizované znění je přesouvá do obecné části (3.1–3.3) a principy metodiky obojživelníků uvádí jako vyznačené varianty k rozhodnutí — nikde je nepřebírá mlčky.
 - **Návrh znění:** kapitola 3 harmonizovaného znění.
 - **Otázka pro autory:** Souhlasíte, aby pravidla z kapitoly *Aconitum* (5.1–5.3) tvořila obecnou část vyhodnocení pro všechny druhy (rozdělení viz R-17) a principy metodiky obojživelníků byly uvedeny jen jako varianty k rozhodnutí?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Ano.
 
 ### R-17 — Které definice a pravidla z kapitoly *Aconitum* platí pro všechny druhy
 - **Typ:** NEJASNOST
@@ -250,7 +250,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   - *obecné* (kap. 2–3): pravidla 5.2 a 5.3 bez číselných hodnot, definice počáteční početnosti, plocha hodnocení stanoviště, obecné definice stanovištních indikátorů (včetně vymezení invazních druhů podle Pergl et al. 2016 a Pyšek et al. 2022), pravidla pro nové a zaniklé DP;
   - *druhově specifické* (Příloha 1, druhový list): všechny číselné limity včetně hranic úrovně EVL a minimální početnosti, hodnocená jednotka (prýt), vymezení kategorií hydrologických poměrů, výjimka *Arrhenatherum elatius* u invazních druhů, frekvence monitoringu.
 - **Otázka pro autory:** Platí uvedené rozdělení na obecná a druhově specifická pravidla? Zejména: jsou hranice úrovně EVL (95/75/50 %, 90/60/40 %) společné pro všechny druhy, nebo druhově specifické? Platí výjimka *Arrhenatherum elatius* u invazních druhů jen pro *Aconitum*?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Zatím řešit **jen *Aconitum***. Obecná část je ponechána, ale v textu vyznačena jako odvozená z kapitoly *Aconitum* a dosud ověřená jen pro tento druh; limity úrovně EVL vedeny v Příloze 1B u druhu.
 
 ### R-18 — „Hodnocené období" a „poslední monitoring" nejsou vymezeny
 - **Typ:** GAP
@@ -260,7 +260,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** Pojem „hodnocené období" je použit, ale nikde vymezen (kalendářní rok? šestileté období reportingu? rok posledního monitoringu?). Na úrovni EVL není řečeno, který záznam každé DP vstupuje do hodnocení: při až dvanáctiletém intervalu extenzivního monitoringu mohou „poslední monitoringy" jednotlivých DP pocházet z let vzdálených až 12 let a není stanoveno, kdy je záznam příliš starý (kromě 10 let u zaniklých DP, R-32). Metodika obojživelníků hodnotí DP pro každý rok („DP za daný rok").
 - **Návrh znění:** Pro úroveň DP převzít princip obojživelníků — stav DP se hodnotí pro každý rok s monitoringem (DP × rok); vyznačeno jako návrh. Pro úroveň EVL otázka.
 - **Otázka pro autory:** Co je „hodnocené období"? Hodnotí se stav DP pro každý rok s monitoringem zvlášť (jako u obojživelníků)? Které záznamy jednotlivých DP vstupují do hodnocení EVL — vždy poslední monitoring každé DP bez ohledu na stáří, nebo jen monitoring v určitém okně (např. 12 let, šestileté období reportingu)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Okno 12 let**: do hodnocení DP i EVL vstupují jen záznamy z posledních 12 let; DP se hodnotí pro každou sezónu (DP × rok). Délku okna zapsat do číselníku period druhů (`cis_evd_perioda.csv`) — stav ověří Fáze B, změna dat není součástí tohoto zadání.
 
 ### R-19 — Počáteční početnost: stanovení, evidence, období do tří monitoringů
 - **Typ:** GAP
@@ -276,7 +276,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   6. **Vztah k N-2** — nahradí-li „dlouhodobý trend" stávající indikátor (R-04, čtení A), zůstane pojem počáteční početnosti potřebný jen pro podmínku 50 % (R-25).
 - **Návrh znění:** text ponechat a vyznačit otázku; po odpovědi doplnit, kde se arbitrární hodnota eviduje.
 - **Otázka pro autory:** Kdo a kde eviduje arbitrárně stanovenou počáteční početnost a z jakých důvodů ji lze stanovit? Počítá se průměr z prvních tří monitoringů podle terénní metodiky, nebo z prvních tří záznamů vůbec? Jak se DP hodnotí, dokud tři monitoringy neexistují? Je počáteční početnost po stanovení pevná a jak postupovat, vyjde-li 0?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) **Částečně.** Počáteční početnost DP = průměr z prvních tří monitoringů DP (projekt Monitoring druhů ČR, R-15); výsledky digitalizace SDO se používají jen na úrovni EVL (upřesnění R-05). Dokud tři monitoringy neexistují, je velikost populace neznámá, a tedy i stav DP (R-27). **Otevřené:** kdo stanoví arbitrární počáteční početnost a jak postupovat, vyjde-li počáteční početnost 0.
 
 ### R-20 — Vývoj početnosti populace: tři neshodné formulace a délka okna
 - **Typ:** NEJASNOST
@@ -298,7 +298,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   (Sklon přes pořadí = (x3 − x1) / 2; počítá-li se přes skutečné roky monitoringu, vyjde při nestejných intervalech jinak.) **Okno:** „tři poslední monitoringy" pokrývají u intenzivních DP asi 6 let, u extenzivních až asi 24 let. **Jednotka:** Tab. 1 uvádí „počet prýtů", tj. vstup; výsledkem je kategorie trendu. **Méně než tři monitoringy:** neřešeno (R-27).
 - **Návrh znění:** text ponechat a vyznačit otázku; v Příloze 1 uvést jednotku „trend (z počtu prýtů)".
 - **Otázka pro autory:** Které pravidlo pro vývoj početnosti platí — (A) obě poslední hodnoty jsou ≥ první, (B) nesplněno jen tehdy, jsou-li obě nižší než první, nebo (T) směr trendu (a jak se určí, včetně tolerance pro „setrvalý")? Je okno tří monitoringů přijatelné i u DP extenzivního monitoringu (až asi 24 let)? Jak se indikátor hodnotí, jsou-li k dispozici méně než tři monitoringy?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Závazné je pravidlo z R-07. Čtení (A), (B) a trend (T) se namodelují ve srovnávacím výpočtu Fáze B. DP s řídkým monitoringem se hodnotí stejně v 12letém okně (R-18). **Důsledek k vědomí:** u DP extenzivního monitoringu (interval až 12 let) nebudou v okně zpravidla k dispozici tři předchozí sezóny ⇒ krátkodobý trend neznámý ⇒ DP neznámá (R-27); rozsah změří Fáze B.
 
 ### R-21 — Nulová početnost: vitalita a poškození nejsou definovány
 - **Typ:** GAP
@@ -309,7 +309,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Důsledek:** Bez pravidla by zaniklé populace mohly z hodnocení vypadávat jako „neznámé", a přes pravidlo 5.3 o 50 % populace v DP v neznámém stavu dokonce měnit stav EVL na neznámý.
 - **Návrh znění:** vyznačit otázku v 3.1.3 harmonizovaného znění.
 - **Otázka pro autory:** Jak se hodnotí DP, na níž byla při monitoringu zjištěna nulová početnost: mají se vitalita a poškození nehodnotit a stav DP určit jen podle početnosti (tj. nepříznivý), nebo je DP ve stavu neznámém? Má se po vzoru obojživelníků zavést indikátor přítomnosti druhu?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Nulová početnost ⇒ **všechny populační indikátory nesplněny** (včetně vitality a poškození); DP tedy není neznámá, ale ve špatném stavu.
 
 ### R-22 — Tabulka 1 (kapitola *Aconitum*): jednotky, plocha hodnocení, zápis limitů
 - **Typ:** NEJASNOST
@@ -319,7 +319,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen a doplněn):** (1) u hydrologických poměrů chybí jednotka (kategorie); (2) u poškození je „%" v limitu i v jednotce (zdvojení); (3) „%t" je překlep; (4) kategorie hydrologických poměrů jsou zapsány nejednotně (velké písmeno, nejednotné tučné písmo); (5) u vývoje početnosti je jednotkou vstup (počet prýtů), výsledkem je kategorie trendu; (6) u pokryvností není uvedeno, k jaké ploše se procento vztahuje — z 4.2 plyne plocha populace s okolím cca 5 m, ale v Tab. 1 to není; (7) „Pokryvnost dřevin vyšších než 1 m" nemá kromě názvu žádnou definici.
 - **Návrh znění:** (1)–(6) opraveno v Příloze 1 harmonizovaného znění (jednotka „kategorie", „% plochy hodnocení", „trend (z počtu prýtů)").
 - **Otázka pro autory:** Vztahují se všechny pokryvnosti stanovištních indikátorů k ploše hodnocení stanoviště (populace a okolí cca 5 m)? Jak se pokryvnost dřevin vyšších než 1 m určuje (např. kolmým průmětem korun)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Pokryvnosti se zaznamenávají v **procentních třídách**; vztahují se k ploše hodnocení podle 4.2 (populace a okolí cca 5 m).
 
 ### R-23 — Hydrologické poměry: kategorie „Zhoršené" je příznivá; kolize s názvem stavu
 - **Typ:** TERMINOLOGIE
@@ -328,7 +328,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Souvisí:** R-10, R-22
 - **Problém:** Limit dobrého stavu připouští dvě kategorie, Dobré i Zhoršené — doslovně, a to se nemění. Název kategorie „Zhoršené" se ale shoduje se stavem „zhoršený", takže výstup typu „hydrologické poměry: Zhoršené — indikátor v dobrém stavu" může mást. Názvy kategorií jsou doménou terénního záznamu a neměním je; v textu je jen jasně odlišena kategorie záznamu od stavu indikátoru.
 - **Návrh znění:** „Hydrologické poměry se zaznamenávají v kategoriích Dobré / Zhoršené / Špatné. Kategorii terénního záznamu je třeba odlišovat od výsledného stavu indikátoru: indikátor je v dobrém stavu při kategorii Dobré nebo Zhoršené."
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Schváleno.
 
 ### R-24 — Doména záznamu pokryvností a poškození; subjektivní vymezení expanzivních druhů
 - **Typ:** NEJASNOST
@@ -341,7 +341,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   3. **Název** — „Přítomnost a pokryvnost" invazních/expanzivních druhů, ale hodnocena je jen pokryvnost.
 - **Návrh znění:** v harmonizovaném znění indikátory pojmenovány podle hodnocené veličiny („pokryvnost invazních druhů") s poznámkou o původním názvu; doména vyznačena otázkou.
 - **Otázka pro autory:** Zaznamenávají se pokryvnosti stanovištních indikátorů a poškození rostlin přesným procentem, nebo v třídách (jakých)? Pokud v třídách, jak se vyhodnotí limit, jehož hranice leží uvnitř třídy? Má být pro druh stanoven seznam expanzivních druhů?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Pokryvnosti i poškození se zaznamenávají v **procentních třídách**; soulad hranic tříd s limity ověří Fáze B na datech. **Otevřené:** seznam expanzivních druhů.
 
 ### R-25 — Dvě hranice početnosti: 75 % (indikátor) a 50 % (podmínka dobrého stavu DP)
 - **Typ:** NEJASNOST
@@ -360,7 +360,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   Ve variantě B Tabulky 1 (princip obojživelníků, R-26) je podmínka 50 % bezpředmětná — každý nesplněný klíčový indikátor tam dává „špatný".
 - **Návrh znění:** v Příloze 1 samostatný řádek „minimální početnost (podmínka dobrého stavu DP): ≥ 50 % počáteční početnosti".
 - **Otázka pro autory:** Je správný výklad, že limit 75 % platí pro indikátor početnost populace a 50 % je samostatná podmínka dobrého stavu DP (a zároveň „minimální početnost" z kap. 2 a 6)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Výklad potvrzen. Po přijetí pravidla obojživelníků (R-26) je podmínka 50 % bezpředmětná a z hodnocení DP se **vypouští**.
 
 ### R-26 — Úroveň DP: tolerance jednoho nesplněného klíčového indikátoru; chybí stavy zhoršený a špatný
 - **Typ:** GAP
@@ -381,7 +381,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 
 - **Návrh znění:** Tabulka 1 harmonizovaného znění uvádí obě varianty vedle sebe.
 - **Otázka pro autory:** Jaký stav má DP, která nesplní podmínky dobrého stavu podle 5.2 — zhoršený, nebo špatný? Má se mezi nimi rozlišovat (např. podle počtu nesplněných klíčových indikátorů nebo podle podmínky 50 %)? Nebo se má převzít pravidlo obojživelníků (jediný nesplněný klíčový indikátor ⇒ špatný), s vědomím, že pak stav „zhoršený" na úrovni DP nevzniká?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Pravidlo obojživelníků** bez stanovištních indikátorů: jediný nesplněný klíčový indikátor ⇒ špatný; všechny klíčové splněny ⇒ dobrý. Stav zhoršený na úrovni DP vědomě nevzniká.
 
 ### R-27 — Neznámý klíčový indikátor: „nelze hodnocení provést" vs. „indikátor bez dat se nehodnotí"
 - **Typ:** ROZPOR
@@ -391,7 +391,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen):** Obě pravidla dávají jiný výsledek u každé DP, kde chybí byť jediný klíčový údaj. Podle 5.2 je taková DP ve stavu neznámém (a přes pravidlo 5.3 o 50 % populace v DP v neznámém stavu může vyřadit i celou EVL). Podle principu obojživelníků se DP hodnotí ze zbylých indikátorů. Ve spojení s R-19 a R-20 (početnost i trend jsou známé až od třetího monitoringu) by podle 5.2 nebyla hodnotitelná žádná DP před třetím monitoringem; podle principu obojživelníků by se hodnotila jen z vitality a poškození (příklad DP 6 v R-26). Kde nelze hodnotit žádný klíčový indikátor, metodika obojživelníků stav neřeší (u obojživelníků nastat nemůže, protože přítomnost lze vyhodnotit vždy) — u rostlin je pro determinismus nutné doplnit „neznámý".
 - **Návrh znění:** obě varianty vedle sebe (3.1.3 harmonizovaného znění).
 - **Otázka pro autory:** Platí pravidlo 5.2 (jediný neznámý klíčový indikátor ⇒ DP se nehodnotí, stav neznámý), nebo princip obojživelníků (indikátor bez dat se nehodnotí, DP se hodnotí ze zbylých indikátorů)? V druhém případě: je DP, u níž nelze hodnotit žádný klíčový indikátor, ve stavu neznámém? A musí být známa alespoň početnost populace?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Varianta A:** jediný neznámý klíčový indikátor ⇒ stav DP neznámý (výjimka: nulová početnost, R-21).
 
 ### R-28 — Více návštěv v sezóně: výběr celého záznamu vs. agregace po indikátorech
 - **Typ:** ROZPOR
@@ -411,7 +411,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   Pravidlo obojživelníků „nejvyšší pozorovaná hodnota" je u poškození nejednoznačné: nejvyšší *podíl poškození* (60 %) je nejhorší stav, nejlepší stav je nejnižší podíl (20 %). U obojživelníků tento případ nenastává (přítomnost, početnost a reprodukce jsou „čím víc, tím lépe"). Pravidlo 5.2 navíc nerozhoduje shodu početnosti **i** data.
 - **Návrh znění:** obě varianty vedle sebe (3.1.2 harmonizovaného znění).
 - **Otázka pro autory:** Má se při více návštěvách v sezóně vybírat celý záznam s nejvyšší početností (5.2), nebo agregovat po indikátorech (populační = nejlepší, stanovištní = nejhorší pozorovaná hodnota, jako u obojživelníků)? Bere se u poškození rostlin nejnižší (nejlepší), nebo nejvyšší naměřený podíl? Který záznam rozhoduje při shodě početnosti i data?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Agregace po indikátorech:** populační = nejlepší hodnota; stanovištní a poškození = nejhorší hodnota.
 
 ### R-29 — Úroveň EVL: dvojstupňové podmínky, stav „špatný" není definován
 - **Typ:** GAP
@@ -421,7 +421,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen):** Stav „špatný" není výslovně definován; přirozené čtení je „špatný = nesplněna sada podmínek dobrého ani zhoršeného stavu". Že podmínky každé sady musí platit současně, plyne z formulace „při splnění následujících podmínek", výslovně to ale řečeno není. Stav „neznámý" je definován jen pravidlem 50 % populace v DP v neznámém stavu — ne pro případ, kdy chybí cílový stav (R-31).
 - **Návrh znění:** Tabulka 2, varianta A: „dobrý — všechny tři indikátory dosahují limitu dobrého stavu; zhoršený — není dobrý a všechny tři dosahují limitu zhoršeného stavu; špatný — jinak."
 - **Otázka pro autory:** Platí, že EVL je ve špatném stavu, není-li splněna ani sada podmínek dobrého, ani zhoršeného stavu? Musí být podmínky každé sady splněny všechny současně?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) **Pravidlo obojživelníků** (Tabulka 2, 2×2) — viz R-09; špatný = oba indikátory nesplněny.
 
 ### R-30 — Úroveň EVL: výpočet podílu populace a podílu DP v dobrém stavu
 - **Typ:** NEJASNOST
@@ -434,7 +434,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   3. **Pravidlo neznámého stavu EVL** potřebuje početnost i u DP v neznámém stavu; je-li neznámá („je-li známa"), nelze podíl spočítat — započte se taková DP nulou, nebo se EVL nehodnotí?
 - **Návrh znění:** vzorce v 3.3 harmonizovaného znění; jmenovatel podílu DP převzat z metodiky obojživelníků jako návrh.
 - **Otázka pro autory:** Jak se počítá podíl populace v DP v dobrém stavu (z jaké početnosti každé DP a z jakých let)? Vstupují do jmenovatele obou podílů jen DP se známým stavem (jako u obojživelníků)? Jak se uplatní pravidlo „≥ 50 % populace v DP v neznámém stavu ⇒ EVL se nehodnotí", není-li početnost těchto DP známa?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Upřesnění zadavatele (2026-10-02): DP v neznámém stavu **zůstávají ve jmenovateli** podílu DP a počítají se jako DP, které nejsou v dobrém stavu. Pravidlo „≥ 50 % populace v DP v neznámém stavu ⇒ EVL neznámý“ platí dál. Podíl populace v DP v dobrém stavu se vypouští (R-09).
 
 ### R-31 — Úroveň EVL: celková početnost vs. cílový stav — zdroj, jednotka, časový základ
 - **Typ:** GAP
@@ -445,7 +445,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   **Ilustrace z dat (nejde o audit):** ve snímku cílových stavů ze SDO (`sdo_cilove_druhy_20260820.csv`) má jediná EVL druhu (CZ0724089 Beskydy) navrženou hodnotu **600, jednotka „jedinci"**, zatímco text SDO uvádí (rekonstruováno z poškozeného sloupce): „Na lokalitě se v současnosti vyskytuje cca 30–35 000 prýtů. Cílem je toto množství udržet." Jednotka cílového stavu se tedy liší od hodnocené jednotky (prýt) a obě hodnoty se liší o dva řády; sám snímek řádek označuje varováním. Jde o tutéž třídu problému jako u obojživelníků (registr H-68, S-4).
 - **Návrh znění:** vyznačit otázku u indikátoru 1 Tabulky 2.
 - **Otázka pro autory:** Kde je evidován cílový stav EVL a v jaké jednotce? Jak se počítá celková početnost populace v EVL (součet posledních monitoringů všech DP, roční součet, klouzavý průměr)? Jak se EVL hodnotí, není-li cílový stav stanoven nebo je v jiné jednotce než hodnocená početnost (u *Aconitum*: SDO 600 „jedinců" vs. 30–35 000 prýtů v textu SDO)?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⏸ (2026-10-02) Cílový stav EVL = **navržená hodnota z výsledků digitalizace SDO**. Celková početnost = součet početností z posledního monitoringu každé DP v 12letém okně, bez DP v neznámém stavu (dle 5.3) — **odvozeno z R-18, k potvrzení**. **Otevřené:** hodnocení EVL bez cílového stavu (u *Aconitum* nenastává). Nesoulad jednotek (SDO 600 „jedinců“ vs. prýty) se dokumentuje ve Fázi B.
 
 ### R-32 — Nové a zaniklé DP: nedeterministická pravidla
 - **Typ:** NEJASNOST
@@ -455,7 +455,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém:** (1) „zpravidla" a „lze … pokud je to relevantní" — kdo o prodloužení rozhoduje a kde se to eviduje; bez toho nelze pravidlo vyhodnotit automaticky. (2) „Dlouhodobá absence" není časově vymezena. (3) V jakém stavu a s jakou početností zaniklá DP vstupuje do podílů na úrovni EVL — s ohledem na R-21 by byla podle 5.2 „neznámá" a do podílů by nevstoupila, čímž by její desetileté započítávání ztratilo účinek. (4) „Posledního prokazatelného záznamu" — jen z monitoringu, nebo i z jiných dat NDOP (R-15)? (5) Od kdy se hodnotí nová DP, která nemá počáteční početnost (R-19)?
 - **Návrh znění:** text ponechat (zobecněno na „metodiku monitoringu daného druhu") a vyznačit otázku.
 - **Otázka pro autory:** Kdo a kde rozhoduje o započítávání zaniklé DP déle než 10 let? Po jak dlouhé absenci je DP „zaniklá"? V jakém stavu a s jakou početností zaniklá DP vstupuje do výpočtů na úrovni EVL? Počítá se „prokazatelný záznam" i z jiných dat NDOP než z monitoringu? Od kdy se hodnotí nová DP?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) O započítávání zaniklé DP déle než 10 let rozhoduje **regionální garant s potvrzením koordinátora monitoringu**. Prokazatelný záznam = jakýkoli záznam přítomnosti v NDOP (R-15). Zaniklá DP vstupuje s výsledkem posledního hodnocení; nulová početnost ⇒ špatný (R-21).
 
 ### R-33 — Redakční vady
 - **Typ:** REDAKCE
@@ -491,7 +491,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
   | literatura | „Lusytk P." | „Lustyk P." |
   | literatura | „management stratégy" | „management strategy" |
   | literatura | rodová jména v názvech prací bez kurzívy | kurzívou |
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ✅ (2026-10-02) Schváleno.
 
 ### R-34 — Chybějící citace „Kolektiv autorů (2016)"
 - **Typ:** GAP
@@ -501,7 +501,7 @@ Pořadí sleduje text metodiky: hlavička → zápis z 13. 8. 2026 → obecná �
 - **Problém (seed potvrzen):** Citace v seznamu literatury chybí. Metodika stanovišť cituje „Kučera T., Čížek L., Hofmeister J., Hošek J., Kloubcová P., Kučerová A., Malíček J., Svoboda T. & Zítková I. (2016): Metodika sledování stavu předmětů ochrany evropsky významných lokalit – Ms., 827 p. [Depon in: Agentura ochrany přírody a krajiny ČR, Praha]" — může jít o tentýž dokument, ověřit to nelze.
 - **Návrh znění:** doplnit plnou citaci do Literatury.
 - **Otázka pro autory:** Je „Kolektiv autorů (2016)" totožný s prací Kučera et al. (2016), kterou cituje metodika stanovišť? Pokud ne, jaká je plná citace?
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Rozhodnutí zadavatele:** ⚠ (2026-10-02) Zdroj ssEVL (Kolektiv autorů 2016) v repozitáři **není** (metodika obojživelníků cituje příbuznou „Metodiku sledování stavu EVL (Jeřábková & Fischer 2015)“ bez seznamu literatury) — vyznačeno v textu, citaci doplní autoři.
 
 ---
 
@@ -704,3 +704,63 @@ kde jsou jediným důvodem řádku.
 | **„Tabulka 1" znamená rozhodovací tabulku DP** (dle vzoru obojživelníků), nikoli tabulku limitů jako ve verzi 2024 | Limity z původní Tab. 1 jsou v Příloze 1A. Při citaci verze 2024 se proto píše „Tab. 1 (verze 2024)". |
 | **Zápis z projednání není v textu jako samostatný blok** | Každý bod je rozpuštěn do oddílu, kterého se týká, se značkou [ZÁPIS N-x]; dohledatelnost zajišťuje tato mapa. |
 | **Řádek „minimální početnost" v Příloze 1A** | Kap. 2 a 6 uvádějí, že minimální početnost je stanovena „pro každý druh" — patří tedy do druhové matice (R-13, R-25). |
+
+---
+
+# Rozhodnutí zadavatele — souhrn (2026-10-02)
+
+Odpovědi zadavatele na otázky R-01 … R-34 a navazující upřesnění k R-04/05/06/13/19
+(úroveň referenčních hodnot), R-08/09/29 (struktura úrovně EVL), R-07/20 (krátkodobý
+trend) a R-30 (DP v neznámém stavu). Výsledná pravidla, na nichž stojí harmonizované
+znění a audit Fáze B:
+
+| Oblast | Platné pravidlo | Nálezy |
+|---|---|---|
+| Rozsah | jen EVL (Natura 2000); zatím jen *Aconitum firmum* subsp. *moravicum*; obecná část odvozena z jeho kapitoly | R-11, R-12, R-17 |
+| Zdroj dat | přítomnost (vč. posledního prokazatelného záznamu) ze všech záznamů NDOP; ostatní indikátory jen z projektu „Monitoring druhů ČR“ | R-15 |
+| Okno | do hodnocení DP i EVL vstupují záznamy z posledních 12 let; DP se hodnotí pro každou sezónu | R-18, R-20 |
+| Klíčové indikátory DP | velikost populace (≥ 75 % počáteční početnosti DP), krátkodobý trend populace (sezóna ≥ průměr tří předchozích hodnocených sezón), vitalita populace (≥ 30 %) | R-02, R-04, R-07 |
+| Neklíčové (zobrazované) | poškození rostlin; všechny stanovištní indikátory | R-02, R-03 |
+| Více návštěv v sezóně | po indikátorech: populační nejlepší, stanovištní a poškození nejhorší | R-28 |
+| Chybějící údaj | jediný neznámý klíčový indikátor ⇒ DP neznámá | R-27 |
+| Nulová početnost | všechny populační indikátory nesplněny ⇒ DP špatná | R-21 |
+| Tabulka 1 (DP) | všechny klíčové splněny ⇒ dobrý; některý nesplněn ⇒ špatný; zhoršený nevzniká; podmínka 50 % vypuštěna | R-25, R-26 |
+| Úroveň EVL | dva indikátory: podíl DP v dobrém stavu (≥ 50 %; neznámé DP ve jmenovateli jako „ne dobré“) a dlouhodobý trend populace (celková početnost ≥ 75 % cílového stavu podle digitalizace SDO) | R-04 … R-09, R-13, R-30, R-31 |
+| Tabulka 2 (EVL) | 2×2 jako u obojživelníků: oba splněny = dobrý, jeden = zhoršený, žádný = špatný | R-09, R-29 |
+| Neznámý stav EVL | ≥ 50 % populace v DP v neznámém stavu | R-30 |
+| Zaniklé DP | 10 let od posledního prokazatelného záznamu; prodloužení: regionální garant s potvrzením koordinátora monitoringu | R-32 |
+| Záznam pokryvností a poškození | procentní třídy | R-22, R-24 |
+
+**Zbývá otevřené (nebrání Fázi B):**
+
+| # | Bod | Nález |
+|---|---|---|
+| 1 | Kdo stanoví arbitrární počáteční početnost DP; postup při počáteční početnosti 0 | R-19 |
+| 2 | Seznam expanzivních druhů | R-24 |
+| 3 | Celková početnost EVL jako součet posledních monitoringů DP v 12letém okně — odvozeno z R-18, **k potvrzení**; hodnocení EVL bez cílového stavu | R-31 |
+| 4 | Plná citace „Kolektiv autorů (2016)“ — v repozitáři není | R-34 |
+
+**Důsledky k vědomí** (rozsah změří Fáze B):
+
+- U DP extenzivního monitoringu nebudou v 12letém okně zpravidla k dispozici tři
+  předchozí sezóny pro krátkodobý trend, ani tři monitoringy pro počáteční početnost
+  ⇒ podle R-27 budou tyto DP ve stavu neznámém.
+- Cílový stav *Aconitum* podle digitalizace SDO je 600 „jedinců“, text SDO uvádí
+  30–35 000 prýtů; hodnoceno je v prýtech.
+
+## Mapa změn — doplněk po rozhodnutí zadavatele
+
+| Oddíl harmonizovaného znění (verze z Fáze A) | Změna | Rozhodnutí |
+|---|---|---|
+| Hlavička | afiliace AOPK ČR; nová značka [ROZHODNUTÍ R-xx]; poznámka o rozsahu (jen *Aconitum*) | R-01, R-11, R-17 |
+| 1, odst. 2–3 | čísla vyznačena jako neověřená; doplněna věta o rozsahu (jen EVL); navržená věta z obojživelníků vypuštěna | R-11, R-12 |
+| 1, odst. 5 a 3.4 | minimální početnost přeformulována na úroveň EVL (75 % cílového stavu) | R-13 |
+| 2.1 | „početnost populace“ → „velikost populace“; „vývoj početnosti populace“ → „krátkodobý trend populace“ s novou definicí; poškození neklíčové; dlouhodobý trend přesunut do 3.3; záznam pokryvností v procentních třídách | R-02 … R-07, R-22, R-24 |
+| 2.3, 3.1.1 | 12leté okno | R-18 |
+| 2.4 | pravidlo zdroje dat (přítomnost vs. ostatní indikátory) | R-15 |
+| 3.1.2, 3.1.3 | ponechána jediná varianta; doplněno pravidlo nulové početnosti | R-21, R-27, R-28 |
+| 3.1.4 | cílová hodnota DP zrušena; cílový stav EVL a minimální početnost z digitalizace SDO | R-05, R-06, R-13, R-19, R-31 |
+| 3.2 | Tabulka 1: jediná varianta (pravidlo obojživelníků); podmínka 50 % vypuštěna | R-25, R-26, R-27 |
+| 3.3 | dva indikátory, Tabulka 2 2×2; „podíl populace v DP v dobrém stavu“ vypuštěn; neznámé DP ve jmenovateli; zaniklé DP — kdo rozhoduje | R-08, R-09, R-29, R-30, R-31, R-32 |
+| Příloha 1A | řádky „dlouhodobý trend“ a „minimální početnost“ odstraněny; poškození neklíčové; limit krátkodobého trendu | R-03, R-05, R-07, R-25 |
+| Příloha 1B | dva indikátory s jediným limitem (≥ 50 %, ≥ 75 % cílového stavu) | R-06, R-09 |

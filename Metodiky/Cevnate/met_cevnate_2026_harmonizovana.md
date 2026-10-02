@@ -1,19 +1,22 @@
 # Metodika sledování stavu předmětů ochrany — Cévnaté rostliny přílohy II směrnice o stanovištích
 
-**Autoři:** Ondřej Popelka, Martin Vojík **[OTÁZKA R-01]**
+**Autoři:** Ondřej Popelka, Martin Vojík
 **Konzultace:** Jonáš Gaigr; druhový list *Aconitum firmum* subsp. *moravicum*: Martin Kočí
-**Verze:** 2026 — harmonizované pracovní znění **[OTÁZKA R-01]**
-**Datum:** 2. 10. 2026 (vychází z verze 2024 a ze závěrů projednání 13. srpna 2026)
+**Afiliace:** všichni Agentura ochrany přírody a krajiny ČR **[ROZHODNUTÍ R-01]**
+**Verze:** 2026 — harmonizované znění po rozhodnutí zadavatele
+**Datum:** 2. 10. 2026 (vychází z verze 2024, ze závěrů projednání 13. srpna 2026
+a z rozhodnutí zadavatele 2. 10. 2026)
 
-> **Stav dokumentu.** Pracovní harmonizované znění k připomínkám autorů.
-> Otevřená místa jsou v textu označena takto:
+> **Stav dokumentu.** Harmonizované znění po rozhodnutí zadavatele. Značky v textu:
 >
-> - **[OTÁZKA R-xx]** — nevyřešený bod, popsaný v revizi metodiky pod číslem R-xx;
-> - **[NÁVRH — převzato z metodiky obojživelníků, §…]** — princip převzatý z metodiky
->   hodnocení stavu obojživelníků, který musí autoři potvrdit;
-> - **[ZÁPIS N-x]** — změna podle závěrů projednání 13. srpna 2026.
+> - **[ROZHODNUTÍ R-xx]** — změna oproti verzi 2024 podle rozhodnutí zadavatele
+>   k nálezu R-xx revize metodiky (2. 10. 2026);
+> - **[ZÁPIS N-x]** — změna podle závěrů projednání 13. srpna 2026;
+> - **[OTÁZKA R-xx]** — dosud otevřený bod.
 >
-> Kde nelze bez rozhodnutí autorů stanovit jediné pravidlo, jsou varianty uvedeny vedle sebe.
+> **Rozsah.** Metodika zatím obsahuje jediný druh, *Aconitum firmum* subsp.
+> *moravicum*. Obecná část (kapitoly 1–3) je odvozena z jeho kapitoly ve verzi 2024
+> a pro další druhy se ověří s jejich druhovými listy. **[ROZHODNUTÍ R-11, R-17]**
 
 Součástí metodiky je Příloha 1: Hodnocené indikátory a limity pro jednotlivé druhy
 a Příloha 2: Druhové listy.
@@ -28,11 +31,12 @@ sítě EVL je jedním ze základních předpokladů k zajištění ochrany vzác
 přírodních stanovišť a vzácných druhů rostlin a živočichů na celoevropské úrovni.
 
 V České republice se v současnosti vyskytuje 37 původních druhů cévnatých rostlin
-přílohy II, pro které je vyhlášeno 221 EVL. **[OTÁZKA R-11]** Členské státy EU mají
-kromě povinnosti vytvoření sítě EVL a legislativní ochrany také povinnost
-pravidelného reportingu stavu jejich populací a stanovišť na úrovni celostátní
-i na úrovni jednotlivých EVL. **[OTÁZKA R-12]** Hodnocení stavu těchto druhů slouží
-ke kontrole závazku členských států zajistit jejich ochranu, respektive udržovat
+přílohy II, pro které je vyhlášeno 221 EVL. **[ROZHODNUTÍ R-11 — údaj neověřen;
+seznam předmětolokalit Natura 2000, verze 2/2025, vede 36 druhů ve 175 EVL.]**
+Členské státy EU mají kromě povinnosti vytvoření sítě EVL a legislativní ochrany
+také povinnost pravidelného reportingu stavu jejich populací a stanovišť na úrovni
+celostátní i na úrovni jednotlivých EVL. Hodnocení stavu těchto druhů slouží ke
+kontrole závazku členských států zajistit jejich ochranu, respektive udržovat
 a zlepšovat stav jejich populací. Zatímco reporting stavu druhů na celostátní úrovni
 probíhá dle standardizovaných metodik v šestiletém intervalu, hodnocení na úrovni
 jednotlivých EVL nebylo dosud systematicky řešeno. Cílem této metodiky je poskytnout
@@ -40,25 +44,23 @@ jednotný postup pro hodnocení stavu těchto druhů (populací a stanovišť) n
 jednotlivých dílčích ploch (DP) a EVL. Výsledky hodnocení pak mají sloužit jako
 jeden z podkladů k nastavení a vyhodnocení péče o tyto DP a EVL.
 
-**[NÁVRH — převzato z metodiky obojživelníků, §Cíl sledování a metodiky
-vyhodnocování]** Výsledky budou podkladem pro vyhotovení Hodnotících zpráv podle
-článku 17 směrnice o stanovištích (92/43/EHS; §45f zákona č. 114/1992 Sb.), péče
-o druh jako předmět ochrany a jeho stanoviště a případně standardních datových
-formulářů. **[OTÁZKA R-12]**
+Metodika se vztahuje pouze na druhy, které jsou předmětem ochrany EVL (soustava
+Natura 2000). **[ROZHODNUTÍ R-12]**
 
 Tvorba a struktura metodik vychází z konceptu metodik Příprava a zavedení sledování
 stavu předmětů ochrany evropsky významných lokalit (Kolektiv autorů 2016)
-**[OTÁZKA R-34]**. Při testování těchto metodik v terénních podmínkách se ukázala
-nutnost revize navržených indikátorů a úpravy metodik tak, aby odpovídaly aktuálním
-požadavkům na sběr a vyhodnocení dat. Požadované změny byly poměrně zásadní, proto
-byly metodiky přepracovány.
+**[OTÁZKA R-34 — plná citace chybí]**. Při testování těchto metodik v terénních
+podmínkách se ukázala nutnost revize navržených indikátorů a úpravy metodik tak,
+aby odpovídaly aktuálním požadavkům na sběr a vyhodnocení dat. Požadované změny
+byly poměrně zásadní, proto byly metodiky přepracovány.
 
 Výběr indikátorů probíhal tak, aby co nejlépe zachycovaly změny v populaci druhu
 a jeho stanovišti. Indikátory zároveň mají být co nejméně subjektivní, jasně
 definované a snadno zaznamenatelné v terénu. Jejich sběr by neměl zvyšovat časovou
 náročnost dosud prováděného monitoringu a měl by být s ním v souladu. Kromě
-jednotlivých indikátorů je pro každý druh stanovena také minimální početnost druhu
-na DP, při které není možné DP hodnotit pozitivně (Příloha 1). **[OTÁZKA R-13]**
+jednotlivých indikátorů je pro každý druh stanovena také minimální početnost
+populace v EVL, pod kterou není možné dlouhodobý trend populace hodnotit pozitivně;
+odvozuje se z cílového stavu EVL (oddíl 3.1.4, Příloha 1B). **[ROZHODNUTÍ R-13]**
 Vzhledem k tomu, že hodnocení má probíhat automaticky a jeho výsledky mají být
 dostupné všem dotčeným orgánům ochrany přírody a veřejnosti, bylo nutné dodržet
 také požadavek na srozumitelnost celého procesu a textu i pro běžnou ochranářskou
@@ -74,83 +76,71 @@ vstupují do hodnocení stavu druhu a jsou důležité pro jeho pochopení.
 
 ## 2.1 Sledované indikátory
 
-Indikátory jsou rozděleny na indikátory stavu populace (klíčové) a indikátory stavu
-stanoviště druhu (stanovištní). Hodnoceny jsou všechny indikátory; k celkovému
-hodnocení stavu DP přispívají pouze klíčové (viz 3.2). **[ZÁPIS N-1]**
-**[OTÁZKA R-02]** Které indikátory se u daného druhu hodnotí, s jakou hodnocenou
-jednotkou a s jakým limitem, uvádí Příloha 1; druhově specifická vymezení uvádí
-druhový list (Příloha 2). Obecná vymezení v tomto oddílu vycházejí z kapitoly pro
-*Aconitum firmum* subsp. *moravicum* **[OTÁZKA R-17]**.
+Indikátory jsou rozděleny na indikátory stavu populace a indikátory stavu stanoviště
+druhu (stanovištní). Klíčovými indikátory jsou indikátory stavu populace s výjimkou
+poškození rostlin. Hodnoceny jsou všechny indikátory; k celkovému hodnocení stavu
+DP přispívají pouze klíčové (viz 3.2). Poškození rostlin a stanovištní indikátory se
+hodnotí a zobrazují, do celkového stavu DP nevstupují. **[ZÁPIS N-1]**
+**[ROZHODNUTÍ R-02, R-03]** Které indikátory se u daného druhu hodnotí, s jakou
+hodnocenou jednotkou a s jakým limitem, uvádí Příloha 1; druhově specifická vymezení
+uvádí druhový list (Příloha 2).
 
-### Stav populace (klíčové indikátory)
+### Stav populace — klíčové indikátory
 
-**Početnost populace.**
+**Velikost populace** (ve verzi 2024 „početnost populace"). **[ROZHODNUTÍ R-04]**
 
 - *Definice:* Podíl aktuální (údaj z posledního monitoringu) a počáteční početnosti
   druhu na DP, vyjádřený v procentech. Počáteční početnost viz 3.1.4.
-- *Hodnocená jednotka:* dle Přílohy 1 (u *Aconitum firmum* subsp. *moravicum* počet prýtů).
+- *Hodnocená jednotka:* % počáteční početnosti; početnost v jednotce dle Přílohy 1
+  (u *Aconitum firmum* subsp. *moravicum* počet prýtů).
 - *Doména hodnot:* nezáporné číslo (%).
-- *Hodnocené období:* poslední monitoring. **[OTÁZKA R-18]**
-- **[ZÁPIS N-2]** Konzultant (JG) navrhuje název „početnost populace" použít pro
-  nový indikátor „dlouhodobý trend" (níže), protože je srozumitelnější — „trend
-  evokuje hodnocení stabilní/rostoucí/klesající". Zda nový indikátor tento
-  indikátor nahrazuje, nebo doplňuje, není rozhodnuto. **[OTÁZKA R-04]**
+- *Hodnocené období:* poslední monitoring v hodnoceném období (3.1.1).
 
-**Dlouhodobý trend (pracovní název).** **[ZÁPIS N-2]**
+**Krátkodobý trend populace** (ve verzi 2024 „vývoj početnosti populace").
+**[ZÁPIS N-3]** **[ROZHODNUTÍ R-07, R-20]**
 
-- *Definice (citace zápisu):* „Na úrovni dílčí plochy bude u všech druhů doplněn
-  indikátor ‚dlouhodobý trend‘ odvozený od početnosti populace. … Jde o porovnání
-  aktuální početnosti populace s cílovou hodnotou, kterou navrhne na základě
-  podkladů Ústředí patřičné RP AOPK ČR. Po vzoru hodnocení stanovištních předmětů
-  ochrany bude aplikován ‚minimi‘ princip a bude vyžadována alespoň cílová velikost
-  populace, která odpovídá aktuální limitní hodnotě indikátoru ‚početnost
-  populace‘." **[OTÁZKA R-04]** **[OTÁZKA R-06]**
-- *Hodnocená jednotka:* neuvedena. **[OTÁZKA R-05]**
-- *Doména hodnot:* neuvedena. **[OTÁZKA R-05]**
-- *Hodnocené období:* neuvedeno. **[OTÁZKA R-05]**
-- *Referenční hodnota:* cílová hodnota pro DP — dosud nestanovena (viz 3.1.4).
-  **[OTÁZKA R-05]**
-
-**Vývoj početnosti populace** (podle zápisu „krátkodobý trend" **[ZÁPIS N-3]**
-**[OTÁZKA R-07]**).
-
-- *Definice:* Vývoj početnosti založený na třech posledních údajích o velikosti
-  populace, respektive na údajích z tří posledních monitoringů (včetně hodnoceného
-  období). Limitní hodnoty je dosaženo, pokud vývoj početnosti populace nevykazuje
-  sestupný trend, respektive obě hodnoty z posledních dvou monitoringů nejsou nižší
-  než hodnota z prvního monitoringu. **[OTÁZKA R-20]**
-- *Hodnocená jednotka:* trend určený z početnosti v jednotce dle Přílohy 1.
-- *Doména hodnot:* setrvalý / vzestupný / sestupný trend.
-- *Hodnocené období:* tři poslední monitoringy. **[OTÁZKA R-18]** **[OTÁZKA R-20]**
+- *Definice:* Početnost druhu na DP v hodnocené sezóně se porovná s průměrem
+  početností ze tří předchozích hodnocených sezón téže DP; hodnocená sezóna do
+  průměru nevstupuje. Hodnotou indikátoru je podíl početnosti v hodnocené sezóně
+  a tohoto průměru v procentech. Limitní hodnoty je dosaženo, je-li početnost
+  v hodnocené sezóně alespoň rovna průměru tří předchozích hodnocených sezón.
+- *Hodnocená jednotka:* % průměru tří předchozích hodnocených sezón; početnost
+  v jednotce dle Přílohy 1 (u *Aconitum* počet prýtů).
+- *Doména hodnot:* nezáporné číslo (%).
+- *Hodnocené období:* hodnocená sezóna a tři předchozí hodnocené sezóny v hodnoceném
+  období (3.1.1). Nejsou-li tři předchozí sezóny k dispozici, je indikátor neznámý.
 
 **Vitalita populace.**
 
 - *Definice:* Podíl kvetoucích a plodných hodnocených jednotek (u *Aconitum firmum*
   subsp. *moravicum* prýtů) vyjádřený v procentech.
 - *Hodnocená jednotka:* % počtu hodnocených jednotek.
-- *Doména hodnot:* 0–100 %; při nulové početnosti není definována. **[OTÁZKA R-21]**
+- *Doména hodnot:* 0–100 %; při nulové početnosti viz 3.1.3.
 - *Hodnocené období:* poslední monitoring.
 
-**Poškození rostlin.** **[ZÁPIS N-1]** („Zkusit bez poškození.") **[OTÁZKA R-03]**
+**Dlouhodobý trend populace** se hodnotí na úrovni EVL — viz 3.3. **[ZÁPIS N-2]**
+**[ROZHODNUTÍ R-04, R-05]**
+
+### Stav populace — neklíčový indikátor
+
+**Poškození rostlin.** **[ZÁPIS N-1]** **[ROZHODNUTÍ R-03]**
 
 - *Definice:* Podíl poškozených hodnocených jednotek (u *Aconitum firmum* subsp.
   *moravicum* prýtů), například okusem nebo rytím zvěře. Je započítáváno každé
   viditelné poškození.
-- *Hodnocená jednotka:* % počtu hodnocených jednotek.
-- *Doména hodnot:* 0–100 %; při nulové početnosti není definována
-  **[OTÁZKA R-21]**; způsob terénního záznamu (procento, nebo třídy) dle terénní
-  metodiky druhu **[OTÁZKA R-24]**.
+- *Hodnocená jednotka:* % počtu hodnocených jednotek, zaznamenává se v procentních
+  třídách. **[ROZHODNUTÍ R-24]**
+- *Doména hodnot:* procentní třída; při nulové početnosti viz 3.1.3.
 - *Hodnocené období:* poslední monitoring.
 
-### Stav stanoviště druhu (stanovištní indikátory)
+### Stav stanoviště druhu — stanovištní indikátory
 
 Údaje o stavu stanoviště (pokryvnosti atd.) jsou určovány pro plochu populace a její
 bezprostřední okolí (cca do vzdálenosti 5 m), přičemž z okolí populace jsou zahrnuty
 pouze biotopy, ve kterých druh aktuálně roste (dále „plocha hodnocení"). V případě
 absence druhu na DP se údaje o stanovišti zaznamenají pro pravděpodobnou plochu
-dřívějšího výskytu. Pokryvnosti se vztahují k ploše hodnocení. **[OTÁZKA R-22]**
-Způsob záznamu pokryvností (přesné procento, nebo třídy) se řídí terénní metodikou
-druhu. **[OTÁZKA R-24]**
+dřívějšího výskytu. Pokryvnosti se vztahují k ploše hodnocení a zaznamenávají se
+v procentních třídách podle terénní metodiky druhu. **[ROZHODNUTÍ R-22, R-24]**
 
 Stanovištní indikátory se hodnotí a zobrazují, do celkového stavu DP nevstupují.
 **[ZÁPIS N-1]**
@@ -163,22 +153,23 @@ období:* poslední monitoring.
 
 **Pokryvnost E1 (včetně juvenilních dřevin).** Jako juvenilní dřeviny jsou chápány
 dřeviny do výšky 1 m. Do bylinného patra jsou zahrnovány také druhy rodu *Rubus*.
-*Hodnocená jednotka:* % plochy hodnocení. *Hodnocené období:* poslední monitoring.
+*Hodnocená jednotka:* % plochy hodnocení (třída). *Hodnocené období:* poslední
+monitoring.
 
-**Pokryvnost dřevin vyšších než 1 m.** *Hodnocená jednotka:* % plochy hodnocení.
-*Hodnocené období:* poslední monitoring. **[OTÁZKA R-22]**
+**Pokryvnost dřevin vyšších než 1 m.** *Hodnocená jednotka:* % plochy hodnocení
+(třída). *Hodnocené období:* poslední monitoring.
 
-**Pokryvnost invazních druhů** (v původním znění „přítomnost a pokryvnost invazních
+**Pokryvnost invazních druhů** (ve verzi 2024 „přítomnost a pokryvnost invazních
 druhů"). Nepůvodní druhy zařazené do kategorie BL1, BL2 a BL3 dle Pergl et al.
 (2016), nebo mající invazní status dle Pyšek et al. (2022); druhově specifické
-výjimky uvádí druhový list. **[OTÁZKA R-17]** *Hodnocená jednotka:* % plochy
-hodnocení. *Hodnocené období:* poslední monitoring.
+výjimky uvádí druhový list. *Hodnocená jednotka:* % plochy hodnocení (třída).
+*Hodnocené období:* poslední monitoring.
 
-**Pokryvnost expanzivních druhů** (v původním znění „přítomnost a pokryvnost
+**Pokryvnost expanzivních druhů** (ve verzi 2024 „přítomnost a pokryvnost
 expanzivních druhů"). Jako expanzivní druhy jsou chápány druhy, které se na DP šíří
 na úkor monitorovaného druhu a zároveň nejsou považovány za invazní.
-**[OTÁZKA R-24]** *Hodnocená jednotka:* % plochy hodnocení. *Hodnocené období:*
-poslední monitoring.
+**[OTÁZKA R-24 — seznam expanzivních druhů]** *Hodnocená jednotka:* % plochy
+hodnocení (třída). *Hodnocené období:* poslední monitoring.
 
 ## 2.2 Vymezení dílčích ploch
 
@@ -192,7 +183,9 @@ jsou uvedena v oddílu 3.3.
 
 Aktualizace hodnocení probíhá vždy při zadání nových dat, odvíjí se tedy od
 frekvence monitoringu jednotlivých DP. Frekvenci monitoringu stanoví metodika
-monitoringu daného druhu; uvádí ji druhový list (Příloha 2). **[OTÁZKA R-18]**
+monitoringu daného druhu; uvádí ji druhový list (Příloha 2). Bez ohledu na frekvenci
+monitoringu vstupují do hodnocení záznamy z posledních 12 let (3.1.1).
+**[ROZHODNUTÍ R-18, R-20]**
 
 ## 2.4 Ukládání dat v systémech AOPK ČR
 
@@ -201,161 +194,132 @@ který je prováděn nebo koordinován Agenturou ochrany přírody a krajiny ČR
 z monitoringu se zadávají do Nálezové databáze ochrany přírody (NDOP) pomocí
 aplikací ArcGIS Survey123 (formulář) a ArcGIS Field Maps (zákres; dříve Collector
 for ArcGIS). Takto získaná data jsou v NDOP zadaná pod projektem Monitoring druhů
-ČR. Jiná data z NDOP mohou být zahrnuta pouze jako prezence druhu na DP.
-**[OTÁZKA R-15]** Ostatní údaje do hodnocení nevstupují, protože u nich nelze
-dodržet požadavek na jednotnost sběru a jednotnou strukturu jejich zadání.
+ČR. Přítomnost druhu na DP, včetně posledního prokazatelného záznamu druhu, se
+zjišťuje ze všech záznamů NDOP; všechny ostatní indikátory se počítají výhradně ze
+záznamů projektu Monitoring druhů ČR (dále „monitoring"). **[ROZHODNUTÍ R-15]**
+Ostatní údaje do hodnocení nevstupují, protože u nich nelze dodržet požadavek na
+jednotnost sběru a jednotnou strukturu jejich zadání.
 
 # 3 Vyhodnocení stavu
 
-Kapitola nahrazuje dosud prázdnou obecnou kapitolu o hodnocení stavu; pravidla jsou
-převzata z kapitoly pro *Aconitum firmum* subsp. *moravicum*. **[OTÁZKA R-16]**
-
-**[NÁVRH — převzato z metodiky obojživelníků, §Vyhodnocení stavu]** V následujícím
-přehledu je pro každý hodnocený indikátor definován postup analýzy sebraných dat.
-Indikátory jsou rozděleny do dvou skupin, na indikátory stavu populace a stavu
-stanoviště druhu. Každý indikátor je hodnocen samostatně. Pro každý druh se
-vyhodnocují jiné indikátory a ty mohou mít i jiné limitní hodnoty; jejich přehled
-je uveden v Příloze 1.
+**[ROZHODNUTÍ R-16]** V následujícím přehledu je pro každý hodnocený indikátor
+definován postup analýzy sebraných dat. Indikátory jsou rozděleny do dvou skupin,
+na indikátory stavu populace a stavu stanoviště druhu. Každý indikátor je hodnocen
+samostatně. Pro každý druh se vyhodnocují jiné indikátory a ty mohou mít i jiné
+limitní hodnoty; jejich přehled je uveden v Příloze 1.
 
 Všechny uvedené limitní hodnoty jsou expertními odhady a na základě dalších výsledků
 je možné jejich další upřesnění.
 
-**[NÁVRH — převzato z metodiky obojživelníků, Tabulka 1 a 2]** Stav druhu na DP
-i v EVL nabývá hodnot dobrý, zhoršený, špatný a neznámý.
+Stav druhu na DP i v EVL nabývá hodnot dobrý, zhoršený, špatný a neznámý.
 
 ## 3.1 Obecná pravidla
 
-### 3.1.1 Hodnocená jednotka
+### 3.1.1 Hodnocená jednotka a hodnocené období
 
-**[NÁVRH — převzato z metodiky obojživelníků, §Hodnocení stavu druhu na úrovni
-dílčí plochy]** Stav druhu na DP se hodnotí pro každý rok (sezónu), v němž na DP
-proběhl monitoring. Vymezení pojmů „poslední monitoring" a „hodnocené období"
-a okruh záznamů vstupujících do hodnocení EVL jsou otevřené. **[OTÁZKA R-18]**
-Zda se „monitoringem" rozumí výhradně sběr dat v projektu Monitoring druhů ČR, je
-otevřené. **[OTÁZKA R-15]**
+Stav druhu na DP se hodnotí pro každou sezónu (rok), v níž na DP proběhl
+monitoring. Hodnoceným obdobím je hodnocený rok a 11 let předcházejících (12 let);
+záznamy starší do hodnocení nevstupují. „Posledním monitoringem" se rozumí poslední
+sezóna s monitoringem DP v hodnoceném období. Totéž okno platí pro hodnocení EVL
+a pro DP s intenzivním i extenzivním monitoringem. **[ROZHODNUTÍ R-18, R-20]**
 
 ### 3.1.2 Více návštěv DP v jedné sezóně
 
-| | Varianta A — znění verze 2024 | Varianta B — **[NÁVRH — převzato z metodiky obojživelníků, §Hodnocení stavu druhu na úrovni dílčí plochy]** |
-|---|---|---|
-| Pravidlo | Pokud je v průběhu jedné sezóny DP monitorována vícekrát, do hodnocení vstupuje záznam (všechny jeho indikátory) s nejvyšší početností populace. Pokud je početnost populace u všech záznamů stejná, do hodnocení vstupuje záznam s nejstarším datem monitoringu. | Pro každý indikátor jsou pro danou DP ve sledovaném roce agregovány všechny zaznamenané hodnoty. U indikátorů stavu populace vstupuje do hodnocení nejvyšší pozorovaná hodnota, u indikátorů stavu stanoviště nejhorší pozorovaná hodnota. |
-| Nevyřešeno | shoda početnosti i data | u poškození rostlin není jasné, zda se bere nejvyšší podíl poškození, nebo nejlepší stav |
+Pro každý indikátor jsou pro danou DP ve sledované sezóně agregovány všechny
+zaznamenané hodnoty. U klíčových indikátorů stavu populace vstupuje do hodnocení
+nejlepší pozorovaná hodnota, u poškození rostlin a u stanovištních indikátorů
+nejhorší pozorovaná hodnota. **[ROZHODNUTÍ R-28]**
 
-**[OTÁZKA R-28]**
+### 3.1.3 Chybějící údaje a nulová početnost
 
-### 3.1.3 Indikátor bez dat
+Nelze-li u DP v dané sezóně hodnotit alespoň jeden klíčový indikátor, je stav DP
+neznámý. **[ROZHODNUTÍ R-27]**
 
-| Varianta A — znění verze 2024 | Varianta B — **[NÁVRH — převzato z metodiky obojživelníků, §Hodnocení stavu druhu na úrovni dílčí plochy]** |
-|---|---|
-| V případě jednoho a více neznámých indikátorů stavu populace nelze hodnocení provést; stav DP je neznámý. | „Indikátor se hodnotí pouze, jsou-li dostupné informace k jeho hodnocení." Indikátor bez dat nevstupuje do počtu hodnocených indikátorů. Nelze-li hodnotit žádný klíčový indikátor, je stav DP neznámý. **[OTÁZKA R-27]** |
-
-**[OTÁZKA R-27]** Při nulové početnosti nejsou vitalita ani poškození definovány;
-jak se v takovém případě DP hodnotí, metodika nestanoví. **[OTÁZKA R-21]**
+Byla-li při monitoringu zjištěna nulová početnost druhu, jsou všechny indikátory
+stavu populace (včetně vitality a poškození rostlin) hodnoceny jako nesplněné; stav
+DP tedy není neznámý, ale špatný. **[ROZHODNUTÍ R-21]**
 
 ### 3.1.4 Referenční hodnoty
 
-- **Počáteční početnost** (pro indikátor početnost populace a pro minimální
-  početnost). Za počáteční početnost druhu na DP se považuje průměr početností
-  z prvních tří monitoringů. V případě relevantních důvodů může být počáteční
-  početnost populace stanovena arbitrárně. **[OTÁZKA R-19]**
-- **Cílová hodnota pro DP** (pro indikátor dlouhodobý trend). Navrhuje ji příslušné
-  regionální pracoviště AOPK ČR na základě podkladů Ústředí. **[ZÁPIS N-2]**
-  **[OTÁZKA R-05]** **[OTÁZKA R-06]**
-- **Cílový stav pro EVL** (pro indikátor celková početnost populace v EVL). Zdroj,
-  jednotka a způsob evidence nejsou stanoveny. **[OTÁZKA R-31]**
-- **Minimální početnost** — stanovena pro každý druh v Příloze 1.
-  **[OTÁZKA R-13]** **[OTÁZKA R-25]**
+- **Počáteční početnost DP** (pro indikátor velikost populace). Za počáteční
+  početnost druhu na DP se považuje průměr početností z prvních tří monitoringů DP.
+  V případě relevantních důvodů může být počáteční početnost populace stanovena
+  arbitrárně. **[OTÁZKA R-19 — kdo arbitrární hodnotu stanoví; postup při počáteční
+  početnosti 0]** Dokud tři monitoringy neexistují, je velikost populace neznámá.
+- **Cílový stav EVL** (pro indikátor dlouhodobý trend populace). Cílovým stavem je
+  navržená hodnota z výsledků digitalizace souhrnů doporučených opatření (SDO) pro
+  danou EVL. Cílové hodnoty pro jednotlivé DP se nestanovují. **[ZÁPIS N-2, N-4]**
+  **[ROZHODNUTÍ R-05, R-31]**
+- **Minimální početnost populace v EVL** („minimi" princip) — 75 % cílového stavu
+  EVL; je limitní hodnotou indikátoru dlouhodobý trend populace (Příloha 1B).
+  **[ZÁPIS N-2]** **[ROZHODNUTÍ R-06, R-13]**
 
 ## 3.2 Hodnocení stavu druhu na úrovni dílčí plochy
 
-Limitní hodnoty indikátorů jsou uvedeny v Příloze 1. Hodnoceny jsou všechny
-indikátory Přílohy 1. Do celkového stavu DP vstupují pouze klíčové indikátory
-(stav populace); stanovištní indikátory se hodnotí a zobrazují, do celkového stavu
-DP nevstupují. **[ZÁPIS N-1]** **[OTÁZKA R-02]** Které indikátory jsou klíčové,
-uvádí Příloha 1. **[OTÁZKA R-03]**
+Limitní hodnoty indikátorů jsou uvedeny v Příloze 1A. Hodnoceny jsou všechny
+indikátory Přílohy 1A. Do celkového stavu DP vstupují pouze klíčové indikátory;
+poškození rostlin a stanovištní indikátory se hodnotí a zobrazují, do celkového
+stavu DP nevstupují. **[ZÁPIS N-1]** **[ROZHODNUTÍ R-02, R-03]**
 
-**Varianta A — znění verze 2024.** Stav DP je hodnocen jako dobrý, není-li limitní
-hodnota dobrého stavu splněna nejvýše pro jeden z klíčových indikátorů a aktuální
-velikost populace dosahuje alespoň minimální početnosti uvedené v Příloze 1
-(u *Aconitum firmum* subsp. *moravicum* 50 % počáteční početnosti).
+Pokud je jeden klíčový indikátor hodnocen v nepříznivém stavu, je i druh v rámci DP
+hodnocen ve špatném stavu. Dobrý stav DP nastává, jsou-li všechny klíčové indikátory
+hodnoceny příznivě. Stav zhoršený na úrovni DP nevzniká. **[ROZHODNUTÍ R-25, R-26]**
 
-**Tabulka 1 — varianta A**
+**Tabulka 1:** Celkový stav druhu na DP (řádky se uplatní v uvedeném pořadí)
 
-| Klíčové indikátory | Aktuální početnost vůči minimální početnosti (Příloha 1) | Stav DP |
-|---|---|---|
-| alespoň jeden nelze hodnotit (viz 3.1.3, varianta A) | – | neznámý |
-| všechny hodnoceny, nesplněn nejvýše jeden | dosažena | dobrý |
-| všechny hodnoceny, nesplněn nejvýše jeden | nedosažena | nepříznivý — zhoršený, nebo špatný **[OTÁZKA R-26]** |
-| všechny hodnoceny, nesplněny alespoň dva | – | nepříznivý — zhoršený, nebo špatný **[OTÁZKA R-26]** |
-
-**Varianta B — [NÁVRH — převzato z metodiky obojživelníků, Tabulka 1 a §Hodnocení
-stavu druhu na úrovni dílčí plochy; stanovištní indikátory podle ZÁPISU N-1
-nevstupují].** Pokud je jeden klíčový indikátor hodnocen v nepříznivém stavu, je
-i druh v rámci DP hodnocen ve špatném stavu.
-
-**Tabulka 1 — varianta B**
-
-| Počet nesplněných klíčových indikátorů (z hodnocených) | Stav DP |
+| Klíčové indikátory | Stav DP |
 |---|---|
-| žádný klíčový indikátor nelze hodnotit | neznámý **[OTÁZKA R-27]** |
-| 0 | dobrý |
-| min 1 | špatný |
-
-V této variantě stav „zhoršený" na úrovni DP nevzniká (v metodice obojživelníků
-vzniká jen ze stanovištních indikátorů, které podle zápisu N-1 do celkového stavu
-nevstupují). Podmínka minimální početnosti je v ní bezpředmětná: je-li početnost
-populace hodnocena, vede už nesplnění jejího limitu ke stavu „špatný"; není-li
-hodnocena, nelze ověřit ani minimální početnost. **[OTÁZKA R-25]** **[OTÁZKA R-26]**
+| alespoň jeden nelze hodnotit (3.1.3) | neznámý |
+| všechny hodnoceny a splněny | dobrý |
+| alespoň jeden nesplněn | špatný |
 
 ## 3.3 Hodnocení stavu druhu na úrovni EVL
 
-Hodnocení stavu druhu na úrovni EVL vychází ze tří indikátorů; jejich limity uvádí
-Příloha 1B.
+Hodnocení stavu druhu na úrovni EVL se sestává z kombinace dvou indikátorů. Jsou-li
+oba indikátory hodnoceny v dobrém stavu, je celkový stav dobrý. Pokud je právě jeden
+z indikátorů ve špatném stavu, je celkový stav zhoršený. Špatný celkový stav druhu
+v EVL nastává, pokud jsou oba indikátory hodnoceny jako špatné. Limitní hodnoty
+uvádí Příloha 1B. **[ROZHODNUTÍ R-09, R-29]**
 
-1. **Celková početnost populace v EVL** vůči cílovému stavu pro EVL, v procentech
-   cílového stavu. **[ZÁPIS N-4]** **[OTÁZKA R-08]** **[OTÁZKA R-31]**
-2. **Podíl populace v DP v dobrém stavu** — podíl početnosti druhu na DP v dobrém
-   stavu na celkové početnosti druhu v EVL, v procentech. **[OTÁZKA R-30]**
-3. **Podíl DP v dobrém stavu** — **[NÁVRH — převzato z metodiky obojživelníků,
-   §Hodnocení stavu druhu na úrovni sledovaného území]** počet DP v dobrém stavu /
-   počet DP v dobrém, zhoršeném či špatném stavu × 100; DP v neznámém stavu do
-   výpočtu nevstupují. **[OTÁZKA R-30]**
+**Podíl DP v dobrém stavu.** Procento počtu DP v dobrém stavu vůči počtu všech DP
+v EVL hodnocených v hodnoceném období:
 
-**Tabulka 2 — varianta A (znění verze 2024)**
+počet DP v dobrém stavu / počet DP v dobrém, špatném či neznámém stavu × 100
 
-| Stav EVL | Podmínka |
-|---|---|
-| dobrý | všechny tři indikátory dosahují limitu dobrého stavu (Příloha 1B) |
-| zhoršený | stav není dobrý a všechny tři indikátory dosahují limitu zhoršeného stavu (Příloha 1B) |
-| špatný | stav není dobrý ani zhoršený **[OTÁZKA R-29]** |
+DP v neznámém stavu se do jmenovatele započítávají jako DP, které nejsou v dobrém
+stavu. **[ROZHODNUTÍ R-30]**
 
-**Tabulka 2 — varianta B ([ZÁPIS N-5]; provizorní — „Po výpočtu hodnocení bude
-nastavení ještě posouzeno.")**
+**Dlouhodobý trend populace** (celková početnost populace v EVL vůči cílovému
+stavu). Celková početnost populace v EVL se vyjádří v procentech cílového stavu EVL
+(3.1.4). Celkovou početností je součet početností z posledního monitoringu každé DP
+v hodnoceném období; početnost DP v neznámém stavu se nezapočítává.
+**[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-04, R-05, R-06, R-08]** **[OTÁZKA R-31 —
+způsob součtu odvozen z 12letého okna, k potvrzení; hodnocení EVL bez cílového
+stavu]**
 
-| Počet indikátorů EVL ve špatném stavu | Stav EVL |
-|---|---|
-| 0–1 | dobrý |
-| 2 | zhoršený |
-| více než 2 (při třech indikátorech všechny tři) | špatný |
+**Tabulka 2:** Celkový stav druhu v EVL
 
-Ve variantě B má každý indikátor jediný limit; zda jde o limit dobrého, nebo
-zhoršeného stavu z Přílohy 1B, je otevřené. **[OTÁZKA R-09]** Má-li EVL čtyři
-indikátory, znamená „více než dva" tři nebo čtyři. **[OTÁZKA R-08]**
+| Podíl DP v dobrém stavu | Dlouhodobý trend populace | Celkový stav |
+|---|---|---|
+| limit splněn | limit splněn | dobrý |
+| limit splněn | limit nesplněn | zhoršený |
+| limit nesplněn | limit splněn | zhoršený |
+| limit nesplněn | limit nesplněn | špatný |
 
 **EVL s DP v neznámém stavu.** Stav druhu v EVL nemůže být hodnocen (stav neznámý)
-v případě, že se 50 % nebo více populace druhu nachází v DP v neznámém stavu. Do
-celkové početnosti druhu v EVL se pro účely hodnocení početnost z DP v neznámém
-stavu (je-li známa) nezapočítává. **[OTÁZKA R-30]** Jak se EVL hodnotí, není-li
-stanoven cílový stav, metodika neuvádí. **[OTÁZKA R-31]**
+v případě, že se 50 % nebo více populace druhu nachází v DP v neznámém stavu.
 
 **Nově vzniklé DP.** Nové výskyty druhu se jako samostatné DP pro účely hodnocení
 započítávají, pokud splňují požadavky na vymezení nové DP (lokality) dle metodiky
-monitoringu daného druhu. **[OTÁZKA R-32]**
+monitoringu daného druhu. Do doby, než lze hodnotit všechny klíčové indikátory, je
+stav nové DP neznámý (3.1.3).
 
 **Zaniklé DP.** Zaniklé DP (DP s dlouhodobou absencí druhu) jsou do celkového
 hodnocení na úrovni EVL zpravidla započítávány po dobu deseti let od posledního
-prokazatelného záznamu druhu. DP lze do hodnocení započítávat delší dobu, pokud je
-to relevantní z hlediska opětovného výskytu druhu na DP. **[OTÁZKA R-32]**
+prokazatelného záznamu druhu (2.4). O započítávání delší dobu, je-li to relevantní
+z hlediska opětovného výskytu druhu na DP, rozhoduje regionální garant s potvrzením
+koordinátora monitoringu. Zaniklá DP vstupuje s výsledkem posledního hodnocení; při
+nulové početnosti je ve stavu špatném (3.1.3). **[ROZHODNUTÍ R-32]**
 
 ## 3.4 Slabé stránky a interpretace výsledků
 
@@ -369,51 +333,45 @@ sebelépe navržené indikátory nikdy nedokáží postihnout celou variabilitu 
 procesů. Proto je při celkovém hodnocení kladen větší důraz na indikátory stavu
 populace, které nejlépe vypovídají o tom, zda se na DP druhu daří či nikoliv. Kromě
 vybraných indikátorů je tedy pro každý druh stanovena také minimální početnost
-druhu na DP, při které není možné DP hodnotit pozitivně. **[OTÁZKA R-13]** Všechny
-uvedené limitní hodnoty jsou expertními odhady. S přibývajícím množstvím dat
-a znalostí o druzích by měly být indikátory i limitní hodnoty dále revidovány.
-Věrohodnost výsledků hodnocení také závisí na kvalitě podkladových dat, kdy
-ideálním stavem je pravidelné a systematické sledování v maximální míře eliminující
-subjektivní vliv pozorovatele. Výsledky hodnocení je tedy nutné interpretovat
-a používat s ohledem na všechny výše uvedené nedostatky.
+populace v EVL, pod kterou není možné dlouhodobý trend populace hodnotit pozitivně.
+**[ROZHODNUTÍ R-13]** Všechny uvedené limitní hodnoty jsou expertními odhady.
+S přibývajícím množstvím dat a znalostí o druzích by měly být indikátory i limitní
+hodnoty dále revidovány. Věrohodnost výsledků hodnocení také závisí na kvalitě
+podkladových dat, kdy ideálním stavem je pravidelné a systematické sledování
+v maximální míře eliminující subjektivní vliv pozorovatele. Výsledky hodnocení je
+tedy nutné interpretovat a používat s ohledem na všechny výše uvedené nedostatky.
 
 # Příloha 1 — Hodnocené indikátory a limity pro jednotlivé druhy
 
 Prázdná buňka = indikátor se pro daný druh nehodnotí. Příloha zatím obsahuje jediný
-druh, pro který existuje druhová kapitola; sloupce dalších druhů se doplní s jejich
-druhovými listy. Limity jsou převzaty doslova z kapitoly pro *Aconitum firmum*
-subsp. *moravicum* (Tab. 1 a oddíly 5.2 a 5.3 verze 2024).
+druh; sloupce dalších druhů se doplní s jejich druhovými listy. Limity jsou převzaty
+z kapitoly pro *Aconitum firmum* subsp. *moravicum* (Tab. 1 a oddíl 5.3 verze 2024),
+pokud rozhodnutí zadavatele nestanoví jinak.
 
 ## Příloha 1A — úroveň dílčí plochy
 
 | Indikátor | Skupina | Klíčový | Hodnocené období | *Aconitum firmum* subsp. *moravicum* — limit dobrého stavu | Hodnocená jednotka |
 |---|---|---|---|---|---|
-| početnost populace | populace | ano | poslední monitoring | ≥ 75 % **[ZÁPIS N-2]** **[OTÁZKA R-04]** | % počáteční početnosti (počet prýtů) |
-| dlouhodobý trend (pracovní název) **[ZÁPIS N-2]** | populace | **[OTÁZKA R-04]** | **[OTÁZKA R-05]** | alespoň cílová hodnota pro DP — dosud nestanovena **[OTÁZKA R-05]** **[OTÁZKA R-06]** | **[OTÁZKA R-05]** |
-| vývoj početnosti populace („krátkodobý trend" **[ZÁPIS N-3]**) | populace | ano | tři poslední monitoringy | setrvalý nebo vzestupný trend **[OTÁZKA R-20]** | trend (z počtu prýtů) |
+| velikost populace **[ROZHODNUTÍ R-04]** | populace | ano | poslední monitoring | ≥ 75 % | % počáteční početnosti DP (počet prýtů) |
+| krátkodobý trend populace **[ZÁPIS N-3]** **[ROZHODNUTÍ R-07]** | populace | ano | hodnocená sezóna a tři předchozí hodnocené sezóny | ≥ 100 % (početnost alespoň rovna průměru tří předchozích sezón) | % průměru tří předchozích sezón (počet prýtů) |
 | vitalita populace (podíl kvetoucích a plodných prýtů) | populace | ano | poslední monitoring | ≥ 30 % | % počtu prýtů |
-| poškození rostlin | populace | ano **[OTÁZKA R-03]** | poslední monitoring | ≤ 50 % | % počtu prýtů |
-| minimální početnost (podmínka dobrého stavu DP, viz 3.2) | populace | — | poslední monitoring | ≥ 50 % počáteční početnosti **[OTÁZKA R-13]** **[OTÁZKA R-25]** | % počáteční početnosti (počet prýtů) |
-| hydrologické poměry | stanoviště | ne **[ZÁPIS N-1]** | poslední monitoring | Dobré nebo Zhoršené | kategorie |
-| pokryvnost E1 | stanoviště | ne **[ZÁPIS N-1]** | poslední monitoring | ≤ 75 % | % plochy hodnocení |
-| pokryvnost dřevin vyšších než 1 m | stanoviště | ne **[ZÁPIS N-1]** | poslední monitoring | ≤ 75 % | % plochy hodnocení |
-| pokryvnost invazních druhů | stanoviště | ne **[ZÁPIS N-1]** | poslední monitoring | = 0 % | % plochy hodnocení |
-| pokryvnost expanzivních druhů | stanoviště | ne **[ZÁPIS N-1]** | poslední monitoring | ≤ 25 % | % plochy hodnocení |
-
-Doména terénního záznamu pokryvností a poškození (přesné procento, nebo třídy) —
-**[OTÁZKA R-24]**.
+| poškození rostlin **[ROZHODNUTÍ R-03]** | populace | ne | poslední monitoring | ≤ 50 % | % počtu prýtů (třída) |
+| hydrologické poměry | stanoviště | ne | poslední monitoring | Dobré nebo Zhoršené | kategorie |
+| pokryvnost E1 | stanoviště | ne | poslední monitoring | ≤ 75 % | % plochy hodnocení (třída) |
+| pokryvnost dřevin vyšších než 1 m | stanoviště | ne | poslední monitoring | ≤ 75 % | % plochy hodnocení (třída) |
+| pokryvnost invazních druhů | stanoviště | ne | poslední monitoring | = 0 % | % plochy hodnocení (třída) |
+| pokryvnost expanzivních druhů | stanoviště | ne | poslední monitoring | ≤ 25 % | % plochy hodnocení (třída) |
 
 ## Příloha 1B — úroveň EVL
 
-| Indikátor | *Aconitum firmum* subsp. *moravicum* — limit dobrého stavu | — limit zhoršeného stavu | Jednotka |
-|---|---|---|---|
-| celková početnost populace v EVL **[ZÁPIS N-4]** | ≥ 95 % | ≥ 90 % | % cílového stavu pro EVL **[OTÁZKA R-08]** **[OTÁZKA R-31]** |
-| podíl populace v DP v dobrém stavu | ≥ 75 % | ≥ 60 % | % celkové početnosti v EVL **[OTÁZKA R-30]** |
-| podíl DP v dobrém stavu | ≥ 50 % | ≥ 40 % | % hodnocených DP **[OTÁZKA R-30]** |
+| Indikátor | *Aconitum firmum* subsp. *moravicum* — limit dobrého stavu | Jednotka |
+|---|---|---|
+| podíl DP v dobrém stavu **[ROZHODNUTÍ R-09]** | ≥ 50 % | % DP hodnocených v hodnoceném období |
+| dlouhodobý trend populace **[ZÁPIS N-2, N-4]** **[ROZHODNUTÍ R-06, R-08]** | ≥ 75 % cílového stavu EVL | % cílového stavu (navržená hodnota z digitalizace SDO) |
 
-Limity úrovně EVL jsou ve verzi 2024 uvedeny v kapitole druhu; zda jsou společné
-všem druhům, je otevřené. **[OTÁZKA R-17]** Pro variantu B Tabulky 2 má každý
-indikátor jediný limit; který sloupec platí, je otevřené. **[OTÁZKA R-09]**
+Limit podílu DP je hodnota dobrého stavu z verze 2024 (5.3); limity zhoršeného stavu
+a podmínka „alespoň 75 % populace druhu se nachází v lokalitách v příznivém stavu"
+se ve dvouindikátorové tabulce nepoužívají. **[ROZHODNUTÍ R-09]**
 
 # Příloha 2 — Druhové listy
 
@@ -431,10 +389,11 @@ druhu Popelářové et al. (2022) dostupné na https://bibliografie.nature.cz/.
 **Frekvence sledování.** Vzhledem k množství DP jsou DP rozděleny na DP intenzivního
 monitoringu s tříletým intervalem návštěv a DP extenzivního monitoringu s až
 dvanáctiletým intervalem návštěv, viz metodika monitoringu Popelářová et al. (2022).
-**[OTÁZKA R-18]** **[OTÁZKA R-20]**
+Obě skupiny se hodnotí v témže dvanáctiletém hodnoceném období (3.1.1).
+**[ROZHODNUTÍ R-18, R-20]**
 
-**Hodnocená jednotka.** Prýt — početnost populace se vyjadřuje počtem prýtů,
-vitalita a poškození v % počtu prýtů (Příloha 1A).
+**Hodnocená jednotka.** Prýt — velikost populace a krátkodobý trend se počítají
+z počtu prýtů, vitalita a poškození v % počtu prýtů (Příloha 1A).
 
 **Druhově specifická vymezení indikátorů.**
 
@@ -446,7 +405,7 @@ vitalita a poškození v % počtu prýtů (Příloha 1A).
   vlivu na vegetaci (prameniště poškozená těžbou, částečně odvodněná svážnicí,
   potoční niva odvodňovaná cestou); Špatné = silně narušené hydrologické poměry
   (prameniště v pasece, druhotná stanoviště na okrajích cest, lesních skládek).
-- *Invazní druhy:* vyjma druhu *Arrhenatherum elatius*. **[OTÁZKA R-17]**
+- *Invazní druhy:* vyjma druhu *Arrhenatherum elatius*.
 
 **Limity:** Příloha 1A a 1B.
 
