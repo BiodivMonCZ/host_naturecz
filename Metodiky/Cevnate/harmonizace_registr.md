@@ -8,6 +8,7 @@ R-34), jsou auditovány proti dnešnímu znění a varianty jsou uvedeny u nále
 **Datum:** 2026-10-02 · **Větev:** `harmonizace-cevnate` · **Stav kódu:** commit `c8712d7`
 (beze změny `R/` i `Data/Input/` od `druhy-202609`).
 **Doplněno 2026-10-02:** odpovědi zadavatele k otázkám registru, nález H-20, rozbor příčin srovnávacího výpočtu.
+**Doplněno 2026-10-28:** [Fáze C](#fáze-c--metodika-2026-10-21-převod-limitů-a-audit-kódu) — metodika 2026-10-21: převod limitů, matice pravidel PR-01 až PR-27, nálezy H-21 až H-37, odpovědi na komentáře autora (na konci dokumentu).
 
 Fáze B **nezměnila žádný kód ani data**. Implementace není součástí zadání — návrhy
 řešení jsou podklad pro samostatné zadání.
@@ -577,3 +578,387 @@ neznámých DP).
 Neověřeno: terénní metodika Popelářová et al. (2022) — není v repozitáři; upstream
 `BiodivMonCZ/digitalizaceSDO` — zadání zakazuje cokoli stahovat; dopad H-09, H-14, H-18
 mimo rostliny.
+
+---
+
+# Fáze C — metodika 2026-10-21: převod limitů a audit kódu
+
+**Zadání:** [prompt_host_n2kcz_cevnate_review.md](prompt_host_n2kcz_cevnate_review.md).
+**Měřítko:** autorský text metodiky verze 2026-10-21 (Popelka et al.) a [Tabulky fin.xlsx](Tabulky%20fin.xlsx);
+kontrolní seznam pravidel PR-01 … PR-27 a nálezy ve zdrojích R-35 … R-52 jsou v
+[revize_metodika_cevnate.md](revize_metodika_cevnate.md), část „Verze 2026-10-21“.
+**Datum:** 2026-10-28 · **Větev:** `cevnate-metodika-2026` (z `harmonizace-cevnate`).
+**Rozhodnutí zadavatele:** 2026-10-28, otázky 1–15 Fáze 0 (souhrn v revizi).
+
+**Co se změnilo v kódu:** jen to, co zadavatel výslovně schválil (otázky 13 a 14) —
+commit `677102a`: vitalita (H-21) a hodnocené období (H-22). **Ostatní návrhy oprav níže nejsou
+aplikovány.** Živý `Data/Input/limity_cevky.csv` nezměněn; převedené limity jsou v novém souboru
+`Data/Input/limity_cevky_2026.csv`. Pipeline ani hodnocení se nespouštěly.
+
+## Jak byl audit proveden
+
+| Krok | Zdroj | Poznámka |
+|---|---|---|
+| Normativní text | `.docx` 2026-10-21 → Markdown (pandoc z Quarta, `--track-changes=all`) | 23 otevřených komentářů, vložené úseky |
+| Limity | `Tabulky fin.xlsx` přes `readxl` po buňkách, sloupce podle textu hlavičky | Přílohy 1–5 |
+| Převod | `R/05_metodiky/54_cevnate_limity_2026.R` | reprodukovatelný, píše i protokol [limity_cevky_2026_kontrola.md](limity_cevky_2026_kontrola.md) a diff [limity_cevky_2026_diff.csv](limity_cevky_2026_diff.csv) |
+| Kód | `00_n2k_config.R`, `02_n2k_data_druhy.R`, `21_1`, `21_2`, `22`, `23`, `24`, `25`, `27` | čtení kódu; čísla řádků ke commitu `677102a` |
+| Data | neveřejný export NDOP (`export_data_evl.csv` + `export_data_zprap.csv`) | jen slovník hodnot, jednotky, kódy lokalit, pole NDOP; **nic se nehodnotilo** |
+| Ověření úprav kódu | parse tří souborů + 17 jednotkových testů pomocných funkcí na syntetických datech | jednorázový skript mimo repozitář; pipeline nespuštěna (zadání to zakazuje) |
+
+## Formát limitů — specifikace převodu
+
+| Vlastnost | `limity_cevky.csv` (vzor) |
+|---|---|
+| Kódování / BOM | Windows-1250, bez BOM; čte [`00_n2k_config.R:62-65`](../../R/00_config/00_n2k_config.R#L62-L65) |
+| Oddělovač / desetinná značka / konce řádků | `,` / `.` / CRLF |
+| Uvozovky | jen kde je třeba (čárka v poli) |
+| Sloupce | `DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN, pozn`; `limity_vse.csv` a `limity_ryby.csv` (`;`) mají 7 sloupců bez `pozn`; slučuje `bind_rows` ([`:78-86`](../../R/00_config/00_n2k_config.R#L78-L86)), `pozn` kód nepoužívá |
+| Chybějící hodnota | v dosavadním souboru smíšeně `NA` (222×) a prázdná (116×); převod píše `NA`, `pozn` prázdný |
+| `DRUH` | název z NDOP (napojení v `21_2`, seznam druhů = průnik limitů a NDOP v [`27:26-29`](../../R/02_druhy/27_n2k_druhy_zapis.R#L26-L29)) |
+| `TYP_IND` | `min` = hodnota ≥ limit, `max` = hodnota ≤ limit ([`21_2:271-275`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R#L271-L275)); ostré nerovnosti formát nezná |
+| Výčet přípustných kategorií | `val`, **jeden řádek na hodnotu**; shoda po `str_squish` ([`21_2:99-116`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R#L99-L116)) |
+| Informativní bez limitu | `info` + `LIM_IND = NA` ([`21_2:179-183`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R#L179-L183)) |
+| `KLIC` | `ano` / `ne` (počítají [`24:155-186`](../../R/02_druhy/24_n2k_druhy_lokality.R#L155-L186)) / `NA` u `info`; **nově `info`** = hodnotí se, do verdiktu nevstupuje (rozhodnutí 2026-10-28) |
+| `JEDNOTKA` | zobrazení v `LIM_INDLIST`; **funkční** u `POP_POCET`, `POP_POCETSUM`, `POP_POCETVITAL`, nově `POP_POCETSTERIL` (shoda s `POCITANO` z NDOP) |
+| `UROVEN` | `lok` / `chu` |
+| Pravidlo zadavatele | jediný práh `min` a/nebo `max` na indikátor; jediná tabulka limitů |
+| `cis_indikatory_popis.csv` | Windows-1250, `,`, 4 sloupce `ind_popis, ind_id, ind_r, ind_nadr`, smíšené konce řádků; `ind_r` = `ID_IND`; export [`27:763-789`](../../R/02_druhy/27_n2k_druhy_zapis.R#L763-L789) bere `ind_id`, jinak surové `ID_IND` |
+
+## Převod limitů
+
+### Příloha 2 → ID_IND
+
+| Sloupec | `ID_IND` | Původ ID | Kódování | `KLIC` | `ind_id` |
+|---|---|---|---|---|---|
+| Úspěšnost reprodukce | `POP_REPROUSP` | existující (3 staré řádky `val`, bez kódu) | `val` `dostatečná` | ano | — |
+| Délka absence druhu | `POP_DELKAABSENCE` | *nový* | `max 5` „let“ (z „< 6 let“, R-41) | ano | — |
+| Minimální přípustná početnost | `POP_POCETMINPRIP` | *nový* | `min` 50 / 60 „% cílové početnosti“ | ano | — |
+| Početnost | `POP_POCETCIL` | *nový* | `min` 75 / 80 „% cílové početnosti“ | ne | — |
+| Vývoj početnosti | `POP_TREND` | existující (jen rostliny) | `val` `pozitivní` + `val` `setrvalý` | ne | 80 (H-16) |
+| Vitalita | `POP_VITAL` | existující | `min` 5–40 % | **ne** (dříve ano) | — |
+| Poškození rostlin | `POP_POSKPERC` | existující | `max 40` | ne; *Coleanthus* `info` | — |
+| Populační jednotka | `info` řádky `POP_POCET` / `POP_POCETSUM` / `POP_POCETVITAL` / `POP_POCETSTERIL` | — | funkční `JEDNOTKA` = hodnoty `POCITANO` | NA | — |
+| Frekvence | `cis_cevky_frekvence.csv` | — | `FREKV_MIN`, `FREKV_MAX` | — | — |
+
+„.“ a prázdná buňka ⇒ žádný řádek. `POP_POSKPOC` (počet typů poškození) Příloha 2 neuvádí ⇒ odebrán.
+
+### Příloha 3 → ID_IND (všechny `val`, `KLIC = info`)
+
+| Řádek | `ID_IND` | Tag v NDOP | Extrakce v `21_1` | Druhů |
+|---|---|---|---|---|
+| Celkové zastínění lokality | `STA_ZASTINENICELK` | `STA_ZASTINENICELK` | ano | 2 |
+| Pokryvnost dřevin | `STA_POKRDREV` | `STA_POKRYVNOSTDREVIN` | ano | 19 |
+| Pokryvnost dřevin vyšších než 1 m | `STA_POKRYVNOSTE2E3` | `STA_POKRYVNOSTE2E3` | ano | 8 |
+| Pokryvnost dřevin nižších než 1 m | `STA_POKRDREVNIZ` | `STA_POKRYVNOSTDREVINNIZ` | ano | 3 |
+| Pokryvnost E1 | `STA_POKRYVNOSTE1` | `STA_POKRYVNOSTE1` | ano | 13 |
+| Pokryvnost E0 | `STA_POKRYVNOSTE0` | `STA_POKRYVNOSTE0` | ano | 3 |
+| Pokryvnost stařiny | `STA_POKRSTAR` | `STA_POKRYVNOSTSTARINA` | ano | 27 |
+| Pokryvnost volné půdy | `STA_POKRYVNOSTVOLNAPUDA` (dříve sirotci `STA_POKRPUDA`, `STA_POKRVOLPUD`) | `STA_POKRYVNOSTVOLNAPUDA` | ano | 5 |
+| Pokryvnost invazních druhů | `STA_POKRYVNOSTINVAZNI` | týž | ano | 32 |
+| Pokryvnost expanzivních druhů | `STA_POKRYVNOSTEXPANZNI` | týž | ano | 33 |
+| Pokryvnost rákosu | `STA_POKRRAKOS` | **v datech není** | **ne** | 2 |
+| Ostatní natantní a submerzní | `STA_POC_OST_NATASUB_DRH` | `STA_POKRYVNOSTNATDRUH` | **ne** | 1 |
+| Stupeň zachování stanoviště | `STA_STUPENZACH` | `SP_STUPEN_ZACH_STAN` | ano | 4 |
+| Hydrologické poměry | `STA_HYDRPOMERY` (dříve sirotek `STA_HYDROPOMERY`, H-10) | `STA_HYDRPOMERY` | ano | 3 |
+| Vlhkostní poměry stanoviště | `STA_VLHPOM` | `STA_VLHKOPOMERY` | ano | 1 |
+| Podíl dna nad vodní hladinou | `STA_POKRDNO` | `STA_PODILDNONADHLADINA` | **ne** | 1 |
+| Termín a doba trvání poklesu hladiny | `STA_POKLESHLAD` | `STA_POKLESVODNIHLADINA` | **ne** | 1 |
+
+### Úroveň území (`UROVEN = chu`, `KLIC = ano`)
+
+| Indikátor | `ID_IND` | Limit | Druhy | Vypuštěný mírnější práh |
+|---|---|---|---|---|
+| Podíl lokalit v dobrém stavu | `LOK_PROCDOBR` (`ind_id` 189) | `min 50` | všech 36 | 40 % (Tab. 2) |
+| Podíl populace v lokalitách v dobrém stavu | `POP_PROCDOB` | `min 75` | 35 (ne *Coleanthus*) | 60 % |
+| Cílový stav | `POP_CILSTAVPROC` (*nový*) | `min 100` | všech 36 | 80 % |
+
+### Normalizace a předpoklady (každý je vyznačen i ve sloupci `pozn`)
+
+| # | Normalizace / předpoklad | Rozsah |
+|---|---|---|
+| N-01 | Názvy druhů převedeny na NDOP (`NAZVY_ZDROJ` ve skriptu); *Stipa zalesskii* → *Stipa glabrata* („kavyl olysalý“ v NDOP) | 36 druhů |
+| N-02 | Mezery na začátku buněk P2 oříznuty | 2 buňky |
+| N-03 | `75-100%` → `75-100 %`, `50-75%` → `50-75 %` (převažující tvar dat) | 6 hodnot |
+| N-04 | „< 6 let“ → `max 5` (celé roky) | 1 |
+| N-05 | *Coleanthus* poškození `KLIC = info` při zachování limitu | 1 |
+| N-06 | Jednotky Přílohy 1 → hodnoty `POCITANO`; „kvetoucí X“ = starší tvar „kvetoucí a plodné X“ (*kandidát*); jiný orgán, jiná plošná jednotka a semenáčky nezařazeny | 99 řádků `info`, 16 kandidátů, 5 jednotek bez dat |
+| N-07 | Vitalita jen u druhů, které ji mají v P2 (15 druhů) — jen tam řádky `POP_POCETVITAL` / `POP_POCETSTERIL` | 15 |
+| N-08 | Mírnější prahy Tab. 1 a 2 vypuštěny | 3 indikátory |
+| N-09 | `OKNO_LET` = 10, *Coleanthus* 12 (kap. 5.1) | 36 |
+
+### Validace a rozdíl (podrobně v protokolu)
+
+- Sloupce, pořadí a zpětné načtení stejným voláním jako config: ✅; 36 druhů (všechny z Přílohy 1); 0 duplicit;
+  0 indikátorů s více prahy; 941 řádků (info 115, min 192, max 37, val 597).
+- Slovník: 10 hodnot limitů se v datech daného tagu nevyskytuje — rákos (tag neexistuje), natantní `do 5 %` a
+  `5-25 %` (data jen pětičlenně), vlhkostní poměry `zhoršené` (data jen `dobré`), podíl dna `51-100 %` (data `51-100%`).
+  Buňky jen se šestičlennou stupnicí dnes žádný pětičlenný záznam nezasáhnou.
+- Číselník: všech 31 `ID_IND` má plný název; `ind_id` mají jen `LOK_PROCDOBR` (189) a `POP_TREND` (80); **29 kódů musí
+  přidělit ISOP**.
+- Diff (druh × indikátor × úroveň): změněno 307, přidáno 157, odebráno 44, beze změny 41. Odebráno mj. `POP_POSKPOC` (31×),
+  `POP_PLOCHA` (3×), `POP_POCETNOST`, `POP_POCETSPEC`, `POP_POPULACE`, `POP_POCETSUMLOD`, `STA_ZAPOJENICELK`,
+  `POP_PROCDOB` u *Coleanthus*. Nové druhy *Artemisia pancicii* a *Crambe tataria*.
+
+### Nové soubory
+
+| Soubor | Obsah | Čte kód |
+|---|---|---|
+| `Data/Input/limity_cevky_2026.csv` | limity ve formátu `limity_cevky.csv` | zatím ne — nahrazení živého souboru je rozhodnutí zadavatele |
+| `Data/Input/cis_cevky_frekvence.csv` | `DRUH, POP_JEDNOTKA, FREKV_TEXT, FREKV_MIN, FREKV_MAX, OKNO_LET, pozn` | ano — `00_n2k_config.R`, `21_1`, `27` (H-22) |
+| `Data/Input/cis_druhy_nazvy.csv` | `nazev_n2k, nazev_ndop, kod_sdf, skupina, pozn` | zatím ne (H-32) |
+| `Data/Input/cevky_vyber_lokalit.csv` | `DRUH, KOD_LOKALITY, NAZEV_LOKALITY, ZDROJ` (Příloha 4) | zatím ne (H-31) |
+| `Data/Input/cis_indikatory_popis.csv` | +30 řádků (názvy všech indikátorů rostlin) | ano (export) |
+
+---
+
+## Matice pravidel — kód proti metodice 2026-10-21
+
+`OK` · `liší se` · `chybí` · `nejasné`. Řádky se vztahují ke kódu po commitu `677102a`.
+
+| # | Pravidlo | Verdikt | Kde v kódu | Nález |
+|---|---|---|---|---|
+| PR-01 | jen data monitoringu | **liší se** | indikátory ze všech záznamů; [`24:219-228`](../../R/02_druhy/24_n2k_druhy_lokality.R#L219-L228) bere nahodilý záznam, chybí-li monitoring; `CILMON` jen pro podíl lokalit a součet početnosti ([`25:149`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L149), [`:191-193`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L191-L193)) | H-33 (H-13) |
+| PR-02 | poslední doložený výskyt (informativní) | **chybí** | [`23_n2k_posledni_nalez.R`](../../R/02_druhy/23_n2k_posledni_nalez.R): `max(DATUM)` i z negativních záznamů, bez `GARANCE`/`PRESNOST`, ve `25` nepoužit | H-33 (H-15) |
+| PR-03 | jen validní záznamy | **chybí** | `VALIDACE`, `GARANCE` se zahazují jako metadata ([`21_1:1541`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1541)) | H-34 |
+| PR-04 | více návštěv: celý záznam s nejvyšší početností, shoda → nejstarší | **liší se** | agregace po indikátorech [`24:104-112`](../../R/02_druhy/24_n2k_druhy_lokality.R#L104-L112); reprezentativní návštěva nejnovější ([`24:221-225`](../../R/02_druhy/24_n2k_druhy_lokality.R#L221-L225)) | H-24 |
+| PR-05 | relativní stupnice → medián | **liší se** | dolní mez z `cis_pocet_kat.csv` (8 tříd) [`21_1:1388-1409`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1388-L1409) | H-27 |
+| PR-06 | populační jednotka | **liší se** (data) | funkční `JEDNOTKA` ✓; v datech chybí nebo jiné jednotky u 5 druhů, 16 kandidátů | H-36 |
+| PR-07 | cílová početnost (první tři monitoringy, expertní přepis) | **chybí** | nikde se nepočítá | H-25 |
+| PR-08 | minimální přípustná početnost | **chybí** | `POP_POCETMINPRIP` sirotek | H-25 |
+| PR-09 | početnost (% cílové) | **chybí** | `POP_POCETCIL` sirotek | H-25 |
+| PR-10 | vývoj početnosti T1–T3 | **liší se** | [`21_1:1833-1935`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1833-L1935) — číslo 0–2, obrácená logika, jedna hodnota na lokalitu | H-26 (H-03) |
+| PR-11 | vitalita = kvetoucí / sterilní | **OK** po `677102a` (s `limity_cevky_2026.csv`) | [`21_1:130-150`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L130-L150), [`:1426`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1426) | H-21 |
+| PR-12 | poškození = součet mediánů | **liší se** | součet kategorií 0–3 [`21_1:1458-1484`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1458-L1484) | H-28 (H-12) |
+| PR-13 | úspěšnost reprodukce (*Coleanthus*) | **chybí** (kód i data) | `POP_REPROUSP` sirotek | H-29 |
+| PR-14 | délka absence (*Coleanthus*) | **chybí** | `POP_DELKAABSENCE` sirotek | H-29 |
+| PR-15 | neznámý indikátor = chybí vstup | **OK** na úrovni indikátoru; **liší se** v agregaci | `STAV_IND = NA` ✓ ([`21_2:283`](../../R/02_druhy/21_2_n2k_druhy_akce_lim.R#L283)); `24` neznámé přeskakuje | H-23 |
+| PR-16 | stanovištní jen informativní | **OK** s `limity_cevky_2026.csv` (`KLIC = info`); s živými limity liší se | `24` počítá jen `ano`/`ne` ([`24:155-156`](../../R/02_druhy/24_n2k_druhy_lokality.R#L155-L156), [`:185-186`](../../R/02_druhy/24_n2k_druhy_lokality.R#L185-L186)) | P-03 |
+| PR-17 | verdikt lokality dobrý/špatný/neznámý, max 1 neklíčový špatný | **liší se** | [`24:203-211`](../../R/02_druhy/24_n2k_druhy_lokality.R#L203-L211) — ≥ 2 neklíčové ⇒ zhoršený; neznámý nevzniká | H-23 (H-06) |
+| PR-18 | verdikt území podle Tab. 1 / 2 | **liší se** | aritmetika [`25:372-385`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L372-L385); Tab. 2 obojživelníků jen pro `DRUHY_METODIKY_OBOJ` ([`25:314-316`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L314-L316)) | H-30 |
+| PR-19 | celková početnost, podíl populace | **OK** v principu | [`25:149-155`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L149-L155) — součet `POP_POCET` reprezentativních let lokalit; závisí na H-24 a jednotkách (H-36) | H-30 |
+| PR-20 | podíl lokalit, jmenovatel všechny lokality | **liší se** | jmenovatel bez neznámých ([`25:191`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L191)) | H-30 (H-07) |
+| PR-21 | cílový stav (ISOP / plán péče) | **chybí** pro rostliny | [`25:314-333`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L314-L333) jen obojživelníci; párování SDO jménem ([`02_n2k_data_druhy.R:45-48`](../../R/00_config/02_n2k_data_druhy.R#L45-L48)) | H-30 (H-08) |
+| PR-22 | výběr lokalit (*Campanula*, *Cerastium*) | **chybí** | žádný filtr; seznam vendorován | H-31 |
+| PR-23 | zaniklé lokality 10 / 12 let | **OK** po `677102a` (základ); **chybí** výjimky | [`21_1:93-109`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L93-L109), [`:489-498`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L489-L498) | H-22 |
+| PR-24 | nové lokality se započítají | **OK** | každý nový `KOD_LOKAL` vstupuje automaticky | — |
+| PR-25 | bez pevného okna, původní údaje | **OK** po `677102a` | tamtéž + [`27:172-177`](../../R/02_druhy/27_n2k_druhy_zapis.R#L172-L177) | H-22 |
+| PR-26 | území EVL i MZCHÚ | **chybí** MZCHÚ | území jen z pole `EVL` exportu ([`02_n2k_data_druhy.R:153-157`](../../R/00_config/02_n2k_data_druhy.R#L153-L157)) | H-35 |
+| PR-27 | lokalita = kód lokality monitoringu | **liší se** | bez kódu se dosadí `LOKALITA` ([`02_n2k_data_druhy.R:228`](../../R/00_config/02_n2k_data_druhy.R#L228), [`:242`](../../R/00_config/02_n2k_data_druhy.R#L242)) | H-36 (H-01) |
+
+**Souhrn:** OK 4 (+ 2 částečně), liší se 13, chybí 9, nejasné 0 (nejasnosti jsou ve zdroji — R-44 až R-46).
+
+---
+
+## Nálezy Fáze C
+
+### H-21 ✅ — Vitalita: kvetoucí a plodné / sterilní, za celou akci *(provedeno, `677102a`)*
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-11, R-43, H-05
+- **Metodika:** kap. 7.1 — „podíl kvetoucích a plodných populačních jednotek a sterilních populačních jednotek vyjádřený v procentech“.
+- **Dřív:** `POP_POCETVITAL / POP_POCET * 100` po záznamech (kvetoucí / celkem); kvetoucí a sterilní jsou v NDOP v samostatných záznamech téže akce, takže u záznamů po roce 2021 podíl nevznikl (H-05).
+- **Nyní:** [`vitalita_cevky()`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L130-L150) za akci; sterilní jednotky z nových `info` řádků `POP_POCETSTERIL`, kvetoucí z `POP_POCETVITAL`; celá akce negativní ⇒ 0; chybí kvetoucí nebo sterilní ⇒ NA; 0 sterilních ⇒ strop 999999 (splní každý limit `min`; `Inf` by `21_2` nepřečetl).
+- **Důsledek:** se **živými** limity (`limity_cevky.csv` nemá `POP_POCETSTERIL`) je vitalita u všech rostlin **neznámá**; správně počítá až s `limity_cevky_2026.csv`. *Poa riphaea* nemá v datech kvetoucí ani sterilní trsy ⇒ vitalita trvale neznámá (R-51).
+- **Dotčené skupiny ve sdíleném kódu:** žádné — `POP_VITAL` mají v limitech jen rostliny (ryby používají `POP_VITALITA`).
+
+### H-22 ✅ — Hodnocené období po lokalitách (10 / 12 let) *(provedeno, `677102a`)*
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-23, PR-25, R-48, H-09, H-15
+- **Metodika:** kap. 6 „u neaktualizovaných lokalit vstupují do hodnocení původní údaje“; kap. 5.1 zaniklé lokality 10 let (*Coleanthus* ≥ 12) od posledního prokazatelného výskytu; kap. 7.1 cílová početnost z prvních tří monitoringů.
+- **Dřív:** všechny skupiny `ROK >= current_year - 12` (13 sezón, H-09) v `21_1` i v předfiltru `27`.
+- **Nyní:** u druhů z `cis_cevky_frekvence.csv` [`vyber_obdobi_cevky()`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L93-L109) ponechá lokality, jejichž poslední prokazatelný výskyt je nejvýše `OKNO_LET` let starý, **s celou historií**; „prokazatelný“ = pozitivní záznam monitoringu, nebo jiný záznam garantovaný jako věrohodný s přesností ≤ 1 km. Předfiltr [`27:172-177`](../../R/02_druhy/27_n2k_druhy_zapis.R#L172-L177) rostliny nekrátí. Ostatní skupiny beze změny.
+- **Výklad k potvrzení:** hranice „deset let od“ — výskyt 2015 se při hodnocení roku 2025 ještě započítá.
+- **Důsledek:** reprezentativní rok lokality v `24` je dál nejnovější (do 25 vstupuje jeden rok na lokalitu, takže se nesčítá historie); pseudolokality pojmenované textem (H-01) vstupují, mají-li pozitivní záznam v okně. Trendový blok a budoucí cílová početnost dostanou celou historii.
+- **Nepokryto:** *Coleanthus* — vyřazení po 12 letech jen při doložených vhodných podmínkách ve ≥ 2 sezónách posledních 6 let (dnes se vyřadí vždy); prodloužení „lze započítávat delší dobu“ není kde evidovat (c10, níže).
+- **Dotčené skupiny ve sdíleném kódu:** žádné — větev je podmíněna příslušností druhu k číselníku.
+
+### H-23 — Verdikt lokality: max. 1 neklíčový špatný, stav neznámý
+- **Závažnost:** kritická · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-15, PR-17, R-45, H-06
+- **Stav v kódu:** [`24:203-211`](../../R/02_druhy/24_n2k_druhy_lokality.R#L203-L211) — klíčový nesplněn ⇒ špatný; ≥ 2 neklíčové nesplněny ⇒ **zhoršený**; neznámé indikátory se nepočítají, takže **neznámý nevzniká**; popisek `NA` je „nehodnoceno“ ([`24:253-257`](../../R/02_druhy/24_n2k_druhy_lokality.R#L253-L257)).
+- **Dotčené skupiny ve sdíleném kódu:** obojživelníci, ryby, hmyz, savci — **podmínit skupinou**.
+- **Návrh opravy (neaplikováno):** v `n2k_eval` doplnit očekávané počty z řádků s limitem bez ohledu na `STAV_IND` a pro rostliny samostatnou větev:
+  ```r
+  N_KEY_ALL = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
+  N_OTH_ALL = dplyr::n_distinct(ID_IND[KLIC == "ne"  & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
+  # ...
+  je_cevnata = DRUH %in% cis_cevky_frekvence$DRUH,
+  CELKOVE = dplyr::case_when(
+    je_cevnata & (N_KEY_PASSED < N_KEY_EXPECTED | N_OTH_FAIL >= 2) ~ 0,       # jistě špatný
+    je_cevnata & (N_KEY_ALL > N_KEY_EXPECTED | N_OTH_ALL - N_OTH_EXPECTED > 1) ~ NA_real_,  # neznámý
+    je_cevnata ~ 1,
+    # ... dosavadní větve pro ostatní skupiny
+  )
+  ```
+  a popisek `NA` → „neznámý“ u rostlin. Pořadí „špatný před neznámým“ je návrh k R-45.
+
+### H-24 — Více návštěv v roce: výběr celého záznamu
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-04, R-47 (ruší R-28), P-01
+- **Stav v kódu:** agregace po indikátorech ([`24:104-112`](../../R/02_druhy/24_n2k_druhy_lokality.R#L104-L112): populační max, stanovištní a poškození min) — metodika 2026 ji nahrazuje výběrem jednoho záznamu.
+- **Návrh opravy (neaplikováno):** na konci `21_1`, jen pro druhy z číselníku: pro každou `KOD_LOKAL × ROK` ponechat akci (`IDX_ND_AKCE`) s nejvyšší `POP_POCET` (v populační jednotce), při shodě s nejstarším `DATUM`; ostatní akce roku zahodit. Agregace v `24` pak pracuje s jedinou akcí a výsledek nezávisí na směru `max`/`min`.
+- **Dotčené skupiny:** žádné při podmínce na číselník rostlin.
+
+### H-25 — Cílová početnost a indikátory početnosti
+- **Závažnost:** kritická · **Typ:** GAP · **Odkazy:** PR-07 až PR-09, H-04, R-19
+- **Stav v kódu:** cílová početnost se nepočítá; `POP_POCETMINPRIP` a `POP_POCETCIL` jsou sirotci.
+- **Návrh opravy (neaplikováno):** v `21_1` (blok lokality × rok) pro rostliny: roční početnost lokality = početnost vybraného záznamu (H-24); `CILOVA` = průměr prvních tří let s monitoringem a známou početností; přepis expertní hodnotou z nového vendorovaného souboru `Data/Input/cevky_cilova_pocetnost.csv` (`DRUH, KOD_LOKALITY, CILOVA_POCETNOST, DUVOD, OD_ROKU, ROZHODL`); `POP_POCETMINPRIP = POP_POCETCIL = aktuální / CILOVA * 100`; `CILOVA = 0` ⇒ NA.
+- **Otevřená otázka:** platí přísně „první tři monitoringy“, nebo i nadále „tři ideál, dvě přípustné“ (odpověď 6, 2026-10-02), a ruší nový text návrh „maximum kdy zaznamenané“ (odpověď 7)?
+
+### H-26 — Vývoj početnosti (`POP_TREND`) podle T1–T3
+- **Závažnost:** kritická · **Typ:** BUG + ROZPOR-METODIKY · **Odkazy:** PR-10, R-44, H-03
+- **Stav v kódu:** [`21_1:1833-1935`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1833-L1935) — součet dvou příznaků proti 3. nejnovějšímu roku (číslo 0–2, obrácená logika), jedna hodnota na lokalitu pro všechny roky. Nové limity očekávají kategorii ⇒ **s `limity_cevky_2026.csv` by bez opravy selhal u každé lokality.**
+- **Návrh opravy (neaplikováno):** pro každý rok lokality T1–T3 = početnosti tří posledních let s monitoringem do daného roku včetně; `negativní` (T2 < T1 a T3 < T1), `pozitivní` (T2 > T1 a T3 > T1), jinak `setrvalý`; < 3 údaje ⇒ NA; připojit po roce.
+- **Dotčené skupiny:** žádné (blok jen u druhů s `POP_TREND*`).
+
+### H-27 — Relativní stupnice: mediány metodiky
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-05, R-38
+- **Stav v kódu:** `REL_POC` → kategorie 1–8 ([`21_1:582`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L582)) → **dolní mez** z `cis_pocet_kat.csv` ([`21_1:1388-1409`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1388-L1409)); číselník má jiné třídy (11–50, 51–100) i středy než metodika.
+- **Návrh opravy (neaplikováno):** pro rostliny převádět `REL_POC` přímo na mediány metodiky (`1-10` 5,5 · `11-100` 55,5 · `101-1000` 550,5 · `1001-10 000` 5 500,5 · `10 001-100 000` 55 000,5 · `100 001-1 000 000` 550 000,5 · `> 1 000 000` 1 000 001), slovní kategorie („hojně“…) ⇒ NA. Nový malý číselník, `cis_pocet_kat.csv` nesahat (obojživelníci).
+- **Dotčené skupiny:** žádné při podmínce na rostliny.
+
+### H-28 — Poškození: součet mediánů po typech
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-12, H-12
+- **Stav v kódu:** [`21_1:1458-1484`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1458-L1484) — součet kategorií 0–3; limit `max 40` by se porovnal se součtem kategorií.
+- **Návrh opravy (neaplikováno):** po typech: `Nezjištěno`/`Bez poškození` 0; `1-10 %` 5,5; `11-50 %` (i starší `10-50 %`) 30,5; `51-100 %` (i `50-100 %`) 75,5; holé „N %“ = N; mezery kolem pomlčky normalizovat; „N lodyh“ a slovní položky ⇒ NA; `POP_POSKPERC` = součet. Rozhoduje otevřenou otázku H-12 (součet, ne maximum).
+- **Otevřená otázka:** omezit součet na 100 %? (text nestanoví; 2 × 75,5 = 151).
+
+### H-29 — *Coleanthus*: úspěšnost reprodukce a délka absence
+- **Závažnost:** kritická (pro druh) · **Typ:** GAP (kód i data) · **Odkazy:** PR-13, PR-14, R-40, R-50
+- **Stav:** oba indikátory sirotci; podíl plodných jedinců v NDOP jen `POZN_BIO` „Míra úspěšnosti reprodukce: N %“ (18 záznamů 2020–2022).
+- **Návrh opravy (neaplikováno):** `POP_REPROUSP` = „dostatečná“, existuje-li v posledních 6 letech pozitivní záznam monitoringu s mediánem `REL_POC` > 100 a podílem ≥ 11 % (zdroj: `POZN_BIO`, příp. budoucí pole formuláře); jinak „nedostatečná“, je-li absence doložena (≥ 2 negativní záznamy monitoringu v 6 letech a žádný jiný výskyt), jinak NA. `POP_DELKAABSENCE` = roky od posledního prokazatelného výskytu (logika H-22), hodnotí se jen při doložené absenci.
+- **Blokuje:** data od roku 2023.
+
+### H-30 — Úroveň území: Tabulky 1 a 2 s jediným prahem
+- **Závažnost:** kritická · **Typ:** ROZPOR-METODIKY + GAP · **Odkazy:** PR-18 až PR-21, R-46, H-07, H-08
+- **Stav v kódu:** `CELKOVE` aritmetikou nad klíčovými `chu` indikátory ([`25:372-385`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L372-L385)): 0 nesplněných ⇒ dobrý, 1 ⇒ zhoršený, ≥ 2 ⇒ špatný (nezjištěné se odečítají). Cílový stav jen obojživelníci. `POP_CILSTAVPROC` se nepočítá ⇒ s novými limity se dnes rozhoduje jen z `LOK_PROCDOBR` a `POP_PROCDOB`. Jmenovatel podílu lokalit bez neznámých.
+- **Tabulky po vypuštění mírnějších prahů** (p = podíl populace ≥ 75 %, l = podíl lokalit ≥ 50 %, c = cílový stav ≥ 100 %):
+
+  | p | l | c | Tab. 2 (doslovně) | aritmetika `25` |
+  |---|---|---|---|---|
+  | ✓ | ✓ | ✓ | dobrý | dobrý |
+  | ✓ | ✓ | ✗ | zhoršený (C 80–99) / špatný (C < 80) | zhoršený |
+  | ✗ | ✓ | ✓ | zhoršený (P 60–74) / nepokryto (P < 60) | zhoršený |
+  | ✓ | ✗ | ✓ | zhoršený (L 40–49) / nepokryto (L < 40) | zhoršený |
+  | ✗ | ✗ | ✓ | zhoršený (P ≥ 60 a L ≥ 40) / špatný (oba níž) | špatný |
+  | ✗ / ✓ | ✓ / ✗ | ✗ | špatný (ř. 5) / nepokryto | špatný |
+  | ✗ | ✗ | ✗ | špatný | špatný |
+
+  | l | c | Tab. 1 (*Coleanthus*) | aritmetika `25` |
+  |---|---|---|---|
+  | ✓ | ✓ | dobrý | dobrý |
+  | ✓ | ✗ | zhoršený (C 80–99) / nepokryto (C < 80) | zhoršený |
+  | ✗ | ✓ | **špatný** | **zhoršený** |
+  | ✗ | ✗ | špatný | špatný |
+
+- **Návrh opravy (neaplikováno):** Tab. 2 = aritmetika počtu nesplněných (shoduje se s převažujícím čtením všech jednoznačných buněk); Tab. 1 = podíl lokalit rozhoduje (nesplněn ⇒ špatný, jinak c rozhoduje dobrý/zhoršený) — větev podmíněná *Coleanthus*. Dále: `POP_CILSTAVPROC` = celková početnost / cílový stav × 100 s párováním cílových stavů přes `sdf_code` (`cis_druhy_nazvy.csv`), jmenovatel podílu lokalit včetně neznámých (podmínit skupinou).
+- **Dotčené skupiny ve sdíleném kódu:** obojživelníci (blok cílového stavu, Tab. 2), ostatní skupiny (aritmetika, jmenovatel) — podmínit.
+- **Otevřené otázky:** potvrdit sloučené tabulky; území bez cílového stavu; stav neznámý území.
+
+### H-31 — Výběr lokalit (*Campanula bohemica*, *Cerastium alsinifolium*)
+- **Závažnost:** vysoká · **Typ:** GAP · **Odkazy:** PR-22, R-49
+- **Stav v kódu:** žádný filtr; `Data/Input/cevky_vyber_lokalit.csv` založen (120 lokalit), kód ho nečte.
+- **Návrh opravy (neaplikováno):** v `21_1` za filtrem druhu: má-li druh v souboru řádky, ponechat jen `KOD_LOKAL %in% KOD_LOKALITY`. Pro *Cerastium* soubor řádky nemá ⇒ dnes by se hodnotily všechny lokality.
+- **Otevřená otázka:** do dodání Přílohy 5 hodnotit u *Cerastium* všechny lokality, nebo žádnou?
+
+### H-32 — Názvy druhů: filtr předmětů ochrany zahodí šest druhů
+- **Závažnost:** kritická (pro 6 druhů) · **Typ:** BUG · **Odkazy:** R-35, H-18
+- **Stav v kódu:** [`21_1:500-504`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L500-L504) a [`27:178-181`](../../R/02_druhy/27_n2k_druhy_zapis.R#L178-L181) — `DRUH %in% sites_subjects$nazev_lat`; *Adenophora liliifolia*, *Echium maculatum*, *Gentianella praecox* subsp. *bohemica*, *Iris arenaria*, *Stipa glabrata*, *Trichomanes speciosum* mají v seznamu předmětolokalit jiné jméno ⇒ **dnes se nehodnotí vůbec**.
+- **Návrh opravy (neaplikováno):** v `00_n2k_config.R` doplnit `sites_subjects$nazev_lat` o NDOP jména z `cis_druhy_nazvy.csv` (řádky s `nazev_n2k != nazev_ndop`) — přidává jen řádky, ostatní skupiny beze změny. Zároveň napravit nepárový filtr (H-18).
+
+### H-33 — Zdroj dat a „Poslední doložený výskyt“
+- **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY + GAP · **Odkazy:** PR-01, PR-02, H-13, H-15
+- **Stav v kódu:** verdikt lokality i z nahodilých záznamů (H-13); `23` počítá poslední nález i z negativních záznamů a ve `25` se nepoužije.
+- **Návrh opravy (neaplikováno):** rostliny — indikátory lokality jen z `CILMON == 1`; nový informativní indikátor `POP_POSLVYSKYT` (*provizorní ID*) = rok posledního prokazatelného výskytu (logika `vyber_obdobi_cevky`), v limitech jako `info`; prostorové přiřazení nálezů mimo monitoring k lokalitě je mimo repozitář (c8, c31).
+
+### H-34 — Nevalidní záznamy (c17)
+- **Závažnost:** střední · **Typ:** GAP · **Odkazy:** PR-03
+- **Stav:** žádný mechanismus; viz odpověď na c17.
+
+### H-35 — MZCHÚ se nehodnotí
+- **Závažnost:** střední · **Typ:** GAP · **Odkazy:** PR-26
+- **Stav:** území = pole `EVL` exportu ([`02_n2k_data_druhy.R:153-157`](../../R/00_config/02_n2k_data_druhy.R#L153-L157)); pro MZCHÚ v exportu pole není a cílové stavy z plánů péče nejsou v repozitáři.
+- **Návrh:** samostatné zadání (přiřazení záznamů k MZCHÚ, zdroj cílových stavů).
+
+### H-36 — Jednotky a identita lokalit v datech
+- **Závažnost:** vysoká · **Typ:** GAP (data) · **Odkazy:** PR-06, PR-27, R-51, H-01, H-02
+- **Stav:** úplná tabulka jednotek v protokolu převodu; 5 jednotek Přílohy 1 v datech chybí, 16 přiřazení jsou kandidáti, plochy v jiných jednotkách nezařazeny. Identita lokalit beze změny (H-01).
+
+### P-03 — Informativní stanovištní indikátory bez změny kódu *(potvrzeno)*
+- `KLIC = info`: `21_2` je vyhodnotí (`STAV_IND`) a propíše, `24` je nezapočte (počítá jen `ano`/`ne`), kontrola úplnosti v configu je nevaruje (hlídá jen prázdný `KLIC`). Hodnota „nelze určit“ u hydrologických poměrů vyjde jako nesplněná (měla by být neznámá) — u informativního indikátoru bez vlivu na verdikt.
+
+### H-37 — Export do ISOP: 29 indikátorů bez `ind_id`
+- **Závažnost:** střední · **Typ:** STOPA-DO-ISOP · **Odkazy:** H-16
+- **Stav:** číselník má plný název všech 31 indikátorů; `ind_id` jen 189 a 80. Bez kódu jde do exportu surové `ID_IND` ([`27:785`](../../R/02_druhy/27_n2k_druhy_zapis.R#L785)).
+- **Návrh:** vyžádat kódy v ISOP (seznam v protokolu převodu). `POP_TREND` → 80 platí už nyní — s dnešním (chybným, H-26) výpočtem by se pod kódem 80 exportovala obrácená hodnota; nasazovat společně s H-26.
+
+---
+
+## Odpovědi na otázky autora metodiky
+
+**c8 — přiřazení lokalit k hodnocenému území (překryv, buffery, procenta).**
+Pipeline žádný prostorový překryv nedělá. Území se bere z pole `EVL` exportu NDOP, které NDOP
+dopočítává sám: `kod_chu = substr(EVL, 1, 9)` ([`02_n2k_data_druhy.R:153-157`](../../R/00_config/02_n2k_data_druhy.R#L153-L157)).
+Export nese i `PROC_EVL` (podíl zákresu nálezu v EVL) a `MAX_PROC`, ale **kód je nepoužívá** — není
+žádný minimální podíl: u cévnatých rostlin má 829 záznamů `PROC_EVL` < 50 % a 30 < 10 %; 76 záznamů
+leží ve dvou EVL a vstupuje do obou. Záznamy se k lokalitě přiřazují kódem lokality (`KOD_LOKALITY`),
+bez kódu textovým názvem lokality (H-01). MZCHÚ v exportu nejsou (H-35). Způsob výpočtu `EVL`/`PROC_EVL`
+(buffery, práh) je třeba ověřit u správce exportu NDOP (Z. Kučera).
+
+**c10 — kde evidovat příznak zaniklé / déle započítávané lokality.**
+Doporučení: vendorovaný soubor v repozitáři stejného typu jako výběr lokalit, např.
+`Data/Input/cevky_lokality_stav.csv` (`DRUH, KOD_LOKALITY, STAV` = zaniklá / prodloužena / vyřazena,
+`PLATNOST_DO, DUVOD, ROZHODL, DATUM`). Je verzovaný, dohledatelný a nezávisí na verzi garantské
+aplikace; kód ho přečte ve `vyber_obdobi_cevky` (H-22). Druhá možnost je atribut lokality
+v registru lokalit NDOP (`IDX_ND_LOK`), pokud jej NDOP umí nést. Pozor: rozhodnutí H-15
+(2026-10-02) zní „evidovat se nebude“ — nový text („lze započítávat delší dobu“, *Coleanthus*)
+ho fakticky vyžaduje; potřeba znovu rozhodnout.
+
+**c17 — vyřazení nevalidních záznamů (např. po pokosení).**
+Dnes nijak: `VALIDACE` (validováno — chybný záznam / záznam k opravě / méně věrohodný) i `GARANCE`
+NDOP nese, ale pipeline je zahazuje jako metadata ([`21_1:1541`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1541)).
+Doporučení: (a) pro nová data pole ve formuláři Survey123 „záznam nevstupuje do hodnocení“ + důvod,
+uložené jako tag ve `STRUKT_POZN` a filtrované v `21_1`; (b) pro historii vendorovaný seznam
+`IDX_ND_AKCE` s důvodem; (c) alternativně kategorie `VALIDACE` v NDOP, pokud ji validátoři mohou
+pro tento účel použít. Je to tentýž mechanismus jako u c10 (evidence mimo garantskou aplikaci).
+
+**c31 — buffer pro bodové a liniové zákresy.**
+V repozitáři se **žádný buffer neuplatňuje** — párování nálezů NDOP s lokalitami prostorově
+neprobíhá vůbec (viz c8). Buffer i práh 10 % je tedy otázka pro správce exportu NDOP (Z. Kučera).
+Má-li se párování pro indikátor *Poslední doložený výskyt* dělat v repozitáři, je navrhovaný
+buffer 5–10 m technicky snadný (`sf::st_buffer` v S-JTSK, jako u stanovišť), ale vyžaduje zákresy
+lokalit a nálezů, které export dnes nenese.
+
+---
+
+## Pořadí nasazení
+
+Převedené limity, úpravy `677102a` a navržené opravy na sobě závisí:
+
+1. `677102a` je už ve větvi: s **živými** limity je vitalita rostlin neznámá (H-21) a lokality rostlin
+   vstupují s celou historií (H-22).
+2. Nahrazení `limity_cevky.csv` souborem `limity_cevky_2026.csv` **bez** H-26 by vývoj početnosti
+   vyhodnotil jako nesplněný všude; bez H-25 jsou klíčové indikátory početnosti sirotci (DP by dnes
+   stály jen na neklíčových indikátorech); bez H-23 by verdikt počítal neklíčové selhání jako zhoršený.
+3. Doporučené pořadí: H-32 → H-24, H-25, H-26, H-27, H-28 → H-23 → H-30, H-31 → přepnutí limitů →
+   H-29, H-33 (data).
+
+## Otázky pro zadavatele a autory (Fáze C)
+
+| # | Otázka | Nález |
+|---|---|---|
+| 1 | Přednost „špatný“ před „neznámý“ ve verdiktu lokality (tři případy) | R-45, H-23 |
+| 2 | Sloučené Tabulky 1 a 2 (aritmetika vs. *Coleanthus* podíl lokalit rozhoduje); stav neznámý území; území bez cílového stavu | R-46, H-30 |
+| 3 | Cílová početnost: přísně první tři monitoringy? Evidence expertního přepisu (`cevky_cilova_pocetnost.csv`)? | H-25 |
+| 4 | Výklad vývoje početnosti (pozitivní = T2 i T3 > T1) | R-44, H-26 |
+| 5 | *Cerastium alsinifolium* do dodání Přílohy 5: všechny lokality, nebo žádná? | H-31 |
+| 6 | *Coleanthus*: použít `POZN_BIO` „Míra úspěšnosti reprodukce“ (2020–2022) a zavést pole do formuláře? | R-50, H-29 |
+| 7 | Potvrdit 16 kandidátů jednotek; zavést převod ploch cm² / dm² → m²? | R-51, H-36 |
+| 8 | Poškození: omezit součet na 100 %? Mapovat starší třídy `10-50 %` / `50-100 %` na 30,5 / 75,5? | H-28 |
+| 9 | Evidence zaniklých / prodloužených lokalit (c10) a nevalidních záznamů (c17) — schválit soubory v repozitáři? | H-22, H-34 |
+| 10 | Kódy ISOP pro 29 indikátorů — kdo vyžádá? | H-37 |
+| 11 | Které opravy H-23 … H-33 aplikovat (a kdy přepnout limity)? | — |
+
+## Co bylo ověřeno proti datům a co jen proti kódu
+
+| Proti datům NDOP | Jen proti kódu / limitům |
+|---|---|
+| slovník hodnot tagů a kategorií limitů; jednotky `POCITANO`; kódy Přílohy 4; pole pro reprodukci *Coleanthus*; názvy druhů (NDOP, seznam předmětolokalit, česká jména); `PROC_EVL`, `GARANCE`, `VALIDACE`, `PRESNOST` | všechny verdikty matice PR; dopad H-21 a H-22 na výsledky (pipeline se nespouštěla); H-23 až H-37 |
+
+Neověřeno: dopad úprav `677102a` na hodnocení (zadání zakazuje běh hodnocení); způsob výpočtu `EVL` a `PROC_EVL` v NDOP.
