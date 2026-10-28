@@ -246,6 +246,19 @@ cis_evd_perioda <- readr::read_csv(
   )
 
 #--------------------------------------------------#
+### Ciselnik druhu cevnatych rostlin ---- 
+#--------------------------------------------------#
+# Populacni jednotka, frekvence monitoringu a OKNO_LET (jak dlouho zustava
+# lokalita v hodnoceni od posledniho prokazatelneho vyskytu) podle metodiky
+# 2026-10-21, Priloha 1 a kap. 5.1. Generuje R/05_metodiky/54_cevnate_limity_2026.R;
+# cte 21_1_n2k_druhy_akce.R (vyber_obdobi_cevky) a 27_n2k_druhy_zapis.R.
+cis_cevky_frekvence <- readr::read_csv(
+  "Data/Input/cis_cevky_frekvence.csv",
+  locale = readr::locale(encoding = "Windows-1250"),
+  show_col_types = FALSE
+)
+
+#--------------------------------------------------#
 ### Ciselnik metodiky hodnoceni stavu ---- 
 #--------------------------------------------------#
 cis_metodika <- readr::read_csv(

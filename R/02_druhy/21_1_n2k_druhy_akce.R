@@ -48,6 +48,107 @@ DRUHY_METODIKY_OBOJ <- c(
   "Triturus cristatus", "Triturus carnifex", "Triturus dobrogicus"
 )
 
+#----------------------------------------------------------#
+# Pomocne funkce - cevnate rostliny (metodika 2026-10-21) ----
+#----------------------------------------------------------#
+# HODNOCENE OBDOBI. Metodika cevnatych rostlin nezna pevne okno 12 let:
+#   kap. 6   "u neaktualizovanych lokalit vstupuji do hodnoceni puvodni udaje"
+#   kap. 5.1 zanikle lokality se zapocitavaji 10 let od posledniho
+#            prokazatelneho vyskytu druhu (puchyrka nejmene 12 let)
+#   kap. 7.1 cilova pocetnost = prumer PRVNICH tri monitoringu lokality,
+#            vyvoj pocetnosti = tri posledni udaje
+# Okno se proto u rostlin neuplatnuje na zaznamy, ale na LOKALITY: lokalita
+# zustava v hodnoceni i s celou historii, dokud jeji posledni prokazatelny
+# vyskyt neni starsi nez OKNO_LET z ciselniku cis_cevky_frekvence.csv.
+# Rozhodnuti zadavatele 2026-10-28 (otazka 14), nalezy H-09, H-15.
+#
+# "Prokazatelny vyskyt" = pozitivni zaznam druhu (NEGATIVNI = 0 a POCET neni
+# 0) z projektu Monitoring druhu CR, nebo z jineho projektu, je-li garantovan
+# jako verohodny a ma presnost lokalizace do 1 km (definice indikatoru
+# "Posledni dolozeny vyskyt", kap. 7.1). Nalez se s lokalitou paruje pres
+# KOD_LOKAL; prostorovy prunik zakresu (kap. 7.1) tu neni - nalezy mimo
+# monitoring kod lokality zpravidla nemaji (nalez H-01).
+#
+# Druhy mimo ciselnik (vsechny ostatni skupiny) maji dal pevne okno 12 let.
+#
+# Sezeni, ktere nacetlo config pred zavedenim ciselniku, ho nema - proto
+# zalozni nacteni zde.
+if (!exists("cis_cevky_frekvence")) {
+  cis_cevky_frekvence <- readr::read_csv(
+    "Data/Input/cis_cevky_frekvence.csv",
+    locale = readr::locale(encoding = "Windows-1250"),
+    show_col_types = FALSE
+  )
+}
+
+# OKNO_LET druhu, NA pro druhy mimo ciselnik.
+okno_cevky <- function(species_name) {
+  i <- match(species_name, cis_cevky_frekvence$DRUH)
+  if (is.na(i)) NA_integer_ else as.integer(cis_cevky_frekvence$OKNO_LET[i])
+}
+
+# Ponecha zaznamy lokalit, jejichz posledni prokazatelny vyskyt je nejvyse
+# `okno` let stary ("po dobu deseti let od posledniho prokazatelneho vyskytu":
+# vyskyt v roce 2015 se pri hodnoceni roku 2025 jeste zapocita).
+vyber_obdobi_cevky <- function(df, okno, current_year) {
+  presnost <- suppressWarnings(as.numeric(df$PRESNOST))
+  posledni <- df %>%
+    dplyr::mutate(PRESNOST_M = presnost) %>%
+    dplyr::filter(
+      NEGATIVNI == 0,
+      is.na(POCET) | POCET != 0,
+      PROJEKT == "Monitoring druhů ČR" |
+        (GARANCE == "garantováno - věrohodný záznam" &
+           !is.na(PRESNOST_M) & PRESNOST_M <= 1000)
+    ) %>%
+    dplyr::group_by(DRUH, KOD_LOKAL) %>%
+    dplyr::summarise(ROK_POSLEDNI_VYSKYT = max(ROK, na.rm = TRUE), .groups = "drop") %>%
+    dplyr::filter(current_year - ROK_POSLEDNI_VYSKYT <= okno)
+  df %>%
+    dplyr::semi_join(posledni, by = c("DRUH", "KOD_LOKAL"))
+}
+
+# VITALITA (kap. 7.1): "podil kvetoucich a plodnych populacnich jednotek
+# a sterilnich populacnich jednotek vyjadreny v procentech", tedy
+# kvetouci a plodne / STERILNI * 100 - drive kvetouci a plodne / CELKEM
+# (rozhodnuti zadavatele 2026-10-28, otazka 13).
+#
+# Kvetouci a sterilni jednotky nese NDOP v SAMOSTATNYCH zaznamech tehoz
+# monitoringu, proto se vitalita pocita za celou akci. Ktere hodnoty POCITANO
+# jsou kvetouci a ktere sterilni, urcuji info radky POP_POCETVITAL
+# a POP_POCETSTERIL v limitech. Negativni zaznam dane kategorie = 0.
+#
+#   cela akce negativni ............ 0 (nulova pocetnost, beze zmeny)
+#   chybi kvetouci nebo sterilni ... NA (indikator neznamy, kap. 7)
+#   kvetouci i sterilni = 0 ........ NA (podil neni definovan)
+#   sterilni = 0, kvetouci > 0 ..... VITAL_STROP - podil je nekonecny, tedy
+#                                    splni kazdy limit typu min. Nekonecno
+#                                    (Inf) ani zapis 1e+06 by 21_2 jako cislo
+#                                    neprecetl (regex ^-?\d+(\.\d+)?$).
+VITAL_STROP <- 999999
+
+vitalita_cevky <- function(presence_n, pocitano, pocet, jedn_plod, jedn_steril) {
+  n <- length(presence_n)
+  if (n > 0 && all(!is.na(presence_n) & presence_n == 0)) {
+    return(rep(0, n))
+  }
+  hodnota <- ifelse(!is.na(presence_n) & presence_n == 0, 0, as.numeric(pocet))
+  soucet <- function(jedn) {
+    i <- pocitano %in% jedn
+    if (!any(i) || all(is.na(hodnota[i]))) NA_real_ else sum(hodnota[i], na.rm = TRUE)
+  }
+  p <- soucet(jedn_plod)
+  s <- soucet(jedn_steril)
+  v <- if (is.na(p) || is.na(s) || (p == 0 && s == 0)) {
+    NA_real_
+  } else if (s == 0) {
+    VITAL_STROP
+  } else {
+    p / s * 100
+  }
+  rep(v, n)
+}
+
 norm_stavvody <- function(x) {
   v <- stringr::str_squish(as.character(x))
   v[v == ""] <- NA_character_
@@ -372,15 +473,29 @@ run_n2k_druhy <- function(
   } else {
     warning(glue::glue("'POP_REPRO' limit for species found"))
   }
+
+  # Jednotky kvetoucich a sterilnich casti pro vitalitu (vitalita_cevky).
+  lim_vital <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETVITAL") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+  lim_steril <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSTERIL") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+
+  # Hodnocene obdobi: cevnate rostliny podle lokalit (vyber_obdobi_cevky),
+  # ostatni skupiny pevne 12 let.
+  okno_druhu <- okno_cevky(species_name)
   
   #----------------------------------------------------------#
   # Nalez - priprava indikatoru na urovni nalezu ----- 
   #----------------------------------------------------------#
   n2k_druhy_pre <- n2k_load %>%
-    # Filtrace dat: Ponechame pouze zaznamy z poslednich 12 let (vcetne aktualniho)
-    dplyr::filter(
-      ROK >= current_year - 12
-    ) %>%
+    # Filtrace dat: hodnocene obdobi - u cevnatych rostlin lokality
+    # s prokazatelnym vyskytem v poslednich OKNO_LET letech i s celou
+    # historii, jinak zaznamy z poslednich 12 let (vcetne aktualniho)
+    {
+      if (is.na(okno_druhu)) {
+        dplyr::filter(., ROK >= current_year - 12)
+      } else {
+        vyber_obdobi_cevky(., okno_druhu, current_year)
+      }
+    } %>%
     # Filtrace dat: Ponechame pouze kombinace Druh a Lokalita, ktere jsou v seznamu sledovanych predmetu ochrany
     dplyr::filter(
       DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
@@ -1153,6 +1268,14 @@ run_n2k_druhy <- function(
       POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETVITAL"] ~ POCET,
       TRUE ~ NA_real_
     ),
+    # POP_POCETSTERIL: Pocet sterilnich casti (jmenovatel vitality). Jen
+    # zaznamy sterilni kategorie - negativni zaznam jine kategorie o poctu
+    # sterilnich casti nic nerika (srov. nalez H-20).
+    POP_POCETSTERIL = dplyr::case_when(
+      POCITANO_CLEAN %in% lim_steril & POP_PRESENCE == "ne" ~ 0,
+      POCITANO_CLEAN %in% lim_steril ~ as.numeric(POCET),
+      TRUE ~ NA_real_
+    ),
     # Extrakce parametru managementu a pokryvnosti (invazni, expanzni, dreviny, atd.)
     STA_MAN = readr::parse_character(
       stringr::str_extract(
@@ -1297,10 +1420,11 @@ run_n2k_druhy <- function(
                                         limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
         TRUE ~ NA_real_
       ),
-      # POP_VITAL: Procento vitalnich casti populace
-      POP_VITAL = dplyr::case_when(
-        POP_PRESENCE_N == 0 ~ 0,
-        TRUE ~ POP_POCETVITAL/POP_POCET*100
+      # POP_VITAL: kvetouci a plodne / sterilni * 100 za celou akci
+      # (vitalita_cevky nahore; drive kvetouci a plodne / celkem po zaznamech).
+      # POP_VITAL maji v limitech jen cevnate rostliny.
+      POP_VITAL = vitalita_cevky(
+        POP_PRESENCE_N, POCITANO_CLEAN, POCET, lim_vital, lim_steril
       )
       ) %>%
     dplyr::mutate(
