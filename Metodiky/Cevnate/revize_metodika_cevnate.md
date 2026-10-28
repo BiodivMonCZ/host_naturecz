@@ -764,3 +764,181 @@ znění a audit Fáze B:
 | 3.3 | dva indikátory, Tabulka 2 2×2; „podíl populace v DP v dobrém stavu“ vypuštěn; neznámé DP ve jmenovateli; zaniklé DP — kdo rozhoduje | R-08, R-09, R-29, R-30, R-31, R-32 |
 | Příloha 1A | řádky „dlouhodobý trend“ a „minimální početnost“ odstraněny; poškození neklíčové; limit krátkodobého trendu | R-03, R-05, R-07, R-25 |
 | Příloha 1B | dva indikátory s jediným limitem (≥ 50 %, ≥ 75 % cílového stavu) | R-06, R-09 |
+
+---
+
+# Verze 2026-10-21 (Popelka et al.) — kontrolní seznam pravidel a nálezy ve zdrojích
+
+**Zadání:** [prompt_host_n2kcz_cevnate_review.md](prompt_host_n2kcz_cevnate_review.md), fáze 1.
+**Zdroj:** [Metodika hodnocení stavu předmětů ochrany cevnate 20261021.docx](Metodika%20hodnocení%20stavu%20předmětů%20ochrany%20cevnate%2020261021.docx)
+(O. Popelka, spolupráce J. Gaigr, M. Vojík, I. Hönigová, D. Leština, P. Kuncová; verze 2026)
+a [Tabulky fin.xlsx](Tabulky%20fin.xlsx) (Přílohy 1–5).
+**Datum:** 2026-10-28 · **Větev:** `cevnate-metodika-2026` (odbočena z `harmonizace-cevnate`).
+
+Nová verze metodiky je **autorský text**, který nahrazuje dosavadní harmonizované znění
+([met_cevnate_2026_harmonizovana.md](met_cevnate_2026_harmonizovana.md)) jako měřítko pro kód.
+Mění rozsah (všech 36 druhů, EVL i MZCHÚ), sadu indikátorů i rozhodovací pravidla.
+Rozhodnutí zadavatele z 2026-10-02 (výše) proto platí jen tam, kde je nový text nepřekrývá —
+kde ano, je to uvedeno u pravidla.
+
+## Jak byla revize provedena
+
+| Krok | Postup |
+|---|---|
+| Text | `.docx` převeden pandokem (z instalace Quarta) dvakrát: `--track-changes=all` (s komentáři a vloženými úseky) a `--track-changes=accept`. Dokument obsahuje **23 komentářů** (Popelka, Hönigová) a vložené úseky (indikátor *Délka absence*, slovo „maximální“ u pokryvnosti dřevin). Komentáře jsou číslovány interními ID Wordu (c2 … c50); stejná čísla používá zadání. |
+| Tabulky | `readxl` po buňkách (`col_names = FALSE`, `trim_ws = FALSE`), sloupce hledány podle textu hlavičky, ne podle pořadí. List *Příloha 3* má 37 sloupců a 17 řádků indikátorů. |
+| Data | Neveřejný export NDOP (`export_data_evl.csv` + `export_data_zprap.csv`, cévnaté rostliny 41 290 záznamů, z toho projekt Monitoring druhů ČR 8 984) — jen ke kontrole slovníku hodnot; nic se nehodnotilo. |
+
+## Kontrolní seznam pravidel (PR-xx)
+
+Každé pravidlo, které musí kód implementovat. Verdikty auditu kódu jsou v
+[harmonizace_registr.md](harmonizace_registr.md), Fáze C, matice PR-xx.
+
+| # | Pravidlo | Kde v textu | Výklad / poznámka |
+|---|---|---|---|
+| PR-01 | Do hodnocení vstupují jen data z monitoringu druhů (NDOP, projekt *Monitoring druhů ČR*); ostatní záznamy NDOP jen dokládají prezenci. | kap. 3 | Shodné s rozhodnutím R-15. |
+| PR-02 | Informativní indikátor **Poslední doložený výskyt**: datum posledního doloženého výskytu z NDOP, všechny projekty; jen nálezy garantované jako věrohodné, přesnost lokalizace ≤ 1 km; přiřazení protnutím zákresu lokality a nálezu, u polygonů a linií překryv ≥ 10 %. | kap. 7.1 | Nový indikátor (komentář c30); buffer pro body/linie otevřený (c31). |
+| PR-03 | Do hodnocení vstupují jen **validní** záznamy monitoringu (nevalidní např. po pokosení). | kap. 7 | Mechanismus označení neurčen (c17). |
+| PR-04 | Více návštěv lokality v jednom roce: vstupuje **celý záznam s nejvyšší početností**; při shodě záznam s **nejstarším datem**. | kap. 7 | Vrací pravidlo verze 2024 a **nahrazuje rozhodnutí R-28** (agregace po indikátorech). |
+| PR-05 | Relativní stupnice početnosti → **medián kategorie** (1–10 = 5,5; 11–100 = 55,5; 101–1 000 = 550,5; 1 001–10 000 = 5 500,5; 10 001–100 000 = 55 000,5; 100 001–1 000 000 = 550 000,5; > 1 000 000 = 1 000 001); povinně u *Coleanthus subtilis* a *Campanula bohemica*. | kap. 7.1 | Překlepy v textu viz R-38. |
+| PR-06 | Každý druh má **hlavní populační jednotku** (Příloha 1). | kap. 7.1 | Rozhodující je Příloha 1 (rozhodnutí 2026-10-28). |
+| PR-07 | **Cílová početnost** lokality = průměr početností z **prvních tří monitoringů**; expertně ji lze stanovit při rozdělení/sloučení lokalit, dlouhodobě vyšší nebo neovlivnitelně nižší početnosti. | kap. 7.1 | Nahrazuje „počáteční početnost“ (R-19) i návrh „maximum kdy zaznamenané“ (odpověď 7, 2026-10-02) — k potvrzení, viz registr. |
+| PR-08 | **Minimální přípustná početnost** (klíčový, všechny druhy kromě *Coleanthus*) = aktuální (poslední monitoring) / cílová × 100 ≥ limit Přílohy 2. | kap. 7.1 | Komentář c29: dříve podmínka hodnocení lokality, nyní indikátor. |
+| PR-09 | **Početnost** (neklíčový) = tentýž poměr ≥ vyšší limit Přílohy 2. | kap. 7.1 | Stejná veličina jako PR-08, jiný práh. |
+| PR-10 | **Vývoj početnosti** (neklíčový): tři poslední údaje T1–T3; negativní, jsou-li T2 i T3 < T1; limit „pozitivní; setrvalý“. | kap. 7.1 | Výklad R-44. |
+| PR-11 | **Vitalita** (neklíčový) = kvetoucí a plodné / **sterilní** populační jednotky × 100 ≥ limit. | kap. 7.1 | Rozhodnutí 2026-10-28: podle textu (R-43). |
+| PR-12 | **Poškození rostlin** (neklíčový; u *Coleanthus* jen informativní) = **součet** měr poškození všech zjištěných typů; čtyřčlenná stupnice → mediány 5,5 / 30,5 / 75,5; limit ≤ 40 %. | kap. 7.1 | Rozhoduje otevřenou otázku H-12 (součet, ne maximum). |
+| PR-13 | **Úspěšnost reprodukce** (*Coleanthus*, klíčový): dostatečná, existuje-li v posledních 6 letech pozitivní záznam monitoringu s > 100 jedinci a podílem odplozených ≥ 11 %. | kap. 7.1 | Výjimka z pravidla neznámého stavu (komentář c19); vstupní data viz R-50. |
+| PR-14 | **Délka absence druhu** (*Coleanthus*, klíčový): < 6 let; hodnotitelná jen při ≥ 2 negativních záznamech monitoringu v posledních 6 letech a žádném jiném doloženém výskytu v NDOP, jinak neznámá. | kap. 7.1 | Vložený úsek; c23/c24 otevřené (R-40). |
+| PR-15 | Indikátor je **neznámý**, chybí-li kterákoli vstupní (primární) hodnota. | kap. 7 | Komentář c18 („neznámé jsme neřešili“). |
+| PR-16 | **Stanovištní indikátory jsou jen informativní** — hodnotí se a zobrazují, do verdiktu lokality nevstupují; plocha populace + ~5 m; limity = výčet přípustných kategorií (Příloha 3). | kap. 2, 7, 7.2 | Rozhodnutí 2026-10-28: `KLIC = info`. |
+| PR-17 | **Verdikt lokality: dobrý / špatný / neznámý** (zhoršený nevzniká). Dobrý = klíčový indikátor v dobrém stavu **a** nejvýše jeden neklíčový ve špatném; neznámý = klíčový neznámý **nebo** více než jeden neklíčový neznámý. | kap. 2, 7 | Přednost neznámého před špatným nejasná (R-45). |
+| PR-18 | **Verdikt území (EVL, MZCHÚ): dobrý / zhoršený / špatný** podle Tabulky 1 (*Coleanthus*: podíl lokalit v dobrém stavu + cílový stav) a Tabulky 2 (ostatní: podíl populace v lokalitách v dobrém stavu + podíl lokalit v dobrém stavu + cílový stav). | kap. 8 | Rozhodnutí 2026-10-28: jediný práh na indikátor (R-46). |
+| PR-19 | **Celková početnost** území = součet posledních zjištěných početností lokalit; **podíl populace** v dobrém stavu = součet početností lokalit v dobrém stavu / celková × 100. | kap. 8 | |
+| PR-20 | **Podíl lokalit v dobrém stavu** = počet lokalit v dobrém stavu / celkový počet lokalit × 100. | kap. 8 | Jmenovatel „celkový počet“ = včetně neznámých (shodně s R-30). |
+| PR-21 | **Cílový stav**: celková početnost / cílový stav × 100; cílové stavy EVL z ISOP, MZCHÚ z plánů péče; jednotky sjednotit s monitoringem. | kap. 8 | Komentáře c41, c43. |
+| PR-22 | Do hodnocení vstupují **všechny lokality v hodnoceném území**, kromě *Campanula bohemica* (jen Příloha 4) a *Cerastium alsinifolium* (jen Příloha 5). | kap. 5, 5.2, 5.3 | Příloha 5 nedodána (R-49). |
+| PR-23 | **Zaniklé lokality** se započítávají 10 let od posledního prokazatelného výskytu (lze déle); *Coleanthus* nejméně 12 let, vyřazení jen při doložených vhodných podmínkách ve ≥ 2 sezónách posledních 6 let. | kap. 5.1 | Evidence prodloužení (c10). |
+| PR-24 | **Nová lokalita** vymezená podle metodiky monitoringu se započítává. | kap. 5.1 | |
+| PR-25 | Hodnocení se aktualizuje při nových datech; u neaktualizovaných lokalit vstupují **původní údaje** (žádné pevné okno). | kap. 6 | Rozhodnutí 2026-10-28: okno po lokalitách z číselníku druhu (R-48). |
+| PR-26 | Hodnocená území jsou **EVL i MZCHÚ**. | kap. 2, 8 | Nové proti R-12 (jen EVL); komentář c2. |
+| PR-27 | **Lokalita** = lokalita monitoringu s jedinečným kódem, vymezená podle metodiky monitoringu druhu. | kap. 5 | Pojem „lokalita“ místo „DP“ (c7). |
+
+## Nálezy ve zdrojích (R-35 …)
+
+### R-35 — Názvy druhů se liší mezi listy, textem, NDOP a evropským seznamem
+- **Typ:** TERMINOLOGIE · **Závažnost:** mění výsledek (bez převodu se druh nenapojí)
+- **Kde:** Příloha 1 „*Aconitum\* moravicum*“, „*Gentianella\* bohemica*“, „*Tephroseris\* moravica*“, „*Dianthus lumnitzerii*“, „*Dianthus arenarius*“; Příloha 2 „*Aconitum firmum*“, „*Gentianella bohemica*“; Příloha 3 „*Gentianella praecox* subsp. *bohemica*“; text Přílohy 1 v .docx „*Campanula bohemika*“, „*Gentianella\* bohemika*“; literatura „*Iris arenaria* subsp. *humilis*“ (obrácené pořadí), „*Jurine cyanoides*“.
+- **Problém:** limity se na data napojují přes název z NDOP; 21_1 navíc vyžaduje název ze seznamu předmětolokalit. Šest druhů má v obou zdrojích různé jméno (*Adenophora lilifolia*, *Gentianella bohemica*, *Vandenboschia speciosa*, *Iris humilis* subsp. *arenaria*, *Pontechium maculatum* subsp. *maculatum*, *Stipa zalesskii*). *Stipa zalesskii* vede NDOP jako *Stipa glabrata* („kavyl olysalý“, 61 záznamů).
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ `DRUH` = název z NDOP; převodník evropský seznam ↔ NDOP: `Data/Input/cis_druhy_nazvy.csv`. Úplný převod zdrojových tvarů je ve skriptu `54_cevnate_limity_2026.R` (`NAZVY_ZDROJ`).
+
+### R-36 — Příloha 1 a Příloha 2 si odporují (frekvence, jednotka)
+- **Typ:** ROZPOR · **Závažnost:** mění interpretaci
+- **Kde:** frekvence *Aconitum* 3–6 (P1) × 3–12 (P2); *Artemisia pancicii* a *Cirsium brachycephalum* 1–2 × 1; P2 od *Cypripedium* dál frekvenci neuvádí. Jednotka *Cerastium alsinifolium* a *Galium sudeticum* plocha (m²) × plocha (dm²). Překlep „kvateoucí“ (P2, *Campanula bohemica*).
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ rozhoduje **Příloha 1**; rozpory vyznačeny ve sloupci `pozn` číselníku `cis_cevky_frekvence.csv`.
+- **Otázka pro autory:** sjednotit P1 a P2; u *Cerastium* data uvádějí převážně cm² (35 záznamů), dm² 3, m² 4.
+
+### R-37 — Mezery a nejednotný zápis kategorií v tabulkách
+- **Typ:** REDAKCE · **Závažnost:** mění výsledek (při doslovném převzetí)
+- **Kde:** P2 Vitalita *Dianthus arenarius* „ ≥ 30 %“ a *Poa riphaea* „ ≥ 15 %“ (mezera na začátku); P3 název řádku „Pokryvnost ostatních natantních a submerzních druhů “; P3 „75-100%“ (5×) a „50-75%“ (1×) bez mezery před %, v datech převažuje „75-100 %“.
+- **Řešení při převodu:** mezery oříznuty; kategorie zapsány v převažujícím tvaru dat (`N-M %`). Zaznamenáno v protokolu převodu.
+
+### R-38 — Mediány relativní stupnice: překlepy
+- **Typ:** REDAKCE · **Závažnost:** mění výsledek (při doslovném převzetí)
+- **Kde:** kap. 7.1 — „**1-0** = 5,5“ (má být 1–10), „100 001-1000 000“ (mezera), „více než 1000 000 = **1 000 0001**“ (má být 1 000 001).
+- **Poznámka:** mediány metodiky se liší od číselníku `cis_pocet_kat.csv` (8 tříd, 5 / 25 / 75 / 500 …), který kód používá (a bere navíc dolní mez) — nález v registru.
+
+### R-39 — Čtyřčlenná stupnice „51-10“
+- **Typ:** REDAKCE · **Závažnost:** redakční
+- **Kde:** kap. 7.2 — „čtyřčlenná stupnice: 0; 1-10; 11-50, **51-10**“ → 51–100.
+
+### R-40 — *Coleanthus*: jeden, nebo dva klíčové indikátory; poškození; vývoj početnosti
+- **Typ:** ROZPOR · **Závažnost:** mění výsledek
+- **Kde:** kap. 7.1 „Pro druh byl tedy stanoven **pouze jeden** klíčový indikátor“ (komentář c23 „upravit, pokud se rozhodneme rozdělit na dva“); alternativní odstavec v indikátoru Úspěšnost reprodukce (c24) vs. vložený indikátor Délka absence; Příloha 2 má oba indikátory jako klíčové. Poškození je podle textu u puchýřky informativní, P2 mu dává limit ≤ 40 %. Vývoj početnosti je v P2 vyplněn, ačkoli Minimální přípustná početnost a Početnost jsou „.“.
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ podle tabulky dva klíčové indikátory; poškození `KLIC = info` s limitem; vývoj početnosti ponechán (neklíčový).
+- **Otázka pro autory:** potvrdit dva klíčové indikátory, škrtnout alternativní odstavec (c24) a větu o jediném klíčovém indikátoru (c23).
+
+### R-41 — Délka absence „< 6 let“: ostrá nerovnost
+- **Typ:** NEJASNOST · **Závažnost:** mění interpretaci
+- **Kde:** P2 *Coleanthus* „< 6 let“; formát limitů zná jen ≤ / ≥.
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ délka absence v celých letech ⇒ `max 5`.
+
+### R-42 — Pěti- a šestičlenná stupnice; podíl dna
+- **Typ:** NEJASNOST · **Závažnost:** mění výsledek (potenciálně)
+- **Kde:** P3 mísí pětičlennou (`do 25 %`) a šestičlennou (`do 5 %`, `5-25 %`) stupnici; některé buňky (např. *Aconitum* E1, E2E3, expanzivní; *Jurinea*; *Pulsatilla patens*) vyjmenovávají jen šestičlennou — záznam „do 25 %“ by limit nikdy nesplnil. **V dnešních datech se to netýká žádného záznamu** (protokol převodu). *Podíl dna nad vodní hladinou*: text říká tříčlenná stupnice, data nesou `do 10 %` / `11-50 %` / `51-100%` — limit `11-50 %; 51-100 %` je tedy tříčlenný, jen data píší `51-100%` bez mezery (shoda v kódu selže).
+- **Otázka pro autory:** sjednotit stupnici ve formulářích; u šestičlenných buněk doplnit `do 25 %`, má-li pětičlenný záznam projít.
+
+### R-43 — Vitalita: podíl ke sterilním, ne k celku
+- **Typ:** NEJASNOST · **Závažnost:** mění výsledek
+- **Kde:** kap. 7.1 — „podíl kvetoucích a plodných populačních jednotek **a sterilních** populačních jednotek“. Kód počítal kvetoucí / celkem. Při 30 % kvetoucích z celku je podíl ke sterilním 43 %; limit 30 % ke sterilním odpovídá 23 % z celku.
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ podle textu; kód upraven (commit `677102a`).
+- **Otázka pro autory:** potvrdit, že limity Přílohy 2 (5–40 %) jsou stanoveny pro poměr ke sterilním.
+
+### R-44 — Vývoj početnosti: pozitivní trend není definován
+- **Typ:** GAP · **Závažnost:** mění výsledek
+- **Kde:** kap. 7.1 — definováno jen „negativní, pokud T2 i T3 < T1“; příklady: pozitivní 10; 12; 11; setrvalý 10; 10; 10 / 10; 12; 10 / 10; 2; 10 / 10; 10; 9.
+- **Výklad použitý v registru (k potvrzení):** pozitivní = T2 i T3 > T1; negativní = T2 i T3 < T1; jinak setrvalý; méně než tři údaje ⇒ neznámý. Všechny příklady textu tomu odpovídají. Limit „pozitivní; setrvalý“ ⇒ selže jen negativní trend.
+
+### R-45 — Verdikt lokality: přednost neznámého a špatného
+- **Typ:** NEJASNOST · **Závažnost:** mění výsledek
+- **Kde:** kap. 7 — „Pokud není klíčový indikátor v dobrém stavu, nemůže být lokalita hodnocena v dobrém stavu, **bez ohledu na stav ostatních** indikátorů“ × „V případě, že je v neznámém stavu klíčový indikátor, **nebo více než jeden z neklíčových** indikátorů, **nelze hodnocení provést**“.
+- **Otázka:** (a) klíčový špatný a dva neklíčové neznámé ⇒ špatný, nebo neznámý? (b) klíčový dobrý, dva neklíčové špatné, jeden neznámý ⇒ špatný, nebo neznámý? (c) *Coleanthus* má dva klíčové — jeden dobrý a jeden neznámý ⇒ neznámý?
+- **Návrh:** špatný má přednost, pokud je špatný výsledek jistý bez ohledu na neznámé (klíčový špatný, nebo ≥ 2 neklíčové špatné); jinak neznámý ⇒ neznámý; jinak dobrý.
+
+### R-46 — Tabulky 1 a 2: neúplnost a vypuštěné prahy
+- **Typ:** GAP · **Závažnost:** mění výsledek
+- **Kde:** kap. 8, Tab. 1 (*Coleanthus*) a Tab. 2 (ostatní).
+- **Neúplnost (doslovné čtení):** Tab. 1 neřeší podíl lokalit ≥ 50 % s cílovým stavem < 80 %. Tab. 2 neřeší podíl populace < 60 % s podílem lokalit ≥ 40 % ani podíl populace ≥ 60 % s podílem lokalit < 40 %; řádky 4–5 („≥ 60 % / ≥ 40 %“) lze číst jako náhradní větev, nebo jako pásmo 60–74 / 40–49 (pak není pokryt ani podíl populace ≥ 75 % s podílem lokalit 40–49 %). Žádná tabulka neřeší chybějící cílový stav ani stav **neznámý**.
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ každý indikátor má **jediný** práh (pro dobrý stav: 75 % / 50 % / 100 %); mírnější prahy 60 %, 40 % a 80 % se **vypouštějí a vyznačují** (sloupec `pozn` v limitech). Jak se tři (u *Coleanthus* dva) splněné/nesplněné indikátory skládají do dobrý/zhoršený/špatný, viz registr H-30 — k potvrzení.
+- **Otázka pro autory:** stav neznámý na úrovni území; území bez cílového stavu (c43: „možná to bude plocha, počet rybníků“).
+
+### R-47 — Více návštěv v roce: návrat k výběru celého záznamu
+- **Typ:** ROZPOR (s rozhodnutím R-28) · **Závažnost:** mění výsledek
+- **Kde:** kap. 7 — „do hodnocení vstupuje záznam s nejvyšší početností druhu … při shodě záznam s nejstarším datem“.
+- **Poznámka:** rozhodnutí R-28 (2026-10-02) zavedlo agregaci po indikátorech; nový text ji výslovně ruší. Audit kódu (registr) bere za měřítko nový text.
+
+### R-48 — Hodnocené období
+- **Typ:** GAP · **Závažnost:** mění výsledek
+- **Kde:** nový text pevné okno neuvádí (dříve 12 let, R-18); kap. 6 „u neaktualizovaných lokalit vstupují do hodnocení původní údaje“, kap. 5.1 zaniklé lokality 10 (12) let.
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ řídit se textem; okno se uplatní na **lokality** (lokalita zůstává, dokud její poslední prokazatelný výskyt není starší než 10 let, *Coleanthus* 12 let), záznamy lokality vstupují s celou historií; délka okna je v číselníku druhů `cis_cevky_frekvence.csv` (`OKNO_LET`). Kód upraven (commit `677102a`).
+
+### R-49 — Výběr lokalit: Příloha 4 a 5
+- **Typ:** GAP · **Závažnost:** mění výsledek
+- **Kde:** Příloha 4 má **120** lokalit (ne 125); **32 kódů** (Cboh269, Cboh332 – Cboh439) nemá v NDOP jediný záznam; 239 kódovaných lokalit monitoringu *Campanula bohemica* v seznamu není. Příloha 5 (*Cerastium alsinifolium*) chybí („Jednou určitě bude :-)“). Názvy lokalit s překlepy („Labská bouda - seve“, „Casta Mevědí bouda Martinka 1“, „Jelení boud …“).
+- **Rozhodnutí zadavatele (2026-10-28):** ✅ seznam se bude rozšiřovat; vendorován do `Data/Input/cevky_vyber_lokalit.csv`.
+- **Blokuje:** výběr lokalit *Cerastium alsinifolium* (Příloha 5).
+
+### R-50 — *Coleanthus*: vstupní data pro úspěšnost reprodukce
+- **Typ:** GAP (data) · **Závažnost:** mění výsledek
+- **Kde:** PR-13 potřebuje podíl jedinců, kteří odplodí. V NDOP je jen ve strukturované poznámce `POZN_BIO` „Míra úspěšnosti reprodukce: N %“ u **18 záznamů monitoringu z let 2020–2022** (9 pozitivních), a jako `POCITANO` „kvetoucí jedinci“ / „plodní jedinci“ u 3 záznamů mimo monitoring. Od roku 2023 žádné pole.
+- **Rozhodnutí zadavatele (2026-10-28):** plodnost = „kvetoucí“ nebo „plodní“; kandidátní hodnoty viz výše.
+- **Otázka pro autory / správce formuláře:** zavést pole „podíl plodných jedinců“ do formuláře Survey123 (aktualizace 2027, komentář c50).
+
+### R-51 — Populační jednotky v datech neodpovídají Příloze 1
+- **Typ:** GAP (data) · **Závažnost:** mění výsledek
+- **Kde:** např. *Pedicularis sudetica* „kvetoucí a plodná lodyha“ × data jen „trsy“; *Echium maculatum* a *Gladiolus palustris* „kvetoucí a plodný jedinec“ × převažující „jedinci“ (celkový počet, do 2022); *Campanula bohemica* „kvetoucí a plodný trs“ × 86 záznamů „kvetoucí jedinci“ (2011–2016); plochy v cm² / dm² u druhů s jednotkou m² (*Cerastium*, *Klasea*), *Luronium natans* „růžice“ × cm², m²; *Dracocephalum austriacum* „trs/kvetoucí a plodný trs“ (dvojí jednotka); *Poa riphaea* bez kvetoucích a sterilních trsů (vitalitu nelze spočítat).
+- **Řešení při převodu:** úplná tabulka jednotka → `POCITANO` se stavem shoda / kandidát / chybí je v protokolu převodu ([limity_cevky_2026_kontrola.md](limity_cevky_2026_kontrola.md)); „kvetoucí X“ zařazeno jako starší tvar „kvetoucí a plodné X“ (kandidát).
+- **Otázka:** potvrdit kandidáty; má se zavést převod ploch (cm² → m²)? Formát limitů převod nezná.
+
+### R-52 — Redakční vady a zastaralé údaje
+- **Typ:** REDAKCE / ZASTARALÉ · **Závažnost:** redakční
+- „poskytnou“ (kap. 1); „Hodnocení celého území stavu dobrý…“ (kap. 2, chybí sloveso); „Collector for ArcGIS“ (kap. 3, nahrazen ArcGIS Field Maps — R-14); „Citace metodik jsou uvedeny v kapitole 10“ (kap. 4, jsou v 9.1); „Pokryvnost volná půdy“, „aktuální početnost druh“ (kap. 7.1, 7.2); „management stratégy“ (Pergl et al. 2016); citace *Pulsatilla grandis* zvýrazněna (autoři k ověření); „Jurine cyanoides“, „*Iris arenaria* subsp. *humilis*“ v literatuře. *Kolektiv autorů (2016)* je nově v literatuře ✓ (R-34 vyřešeno).
+
+## Rozhodnutí zadavatele — souhrn (2026-10-28)
+
+| # | Otázka (Fáze 0) | Rozhodnutí |
+|---|---|---|
+| 1 | Konvence záznamu, umístění vstupů | ✅ podle návrhu; vstupy zůstávají v `Metodiky/Cevnate/` |
+| 2 | Informativní stanovištní indikátory | ✅ `KLIC = info` (nová hodnota) |
+| 3 | Názvy druhů | ✅ `DRUH` z NDOP + převodník evropský seznam ↔ NDOP |
+| 4 | Dva indikátory početnosti | ✅ `POP_POCETMINPRIP` (klíčový), `POP_POCETCIL` (neklíčový) |
+| 5 | Vývoj početnosti | ✅ `POP_TREND` (týká se jen rostlin); každý indikátor musí mít v číselníku plný název a číselný kód |
+| 6 | *Coleanthus* | ✅ vše podle návrhu; plodnost = „kvetoucí“ nebo „plodní“, ověřit kandidátní hodnoty v datech |
+| 7 | Úroveň území | ✅ každý indikátor **jediný** práh (min, max, nebo jejich dvojice); **jediná** tabulka limitů |
+| 8 | Jednotka a frekvence | ✅ podle návrhu; založit soubory, kde je třeba |
+| 9 | Normalizace kategorií | ✅ podle návrhu |
+| 10 | Rozpory P1 × P2 | ✅ rozhoduje Příloha 1, vyznačit; vendorovat Přílohu 4 |
+| 11–12 | Tabulky 1 a 2 | ✅ jediný práh na indikátor, mírnější vypustit a vyznačit |
+| 13 | Vitalita | ✅ podle textu, upravit kód |
+| 14 | Hodnocené období | ✅ podle textu, upravit kód; okno uložit v číselníku druhů |
+| 15 | Příloha 4 | ✅ seznam se bude rozšiřovat |
