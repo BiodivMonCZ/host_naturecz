@@ -149,6 +149,21 @@ vitalita_cevky <- function(presence_n, pocitano, pocet, jedn_plod, jedn_steril) 
   rep(v, n)
 }
 
+# PLOSNE JEDNOTKY (Priloha 1; rozhodnuti zadavatele 2026-10-28, otazka 7):
+# je-li populacni jednotkou druhu plocha (JEDNOTKA radku POP_POCET v limitech
+# je "cm2", "dm2" nebo "m2"), prevedou se na ni zaznamy v jine plosne
+# jednotce - napr. Cerastium alsinifolium cm2 a dm2 -> m2. "plocha populace
+# (cm2)" je starsi zapis cm2. Neplosne jednotky (jedinci, ruzice...) -> NA.
+PLOCHA_M2 <- c("cm2" = 1e-4, "dm2" = 1e-2, "m2" = 1)
+
+koef_plochy <- function(pocitano, cil) {
+  if (is.na(cil)) {
+    return(rep(NA_real_, length(pocitano)))
+  }
+  zdroj <- stringr::str_match(pocitano, "^(?:plocha populace \\()?([cd]?m2)\\)?$")[, 2]
+  unname(PLOCHA_M2[zdroj] / PLOCHA_M2[cil])
+}
+
 norm_stavvody <- function(x) {
   v <- stringr::str_squish(as.character(x))
   v[v == ""] <- NA_character_
@@ -450,6 +465,8 @@ run_n2k_druhy <- function(
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
   lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+  # plosna populacni jednotka druhu (NA, neni-li jednotkou plocha) - viz koef_plochy
+  cil_plocha <- intersect(lim_pocet, names(PLOCHA_M2))[1]
   if (length(lim_pocet) == 0) {
     warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
   } else {
@@ -530,10 +547,16 @@ run_n2k_druhy <- function(
     # POP_POCET: Hodnota poctu pro dany zaznam
     # Pokud neni pritomen -> 0.
     # Pokud jednotka (POCITANO_CLEAN) odpovida definovanym limitum pro POP_POCET -> hodnota POCET.
+    # Plocha v jine plosne jednotce -> POCET * POP_KOEFICIENT (napr. cm2 -> m2).
     # Jinak NA (pokud jednotka neodpovida metodice limitu).
+    # POP_CILJEDNOTKA: plosna jednotka POP_POCET z limitu (NA u neplosnych)
+    POP_CILJEDNOTKA = cil_plocha,
+    # POP_KOEFICIENT: koeficient prepoctu POCITANO_CLEAN na POP_CILJEDNOTKA
+    POP_KOEFICIENT = koef_plochy(POCITANO_CLEAN, cil_plocha),
     POP_POCET = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
       POCITANO_CLEAN %in% lim_pocet ~ POCET,
+      !is.na(POP_KOEFICIENT) ~ POCET * POP_KOEFICIENT,
       TRUE ~ NA_real_
     ),
     POP_RELPOC = dplyr::case_when(
@@ -664,19 +687,6 @@ run_n2k_druhy <- function(
     },
     # POP_ABUNDANCENAL: Vypocet abundance (pocet jedincu / plocha odlovu)
     POP_ABUNDANCENAL = POP_POCET/POP_PLOCHALOV,
-    # cilova jednotka, k nacteni z ciselniku, k doplneni Martinem
-    # POP_CILJEDNOTKA: Zatim NA, placeholder pro cilovou jednotku
-    POP_CILJEDNOTKA = NA,
-    # POP_KOEFICIENT: Koeficient pro prepocet jednotek (napr. m2 na cm2)
-    # Zatim se odviji od POP_CILJEDNOTKA a POCITANO_CLEAN.
-    POP_KOEFICIENT = dplyr::case_when(
-      POP_CILJEDNOTKA == POCITANO_CLEAN ~ 1,
-      POP_CILJEDNOTKA == "cm2" & POCITANO_CLEAN == "dm2" ~ 100,
-      POP_CILJEDNOTKA == "cm2" & POCITANO_CLEAN == "m2" ~ 10000,
-      POP_CILJEDNOTKA == "dm2" & POCITANO_CLEAN == "cm2" ~ 0.01,
-      POP_CILJEDNOTKA == "dm2" & POCITANO_CLEAN == "m2" ~ 100,
-      POP_CILJEDNOTKA == "m2" & POCITANO_CLEAN == "cm2" ~ 0.0001,
-      POP_CILJEDNOTKA == "m2" & POCITANO_CLEAN == "dm2" ~ 0.01),
     ## Vlivy ----
     # Extrakce informaci o vlivech ze dvou ruznych XML tagu ve strukturovane poznamce
     vliv1 = stringr::str_extract(
