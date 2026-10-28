@@ -6,7 +6,7 @@ Generováno skriptem `R/05_metodiky/54_cevnate_limity_2026.R` (2026-10-28). Vstu
 
 | soubor | radku |
 |---|---|
-| Data/Input/limity_cevky_2026.csv | 941 |
+| Data/Input/limity_cevky.csv | 941 |
 | Data/Input/cis_cevky_frekvence.csv | 36 |
 | Data/Input/cis_druhy_nazvy.csv | 36 |
 | Data/Input/cevky_vyber_lokalit.csv | 120 |
@@ -15,7 +15,7 @@ Generováno skriptem `R/05_metodiky/54_cevnate_limity_2026.R` (2026-10-28). Vstu
 
 ## Strukturální kontroly
 
-- Sloupce a jejich pořadí shodné s `limity_cevky.csv`: **TRUE**
+- Sloupce a jejich pořadí shodné s dosavadním `limity_cevky.csv` (git `1994c08`): **TRUE**
 - Druhů v limitech: **36** (Příloha 1: 36; chybí: žádný)
 - Duplicitní řádky: **0**; indikátory s více než jedním prahem min/max: **0**; indikátory se smíšeným KLIC: **0**
 - Zpětné načtení stejným voláním jako `00_n2k_config.R` (Windows-1250): **941 řádků**
@@ -137,16 +137,16 @@ _(žádné)_
 | Asplenium adulterinum | POP_POCET | trsy | shoda | 163 |  |
 | Campanula bohemica | POP_POCET | kvetoucí a plodné trsy | shoda | 327 | 'kvetoucí jedinci' 2011-2016 nezařazeno (jiný orgán) |
 | Campanula gelida | POP_POCET | trsy | shoda | 19 |  |
-| Cerastium alsinifolium | POP_POCET | m2 | shoda | 4 | Příloha 2 uvádí dm2; data převážně cm2 - nezařazeno, převod jednotek format nezná |
+| Cerastium alsinifolium | POP_POCET | m2 | shoda | 4 | Příloha 2 uvádí dm2 (platí Příloha 1); záznamy v cm2 a dm2 převádí 21_1 na m2 |
 | Cirsium brachycephalum | POP_POCET | kvetoucí a plodní jedinci | shoda | 15 |  |
-| Cirsium brachycephalum | POP_POCET | kvetoucí jedinci | kandidát | 22 | starší tvar 2011-2021 |
+| Cirsium brachycephalum | POP_POCET | kvetoucí jedinci | potvrzeno | 22 | starší tvar 2011-2021 |
 | Coleanthus subtilis | POP_POCET | jedinci | shoda | 83 | relativní stupnice REL_POC se váže na tuto jednotku |
 | Crambe tataria | POP_POCET | jedinci | shoda | 1 |  |
 | Crambe tataria | POP_POCETSUM | sterilní jedinci | shoda | 28 |  |
 | Crambe tataria | POP_POCETSUM | kvetoucí a plodní jedinci | shoda | 14 |  |
 | Crambe tataria | POP_POCETSUM | kvetoucí jedinci | shoda | 63 |  |
 | Crambe tataria | POP_POCETVITAL | kvetoucí a plodní jedinci | shoda | 14 |  |
-| Crambe tataria | POP_POCETVITAL | kvetoucí jedinci | kandidát | 63 | starší tvar |
+| Crambe tataria | POP_POCETVITAL | kvetoucí jedinci | potvrzeno | 63 | starší tvar |
 | Crambe tataria | POP_POCETSTERIL | sterilní jedinci | shoda | 28 |  |
 | Cypripedium calceolus | POP_POCET | trsy | shoda | 567 |  |
 | Cypripedium calceolus | POP_POCETSUM | sterilní trsy | shoda | 131 |  |
@@ -158,9 +158,9 @@ _(žádné)_
 | Dianthus arenarius subsp. bohemicus | POP_POCETSUM | kvetoucí a plodné trsy | shoda | 1 |  |
 | Dianthus arenarius subsp. bohemicus | POP_POCETSUM | kvetoucí trsy | shoda | 1 |  |
 | Dianthus arenarius subsp. bohemicus | POP_POCETSUM | plodné trsy | shoda | 1 |  |
-| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | kvetoucí a plodné trsy | kandidát | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
-| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | kvetoucí trsy | kandidát | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
-| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | plodné trsy | kandidát | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
+| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | kvetoucí a plodné trsy | potvrzeno | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
+| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | kvetoucí trsy | potvrzeno | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
+| Dianthus arenarius subsp. bohemicus | POP_POCETVITAL | plodné trsy | potvrzeno | 1 | 'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat |
 | Dianthus arenarius subsp. bohemicus | POP_POCETSTERIL | sterilní trsy | shoda | 2 |  |
 | Dianthus lumnitzeri | POP_POCET | kvetoucí a plodné trsy | shoda | 5 |  |
 | Dianthus moravicus | POP_POCET | kvetoucí a plodné trsy | shoda | 6 |  |
@@ -170,18 +170,18 @@ _(žádné)_
 | Dracocephalum austriacum | POP_POCETVITAL | kvetoucí a plodné trsy | shoda | 37 |  |
 | Dracocephalum austriacum | POP_POCETSTERIL | sterilní trsy | shoda | 28 |  |
 | Echium maculatum | POP_POCET | kvetoucí a plodní jedinci | shoda | 39 | 'jedinci' (246 záznamů 2006-2022) nezařazeno - celkový počet, ne kvetoucí |
-| Echium maculatum | POP_POCET | kvetoucí jedinci | kandidát | 2 | starší tvar |
-| Galium sudeticum | POP_POCET | m2 | shoda | 3 | Příloha 2 uvádí dm2 |
+| Echium maculatum | POP_POCET | kvetoucí jedinci | potvrzeno | 2 | starší tvar |
+| Galium sudeticum | POP_POCET | m2 | shoda | 3 | Příloha 2 uvádí dm2 (platí Příloha 1); záznamy v cm2 a dm2 převádí 21_1 na m2 |
 | Gentianella praecox subsp. bohemica | POP_POCET | kvetoucí a plodní jedinci | shoda | 65 |  |
-| Gentianella praecox subsp. bohemica | POP_POCET | kvetoucí jedinci | kandidát | 317 | starší tvar 2005-2022 |
+| Gentianella praecox subsp. bohemica | POP_POCET | kvetoucí jedinci | potvrzeno | 317 | starší tvar 2005-2022 |
 | Gladiolus palustris | POP_POCET | kvetoucí a plodní jedinci | shoda | 143 | 'jedinci' (392 záznamů 2006-2022) nezařazeno - celkový počet |
-| Gladiolus palustris | POP_POCET | kvetoucí jedinci | kandidát | 7 | starší tvar |
+| Gladiolus palustris | POP_POCET | kvetoucí jedinci | potvrzeno | 7 | starší tvar |
 | Himantoglossum adriaticum | POP_POCET | jedinci | shoda | 16 |  |
 | Himantoglossum adriaticum | POP_POCETSUM | sterilní jedinci | shoda | 3 |  |
 | Himantoglossum adriaticum | POP_POCETSUM | kvetoucí a plodní jedinci | shoda | 2 |  |
 | Himantoglossum adriaticum | POP_POCETSUM | kvetoucí jedinci | shoda | 1 |  |
 | Himantoglossum adriaticum | POP_POCETVITAL | kvetoucí a plodní jedinci | shoda | 2 |  |
-| Himantoglossum adriaticum | POP_POCETVITAL | kvetoucí jedinci | kandidát | 1 | starší tvar |
+| Himantoglossum adriaticum | POP_POCETVITAL | kvetoucí jedinci | potvrzeno | 1 | starší tvar |
 | Himantoglossum adriaticum | POP_POCETSTERIL | sterilní jedinci | shoda | 3 |  |
 | Iris arenaria | POP_POCET | prýty | shoda | 85 |  |
 | Jurinea cyanoides | POP_POCET | prýty | chybí | 0 | v datech jen součet částí; 'ramety' nezařazeno |
@@ -189,7 +189,7 @@ _(žádné)_
 | Jurinea cyanoides | POP_POCETSUM | kvetoucí a plodné prýty | shoda | 16 |  |
 | Jurinea cyanoides | POP_POCETVITAL | kvetoucí a plodné prýty | shoda | 16 |  |
 | Jurinea cyanoides | POP_POCETSTERIL | sterilní prýty | shoda | 16 |  |
-| Klasea lycopifolia | POP_POCET | m2 | shoda | 47 | 'cm2' a 'plocha populace (cm2)' nezařazeno - převod jednotek format nezná |
+| Klasea lycopifolia | POP_POCET | m2 | shoda | 47 | záznamy v 'cm2' a 'plocha populace (cm2)' převádí 21_1 na m2 |
 | Klasea lycopifolia | POP_POCETVITAL | kvetoucí a plodné prýty | shoda | 17 |  |
 | Klasea lycopifolia | POP_POCETSTERIL | sterilní prýty | shoda | 1 |  |
 | Ligularia sibirica | POP_POCET | jedinci | shoda | 54 |  |
@@ -197,27 +197,27 @@ _(žádné)_
 | Ligularia sibirica | POP_POCETSUM | kvetoucí a plodní jedinci | shoda | 11 |  |
 | Ligularia sibirica | POP_POCETSUM | kvetoucí jedinci | shoda | 1 |  |
 | Ligularia sibirica | POP_POCETVITAL | kvetoucí a plodní jedinci | shoda | 11 |  |
-| Ligularia sibirica | POP_POCETVITAL | kvetoucí jedinci | kandidát | 1 | starší tvar |
+| Ligularia sibirica | POP_POCETVITAL | kvetoucí jedinci | potvrzeno | 1 | starší tvar |
 | Ligularia sibirica | POP_POCETSTERIL | sterilní jedinci | shoda | 11 |  |
 | Liparis loeselii | POP_POCET | jedinci | shoda | 124 |  |
 | Liparis loeselii | POP_POCETSUM | sterilní jedinci | shoda | 9 |  |
 | Liparis loeselii | POP_POCETSUM | kvetoucí a plodní jedinci | shoda | 9 |  |
 | Liparis loeselii | POP_POCETVITAL | kvetoucí a plodní jedinci | shoda | 9 |  |
 | Liparis loeselii | POP_POCETSTERIL | sterilní jedinci | shoda | 9 |  |
-| Luronium natans | POP_POCET | růžice | shoda | 8 | 'cm2' a 'm2' nezařazeno - převod jednotek format nezná |
+| Luronium natans | POP_POCET | růžice | shoda | 8 | 'cm2' a 'm2' nezařazeno - plochu nelze převést na počet růžic |
 | Minuartia smejkalii | POP_POCET | trsy | shoda | 117 |  |
 | Pedicularis sudetica | POP_POCET | kvetoucí a plodné lodyhy | chybí | 0 | v datech jen 'trsy' |
 | Poa riphaea | POP_POCET | trsy | shoda | 20 |  |
 | Poa riphaea | POP_POCETVITAL | kvetoucí a plodné trsy | chybí | 0 | v datech jen trsy, stébla, semenáčky - vitalitu nelze spočítat |
 | Poa riphaea | POP_POCETSTERIL | sterilní trsy | chybí | 0 |  |
 | Pulsatilla grandis | POP_POCET | kvetoucí a plodné trsy | shoda | 278 |  |
-| Pulsatilla grandis | POP_POCET | kvetoucí trsy | kandidát | 487 | starší tvar 2005-2021 |
+| Pulsatilla grandis | POP_POCET | kvetoucí trsy | potvrzeno | 487 | starší tvar 2005-2021 |
 | Pulsatilla patens | POP_POCET | trsy | shoda | 143 |  |
 | Pulsatilla patens | POP_POCETSUM | sterilní trsy | shoda | 43 |  |
 | Pulsatilla patens | POP_POCETSUM | kvetoucí a plodné trsy | shoda | 43 |  |
 | Pulsatilla patens | POP_POCETSUM | kvetoucí trsy | shoda | 133 |  |
 | Pulsatilla patens | POP_POCETVITAL | kvetoucí a plodné trsy | shoda | 43 |  |
-| Pulsatilla patens | POP_POCETVITAL | kvetoucí trsy | kandidát | 133 | starší tvar 2009-2022 |
+| Pulsatilla patens | POP_POCETVITAL | kvetoucí trsy | potvrzeno | 133 | starší tvar 2009-2022 |
 | Pulsatilla patens | POP_POCETSTERIL | sterilní trsy | shoda | 43 |  |
 | Stipa glabrata | POP_POCET | trsy | shoda | 40 |  |
 | Tephroseris longifolia subsp. moravica | POP_POCET | jedinci | shoda | 52 |  |
@@ -228,72 +228,74 @@ _(žádné)_
 | Thesium ebracteatum | POP_POCET | prýty | shoda | 21 |  |
 | Thesium ebracteatum | POP_POCETSUM | sterilní prýty | shoda | 1 |  |
 | Thesium ebracteatum | POP_POCETSUM | kvetoucí a plodné prýty | shoda | 1 |  |
-| Trichomanes speciosum | POP_POCET | cm2 | shoda | 17 |  |
+| Trichomanes speciosum | POP_POCET | cm2 | shoda | 17 | záznamy v dm2 a m2 by 21_1 převedl na cm2 (v datech nejsou) |
 
 ### Hodnoty POCITANO v datech, které žádná jednotka nezařazuje
 
-| DRUH | POCITANO | n_dat |
-|---|---|---|
-| Adenophora liliifolia | kvetoucí a plodné lodyhy | 28 |
-| Adenophora liliifolia | sterilní lodyhy | 28 |
-| Adenophora liliifolia | jedinci | 25 |
-| Adenophora liliifolia | semenáčky | 2 |
-| Angelica palustris | jedinci | 4 |
-| Artemisia pancicii | kvetoucí lodyhy | 14 |
-| Campanula bohemica | kvetoucí jedinci | 86 |
-| Campanula bohemica | cm2 | 2 |
-| Campanula bohemica | jedinci | 1 |
-| Campanula gelida | kvetoucí a plodné lodyhy | 4 |
-| Campanula gelida | semenáčky | 4 |
-| Cerastium alsinifolium | cm2 | 35 |
-| Cerastium alsinifolium | dm2 | 3 |
-| Cirsium brachycephalum | jedinci | 6 |
-| Cirsium brachycephalum | sterilní jedinci | 2 |
-| Coleanthus subtilis | m2 | 65 |
-| Coleanthus subtilis | trsy | 1 |
-| Crambe tataria | m2 | 10 |
-| Cypripedium calceolus | sterilní lodyhy | 84 |
-| Cypripedium calceolus | kvetoucí a plodné lodyhy | 76 |
-| Cypripedium calceolus | semenáčky | 38 |
-| Cypripedium calceolus | jedinci | 22 |
-| Dianthus lumnitzeri | trsy | 31 |
-| Dianthus lumnitzeri | sterilní trsy | 5 |
-| Dianthus moravicus | trsy | 21 |
-| Dianthus moravicus | sterilní trsy | 2 |
-| Dracocephalum austriacum | jedinci | 118 |
-| Dracocephalum austriacum | semenáčky | 29 |
-| Echium maculatum | jedinci | 246 |
-| Echium maculatum | sterilní jedinci | 26 |
-| Gentianella praecox subsp. bohemica | jedinci | 2 |
-| Gladiolus palustris | jedinci | 392 |
-| Gladiolus palustris | sterilní jedinci | 61 |
-| Iris arenaria | jedinci | 12 |
-| Iris arenaria | kvetoucí a plodné prýty | 6 |
-| Iris arenaria | trsy | 1 |
-| Jurinea cyanoides | ramety | 24 |
-| Jurinea cyanoides | semenáčky | 13 |
-| Klasea lycopifolia | plocha populace (cm2) | 12 |
-| Klasea lycopifolia | jedinci | 3 |
-| Klasea lycopifolia | polykormony | 3 |
-| Klasea lycopifolia | cm2 | 1 |
-| Luronium natans | cm2 | 18 |
-| Luronium natans | m2 | 9 |
-| Minuartia smejkalii | semenáčky | 32 |
-| Pedicularis sudetica | trsy | 23 |
-| Poa riphaea | semenáčky | 4 |
-| Poa riphaea | stébla | 4 |
-| Pulsatilla grandis | trsy | 474 |
-| Pulsatilla grandis | sterilní trsy | 147 |
-| Pulsatilla grandis | semenáčky | 119 |
-| Pulsatilla grandis | plodní jedinci | 2 |
-| Pulsatilla grandis | kvetoucí jedinci | 1 |
-| Pulsatilla patens | semenáčky | 31 |
+Plošné jednotky, které `21_1` převádí na plošnou jednotku Přílohy 1, jsou vyznačeny ve sloupci `pozn`.
+
+| DRUH | POCITANO | n_dat | pozn |
+|---|---|---|---|
+| Adenophora liliifolia | kvetoucí a plodné lodyhy | 28 |  |
+| Adenophora liliifolia | sterilní lodyhy | 28 |  |
+| Adenophora liliifolia | jedinci | 25 |  |
+| Adenophora liliifolia | semenáčky | 2 |  |
+| Angelica palustris | jedinci | 4 |  |
+| Artemisia pancicii | kvetoucí lodyhy | 14 |  |
+| Campanula bohemica | kvetoucí jedinci | 86 |  |
+| Campanula bohemica | cm2 | 2 |  |
+| Campanula bohemica | jedinci | 1 |  |
+| Campanula gelida | kvetoucí a plodné lodyhy | 4 |  |
+| Campanula gelida | semenáčky | 4 |  |
+| Cerastium alsinifolium | cm2 | 35 | 21_1 převádí na m2 |
+| Cerastium alsinifolium | dm2 | 3 | 21_1 převádí na m2 |
+| Cirsium brachycephalum | jedinci | 6 |  |
+| Cirsium brachycephalum | sterilní jedinci | 2 |  |
+| Coleanthus subtilis | m2 | 65 |  |
+| Coleanthus subtilis | trsy | 1 |  |
+| Crambe tataria | m2 | 10 |  |
+| Cypripedium calceolus | sterilní lodyhy | 84 |  |
+| Cypripedium calceolus | kvetoucí a plodné lodyhy | 76 |  |
+| Cypripedium calceolus | semenáčky | 38 |  |
+| Cypripedium calceolus | jedinci | 22 |  |
+| Dianthus lumnitzeri | trsy | 31 |  |
+| Dianthus lumnitzeri | sterilní trsy | 5 |  |
+| Dianthus moravicus | trsy | 21 |  |
+| Dianthus moravicus | sterilní trsy | 2 |  |
+| Dracocephalum austriacum | jedinci | 118 |  |
+| Dracocephalum austriacum | semenáčky | 29 |  |
+| Echium maculatum | jedinci | 246 |  |
+| Echium maculatum | sterilní jedinci | 26 |  |
+| Gentianella praecox subsp. bohemica | jedinci | 2 |  |
+| Gladiolus palustris | jedinci | 392 |  |
+| Gladiolus palustris | sterilní jedinci | 61 |  |
+| Iris arenaria | jedinci | 12 |  |
+| Iris arenaria | kvetoucí a plodné prýty | 6 |  |
+| Iris arenaria | trsy | 1 |  |
+| Jurinea cyanoides | ramety | 24 |  |
+| Jurinea cyanoides | semenáčky | 13 |  |
+| Klasea lycopifolia | plocha populace (cm2) | 12 | 21_1 převádí na m2 |
+| Klasea lycopifolia | jedinci | 3 |  |
+| Klasea lycopifolia | polykormony | 3 |  |
+| Klasea lycopifolia | cm2 | 1 | 21_1 převádí na m2 |
+| Luronium natans | cm2 | 18 |  |
+| Luronium natans | m2 | 9 |  |
+| Minuartia smejkalii | semenáčky | 32 |  |
+| Pedicularis sudetica | trsy | 23 |  |
+| Poa riphaea | semenáčky | 4 |  |
+| Poa riphaea | stébla | 4 |  |
+| Pulsatilla grandis | trsy | 474 |  |
+| Pulsatilla grandis | sterilní trsy | 147 |  |
+| Pulsatilla grandis | semenáčky | 119 |  |
+| Pulsatilla grandis | plodní jedinci | 2 |  |
+| Pulsatilla grandis | kvetoucí jedinci | 1 |  |
+| Pulsatilla patens | semenáčky | 31 |  |
 
 ### Kódy Přílohy 4 bez jediného záznamu v NDOP: 32 ze 120
 
 Cboh269, Cboh332, Cboh342, Cboh343, Cboh345, Cboh349, Cboh358, Cboh362, Cboh365, Cboh367, Cboh373, Cboh378, Cboh385, Cboh390, Cboh392, Cboh397, Cboh401, Cboh402, Cboh403, Cboh404, Cboh405, Cboh406, Cboh407, Cboh410, Cboh413, Cboh415, Cboh421, Cboh427, Cboh429, Cboh432, Cboh435, Cboh439
 
-## Rozdíl proti `limity_cevky.csv`
+## Rozdíl proti dosavadním limitům (`limity_cevky.csv`, git `1994c08`)
 
 Úplný rozdíl po řádcích: [`limity_cevky_2026_diff.csv`](limity_cevky_2026_diff.csv). Klíč porovnání je druh × indikátor × úroveň; dosavadní názvy druhů a ID jsou před porovnáním převedeny (Iris humilis subsp. arenaria → Iris arenaria; Stipa zalesskii → Stipa glabrata; STA_HYDROPOMERY → STA_HYDRPOMERY; STA_POKRPUDA → STA_POKRYVNOSTVOLNAPUDA; STA_POKRVOLPUD → STA_POKRYVNOSTVOLNAPUDA).
 

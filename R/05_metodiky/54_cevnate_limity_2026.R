@@ -10,7 +10,9 @@
 #
 # VSTUPY (verzovane):
 #   Metodiky/Cevnate/Tabulky fin.xlsx            Prilohy 1-4 metodiky
-#   Data/Input/limity_cevky.csv                  dosavadni limity (jen pro diff)
+#   git <ZAKLAD_DIFF>:Data/Input/limity_cevky.csv
+#                                                dosavadni limity (jen pro diff;
+#                                                vyzaduje git)
 #   Data/Input/cis_indikatory_popis.csv          kontrola pokryti ciselnikem
 #   Data/Input/seznam_predmetolokalit_Natura2000_2_2025.xlsx
 #                                                nazvy podle evropskeho seznamu
@@ -21,18 +23,21 @@
 #                                                uvedeno
 #
 # VYSTUPY (generovane, prepisuji se):
-#   Data/Input/limity_cevky_2026.csv             limity ve formatu limity_cevky.csv
+#   Data/Input/limity_cevky.csv                  ZIVE limity cevnatych rostlin
 #   Data/Input/cis_cevky_frekvence.csv           druh -> populacni jednotka,
 #                                                frekvence monitoringu, okno
 #   Data/Input/cis_druhy_nazvy.csv               nazev evropskeho seznamu <-> NDOP
 #   Data/Input/cevky_vyber_lokalit.csv           vyber lokalit (Priloha 4)
-#   Metodiky/Cevnate/limity_cevky_2026_diff.csv  rozdil proti limity_cevky.csv
+#   Metodiky/Cevnate/limity_cevky_2026_diff.csv  rozdil proti dosavadnim limitum
 #   Metodiky/Cevnate/limity_cevky_2026_kontrola.md
 #                                                protokol validace a souhrn diffu
 #
-# Zivy soubor Data/Input/limity_cevky.csv se NEPREPISUJE - jeho nahrazeni je
-# rozhodnuti zadavatele. Vsechna rozhodnuti a vyklady, ze kterych prevod
-# vychazi, jsou v Metodiky/Cevnate/harmonizace_registr.md (Faze C).
+# Skript PREPISUJE zivy soubor Data/Input/limity_cevky.csv - jediny soubor
+# limitu rostlin (rozhodnuti zadavatele 2026-10-28, otazky 7 a 11; drive
+# samostatny limity_cevky_2026.csv). Diff se pocita proti posledni verzi pred
+# metodikou 2026 z gitu (ZAKLAD_DIFF). Vsechna rozhodnuti a vyklady, ze
+# kterych prevod vychazi, jsou v Metodiky/Cevnate/harmonizace_registr.md
+# (Faze C).
 #
 # FORMAT (shodny s limity_cevky.csv, viz registr, Faze C):
 #   Windows-1250, oddelovac ",", CRLF, uvozovky jen kde je treba,
@@ -76,8 +81,11 @@ ROZHODNUTI <- "rozhodnutí 2026-10-28"
 if (!exists("slozka_lokal")) slozka_lokal <- "../host_data/"
 EXPORT_NDOP <- paste0(slozka_lokal, c("export_data_evl.csv", "export_data_zprap.csv"))
 
+# Posledni commit, ktery menil limity_cevky.csv pred metodikou 2026 - zaklad diffu.
+ZAKLAD_DIFF <- "1994c08"
+
 VYSTUP <- list(
-  limity    = "Data/Input/limity_cevky_2026.csv",
+  limity    = "Data/Input/limity_cevky.csv",
   frekvence = "Data/Input/cis_cevky_frekvence.csv",
   nazvy     = "Data/Input/cis_druhy_nazvy.csv",
   vyber     = "Data/Input/cevky_vyber_lokalit.csv",
@@ -261,10 +269,13 @@ UZEMI <- tibble::tribble(
 # Priloha 1 je pro jednotky rozhodujici (rozhodnuti 2026-10-28).
 # "kvetouci X" je starsi tvar "kvetouci a plodne X" (tentyz organ, do
 # cca 2021) - zarazeno jako ekvivalent a vyznaceno. Jiny organ (jedinci
-# misto trsu, lodyhy misto trsu), plocha v jine jednotce a semenacky se
-# NEZARAZUJI - vycet vyrazenych hodnot je v protokolu.
-# Stav: shoda = hodnota je v datech monitoringu; kandidat = vyklad
-# ekvivalence k potvrzeni; chybi = jednotka Prilohy 1 v datech neni.
+# misto trsu, lodyhy misto trsu) a semenacky se NEZARAZUJI - vycet
+# vyrazenych hodnot je v protokolu. Plochu v jine plosne jednotce (cm2, dm2)
+# prevadi 21_1 na plosnou jednotku Prilohy 1 (koef_plochy; rozhodnuti
+# 2026-10-28, otazka 7), zde se proto neuvadi.
+# Stav: shoda = hodnota je v datech monitoringu; potvrzeno = vyklad
+# ekvivalence potvrzeny zadavatelem 2026-10-28 (otazka 7); chybi = jednotka
+# Prilohy 1 v datech neni.
 J <- function(druh, id, jedn, stav = "shoda", pozn = NA_character_) {
   tibble::tibble(DRUH = druh, ID_IND = id, JEDNOTKA = jedn, stav = stav, pozn = pozn)
 }
@@ -290,14 +301,14 @@ JEDNOTKY <- dplyr::bind_rows(
   J("Asplenium adulterinum", "POP_POCET", "trsy"),
   J("Campanula bohemica", "POP_POCET", "kvetoucí a plodné trsy", "shoda", "'kvetoucí jedinci' 2011-2016 nezařazeno (jiný orgán)"),
   J("Campanula gelida", "POP_POCET", "trsy"),
-  J("Cerastium alsinifolium", "POP_POCET", "m2", "shoda", "Příloha 2 uvádí dm2; data převážně cm2 - nezařazeno, převod jednotek format nezná"),
+  J("Cerastium alsinifolium", "POP_POCET", "m2", "shoda", "Příloha 2 uvádí dm2 (platí Příloha 1); záznamy v cm2 a dm2 převádí 21_1 na m2"),
   J("Cirsium brachycephalum", "POP_POCET", "kvetoucí a plodní jedinci"),
-  J("Cirsium brachycephalum", "POP_POCET", "kvetoucí jedinci", "kandidát", "starší tvar 2011-2021"),
+  J("Cirsium brachycephalum", "POP_POCET", "kvetoucí jedinci", "potvrzeno", "starší tvar 2011-2021"),
   J("Coleanthus subtilis", "POP_POCET", "jedinci", "shoda", "relativní stupnice REL_POC se váže na tuto jednotku"),
   J("Crambe tataria", "POP_POCET", "jedinci"),
   J("Crambe tataria", "POP_POCETSUM", c(pj, "kvetoucí jedinci")),
   J("Crambe tataria", "POP_POCETVITAL", "kvetoucí a plodní jedinci"),
-  J("Crambe tataria", "POP_POCETVITAL", "kvetoucí jedinci", "kandidát", "starší tvar"),
+  J("Crambe tataria", "POP_POCETVITAL", "kvetoucí jedinci", "potvrzeno", "starší tvar"),
   J("Crambe tataria", "POP_POCETSTERIL", "sterilní jedinci"),
   J("Cypripedium calceolus", "POP_POCET", "trsy"),
   J("Cypripedium calceolus", "POP_POCETSUM", pt),
@@ -305,7 +316,7 @@ JEDNOTKY <- dplyr::bind_rows(
   J("Cypripedium calceolus", "POP_POCETSTERIL", "sterilní trsy"),
   J("Dianthus arenarius subsp. bohemicus", "POP_POCET", "trsy"),
   J("Dianthus arenarius subsp. bohemicus", "POP_POCETSUM", c(pt, "kvetoucí trsy", "plodné trsy")),
-  J("Dianthus arenarius subsp. bohemicus", "POP_POCETVITAL", c("kvetoucí a plodné trsy", "kvetoucí trsy", "plodné trsy"), "kandidát", "'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat"),
+  J("Dianthus arenarius subsp. bohemicus", "POP_POCETVITAL", c("kvetoucí a plodné trsy", "kvetoucí trsy", "plodné trsy"), "potvrzeno", "'kvetoucí' a 'plodné' trsy v téže akci se mohou překrývat"),
   J("Dianthus arenarius subsp. bohemicus", "POP_POCETSTERIL", "sterilní trsy"),
   J("Dianthus lumnitzeri", "POP_POCET", "kvetoucí a plodné trsy"),
   J("Dianthus moravicus", "POP_POCET", "kvetoucí a plodné trsy"),
@@ -314,46 +325,46 @@ JEDNOTKY <- dplyr::bind_rows(
   J("Dracocephalum austriacum", "POP_POCETVITAL", "kvetoucí a plodné trsy"),
   J("Dracocephalum austriacum", "POP_POCETSTERIL", "sterilní trsy"),
   J("Echium maculatum", "POP_POCET", "kvetoucí a plodní jedinci", "shoda", "'jedinci' (246 záznamů 2006-2022) nezařazeno - celkový počet, ne kvetoucí"),
-  J("Echium maculatum", "POP_POCET", "kvetoucí jedinci", "kandidát", "starší tvar"),
-  J("Galium sudeticum", "POP_POCET", "m2", "shoda", "Příloha 2 uvádí dm2"),
+  J("Echium maculatum", "POP_POCET", "kvetoucí jedinci", "potvrzeno", "starší tvar"),
+  J("Galium sudeticum", "POP_POCET", "m2", "shoda", "Příloha 2 uvádí dm2 (platí Příloha 1); záznamy v cm2 a dm2 převádí 21_1 na m2"),
   J("Gentianella praecox subsp. bohemica", "POP_POCET", "kvetoucí a plodní jedinci"),
-  J("Gentianella praecox subsp. bohemica", "POP_POCET", "kvetoucí jedinci", "kandidát", "starší tvar 2005-2022"),
+  J("Gentianella praecox subsp. bohemica", "POP_POCET", "kvetoucí jedinci", "potvrzeno", "starší tvar 2005-2022"),
   J("Gladiolus palustris", "POP_POCET", "kvetoucí a plodní jedinci", "shoda", "'jedinci' (392 záznamů 2006-2022) nezařazeno - celkový počet"),
-  J("Gladiolus palustris", "POP_POCET", "kvetoucí jedinci", "kandidát", "starší tvar"),
+  J("Gladiolus palustris", "POP_POCET", "kvetoucí jedinci", "potvrzeno", "starší tvar"),
   J("Himantoglossum adriaticum", "POP_POCET", "jedinci"),
   J("Himantoglossum adriaticum", "POP_POCETSUM", c(pj, "kvetoucí jedinci")),
   J("Himantoglossum adriaticum", "POP_POCETVITAL", "kvetoucí a plodní jedinci"),
-  J("Himantoglossum adriaticum", "POP_POCETVITAL", "kvetoucí jedinci", "kandidát", "starší tvar"),
+  J("Himantoglossum adriaticum", "POP_POCETVITAL", "kvetoucí jedinci", "potvrzeno", "starší tvar"),
   J("Himantoglossum adriaticum", "POP_POCETSTERIL", "sterilní jedinci"),
   J("Iris arenaria", "POP_POCET", "prýty"),
   J("Jurinea cyanoides", "POP_POCET", "prýty", "chybí", "v datech jen součet částí; 'ramety' nezařazeno"),
   J("Jurinea cyanoides", "POP_POCETSUM", pp),
   J("Jurinea cyanoides", "POP_POCETVITAL", "kvetoucí a plodné prýty"),
   J("Jurinea cyanoides", "POP_POCETSTERIL", "sterilní prýty"),
-  J("Klasea lycopifolia", "POP_POCET", "m2", "shoda", "'cm2' a 'plocha populace (cm2)' nezařazeno - převod jednotek format nezná"),
+  J("Klasea lycopifolia", "POP_POCET", "m2", "shoda", "záznamy v 'cm2' a 'plocha populace (cm2)' převádí 21_1 na m2"),
   J("Klasea lycopifolia", "POP_POCETVITAL", "kvetoucí a plodné prýty"),
   J("Klasea lycopifolia", "POP_POCETSTERIL", "sterilní prýty"),
   J("Ligularia sibirica", "POP_POCET", "jedinci"),
   J("Ligularia sibirica", "POP_POCETSUM", c(pj, "kvetoucí jedinci")),
   J("Ligularia sibirica", "POP_POCETVITAL", "kvetoucí a plodní jedinci"),
-  J("Ligularia sibirica", "POP_POCETVITAL", "kvetoucí jedinci", "kandidát", "starší tvar"),
+  J("Ligularia sibirica", "POP_POCETVITAL", "kvetoucí jedinci", "potvrzeno", "starší tvar"),
   J("Ligularia sibirica", "POP_POCETSTERIL", "sterilní jedinci"),
   J("Liparis loeselii", "POP_POCET", "jedinci"),
   J("Liparis loeselii", "POP_POCETSUM", pj),
   J("Liparis loeselii", "POP_POCETVITAL", "kvetoucí a plodní jedinci"),
   J("Liparis loeselii", "POP_POCETSTERIL", "sterilní jedinci"),
-  J("Luronium natans", "POP_POCET", "růžice", "shoda", "'cm2' a 'm2' nezařazeno - převod jednotek format nezná"),
+  J("Luronium natans", "POP_POCET", "růžice", "shoda", "'cm2' a 'm2' nezařazeno - plochu nelze převést na počet růžic"),
   J("Minuartia smejkalii", "POP_POCET", "trsy"),
   J("Pedicularis sudetica", "POP_POCET", "kvetoucí a plodné lodyhy", "chybí", "v datech jen 'trsy'"),
   J("Poa riphaea", "POP_POCET", "trsy"),
   J("Poa riphaea", "POP_POCETVITAL", "kvetoucí a plodné trsy", "chybí", "v datech jen trsy, stébla, semenáčky - vitalitu nelze spočítat"),
   J("Poa riphaea", "POP_POCETSTERIL", "sterilní trsy", "chybí"),
   J("Pulsatilla grandis", "POP_POCET", "kvetoucí a plodné trsy"),
-  J("Pulsatilla grandis", "POP_POCET", "kvetoucí trsy", "kandidát", "starší tvar 2005-2021"),
+  J("Pulsatilla grandis", "POP_POCET", "kvetoucí trsy", "potvrzeno", "starší tvar 2005-2021"),
   J("Pulsatilla patens", "POP_POCET", "trsy"),
   J("Pulsatilla patens", "POP_POCETSUM", c(pt, "kvetoucí trsy")),
   J("Pulsatilla patens", "POP_POCETVITAL", "kvetoucí a plodné trsy"),
-  J("Pulsatilla patens", "POP_POCETVITAL", "kvetoucí trsy", "kandidát", "starší tvar 2009-2022"),
+  J("Pulsatilla patens", "POP_POCETVITAL", "kvetoucí trsy", "potvrzeno", "starší tvar 2009-2022"),
   J("Pulsatilla patens", "POP_POCETSTERIL", "sterilní trsy"),
   J("Stipa glabrata", "POP_POCET", "trsy"),
   J("Tephroseris longifolia subsp. moravica", "POP_POCET", "jedinci"),
@@ -362,7 +373,7 @@ JEDNOTKY <- dplyr::bind_rows(
   J("Tephroseris longifolia subsp. moravica", "POP_POCETSTERIL", "sterilní jedinci"),
   J("Thesium ebracteatum", "POP_POCET", "prýty"),
   J("Thesium ebracteatum", "POP_POCETSUM", pp),
-  J("Trichomanes speciosum", "POP_POCET", "cm2")
+  J("Trichomanes speciosum", "POP_POCET", "cm2", "shoda", "záznamy v dm2 a m2 by 21_1 převedl na cm2 (v datech nejsou)")
 )
 
 #----------------------------------------------------------#
@@ -655,7 +666,14 @@ p5 <- cti_list("Příloha 5")
 # Validace (strukturalni, bez hodnoceni) -----
 #----------------------------------------------------------#
 kontrola <- list()
-limity_stare <- cti_cp1250("Data/Input/limity_cevky.csv")
+# Dosavadni limity z gitu - zivy soubor uz je vystupem tohoto skriptu.
+zaklad <- tempfile(fileext = ".csv")
+stav_git <- system2("git", c("show", paste0(ZAKLAD_DIFF, ":Data/Input/limity_cevky.csv")),
+                    stdout = zaklad, stderr = FALSE)
+if (!identical(as.integer(stav_git), 0L) || !file.exists(zaklad) || file.size(zaklad) == 0) {
+  stop("Dosavadni limity nelze nacist z gitu (", ZAKLAD_DIFF, ":Data/Input/limity_cevky.csv).")
+}
+limity_stare <- cti_cp1250(zaklad)
 cis_ind <- cti_cp1250("Data/Input/cis_indikatory_popis.csv")
 
 # 1. Sloupce a jejich poradi jako v dosavadnim souboru
@@ -752,9 +770,18 @@ if (kontrola$slovnik_overen) {
   kontrola$jednotky <- JEDNOTKY %>%
     dplyr::left_join(pocitano, by = c("DRUH", "JEDNOTKA" = "POCITANO")) %>%
     dplyr::mutate(n_dat = dplyr::coalesce(n_dat, 0L))
+  # plochy v jine plosne jednotce prevadi 21_1 (koef_plochy) - vyznacit
+  plosne <- JEDNOTKY %>% dplyr::filter(ID_IND == "POP_POCET", JEDNOTKA %in% c("cm2", "dm2", "m2")) %>%
+    dplyr::distinct(DRUH, cil = JEDNOTKA)
   kontrola$jednotky_nezarazene <- pocitano %>%
     dplyr::filter(DRUH %in% druhy, !is.na(POCITANO)) %>%
     dplyr::anti_join(JEDNOTKY, by = c("DRUH", "POCITANO" = "JEDNOTKA")) %>%
+    dplyr::left_join(plosne, by = "DRUH") %>%
+    dplyr::mutate(pozn = dplyr::if_else(
+      !is.na(cil) & stringr::str_detect(POCITANO, "^(plocha populace [(])?[cd]?m2[)]?$"),
+      paste0("21_1 převádí na ", cil), ""
+    )) %>%
+    dplyr::select(-cil) %>%
     dplyr::arrange(DRUH, dplyr::desc(n_dat))
 
   # d) kody lokalit Prilohy 4 v datech
@@ -846,7 +873,7 @@ prot <- c(
   "",
   "## Strukturální kontroly",
   "",
-  paste0("- Sloupce a jejich pořadí shodné s `limity_cevky.csv`: **", kontrola$sloupce, "**"),
+  paste0("- Sloupce a jejich pořadí shodné s dosavadním `limity_cevky.csv` (git `", ZAKLAD_DIFF, "`): **", kontrola$sloupce, "**"),
   paste0("- Druhů v limitech: **", dplyr::n_distinct(limity_nove$DRUH), "** (Příloha 1: ", length(druhy), "; chybí: ",
          if (length(kontrola$chybi_druh)) paste(kontrola$chybi_druh, collapse = ", ") else "žádný", ")"),
   paste0("- Duplicitní řádky: **", nrow(kontrola$duplicity), "**; indikátory s více než jedním prahem min/max: **",
@@ -898,6 +925,8 @@ if (kontrola$slovnik_overen) {
     "",
     "### Hodnoty POCITANO v datech, které žádná jednotka nezařazuje",
     "",
+    "Plošné jednotky, které `21_1` převádí na plošnou jednotku Přílohy 1, jsou vyznačeny ve sloupci `pozn`.",
+    "",
     md_tab(kontrola$jednotky_nezarazene),
     "",
     paste0("### Kódy Přílohy 4 bez jediného záznamu v NDOP: ", length(kontrola$vyber_bez_dat), " ze ", nrow(vyber)),
@@ -911,7 +940,7 @@ if (kontrola$slovnik_overen) {
 }
 
 prot <- c(prot,
-  "## Rozdíl proti `limity_cevky.csv`",
+  paste0("## Rozdíl proti dosavadním limitům (`limity_cevky.csv`, git `", ZAKLAD_DIFF, "`)"),
   "",
   paste0("Úplný rozdíl po řádcích: [`limity_cevky_2026_diff.csv`](limity_cevky_2026_diff.csv). ",
          "Klíč porovnání je druh × indikátor × úroveň; dosavadní názvy druhů a ID jsou před ",
