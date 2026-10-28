@@ -815,7 +815,7 @@ Každé pravidlo, které musí kód implementovat. Verdikty auditu kódu jsou v
 | PR-17 | **Verdikt lokality: dobrý / špatný / neznámý** (zhoršený nevzniká). Dobrý = klíčový indikátor v dobrém stavu **a** nejvýše jeden neklíčový ve špatném; neznámý = klíčový neznámý **nebo** více než jeden neklíčový neznámý. | kap. 2, 7 | Přednost neznámého před špatným nejasná (R-45). |
 | PR-18 | **Verdikt území (EVL, MZCHÚ): dobrý / zhoršený / špatný** podle Tabulky 1 (*Coleanthus*: podíl lokalit v dobrém stavu + cílový stav) a Tabulky 2 (ostatní: podíl populace v lokalitách v dobrém stavu + podíl lokalit v dobrém stavu + cílový stav). | kap. 8 | Rozhodnutí 2026-10-28: jediný práh na indikátor (R-46). |
 | PR-19 | **Celková početnost** území = součet posledních zjištěných početností lokalit; **podíl populace** v dobrém stavu = součet početností lokalit v dobrém stavu / celková × 100. | kap. 8 | |
-| PR-20 | **Podíl lokalit v dobrém stavu** = počet lokalit v dobrém stavu / celkový počet lokalit × 100. | kap. 8 | Jmenovatel „celkový počet“ = včetně neznámých (shodně s R-30). |
+| PR-20 | **Podíl lokalit v dobrém stavu** = počet lokalit v dobrém stavu / celkový počet lokalit × 100. | kap. 8 | ~~Jmenovatel „celkový počet“ = včetně neznámých (shodně s R-30).~~ Rozhodnutí 2026-10-28 (2. kolo, ot. 1): lokality v neznámém stavu se nezapočítávají (ani do jmenovatele). |
 | PR-21 | **Cílový stav**: celková početnost / cílový stav × 100; cílové stavy EVL z ISOP, MZCHÚ z plánů péče; jednotky sjednotit s monitoringem. | kap. 8 | Komentáře c41, c43. |
 | PR-22 | Do hodnocení vstupují **všechny lokality v hodnoceném území**, kromě *Campanula bohemica* (jen Příloha 4) a *Cerastium alsinifolium* (jen Příloha 5). | kap. 5, 5.2, 5.3 | Příloha 5 nedodána (R-49). |
 | PR-23 | **Zaniklé lokality** se započítávají 10 let od posledního prokazatelného výskytu (lze déle); *Coleanthus* nejméně 12 let, vyřazení jen při doložených vhodných podmínkách ve ≥ 2 sezónách posledních 6 let. | kap. 5.1 | Evidence prodloužení (c10). |
@@ -942,3 +942,21 @@ Každé pravidlo, které musí kód implementovat. Verdikty auditu kódu jsou v
 | 13 | Vitalita | ✅ podle textu, upravit kód |
 | 14 | Hodnocené období | ✅ podle textu, upravit kód; okno uložit v číselníku druhů |
 | 15 | Příloha 4 | ✅ seznam se bude rozšiřovat |
+
+## Rozhodnutí zadavatele — 2. kolo (2026-10-28, otázky Fáze C)
+
+Podrobně včetně provedení v [harmonizace_registr.md](harmonizace_registr.md), část „Rozhodnutí zadavatele k otázkám Fáze C“.
+
+| # | Otázka (Fáze C) | Nález | Rozhodnutí |
+|---|---|---|---|
+| 1 | Přednost špatného a neznámého ve verdiktu lokality | R-45 | ✅ špatný **nemá** přednost — doslovně kap. 7 (klíčový neznámý nebo > 1 neklíčový neznámý ⇒ neznámý); lokality v neznámém stavu se do procentních hodnocení území nezapočítávají vůbec (PR-20: jmenovatel **bez** neznámých — ruší poznámku „včetně neznámých“) |
+| 2 | Úroveň území | R-46 | ✅ území bez cílového stavu ⇒ neznámý; sloučená Tab. 1 (*Coleanthus*) zůstává otevřená |
+| 3 | Cílová početnost | PR-07 | ✅ první tři monitoringy; přednost má expertní hodnota v `Data/Input/cevky_cilova_pocetnost.csv` |
+| 4 | Vývoj početnosti | R-44 | ✅ výklad ověřen proti textu — slovy je definován jen negativní trend, výklad odpovídá všem příkladům; o stavu rozhoduje jen negativní trend |
+| 5 | *Cerastium* do dodání Přílohy 5 | R-49 | ✅ všechny lokality pod cíleným monitoringem |
+| 6 | *Coleanthus* — vstup pro úspěšnost reprodukce | R-50 | pole je ve formuláři; v datech nalezen jen `POZN_BIO` „Míra úspěšnosti reprodukce: N %“ (2020–2022, 18 záznamů), od 2023 v exportu chybí — **k validaci** |
+| 7 | Jednotky | R-51 | ✅ ekvivalence „kvetoucí X“ potvrzeny (12 řádků, ne 16); plochy převádět podle Přílohy 1 (provedeno v `21_1`) |
+| 8 | Poškození | PR-12 | ✅ součet omezit na 100 % |
+| 9 | Evidence c10 a c17 | PR-03, PR-23 | ✅ soubory v repozitáři (`cevky_lokality_stav.csv`, `cevky_neplatne_zaznamy.csv`) |
+| 10 | Kódy ISOP | — | bude rozhodnuto |
+| 11 | Opravy kódu; limity | — | opravy bude rozhodnuto; limity aktualizovat novými hodnotami ve starém formátu — živý `limity_cevky.csv` nahrazen |
