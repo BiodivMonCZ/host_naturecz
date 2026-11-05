@@ -129,6 +129,24 @@ run_n2k_druhy_lok <- function(
   # Interni kod neznameho celkoveho stavu (H-90) - viz blok CELKOVE nize.
   CELKOVE_NEZNAMY <- -1
 
+  # Ocekavane klicove indikatory z TABULKY LIMITU druhu, ne z radku DP
+  # (nalez H-92, otazka Z-24). Pocet z radku nezachyti klicovy indikator,
+  # pro ktery radek vubec nevznikl (sirotek, chybejici sloupec) - DP pak
+  # vyjde "dobra" bez hodnoceni. ZATIM JEN PRO DRUHY NIZE (pokyn zadavatele
+  # 2026-11-05: "test only misgurnus and lampetra planeri, now"); ostatni
+  # druhy dal pocitaji klicove indikatory z radku.
+  DRUHY_KLIC_Z_LIMITU <- c("Lampetra planeri", "Misgurnus fossilis")
+  klic_z_limitu <- NULL
+  if (species_name %in% DRUHY_KLIC_Z_LIMITU && !is.null(limity)) {
+    klic_z_limitu <- limity %>%
+      dplyr::filter(
+        DRUH == species_name, KLIC %in% "ano", UROVEN %in% "lok",
+        TYP_IND %in% c("min", "max", "val"), !is.na(LIM_IND)
+      ) %>%
+      dplyr::pull(ID_IND) %>%
+      unique()
+  }
+
   # Nastaveni seskupovacich promennych
   group_vars <- c("kod_chu", "DRUH", "KOD_LOKAL", "ROK")
   
@@ -192,7 +210,11 @@ run_n2k_druhy_lok <- function(
       # N_KEY_EXPECTED = klicove indikatory s neznamou hodnotou (H-90).
       # `%in%` misto `==`: KLIC/UROVEN = NA nesmi do n_distinct() pridat NA
       # (stejna past jako u N_KEY_PASSED, H-21).
-      N_KEY_DEFINED = dplyr::n_distinct(ID_IND[KLIC %in% "ano" & UROVEN %in% "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
+      N_KEY_DEFINED = if (is.null(klic_z_limitu)) {
+        dplyr::n_distinct(ID_IND[KLIC %in% "ano" & UROVEN %in% "lok" & !is.na(LIM_IND) & LIM_IND != ""])
+      } else {
+        length(klic_z_limitu)
+      },
       N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
       
       # Metadata pro razeni nejlepsi navstevy
