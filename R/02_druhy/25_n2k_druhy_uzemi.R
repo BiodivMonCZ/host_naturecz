@@ -95,8 +95,11 @@ run_n2k_druhy_uzemi <- function(
         ID_ND_LOK = toString(unique(ID_ND_LOK)),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
-        # Zde staci pocitat radky s hodnocenim
-        POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
+        # Zde staci pocitat radky s hodnocenim. Pole s neznamym celkovym
+        # stavem (neznamy klicovy indikator, H-90 / Z-12) se do jmenovatele
+        # nezapocitava - obdoba LOK_POCETSUM u lokalit.
+        POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 &
+                               HOD_IND %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
         
         POP_POCETPOLE1D = sum(
           ID_IND == "CELKOVE_HODNOCENI" & 
@@ -112,8 +115,11 @@ run_n2k_druhy_uzemi <- function(
         }
       ) %>%
       dplyr::mutate(
+        # Zadne hodnocene pole = neznamy podil (NA), ne 0 % (H-90 / Z-12).
+        # Drive POP_POCETPOLE1 == 0 nastavalo jen u EVL bez cileneho
+        # monitoringu, ktere export (27, CILMON_CHU) stejne vyrazuje.
         POP_PROCPOLE1D = dplyr::case_when(
-          POP_POCETPOLE1 == 0 ~ 0,
+          POP_POCETPOLE1 == 0 ~ NA_real_,
           TRUE ~ round(POP_POCETPOLE1D/POP_POCETPOLE1*100, 3)
         ),
         STA_HABPOKRYV = ifelse(is.na(STA_HABPOKRYVPRE) == TRUE, NA, STA_HABPOKRYVPRE*100)

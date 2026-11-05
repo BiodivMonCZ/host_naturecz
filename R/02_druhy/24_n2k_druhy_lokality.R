@@ -126,6 +126,9 @@ run_n2k_druhy_lok <- function(
   # 3. Vypocet CELKOVE_HODNOCENI ----
   #----------------------------------------------------------#
   
+  # Interni kod neznameho celkoveho stavu (H-90) - viz blok CELKOVE nize.
+  CELKOVE_NEZNAMY <- -1
+
   # Nastaveni seskupovacich promennych
   group_vars <- c("kod_chu", "DRUH", "KOD_LOKAL", "ROK")
   
@@ -183,6 +186,13 @@ run_n2k_druhy_lok <- function(
       # indikator s limitem zustal nevyhodnocen. Viz nalez H-21 v
       # Metodiky/Obojzivelnici/harmonizace_registr.md.
       N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
+      # Pocet klicovych indikatoru s limitem, ktere pro DP a rok EXISTUJI
+      # (21_2 vytvori radek pro kazdy indikator s limitem, i kdyz hodnota
+      # chybi) - bez ohledu na to, zda byly vyhodnoceny. Rozdil proti
+      # N_KEY_EXPECTED = klicove indikatory s neznamou hodnotou (H-90).
+      # `%in%` misto `==`: KLIC/UROVEN = NA nesmi do n_distinct() pridat NA
+      # (stejna past jako u N_KEY_PASSED, H-21).
+      N_KEY_DEFINED = dplyr::n_distinct(ID_IND[KLIC %in% "ano" & UROVEN %in% "lok" & !is.na(LIM_IND) & LIM_IND != ""]),
       N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
       
       # Metadata pro razeni nejlepsi navstevy
@@ -203,10 +213,31 @@ run_n2k_druhy_lok <- function(
       # RYBY METODIKY EVL 2026 (Cottus gobio, Lampetra planeri, Misgurnus
       # fossilis; kap. 5.3): "zhorseny", nevyhovi-li ALESPON JEDEN stanovistni
       # parametr - prah je 1, ne 2 (nalez H-75). DRUHY_RYBY_2026 je v 21_1.
+      #
+      # NEZNAMY KLICOVY INDIKATOR => NEZNAMY CELKOVY STAV (nalez H-90,
+      # rozhodnuti Z-12 z 2026-11-05, plati pro VSECHNY skupiny): dobry ani
+      # zhorseny stav nelze vyhlasit, neni-li hodnocen kazdy klicovy indikator
+      # (ryby kap. 5.1: "Oba parametry ... musi byt hodnoceny jako dobre").
+      # Drive se nehodnoceny klicovy indikator jen vynechal, takze DP bez
+      # jedineho hodnoceneho klicoveho indikatoru vysla "dobra" (u ryb 616 z 659
+      # dobrych DP Cottus gobio). Poradi pravidel: NEZNAMY MA PREDNOST pred
+      # spatnym - doslovne "alespon jeden neznamy klicovy indikator => neznamy
+      # celkovy stav", i kdyz jiny klicovy indikator selhal. Shodne s
+      # rozhodnutim pro cevnate rostliny (H-23 v Metodiky/Cevnate/
+      # harmonizace_registr.md, 2026-10-28: "spatny nema prednost"). Dusledek:
+      # DP s nesplnenym a soucasne nehodnocenym klicovym indikatorem je
+      # "neznama", ne "spatna" (pocty viz H-90 v registru ryb).
+      # Neznamy stav nese interne kod CELKOVE_NEZNAMY (-1) - lisi se tak od NA
+      # (DP bez CILMON, "nehodnoceno"); ve vystupu je STAV_IND = NA a HOD_IND
+      # "neznamy". Na urovni EVL se neznama DP nezapocitava (25: LOK_POCETSUM,
+      # POP_POCETPOLE1).
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
+      N_KEY_UNKNOWN = N_KEY_DEFINED - N_KEY_EXPECTED,
       PRAH_ZHORSENY = if (species_name %in% DRUHY_RYBY_2026) 1L else 2L,
       CELKOVE = dplyr::case_when(
         is.na(MAX_CILMON) ~ NA_real_,
+        # Alespon 1 klicovy indikator nehodnocen = neznamy (prednost, H-90 / Z-12)
+        N_KEY_UNKNOWN > 0 ~ CELKOVE_NEZNAMY,
         # Alespon 1 spatne hodnoceny klicovy (populacni) indikator = spatny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
         # 0 spatnych klicovych indikatoru, ale >= PRAH_ZHORSENY spatnych stanovistnich = zhorseny
@@ -253,9 +284,10 @@ run_n2k_druhy_lok <- function(
     dplyr::ungroup() %>%
     dplyr::mutate(
       ID_IND = "CELKOVE_HODNOCENI",
-      STAV_IND = WINNING_CELKOVE,
+      STAV_IND = dplyr::if_else(WINNING_CELKOVE %in% CELKOVE_NEZNAMY, NA_real_, WINNING_CELKOVE),
       # Prevod ciselneho skore na textove hodnoceni
       HOD_IND = dplyr::case_when(
+        WINNING_CELKOVE %in% CELKOVE_NEZNAMY ~ "neznámý",
         WINNING_CELKOVE == 0   ~ "špatný",
         WINNING_CELKOVE == 0.5 ~ "zhoršený",
         WINNING_CELKOVE == 1   ~ "dobrý",
