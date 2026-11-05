@@ -3,27 +3,28 @@
 #----------------------------------------------------------#
 # Prevadi pravidla metodiky EVL 2026 (L. Hanel, M. Muska) pro tri druhy
 # - Cottus gobio, Lampetra planeri, Misgurnus fossilis - do formatu, ktery
-# cte pipeline (limity_ryby.csv), a navrhuje novy ciselnik delkovych skupin.
+# cte pipeline (limity_ryby.csv), a zapisuje novy ciselnik delkovych skupin.
 #
 # Spousti se z KORENE repozitare:
 #   Rscript R/05_metodiky/55_ryby_limity_2026.R
 #
 # VSTUPY (verzovane, jen cteni):
-#   Data/Input/limity_ryby.csv              zive limity ryb - NEPREPISUJE SE
-#   Data/Input/cis_ryby_delky_strukt.csv    zivy ciselnik delek - NEPREPISUJE SE
+#   git <ZAKLAD_DIFF>:Data/Input/limity_ryby.csv            limity pred metodikou 2026
+#   git <ZAKLAD_DIFF>:Data/Input/cis_ryby_delky_strukt.csv  delky pred metodikou 2026
 #   Data/Input/cis_indikatory_popis.csv     kontrola pokryti ciselnikem ISOP
 # VSTUP VOLITELNY (neverejny):
 #   <slozka_lokal>/export_data_evl.csv      slovnik hodnot a citlivost prevodu
 #                                           pasem; bez nej se kontrola preskoci
 #
 # VYSTUPY (generovane, prepisuji se):
-#   Data/Input/limity_ryby_2026.csv                       NAVRH limitu ryb
-#   Data/Input/cis_ryby_delky_strukt_2026.csv             NAVRH delkovych skupin
-#   Metodiky/Ryby a mihule/limity_ryby_2026_diff.csv      rozdil proti zivym limitum
+#   Data/Input/limity_ryby.csv                            ZIVE limity ryb
+#   Data/Input/cis_ryby_delky_strukt.csv                  ZIVY ciselnik delek
+#   Metodiky/Ryby a mihule/limity_ryby_2026_diff.csv      rozdil proti limitum pred 2026
 #   Metodiky/Ryby a mihule/limity_ryby_2026_kontrola.md   protokol prevodu
 #
-# Zive soubory zustavaji beze zmeny (zadani revize ryb, 2026-11-05). Navrh
-# vstoupi do pipeline az prejmenovanim po rozhodnuti zadavatele. Nalezy
+# Skript PREPISUJE zive soubory (rozhodnuti Z-13, 2026-11-05; obdoba
+# 54_cevnate_limity_2026.R). Zaklad - radky ostatnich druhu a diff - se cte
+# z gitu (ZAKLAD_DIFF), takze opakovany beh dava tentyz vysledek. Nalezy
 # a rozhodnuti, ze kterych prevod vychazi, jsou v
 # Metodiky/Ryby a mihule/harmonizace_registr.md (H-71 ...) a
 # Metodiky/Ryby a mihule/revize_metodika_ryby.md (PR-xx, R-xx, Z-xx).
@@ -62,15 +63,28 @@ METODIKA <- "metodika EVL 2026 (Hanel, Muška)"
 ROZHODNUTI <- "rozhodnutí 2026-11-05"
 DRUHY <- c("Cottus gobio", "Lampetra planeri", "Misgurnus fossilis")
 
+# Posledni commit se zivymi soubory pred metodikou 2026 - zaklad radku
+# ostatnich druhu i diffu.
+ZAKLAD_DIFF <- "35a3d99"
+z_gitu <- function(cesta) {
+  f <- tempfile(fileext = ".csv")
+  stav <- system2("git", c("-c", "core.autocrlf=false", "show", paste0(ZAKLAD_DIFF, ":", cesta)),
+                  stdout = f, stderr = FALSE)
+  if (!identical(as.integer(stav), 0L) || !file.exists(f) || file.size(f) == 0) {
+    stop("Soubor nelze nacist z gitu: ", ZAKLAD_DIFF, ":", cesta)
+  }
+  f
+}
+
 VSTUP <- list(
-  limity = "Data/Input/limity_ryby.csv",
-  delky  = "Data/Input/cis_ryby_delky_strukt.csv",
+  limity = z_gitu("Data/Input/limity_ryby.csv"),
+  delky  = z_gitu("Data/Input/cis_ryby_delky_strukt.csv"),
   popis  = "Data/Input/cis_indikatory_popis.csv",
   export = "C:/Users/jonas.gaigr/Documents/host_data/export_data_evl.csv"
 )
 VYSTUP <- list(
-  limity   = "Data/Input/limity_ryby_2026.csv",
-  delky    = "Data/Input/cis_ryby_delky_strukt_2026.csv",
+  limity   = "Data/Input/limity_ryby.csv",
+  delky    = "Data/Input/cis_ryby_delky_strukt.csv",
   diff     = "Metodiky/Ryby a mihule/limity_ryby_2026_diff.csv",
   kontrola = "Metodiky/Ryby a mihule/limity_ryby_2026_kontrola.md"
 )
@@ -310,10 +324,10 @@ prot <- c(
   paste0("**Generováno:** `R/05_metodiky/55_ryby_limity_2026.R` · ", format(Sys.Date()), " · ", METODIKA, ", ", ROZHODNUTI, "."),
   "**Registr:** [harmonizace_registr.md](harmonizace_registr.md) · **Revize:** [revize_metodika_ryby.md](revize_metodika_ryby.md)",
   "",
-  "Soubory `limity_ryby_2026.csv` a `cis_ryby_delky_strukt_2026.csv` jsou **návrh**. Živé",
-  "`limity_ryby.csv` a `cis_ryby_delky_strukt.csv` zůstávají beze změny; pipeline návrh",
-  "použije až po rozhodnutí zadavatele (přejmenováním) a po aplikaci patche kódu",
-  "([patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch)), který nové indikátory počítá.",
+  "Skript zapisuje **živé** `limity_ryby.csv` a `cis_ryby_delky_strukt.csv` (rozhodnutí Z-13,",
+  "2026-11-05). Řádky ostatních druhů a diff vycházejí ze stavu před metodikou 2026",
+  paste0("(`", ZAKLAD_DIFF, "`). Nové indikátory počítá kód z patche"),
+  "[patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch), aplikovaného týmž rozhodnutím.",
   "",
   "## Rozhodnutí zadavatele, ze kterých převod vychází (2026-11-05)",
   "",
@@ -325,7 +339,8 @@ prot <- c(
     "Z-5", "prázdný tag bariér", "neznámo", "`STA_MIGPROSTUP` (chu) neznámý, není-li výška známa u všech lokalit",
     "Z-6", "EVL s 1–2 lokalitami", "doslovně 75 %", "`LOK_PROCDOBR min 75`; výjimka „při třech dvě“ v `25`",
     "Z-7", "sezóna a podmínky", "jen příznak", "info `STA_PODMINKYODLOVU`",
-    "Z-11", "převod pásem", "potvrzeno, zapsat do protokolu", "viz níže"
+    "Z-11", "převod pásem", "potvrzeno, zapsat do protokolu", "viz níže",
+    "Z-13", "aplikace návrhu", "ano", "zapsáno do živých souborů; samostatné `*_2026.csv` zrušeny"
   )),
   "",
   "## Převod pásem pokryvnosti na číslo (rozhodnutí Z-11)",
@@ -365,17 +380,17 @@ prot <- c(
     "*Misgurnus* — submerzní vegetace:", "",
     md_tab(data_k$vegetace)),
   "",
-  "## Řádky tří druhů v návrhu",
+  "## Řádky tří druhů (metodika 2026)",
   "",
   md_tab(nove3 %>% dplyr::select(DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN, nalez)),
   "",
-  "## Souhrn rozdílu proti `limity_ryby.csv`",
+  paste0("## Souhrn rozdílu proti `limity_ryby.csv` před metodikou 2026 (`", ZAKLAD_DIFF, "`)"),
   "",
   md_tab(souhrn),
   "",
   md_tab(diff),
   "",
-  "## Délkové skupiny (`cis_ryby_delky_strukt_2026.csv`)",
+  "## Délkové skupiny (`cis_ryby_delky_strukt.csv`)",
   "",
   "Metodika Tab. 1, pozn. a. Hranice „< 5 cm“ je ostrá; délky jsou v celých mm, proto horní mez",
   "1. skupiny 49,99. Typ délky (SL × TL u *Cottus*) zůstává otázkou na autory (R-06).",
@@ -386,7 +401,7 @@ prot <- c(
   "",
   md_tab(tibble::tibble(
     kontrola = c("řádky ostatních druhů shodné (text)", "řádky ostatních druhů shodné (bajty CP1250)", "konce řádků CRLF",
-                 "zpětné načtení `read_csv2` jako v `00_n2k_config.R`", "řádků v návrhu / v živém souboru",
+                 "zpětné načtení `read_csv2` jako v `00_n2k_config.R`", "řádků nově / před metodikou 2026",
                  "H-53: vyplněný limit bez `KLIC`/`UROVEN`", "`ind_id` v `cis_indikatory_popis.csv` pro nové `ID_IND`"),
     vysledek = c(kontrola_fmt$ostatni_shodne, kontrola_fmt$bajty_ostatnich, kontrola_fmt$crlf, "OK (stejné sloupce)",
                  paste(length(telo_nove), "/", length(lim$telo)), paste(nrow(kontrola_fmt$h53), "řádků"),

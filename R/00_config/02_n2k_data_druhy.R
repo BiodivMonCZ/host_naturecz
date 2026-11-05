@@ -167,23 +167,24 @@ n2k_load <- n2k_export %>%
         )
       )
     ),
-    KOD_LOKRYB = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<naz_tok>).*(?=</naz_tok>)"
-      )
-    ),
     KOD_LOKAL = dplyr::case_when(
       SKUPINA == "Letouni" ~ LOKALITA,
       SKUPINA == "Mechy" ~ LOKALITA,
       SKUPINA == "Motýli" ~ substring(
-        KOD_LOKALITY, 
-        1, 
+        KOD_LOKALITY,
+        1,
         10
       ),
+      # Ryby a mihule: lokalita = nazev lokality NDOP (LOKALITA). Data ryb
+      # nemaji KOD_LOKALITY (0 % zaznamu monitoringu, u obojzivelniku 79 %)
+      # a drive pouzivany tag <naz_tok> nese nazev EVL nebo CHKO, takze
+      # se vsechny useky uzemi slevaly do jedne "lokality" (az 68 pruzkumu
+      # pod jednim klicem v roce). Rozhodnuti zadavatele 2026-11-05 ("just
+      # LOKALITA"), viz nalez H-71 v Metodiky/Ryby a mihule/harmonizace_registr.md.
+      # Varianty zapisu nazvu (pomlcka / en-dash) se zamerne neslucuji.
       SKUPINA == "Ryby a mihule" &
-        is.na(KOD_LOKRYB) == FALSE 
-      ~ KOD_LOKRYB,
+        is.na(LOKALITA) == FALSE
+      ~ stringr::str_squish(as.character(LOKALITA)),
       KOD_LOKALITY == "amp216" ~ "CZ0723412",
       KOD_LOKALITY == "amp222" ~ "CZ0724089_9",
       KOD_LOKALITY == "amp231" ~ "CZ0724089_19",
@@ -234,9 +235,6 @@ n2k_load <- n2k_export %>%
       TRUE ~ KOD_LOKAL
     )
   ) %>%
-  dplyr::select(
-    -KOD_LOKRYB
-  )%>%
   dplyr::mutate(
     KOD_LOKAL = dplyr::case_when(
       is.na(KOD_LOKAL) == TRUE ~ LOKALITA,
@@ -246,7 +244,12 @@ n2k_load <- n2k_export %>%
   # identifikace dat cileneho monitoringu
   dplyr::mutate(
     CILMON = dplyr::case_when(
-      ZDROJ %in% CIS_CILMON ~ 1,
+      # Porovnava se se SLOUPCEM ZDROJ_NDOP, ne s tabulkou: `ZDROJ %in%
+      # CIS_CILMON` (tibble) se neshodoval nikdy, takze seznam zdroju
+      # cileneho monitoringu se neuplatnil u zadneho zaznamu - mj. 2 106
+      # zaznamu "Kolektiv autoru (2021) Sledovani stavu EVL - obojzivelnici."
+      # Viz nalez H-89 v Metodiky/Ryby a mihule/harmonizace_registr.md.
+      ZDROJ %in% CIS_CILMON$ZDROJ_NDOP ~ 1,
       PROJEKT == "Monitoring druhů ČR" ~ 1,
       DRUH %in% c(
         "Carabus menetriesi pacholei", 

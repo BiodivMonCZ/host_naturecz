@@ -3,10 +3,10 @@
 **Generováno:** `R/05_metodiky/55_ryby_limity_2026.R` · 2026-11-05 · metodika EVL 2026 (Hanel, Muška), rozhodnutí 2026-11-05.
 **Registr:** [harmonizace_registr.md](harmonizace_registr.md) · **Revize:** [revize_metodika_ryby.md](revize_metodika_ryby.md)
 
-Soubory `limity_ryby_2026.csv` a `cis_ryby_delky_strukt_2026.csv` jsou **návrh**. Živé
-`limity_ryby.csv` a `cis_ryby_delky_strukt.csv` zůstávají beze změny; pipeline návrh
-použije až po rozhodnutí zadavatele (přejmenováním) a po aplikaci patche kódu
-([patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch)), který nové indikátory počítá.
+Skript zapisuje **živé** `limity_ryby.csv` a `cis_ryby_delky_strukt.csv` (rozhodnutí Z-13,
+2026-11-05). Řádky ostatních druhů a diff vycházejí ze stavu před metodikou 2026
+(`35a3d99`). Nové indikátory počítá kód z patche
+[patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch), aplikovaného týmž rozhodnutím.
 
 ## Rozhodnutí zadavatele, ze kterých převod vychází (2026-11-05)
 
@@ -19,6 +19,7 @@ použije až po rozhodnutí zadavatele (přejmenováním) a po aplikaci patche k
 | Z-6 | EVL s 1–2 lokalitami | doslovně 75 % | `LOK_PROCDOBR min 75`; výjimka „při třech dvě“ v `25` |
 | Z-7 | sezóna a podmínky | jen příznak | info `STA_PODMINKYODLOVU` |
 | Z-11 | převod pásem | potvrzeno, zapsat do protokolu | viz níže |
+| Z-13 | aplikace návrhu | ano | zapsáno do živých souborů; samostatné `*_2026.csv` zrušeny |
 
 ## Převod pásem pokryvnosti na číslo (rozhodnutí Z-11)
 
@@ -114,7 +115,7 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 | vzácný | 1 | FALSE |
 | (tag chybí) | 12 | neznámý |
 
-## Řádky tří druhů v návrhu
+## Řádky tří druhů (metodika 2026)
 
 | DRUH | ID_IND | TYP_IND | LIM_IND | JEDNOTKA | KLIC | UROVEN | nalez |
 |---|---|---|---|---|---|---|---|
@@ -165,7 +166,7 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 | Misgurnus fossilis | LOK_PROCDOBR | min | 75 | % lokalit v dobrém stavu | ano | chu | H-81 |
 | Misgurnus fossilis | STA_MIGPROSTUP | max | 10 | cm | ano | chu | H-83 |
 
-## Souhrn rozdílu proti `limity_ryby.csv`
+## Souhrn rozdílu proti `limity_ryby.csv` před metodikou 2026 (`35a3d99`)
 
 | DRUH | beze změny | odebráno | přidáno | změněno |
 |---|---|---|---|---|
@@ -227,7 +228,7 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 | Misgurnus fossilis | lok | STA_PROUD | odebráno | val \| kaskády \| NA \| ne \|\| val \| mírný \| NA \| ne \|\| val \| peřeje \| NA \| ne \|\| val \| tůně \| NA \| ne |  | H-76 - metodika nezna |  |
 | Misgurnus fossilis | lok | STA_VEGETACE | odebráno | val \| submerzní \| NA \| ne |  | H-76 - nahrazeno STA_POKRVEGSUBMERZ |  |
 
-## Délkové skupiny (`cis_ryby_delky_strukt_2026.csv`)
+## Délkové skupiny (`cis_ryby_delky_strukt.csv`)
 
 Metodika Tab. 1, pozn. a. Hranice „< 5 cm“ je ostrá; délky jsou v celých mm, proto horní mez
 1. skupiny 49,99. Typ délky (SL × TL u *Cottus*) zůstává otázkou na autory (R-06).
@@ -252,6 +253,6 @@ Metodika Tab. 1, pozn. a. Hranice „< 5 cm“ je ostrá; délky jsou v celých 
 | řádky ostatních druhů shodné (bajty CP1250) | TRUE |
 | konce řádků CRLF | TRUE |
 | zpětné načtení `read_csv2` jako v `00_n2k_config.R` | OK (stejné sloupce) |
-| řádků v návrhu / v živém souboru | 274 / 271 |
+| řádků nově / před metodikou 2026 | 274 / 271 |
 | H-53: vyplněný limit bez `KLIC`/`UROVEN` | 0 řádků |
 | `ind_id` v `cis_indikatory_popis.csv` pro nové `ID_IND` | 2 z 16 má kód (H-87) |

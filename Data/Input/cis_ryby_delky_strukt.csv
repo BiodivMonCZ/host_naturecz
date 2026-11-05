@@ -1,18 +1,18 @@
 DRUH,KAT,LIMIT,MIN,MAX,JEDNOTKA
-Cottus gobio,1,min,0.01,60,mm
-Cottus gobio,2,min,60.01,90,mm
+Cottus gobio,1,min,0.01,49.99,mm
+Cottus gobio,2,min,50,90,mm
 Cottus gobio,3,min,90.01,Inf,mm
+Lampetra planeri,1,min,0.01,49.99,mm
+Lampetra planeri,2,min,50,120,mm
+Lampetra planeri,3,min,120.01,Inf,mm
+Misgurnus fossilis,1,min,0.01,49.99,mm
+Misgurnus fossilis,2,min,50,150,mm
+Misgurnus fossilis,3,min,150.01,Inf,mm
 Eudontomyzon mariae,1,min,0.01,80,mm
 Eudontomyzon mariae,2,min,80.01,150,mm
 Eudontomyzon mariae,3,min,150.01,Inf,mm
-Lampetra planeri,1,min,0.01,60,mm
-Lampetra planeri,2,min,60.01,120,mm
-Lampetra planeri,3,min,120.01,Inf,mm
 Rhodeus amarus,1,min,0.01,30,mm
 Rhodeus amarus,2,min,30.01,Inf,mm
-Misgurnus fossilis,1,min,0.01,50,mm
-Misgurnus fossilis,2,min,50.01,150,mm
-Misgurnus fossilis,3,min,150.01,Inf,mm
 Sabanejewia balcanica,1,min ,0.01,60,mm
 Cobitis elongatoides,1,min,0.01,60,mm
 Cobitis elongatoides,2,min,60.01,Inf,mm

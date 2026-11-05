@@ -199,13 +199,18 @@ run_n2k_druhy_lok <- function(
       #   min 1                                | -                                              | spatny
       # Tzn. "spatny" muze zpusobit jen selhani klicoveho (populacniho) indikatoru; sebevic
       # spatnych stanovistnich indikatoru samo o sobe vede nejvyse na "zhorseny".
+      #
+      # RYBY METODIKY EVL 2026 (Cottus gobio, Lampetra planeri, Misgurnus
+      # fossilis; kap. 5.3): "zhorseny", nevyhovi-li ALESPON JEDEN stanovistni
+      # parametr - prah je 1, ne 2 (nalez H-75). DRUHY_RYBY_2026 je v 21_1.
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
+      PRAH_ZHORSENY = if (species_name %in% DRUHY_RYBY_2026) 1L else 2L,
       CELKOVE = dplyr::case_when(
         is.na(MAX_CILMON) ~ NA_real_,
         # Alespon 1 spatne hodnoceny klicovy (populacni) indikator = spatny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        # 0 spatnych klicovych indikatoru, ale >=2 spatne stanovistni indikatory = zhorseny
-        N_OTH_FAIL >= 2 ~ 0.5,
+        # 0 spatnych klicovych indikatoru, ale >= PRAH_ZHORSENY spatnych stanovistnich = zhorseny
+        N_OTH_FAIL >= PRAH_ZHORSENY ~ 0.5,
         # 0 spatnych klicovych indikatoru a max 1 spatny stanovistni indikator = dobry
         TRUE ~ 1
       )

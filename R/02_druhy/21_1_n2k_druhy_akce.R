@@ -49,6 +49,171 @@ DRUHY_METODIKY_OBOJ <- c(
 )
 
 #----------------------------------------------------------#
+# Ryby a mihule - metodika EVL 2026 (Hanel, Muska) ----
+#----------------------------------------------------------#
+# Druhy, pro ktere plati metodika EVL 2026. Konstanta je na urovni SOUBORU,
+# protoze ji pouziva i 24 (prah "zhorseny", nalez H-75) a 25 (uroven EVL,
+# H-81, H-83). Ostatni druhy ryb zustavaji u dosavadniho vypoctu. Nalezy
+# H-71 az H-85 jsou v Metodiky/Ryby a mihule/harmonizace_registr.md,
+# rozhodnuti zadavatele 2026-11-05 (Z-1 az Z-11) v revize_metodika_ryby.md.
+DRUHY_RYBY_2026 <- c("Cottus gobio", "Lampetra planeri", "Misgurnus fossilis")
+
+# Pasma pokryvnosti v datech ("Vzacny (0-10 %)", "Bezny (11-25 %)" ...).
+# Klic = slovni cast stitku, hodnota = STRED pasma pro soucty pres substraty
+# (rozhodnuti 2026-11-05, Z-11; obdoba medianu kategorie u obojzivelniku,
+# nalez H-60, a souctu stredu pasem poskozeni u cevnatych, PR-12).
+PASMA_POKRYVNOSTI <- c(
+  "vzácný" = 5, "běžný" = 18, "hojný" = 38, "velmi hojný" = 63,
+  "převažující" = 87.5, "dominantní" = 100
+)
+pasmo_klic <- function(x) {
+  stringr::str_extract(
+    tolower(stringr::str_squish(as.character(x))),
+    "^(velmi hojný|vzácný|běžný|hojný|převažující|dominantní)"
+  )
+}
+
+# Substraty, jejichz relativni pokryvnost se scita (metodika, kap. 5.1):
+#   Cottus gobio ....... kameny + balvany + sterk > 50 %
+#   Misgurnus fossilis . bahno + pisek >= 50 % plochy dna
+# Jmeno = tag <rsub_*>, hodnota = tvar v <sub_dno> po prevodu SLOVNIK_DNO.
+SUBSTRATY_RYBY_2026 <- list(
+  "Cottus gobio"       = c(rsub_kam = "kameny", rsub_bal = "balvany", rsub_st = "štěrk"),
+  "Misgurnus fossilis" = c(rsub_bah = "bahno", rsub_pis = "písek")
+)
+
+# Soucet stredu pasem vybranych substratu (STA_DNOTYPSOUCETPROCENT, H-76):
+#   substrat v <sub_dno> neuvedeny ..... 0
+#   uvedeny, ale bez pasma <rsub_*> .... NA (soucet neznamy)
+#   <sub_dno> chybi .................... NA
+# Strop 100 %. Soucet stredu nikdy nevyjde presne 50, takze limit "min 50"
+# odpovida i ostre nerovnosti "> 50 %" z textu metodiky Cottus (R-02).
+soucet_pasem <- function(strukt, dno_mnozina, substraty) {
+  n <- length(strukt)
+  if (is.null(substraty)) return(rep(NA_real_, n))
+  dno <- paste0(", ", ifelse(is.na(dno_mnozina), "", dno_mnozina), ", ")
+  out <- rep(0, n)
+  for (tg in names(substraty)) {
+    p <- unname(PASMA_POKRYVNOSTI[pasmo_klic(tag_hodnota(strukt, tg))])
+    uveden <- stringr::str_detect(dno, stringr::fixed(paste0(", ", substraty[[tg]], ", ")))
+    out <- out + dplyr::case_when(!is.na(p) ~ p, !uveden ~ 0, TRUE ~ NA_real_)
+  }
+  out <- pmin(out, 100)
+  out[is.na(dno_mnozina)] <- NA_real_
+  out
+}
+
+# Submerzni vegetace (Misgurnus, STA_POKRVEGSUBMERZ, H-76): klic pasma
+# <veg_tok_sub>; <veg_tok> bez submerzni vegetace -> "bez vegetace"; jinak NA.
+# Limit je vycet pasem od "bezny (11-25 %)" vyse - prah 11 % z kap. 5.1 lezi
+# presne na hranici pasem (R-02).
+vegetace_submerzni <- function(strukt) {
+  sub <- pasmo_klic(tag_hodnota(strukt, "veg_tok_sub"))
+  veg <- tag_hodnota(strukt, "veg_tok")
+  dplyr::case_when(
+    !is.na(sub) ~ sub,
+    !is.na(veg) & !grepl("submerz", veg, ignore.case = TRUE) ~ "bez vegetace",
+    TRUE ~ NA_character_
+  )
+}
+
+# Plocha v m2 na 100 m toku (Lampetra: jemne naplavy <odhad_j_n>, trdliste
+# <odhad_p_u>; delka useku <delka_prolov_u>). Bez delky useku NA - v datech
+# 91 z 419 zaznamu s odhadem, z plochy a sirky ji dopocitat nelze (H-77).
+plocha_na_100m <- function(strukt, tag) {
+  cislo <- function(v) suppressWarnings(as.numeric(gsub(",", ".", v, fixed = TRUE)))
+  pl <- cislo(tag_hodnota(strukt, tag))
+  de <- cislo(tag_hodnota(strukt, "delka_prolov_u"))
+  dplyr::if_else(!is.na(pl) & !is.na(de) & de > 0, round(pl / de * 100, 2), NA_real_)
+}
+
+# Pocty ulovenych v 1. a 2. odlovu. Survey je do NDOP prenasi JEN TEXTEM
+# v POZNAMKA ("Pocet ulovenych jedincu v prvnim lovu: 34; ..."), mezi tagy
+# nejsou (nalez H-74). Rozhodnuti 2026-11-05 (Z-3): cist text prechodne, do
+# zavedeni tagu. Mihule: minohy (larvy, metodika hodnoti "pocet larev"),
+# ostatni: jedinci; spatreni neuloveni jedinci se nezapocitavaji.
+odlov_z_poznamky <- function(poznamka, druh, lov) {
+  co <- if (identical(as.character(druh), "Lampetra planeri")) "minoh" else "jedinců"
+  kde <- if (lov == 1) "prvním" else "druhém"
+  as.numeric(stringr::str_match(
+    as.character(poznamka),
+    paste0("ulovených ", co, " v ", kde, " lovu: *([0-9]+)")
+  )[, 2])
+}
+
+# Podminky odlovu (informativni priznak STA_PODMINKYODLOVU, rozhodnuti
+# 2026-11-05, Z-7 - nic se NEFILTRUJE; nalez H-84). Sezona orientacne podle
+# kap. 3.1: Cottus a Misgurnus "koncem srpna az do zacatku listopadu"
+# = 15. 8. - 15. 11., Lampetra "v zari a rijnu". Mesic*100 + den.
+SEZONA_RYBY_2026 <- list(
+  "Cottus gobio"       = c(od = 815, do = 1115),
+  "Lampetra planeri"   = c(od = 901, do = 1031),
+  "Misgurnus fossilis" = c(od = 815, do = 1115)
+)
+podminky_odlovu <- function(mesic, den, strukt, druh) {
+  n <- length(mesic)
+  sez <- SEZONA_RYBY_2026[[as.character(druh)]]
+  if (is.null(sez) || n == 0) return(rep(NA_character_, n))
+  cislo <- function(v) suppressWarnings(as.numeric(gsub(",", ".", v, fixed = TRUE)))
+  md <- mesic * 100 + den
+  tep <- dplyr::coalesce(cislo(tag_hodnota(strukt, "tep_vody")), cislo(tag_hodnota(strukt, "Teplota")))
+  duvody <- cbind(
+    ifelse(!is.na(md) & (md < sez[["od"]] | md > sez[["do"]]), "mimo sezónu", NA),
+    ifelse(!is.na(tep) & tep < 5, "voda pod 5 °C", NA),
+    ifelse(tag_hodnota(strukt, "vod_stav") %in% "Nadprůměrný", "zvýšený průtok", NA),
+    ifelse(tag_hodnota(strukt, "typ_pruh") %in% "Dno není viditelné", "zákal", NA)
+  )
+  out <- vapply(seq_len(n), function(i) {
+    r <- duvody[i, ]; r <- r[!is.na(r)]
+    if (length(r)) paste(r, collapse = "; ") else "v pořádku"
+  }, character(1))
+  out[is.na(md) & is.na(strukt)] <- NA_character_
+  out
+}
+
+# Dynamika populace podle metodiky EVL 2026 (H-72, H-73). Pocita se za
+# lokalitu a ROK z rady ROCNICH hodnot (nejvyssi abundance v roce; u Misgurnus
+# to metodika rika vyslovne), okno konci v hodnocenem roce.
+#   Cottus, Misgurnus .. >= 6 let: prumer 3 poslednich / 3 prvnich;
+#                        2-5 let: 2 posledni / 2 prvni (doslovne, R-11);
+#                        1 rok: NA
+#   Lampetra (Z-2 = C) . vychozi = 1. pruzkum, od 5. pruzkumu prumer prvnich
+#                        ctyr; spatny, jsou-li OBA posledni pod polovinou
+#                        vychozi -> hodnota = max(dva posledni) / vychozi;
+#                        < 3 pruzkumy: NA
+# Hodnota je procento vychozi hodnoty, limit "min 50" (H-47). Vychozi 0: je-li
+# i aktualni 0 -> 100 (beze zmeny), jinak DYN_STROP - narust z nuly neni
+# pokles; Inf by 21_2 jako cislo neprecetl (obdoba VITAL_STROP).
+DYN_STROP <- 999999
+dyn_rok <- function(a, druh) {
+  n <- length(a)
+  if (identical(as.character(druh), "Lampetra planeri")) {
+    if (n < 3) return(NA_real_)
+    ref <- if (n >= 5) mean(a[1:4]) else a[1]
+    cur <- max(utils::tail(a, 2))
+  } else {
+    if (n < 2) return(NA_real_)
+    k <- if (n >= 6) 3 else 2
+    ref <- mean(utils::head(a, k))
+    cur <- mean(utils::tail(a, k))
+  }
+  if (ref == 0) return(if (cur == 0) 100 else DYN_STROP)
+  round(cur / ref * 100, 3)
+}
+
+# Vitalita podle metodiky EVL 2026 (H-79): pocet pruzkumu se VSEMI TREMI
+# delkovymi skupinami mezi tremi poslednimi pruzkumy v ruznych letech (okno
+# konci v hodnocenem roce); limit "min 2". Pruzkum = rok, kdy jsou z lokality
+# delky, nebo kdy druh nebyl zjisten (0 skupin). Mene nez dva pruzkumy v okne
+# -> NA (neznamy) - PREDBEZNE, metodika pripad neresi (otazka R-13 / A-4).
+vitalita3 <- function(ok3, mereno) {
+  vapply(seq_along(ok3), function(i) {
+    j <- utils::tail(which(mereno[seq_len(i)]), 3)
+    if (length(j) < 2) NA_real_ else sum(ok3[j])
+  }, numeric(1))
+}
+
+#----------------------------------------------------------#
 # Pomocne funkce - cevnate rostliny (metodika 2026-10-21) ----
 #----------------------------------------------------------#
 # HODNOCENE OBDOBI. Metodika cevnatych rostlin nezna pevne okno 12 let:
@@ -514,10 +679,15 @@ run_n2k_druhy <- function(
       }
     } %>%
     # Filtrace dat: Ponechame pouze kombinace Druh a Lokalita, ktere jsou v seznamu sledovanych predmetu ochrany
+    #
+    # PAROVE (nalez H-85): drive se testoval druh a kod EVL ZVLAST, takze
+    # prosly i zaznamy z EVL, kde druh predmetem ochrany neni (od 2013 napr.
+    # 5 119 zaznamu letounu, 4 180 obojzivelniku, 1 265 ryb). Na urovni EVL
+    # je odstranil az export (27), na urovni DP zustaly. Rozhodnuti zadavatele
+    # 2026-11-05: opravit pro vsechny skupiny. Vyjimky beze zmeny.
     dplyr::filter(
       DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
-      (DRUH %in% sites_subjects$nazev_lat & 
-        kod_chu %in% sites_subjects$site_code)
+      paste(DRUH, kod_chu) %in% paste(sites_subjects$nazev_lat, sites_subjects$site_code)
     ) %>%
     #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
     #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
@@ -558,6 +728,28 @@ run_n2k_druhy <- function(
       POCITANO_CLEAN %in% lim_pocet ~ POCET,
       !is.na(POP_KOEFICIENT) ~ POCET * POP_KOEFICIENT,
       TRUE ~ NA_real_
+    ),
+    # Ryby metodiky EVL 2026: pocet ulovenych v 1. a 2. odlovu z textu
+    # POZNAMKA (H-74, Z-3), u mihule jen larvy. Kde text neni (pred 2019),
+    # zustava POP_POCET; zdroj se nese v POP_POCETODLOVZDROJ.
+    POP_POCETLOV1 = if (species_name %in% DRUHY_RYBY_2026) {
+      odlov_z_poznamky(POZNAMKA, species_name, 1)
+    } else NA_real_,
+    POP_POCETLOV2 = if (species_name %in% DRUHY_RYBY_2026) {
+      odlov_z_poznamky(POZNAMKA, species_name, 2)
+    } else NA_real_,
+    POP_POCETODLOV = dplyr::case_when(
+      !(species_name %in% DRUHY_RYBY_2026) ~ NA_real_,
+      POP_PRESENCE == "ne" ~ 0,
+      !is.na(POP_POCETLOV1) & !is.na(POP_POCETLOV2) ~ POP_POCETLOV1 + POP_POCETLOV2,
+      TRUE ~ POP_POCET
+    ),
+    POP_POCETODLOVZDROJ = dplyr::case_when(
+      !(species_name %in% DRUHY_RYBY_2026) ~ NA_character_,
+      POP_PRESENCE == "ne" ~ "negativní záznam",
+      !is.na(POP_POCETLOV1) & !is.na(POP_POCETLOV2) ~ "POZNAMKA (1. + 2. odlov)",
+      !is.na(POP_POCET) ~ "POCET",
+      TRUE ~ NA_character_
     ),
     POP_RELPOC = dplyr::case_when(
       POP_PRESENCE == "ne" ~ "0",
@@ -686,7 +878,12 @@ run_n2k_druhy <- function(
       dplyr::if_else(!is.na(v) & v > 0, v, NA_real_)
     },
     # POP_ABUNDANCENAL: Vypocet abundance (pocet jedincu / plocha odlovu)
-    POP_ABUNDANCENAL = POP_POCET/POP_PLOCHALOV,
+    # U ryb metodiky EVL 2026 z poctu ulovenych v obou odlovech (H-74).
+    POP_ABUNDANCENAL = if (species_name %in% DRUHY_RYBY_2026) {
+      POP_POCETODLOV / POP_PLOCHALOV
+    } else {
+      POP_POCET / POP_PLOCHALOV
+    },
     ## Vlivy ----
     # Extrakce informaci o vlivech ze dvou ruznych XML tagu ve strukturovane poznamce
     vliv1 = stringr::str_extract(
@@ -1174,7 +1371,25 @@ run_n2k_druhy <- function(
       tag_hodnota(STRUKT_POZN, "upr_dno"),
       tag_hodnota(STRUKT_POZN, "upr_dno_r_b_u"),
       "bez úprav"
-    )
+    ),
+
+    # ----- Stanovistni parametry metodiky EVL 2026 (H-76, H-77) -----
+    # Mimo DRUHY_RYBY_2026 zustavaji NA (vcetne STA_DNOTYPSOUCETPROCENT,
+    # ktery byl dosud sirotkem bez vypoctu).
+    STA_DNOTYPSOUCETPROCENT = soucet_pasem(
+      STRUKT_POZN, STA_DNO, SUBSTRATY_RYBY_2026[[species_name]]
+    ),
+    STA_POKRVEGSUBMERZ = if (species_name %in% DRUHY_RYBY_2026) {
+      vegetace_submerzni(STRUKT_POZN)
+    } else NA_character_,
+    STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV = if (species_name %in% DRUHY_RYBY_2026) {
+      plocha_na_100m(STRUKT_POZN, "odhad_j_n")
+    } else NA_real_,
+    STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI = if (species_name %in% DRUHY_RYBY_2026) {
+      plocha_na_100m(STRUKT_POZN, "odhad_p_u")
+    } else NA_real_,
+    # Informativni priznak podminek odlovu (H-84, Z-7).
+    STA_PODMINKYODLOVU = podminky_odlovu(MESIC, DEN, STRUKT_POZN, species_name)
   ) %>%
     # ------------------------------------------#
     ## Savci ----- 
@@ -1838,6 +2053,39 @@ run_n2k_druhy <- function(
       by = c("KOD_LOKAL", "DRUH", "ROK")
     )
 
+  # Lokalita - dynamika a vitalita podle metodiky EVL 2026, ZA KAZDY ROK -----
+  # (nalezy H-72, H-73, H-79). Puvodni POP_DYN nize bere head(..., 3) pres
+  # RADKY n2k_druhy_lokpop, kterych je na lokalitu-rok tolik, kolik bylo
+  # zmerenych delek - u 69 % lokalit Cottus slo fakticky o 1 rok proti 1 roku
+  # - a pripojuje se bez ROKu. Zde je jedna hodnota na rok a okno konci
+  # v hodnocenem roce (vzor n2k_druhy_lokpop_period3). Ostatni druhy ryb
+  # zustavaji u puvodniho vypoctu.
+  n2k_druhy_lokpop_ryby2026 <- NULL
+  if (species_name %in% DRUHY_RYBY_2026) {
+    n2k_druhy_lokpop_ryby2026 <- n2k_druhy_lokpop %>%
+      dplyr::group_by(KOD_LOKAL, DRUH, ROK) %>%
+      dplyr::summarise(
+        ABUND_ROK = {
+          a <- POP_ABUNDANCE[!is.na(POP_ABUNDANCE)]
+          if (length(a) > 0) max(a) else NA_real_
+        },
+        VIT_OK3 = any(!is.na(POP_VITALITA) & POP_VITALITA >= 3),
+        VIT_MERENO = any(!is.na(POP_VITALITA)),
+        .groups = "drop"
+      ) %>%
+      dplyr::arrange(KOD_LOKAL, DRUH, ROK) %>%
+      dplyr::group_by(KOD_LOKAL, DRUH) %>%
+      dplyr::mutate(
+        POP_DYN = vapply(seq_along(ROK), function(i) {
+          a <- ABUND_ROK[seq_len(i)]
+          dyn_rok(a[!is.na(a)], species_name)
+        }, numeric(1)),
+        POP_VITALITA3 = vitalita3(VIT_OK3, VIT_MERENO)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(KOD_LOKAL, DRUH, ROK, POP_DYN, POP_VITALITA3)
+  }
+
   # Lokalita - trendy akualni----
   # populacni trendy odvozene od posledniho pozorovani POP_POCETMAX[1]
   n2k_druhy_lokpop_trend_desc <- n2k_druhy_lokpop %>%
@@ -1993,15 +2241,27 @@ run_n2k_druhy <- function(
     ) %>%
     # Pripojeni trendu (jen za lokalitu, ne rok - trend je jeden pro lokalitu)
     dplyr::left_join(
-      ., 
-      n2k_druhy_lokpop_trend, 
+      .,
+      n2k_druhy_lokpop_trend,
       by = join_by(
-        KOD_LOKAL, 
+        KOD_LOKAL,
         DRUH
       )
     ) %>%
     dplyr::distinct()
-  
+
+  # Ryby metodiky EVL 2026: POP_DYN a POP_VITALITA3 za lokalitu a ROK (viz
+  # n2k_druhy_lokpop_ryby2026 vyse) nahrazuji POP_DYN z trendove tabulky.
+  if (!is.null(n2k_druhy_lokpop_ryby2026)) {
+    n2k_druhy <- n2k_druhy %>%
+      dplyr::select(-POP_DYN) %>%
+      dplyr::left_join(
+        n2k_druhy_lokpop_ryby2026,
+        by = c("KOD_LOKAL", "DRUH", "ROK")
+      ) %>%
+      dplyr::distinct()
+  }
+
   return(n2k_druhy)
   
 }

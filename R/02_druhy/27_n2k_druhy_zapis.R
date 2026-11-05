@@ -175,9 +175,11 @@ nal_export <- function(
   druhy_okno_lokalit <- if (exists("cis_cevky_frekvence")) cis_cevky_frekvence$DRUH else character(0)
   n2k_load_valid <- n2k_load %>%
     dplyr::filter(ROK >= current_year - 12 | DRUH %in% druhy_okno_lokalit) %>%
+    # Parove druh x EVL, shodne s 21_1 (nalez H-85 v
+    # Metodiky/Ryby a mihule/harmonizace_registr.md).
     dplyr::filter(
       DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
-        (DRUH %in% sites_subjects$nazev_lat & kod_chu %in% sites_subjects$site_code)
+        paste(DRUH, kod_chu) %in% paste(sites_subjects$nazev_lat, sites_subjects$site_code)
     )
   n2k_load_split <- split(n2k_load_valid, as.character(n2k_load_valid$DRUH))
 
