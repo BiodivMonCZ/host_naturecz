@@ -61,6 +61,17 @@ v revizi, pravidla `PR-<pravidlo>-<C|L|M>` (C = *Cottus*, L = *Lampetra*, M = *M
 | — | „`Monitoring druhů ČR` je `PROJEKT`, ne `ZDROJ` — doplnit zdroje ryb, např. Kolektiv autorů (2021) … (2025) Monitoring ryb. Monitoring druhů ČR. AOPK ČR." | řádek odstraněn, doplněno 8 zdrojů ryb — **H-89** |
 | — | „pro populační metriky použít abundanci — `POCET` přepočtený na plochu" | `21_1` u tří druhů — **H-74**; tím zodpovězena i úprava B ze Z-21 (ne počet, ale hustota) |
 
+**Odpovědi zadavatele — Kontrolní bod 3, 2. kolo (2026-11-05):**
+
+| # | Odpověď | Provedení |
+|---|---|---|
+| Z-19 | „2023" | význam nejistý — změřeno i od roku 2023: obojživelníci *B. bombina* 163 z 530 DP (31 %), *T. cristatus* 113 z 332 (34 %); ryby 40–91 %; cévnaté 0 (H-25). **Doptat se** (H-91) |
+| Z-20 | „follow the previous rule" | čte se jako dřívější pokyn „ano, ale nejdřív vyřešit Z-19" — **čeká na Z-19** |
+| Z-22 | „export bude dodán později; teď brát poslední dostupné roky" | beze změny kódu: okno ryb je `ROK >= current_year - 12` (2013–2025), takže data do 2023 vstupují; dynamika a vitalita se počítají k poslednímu roku lokality a reprezentativní návštěva je nejnovější |
+| Z-23 | „teď to není problém" | beze změny |
+| Z-24 | „testovat jen piskoře a mihuli" | `24`: očekávané klíčové indikátory z limitů jen pro *Lampetra* a *Misgurnus* (`DRUHY_KLIC_Z_LIMITU`) — **H-92** |
+| — | „exportovat jen indikátory popsané metodikou + přítomnost jako info" | limity tří druhů 46 → 27 řádků; jednotky `POCET` do `21_1` — viz §Fáze 4 |
+
 Fáze 1 a 2 **nezměnily žádný kód ani vstupní data.** Fáze 3 vytvořila návrh limitů
 (`Data/Input/limity_ryby_2026.csv`, `cis_ryby_delky_strukt_2026.csv`, skript
 `R/05_metodiky/55_ryby_limity_2026.R`) a patch kódu
@@ -813,10 +824,15 @@ přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůst
   se v `21_1` nepočítá (H-25 registru cévnatých, „sirotek"), takže DP nemá **žádný** řádek
   klíčového indikátoru: **2 410 DP je „dobrý" a 22 „zhoršený"** (*Cypripedium*, jen podle
   neklíčových indikátorů), žádná „špatný" ani „neznámý". Pravidlo H-90 to nevidí.
-- **Návrh (neaplikováno):** brát očekávané klíčové indikátory z tabulky limitů druhu (argument
-  `limity` funkce `run_n2k_druhy_lok` je dnes nevyužitý), ne z řádků — u cévnatých by pak do
-  zavedení H-25 byly všechny DP neznámé, což odpovídá skutečnosti. Pro *Cobitis* a *Salmo* nejdřív
-  zjistit, proč řádky nevznikají (srov. běh `Outputs/Test/Cobitis_elongatoides_20260904/`).
+- **Návrh:** brát očekávané klíčové indikátory z tabulky limitů druhu (argument `limity` funkce
+  `run_n2k_druhy_lok` dřív nevyužitý), ne z řádků — u cévnatých by pak do zavedení H-25 byly všechny
+  DP neznámé, což odpovídá skutečnosti. Pro *Cobitis* a *Salmo* nejdřív zjistit, proč řádky
+  nevznikají (srov. běh `Outputs/Test/Cobitis_elongatoides_20260904/`).
+- **Test podle pokynu Z-24 (`982c999`):** zavedeno v `24` jen pro `DRUHY_KLIC_Z_LIMITU` =
+  *Lampetra planeri*, *Misgurnus fossilis*; klíčové indikátory z limitů = `POP_DYN`, `POP_VITALITA3`.
+  Běh [`Outputs/Test/Ryby_20261105/export_metodika/`](../../Outputs/Test/Ryby_20261105/export_metodika/):
+  **bez změny** verdiktu i hodnoty u kterékoli DP — u obou druhů mají všechny DP řádky obou
+  klíčových indikátorů. Rozšíření na *Cobitis*, *Salmo* a cévnaté = doplnit druhy do konstanty.
 
 ### H-93 — Nulový úlovek bez plochy úseku dával abundanci `NA`, ne 0
 - **Závažnost:** střední · **Typ:** BUG · **Stav:** ✅ **opraveno** (`aa2d8bd`, ověřeno během) · **Odkazy:** H-74, H-90, Z-21
@@ -948,6 +964,21 @@ Kód větve (`06a849d`) je **shodný s kódem ověřeným během „aplikovano"*
 souboru, `R/` a vstupy ryb). `limity_vse.csv` a `cil_mon_zdroj.csv` beze změny. Nic není sloučeno
 ani odesláno; `Outputs/Data/` ani `Data/Temp/` repozitáře běhy nepřepsaly (izolované kopie).
 
+### Export jen indikátorů metodiky (pokyn 2026-11-05, `eda447d`)
+
+Limity tří druhů 46 → **27 řádků**: zůstávají parametry metodiky (`POP_DYN`, `POP_VITALITA3`;
+stanoviště *Cottus* `STA_DNOTYPSOUCETPROCENT`, *Lampetra* oba `STA_ODHAD…`, *Misgurnus*
+`STA_DNOTYPSOUCETPROCENT` a `STA_POKRVEGSUBMERZ`; EVL `LOK_PROCDOBR`, `STA_MIGPROSTUP`),
+`POP_PRESENCE` jako info a `STA_MIGBARVYS` (info) — výška bariéry na lokalitě, ze které `25` počítá
+parametr metodiky `STA_MIGPROSTUP` (metodika 4.1 „sledování přítomnosti migračních bariér na
+monitorovaných lokalitách"). Vypuštěny informativní `POP_POCET`, `POP_VITALITA`, `POP_POCETODLOV`,
+`POP_POCETODLOVZDROJ`, `STA_PODMINKYODLOVU` (dosavadní příznak podle Z-7) a `STA_MIGBARPOCET`;
+jejich výpočet v `21_1` zůstává, jen se neexportují. Jednotky `POCET` pro abundanci se dřív braly
+z řádků `POP_POCET` limitů — nově `JEDNOTKY_POCET_RYBY_2026` v `21_1` (táž hodnota).
+Běh [`export_metodika`](../../Outputs/Test/Ryby_20261105/export_metodika/): **0 rozdílů** v hodnotách
+i stavech `POP_DYN`, `POP_VITALITA3`, `STA_MIGBARVYS`, `POP_PRESENCE`, verdiktech DP a všech
+indikátorech EVL proti běhu `abundance_pocet`.
+
 ## Stav nálezů po Fázi 4
 
 | Nález | Stav |
@@ -962,20 +993,20 @@ ani odesláno; `Outputs/Data/` ani `Data/Temp/` repozitáře běhy nepřepsaly (
 | H-89 | ✅ aplikováno; dopad na obojživelníky změřen (Z-14); seznam beze změny (Z-15) |
 | H-90 | ✅ aplikováno pro všechny skupiny (Z-12) |
 | H-91 | **otázka Z-19** — od 2024 významné jen u obojživelníků |
-| H-92 | nové — dotýká se i cévnatých (H-25), otázka Z-24 |
+| H-92 | očekávané klíčové indikátory z limitů zavedeny pro *Lampetra* a *Misgurnus* (bez změny výsledku); ostatní druhy po rozhodnutí |
 | H-93 | ✅ opraveno (nulový úlovek ⇒ abundance 0) |
-| H-94 | **nové — otázka Z-22** (data 2024–2025) |
+| H-94 | data 2024–2025 dodá zadavatel později; do té doby se hodnotí poslední dostupné roky (Z-22) |
 
 ## Otázky pro zadavatele — Kontrolní bod 3
 
 | # | Otázka | Možnosti | Doporučení | Nález |
 |---|---|---|---|---|
-| Z-19 | Pravidlo H-90 u skupin, jejichž metodika říká „indikátor se hodnotí pouze, jsou-li dostupné informace" (obojživelníci) | (a) ponechat napříč skupinami / (b) jen ryby tří druhů a cévnaté / (c) napříč, ale špatný má přednost / (d) obojživelníci bez `POP_ZMENARAD` | **(b)** — od 2024 mění 27–33 % DP obojživelníků (pokyn „není problém, pokud významně nemění hodnocení od 2024" splněn není); ostatní skupiny dnes bez dopadu | H-91 |
+| Z-19 | Pravidlo H-90 u skupin, jejichž metodika říká „indikátor se hodnotí pouze, jsou-li dostupné informace" (obojživelníci) — *odpověď „2023" k upřesnění: hranice kontroly 2023, nebo platnost pravidla od 2023?* | (a) ponechat napříč skupinami / (b) jen ryby tří druhů a cévnaté / (c) napříč, ale špatný má přednost / (d) obojživelníci bez `POP_ZMENARAD` / (e) pravidlo jen pro hodnocení od 2023 | **(b)** — od 2023 i od 2024 mění 27–34 % DP obojživelníků; ostatní skupiny dnes bez dopadu | H-91 |
 | Z-20 | *(zadavatel: „ano, ale nejdřív vyřešit Z-19")* Obdoba H-90 na úrovni EVL: obecná aritmetika [`25:409-413`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L409-L413) neznámý klíčový indikátor území odečte a hodnotí podle zbylých | zavést (neznámý ⇒ EVL neznámá) / ponechat | rozhodnout po Z-19; ryby mají vlastní rozhodovací tabulku (blok 5a), u obojživelníků (5b) vyšla EVL bez hodnocené DP v běhu „neznámý" — jiné skupiny neověřeny | H-90 |
 | Z-21 | *(zadavatel: „nejdřív vyřešit piskoře a mihuli")* spojení lokalit podle souřadnic do 100 m — viz diagnóza; úprava B **zamítnuta** pokynem „abundance = `POCET` / plocha" | spojení ano (100 / 300 m) / ne | spojení až s kódem lokality (D-1) | H-93, H-94 |
-| Z-22 | Monitoring ryb 2024–2025 v NDOP chybí — jsou data v MOD / u řešitelů a kdy budou v NDOP? | — | doplnit před hodnocením 2025 | H-94 |
-| Z-23 | Obojživelníci: reference `POP_ZMENARAD` = poslední předchozí rok **s kategorií početnosti** | ano / ne | ano (48 DP-roků 2024+ *B. bombina* + *T. cristatus*) | H-91 |
-| Z-24 | *Cobitis elongatoides*, *Salmo salar* a cévnaté: klíčový indikátor bez řádku (H-92) — očekávané klíčové indikátory brát z limitů | ano / ne | ano, po Z-19 (u cévnatých do zavedení H-25 všechny DP neznámé) | H-92 |
+| Z-22 | ~~Monitoring ryb 2024–2025 v NDOP chybí~~ — **zodpovězeno**: export dodá zadavatel později, teď poslední dostupné roky | — | — | H-94 |
+| Z-23 | ~~Obojživelníci: reference `POP_ZMENARAD` s kategorií početnosti~~ — **zodpovězeno**: teď ne | — | — | H-91 |
+| Z-24 | Očekávané klíčové indikátory z limitů — **otestováno** u *Lampetra* a *Misgurnus* (bez změny); rozšířit na *Cobitis*, *Salmo* a cévnaté? | ano / ne | ano, po Z-19 (u cévnatých do zavedení H-25 všechny DP neznámé) | H-92 |
 
 ---
 
