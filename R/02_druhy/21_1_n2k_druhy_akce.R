@@ -58,6 +58,16 @@ DRUHY_METODIKY_OBOJ <- c(
 # rozhodnuti zadavatele 2026-11-05 (Z-1 az Z-11) v revize_metodika_ryby.md.
 DRUHY_RYBY_2026 <- c("Cottus gobio", "Lampetra planeri", "Misgurnus fossilis")
 
+# Jednotky POCET, ze kterych se u techto druhu pocita abundance (POP_POCET /
+# plocha odlovu). Drive se braly z informativnich radku POP_POCET v limitech;
+# ty byly odstraneny, protoze se exportuji jen indikatory metodiky a
+# pritomnost (pokyn zadavatele 2026-11-05). Hodnoty = drivejsi radky limitu.
+JEDNOTKY_POCET_RYBY_2026 <- list(
+  "Cottus gobio"       = "jedinci",
+  "Lampetra planeri"   = c("jedinci", "larvy"),
+  "Misgurnus fossilis" = "jedinci"
+)
+
 # Pasma pokryvnosti v datech ("Vzacny (0-10 %)", "Bezny (11-25 %)" ...).
 # Klic = slovni cast stitku, hodnota = STRED pasma pro soucty pres substraty
 # (rozhodnuti 2026-11-05, Z-11; obdoba medianu kategorie u obojzivelniku,
@@ -630,6 +640,11 @@ run_n2k_druhy <- function(
   # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
   # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
   lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+  # Ryby metodiky EVL 2026: POP_POCET neni v limitech (neni indikatorem
+  # metodiky), jednotky poctu jsou v JEDNOTKY_POCET_RYBY_2026.
+  if (species_name %in% DRUHY_RYBY_2026 && length(lim_pocet) == 0) {
+    lim_pocet <- JEDNOTKY_POCET_RYBY_2026[[species_name]]
+  }
   # plosna populacni jednotka druhu (NA, neni-li jednotkou plocha) - viz koef_plochy
   cil_plocha <- intersect(lim_pocet, names(PLOCHA_M2))[1]
   if (length(lim_pocet) == 0) {

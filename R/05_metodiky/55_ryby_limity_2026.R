@@ -95,6 +95,15 @@ VYSTUP <- list(
 # Sloupec `nalez` jde jen do diffu a protokolu, do limitu ne.
 # POP_DYN zustava "min 50" (smer potvrzen textem, H-47); meni se vypocet
 # v 21_1 (H-72, u Lampetra varianta C z H-73).
+# EXPORTUJI SE JEN INDIKATORY METODIKY + PRITOMNOST (pokyn zadavatele
+# 2026-11-05: "the only indicators that shall be exported are the ones
+# described by the protocol + presence for info"). Vypusteny informativni
+# radky POP_POCET, POP_VITALITA, POP_POCETODLOV, POP_POCETODLOVZDROJ,
+# STA_PODMINKYODLOVU a STA_MIGBARPOCET. STA_MIGBARVYS zustava: je to vyska
+# bariery na lokalite, ze ktere 25 pocita parametr metodiky STA_MIGPROSTUP
+# (metodika 4.1 "sledovani pritomnosti migracnich barier na monitorovanych
+# lokalitach"). Jednotky POCET pro abundanci jsou nove v 21_1
+# (JEDNOTKY_POCET_RYBY_2026).
 VEG_PASMA <- c("běžný", "hojný", "velmi hojný", "převažující", "dominantní")
 
 radky_druh <- function(druh) {
@@ -102,21 +111,11 @@ radky_druh <- function(druh) {
     ~ID_IND,               ~TYP_IND, ~LIM_IND, ~JEDNOTKA,                                  ~KLIC, ~UROVEN, ~nalez,
     "POP_DYN",             "min",    "50",     "%",                                        "ano", "lok",   "H-72, H-73, H-47",
     "POP_VITALITA3",       "min",    "2",      "průzkumy se všemi délkovými skupinami",    "ano", "lok",   "H-79",
-    "POP_VITALITA",        "info",   "NA",     "délkové skupiny v roce",                   "NA",  "lok",   "H-79",
     "POP_PRESENCE",        "info",   "NA",     "přítomnost druhu",                         "NA",  "lok",   "H-80",
-    "POP_POCETODLOV",      "info",   "NA",     if (druh == "Lampetra planeri") "larvy (1. + 2. odlov)" else "jedinci (1. + 2. odlov)", "NA", "lok", "H-74",
-    "POP_POCETODLOVZDROJ", "info",   "NA",     "NA",                                       "NA",  "lok",   "H-74",
-    "STA_PODMINKYODLOVU",  "info",   "NA",     "NA",                                       "NA",  "lok",   "H-84",
-    "STA_MIGBARPOCET",     "info",   "NA",     "bariéry",                                  "NA",  "lok",   "H-83",
     "STA_MIGBARVYS",       "info",   "NA",     "cm",                                       "NA",  "lok",   "H-83",
     "LOK_PROCDOBR",        "min",    "75",     "% lokalit v dobrém stavu",                 "ano", "chu",   "H-81",
     "STA_MIGPROSTUP",      "max",    if (druh == "Lampetra planeri") "5" else "10", "cm",  "ano", "chu",   "H-83"
   )
-  pocet <- switch(druh,
-    "Lampetra planeri" = tibble::tibble(ID_IND = "POP_POCET", TYP_IND = "info", LIM_IND = "NA",
-                                        JEDNOTKA = c("jedinci", "larvy"), KLIC = "NA", UROVEN = "lok", nalez = "H-55, H-49"),
-    tibble::tibble(ID_IND = "POP_POCET", TYP_IND = "info", LIM_IND = "NA", JEDNOTKA = "jedinci",
-                   KLIC = "NA", UROVEN = "lok", nalez = "H-55"))
   stan <- switch(druh,
     "Cottus gobio" = tibble::tibble(ID_IND = "STA_DNOTYPSOUCETPROCENT", TYP_IND = "min", LIM_IND = "50",
                                     JEDNOTKA = "%", KLIC = "ne", UROVEN = "lok", nalez = "H-76, H-77"),
@@ -130,7 +129,7 @@ radky_druh <- function(druh) {
                      JEDNOTKA = "%", KLIC = "ne", UROVEN = "lok", nalez = "H-76"),
       tibble::tibble(ID_IND = "STA_POKRVEGSUBMERZ", TYP_IND = "val", LIM_IND = VEG_PASMA,
                      JEDNOTKA = "pásmo pokryvnosti", KLIC = "ne", UROVEN = "lok", nalez = "H-76")))
-  dplyr::bind_rows(zaklad[1:4, ], pocet, zaklad[5:9, ], stan, zaklad[10:11, ]) %>%
+  dplyr::bind_rows(zaklad[1:4, ], stan, zaklad[5:6, ]) %>%
     dplyr::mutate(DRUH = druh, .before = 1)
 }
 nove3 <- dplyr::bind_rows(lapply(DRUHY, radky_druh))
@@ -233,7 +232,10 @@ ODEBRANO_PROC <- c(
   STA_PROUDPOCETTYPU = "H-76 - metodika nezna",
   STA_DNOTYP = "H-45, H-76 - metodika nezna",
   STA_DNOPOCETTYPU = "H-76 - metodika nezna",
-  STA_VEGETACE = "H-76 - nahrazeno STA_POKRVEGSUBMERZ"
+  STA_VEGETACE = "H-76 - nahrazeno STA_POKRVEGSUBMERZ",
+  POP_POCET = "pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1",
+  POP_VITALITA = "H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky",
+  STA_MIGBARPOCET = "H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky"
 )
 diff <- dplyr::full_join(
   stare3 %>% dplyr::group_by(DRUH, ID_IND, UROVEN) %>% dplyr::summarise(puvodni = paste(sort(unique(radek)), collapse = " || "), .groups = "drop"),
@@ -340,7 +342,8 @@ prot <- c(
     "Z-6", "EVL s 1–2 lokalitami", "doslovně 75 %", "`LOK_PROCDOBR min 75`; výjimka „při třech dvě“ v `25`",
     "Z-7", "sezóna a podmínky", "jen příznak", "info `STA_PODMINKYODLOVU`",
     "Z-11", "převod pásem", "potvrzeno, zapsat do protokolu", "viz níže",
-    "Z-13", "aplikace návrhu", "ano", "zapsáno do živých souborů; samostatné `*_2026.csv` zrušeny"
+    "Z-13", "aplikace návrhu", "ano", "zapsáno do živých souborů; samostatné `*_2026.csv` zrušeny",
+    "KB3", "které indikátory exportovat", "jen indikátory metodiky + přítomnost (info)", "vypuštěny info řádky `POP_POCET`, `POP_VITALITA`, `POP_POCETODLOV`, `POP_POCETODLOVZDROJ`, `STA_PODMINKYODLOVU`, `STA_MIGBARPOCET`; `STA_MIGBARVYS` zůstává jako vstup `STA_MIGPROSTUP`"
   )),
   "",
   "## Převod pásem pokryvnosti na číslo (rozhodnutí Z-11)",

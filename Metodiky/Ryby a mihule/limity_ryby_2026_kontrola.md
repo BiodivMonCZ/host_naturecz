@@ -20,6 +20,7 @@ Skript zapisuje **živé** `limity_ryby.csv` a `cis_ryby_delky_strukt.csv` (rozh
 | Z-7 | sezóna a podmínky | jen příznak | info `STA_PODMINKYODLOVU` |
 | Z-11 | převod pásem | potvrzeno, zapsat do protokolu | viz níže |
 | Z-13 | aplikace návrhu | ano | zapsáno do živých souborů; samostatné `*_2026.csv` zrušeny |
+| KB3 | které indikátory exportovat | jen indikátory metodiky + přítomnost (info) | vypuštěny info řádky `POP_POCET`, `POP_VITALITA`, `POP_POCETODLOV`, `POP_POCETODLOVZDROJ`, `STA_PODMINKYODLOVU`, `STA_MIGBARPOCET`; `STA_MIGBARVYS` zůstává jako vstup `STA_MIGPROSTUP` |
 
 ## Převod pásem pokryvnosti na číslo (rozhodnutí Z-11)
 
@@ -121,27 +122,14 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 |---|---|---|---|---|---|---|---|
 | Cottus gobio | POP_DYN | min | 50 | % | ano | lok | H-72, H-73, H-47 |
 | Cottus gobio | POP_VITALITA3 | min | 2 | průzkumy se všemi délkovými skupinami | ano | lok | H-79 |
-| Cottus gobio | POP_VITALITA | info | NA | délkové skupiny v roce | NA | lok | H-79 |
 | Cottus gobio | POP_PRESENCE | info | NA | přítomnost druhu | NA | lok | H-80 |
-| Cottus gobio | POP_POCET | info | NA | jedinci | NA | lok | H-55 |
-| Cottus gobio | POP_POCETODLOV | info | NA | jedinci (1. + 2. odlov) | NA | lok | H-74 |
-| Cottus gobio | POP_POCETODLOVZDROJ | info | NA | NA | NA | lok | H-74 |
-| Cottus gobio | STA_PODMINKYODLOVU | info | NA | NA | NA | lok | H-84 |
-| Cottus gobio | STA_MIGBARPOCET | info | NA | bariéry | NA | lok | H-83 |
 | Cottus gobio | STA_MIGBARVYS | info | NA | cm | NA | lok | H-83 |
 | Cottus gobio | STA_DNOTYPSOUCETPROCENT | min | 50 | % | ne | lok | H-76, H-77 |
 | Cottus gobio | LOK_PROCDOBR | min | 75 | % lokalit v dobrém stavu | ano | chu | H-81 |
 | Cottus gobio | STA_MIGPROSTUP | max | 10 | cm | ano | chu | H-83 |
 | Lampetra planeri | POP_DYN | min | 50 | % | ano | lok | H-72, H-73, H-47 |
 | Lampetra planeri | POP_VITALITA3 | min | 2 | průzkumy se všemi délkovými skupinami | ano | lok | H-79 |
-| Lampetra planeri | POP_VITALITA | info | NA | délkové skupiny v roce | NA | lok | H-79 |
 | Lampetra planeri | POP_PRESENCE | info | NA | přítomnost druhu | NA | lok | H-80 |
-| Lampetra planeri | POP_POCET | info | NA | jedinci | NA | lok | H-55, H-49 |
-| Lampetra planeri | POP_POCET | info | NA | larvy | NA | lok | H-55, H-49 |
-| Lampetra planeri | POP_POCETODLOV | info | NA | larvy (1. + 2. odlov) | NA | lok | H-74 |
-| Lampetra planeri | POP_POCETODLOVZDROJ | info | NA | NA | NA | lok | H-74 |
-| Lampetra planeri | STA_PODMINKYODLOVU | info | NA | NA | NA | lok | H-84 |
-| Lampetra planeri | STA_MIGBARPOCET | info | NA | bariéry | NA | lok | H-83 |
 | Lampetra planeri | STA_MIGBARVYS | info | NA | cm | NA | lok | H-83 |
 | Lampetra planeri | STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV | min | 10 | m2 na 100 m toku | ne | lok | H-76, H-77, H-54 |
 | Lampetra planeri | STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI | min | 10 | m2 na 100 m toku | ne | lok | H-76, H-77, H-54 |
@@ -149,13 +137,7 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 | Lampetra planeri | STA_MIGPROSTUP | max | 5 | cm | ano | chu | H-83 |
 | Misgurnus fossilis | POP_DYN | min | 50 | % | ano | lok | H-72, H-73, H-47 |
 | Misgurnus fossilis | POP_VITALITA3 | min | 2 | průzkumy se všemi délkovými skupinami | ano | lok | H-79 |
-| Misgurnus fossilis | POP_VITALITA | info | NA | délkové skupiny v roce | NA | lok | H-79 |
 | Misgurnus fossilis | POP_PRESENCE | info | NA | přítomnost druhu | NA | lok | H-80 |
-| Misgurnus fossilis | POP_POCET | info | NA | jedinci | NA | lok | H-55 |
-| Misgurnus fossilis | POP_POCETODLOV | info | NA | jedinci (1. + 2. odlov) | NA | lok | H-74 |
-| Misgurnus fossilis | POP_POCETODLOVZDROJ | info | NA | NA | NA | lok | H-74 |
-| Misgurnus fossilis | STA_PODMINKYODLOVU | info | NA | NA | NA | lok | H-84 |
-| Misgurnus fossilis | STA_MIGBARPOCET | info | NA | bariéry | NA | lok | H-83 |
 | Misgurnus fossilis | STA_MIGBARVYS | info | NA | cm | NA | lok | H-83 |
 | Misgurnus fossilis | STA_DNOTYPSOUCETPROCENT | min | 50 | % | ne | lok | H-76 |
 | Misgurnus fossilis | STA_POKRVEGSUBMERZ | val | běžný | pásmo pokryvnosti | ne | lok | H-76 |
@@ -170,60 +152,51 @@ Citlivost součtového parametru na volbu bodu uvnitř pásma (práh 50 %):
 
 | DRUH | beze změny | odebráno | přidáno | změněno |
 |---|---|---|---|---|
-| Cottus gobio | 3 | 5 | 6 | 4 |
-| Lampetra planeri | 2 | 1 | 5 | 7 |
-| Misgurnus fossilis | 2 | 4 | 8 | 4 |
+| Cottus gobio | 2 | 8 | 3 | 2 |
+| Lampetra planeri | 1 | 4 | 2 | 5 |
+| Misgurnus fossilis | 1 | 7 | 5 | 2 |
 
 | DRUH | UROVEN | ID_IND | zmena | puvodni | novy | nalez | pozn |
 |---|---|---|---|---|---|---|---|
 | Cottus gobio | chu | LOK_PROCDOBR | přidáno |  | min \| 75 \| % lokalit v dobrém stavu \| ano | H-81 |  |
 | Cottus gobio | chu | STA_MIGPROSTUP | přidáno |  | max \| 10 \| cm \| ano | H-83 |  |
 | Cottus gobio | lok | POP_DYN | beze změny | min \| 50 \| % \| ano | min \| 50 \| % \| ano | H-72, H-73, H-47 | limit beze změny; mění se výpočet v 21_1 |
-| Cottus gobio | lok | POP_POCET | beze změny | info \| NA \| jedinci \| NA | info \| NA \| jedinci \| NA | H-55 |  |
-| Cottus gobio | lok | POP_POCETODLOV | přidáno |  | info \| NA \| jedinci (1. + 2. odlov) \| NA | H-74 |  |
-| Cottus gobio | lok | POP_POCETODLOVZDROJ | přidáno |  | info \| NA \| NA \| NA | H-74 |  |
+| Cottus gobio | lok | POP_POCET | odebráno | info \| NA \| jedinci \| NA |  | pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1 |  |
 | Cottus gobio | lok | POP_PRESENCE | změněno | val \| ano \| přítomnost druhu \| ano | info \| NA \| přítomnost druhu \| NA | H-80 |  |
-| Cottus gobio | lok | POP_VITALITA | změněno | min \| 3 \| NA \| ano | info \| NA \| délkové skupiny v roce \| NA | H-79 |  |
+| Cottus gobio | lok | POP_VITALITA | odebráno | min \| 3 \| NA \| ano |  | H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Cottus gobio | lok | POP_VITALITA3 | přidáno |  | min \| 2 \| průzkumy se všemi délkovými skupinami \| ano | H-79 |  |
 | Cottus gobio | lok | STA_DNO | odebráno | val \| balvany \| NA \| ne \|\| val \| kameny \| NA \| ne \|\| val \| štěrk \| NA \| ne |  | H-76 - metodika nezna (C: soucet pokryvnosti; M: podil bahna a pisku) |  |
 | Cottus gobio | lok | STA_DNOPOCET | odebráno | min \| 3 \| NA \| ne |  | H-77 - sirotek bez opory v metodice |  |
 | Cottus gobio | lok | STA_DNOPREF | odebráno | val \| kameny \| NA \| ne \|\| val \| písek \| NA \| ne \|\| val \| štěrk \| NA \| ne |  | H-76 - metodika nezna |  |
 | Cottus gobio | lok | STA_DNOTYPSOUCETPROCENT | beze změny | min \| 50 \| % \| ne | min \| 50 \| % \| ne | H-76, H-77 | dosud sirotek; výpočet nově v 21_1 |
-| Cottus gobio | lok | STA_MIGBARPOCET | změněno | max \| 1 \| NA \| ne | info \| NA \| bariéry \| NA | H-83 |  |
+| Cottus gobio | lok | STA_MIGBARPOCET | odebráno | max \| 1 \| NA \| ne |  | H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Cottus gobio | lok | STA_MIGBARVYS | změněno | max \| 10 \| cm \| ne | info \| NA \| cm \| NA | H-83 |  |
-| Cottus gobio | lok | STA_PODMINKYODLOVU | přidáno |  | info \| NA \| NA \| NA | H-84 |  |
 | Cottus gobio | lok | STA_PROUD | odebráno | val \| mírný \| NA \| ne \|\| val \| peřeje \| NA \| ne \|\| val \| tůně \| NA \| ne |  | H-76 - metodika nezna |  |
 | Cottus gobio | lok | STA_PROUDPOCETTYPU | odebráno | min \| 2 \| NA \| ne |  | H-76 - metodika nezna |  |
 | Lampetra planeri | chu | LOK_PROCDOBR | změněno | min \| 50 \| % lokalit v dobrém stavu \| ano | min \| 75 \| % lokalit v dobrém stavu \| ano | H-81 |  |
 | Lampetra planeri | chu | STA_MIGPROSTUP | přidáno |  | max \| 5 \| cm \| ano | H-83 |  |
 | Lampetra planeri | lok | POP_DYN | beze změny | min \| 50 \| % \| ano | min \| 50 \| % \| ano | H-72, H-73, H-47 | limit beze změny; mění se výpočet v 21_1 |
-| Lampetra planeri | lok | POP_POCET | beze změny | info \| NA \| jedinci \| NA \|\| info \| NA \| larvy \| NA | info \| NA \| jedinci \| NA \|\| info \| NA \| larvy \| NA | H-55, H-49 |  |
-| Lampetra planeri | lok | POP_POCETODLOV | přidáno |  | info \| NA \| larvy (1. + 2. odlov) \| NA | H-74 |  |
-| Lampetra planeri | lok | POP_POCETODLOVZDROJ | přidáno |  | info \| NA \| NA \| NA | H-74 |  |
+| Lampetra planeri | lok | POP_POCET | odebráno | info \| NA \| jedinci \| NA \|\| info \| NA \| larvy \| NA |  | pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1 |  |
 | Lampetra planeri | lok | POP_PRESENCE | změněno | val \| ano \| přítomnost druhu \| ano | info \| NA \| přítomnost druhu \| NA | H-80 |  |
-| Lampetra planeri | lok | POP_VITALITA | změněno | min \| 3 \| kategorie \| ano | info \| NA \| délkové skupiny v roce \| NA | H-79 |  |
+| Lampetra planeri | lok | POP_VITALITA | odebráno | min \| 3 \| kategorie \| ano |  | H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Lampetra planeri | lok | POP_VITALITA3 | přidáno |  | min \| 2 \| průzkumy se všemi délkovými skupinami \| ano | H-79 |  |
 | Lampetra planeri | lok | STA_DNOTYP | odebráno | val \| kompaktní jílové dno \| NA \| ne |  | H-45, H-76 - metodika nezna |  |
-| Lampetra planeri | lok | STA_MIGBARPOCET | změněno | max \| 1 \| NA \| ne | info \| NA \| bariéry \| NA | H-83 |  |
+| Lampetra planeri | lok | STA_MIGBARPOCET | odebráno | max \| 1 \| NA \| ne |  | H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Lampetra planeri | lok | STA_MIGBARVYS | změněno | max \| 5 \| cm \| ne | info \| NA \| cm \| NA | H-83 |  |
 | Lampetra planeri | lok | STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV | změněno | val \| 10 \| m2 \| ne | min \| 10 \| m2 na 100 m toku \| ne | H-76, H-77, H-54 | dosud sirotek; výpočet nově v 21_1 (na 100 m toku) |
 | Lampetra planeri | lok | STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI | změněno | val \| 10 \| m2 \| ne | min \| 10 \| m2 na 100 m toku \| ne | H-76, H-77, H-54 | dosud sirotek; výpočet nově v 21_1 (na 100 m toku) |
-| Lampetra planeri | lok | STA_PODMINKYODLOVU | přidáno |  | info \| NA \| NA \| NA | H-84 |  |
 | Misgurnus fossilis | chu | LOK_PROCDOBR | přidáno |  | min \| 75 \| % lokalit v dobrém stavu \| ano | H-81 |  |
 | Misgurnus fossilis | chu | STA_MIGPROSTUP | přidáno |  | max \| 10 \| cm \| ano | H-83 |  |
 | Misgurnus fossilis | lok | POP_DYN | beze změny | min \| 50 \| % \| ano | min \| 50 \| % \| ano | H-72, H-73, H-47 | limit beze změny; mění se výpočet v 21_1 |
-| Misgurnus fossilis | lok | POP_POCET | beze změny | info \| NA \| jedinci \| NA | info \| NA \| jedinci \| NA | H-55 |  |
-| Misgurnus fossilis | lok | POP_POCETODLOV | přidáno |  | info \| NA \| jedinci (1. + 2. odlov) \| NA | H-74 |  |
-| Misgurnus fossilis | lok | POP_POCETODLOVZDROJ | přidáno |  | info \| NA \| NA \| NA | H-74 |  |
+| Misgurnus fossilis | lok | POP_POCET | odebráno | info \| NA \| jedinci \| NA |  | pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1 |  |
 | Misgurnus fossilis | lok | POP_PRESENCE | změněno | val \| ano \| přítomnost druhu \| ano | info \| NA \| přítomnost druhu \| NA | H-80 |  |
-| Misgurnus fossilis | lok | POP_VITALITA | změněno | min \| 3 \| kategorie \| ano | info \| NA \| délkové skupiny v roce \| NA | H-79 |  |
+| Misgurnus fossilis | lok | POP_VITALITA | odebráno | min \| 3 \| kategorie \| ano |  | H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Misgurnus fossilis | lok | POP_VITALITA3 | přidáno |  | min \| 2 \| průzkumy se všemi délkovými skupinami \| ano | H-79 |  |
 | Misgurnus fossilis | lok | STA_DNO | odebráno | val \| bahno \| NA \| ne \|\| val \| písek \| NA \| ne |  | H-76 - metodika nezna (C: soucet pokryvnosti; M: podil bahna a pisku) |  |
 | Misgurnus fossilis | lok | STA_DNOPOCETTYPU | odebráno | min \| 2 \| NA \| ne |  | H-76 - metodika nezna |  |
 | Misgurnus fossilis | lok | STA_DNOTYPSOUCETPROCENT | přidáno |  | min \| 50 \| % \| ne | H-76 |  |
-| Misgurnus fossilis | lok | STA_MIGBARPOCET | změněno | max \| 1 \| NA \| ne | info \| NA \| bariéry \| NA | H-83 |  |
+| Misgurnus fossilis | lok | STA_MIGBARPOCET | odebráno | max \| 1 \| NA \| ne |  | H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky |  |
 | Misgurnus fossilis | lok | STA_MIGBARVYS | změněno | max \| 10 \| cm \| ne | info \| NA \| cm \| NA | H-83 |  |
-| Misgurnus fossilis | lok | STA_PODMINKYODLOVU | přidáno |  | info \| NA \| NA \| NA | H-84 |  |
 | Misgurnus fossilis | lok | STA_POKRVEGSUBMERZ | přidáno |  | val \| běžný \| pásmo pokryvnosti \| ne \|\| val \| dominantní \| pásmo pokryvnosti \| ne \|\| val \| hojný \| pásmo pokryvnosti \| ne \|\| val \| převažující \| pásmo pokryvnosti \| ne \|\| val \| velmi hojný \| pásmo pokryvnosti \| ne | H-76 |  |
 | Misgurnus fossilis | lok | STA_PROUD | odebráno | val \| kaskády \| NA \| ne \|\| val \| mírný \| NA \| ne \|\| val \| peřeje \| NA \| ne \|\| val \| tůně \| NA \| ne |  | H-76 - metodika nezna |  |
 | Misgurnus fossilis | lok | STA_VEGETACE | odebráno | val \| submerzní \| NA \| ne |  | H-76 - nahrazeno STA_POKRVEGSUBMERZ |  |
@@ -253,6 +226,6 @@ Metodika Tab. 1, pozn. a. Hranice „< 5 cm“ je ostrá; délky jsou v celých 
 | řádky ostatních druhů shodné (bajty CP1250) | TRUE |
 | konce řádků CRLF | TRUE |
 | zpětné načtení `read_csv2` jako v `00_n2k_config.R` | OK (stejné sloupce) |
-| řádků nově / před metodikou 2026 | 274 / 271 |
+| řádků nově / před metodikou 2026 | 255 / 271 |
 | H-53: vyplněný limit bez `KLIC`/`UROVEN` | 0 řádků |
-| `ind_id` v `cis_indikatory_popis.csv` pro nové `ID_IND` | 2 z 16 má kód (H-87) |
+| `ind_id` v `cis_indikatory_popis.csv` pro nové `ID_IND` | 2 z 10 má kód (H-87) |
