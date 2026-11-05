@@ -879,8 +879,11 @@ run_n2k_druhy <- function(
     },
     # POP_ABUNDANCENAL: Vypocet abundance (pocet jedincu / plocha odlovu)
     # U ryb metodiky EVL 2026 z poctu ulovenych v obou odlovech (H-74).
+    # Nulovy ulovek = nulova abundance i bez udaje o plose (nalez H-93):
+    # 0 / NA dava NA, takze negativni pruzkum bez plochy z rady dynamiky
+    # vypadl - u Misgurnus fossilis 65 zaznamu ciloveho monitoringu.
     POP_ABUNDANCENAL = if (species_name %in% DRUHY_RYBY_2026) {
-      POP_POCETODLOV / POP_PLOCHALOV
+      dplyr::if_else(POP_POCETODLOV %in% 0, 0, POP_POCETODLOV / POP_PLOCHALOV)
     } else {
       POP_POCET / POP_PLOCHALOV
     },
