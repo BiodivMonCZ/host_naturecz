@@ -561,3 +561,28 @@ Meyer L., Hinrichs D. 1999: Microhabitat preference and movements of the weather
 Podlesný M. a kol. 2010: Lov ryb elektrickým agregátem. Český rybářský svaz. Praha, 142 str.  
 Raleigh R. F. & Short C., 1981: Depletion sampling in stream ecosystems: assumption and techniques. Progressive Fish Culturist 43: 115 – 120\.
 
+
+## Otázky pro autory metodiky (L. Hanel, M. Muška) — revize výpočtu, 2026-11-05
+
+Při převodu metodiky do výpočtu hodnocení (pipeline AOPK `host_naturecz`) zůstaly
+otevřené body, které z textu nelze rozhodnout. Do odpovědi autorů je výpočet nastaven
+přechodně podle sloupce „Přechodně ve výpočtu“. Podrobnosti a odkazy R-xx:
+[revize_metodika_ryby.md](revize_metodika_ryby.md); nálezy H-xx:
+[harmonizace_registr.md](harmonizace_registr.md).
+
+| # | Okruh | Otázka | Přechodně ve výpočtu | Odkaz |
+|---|---|---|---|---|
+| A-1 | Dynamika *Cottus*, *Misgurnus* | Platí „pokles o více než 50 %“ (§5.1), nebo „o 50 a více“ (Tab. 1 *Cottus*)? Jak naložit se 2–3 lety dat (shodná nebo překrývající se okna)? „Po sobě následující“ = roky, nebo průzkumy? „První tři roky“ = od začátku monitoringu, nebo v hodnoceném období? Má Tab. 1 *Misgurnus* znít jako §5.1? | roční maxima na lokalitě; ≥ 6 let: první 3 × poslední 3 roky, 2–5 let: první 2 × poslední 2 (okna se mohou překrývat); nesplněno při poklesu o více než 50 % | R-01, R-03, R-11 |
+| A-2 | Dynamika *Lampetra* | Který vzorec (A / B / C)? Výchozí hodnota po čtyřech průzkumech — pevná, nebo klouzavá? Jen larvy? | varianta C: nesplněno, jsou-li **oba** poslední průzkumy pod polovinou výchozí hodnoty; výchozí = průměr prvních čtyř průzkumů (při ≥ 5), jinak první; jen larvy; < 3 roky = neznámý | R-12 |
+| A-3 | Počet | Oba odlovy, nebo jen první? Spatřené (neulovené) jedince ano, nebo ne? *Lampetra*: bodový 2. odlov na náplavech přičítat? Hustota (ind./ha), nebo počet? Odhad z odlovů s odstraňováním ne? | 1. + 2. odlov z textu poznámky záznamu, spatřené se nepočítají; chybí-li rozpis, celkový počet záznamu | R-14 |
+| A-4 | Vitalita | Méně než tři průzkumy ⇒ špatný, nebo neznámý? *Misgurnus* podmínku nesplní nikde — upravit délkové skupiny? *Lampetra*: jen larvy, oddělit dospělce; je skupina < 5 cm reálně dosažitelná? | poslední 3 průzkumy s měřením délek; méně než 2 průzkumy = neznámý | R-13 |
+| A-5 | Délky | *Cottus*: standardní (SL), nebo celková délka (TL)? Hranice „< 5 cm“ ostře (50 mm patří do 2. skupiny)? | délka, jak je zapsána v datech; 50 mm = 2. skupina | R-06 |
+| A-6 | Stanoviště | Převádět pásma pokryvnosti středy pásem? *Cottus* „> 50“, nebo „≥ 50“? *Misgurnus* 10, nebo 11 %; plocha dna, nebo lokality; jen submerzní, nebo i emerzní vegetace? *Lampetra* trdliště = štěrkopísčité proudné úseky (§4.1)? Plochy náplavů a trdlišť vztahovat k délce celého úseku? | součty ze středů pásem (5 / 18 / 38 / 63 / 87,5 / 100 %); *Cottus* ≥ 50 %; *Misgurnus* submerzní vegetace od pásma 11–25 %; *Lampetra* m² na 100 m úseku, limit 10 | R-02, R-05 |
+| A-7 | Migrace | Odkud brát „přes celý profil“ a okolí ~ 500 m? Která databáze nebo hodnocení celého toku? Platí přednost i u *Cottus*? Kterou bariéru v čase (poslední průzkum, celé období)? | výška bariéry z terénního protokolu lokality; nevyplněno = neznámo (formulář nezapisuje „0 bariér“) | R-07 |
+| A-8 | EVL | Pravidlo pro 1–2 hodnocené lokality? *Cottus*: počítat lokality „v příznivém stavu“ i se zhoršeným stanovištěm? | doslovně ≥ 75 % hodnocených lokalit (při třech dvě); dobrá = jen „dobrý“ | R-10 |
+| A-9 | Rozsah | Kokořínsko u piskoře; data piskoře v MOD; má kvalita vody vstoupit do hodnocení? | Kokořínsko a data MOD se nehodnotí; kvalita vody nevstupuje | R-09, R-15, R-19 |
+| A-10 | Redakce | Literatura a překlepy (seznam v R-18). | — | R-18 |
+
+Navíc k bodům A-1, A-2 a A-4: lokalita, u níž některý z obou parametrů stavu populace
+nelze hodnotit (např. jediný rok dat), má celkový stav **neznámý** (výpočet podle §5.1
+„Oba parametry … musí být hodnoceny jako dobré“; rozhodnutí zadavatele 2026-11-05).
