@@ -65,7 +65,7 @@ v revizi, pravidla `PR-<pravidlo>-<C|L|M>` (C = *Cottus*, L = *Lampetra*, M = *M
 
 | # | Odpověď | Provedení |
 |---|---|---|
-| Z-19 | „2023" | význam nejistý — změřeno i od roku 2023: obojživelníci *B. bombina* 163 z 530 DP (31 %), *T. cristatus* 113 z 332 (34 %); ryby 40–91 %; cévnaté 0 (H-25). **Doptat se** (H-91) |
+| Z-19 | „2023" → upřesněno: **„stejné pravidlo pro všechny roky; skripty musí být v hlavních pravidlech konzistentní a smí zohlednit jen změny dat mezi verzemi"** | pravidlo H-90 zůstává napříč skupinami i roky (varianta a), beze změny kódu; změřeno i od 2023: obojživelníci 31–34 % DP. Pochybnost o podílu neznámých → audit **H-95** |
 | Z-20 | „follow the previous rule" | čte se jako dřívější pokyn „ano, ale nejdřív vyřešit Z-19" — **čeká na Z-19** |
 | Z-22 | „export bude dodán později; teď brát poslední dostupné roky" | beze změny kódu: okno ryb je `ROK >= current_year - 12` (2013–2025), takže data do 2023 vstupují; dynamika a vitalita se počítají k poslednímu roku lokality a reprezentativní návštěva je nejnovější |
 | Z-23 | „teď to není problém" | beze změny |
@@ -103,7 +103,7 @@ tj. větev `CELKOVE_CILMON`, která vstupuje do `LOK_PROCDOBR`.
 | Závažnost | Počet | Nálezy |
 |---|---|---|
 | **Kritická** — plošně mění výsledek | 6 | H-71, H-72, H-73, H-75, H-81, H-90 |
-| **Vysoká** — mění výsledek u části dat | 11 | H-74, H-76, H-77, H-78, H-79, H-80, H-83, H-85, H-89¹, H-91, H-94 |
+| **Vysoká** — mění výsledek u části dat | 12 | H-74, H-76, H-77, H-78, H-79, H-80, H-83, H-85, H-89¹, H-91, H-94, H-95 |
 | **Střední** | 4 | H-82, H-84, H-92, H-93 |
 | **Nízká** | 3 | H-86, H-87, H-88 |
 
@@ -834,6 +834,39 @@ přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůst
   **bez změny** verdiktu i hodnoty u kterékoli DP — u obou druhů mají všechny DP řádky obou
   klíčových indikátorů. Rozšíření na *Cobitis*, *Salmo* a cévnaté = doplnit druhy do konstanty.
 
+### H-95 ⚠ — Řady téhož místa nejsou propojené: 21–42 % neznámých klíčových indikátorů je jiný klíč téže lokality
+- **Závažnost:** vysoká · **Typ:** DATA + KÓD (klíč lokality) · **Stav:** **zaznamenáno, otázka na zadavatele (Z-25)** · **Odkazy:** H-71, H-90, H-91, H-94; obojživelníci H-43, H-64
+- **Podnět zadavatele (2026-11-05):** *„velmi pochybuji o vysokém podílu neznámých, protože všechny
+  indikátory by měly být pokryty v datech cíleného monitoringu."*
+- **Audit** ([`Outputs/Test/Audit_nezname_20261105/`](../../Outputs/Test/Audit_nezname_20261105/README.md)) —
+  příčina každého neznámého klíčového indikátoru u verdiktů z cíleného monitoringu:
+
+  | Druh | neznámý / DP s CILMON | A1 první průzkum místa | A2 + B jiný klíč téhož místa (do 100 m) | C chybí hodnota |
+  |---|---|---|---|---|
+  | *B. bombina* (`POP_ZMENARAD`) | 315 / 725 | 51 % | **24 %** | 25 % |
+  | *T. cristatus* (`POP_ZMENARAD`) | 275 / 524 | 57 % | **21 %** | 21 % |
+  | *Cottus* (`POP_DYN`) | 193 / 428 | 59 % | **37 %** | 5 % |
+  | *Lampetra* (`POP_DYN`) | 263 / 322 | 45 % | **37 %** | 19 % |
+  | *Misgurnus* (`POP_DYN`) | 152 / 175 | 44 % | **42 %** | 14 % |
+
+- **Výklad:** klíčové indikátory obou skupin jsou indikátory **změny** (dynamika, vitalita přes tři
+  průzkumy, změna kategorie početnosti) — jeden průzkum je pokrýt nemůže, i kdyby byl úplný.
+  - **A1** je skutečně první průzkum: u obojživelníků hlavně DP kampaně 2021 „Sledování stavu EVL"
+    (127 / 134), které monitoring 2022–2025 znovu nenavštívil; u ryb jediný průzkum 2019–2023,
+    druhý by často dal chybějící monitoring 2024–2025 (H-94).
+  - **A2 + B** je vada klíče: ryby — překlepy a rozšířené názvy, které sjednocení zápisu nespojí
+    (Krečovice × Krejčovice, „Teplá Vltava I - Polka" × „Teplá Vltava a Zelenohorský potok I - Polka");
+    obojživelníci — starší záznamy bez `KOD_LOKALITY` dostávají klíč = kód EVL (`CZ0213047`), novější
+    kód DP (`CZ0213047_1`); přechod `amp…` → `CZ…_n`; přečíslování DP.
+  - **C** jsou chybějící hodnoty: obojživelníci — počet v jednotce, kterou limity kategorie
+    početnosti nepřijímají (`adulti`, `subadulti`, `larvy`; H-64 registru obojživelníků); ryby —
+    plocha úseku nebo délky.
+- **Návrh (neaplikováno, Z-25):** jedno pravidlo pro všechny skupiny — v `02_n2k_data_druhy.R`
+  přiřadit záznam bez shody klíče k existující DP téhož druhu v téže EVL, leží-li do 100 m od jejího
+  středu (souřadnice NDOP, přesnost 50 m); klíčem zůstává dosavadní kód / název nejčastějšího
+  zápisu. Odstraní A2 + B (21–42 % neznámých) a duplicitní DP; A1 a C nezmění. Před nasazením
+  testovací běh obou skupin.
+
 ### H-93 — Nulový úlovek bez plochy úseku dával abundanci `NA`, ne 0
 - **Závažnost:** střední · **Typ:** BUG · **Stav:** ✅ **opraveno** (`aa2d8bd`, ověřeno během) · **Odkazy:** H-74, H-90, Z-21
 - **Stav v kódu:** [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R) `POP_ABUNDANCENAL = POP_POCETODLOV / POP_PLOCHALOV`;
@@ -996,17 +1029,19 @@ indikátorech EVL proti běhu `abundance_pocet`.
 | H-92 | očekávané klíčové indikátory z limitů zavedeny pro *Lampetra* a *Misgurnus* (bez změny výsledku); ostatní druhy po rozhodnutí |
 | H-93 | ✅ opraveno (nulový úlovek ⇒ abundance 0) |
 | H-94 | data 2024–2025 dodá zadavatel později; do té doby se hodnotí poslední dostupné roky (Z-22) |
+| H-95 | **nové — otázka Z-25** (propojení řad téhož místa) |
 
 ## Otázky pro zadavatele — Kontrolní bod 3
 
 | # | Otázka | Možnosti | Doporučení | Nález |
 |---|---|---|---|---|
-| Z-19 | Pravidlo H-90 u skupin, jejichž metodika říká „indikátor se hodnotí pouze, jsou-li dostupné informace" (obojživelníci) — *odpověď „2023" k upřesnění: hranice kontroly 2023, nebo platnost pravidla od 2023?* | (a) ponechat napříč skupinami / (b) jen ryby tří druhů a cévnaté / (c) napříč, ale špatný má přednost / (d) obojživelníci bez `POP_ZMENARAD` / (e) pravidlo jen pro hodnocení od 2023 | **(b)** — od 2023 i od 2024 mění 27–34 % DP obojživelníků; ostatní skupiny dnes bez dopadu | H-91 |
+| Z-19 | ~~Rozsah pravidla H-90~~ — **zodpovězeno**: stejné pravidlo pro všechny roky i skupiny (a) | — | — | H-91 |
 | Z-20 | *(zadavatel: „ano, ale nejdřív vyřešit Z-19")* Obdoba H-90 na úrovni EVL: obecná aritmetika [`25:409-413`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L409-L413) neznámý klíčový indikátor území odečte a hodnotí podle zbylých | zavést (neznámý ⇒ EVL neznámá) / ponechat | rozhodnout po Z-19; ryby mají vlastní rozhodovací tabulku (blok 5a), u obojživelníků (5b) vyšla EVL bez hodnocené DP v běhu „neznámý" — jiné skupiny neověřeny | H-90 |
 | Z-21 | *(zadavatel: „nejdřív vyřešit piskoře a mihuli")* spojení lokalit podle souřadnic do 100 m — viz diagnóza; úprava B **zamítnuta** pokynem „abundance = `POCET` / plocha" | spojení ano (100 / 300 m) / ne | spojení až s kódem lokality (D-1) | H-93, H-94 |
 | Z-22 | ~~Monitoring ryb 2024–2025 v NDOP chybí~~ — **zodpovězeno**: export dodá zadavatel později, teď poslední dostupné roky | — | — | H-94 |
 | Z-23 | ~~Obojživelníci: reference `POP_ZMENARAD` s kategorií početnosti~~ — **zodpovězeno**: teď ne | — | — | H-91 |
-| Z-24 | Očekávané klíčové indikátory z limitů — **otestováno** u *Lampetra* a *Misgurnus* (bez změny); rozšířit na *Cobitis*, *Salmo* a cévnaté? | ano / ne | ano, po Z-19 (u cévnatých do zavedení H-25 všechny DP neznámé) | H-92 |
+| Z-24 | Očekávané klíčové indikátory z limitů — **otestováno** u *Lampetra* a *Misgurnus* (bez změny); rozšířit na *Cobitis*, *Salmo* a cévnaté? | ano / ne | ano (u cévnatých do zavedení H-25 všechny DP neznámé) | H-92 |
+| Z-25 | Propojit řady téhož místa: záznam bez shody klíče přiřadit k DP téhož druhu v téže EVL do 100 m — jedno pravidlo pro všechny skupiny | ano (100 m) / ano s jiným poloměrem / ne | **ano**, s testovacím během ryb a obojživelníků | H-95 |
 
 ---
 

@@ -2334,7 +2334,16 @@ významně.** Příčina u DP-roků 2024+ s neznámým `POP_ZMENARAD`
 | d) žádný předchozí rok s kategorií | 14 | 9 |
 
 Případ c) lze řešit referencí „poslední předchozí rok s cíleným monitoringem **a s kategorií
-početnosti**" (otázka **Z-23** registru ryb).
+početnosti**" (otázka **Z-23** registru ryb; zadavatel 2026-11-05: „teď to není problém").
+
+**Rozhodnutí 2026-11-05 (Z-19):** pravidlo H-90 platí pro všechny roky i skupiny. **Audit neznámých**
+([`Outputs/Test/Audit_nezname_20261105/`](../../Outputs/Test/Audit_nezname_20261105/README.md), nález
+H-95 registru ryb): z neznámých `POP_ZMENARAD` u verdiktů z cíleného monitoringu je první průzkum
+místa 51 / 57 % (*B. bombina* / *T. cristatus*; hlavně DP kampaně 2021 „Sledování stavu EVL", které
+monitoring 2022–2025 znovu nenavštívil), **jiný klíč téhož místa do 100 m 24 / 21 %** (záznamy bez
+`KOD_LOKALITY` s klíčem = kód EVL, přechod `amp…` → `CZ…_n`, přečíslování DP) a chybějící kategorie
+početnosti 25 / 21 % (jednotky `adulti`, `subadulti`, `larvy` — srov. H-64). Návrh propojení řad
+podle souřadnic je otázka **Z-25**.
 
 ---
 
