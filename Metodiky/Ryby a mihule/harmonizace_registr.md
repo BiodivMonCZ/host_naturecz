@@ -23,7 +23,27 @@ v revizi, pravidla `PR-<pravidlo>-<C|L|M>` (C = *Cottus*, L = *Lampetra*, M = *M
 | 4 | Počty v 1. a 2. odlovu z textu `POZNAMKA` | „analyzovat data, ale mají to být tagy" — viz **H-74** |
 | 5 | Převod procentních pásem na číslo | „navrhnout řešení sladěné s obojživelníky a cévnatými rostlinami" — viz **H-76** |
 
-Fáze 1 a 2 **nezměnily žádný kód ani vstupní data.** Návrhy řešení jsou podklad pro Fázi 3.
+**Rozhodnutí zadavatele ke Kontrolnímu bodu 1 (2026-11-05):**
+
+| # | Otázka (revize, Z-xx) | Rozhodnutí | Provedení (Fáze 3) |
+|---|---|---|---|
+| Z-1 | zdroj kódu lokality ryb | „just LOKALITA — klíčové je, aby byla v CILMON; označit, chybí-li v seznamu CILMON významný nedávný `ZDROJ` s bohatou `STRUKT_POZN`, a případně doplnit" | `KOD_LOKAL` = `LOKALITA` (H-71); u ryb žádný takový zdroj nechybí; seznam se ale vůbec neuplatňoval — **H-89** |
+| Z-2 | vzorec dynamiky *Lampetra* | **C** — oba poslední odlovy pod polovinou výchozí hodnoty | H-73 |
+| Z-3 | počty odlovů z `POZNAMKA` | **ano** (přechodně, se zdrojem) | H-74 |
+| Z-4 | `POP_PRESENCE` | **`info`** | H-80 |
+| Z-5 | prázdný tag bariér | **neznámo**; souhrnnou statistiku na konci | H-83 |
+| Z-6 | EVL s 1–2 lokalitami | **doslovně** 75 % | H-81 |
+| Z-7 | sezóna a podmínky | **jen příznak** | H-84 |
+| Z-8 | párový filtr předmětů ochrany | **opravit pro všechny skupiny, změřit dopad** | H-85 |
+| Z-9 | volné soubory v kořeni | **přesunout** do `podklady/` (commit `9f894fe`) | H-88 |
+| Z-10 | testovací běh | **ano** | `Outputs/Test/Ryby_20261105/` |
+| Z-11 | převod pásem | **potvrzeno, zapsat do protokolu** | [limity_ryby_2026_kontrola.md](limity_ryby_2026_kontrola.md) |
+
+Fáze 1 a 2 **nezměnily žádný kód ani vstupní data.** Fáze 3 vytvořila návrh limitů
+(`Data/Input/limity_ryby_2026.csv`, `cis_ryby_delky_strukt_2026.csv`, skript
+`R/05_metodiky/55_ryby_limity_2026.R`) a **neaplikovaný** patch kódu
+[patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch); obojí bylo ověřeno
+testovacím během v izolované kopii repozitáře — viz [§Fáze 3](#fáze-3--návrh-patch-a-testovací-běh-2026-11-05).
 
 ## Jak byl audit proveden
 
@@ -47,10 +67,13 @@ tj. větev `CELKOVE_CILMON`, která vstupuje do `LOK_PROCDOBR`.
 
 | Závažnost | Počet | Nálezy |
 |---|---|---|
-| **Kritická** — plošně mění výsledek | 5 | H-71, H-72, H-73, H-75, H-81 |
-| **Vysoká** — mění výsledek u části dat | 8 | H-74, H-76, H-77, H-78, H-79, H-80, H-83, H-85 |
+| **Kritická** — plošně mění výsledek | 6 | H-71, H-72, H-73, H-75, H-81, H-90 |
+| **Vysoká** — mění výsledek u části dat | 9 | H-74, H-76, H-77, H-78, H-79, H-80, H-83, H-85, H-89¹ |
 | **Střední** | 2 | H-82, H-84 |
-| **Nízká** | 4 | H-86, H-87, H-88, H-89 |
+| **Nízká** | 3 | H-86, H-87, H-88 |
+
+¹ H-89 bylo ve Fázi 2 vedeno jako nízké (mimo rozsah ryb); po rozboru ke Z-1 (2026-11-05)
+přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůstává na původním místě.
 | *Potvrzeno — bez akce* | 5 | P-01 … P-05 |
 
 ---
@@ -105,7 +128,29 @@ tj. větev `CELKOVE_CILMON`, která vstupuje do `LOK_PROCDOBR`.
      Návrh algoritmu a jeho ověření patří do Fáze 3, pokud jej zadavatel chce.
   3. Bez 1 nebo 2 jsou všechna pravidla PR-DYN, PR-VIT, PR-HAB a PR-EVL hodnocena nad
      sloučenými klíči — viz poznámka u každého nálezu.
-- **Rozhodnutí zadavatele:** _(zdroj kódu lokality: varianta 1, 2, nebo obojí?)_
+- **Rozhodnutí zadavatele (2026-11-05):** *„just LOKALITA — the key is that it needs to be
+  in CIL-MON."* `KOD_LOKAL` ryb = `LOKALITA` (bez normalizace zápisu); rozhoduje, aby
+  záznamy lokality byly cíleným monitoringem. → patch F3-C, **ověřeno během**.
+- **Co klíč `LOKALITA` dává** (monitoring od 2013, dvojice předmětů ochrany):
+
+  | | *Cottus* | *Lampetra* | *Misgurnus* |
+  |---|---|---|---|
+  | lokalit dnes (`naz_tok` / kód EVL) | 235 | 176 | 69 |
+  | lokalit podle `LOKALITA` | **492** | **367** | **179** |
+  | — po sjednocení pomlček, mezer a velikosti písmen (jen informativně) | 425 | 322 | 175 |
+  | tabulka metodiky (počet monitorovaných lokalit) | 221 | 174 | 69 |
+  | lokalita-rok s více průzkumy | 83 → **9** | 56 → **4** | 26 → **4** |
+  | lokalit s jediným rokem monitoringu | 272 (55 %) | 207 (56 %) | 139 (78 %) |
+
+  Sloučení úseků zmizelo. Lokalit je ale zhruba **dvakrát víc**, než uvádí metodika: tentýž úsek
+  se v různých letech jmenuje různě (`Blanice - Krejčovice` / `Blanice – Krečovice`), takže se
+  řada rozpadá na jednoleté lokality — dynamika a vitalita jsou u nich nehodnotitelné.
+  Sjednocení zápisu by spojilo 67 / 45 / 4 lokalit; trvalé řešení zůstává kód lokality
+  v `KOD_LOKALITY` (varianta 1). Tytéž názvy ve dvou EVL: 3 lokality *Cottus* (12 záznamů)
+  a 1 *Misgurnus* (2) — `21_1` je sloučí, protože seskupuje bez `kod_chu` (bez dopadu).
+- **CILMON u ryb:** všech **2 463** záznamů ryb od 2019 s ≥ 10 tagy ve `STRUKT_POZN` je
+  cíleným monitoringem (`PROJEKT` = *Monitoring druhů ČR*); u ryb tedy v seznamu žádný zdroj
+  nechybí. Seznam zdrojů se ale neuplatňuje u žádné skupiny — viz **H-89**.
 
 ### H-72 ⚠ — `POP_DYN` průměruje řádky, ne roky; jeden rok dat dává „stabilní" populaci
 - **Závažnost:** kritická · **Typ:** BUG · **Stav:** **zaznamenáno** · **Odkazy:** PR-DYN-C, PR-DYN-M, H-47, H-11
@@ -525,12 +570,124 @@ tj. větev `CELKOVE_CILMON`, která vstupuje do `LOK_PROCDOBR`.
   pro budoucí rozšíření, ne chybějící část hodnocení. Návrh: přesunout do
   `Metodiky/Ryby a mihule/podklady/`.
 
-### H-89 — `CIS_CILMON` se nikdy neuplatní (mimo rozsah ryb)
-- **Závažnost:** nízká · **Typ:** BUG (mimo rozsah) · **Stav:** **zaznamenáno**
-- [`02_n2k_data_druhy.R:249`](../../R/00_config/02_n2k_data_druhy.R#L249) `ZDROJ %in% CIS_CILMON`
-  porovnává s tabulkou (tibble), ne se sloupcem `ZDROJ_NDOP`, takže neplatí nikdy; `CILMON`
-  vzniká jen z `PROJEKT`. Seznam obsahuje citace monitoringu motýlů — ryb se netýká
-  (žádný zdroj ryb v něm není).
+### H-89 ⚠ — Seznam zdrojů cíleného monitoringu (`CIS_CILMON`) se neuplatňuje u žádného záznamu
+- **Závažnost:** vysoká (mimo ryby) · **Typ:** BUG · **Stav:** **oprava v patchi (F3-D), neaplikováno** · **Odkazy:** H-71, H-62, H-69, Z-1
+- **Stav v kódu:** [`02_n2k_data_druhy.R:249`](../../R/00_config/02_n2k_data_druhy.R#L249)
+  `ZDROJ %in% CIS_CILMON` porovnává s **tabulkou** (tibble), ne se sloupcem `ZDROJ_NDOP`, takže
+  neplatí nikdy; `CILMON` vzniká jen z `PROJEKT == "Monitoring druhů ČR"` (a dvou druhů brouků).
+- **Kontext (Z-1):** zadavatel požadoval ověřit, zda v seznamu nechybí významný nedávný zdroj
+  s bohatou `STRUKT_POZN`. Ukázalo se, že **seznam nepůsobí vůbec** — doplnit do něj cokoli by
+  nemělo žádný účinek.
+- **Co seznam obsahuje a co by oprava přepnula na `CILMON = 1`** (33 položek; mimo
+  *Monitoring druhů ČR* se v exportu vyskytují jen tři):
+
+  | položka seznamu | záznamů | skupina |
+  |---|---|---|
+  | Kolektiv autorů (2021) Sledování stavu EVL - obojživelníci. | **2 106** (*B. bombina* 1 245, *T. cristatus* 687, *B. variegata* 90, *L. montandoni* 45, *T. dobrogicus* 32, *T. carnifex* 7) | obojživelníci |
+  | Kolektiv autorů (2022) Monitoring motýlů. | 18 | motýli |
+  | Kolektiv autorů (2022) Monitoring brouků. | 5 | brouci |
+
+  U obojživelníků přibude cílený monitoring jen v **jedné** dvojici druh × EVL, kde dosud žádný
+  nebyl (*B. bombina*) — H-62 (121 neznámých EVL) to tedy nevysvětluje; mění se ale verdikty DP
+  s těmito záznamy (`CELKOVE_CILMON`) a jmenovatel `LOK_PROCDOBR`. **Dopad na obojživelníky
+  není změřen během** (mimo rozsah tohoto zadání).
+- **Významné nedávné zdroje s bohatou `STRUKT_POZN`, které cíleným monitoringem nejsou
+  a v seznamu chybí** (od 2019, ≥ 10 tagů):
+
+  | zdroj | záznamů | roky | skupina | doporučení |
+  |---|---|---|---|---|
+  | Fajmon Karel (2025) Sledování stavu populací srpice karbincolisté v Bílých Karpatech v letech 2024 a 2025. | **303** | 2024–2025 | cévnaté | **nedoplněno** — metodika cévnatých (PR-01) připouští jen projekt *Monitoring druhů ČR*; rozhodnutí zadavatele |
+  | několik zpráv o monitoringu mechorostů (Štechová, Pulkrabová, Musil) | 2–6 každá | 2021–2025 | mechorosty | jen evidovat |
+
+  U ryb nic nechybí (H-71). Do `cil_mon_zdroj.csv` proto **nebylo nic doplněno**.
+- **Řešení:** patch F3-D (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`). Po aplikaci změřit dopad na
+  obojživelníky během *T. cristatus* + *B. bombina* (obdoba `TC_BV_20260911_cilmon`).
+- **Rozhodnutí zadavatele:** _(aplikovat F3-D? doplnit zdroj „srpice karbincolisté"?)_
+
+---
+
+# Nález z testovacího běhu (Fáze 3, 2026-11-05)
+
+### H-90 ⚠ — Lokalita bez hodnoceného klíčového parametru vychází jako „dobrá"
+- **Závažnost:** kritická · **Typ:** BUG (vzniká kombinací rozhodnutí Z-1, Z-4 a pravidel `NA`) · **Stav:** **zjištěno během „po", čeká na rozhodnutí** · **Odkazy:** H-71, H-79, H-80, PR-POP, R-13
+- **Mechanismus:** [`24:203-211`](../../R/02_druhy/24_n2k_druhy_lokality.R#L203-L211) dá „špatný" jen
+  při **nesplněném** klíčovém indikátoru; nehodnocený (`NA`) se nepočítá (H-21). Dokud byl
+  `POP_PRESENCE` klíčový, měla každá DP aspoň jeden hodnocený klíčový indikátor. Po Z-4
+  (`info`) zbývají `POP_DYN` (≥ 2 roky, *Lampetra* ≥ 3) a `POP_VITALITA3` (≥ 2 průzkumy) —
+  a protože klíč `LOKALITA` rozpadá řady na jednoleté lokality (55 % lokalit *Cottus*, H-71),
+  nemá většina DP **žádný** hodnocený klíčový parametr. Výsledek je „dobrý", protože nic
+  nesplněno není.
+- **Měřený dopad (běh „po", všechny DP):** „dobrý" bez jediného hodnoceného klíčového parametru
+  **616 z 659** (*Cottus*), **371 z 376** (*Lampetra*), **276 z 276** (*Misgurnus*); bez jakéhokoli
+  hodnoceného indikátoru 422 / 327 / 215.
+- **Metodika:** §5.1 „Oba parametry (dynamika populace i vitalita populace) **musí být hodnoceny
+  jako dobré**, aby celkový stav populace … byl hodnocen jako dobrý." × §5.3 „Do celkového hodnocení
+  … vstupují pouze parametry …, pro které je v daném roce k dispozici hodnocení."
+- **Varianty (DP s cíleným monitoringem, běh „po"):**
+
+  | | *Cottus* d / z / š / ? | *Lampetra* | *Misgurnus* | agregované lokality dobré (EVL) C / L / M |
+  |---|---|---|---|---|
+  | **A** dnes — nehodnocený klíčový se ignoruje | 279 / 42 / 173 / 0 | 180 / 95 / 92 / 0 | 66 / 79 / 34 / 0 | 8 / 6 / 0 |
+  | **B** žádný hodnocený klíčový ⇒ neznámý | 43 / 3 / 173 / 275 | 5 / 1 / 92 / 269 | 0 / 2 / 34 / 143 | 2 / 1 / 0 |
+  | **C** dobrý / zhoršený jen při **obou** hodnocených (§5.1), nesplněný ⇒ špatný, jinak neznámý | 42 / 3 / 173 / 276 | 5 / 1 / 92 / 269 | 0 / 0 / 34 / 145 | 2 / 1 / 0 |
+
+- **Doporučení:** **C** — odpovídá §5.1 doslova a od B se liší jen u 1 + 2 lokalit. Patch: v `24`
+  pro `DRUHY_RYBY_2026` doplnit `N_KEY_ALL` (počet klíčových řádků s limitem bez ohledu na `STAV_IND`)
+  a větev `N_KEY_EXPECTED < N_KEY_ALL ~ NA` za větev „špatný" (vzor návrhu cévnatých H-23).
+- **Souvislost:** varianta C/B činí většinu lokalit neznámými, dokud řady nejsou dost dlouhé — přímý
+  důsledek fragmentace názvů `LOKALITA` (H-71) a toho, že monitoring běží od 2019. Kód lokality
+  (D-1) by řady spojil.
+- **Rozhodnutí zadavatele:** _(A / B / C?)_
+
+---
+
+# Fáze 3 — návrh, patch a testovací běh (2026-11-05)
+
+| Commit | Obsah |
+|---|---|
+| `9f894fe` | volné soubory z kořene do `podklady/` (Z-9, H-88) |
+| `24cfa29` | `R/05_metodiky/55_ryby_limity_2026.R` → `Data/Input/limity_ryby_2026.csv`, `cis_ryby_delky_strukt_2026.csv`, [diff](limity_ryby_2026_diff.csv), [protokol](limity_ryby_2026_kontrola.md) (pravidlo pásem Z-11) |
+| *tento commit* | [patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch) + [README](patche/README.md) (**neaplikováno**), testovací běh [`Outputs/Test/Ryby_20261105/`](../../Outputs/Test/Ryby_20261105/README.md), aktualizace registru a revize |
+
+**Živý kód `R/02_druhy`, `R/00_config` a živé vstupy `Data/Input/limity_ryby.csv`,
+`cis_ryby_delky_strukt.csv`, `limity_vse.csv`, `cil_mon_zdroj.csv` jsou beze změny.**
+
+## Testovací běh — hlavní výsledky
+
+Podrobně v [README běhu](../../Outputs/Test/Ryby_20261105/README.md).
+
+| | *Cottus* | *Lampetra* | *Misgurnus* |
+|---|---|---|---|
+| DP pred → po | 370 → 874 | 253 → 563 | 113 → 390 |
+| DP s cíleným monitoringem hodnocené | 300 → 494 | 200 → 367 | 73 → 179 |
+| EVL pred → po | bez výstupu → 8 dobrý, 22 špatný | 11 dobrý, 17 zhoršený → 2 dobrý, 4 zhoršený, 21 špatný, 1 neznámý | bez výstupu → 9 špatný |
+| migrační prostupnost EVL: dobrá / špatná / neznámá | 0 / 17 / 13 | 0 / 19 / 9 | 0 / 4 / 5 |
+| lokality se známou výškou bariéry | 106 z 494 | 100 z 367 | 10 z 179 |
+
+- Replikace z Fáze 2 se s během „pred" shoduje tam, kde je srovnatelná (*Lampetra* `LOK_PROCDOBR`
+  dobrý v 10 EVL, stav „špatný" v žádné EVL, CZ0213050 „dobrý" bez hodnocené lokality).
+- **Migrace (Z-5):** prostupnost nemůže vyjít dobrá v žádné EVL — prázdný tag je neznámo
+  a v každé EVL je alespoň jedna lokalita bez údaje (datová mezera D-5).
+- **H-90** (nové): většina „dobrých" DP v běhu „po" nemá žádný hodnocený klíčový parametr.
+
+## Stav nálezů po Fázi 3
+
+| Nález | Stav |
+|---|---|
+| H-71 | patch F3-C, ověřeno; zbývá kód lokality ze Survey (D-1) a fragmentace názvů |
+| H-72, H-73 | patch F3-H (*Lampetra* varianta C), ověřeno |
+| H-74 | patch F3-F, ověřeno; zbývají tagy počtů odlovů (D-2) |
+| H-75 | patch F3-J, ověřeno |
+| H-76, H-77, H-78 | limity F3-A, délky F3-B, výpočty F3-G, ověřeno |
+| H-79 | patch F3-H; méně než 2 průzkumy ⇒ `NA` **předběžně** (R-13, A-4) |
+| H-80 | `POP_PRESENCE` = `info` (F3-A); vyvolává **H-90** |
+| H-81, H-82, H-83 | patch F3-K, ověřeno (CZ0213050 → neznámý) |
+| H-84 | patch F3-I, ověřeno |
+| H-85 | patch F3-E, dopad na všechny skupiny změřen (README patche) |
+| H-86, H-87 | neřešeno — mimo rozhodnutí Z-1 … Z-11 (`ind_id` nemá 14 z 16 `ID_IND` návrhu) |
+| H-88 | provedeno (`9f894fe`) |
+| H-89 | patch F3-D; dopad na obojživelníky během neměřen; do `cil_mon_zdroj.csv` nic nedoplněno |
+| H-90 | **nové, čeká na rozhodnutí** |
 
 ---
 

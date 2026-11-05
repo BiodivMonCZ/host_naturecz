@@ -1,0 +1,32 @@
+DRUH,ID_IND,HOD_IND,n
+Cottus gobio,STA_PODMINKYODLOVU,v pořádku,713
+Lampetra planeri,STA_PODMINKYODLOVU,v pořádku,407
+Cottus gobio,POP_POCETODLOVZDROJ,POCET,376
+Cottus gobio,POP_POCETODLOVZDROJ,POZNAMKA (1. + 2. odlov),270
+Misgurnus fossilis,POP_POCETODLOVZDROJ,negativní záznam,205
+Lampetra planeri,POP_POCETODLOVZDROJ,POCET,188
+Misgurnus fossilis,STA_PODMINKYODLOVU,mimo sezónu,184
+Cottus gobio,POP_POCETODLOVZDROJ,negativní záznam,177
+Misgurnus fossilis,STA_PODMINKYODLOVU,v pořádku,160
+Lampetra planeri,POP_POCETODLOVZDROJ,POZNAMKA (1. + 2. odlov),159
+Cottus gobio,STA_PODMINKYODLOVU,mimo sezónu,151
+Lampetra planeri,STA_PODMINKYODLOVU,mimo sezónu,145
+Misgurnus fossilis,POP_POCETODLOVZDROJ,POCET,138
+Lampetra planeri,POP_POCETODLOVZDROJ,negativní záznam,117
+Lampetra planeri,POP_POCETODLOVZDROJ,neznámý,99
+Cottus gobio,POP_POCETODLOVZDROJ,neznámý,51
+Misgurnus fossilis,POP_POCETODLOVZDROJ,POZNAMKA (1. + 2. odlov),41
+Misgurnus fossilis,STA_PODMINKYODLOVU,zákal,16
+Misgurnus fossilis,STA_PODMINKYODLOVU,mimo sezónu; zákal,14
+Lampetra planeri,STA_PODMINKYODLOVU,zvýšený průtok,8
+Misgurnus fossilis,STA_PODMINKYODLOVU,voda pod 5 °C,8
+Cottus gobio,STA_PODMINKYODLOVU,zvýšený průtok,7
+Misgurnus fossilis,POP_POCETODLOVZDROJ,neznámý,6
+Misgurnus fossilis,STA_PODMINKYODLOVU,mimo sezónu; zvýšený průtok,4
+Cottus gobio,STA_PODMINKYODLOVU,zákal,2
+Lampetra planeri,STA_PODMINKYODLOVU,zákal,2
+Misgurnus fossilis,STA_PODMINKYODLOVU,mimo sezónu; zvýšený průtok; zákal,2
+Cottus gobio,STA_PODMINKYODLOVU,voda pod 5 °C,1
+Lampetra planeri,STA_PODMINKYODLOVU,mimo sezónu; voda pod 5 °C,1
+Misgurnus fossilis,STA_PODMINKYODLOVU,zvýšený průtok,1
+Misgurnus fossilis,STA_PODMINKYODLOVU,zvýšený průtok; zákal,1

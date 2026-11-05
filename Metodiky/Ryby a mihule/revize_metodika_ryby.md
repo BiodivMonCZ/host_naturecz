@@ -11,7 +11,9 @@ kódu, takže není vnitřně konzistentní (R-08).
 **Registr nálezů kódu a dat:** [harmonizace_registr.md](harmonizace_registr.md) (H-71 …).
 
 Fáze 1 (kontrolní seznam) a 2 (audit kódu a limitů) **nezměnily žádný kód ani vstupní data.**
-Fáze 3 (návrh limitů a oprav) čeká na rozhodnutí ke [Kontrolnímu bodu 1](#otázky-pro-zadavatele--kontrolní-bod-1).
+Fáze 3 (2026-11-05, po rozhodnutí ke Kontrolnímu bodu 1) vytvořila návrh limitů a **neaplikovaný**
+patch kódu, ověřené testovacím během — viz [Návrhy oprav](#návrhy-oprav--fáze-3-neaplikováno),
+[Testovací běh](#testovací-běh-2026-11-05) a [otázky ke Kontrolnímu bodu 2](#otázky-pro-zadavatele--kontrolní-bod-2).
 
 ## Jak byla revize provedena
 
@@ -309,24 +311,70 @@ Pro správce formuláře Survey a přenosu do NDOP (zadavatel 2026-11-05: „maj
 | D-6 | hodnocení prostupnosti celého toku | v repozitáři není | zdroj (databáze migračních překážek) a formát | H-83 |
 | D-7 | teplota vzduchu, srážky | chybí | volitelné tagy, jen pro příznak podmínek | H-84 |
 
-## Návrhy oprav — Fáze 3 (přehled, neaplikováno)
+## Návrhy oprav — Fáze 3 (neaplikováno)
 
-Podrobné patche s logikou před a po doplní Fáze 3 po rozhodnutí ke Kontrolnímu bodu 1.
+Rozhodnutí zadavatele ke Kontrolnímu bodu 1 (2026-11-05) jsou v
+[registru](harmonizace_registr.md). Limity: [limity_ryby_2026_kontrola.md](limity_ryby_2026_kontrola.md)
+(protokol převodu, včetně pravidla pro pásma). Kód: [patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch)
+a [patche/README.md](patche/README.md). **Nic z toho není v živém kódu ani v živých vstupech** —
+obojí bylo ověřeno testovacím během v izolované kopii (§Testovací běh níže).
 
-| # | Co | Soubor | Závisí na |
+| # | Soubor · místo | Před | Po | Které výstupy se mění a kam | Nález / rozhodnutí |
+|---|---|---|---|---|---|
+| F3-A | `Data/Input/limity_ryby_2026.csv` (generuje `55_ryby_limity_2026.R`) | 43 řádků tří druhů, viz H-76 | 46 řádků: populace `POP_DYN`, `POP_VITALITA3` (klíčové), `POP_VITALITA`, `POP_PRESENCE`, počty (`info`); stanoviště podle metodiky; `STA_MIGBAR*` jako `info`; EVL `LOK_PROCDOBR min 75` a `STA_MIGPROSTUP` | DP: jiná sada indikátorů; EVL: výstup nově i pro *Cottus* a *Misgurnus* | H-76 … H-83 |
+| F3-B | `Data/Input/cis_ryby_delky_strukt_2026.csv` | 1. skupina do 60 mm (C, L), do 50 mm včetně (M) | do 49,99 mm u všech tří | vitalita: více délek ve 2. skupině | H-78 |
+| F3-C | `02_n2k_data_druhy.R` · `KOD_LOKAL` | ryby: `<naz_tok>` (název EVL), jinak kód EVL | ryby: `LOKALITA` | DP ryb ≈ 2× více, sloučení úseků mizí | H-71, Z-1 |
+| F3-D | `02_n2k_data_druhy.R` · `CILMON` | `ZDROJ %in% CIS_CILMON` (nikdy pravda) | `ZDROJ %in% CIS_CILMON$ZDROJ_NDOP` | **mimo ryby**: 2 128 záznamů nově cílený monitoring (obojživelníci 2 106) | H-89, Z-1 |
+| F3-E | `21_1` · filtr předmětů ochrany (a `27` · předfiltr) | druh a EVL zvlášť | dvojice druh × EVL | DP ve všech skupinách bez EVL, kde druh není předmětem ochrany (viz README patche) | H-85, Z-8 |
+| F3-F | `21_1` · `POP_POCETODLOV`, `POP_ABUNDANCENAL` | abundance z `POCET` (oba odlovy ± spatření; u mihule i dospělci) | z 1. + 2. odlovu podle `POZNAMKA`, u mihule jen larvy; jinak `POCET`; zdroj v `POP_POCETODLOVZDROJ` | `POP_DYN` | H-74, Z-3 |
+| F3-G | `21_1` · stanovištní sloupce | 4 sirotci, kategoriální zástupné indikátory | `soucet_pasem()`, `vegetace_submerzni()`, `plocha_na_100m()` | stanovištní parametry metodiky se poprvé hodnotí | H-76, H-77, Z-11 |
+| F3-H | `21_1` · `n2k_druhy_lokpop_ryby2026` | `POP_DYN` z prvních tří **řádků**, jedna hodnota na lokalitu | `dyn_rok()` za lokalitu a rok; *Lampetra* varianta C; vitalita `vitalita3()` přes tři poslední průzkumy | `POP_DYN`, `POP_VITALITA3`; ostatní druhy ryb beze změny | H-72, H-73, H-79, Z-2 |
+| F3-I | `21_1` · `STA_PODMINKYODLOVU` | — | „v pořádku" / důvody (mimo sezónu, voda < 5 °C, zvýšený průtok, zákal) | jen zobrazení | H-84, Z-7 |
+| F3-J | `24` · `CELKOVE` | „zhoršený" od 2 nesplněných stanovištních | tři druhy od 1 | DP: dobrý → zhoršený | H-75 |
+| F3-K | `25` · `STA_MIGPROSTUP`, rozhodovací tabulka | aritmetika bez stavu „špatný"; prázdné `LOK_PROCDOBR` ⇒ dobrý | lokality (75 %, při třech dvě) × prostupnost; bez hodnocené lokality ⇒ neznámý | EVL: vzniká „špatný" a „zhoršený" z prostupnosti | H-81, H-82, H-83, Z-5, Z-6 |
+
+## Testovací běh (2026-11-05)
+
+Kaskáda `21_1` → `27` pro tři druhy v izolovaných kopiích repozitáře: **pred** = živý kód
+a limity, **po** = patch + `limity_ryby_2026.csv` + `cis_ryby_delky_strukt_2026.csv`.
+Výsledky a soubory: [Outputs/Test/Ryby_20261105/](../../Outputs/Test/Ryby_20261105/README.md).
+
+| | *Cottus* | *Lampetra* | *Misgurnus* |
 |---|---|---|---|
-| F3-A | `limity_ryby_2026.csv` ve formátu `limity_ryby.csv` + diff; generuje `R/05_metodiky/55_ryby_limity_2026.R` | nový | Z-2, Z-4, Z-5, Z-6, Z-11 |
-| F3-B | `cis_ryby_delky_strukt_2026.csv` s hranicemi metodiky | nový | autoři (R-06) — návrh s 50 mm |
-| F3-C | stanovištní parametry metodiky z `rsub_*`, `veg_tok_sub`, `odhad_*`, `delka_prolov_u` | `21_1` | Z-11 |
-| F3-D | `POP_DYN` za lokalitu a rok, roční maxima, 3 : 3 / 2 : 2, okno do hodnoceného roku | `21_1` | R-11 |
-| F3-E | dynamika *Lampetra* | `21_1` | Z-2, Z-3 |
-| F3-F | vitalita přes tři poslední průzkumy | `21_1` | R-13 |
-| F3-G | práh „zhoršený" ≥ 1 pro ryby | `24` | — |
-| F3-H | úroveň EVL: 75 %, *n* < 3, rozhodovací tabulka, prostupnost `chu`, `LENIND_SUMKLIC == 0` | `25` | Z-5, Z-6 |
-| F3-I | párový filtr předmětů ochrany | `21_1`, `27` | Z-8 |
-| F3-J | klíč lokality ryb | `02_n2k_data_druhy.R` | Z-1 |
+| DP pred → po | 370 → 874 | 253 → 563 | 113 → 390 |
+| verdikty DP s cíleným monitoringem po (d / z / š) | 279 / 42 / 173 | 180 / 95 / 92 | 66 / 79 / 34 |
+| — z toho „dobrý" bez hodnoceného klíčového parametru (H-90) | 236 | 175 | 66 |
+| EVL pred → po | — → 8 dobrý, 22 špatný | 11 d, 17 z → 2 d, 4 z, 21 š, 1 neznámý | — → 9 špatný |
+| prostupnost EVL dobrá / špatná / neznámá | 0 / 17 / 13 | 0 / 19 / 9 | 0 / 4 / 5 |
 
-## Otázky pro zadavatele — Kontrolní bod 1
+Co běh ukázal:
+
+1. Nová pravidla fungují podle návrhu: EVL dostává stav „špatný" (H-81) a „zhoršený" z prostupnosti
+   (*Lampetra* 4 EVL), *Cottus* a *Misgurnus* mají poprvé výstup EVL, CZ0213050 je „neznámý" (H-82),
+   stanovištní parametry metodiky se hodnotí.
+2. **Nová vada H-90:** po převedení `POP_PRESENCE` na `info` nemá většina DP žádný hodnocený klíčový
+   parametr a `24` je prohlásí za „dobré". S variantou C (dobrý jen při obou hodnocených, §5.1) by
+   agregované lokality byly dobré jen ve 2 EVL *Cottus* a 1 EVL *Lampetra*.
+3. **Migrace:** výška bariéry je známa jen u 21 % / 27 % / 6 % lokalit, a protože formulář nezapisuje
+   „0 bariér", nemůže prostupnost vyjít dobrá v žádné EVL (D-5).
+4. **Vitalita podle metodiky** se splní zřídka — *Cottus* 46 z 218 hodnocených DP, *Lampetra* 6 z 98,
+   *Misgurnus* 0 z 35 (R-13).
+
+## Otázky pro zadavatele — Kontrolní bod 2
+
+| # | Otázka | Možnosti | Doporučení | Nález |
+|---|---|---|---|---|
+| Z-12 | Lokalita bez hodnoceného klíčového parametru | A ponechat „dobrý" / B neznámý, není-li hodnocen žádný / C dobrý jen při obou hodnocených (§5.1) | **C** | H-90 |
+| Z-13 | Aplikovat patch a návrh limitů na větev? | ano (vše) / ano bez F3-D a F3-E (sdílený kód ostatních skupin) / ne | ano, **až s opravou Z-12**; F3-D a F3-E s vlastním testovacím během obojživelníků | patch README |
+| Z-14 | Oprava `CIS_CILMON` (F3-D) — změřit dopad na obojživelníky během *T. cristatus* + *B. bombina* před aplikací? | ano / ne | ano | H-89 |
+| Z-15 | Doplnit do `cil_mon_zdroj.csv` „Fajmon (2025) Sledování stavu populací srpice karbincolisté…" (303 záznamů)? | ano / ne | ne bez rozhodnutí ke cévnatým (PR-01) | H-89 |
+| Z-16 | Sjednotit zápis `LOKALITA` (pomlčky, mezery, velikost písmen) jako mezikrok do zavedení kódu lokality? | ano / ne | ano — spojí 67 / 45 / 4 lokalit a prodlouží řady | H-71, H-90 |
+| Z-17 | Vitalita při méně než dvou průzkumech: `NA` (předběžně) / špatný | — | `NA` do odpovědi autorů (A-4) | H-79 |
+| Z-18 | Odeslat otázky A-1 … A-10 autorům metodiky | ano / po úpravě | ano | — |
+
+## Otázky pro zadavatele — Kontrolní bod 1 (zodpovězeno 2026-11-05)
+
+Rozhodnutí jsou v [registru](harmonizace_registr.md), tabulka „Rozhodnutí zadavatele ke Kontrolnímu bodu 1".
 
 | # | Otázka | Možnosti | Doporučení | Nález |
 |---|---|---|---|---|
