@@ -2301,6 +2301,26 @@ Zadání znělo „zajistit, aby `CILMON = 0` nepřispívalo do `LOK_POCETSUM` a
 
 ---
 
+# Změny ve sdíleném kódu z revize ryb (2026-11-05)
+
+Revize ryb a mihulí ([../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>),
+větev `ryby-metodika-2026`) změnila po rozhodnutí zadavatele sdílený kód. Pro obojživelníky se mění
+tři věci; dopad změřen během *Triturus cristatus* + *Bombina bombina*
+([`Outputs/Test/TC_BB_20261105_cilmon/`](../../Outputs/Test/TC_BB_20261105_cilmon/README.md)).
+
+| Změna | Nález | Commit | Dopad na obojživelníky |
+|---|---|---|---|
+| `CILMON` ze seznamu `cil_mon_zdroj.csv` se poprvé uplatní (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`) | H-89 | `433b610` | 2 106 záznamů „Kolektiv autorů (2021) Sledování stavu EVL - obojživelníci." nově cílený monitoring; DP s cíleným monitoringem *B. bombina* 629 → 795, *T. cristatus* 428 → 584; EVL *B. bombina* 2× dobrý → zhoršený, 1× zhoršený → špatný, *T. cristatus* beze změny; medián `LOK_PROCDOBR` *T. cristatus* 33,3 → 25,0 % |
+| párový filtr druh × EVL i na úrovni DP | H-85 | `433b610` | od 2013 vyřazeno 4 180 záznamů (17,2 %, z toho 964 z monitoringu: *B. bombina* 474, *T. cristatus* 334) — DP z EVL, kde druh předmětem ochrany není; v běhu DP *B. bombina* 994 → 783, *T. cristatus* 724 → 552 |
+| neznámý klíčový indikátor ⇒ neznámý celkový stav DP, přednost před špatným | H-90 | `27b2510` | DP d / z / š / ? *B. bombina* 472 / 88 / 434 / 0 → 136 / 49 / 224 / **374**, *T. cristatus* 318 / 32 / 374 / 0 → 54 / 18 / 176 / **304**; neznámý téměř vždy kvůli `POP_ZMENARAD`; 178 a 180 neznámých DP má jiný klíčový indikátor nesplněný; EVL *B. bombina* 9 / 0 / 46 / 38 → 8 / 9 / 39 / 37 (d / ? / z / š), *T. cristatus* 2 / 0 / 22 / 39 → 1 / 7 / 19 / 36 |
+
+**Rozpor s metodikou (H-91 registru ryb):** kap. 2.1 (ř. 242) „Indikátor se hodnotí pouze, jsou–li
+dostupné informace k jeho hodnocení." Pravidlo H-90 platí na větvi napříč skupinami podle rozhodnutí
+Z-12; u obojživelníků je s tímto zněním v rozporu a v exportu plného běhu 2026-08-28 by udělalo
+neznámými 1 324 z 2 168 DP (dobrý 1 006 → 299). Rozhodnutí o rozsahu je otázka **Z-19**.
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -2353,3 +2373,5 @@ Zadání znělo „zajistit, aby `CILMON = 0` nepřispívalo do `LOK_POCETSUM` a
 | 46 | ~~**H-69** — `CILMON = 0` přispívalo do `LOK_PROCDOBR` přes verdikt DP~~ — **hotovo 2026-09-11**, sloupec `CELKOVE_CILMON`; 1 změněný verdikt EVL, úroveň DP beze změny |  |
 | 47 | **H-70** — potvrdit opravu deduplikace u druhů nevázaných na pole: `slice(1)` zahazuje celou druhou návštěvu téhož roku včetně `CILMON` (656 skupin, 14 DP). Zásah se dotkne i ryb, hmyzu, savců a rostlin — tatáž třída jako H-43 a H-52 | zadavatel |
 | 48 | **Ryby a mihule** — stav nálezů H-38 … H-58 podle metodiky EVL 2026 (*Cottus gobio*, *Lampetra planeri*, *Misgurnus fossilis*) a navazující nálezy **H-71 …** vedeny v [../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>) a [revize_metodika_ryby.md](<../Ryby a mihule/revize_metodika_ryby.md>) (2026-11-05) | zadavatel / autoři metodiky ryb |
+| 49 | **H-91 / Z-19** (registr ryb) — pravidlo „neznámý klíčový indikátor ⇒ neznámý stav DP" je na větvi `ryby-metodika-2026` zavedeno pro všechny skupiny; u obojživelníků odporuje kap. 2.1 („Indikátor se hodnotí pouze, jsou–li dostupné informace") a dělá neznámými 61 % DP (`POP_ZMENARAD`). Rozhodnout rozsah | zadavatel |
+| 50 | **H-89** (registr ryb, = H-14 cévnatých) — `cil_mon_zdroj.csv` se poprvé uplatní; zdroj 2021 „Sledování stavu EVL - obojživelníci" je nově cílený monitoring. Dopad změřen (viz oddíl výše); potvrdit, že zdroj do cíleného monitoringu patří | zadavatel |

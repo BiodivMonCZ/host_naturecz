@@ -14,9 +14,9 @@ Oba běhy proběhly v **izolovaných kopiích repozitáře** mimo pracovní stro
 ani `Outputs/Data/` repozitáře nebyly dotčeny. Skript `27` zapisuje do `Outputs/Data/druhy/`
 kopie — sem jsou převzaty jen exporty, logy a srovnání.
 
-> ⚠ **Do rozhodnutí zadavatele se výstupy nemají použít pro import do ISOP.** Běh „po"
-> obsahuje vadu H-90 (lokalita bez hodnoceného klíčového parametru vychází jako „dobrá"),
-> o jejíž opravě rozhoduje zadavatel.
+> ⚠ Běh „po" obsahuje vadu H-90 (lokalita bez hodnoceného klíčového parametru vychází jako
+> „dobrá"). **Konečný stav větve po rozhodnutích Kontrolního bodu 2 je běh
+> [„aplikovano"](#konečný-stav-větve--běh-aplikovano) na konci tohoto souboru.**
 
 ## Úroveň DP
 
@@ -123,11 +123,61 @@ nalezené bariéře, takže „bez bariéry" je od „nezjišťováno" nerozliš
 alespoň jedna lokalita bez údaje. Dokud formulář nezapisuje `0` (datová mezera D-5), je
 prostupnost buď špatná, nebo neznámá; neznámá do verdiktu EVL nevstupuje.
 
+## Konečný stav větve — běh „aplikovano"
+
+Kód `06a849d` (patch + pravidlo H-90 pro všechny skupiny, rozhodnutí Z-12 + sjednocení zápisu
+`LOKALITA`, Z-16), živé limity 2026; jeden běh pro tři ryby a *T. cristatus* + *B. bombina*
+(obojživelníci viz [`../TC_BB_20261105_cilmon/`](../TC_BB_20261105_cilmon/README.md)), 26,2 min.
+Srovnání `aplikovano/srovnani/`.
+
+| Druh | Běh | DP | dobrý | zhoršený | špatný | neznámý | DP s cíleným monitoringem |
+|---|---|---|---|---|---|---|---|
+| *Cottus gobio* | po | 874 | 659 | 42 | 173 | 0 | 494 |
+| | **aplikovano** | 789 | **53** | 2 | 177 | **557** | 428 |
+| *Lampetra planeri* | po | 563 | 376 | 95 | 92 | 0 | 367 |
+| | **aplikovano** | 510 | **5** | 1 | 51 | **453** | 322 |
+| *Misgurnus fossilis* | po | 390 | 276 | 79 | 35 | 0 | 179 |
+| | **aplikovano** | 384 | **0** | 0 | 13 | **371** | 175 |
+
+Verdikt z cíleného monitoringu (vstup EVL), aplikovano, d / z / š / neznámý: *Cottus* 53 / 2 / 177 / 196,
+*Lampetra* 5 / 1 / 51 / 265, *Misgurnus* 0 / 0 / 13 / 162.
+
+- **Sjednocení zápisu `LOKALITA` (Z-16):** DP s cíleným monitoringem 494 → 428, 367 → 322, 179 → 175 —
+  shodně s odhadem revize (425 / 322 / 175).
+- **Neznámé klíčové indikátory:** `POP_DYN` (*Cottus* 557, *Lampetra* 453, *Misgurnus* 368) a
+  `POP_VITALITA3` (554 / 388 / 348) — většina lokalit má stále jen jeden nebo dva roky dat.
+- **Přednost „neznámý" před „špatný":** z DP „neznámý" má nesplněný klíčový indikátor *Cottus* 3,
+  *Lampetra* 64, *Misgurnus* 23 — při opačné přednosti by byly špatné.
+
+**EVL (dvojice předmětů ochrany):**
+
+| Druh | po: d / z / š / ? | **aplikovano**: d / z / š / ? | přechody po → aplikovano |
+|---|---|---|---|
+| *Cottus gobio* | 8 / 0 / 22 / 0 | **5 / 0 / 22 / 3** | dobrý → neznámý 3, dobrý → špatný 2, **špatný → dobrý 2** |
+| *Lampetra planeri* | 2 / 4 / 21 / 1 | **1 / 0 / 14 / 13** | zhoršený → neznámý 4, špatný → neznámý 7, dobrý → neznámý 1 |
+| *Misgurnus fossilis* | 0 / 0 / 9 / 0 | **0 / 0 / 6 / 3** | špatný → neznámý 3 |
+
+Dvě EVL *Cottus* přešly ze „špatný" na „dobrý": jejich špatné lokality mají vedle nesplněného
+i nehodnocený klíčový indikátor, staly se neznámými a do podílu dobrých lokalit nevstupují.
+EVL „neznámý" = žádná hodnocená lokalita (`LOK_PROCDOBR` NA: *Cottus* 3, *Lampetra* 13, *Misgurnus* 3).
+
+**Dopad pravidla H-90 na všechny skupiny** — export DP posledního plného běhu (2026-08-28,
+starší kód a limity), reprezentativní návštěva DP (`aplikovano/srovnani/dopad_h90_vsechny_skupiny_beh20260828.csv`):
+
+| Skupina | DP | dobrý před → po | zhoršený | špatný | neznámý po |
+|---|---|---|---|---|---|
+| Cévnaté rostliny | 5 275 | 3 473 → 125 | 172 → 32 | 1 630 → 900 | 4 218 |
+| Obojživelníci | 2 168 | 1 006 → 299 | 91 → 51 | 1 071 → 494 | 1 324 |
+| Ryby a mihule | 926 | 374 → 77 | 6 → 0 | 546 → 348 | 501 |
+| Brouci | 863 | 809 → 768 | 6 → 6 | 48 → 47 | 42 |
+| Letouni, motýli, vážky | 6 957 | beze změny | | | 0 |
+
 ## Obsah
 
 | Co | Kde |
 |---|---|
 | exporty DP, EVL a nálezů obou běhů | `pred/export/`, `po/export/` |
+| konečný stav (pět druhů): export, log, srovnání, skripty | `aplikovano/` |
 | logy běhů | `log/` |
 | srovnání (verdikty, indikátory, EVL, migrace, varianty H-90) | `srovnani/` |
 | config testu (`TEST_SPECIES` = tři druhy), skripty srovnání | `skripty/` |

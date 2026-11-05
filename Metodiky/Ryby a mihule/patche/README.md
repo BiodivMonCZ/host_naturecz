@@ -2,15 +2,23 @@
 
 **Soubor:** [ryby_metodika_2026.patch](ryby_metodika_2026.patch) · **Základ:** větev
 `ryby-metodika-2026` (pět patchovaných souborů beze změny od `35a3d99`) · **Stav:**
-**neaplikováno** — čeká na rozhodnutí zadavatele (Kontrolní bod 2, Z-12 a Z-13). Patch
-ještě **neobsahuje opravu H-90** (lokalita bez hodnoceného klíčového parametru = „dobrý"),
-o jejíž variantě rozhoduje Z-12.
+**aplikováno** na větev `ryby-metodika-2026` (rozhodnutí Z-13, 2026-11-05) spolu s limity
+metodiky 2026 v živých `limity_ryby.csv` a `cis_ryby_delky_strukt.csv`. Patch zůstává jako
+záznam ověřeného stavu.
 
-Patch byl ověřen testovacím během v izolované kopii repozitáře spolu s návrhem
-`Data/Input/limity_ryby_2026.csv` a `cis_ryby_delky_strukt_2026.csv` (výsledky:
-`Outputs/Test/Ryby_20261105/`). Bez nových limitů nové indikátory nemají řádek limitu
-a `21_2` je zahodí; bez patche naopak nové řádky limitů nemají sloupec a zůstanou
-nehodnocené. **Aplikovat se má obojí současně.**
+Nad rámec patche byly týmž rozhodnutím zapsány přímo do kódu (nejsou v patchi):
+
+| Změna | Soubor | Rozhodnutí | Nález |
+|---|---|---|---|
+| neznámý klíčový indikátor ⇒ neznámý celkový stav DP, **všechny skupiny** (neznámý má přednost před špatným) | `24` | Z-12 | H-90 |
+| pole s neznámým stavem se nezapočítává do podílu dobrých polí; žádné hodnocené pole ⇒ `NA` | `25` (hmyz) | Z-12 | H-90 |
+| sjednocení zápisu `LOKALITA` (pomlčky, mezery, velikost písmen) na nejčastější zápis v EVL | `02_n2k_data_druhy.R` | Z-16 | H-71 |
+
+Patch byl ověřen testovacím během v izolované kopii repozitáře spolu s tehdejším návrhem
+limitů (výsledky: `Outputs/Test/Ryby_20261105/`); konečný stav včetně změn v tabulce výše
+ověřil běh `Outputs/Test/Ryby_20261105/aplikovano/`. Bez nových limitů nové indikátory nemají
+řádek limitu a `21_2` je zahodí; bez patche naopak nové řádky limitů nemají sloupec a zůstanou
+nehodnocené — proto se aplikovalo obojí současně.
 
 ## Co patch mění
 
@@ -45,14 +53,15 @@ odstraňoval už export (`27`), na úrovni DP se vykazovaly.
 Nejvíce záznamů monitoringu: *Bombina bombina* 474, *Pulsatilla grandis* 430, *Triturus
 cristatus* 334, *Cypripedium calceolus* 217, *Cottus gobio* 196.
 
-## Jak aplikovat (až po rozhodnutí)
+## Jak byl aplikován (2026-11-05)
 
 ```sh
 # z korene repozitare, na vetvi ryby-metodika-2026
 git apply --ignore-whitespace "Metodiky/Ryby a mihule/patche/ryby_metodika_2026.patch"
-# navrh limitu se stava zivym (obdoba postupu u cevnatych rostlin):
-cp Data/Input/limity_ryby_2026.csv Data/Input/limity_ryby.csv
-cp Data/Input/cis_ryby_delky_strukt_2026.csv Data/Input/cis_ryby_delky_strukt.csv
+# limity 2026 do zivych souboru (obdoba 54_cevnate_limity_2026.R): skript nove zapisuje
+# primo limity_ryby.csv a cis_ryby_delky_strukt.csv, zaklad cte z gitu (35a3d99);
+# vystup je bajtove shodny s overenym navrhem *_2026.csv, ktery byl pak zrusen
+Rscript R/05_metodiky/55_ryby_limity_2026.R
 ```
 
 `--ignore-whitespace` je nutné: soubory `21_1`, `24`, `25`, `27` jsou v repozitáři uloženy

@@ -1,0 +1,679 @@
+=== ORIZNUTY CONFIG: 51 vyrazu nejvyssi urovne z 2 souboru ===
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.1; sf_use_s2() is TRUE
+
+Attaching package: 'data.table'
+
+The following objects are masked from 'package:lubridate':
+
+    hour, isoweek, isoyear, mday, minute, month, quarter, second, wday,
+    week, yday, year
+
+The following objects are masked from 'package:dplyr':
+
+    between, first, last
+
+The following object is masked from 'package:purrr':
+
+    transpose
+
+The following object is masked from 'package:base':
+
+    %notin%
+
+  [skip 3] if (!require("rn2kcz", quietly = TRUE)) {   <- rn2kcz
+Rows: 941 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN, pozn
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 274 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (7): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 492 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): DRUH, ID_IND, TYP_IND, LIM_IND, JEDNOTKA, KLIC, UROVEN
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning in eval(e, envir = globalenv()) :
+  Limity: 2 radku ma vyplneny LIM_IND, ale prazdny KLIC nebo UROVEN - takovy indikator se chova nepredvidatelne (nalez H-53). Dotcene radky:
+Eriogaster catax / STA_HABPOKRYV (KLIC = ano, UROVEN = prazdna)
+Euphydryas aurinia / STA_HABPOKRYV (KLIC = ano, UROVEN = prazdna)
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 1153 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (4): sitecode, kategorie, nazev_chu, oop
+dbl (1): kod_chu
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 1153 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (4): sitecode, typ_chu, nazev_chu, pracoviste
+lgl (1): ,,
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 78 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): ind_popis, ind_r
+dbl (2): ind_id, ind_nadr
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 131 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): TAXON, AUTOR_POPISU, CESKE_JMENO, PRILOHA_SMERNICE, CELED, SKUPINA,...
+dbl (3): ID_TAXON, ID_ZDROJ, PERIODA
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 131 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): druh, druh_cz, SKUPINA, SKUPINA_0
+dbl (2): kod_druhu, metodika
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Reading local file: Data/Input/EvVyzLok.shp
+Warning in CPL_crs_from_input(x) :
+  GDAL Message 1: +init=epsg:XXXX syntax is deprecated. It might return a CRS with a non-EPSG compliant axis order. Further messages of this type will be suppressed.
+Reading local file: Data/Input/PtaciObl.shp
+Rows: 32 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): ZDROJ_NDOP
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 8 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (4): POP_POCETNOSTMAX, POP_POCETSTRED, POP_POCETNMIN, POP_POCETNMAX
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 19 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): DRUH, LIMIT, JEDNOTKA
+dbl (3): KAT, MIN, MAX
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 115 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): SITECODE, NAZEV, DRUH
+dbl (3): FEATURE_CODE, BIOTOP_PLOCHA, BIOTOP_PROCENTO
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat)
+Rows: 203073 Columns: 40
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (28): DRUH, CESKE_JME, AUTOR, DATUM_OD, DATUM_DO, LOKALITA, KOD_LOKALITY...
+dbl (12): ID_ND_NALEZ, IDX_ND_AKCE, IDX_ND_LOK, POCET, ODHAD, X, Y, PRESNOST...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 6752 Columns: 37
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (27): DRUH, CESKE_JME, AUTOR, DATUM_OD, DATUM_DO, LOKALITA, KOD_LOKALITY...
+dbl (10): ID_ND_NALEZ, IDX_ND_AKCE, IDX_ND_LOK, POCET, ODHAD, X, Y, PRESNOST...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  [filtr] Cottus gobio + Lampetra planeri + Misgurnus fossilis + Triturus cristatus + Bombina bombina: export_data_evl 203073 -> 28378 radku; ncol_orig = 40
+=== CONFIG HOTOV: n2k_load = 28378 zaznamu, 48 sloupcu; preskoceno 1 vyrazu ===
+     Cottus gobio: 3045 zaznamu
+     Lampetra planeri: 1849 zaznamu
+     Misgurnus fossilis: 790 zaznamu
+     Triturus cristatus: 8322 zaznamu
+     Bombina bombina: 14372 zaznamu
+=== Ukladam cache konfigurace: C:/Users/JONAS~1.GAI/AppData/Local/Temp/claude/f99e9ba18ad8929b/0f8282f7-6255-4065-99ed-5630cf661da9/scratchpad/hn_fin/Test/.cache_fin.rds ===
+=== Spoustim: 21_1_n2k_druhy_akce.R ===
+=== Spoustim: 21_2_n2k_druhy_akce_lim.R ===
+=== Spoustim: 22_n2k_obdobi.R ===
+=== Spoustim: 23_n2k_posledni_nalez.R ===
+=== Spoustim: 24_n2k_druhy_lokality.R ===
+=== Spoustim: 25_n2k_druhy_uzemi.R ===
+=== Spoustim: 27_n2k_druhy_zapis.R ===
+--- ZACINAM VYPOCET FAZE 1 (AKCE) PRO 5 DRUHU ---
+[1/4 Akce] druh  1/ 5 | hotovo     0/  223 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Bombina bombina (93 lokalit)
+Druh Bombina bombina: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_REPRO' limit for species found
+Warning: There were 28070 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 2: `KOD_LOKAL = "1389"`, `ROK = 2017`, `DRUH = Bombina bombina`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 28069 remaining warnings.
+Warning: There were 31 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 2: `KOD_LOKAL = "1389"`, `DRUH = Bombina bombina`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 30 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 1 of `x` matches multiple rows in `y`.
+ℹ Row 5348 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] druh  2/ 5 | hotovo    93/  223 ( 41.7 %) | ubehlo 00:04:34 | zbyva ~00:06:24 | -> Triturus cristatus (63 lokalit)
+Druh Triturus cristatus: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCETSUM' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_REPRO' limit for species found
+Warning: There were 18154 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 9: `KOD_LOKAL = "3293"`, `ROK = 2014`, `DRUH = Triturus cristatus`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 18153 remaining warnings.
+Warning: There were 36 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 2: `KOD_LOKAL = "1586"`, `DRUH = Triturus cristatus`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 35 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 1 of `x` matches multiple rows in `y`.
+ℹ Row 1455 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] druh  3/ 5 | hotovo   156/  223 ( 70.0 %) | ubehlo 00:08:00 | zbyva ~00:03:26 | -> Cottus gobio (30 lokalit)
+Druh Cottus gobio: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations.
+Warning: There was 1 warning in `dplyr::mutate()`.
+ℹ In argument: `POP_DELKYJEDINCINUM = as.numeric(POP_DELKYJEDINCI)`.
+Caused by warning:
+! NAs introduced by coercion
+Warning: There were 15658 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 174: `KOD_LOKAL = "Divoká Orlice - Orlické Záhoří"`, `ROK = 2022`,
+  `DRUH = Cottus gobio`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 15657 remaining warnings.
+Warning: There were 38 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 114: `KOD_LOKAL = "Dyje - Havraníky_Šobeská lávka"`, `DRUH = Cottus
+  gobio`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 37 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 4 of `x` matches multiple rows in `y`.
+ℹ Row 1379 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] druh  4/ 5 | hotovo   186/  223 ( 83.4 %) | ubehlo 00:12:44 | zbyva ~00:02:32 | -> Lampetra planeri (28 lokalit)
+Druh Lampetra planeri: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations.
+Warning: There were 10629 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 1: `KOD_LOKAL = "Arnoštský potok - Solná Lhota"`, `ROK = 2020`,
+  `DRUH = Lampetra planeri`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 10628 remaining warnings.
+Warning: There were 81 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 1: `KOD_LOKAL = "Arnoštský potok - Solná Lhota"`, `DRUH = Lampetra
+  planeri`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 80 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 3 of `x` matches multiple rows in `y`.
+ℹ Row 256 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] druh  5/ 5 | hotovo   214/  223 ( 96.0 %) | ubehlo 00:16:04 | zbyva ~00:00:41 | -> Misgurnus fossilis (9 lokalit)
+Druh Misgurnus fossilis: zadny limit POP_TREND* - trendovy blok se nepocita.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  'POP_POCET' limit for species found
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations.
+Warning in run_n2k_druhy(chunk, sp, sites_subjects, limity, current_year = current_year) :
+  No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations.
+Warning: There were 5400 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMIN = min(POP_POCET, na.rm = TRUE)`.
+ℹ In group 22: `KOD_LOKAL = "Deprese nad Dědovou"`, `ROK = 2016`, `DRUH =
+  Misgurnus fossilis`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 5399 remaining warnings.
+Warning: There were 3 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETNOSTMAX = max(POP_POCETNOST, na.rm = TRUE)`.
+ℹ In group 19: `KOD_LOKAL = "Deprese nad Dědovou"`, `DRUH = Misgurnus
+  fossilis`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 2 remaining warnings.
+Warning in dplyr::left_join(., n2k_druhy_lokpop, by = join_by(ROK, KOD_LOKAL,  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 3 of `x` matches multiple rows in `y`.
+ℹ Row 670 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+[1/4 Akce] HOTOVO: 5 druhu / 223 lokalit-druh za 00:17:21
+--- UKLADAM MEZIVYSLEDEK 1 DO TEMP ---
+--- ZACINAM VYPOCET FAZE 2 (LIMITY) ---
+[2/4 Limity] druh  1/ 5 | hotovo     0/  223 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Bombina bombina (93 lokalit)
+Warning in dplyr::right_join(., limity %>% dplyr::filter(UROVEN == "lok") %>%  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 3 of `x` matches multiple rows in `y`.
+ℹ Row 56 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+Warning: There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `HOD_IND_num = dplyr::if_else(is_num_hod,
+  as.numeric(HOD_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+[2/4 Limity] druh  2/ 5 | hotovo    93/  223 ( 41.7 %) | ubehlo 00:00:06 | zbyva ~00:00:08 | -> Triturus cristatus (63 lokalit)
+Warning in dplyr::right_join(., limity %>% dplyr::filter(UROVEN == "lok") %>%  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 2 of `x` matches multiple rows in `y`.
+ℹ Row 323 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+Warning: There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `HOD_IND_num = dplyr::if_else(is_num_hod,
+  as.numeric(HOD_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+[2/4 Limity] druh  3/ 5 | hotovo   156/  223 ( 70.0 %) | ubehlo 00:00:10 | zbyva ~00:00:04 | -> Cottus gobio (30 lokalit)
+Warning: There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `HOD_IND_num = dplyr::if_else(is_num_hod,
+  as.numeric(HOD_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+[2/4 Limity] druh  4/ 5 | hotovo   186/  223 ( 83.4 %) | ubehlo 00:00:12 | zbyva ~00:00:02 | -> Lampetra planeri (28 lokalit)
+Warning in dplyr::right_join(., limity %>% dplyr::filter(UROVEN == "lok") %>%  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 2 of `x` matches multiple rows in `y`.
+ℹ Row 1196 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+Warning: There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `HOD_IND_num = dplyr::if_else(is_num_hod,
+  as.numeric(HOD_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+[2/4 Limity] druh  5/ 5 | hotovo   214/  223 ( 96.0 %) | ubehlo 00:00:13 | zbyva ~00:00:01 | -> Misgurnus fossilis (9 lokalit)
+Warning in dplyr::right_join(., limity %>% dplyr::filter(UROVEN == "lok") %>%  :
+  Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 8 of `x` matches multiple rows in `y`.
+ℹ Row 1209 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+Warning: There were 2 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `HOD_IND_num = dplyr::if_else(is_num_hod,
+  as.numeric(HOD_IND_trim), NA_real_)`.
+Caused by warning in `vec_if_else()`:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
+[2/4 Limity] HOTOVO: 5 druhu / 223 lokalit-druh za 00:00:14
+--- UKLADAM MEZIVYSLEDEK 2 DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT (NALEZY) ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_nal_2025_20261105... ---
+--- HOTOVO (NAL_EXPORT) ---
+--- ZACINAM VYPOCET FAZE 3 (LOKALITY) ---
+[3/4 Lokality] druh  1/ 5 | hotovo     0/  223 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Bombina bombina (93 lokalit)
+Warning in run_n2k_druhy_lok(data_subset, sp, sites_subjects, limity, current_year = current_year) :
+  Druh Bombina bombina: Indikatory s nekonzistentnimi metadaty: STA_PRUHLEDNOSTVODA
+Warning: There were 56408 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213001"`, `DRUH = "Bombina bombina"`, `KOD_LOKAL =
+  "CZ0213001"`, `POLE = "6058a"`, `ROK = 2014`, `ID_IND = "POP_POCET"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 56407 remaining warnings.
+Warning: There were 36586 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213001"`, `DRUH = "Bombina bombina"`, `KOD_LOKAL =
+  "CZ0213001"`, `POLE = "6058a"`, `ROK = 2021`, `ID_IND = "POP_POCET"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 36585 remaining warnings.
+[3/4 Lokality] druh  2/ 5 | hotovo    93/  223 ( 41.7 %) | ubehlo 00:03:19 | zbyva ~00:04:38 | -> Triturus cristatus (63 lokalit)
+Warning in run_n2k_druhy_lok(data_subset, sp, sites_subjects, limity, current_year = current_year) :
+  Druh Triturus cristatus: Indikatory s nekonzistentnimi metadaty: STA_POKRVEGETACE, STA_PRUHLEDNOSTVODA
+Warning: There were 36580 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213029"`, `DRUH = "Triturus cristatus"`,
+  `KOD_LOKAL = "1019"`, `POLE = "5850c"`, `ROK = 2019`, `ID_IND = "POP_POCET"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 36579 remaining warnings.
+Warning: There were 27172 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213029"`, `DRUH = "Triturus cristatus"`,
+  `KOD_LOKAL = "CZ0213029_1"`, `POLE = "5850c"`, `ROK = 2021`, `ID_IND =
+  "POP_POCET"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 27171 remaining warnings.
+[3/4 Lokality] druh  3/ 5 | hotovo   156/  223 ( 70.0 %) | ubehlo 00:05:08 | zbyva ~00:02:12 | -> Cottus gobio (30 lokalit)
+Warning: There were 27200 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0213814"`, `DRUH = "Cottus gobio"`, `KOD_LOKAL =
+  "Ledný potok - Dobřív"`, `POLE = "6248c"`, `ROK = 2023`, `ID_IND =
+  "CELKOVE_SUM"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 27199 remaining warnings.
+Warning: There were 15728 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213814"`, `DRUH = "Cottus gobio"`, `KOD_LOKAL =
+  "Ledný potok - Dobřív I"`, `POLE = "6248c"`, `ROK = 2021`, `ID_IND =
+  "POP_DYN"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 15727 remaining warnings.
+[3/4 Lokality] druh  4/ 5 | hotovo   186/  223 ( 83.4 %) | ubehlo 00:05:53 | zbyva ~00:01:10 | -> Lampetra planeri (28 lokalit)
+Warning: There were 19930 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213009"`, `DRUH = "Lampetra planeri"`, `KOD_LOKAL
+  = "Bořkovický potok - Smršťov_ústí do Blanice"`, `POLE = "6355c"`, `ROK =
+  2023`, `ID_IND = "POP_DYN"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 19929 remaining warnings.
+Warning: There were 13828 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213009"`, `DRUH = "Lampetra planeri"`, `KOD_LOKAL
+  = "Bořkovický potok - Smršťov_ústí do Blanice"`, `POLE = "6355c"`, `ROK =
+  2023`, `ID_IND = "POP_DYN"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 13827 remaining warnings.
+[3/4 Lokality] druh  5/ 5 | hotovo   214/  223 ( 96.0 %) | ubehlo 00:06:24 | zbyva ~00:00:16 | -> Misgurnus fossilis (9 lokalit)
+Warning: There were 10494 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0313106"`, `DRUH = "Misgurnus fossilis"`,
+  `KOD_LOKAL = "Dráchovké tůně I - Dráchov_jižní"`, `POLE = "6754c"`, `ROK =
+  2023`, `ID_IND = "POP_DYN"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 10493 remaining warnings.
+Warning: There were 4522 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND_RAW = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0313106"`, `DRUH = "Misgurnus fossilis"`,
+  `KOD_LOKAL = "Dráchovké tůně I - Dráchov_jižní"`, `POLE = "6754c"`, `ROK =
+  2023`, `ID_IND = "POP_DYN"`.
+Caused by warning in `max()`:
+! no non-missing arguments to max; returning -Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 4521 remaining warnings.
+[3/4 Lokality] HOTOVO: 5 druhu / 223 lokalit-druh za 00:06:37
+--- UKLADAM MEZIVYSLEDEK DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_lok_2025_20261105... ---
+--- HOTOVO ---
+--- ZACINAM VYPOCET FAZE 4 (UZEMI/CHU) ---
+[4/4 Uzemi] druh  1/ 5 | hotovo     0/  223 (  0.0 %) | ubehlo 00:00:00 | zbyva ~--:--:-- | -> Bombina bombina (93 lokalit)
+Warning: There were 1395 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0213001"`, `DRUH = "Bombina bombina"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1394 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 1965 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0213001"`, `DRUH = "Bombina bombina"`, `ID_IND =
+  "LOK_DILCDOBRE"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1964 remaining warnings.
+Warning: There were 149 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 94: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 148 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] druh  2/ 5 | hotovo    93/  223 ( 41.7 %) | ubehlo 00:00:04 | zbyva ~00:00:05 | -> Triturus cristatus (63 lokalit)
+Warning: There were 945 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0213029"`, `DRUH = "Triturus cristatus"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 944 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 1717 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0213029"`, `DRUH = "Triturus cristatus"`, `ID_IND =
+  "LOK_DILCDOBRE"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1716 remaining warnings.
+Warning: There were 147 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 64: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 146 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] druh  3/ 5 | hotovo   156/  223 ( 70.0 %) | ubehlo 00:00:06 | zbyva ~00:00:03 | -> Cottus gobio (30 lokalit)
+Warning: There were 450 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0213814"`, `DRUH = "Cottus gobio"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 449 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 1266 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 2: `kod_chu = "CZ0213814"`, `DRUH = "Cottus gobio"`, `ID_IND =
+  "STA_MIGPROSTUP"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1265 remaining warnings.
+Warning: There were 143 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 31: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 142 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] druh  4/ 5 | hotovo   186/  223 ( 83.4 %) | ubehlo 00:00:09 | zbyva ~00:00:02 | -> Lampetra planeri (28 lokalit)
+Warning: There were 420 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0213009"`, `DRUH = "Lampetra planeri"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 419 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 1322 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0213009"`, `DRUH = "Lampetra planeri"`, `ID_IND =
+  "LOK_PROCDOBR"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1321 remaining warnings.
+Warning: There were 153 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 29: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 152 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] druh  5/ 5 | hotovo   214/  223 ( 96.0 %) | ubehlo 00:00:11 | zbyva ~00:00:00 | -> Misgurnus fossilis (9 lokalit)
+Warning: There were 135 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `POP_POCETMAX = sum(...)`.
+ℹ In group 1: `kod_chu = "CZ0313106"`, `DRUH = "Misgurnus fossilis"`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 134 remaining warnings.
+Warning: There were 4 warnings in `dplyr::mutate()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+Caused by warning:
+! NAs introduced by coercion
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 3 remaining warnings.
+Warning: There were 1234 warnings in `dplyr::reframe()`.
+The first warning was:
+ℹ In argument: `STAV_IND = dplyr::case_when(...)`.
+ℹ In group 1: `kod_chu = "CZ0313106"`, `DRUH = "Misgurnus fossilis"`, `ID_IND =
+  "LOK_PROCDOBR"`, `KLIC = "ne"`.
+Caused by warning in `min()`:
+! no non-missing arguments to min; returning Inf
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1233 remaining warnings.
+Warning: There were 143 warnings in `dplyr::summarise()`.
+The first warning was:
+ℹ In argument: `CILMON_CHU = max(CILMON_CHU, na.rm = TRUE)`.
+ℹ In group 10: `kod_chu = NA`, `DRUH = "Aconitum firmum subsp. moravicum"`.
+Caused by warning in `max()`:
+! no non-missing arguments, returning NA
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 142 remaining warnings.
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by kod_chu and DRUH.
+ℹ Output is grouped by kod_chu.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(kod_chu, DRUH))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+[4/4 Uzemi] HOTOVO: 5 druhu / 223 lokalit-druh za 00:00:12
+--- UKLADAM MEZIVYSLEDEK DO TEMP ---
+--- PRIPRAVA DAT PRO EXPORT (CHU) ---
+--- EXPORTUJI SOUBORY DO: Outputs/Data/druhy/n2k_druhy_chu_2025_20261105... ---
+--- HOTOVO (CHU_EXPORT) ---
+=== HOTOVO: vsechny skripty ve slozce 02_druhy byly spusteny ===
+=== CELKOVY CAS: 26.2 min ===
+exit 0

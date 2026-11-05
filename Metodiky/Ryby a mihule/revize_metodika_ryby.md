@@ -11,9 +11,12 @@ kódu, takže není vnitřně konzistentní (R-08).
 **Registr nálezů kódu a dat:** [harmonizace_registr.md](harmonizace_registr.md) (H-71 …).
 
 Fáze 1 (kontrolní seznam) a 2 (audit kódu a limitů) **nezměnily žádný kód ani vstupní data.**
-Fáze 3 (2026-11-05, po rozhodnutí ke Kontrolnímu bodu 1) vytvořila návrh limitů a **neaplikovaný**
-patch kódu, ověřené testovacím během — viz [Návrhy oprav](#návrhy-oprav--fáze-3-neaplikováno),
-[Testovací běh](#testovací-běh-2026-11-05) a [otázky ke Kontrolnímu bodu 2](#otázky-pro-zadavatele--kontrolní-bod-2).
+Fáze 3 (2026-11-05, po rozhodnutí ke Kontrolnímu bodu 1) vytvořila návrh limitů a patch kódu,
+ověřené testovacím během — viz [Návrhy oprav](#návrhy-oprav--fáze-3-aplikováno-ve-fázi-4),
+[Testovací běh](#testovací-běh-2026-11-05). **Fáze 4** (po Kontrolním bodu 2) patch a limity
+aplikovala na větev a doplnila pravidlo H-90 pro všechny skupiny — viz
+[Kontrolní bod 2](#otázky-pro-zadavatele--kontrolní-bod-2-zodpovězeno-2026-11-05) a §Fáze 4 v
+[registru](harmonizace_registr.md).
 
 ## Jak byla revize provedena
 
@@ -311,13 +314,15 @@ Pro správce formuláře Survey a přenosu do NDOP (zadavatel 2026-11-05: „maj
 | D-6 | hodnocení prostupnosti celého toku | v repozitáři není | zdroj (databáze migračních překážek) a formát | H-83 |
 | D-7 | teplota vzduchu, srážky | chybí | volitelné tagy, jen pro příznak podmínek | H-84 |
 
-## Návrhy oprav — Fáze 3 (neaplikováno)
+## Návrhy oprav — Fáze 3 (aplikováno ve Fázi 4)
 
 Rozhodnutí zadavatele ke Kontrolnímu bodu 1 (2026-11-05) jsou v
 [registru](harmonizace_registr.md). Limity: [limity_ryby_2026_kontrola.md](limity_ryby_2026_kontrola.md)
 (protokol převodu, včetně pravidla pro pásma). Kód: [patche/ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch)
-a [patche/README.md](patche/README.md). **Nic z toho není v živém kódu ani v živých vstupech** —
-obojí bylo ověřeno testovacím během v izolované kopii (§Testovací běh níže).
+a [patche/README.md](patche/README.md). Obojí bylo ověřeno testovacím během v izolované kopii
+(§Testovací běh níže) a po rozhodnutí Z-13 **aplikováno na větev** `ryby-metodika-2026`: limity
+jsou v živých `limity_ryby.csv` a `cis_ryby_delky_strukt.csv` (návrhové `*_2026.csv` zrušeny),
+F3-A a F3-B proto nyní platí pro živé soubory.
 
 | # | Soubor · místo | Před | Po | Které výstupy se mění a kam | Nález / rozhodnutí |
 |---|---|---|---|---|---|
@@ -360,7 +365,27 @@ Co běh ukázal:
 4. **Vitalita podle metodiky** se splní zřídka — *Cottus* 46 z 218 hodnocených DP, *Lampetra* 6 z 98,
    *Misgurnus* 0 z 35 (R-13).
 
-## Otázky pro zadavatele — Kontrolní bod 2
+### Konečný stav větve (Fáze 4, běh „aplikovano")
+
+Kód `06a849d`: patch, limity 2026, pravidlo H-90 pro všechny skupiny (Z-12), sjednocený zápis
+`LOKALITA` (Z-16). Podrobně v [README běhu](../../Outputs/Test/Ryby_20261105/README.md#konečný-stav-větve--běh-aplikovano).
+
+| | *Cottus* | *Lampetra* | *Misgurnus* |
+|---|---|---|---|
+| DP s cíleným monitoringem d / z / š / neznámý | 53 / 2 / 177 / 196 | 5 / 1 / 51 / 265 | 0 / 0 / 13 / 162 |
+| EVL d / z / š / neznámý | 5 / 0 / 22 / 3 | 1 / 0 / 14 / 13 | 0 / 0 / 6 / 3 |
+
+Většina lokalit je neznámá, protože dynamika potřebuje ≥ 2 roky (*Lampetra* ≥ 3) a vitalita ≥ 2
+průzkumy, a monitoring většiny lokalit má jen jeden nebo dva roky. Otázky ke **Kontrolnímu bodu 3**
+(Z-19 rozsah pravidla H-90 mimo ryby, Z-20 obdoba na úrovni EVL, Z-21 *Cobitis* / *Salmo*) jsou
+v §Fáze 4 [registru](harmonizace_registr.md).
+
+## Otázky pro zadavatele — Kontrolní bod 2 (zodpovězeno 2026-11-05)
+
+Rozhodnutí a jejich provedení jsou v [registru](harmonizace_registr.md), tabulka „Rozhodnutí
+zadavatele ke Kontrolnímu bodu 2", a v §Fáze 4 registru. Z-12: „minimálně jeden neznámý klíčový
+indikátor → neznámý celkový stav, napříč skupinami"; Z-13 ano; Z-14 ano; Z-15 ne (zapsáno do
+registru cévnatých); Z-16 ano; Z-17 ano; Z-18 otázky zapsány na konec textu metodiky.
 
 | # | Otázka | Možnosti | Doporučení | Nález |
 |---|---|---|---|---|
@@ -391,6 +416,10 @@ Rozhodnutí jsou v [registru](harmonizace_registr.md), tabulka „Rozhodnutí za
 | Z-11 | Převod pásem na číslo | součty = středy pásem (5 / 18 / 38 / 63 / 87,5 / 100), jedno pásmo = výčet `val` | potvrdit návrh, nebo nejdřív autoři | H-76 |
 
 ## Otázky pro autory metodiky (L. Hanel, M. Muška)
+
+Podle rozhodnutí Z-18 zapsány i na konec textu metodiky
+([Metodika_EVL_upravena_mihule_piskor.md](Metodika_EVL_upravena_mihule_piskor.md)), doplněné
+o sloupec „Přechodně ve výpočtu" (jak je bod nastaven do odpovědi autorů).
 
 | # | Okruh | Otázka | Odkaz |
 |---|---|---|---|

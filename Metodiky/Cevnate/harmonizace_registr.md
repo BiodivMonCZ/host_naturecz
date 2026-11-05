@@ -272,7 +272,7 @@ být náprava podmíněna skupinou.
 - **Stav v kódu:** [`02_n2k_data_druhy.R:249`](../../R/00_config/02_n2k_data_druhy.R#L249) — `CIS_CILMON` je tabulka (sloupec `ZDROJ_NDOP`, 32 zdrojů), `%in%` proti tabulce porovnává s celými sloupci, takže podmínka je vždy nepravdivá.
 - **Důsledek:** u rostlin bez dopadu — `CILMON` se plně odvodí z `PROJEKT == "Monitoring druhů ČR"` (P-02). U skupin, jejichž cílený monitoring je rozpoznatelný jen podle `ZDROJ` (např. „Monitoring totenových modrásků" v číselníku), se cílený monitoring nepozná — **neověřeno, mimo rozsah**.
 - **Dotčené skupiny ve sdíleném kódu:** **všechny**; oprava (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`) mění `CILMON` u skupin mimo rostliny ⇒ změřit dopad před nasazením.
-- **Rozhodnutí zadavatele:** _(vyplní zadavatel)_
+- **Stav (2026-11-05):** ✅ **opraveno** v revizi ryb jako nález H-89 (rozhodnutí Z-13 a Z-14); u rostlin bez dopadu (žádný záznam cévnatých se nepřepnul) — viz [§Revize ryb](#změny-ve-sdíleném-kódu-z-revize-ryb-2026-11-05).
 
 ### H-15 — Zaniklé DP: pravidlo deseti let není implementováno; „poslední nález" počítá i negativní záznamy
 - **Závažnost:** střední · **Typ:** GAP (+ BUG)
@@ -803,6 +803,11 @@ PR-19 z OK na „liší se“ (jmenovatel podílu populace).
   indikátor neznámý nebo více než jeden neklíčový neznámý ⇒ lokalita **neznámá** (i když je jiný indikátor
   špatný); lokality v neznámém stavu se do procentních hodnocení území nezapočítávají (H-30). Návrh výše je
   tomu přizpůsoben (původně byla větev „špatný“ první).
+- **Stav (2026-11-05):** **klíčová část aplikována pro všechny skupiny** — revize ryb, nález H-90,
+  rozhodnutí Z-12 („minimálně jeden neznámý klíčový indikátor → neznámý celkový stav“); neznámý má
+  přednost před špatným jako zde. **Neaplikováno zůstává** to, co je specifické pro rostliny: více než
+  jeden neznámý neklíčový ⇒ neznámý a ≥ 2 nesplněné neklíčové ⇒ špatný. Dopad viz
+  [§Revize ryb](#změny-ve-sdíleném-kódu-z-revize-ryb-2026-11-05).
 
 ### H-24 — Více návštěv v roce: výběr celého záznamu
 - **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Odkazy:** PR-04, R-47 (ruší R-28), P-01
@@ -1025,3 +1030,34 @@ početností“ (1); mapování tříd poškození `10-50 %` / `50-100 %` (8); k
 Neověřeno: dopad úprav `677102a`, `f51ade7` a přepnutí limitů `19602b0` na hodnocení (zadání zakazuje běh hodnocení);
 způsob výpočtu `EVL` a `PROC_EVL` v NDOP. Úpravy kódu ověřeny jen parse a 24 jednotkovými testy pomocných
 funkcí na syntetických datech (17 + 7 pro převod ploch).
+
+## Změny ve sdíleném kódu z revize ryb (2026-11-05)
+
+Revize ryb a mihulí ([../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>))
+změnila sdílený kód `R/00_config` a `R/02_druhy`. Co se týká rostlin:
+
+| Změna | Nález (ryby) | Dopad na cévnaté rostliny |
+|---|---|---|
+| `CILMON` z `cil_mon_zdroj.csv` se poprvé uplatní (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`) | H-89 (= zde **H-14**) | žádný — žádný záznam rostlin se nepřepnul; `CILMON` dál jen z *Monitoring druhů ČR* (P-02) |
+| párový filtr druh × EVL (předmět ochrany) i na úrovni DP | H-85 | od 2013 vyřazeno 1 275 záznamů (11,7 %), z toho 843 z monitoringu (nejvíc *Pulsatilla grandis* 430, *Cypripedium calceolus* 217) — DP z EVL, kde druh předmětem ochrany není; na úrovni EVL je vyřazoval už export |
+| neznámý klíčový indikátor ⇒ neznámý celkový stav DP (neznámý má přednost) | H-90 (klíčová část **H-23**) | viz tabulka níže |
+
+**Dopad pravidla H-90 na rostliny** — změřeno na exportu DP posledního plného běhu
+(`Outputs/Data/druhy/n2k_druhy_lok_2025_20260828`, reprezentativní návštěva DP):
+
+| | DP | dobrý | zhoršený | špatný | neznámý |
+|---|---|---|---|---|---|
+| před | 5 275 | 3 473 | 172 | 1 630 | 0 |
+| po (neznámý má přednost — aplikováno) | 5 275 | **125** | 32 | 900 | **4 218** |
+| pro srovnání: špatný by měl přednost | 5 275 | 125 | 32 | 1 630 | 3 488 |
+
+Neznámé klíčové indikátory u DP, které se mění: `POP_POCET` 3 148, `POP_VITAL` 1 849, `POP_PLOCHA` 96,
+`POP_POCETNOST` 78. **Výhrada:** běh 2026-08-28 předchází limitům metodiky 2026 (`19602b0`) a úpravám
+H-21 a H-22, takže sada klíčových indikátorů se dnes liší; skutečný dopad na současný stav rostlin
+během změřen není (zadání revize ryb plný běh nepovoluje).
+
+**Zdroj „srpice karbincolisté“ — nedoplněno (rozhodnutí 2026-11-05, Z-15):** zdroj
+„Fajmon Karel (2025) Sledování stavu populací srpice karbincolisté v Bílých Karpatech v letech 2024
+a 2025.“ (303 záznamů, 2024–2025, bohatá `STRUKT_POZN`) **není** v `cil_mon_zdroj.csv` a doplněn
+nebyl: metodika rostlin připouští jako cílený monitoring jen projekt *Monitoring druhů ČR*
+(PR-01, R-15). Eviduje se zde pro případné rozhodnutí v rámci revize cévnatých.
