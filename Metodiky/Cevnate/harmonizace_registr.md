@@ -1053,8 +1053,17 @@ změnila sdílený kód `R/00_config` a `R/02_druhy`. Co se týká rostlin:
 
 Neznámé klíčové indikátory u DP, které se mění: `POP_POCET` 3 148, `POP_VITAL` 1 849, `POP_PLOCHA` 96,
 `POP_POCETNOST` 78. **Výhrada:** běh 2026-08-28 předchází limitům metodiky 2026 (`19602b0`) a úpravám
-H-21 a H-22, takže sada klíčových indikátorů se dnes liší; skutečný dopad na současný stav rostlin
-během změřen není (zadání revize ryb plný běh nepovoluje).
+H-21 a H-22, takže sada klíčových indikátorů se dnes liší.
+
+**Na současném kódu (běh 4 druhů, 2026-11-05)** — *Pulsatilla grandis*, *Campanula bohemica*,
+*Cypripedium calceolus*, *Klasea lycopifolia*, 2 432 DP
+([`Outputs/Test/Cevnate_4sp_20261105/`](../../Outputs/Test/Cevnate_4sp_20261105/README.md)):
+pravidlo H-90 **nemění nic**, protože žádná DP nemá řádek klíčového indikátoru. Klíčové indikátory
+limitů 2026 (`POP_POCETMINPRIP` 35 druhů, `POP_REPROUSP`, `POP_DELKAABSENCE`) se v `21_1` nepočítají
+(**H-25**, sirotci), takže **2 410 DP je „dobrý" a 22 „zhoršený"** (*Cypripedium*, jen podle
+neklíčových indikátorů) — bez jediného hodnoceného populačního indikátoru. Dokud se H-25 nezavede,
+nejsou verdikty DP rostlin na větvi použitelné. Návrh brát očekávané klíčové indikátory z limitů
+(nález H-92 registru ryb, otázka Z-24) by je do té doby označil jako neznámé.
 
 **Zdroj „srpice karbincolisté“ — nedoplněno (rozhodnutí 2026-11-05, Z-15):** zdroj
 „Fajmon Karel (2025) Sledování stavu populací srpice karbincolisté v Bílých Karpatech v letech 2024
