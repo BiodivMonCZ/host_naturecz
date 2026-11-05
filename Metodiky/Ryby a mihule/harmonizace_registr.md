@@ -51,6 +51,16 @@ v revizi, pravidla `PR-<pravidlo>-<C|L|M>` (C = *Cottus*, L = *Lampetra*, M = *M
 | Z-17 | vitalita při méně než dvou průzkumech | **ano** — `NA` do odpovědi autorů | beze změny kódu (H-79) |
 | Z-18 | otázky A-1 … A-10 autorům | „zapsat do markdownu metodiky na konec" | oddíl na konci [Metodika_EVL_upravena_mihule_piskor.md](Metodika_EVL_upravena_mihule_piskor.md), se sloupcem „Přechodně ve výpočtu" |
 
+**Rozhodnutí a pokyny zadavatele ke Kontrolnímu bodu 3 (2026-11-05):**
+
+| # | Pokyn | Provedení |
+|---|---|---|
+| Z-19 | „Týká se to aktuálních dat? Pokud to významně nemění hodnocení od 2024, není to problém." | změřeno — od 2024 mění jen obojživelníky (27–33 % DP); otázka zůstává otevřená — **H-91** |
+| Z-20 | „ano, ale nejdřív vyřešit Z-19" | odloženo do rozhodnutí Z-19 |
+| Z-21 | „nejdřív vyřešit piskoře a mihuli" | diagnóza; oprava **H-93** (`aa2d8bd`); hlavní příčinou je chybějící monitoring 2024–2025 — **H-94** |
+| — | „`Monitoring druhů ČR` je `PROJEKT`, ne `ZDROJ` — doplnit zdroje ryb, např. Kolektiv autorů (2021) … (2025) Monitoring ryb. Monitoring druhů ČR. AOPK ČR." | řádek odstraněn, doplněno 8 zdrojů ryb — **H-89** |
+| — | „pro populační metriky použít abundanci — `POCET` přepočtený na plochu" | `21_1` u tří druhů — **H-74**; tím zodpovězena i úprava B ze Z-21 (ne počet, ale hustota) |
+
 Fáze 1 a 2 **nezměnily žádný kód ani vstupní data.** Fáze 3 vytvořila návrh limitů
 (`Data/Input/limity_ryby_2026.csv`, `cis_ryby_delky_strukt_2026.csv`, skript
 `R/05_metodiky/55_ryby_limity_2026.R`) a patch kódu
@@ -363,6 +373,16 @@ přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůst
      2019–2024 bez odchylek). Pouze pokud to zadavatel povolí; jinak zůstává `POCET`.
   3. Kterou veličinu hodnotit (úlovek obou odlovů, jen 1. odlov, se spatřenými či bez; u mihule
      jen larvy) rozhodují autoři metodiky (R-14).
+- **Rozhodnutí zadavatele (2026-11-05, po Kontrolním bodu 3):** *„pro populační metriky použít
+  abundanci — `POCET` přepočtený na plochu."* Provedeno (`7722980`): u tří druhů
+  `POP_ABUNDANCENAL = POP_POCET / POP_PLOCHALOV` (nulový úlovek = 0, H-93); počty 1. a 2. odlovu
+  z `POZNAMKA` (Z-3) zůstávají jen jako informativní `POP_POCETODLOV`. `POCET` je u cíleného
+  monitoringu vyplněn téměř vždy (jednotka „jedinci"); oproti součtu odlovů je vyšší u 71 %
+  záznamů *Lampetra* (dospělci a spatření jedinci) a 20 % *Cottus*.
+- **Ověřeno během** ([`Outputs/Test/Ryby_20261105/abundance_pocet/`](../../Outputs/Test/Ryby_20261105/abundance_pocet/)):
+  abundance se změnila u 129 záznamů *Cottus*, 173 *Lampetra* a 2 *Misgurnus* (téměř vždy vyšší),
+  hodnota `POP_DYN` u 61 a 37 DP; splnění limitu se změnilo u 2 DP *Lampetra*, obě jsou kvůli
+  nehodnocené vitalitě neznámé. **Verdikty DP ani EVL se nezměnily.**
 
 ### H-76 ⚠ — Stanovištní indikátory neodpovídají metodice; zdroje pro parametry metodiky v datech jsou
 - **Závažnost:** vysoká · **Typ:** ROZPOR-METODIKY · **Stav:** **zaznamenáno, návrh k rozhodnutí** · **Odkazy:** PR-HAB-C, PR-HAB-L1/L2, PR-HAB-M1/M2, H-42, H-45, H-60
@@ -624,6 +644,23 @@ přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůst
 - **Řešení:** patch F3-D (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`).
 - **Rozhodnutí zadavatele (2026-11-05):** Z-13 aplikovat; Z-14 nejdřív změřit na obojživelnících;
   Z-15 zdroj „srpice karbincolisté" **nedoplňovat**, zapsat do registru cévnatých (provedeno).
+- **Oprava seznamu (pokyn zadavatele po Kontrolním bodu 3, `7722980`):** řádek
+  „Monitoring druhů ČR" byl v seznamu chybně — je to hodnota sloupce `PROJEKT`, ne `ZDROJ`
+  (žádný záznam ji jako `ZDROJ` nemá; `PROJEKT` se v `02_n2k_data_druhy.R` kontroluje zvlášť).
+  Odstraněn. Doplněny zdroje monitoringu ryb **přesně v zápisu NDOP**, který se mezi roky liší:
+
+  | zdroj | záznamů |
+  |---|---|
+  | Kolektiv autorů (2018) / (2019) / (2020) / (2021) Monitoring ryb. Monitoring druhů ČR. AOPK ČR. | 83 / 248 / 431 / 567 |
+  | Kolektiv autorů (2022) Monitoring ryb (Monitoring druhů ČR ). | 627 |
+  | Kolektiv autorů (2023) / (2024) Monitoring ryb. Monitoring druhů ČR. | 612 / 7 |
+  | Kolektiv autorů (2025) Monitoring ryb. Monitoring druhů ČR. AOPK ČR. (zápis podle zadavatele) | 0 |
+
+  Všech 2 575 záznamů těchto zdrojů má `PROJEKT = Monitoring druhů ČR`, takže se `CILMON`
+  nezměnil u žádného z 209 825 záznamů exportu (ověřeno). Seznam teď zachytí tytéž zdroje i při
+  jiném `PROJEKT`. Nepřidány (bez strukturovaných dat, jen evidence): „Halačka Karel (2019)
+  monitoring EVD ryb ve vybraných EVL." (141 záznamů, 0 tagů) a „Blábolil P., Kočvara R. (2024)
+  Zpráva z monitoringu pro mihuli potoční a vranku obecnou v EVL …" (18 záznamů 2023, 0 tagů).
 - **Změřený dopad samotné opravy** — běh *T. cristatus* + *B. bombina*, kód `b7abb07` (= `35a3d99`)
   ± jediný řádek F3-D, nic jiného ([`Outputs/Test/TC_BB_20261105_cilmon/`](../../Outputs/Test/TC_BB_20261105_cilmon/README.md)):
 
@@ -808,6 +845,10 @@ přeřazeno — týká se 2 106 záznamů obojživelníků. Oddíl nálezu zůst
   vitalita 2 průzkumy s délkami. Hodnocený rok je 2025, ale hodnotí se data nejvýše z 2023 —
   a většina lokalit má v 2019–2023 jen jeden nebo dva průzkumy. To je hlavní příčina, proč je
   většina DP *Lampetra* a *Misgurnus* neznámá (viz diagnóza níže).
+- **Ověřeno i podle `ZDROJ`** (H-89): zdroj „Kolektiv autorů (2024) Monitoring ryb …" má v exportu
+  jen 7 záznamů a zdroj za rok 2025 žádný; ostatní záznamy ryb 2024–2025 jsou náhodná pozorování,
+  mapování invazních druhů a jednotlivé studie (např. Halačka, Vetešník 2025 — Pohansko).
+  Chybějící data tedy nejsou skryta pod jiným `PROJEKT`.
 
 ### Diagnóza *Lampetra planeri* a *Misgurnus fossilis* (pokyn k Z-21, 2026-11-05)
 
@@ -828,7 +869,7 @@ Simulace — DP s cíleným monitoringem s **oběma** klíčovými indikátory h
 |---|---|---|---|
 | dnes | 57 | 13 | |
 | **A** nulový úlovek ⇒ abundance 0 (H-93) | 59 | 23 | oprava — **provedeno** |
-| A + **B** *Misgurnus*: dynamika z počtu (1. + 2. odlov), ne z hustoty | 59 | 35 | volba — metodika *Misgurnus* „sledování změn **početnosti** jedinců" (u *Cottus* výslovně ind./ha); otázka A-3 |
+| A + **B** *Misgurnus*: dynamika z počtu (1. + 2. odlov), ne z hustoty | 59 | 35 | **zamítnuto** — zadavatel: abundance = `POCET` / plocha |
 | A + B + lokality spojené podle souřadnic do 100 m v téže EVL | 71 (z 261) | 42 (z 142) | volba — proti Z-1 „just LOKALITA" |
 | A + B + dynamika *Lampetra* už od 2 let | 122 | 35 | proti Z-2 (varianta C potřebuje 3 průzkumy) a A-2 |
 | … + vitalita už z 1 průzkumu | 125 | 46 | proti Z-17 a A-4 |
@@ -901,7 +942,7 @@ Po rozhodnutí ke Kontrolnímu bodu 2 (tabulka na začátku registru).
 | `433b610` | patch [ryby_metodika_2026.patch](patche/ryby_metodika_2026.patch) aplikován beze změny; limity 2026 v živých `limity_ryby.csv` a `cis_ryby_delky_strukt.csv` (`55` zapisuje přímo, základ z gitu `35a3d99`, obdoba `54`); `*_2026.csv` zrušeny | Z-13 |
 | `27b2510` | `24`: neznámý klíčový indikátor ⇒ neznámý celkový stav DP, **všechny skupiny**, přednost před špatným; `25`: neznámé pole hmyzu mimo jmenovatel | Z-12 (H-90) |
 | `06a849d` | `02_n2k_data_druhy.R`: sjednocení zápisu `LOKALITA` | Z-16 (H-71) |
-| *tento commit* | otázky A-1 … A-10 na konci [textu metodiky](Metodika_EVL_upravena_mihule_piskor.md) (Z-18); běhy [`Outputs/Test/TC_BB_20261105_cilmon/`](../../Outputs/Test/TC_BB_20261105_cilmon/README.md) (Z-14) a [`Outputs/Test/Ryby_20261105/aplikovano/`](../../Outputs/Test/Ryby_20261105/README.md#konečný-stav-větve--běh-aplikovano); zápisy v registrech obojživelníků a cévnatých (Z-15) | Z-14, Z-15, Z-18 |
+| `37bede4`, `a59a271` | otázky A-1 … A-10 na konci [textu metodiky](Metodika_EVL_upravena_mihule_piskor.md) (Z-18); běhy [`Outputs/Test/TC_BB_20261105_cilmon/`](../../Outputs/Test/TC_BB_20261105_cilmon/README.md) (Z-14) a [`Outputs/Test/Ryby_20261105/aplikovano/`](../../Outputs/Test/Ryby_20261105/README.md#konečný-stav-větve--běh-aplikovano); zápisy v registrech obojživelníků a cévnatých (Z-15) | Z-14, Z-15, Z-18 |
 
 Kód větve (`06a849d`) je **shodný s kódem ověřeným během „aplikovano"** (porovnáno soubor po
 souboru, `R/` a vstupy ryb). `limity_vse.csv` a `cil_mon_zdroj.csv` beze změny. Nic není sloučeno
@@ -931,7 +972,7 @@ ani odesláno; `Outputs/Data/` ani `Data/Temp/` repozitáře běhy nepřepsaly (
 |---|---|---|---|---|
 | Z-19 | Pravidlo H-90 u skupin, jejichž metodika říká „indikátor se hodnotí pouze, jsou-li dostupné informace" (obojživelníci) | (a) ponechat napříč skupinami / (b) jen ryby tří druhů a cévnaté / (c) napříč, ale špatný má přednost / (d) obojživelníci bez `POP_ZMENARAD` | **(b)** — od 2024 mění 27–33 % DP obojživelníků (pokyn „není problém, pokud významně nemění hodnocení od 2024" splněn není); ostatní skupiny dnes bez dopadu | H-91 |
 | Z-20 | *(zadavatel: „ano, ale nejdřív vyřešit Z-19")* Obdoba H-90 na úrovni EVL: obecná aritmetika [`25:409-413`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L409-L413) neznámý klíčový indikátor území odečte a hodnotí podle zbylých | zavést (neznámý ⇒ EVL neznámá) / ponechat | rozhodnout po Z-19; ryby mají vlastní rozhodovací tabulku (blok 5a), u obojživelníků (5b) vyšla EVL bez hodnocené DP v běhu „neznámý" — jiné skupiny neověřeny | H-90 |
-| Z-21 | *(zadavatel: „nejdřív vyřešit piskoře a mihuli")* *Misgurnus* dynamika z počtu (úprava B) a spojení lokalit podle souřadnic do 100 m — viz diagnóza | B ano / ne; spojení ano (100 / 300 m) / ne | **B ano** (odpovídá znění metodiky); spojení až s kódem lokality (D-1) | H-93, H-94 |
+| Z-21 | *(zadavatel: „nejdřív vyřešit piskoře a mihuli")* spojení lokalit podle souřadnic do 100 m — viz diagnóza; úprava B **zamítnuta** pokynem „abundance = `POCET` / plocha" | spojení ano (100 / 300 m) / ne | spojení až s kódem lokality (D-1) | H-93, H-94 |
 | Z-22 | Monitoring ryb 2024–2025 v NDOP chybí — jsou data v MOD / u řešitelů a kdy budou v NDOP? | — | doplnit před hodnocením 2025 | H-94 |
 | Z-23 | Obojživelníci: reference `POP_ZMENARAD` = poslední předchozí rok **s kategorií početnosti** | ano / ne | ano (48 DP-roků 2024+ *B. bombina* + *T. cristatus*) | H-91 |
 | Z-24 | *Cobitis elongatoides*, *Salmo salar* a cévnaté: klíčový indikátor bez řádku (H-92) — očekávané klíčové indikátory brát z limitů | ano / ne | ano, po Z-19 (u cévnatých do zavedení H-25 všechny DP neznámé) | H-92 |
