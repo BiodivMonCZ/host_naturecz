@@ -497,6 +497,18 @@ tag_hodnota <- function(x, tag) {
   v
 }
 
+# Puvodni extrakce tagu, kterou pouziva vetsina indikatoru: hladovy vyber
+# ".*" (pri dvou vyskytech tagu az po posledni uzaviraci tag), bez str_squish.
+# tag_text() prevadi pres readr::parse_character() ("" i "NA" -> NA),
+# tag_cislo() pres readr::parse_number() (prvni cislo v textu).
+# Od tag_hodnota() se lisi vyberem i osetrenim mezer - sjednoceni by zmenilo
+# hodnoty, proto zustavaji obe varianty.
+tag_vyber <- function(x, tag) {
+  stringr::str_extract(x, paste0("(?<=<", tag, ">).*(?=</", tag, ">)"))
+}
+tag_text  <- function(x, tag) readr::parse_character(tag_vyber(x, tag))
+tag_cislo <- function(x, tag) readr::parse_number(tag_vyber(x, tag))
+
 # Mnozina kategorii pritomnych v hodnote tagu, prevedena do slovniku limitu.
 # Vraci retezec "a, b, c" se SERAZENYMI a odduplikovanymi polozkami, aby na
 # poradi zapisu v datech nezalezelo. Nenajde-li se zadna znama kategorie,
@@ -855,12 +867,7 @@ run_n2k_druhy <- function(
       grepl("počet samců: do 10", POZN_TAX) ~ 1
       ),
     # POP_PASTIPOCET: Extrakce poctu pasti ze strukturovane poznamky (XML tag)
-    POP_PASTIPOCET = readr::parse_number(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<POP_PASTIPOCET>).*(?=</POP_PASTIPOCET>)"
-      )
-    ),
+    POP_PASTIPOCET = tag_cislo(STRUKT_POZN, "POP_PASTIPOCET"),
     # K DOŘEŠENÍ START !!!!!
     # POP_PLOCHALOV: Extrakce plochy odlovu ze strukturovane poznamky (XML tag)
     # POP_PLOCHALOV: plocha odlovu, jmenovatel abundance.
@@ -907,13 +914,8 @@ run_n2k_druhy <- function(
     },
     ## Vlivy ----
     # Extrakce informaci o vlivech ze dvou ruznych XML tagu ve strukturovane poznamce
-    vliv1 = stringr::str_extract(
-      STRUKT_POZN,
-      "(?<=<vliv>).*(?=</vliv>)"
-    ),
-    vliv2 = stringr::str_extract(
-      STRUKT_POZN, 
-      "(?<=<VLV_VLIVY>).*(?=</VLV_VLIVY>)")
+    vliv1 = tag_vyber(STRUKT_POZN, "vliv"),
+    vliv2 = tag_vyber(STRUKT_POZN, "VLV_VLIVY")
   ) %>%
     dplyr::mutate(
       # VLV_VLIVY: Sjednoceni vlivu do jedne promenne (priorita vliv1, jinak vliv2)
@@ -932,113 +934,28 @@ run_n2k_druhy <- function(
       ## Hmyz ----- 
       # ------------------------------------------#
       # STA_SECCAS: Extrakce nacasovani sece ze strukturovane poznamky
-      STA_SECCAS = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<sec_nacasovani>).*(?=</sec_nacasovani>)"
-        )
-      ),
+      STA_SECCAS = tag_text(STRUKT_POZN, "sec_nacasovani"),
       # STA_SECMET: Extrakce metodiky sece (celoplosna?) ze strukturovane poznamky
-      STA_SECMET = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<sec_celoplosna>).*(?=</sec_celoplosna>)"
-        )
-      ),
+      STA_SECMET = tag_text(STRUKT_POZN, "sec_celoplosna"),
       # STA_PRITOMNOSTROSTLIN: Extrakce pritomnosti zivnych rostlin (lisí se tag dle roku)
       STA_PRITOMNOSTROSTLIN = dplyr::case_when(
-        ROK < 2021 ~ readr::parse_character(
-          stringr::str_extract(
-            STRUKT_POZN, 
-            "(?<=<sta_pritomnostrostlin>).*(?=</sta_pritomnostrostlin>)"
-          )
-        ),
-        TRUE ~ readr::parse_character(
-          stringr::str_extract(
-            STRUKT_POZN, 
-            "(?<=<STA_PRITOMNOSTROSTLIN>).*(?=</STA_PRITOMNOSTROSTLIN>)"
-          )
-        )
+        ROK < 2021 ~ tag_text(STRUKT_POZN, "sta_pritomnostrostlin"),
+        TRUE ~ tag_text(STRUKT_POZN, "STA_PRITOMNOSTROSTLIN")
       ),
       # Extrakce dalsich parametru stanoviste (zastineni, mrtve drevo, atd.)
-      STA_JASANOKOLI = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_JASANOKOLI>).*(?=</STA_JASANOKOLI>)"
-        )
-      ),
-      STA_MIKRPROSTLINA = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_MIKRPROSTLINA>).*(?=</STA_MIKRPROSTLINA>)"
-        )
-      ),
-      STA_VHSTROMN = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_VHSTROMN>).*(?=</STA_VHSTROMN>)"
-        )
-      ),
-      STA_VHSTROMK = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_VHSTROMK>).*(?=</STA_VHSTROMK>)"
-        )
-      ),
-      STA_PERSPEKTIVA = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_PERSPEKTIVA>).*(?=</STA_PERSPEKTIVA>)"
-        )
-      ),
-      STA_MRTDREVO = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_MRTDREVO>).*(?=</STA_MRTDREVO>)"
-        )
-      ),
-      STA_TEKVODA = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_TEKVODA>).*(?=</STA_TEKVODA>)"
-        )
-      ),
-      STA_POKRYVNOSTDREVIN = readr::parse_number(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)"
-        )
-      ),
-      STA_ZAZEMNENI = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<STA_ZAZEMNENI>).*(?=</STA_ZAZEMNENI>)"
-        )
-      ),
-      STA_SKLADREVO = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_SKLADREVO>).*(?=</STA_SKLADREVO>)"
-        )
-      ),
-      STA_LITVEGET = readr::parse_number(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<STA_LITVEGET>).*(?=</STA_LITVEGET>)"
-        )
-      ),
-      STA_SIRKALIT = readr::parse_number(
-        stringr::str_extract(
-          STRUKT_POZN, 
-          "(?<=<STA_SIRKALIT>).*(?=</STA_SIRKALIT>)"
-        )
-      ),
-      STA_ZASTIN = readr::parse_character(
-        stringr::str_extract(
-          STRUKT_POZN,
-          "(?<=<STA_ZASTIN>).*(?=</STA_ZASTIN>)"
-        )
-      ),
+      STA_JASANOKOLI = tag_text(STRUKT_POZN, "STA_JASANOKOLI"),
+      STA_MIKRPROSTLINA = tag_text(STRUKT_POZN, "STA_MIKRPROSTLINA"),
+      STA_VHSTROMN = tag_text(STRUKT_POZN, "STA_VHSTROMN"),
+      STA_VHSTROMK = tag_text(STRUKT_POZN, "STA_VHSTROMK"),
+      STA_PERSPEKTIVA = tag_text(STRUKT_POZN, "STA_PERSPEKTIVA"),
+      STA_MRTDREVO = tag_text(STRUKT_POZN, "STA_MRTDREVO"),
+      STA_TEKVODA = tag_text(STRUKT_POZN, "STA_TEKVODA"),
+      STA_POKRYVNOSTDREVIN = tag_cislo(STRUKT_POZN, "STA_POKRYVNOSTDREVIN"),
+      STA_ZAZEMNENI = tag_text(STRUKT_POZN, "STA_ZAZEMNENI"),
+      STA_SKLADREVO = tag_text(STRUKT_POZN, "STA_SKLADREVO"),
+      STA_LITVEGET = tag_cislo(STRUKT_POZN, "STA_LITVEGET"),
+      STA_SIRKALIT = tag_cislo(STRUKT_POZN, "STA_SIRKALIT"),
+      STA_ZASTIN = tag_text(STRUKT_POZN, "STA_ZASTIN"),
       # STA_MAN: Hodnoceni managementu na zaklade nacasovani a metodiky sece
       # 1 = vhodny, 0 = nevhodny
       STA_MAN = dplyr::case_when(STA_SECCAS == 1 &
@@ -1065,34 +982,14 @@ run_n2k_druhy <- function(
   # ------------------------------------------#
   dplyr::mutate(
     # Extrakce stavu vody z ruznych typu vodnich utvaru
-    STA_STAVVODARYBNIK = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_STAVVODARYBNIK>).*(?=</STA_STAVVODARYBNIK>)"
-      )
-    ),
-    STA_STAVVODALITORAL = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_STAVVODALITORAL>).*(?=</STA_STAVVODALITORAL>)"
-      )
-    ),
-    STA_STAVVODATUNE = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_STAVVODATUNE>).*(?=</STA_STAVVODATUNE>)"
-      )
-    ),
+    STA_STAVVODARYBNIK = tag_text(STRUKT_POZN, "STA_STAVVODARYBNIK"),
+    STA_STAVVODALITORAL = tag_text(STRUKT_POZN, "STA_STAVVODALITORAL"),
+    STA_STAVVODATUNE = tag_text(STRUKT_POZN, "STA_STAVVODATUNE"),
     # STA_STAVVODAPERTUNE: periodicke tune. Puvodne se tento tag VUBEC NECETL,
     # pritom jde o 2 411 zaznamu - a zrovna o plochy, u nichz je vysychani
     # sledovanym jevem. Rozhodnuti autoru metodiky (2026-08-20): periodicke tune
     # se do hodnoceni vysychani zapocitavaji STEJNOU VAHOU jako trvale.
-    STA_STAVVODAPERTUNE = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_STAVVODAPERTUNE>).*(?=</STA_STAVVODAPERTUNE>)"
-      )
-    ),
+    STA_STAVVODAPERTUNE = tag_text(STRUKT_POZN, "STA_STAVVODAPERTUNE"),
     # STA_STAVVODA: Sjednoceni stavu vody
     # (priorita: tune -> periodicke tune -> litoral -> rybnik)
     STA_STAVVODA = dplyr::coalesce(
@@ -1150,12 +1047,7 @@ run_n2k_druhy <- function(
     # NIKDY nedeli podle carky, ale paruje se vzorem nad celym retezcem.
     STA_MANIPULACE_TAG = dplyr::na_if(
       stringr::str_squish(
-        readr::parse_character(
-          stringr::str_extract(
-            STRUKT_POZN,
-            "(?<=<STA_MANIPULACE>).*(?=</STA_MANIPULACE>)"
-          )
-        )
+        tag_text(STRUKT_POZN, "STA_MANIPULACE")
       ),
       ""
     ),
@@ -1189,12 +1081,7 @@ run_n2k_druhy <- function(
       TRUE ~ "ne"
     ),
     # Extrakce dalsich parametru (kachny, ryby, zooplankton, vegetace, pruhlednost)
-    STA_KACHNAPRITOMNOST = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_KACHNAPRITOMNOST>).*(?=</STA_KACHNAPRITOMNOST>)"
-      )
-    ),
+    STA_KACHNAPRITOMNOST = tag_text(STRUKT_POZN, "STA_KACHNAPRITOMNOST"),
     # STA_RYBY: Nadmerny tlak ryb.
     # POZOR: ve skutecnych datech (STRUKT_POZN) neexistuje tag <STA_RYBY> - overeno na
     # exportu z NDOP, kde je pole ulozeno pod tagem <STA_INVDRUHRYBA> (ano/ne), ktery se
@@ -1212,50 +1099,20 @@ run_n2k_druhy <- function(
     STA_RYBY = dplyr::na_if(
       dplyr::na_if(
         stringr::str_squish(
-          readr::parse_character(
-            stringr::str_extract(
-              STRUKT_POZN,
-              "(?<=<STA_INVDRUHRYBA>).*(?=</STA_INVDRUHRYBA>)"
-            )
-          )
+          tag_text(STRUKT_POZN, "STA_INVDRUHRYBA")
         ),
         ""
       ),
       "nehodnoceno"
     ),
-    STA_ZOOPLANKTON = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_ZOOPLANKTON>).*(?=</STA_ZOOPLANKTON>)"
-      )
-    ),
-    STA_POKRVEGETACE = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_POKRVEGETACE>).*(?=</STA_POKRVEGETACE>)"
-      )
-    ),
-    STA_PRUHLEDNOSTVODA = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_PRUHLEDNOSTVODA>).*(?=</STA_PRUHLEDNOSTVODA>)"
-      )
-    ),
-    STA_PRUHLEDNOSTVODAT = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_PRUHLEDNOSTVODAT>).*(?=</STA_PRUHLEDNOSTVODAT>)"
-      )
-    ),
+    STA_ZOOPLANKTON = tag_text(STRUKT_POZN, "STA_ZOOPLANKTON"),
+    STA_POKRVEGETACE = tag_text(STRUKT_POZN, "STA_POKRVEGETACE"),
+    STA_PRUHLEDNOSTVODA = tag_text(STRUKT_POZN, "STA_PRUHLEDNOSTVODA"),
+    STA_PRUHLEDNOSTVODAT = tag_text(STRUKT_POZN, "STA_PRUHLEDNOSTVODAT"),
     # STA_PRUHLEDNOSTVODAR: varianta pro rybniky. Puvodne se tento tag VUBEC
     # NECETL, pritom jde o 1 931 zaznamu - u rybnicnich DP tak pruhlednost
     # chybela, ackoli data existovala.
-    STA_PRUHLEDNOSTVODAR = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_PRUHLEDNOSTVODAR>).*(?=</STA_PRUHLEDNOSTVODAR>)"
-      )
-    ),
+    STA_PRUHLEDNOSTVODAR = tag_text(STRUKT_POZN, "STA_PRUHLEDNOSTVODAR"),
     # Sjednoceni pruhlednosti vody.
     # Poradi priority: nejprve typove varianty (tune, rybnik), ktere nesou
     # kategorie ("nad 50 cm", "do 30 cm", "az na dno"), az pak obecny tag,
@@ -1277,18 +1134,8 @@ run_n2k_druhy <- function(
     # navstev ("vhodne predevsim pro zaznamenani pruhlednosti v reprezentativ-
     # nejsim obdobi"), nikoli limit pro vyhodnoceni. Rozhodnuti autoru metodiky
     # (2026-08-20): "zrus casove omezeni, ale popis zmenu".
-    STA_UHYNOBOJZIVELNIK = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_UHYNOBOJZIVELNIK>).*(?=</STA_UHYNOBOJZIVELNIK>)"
-      )
-    ),
-    STA_ZASTINENIHLADINA = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_ZASTINENIHLADINA>).*(?=</STA_ZASTINENIHLADINA>)"
-      )
-    ),
+    STA_UHYNOBOJZIVELNIK = tag_text(STRUKT_POZN, "STA_UHYNOBOJZIVELNIK"),
+    STA_ZASTINENIHLADINA = tag_text(STRUKT_POZN, "STA_ZASTINENIHLADINA"),
     # STA_ZASTINENILITORAL: hodnoceny indikator dle Prilohy 1 revize metodiky
     # 2026-08-20 ("zastineni litoralu okolni vegetaci", spatne nad 75 % u BBOM
     # a BVAR). Pouziva se PRIMO, v surove podobe.
@@ -1299,12 +1146,7 @@ run_n2k_druhy <- function(
     # tedy o mrtvy kod, ktery vyrabel sloupec, jejz uz nikdo nekonzumuje.
     # Zastineni vodni hladiny zustava terenne zaznamenavanym, ale NEHODNOCENYM
     # udajem (viz par. Sledovane indikatory).
-    STA_ZASTINENILITORAL = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_ZASTINENILITORAL>).*(?=</STA_ZASTINENILITORAL>)"
-      )
-    ),
+    STA_ZASTINENILITORAL = tag_text(STRUKT_POZN, "STA_ZASTINENILITORAL"),
     # STA_PLOCHA50CM: Plocha s hloubkou mensi nez 50 cm (% aktualne zaplavene
     # plochy DP) - indikator Prilohy 1, hodnoceny u vsech 6 druhu.
     #
@@ -1317,24 +1159,14 @@ run_n2k_druhy <- function(
     # jsou-li dostupne informace k jeho hodnoceni.").
     # Puvodni nazev byl STA_HLOUBKAMENSI20 (prah 20 cm), metodika ale prah
     # zmenila na 50 cm.
-    STA_PLOCHA50CM = readr::parse_number(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<STA_PLOCHA50CM>).*(?=</STA_PLOCHA50CM>)"
-      )
-    )
+    STA_PLOCHA50CM = tag_cislo(STRUKT_POZN, "STA_PLOCHA50CM")
   ) %>%
     # ------------------------------------------#
     ## Ryby a mihule ----- 
   # ------------------------------------------#
   dplyr::mutate(
     # Extrakce delek jedincu a migracnich barier
-    POP_DELKYJEDINCI = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<velikosti>).*(?=</velikosti>)"
-      )
-    ),
+    POP_DELKYJEDINCI = tag_text(STRUKT_POZN, "velikosti"),
     STA_MIGBARPOCET = readr::parse_number(
       str_extract(
         STRUKT_POZN, 
@@ -1417,12 +1249,7 @@ run_n2k_druhy <- function(
   # ------------------------------------------#
   dplyr::mutate(
     # Extrakce SCALP metodiky (rys ostrovid)
-    POP_SCALP = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<SCALP>).*(?=</SCALP>)"
-      )
-    ), 
+    POP_SCALP = tag_text(STRUKT_POZN, "SCALP"), 
     # POP_POBYT: Prevod SCALP na binarni pobyt (1 pro C1/C2, jinak 0)
     POP_POBYT = dplyr::case_when(
       POP_SCALP == "C1" ~ 1,
@@ -1449,54 +1276,14 @@ run_n2k_druhy <- function(
   # ------------------------------------------#
   dplyr::mutate(
     # Extrakce specifickych parametru pro mechorosty (mikrolokality, trend, poskozeni, atd.)
-    POP_POCETMIKROLOK = readr::parse_number(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<pocet_ml>).*(?=</pocet_ml>)"
-      )
-    ),
-    POP_TRENDBRY = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<trend_vyvoj>).*(?=</trend_vyvoj>)"
-      )
-    ),
-    POP_ZMENABRY1 = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<SP_POSKOZENI_ROSTLIN>).*(?=</SP_POSKOZENI_ROSTLIN>)"
-      )
-    ),
-    POP_ZMENABRY2 = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<str_strom>).*(?=</str_strom>)"
-      )
-    ),
-    POP_PLOCHAPOP = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<str_strom>).*(?=</str_strom>)"
-      )
-    ),
-    STA_DREVOBRY = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<SUB>).*(?=</SUB>)"
-      )
-    ),
-    STA_STRUKTVEKBRY = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<str_strom>).*(?=</str_strom>)"
-      )
-    ),
-    STA_STRUKTDRUBRY = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<druh_strom>).*(?=</druh_strom>)"
-      )
-    )
+    POP_POCETMIKROLOK = tag_cislo(STRUKT_POZN, "pocet_ml"),
+    POP_TRENDBRY = tag_text(STRUKT_POZN, "trend_vyvoj"),
+    POP_ZMENABRY1 = tag_text(STRUKT_POZN, "SP_POSKOZENI_ROSTLIN"),
+    POP_ZMENABRY2 = tag_text(STRUKT_POZN, "str_strom"),
+    POP_PLOCHAPOP = tag_text(STRUKT_POZN, "str_strom"),
+    STA_DREVOBRY = tag_text(STRUKT_POZN, "SUB"),
+    STA_STRUKTVEKBRY = tag_text(STRUKT_POZN, "str_strom"),
+    STA_STRUKTDRUBRY = tag_text(STRUKT_POZN, "druh_strom")
   ) %>%
     # ------------------------------------------#
     ## Cévnaté rostliny ----- 
@@ -1523,18 +1310,8 @@ run_n2k_druhy <- function(
       TRUE ~ NA_real_
     ),
     # Extrakce parametru managementu a pokryvnosti (invazni, expanzni, dreviny, atd.)
-    STA_MAN = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<MAN>).*(?=</MAN>)"
-      )
-    ),
-    STA_MANPOTREBAVLIV = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<MAN_POTREBAVLIV>).*(?=</MAN_POTREBAVLIV>)"
-      )
-    ),
+    STA_MAN = tag_text(STRUKT_POZN, "MAN"),
+    STA_MANPOTREBAVLIV = tag_text(STRUKT_POZN, "MAN_POTREBAVLIV"),
     # STA_MANPOTREBA: Potreba managementu (z textu)
     STA_MANPOTREBA = dplyr::case_when(
       grepl("je zapotřebí", STA_MANPOTREBAVLIV) ~ "je zapotřebí",
@@ -1546,32 +1323,22 @@ run_n2k_druhy <- function(
       grepl("negativní", STA_MANPOTREBAVLIV) ~ "negativní",
       grepl("pozitivní", STA_MANPOTREBAVLIV) ~ "pozitivní"
     ),
-    STA_POKRYVNOSTINVAZNI = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_POKRYVNOSTINVAZNI>).*(?=</STA_POKRYVNOSTINVAZNI>)"
-      )
-    ),
-    STA_POKRYVNOSTEXPANZNI = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN, 
-        "(?<=<STA_POKRYVNOSTEXPANZNI>).*(?=</STA_POKRYVNOSTEXPANZNI>)"
-      )
-    ),
-    STA_POKRSTAR = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTSTARINA>).*(?=</STA_POKRYVNOSTSTARINA>)")),
-    STA_POKRDREV = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTDREVIN>).*(?=</STA_POKRYVNOSTDREVIN>)")),
-    STA_POKRDREVNIZ = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTDREVINNIZ>).*(?=</STA_POKRYVNOSTDREVINNIZ>)")),
-    STA_POKRYVNOSTE2E3 = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTE2E3>).*(?=</STA_POKRYVNOSTE2E3>)")),
-    STA_POKRYVNOSTE1 = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTE1>).*(?=</STA_POKRYVNOSTE1>)")),
-    STA_POKRYVNOSTE0 = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTE0>).*(?=</STA_POKRYVNOSTE0>)")),
-    STA_POKRYVNOSTVOLNAPUDA = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_POKRYVNOSTVOLNAPUDA>).*(?=</STA_POKRYVNOSTVOLNAPUDA>)")),
-    STA_ZAPOJENICELK = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_ZAPOJENICELK>).*(?=</STA_ZAPOJENICELK>)")),
+    STA_POKRYVNOSTINVAZNI = tag_text(STRUKT_POZN, "STA_POKRYVNOSTINVAZNI"),
+    STA_POKRYVNOSTEXPANZNI = tag_text(STRUKT_POZN, "STA_POKRYVNOSTEXPANZNI"),
+    STA_POKRSTAR = tag_text(STRUKT_POZN, "STA_POKRYVNOSTSTARINA"),
+    STA_POKRDREV = tag_text(STRUKT_POZN, "STA_POKRYVNOSTDREVIN"),
+    STA_POKRDREVNIZ = tag_text(STRUKT_POZN, "STA_POKRYVNOSTDREVINNIZ"),
+    STA_POKRYVNOSTE2E3 = tag_text(STRUKT_POZN, "STA_POKRYVNOSTE2E3"),
+    STA_POKRYVNOSTE1 = tag_text(STRUKT_POZN, "STA_POKRYVNOSTE1"),
+    STA_POKRYVNOSTE0 = tag_text(STRUKT_POZN, "STA_POKRYVNOSTE0"),
+    STA_POKRYVNOSTVOLNAPUDA = tag_text(STRUKT_POZN, "STA_POKRYVNOSTVOLNAPUDA"),
+    STA_ZAPOJENICELK = tag_text(STRUKT_POZN, "STA_ZAPOJENICELK"),
     STA_ZAPOJENIKAT = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_ZAPOJENICELK>).*(?=:)")),
-    STA_STUPENZACH = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<SP_STUPEN_ZACH_STAN>).*(?=</SP_STUPEN_ZACH_STAN>)")),
-    STA_HYDRPOMERY = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_HYDRPOMERY>).*(?=</STA_HYDRPOMERY>)")),
-    STA_VLHPOM = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_VLHKOPOMERY>).*(?=</STA_VLHKOPOMERY>)")),
-    STA_ZASTINENICELK = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<STA_ZASTINENICELK>).*(?=</STA_ZASTINENICELK>)")),
-    SP_POSKOZENI_ROSTLIN = readr::parse_character(stringr::str_extract(STRUKT_POZN, "(?<=<SP_POSKOZENI_ROSTLIN>).*(?=</SP_POSKOZENI_ROSTLIN>)")),
+    STA_STUPENZACH = tag_text(STRUKT_POZN, "SP_STUPEN_ZACH_STAN"),
+    STA_HYDRPOMERY = tag_text(STRUKT_POZN, "STA_HYDRPOMERY"),
+    STA_VLHPOM = tag_text(STRUKT_POZN, "STA_VLHKOPOMERY"),
+    STA_ZASTINENICELK = tag_text(STRUKT_POZN, "STA_ZASTINENICELK"),
+    SP_POSKOZENI_ROSTLIN = tag_text(STRUKT_POZN, "SP_POSKOZENI_ROSTLIN"),
     # POSKOZENI_ROSTLIN: Uprava textu poskozeni (pridani stredniku pro separaci)
     POSKOZENI_ROSTLIN = dplyr::case_when(
       is.na(SP_POSKOZENI_ROSTLIN) ~ NA_character_,
