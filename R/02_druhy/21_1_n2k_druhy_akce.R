@@ -710,13 +710,8 @@ run_n2k_druhy <- function(
       DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
       paste(DRUH, kod_chu) %in% paste(sites_subjects$nazev_lat, sites_subjects$site_code)
     ) %>%
-    #dplyr::filter(SKUPINA == "Cévnaté rostliny") %>%
-    #dplyr::filter(SKUPINA %in% c("Motýli", "Brouci", "Vážky")) %>%
     # Filtrace dat: Ponechame pouze zaznamy pro konkretni druh, ktery aktualne zpracovavame
     dplyr::filter(DRUH == species_name) %>%
-    #dplyr::filter(SKUPINA == "Ryby a mihule") %>%
-    #filter(SKUPINA == "Savci") %>%
-    #filter(SKUPINA == "Letouni") %>%
     #--------------------------------------------------#
     ## Populacni indikatory ----- 
   #--------------------------------------------------#
@@ -862,8 +857,6 @@ run_n2k_druhy <- function(
       ),
     # POP_PASTIPOCET: Extrakce poctu pasti ze strukturovane poznamky (XML tag)
     POP_PASTIPOCET = tag_cislo(STRUKT_POZN, "POP_PASTIPOCET"),
-    # K DOŘEŠENÍ START !!!!!
-    # POP_PLOCHALOV: Extrakce plochy odlovu ze strukturovane poznamky (XML tag)
     # POP_PLOCHALOV: plocha odlovu, jmenovatel abundance.
     #
     # KAZDA METODA ODLOVU MA VLASTNI TAG (nalez H-48). Vazba je v datech
@@ -968,9 +961,6 @@ run_n2k_druhy <- function(
                                        STA_MAN == 0 & DRUH == "Phengaris teleius" ~ "nezaznamenána",
                                        CILMON == 1 ~ "nezaznamenána")
     ) %>%
-    # ------------------------------------------#
-    ## Ostatní bezobratlí ----- 
-  # ------------------------------------------#
   # ------------------------------------------#
   ## Obojživelníci a plazi ----- 
   # ------------------------------------------#
@@ -1500,11 +1490,7 @@ run_n2k_druhy <- function(
       sep = ","
     ) %>%
     dplyr::mutate(
-      # STA_ZAPOJENIDRN: Parsrovani zapojeni drnu z textu
-      STA_ZAPOJENIDRN = dplyr::case_when(
-        nchar(STA_ZAPOJENICELK) > 15 ~ str_match(STA_ZAPOJENICELK, 
-                                                 "zapojený::\\s*(.*?)\\s*%")[,2],
-        TRUE ~ "0"),
+      # STA_ZAPOJENIDRN: prvni cislo z polozky STA_ZAPOJENICELK
       STA_ZAPOJENIDRN = readr::parse_number(as.character(STA_ZAPOJENICELK))
     ) %>%
     # Rozpad retezce delek jedincu (ryby)
@@ -1597,14 +1583,6 @@ run_n2k_druhy <- function(
         max(POP_POCETNOSTNAL, na.rm = TRUE)
       },
       POP_POCETNOSTMAX = NA,
-      #POP_POCETSUM = sum(POP_POCET, na.rm = TRUE),
-      #CILMON = max(CILMON, na.rm = TRUE),
-      # ------------------------------------------#
-      ### Hmyz ----- 
-      # ------------------------------------------#
-      # ------------------------------------------#
-      ### Ostatní bezobratlí ----- 
-      # ------------------------------------------#
       # ------------------------------------------#
       ### Obojživelníci a plazi ----- 
       # ------------------------------------------#
@@ -1878,7 +1856,6 @@ run_n2k_druhy <- function(
     dplyr::arrange(
       desc(ROK)
     ) %>%
-    #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
       # Trendovy blok se pocita jen u druhu, ktere maji limit POP_TREND*
       # (viz 'pocitat_trend' na zacatku funkce). U ostatnich druhu zustavaji
@@ -1950,11 +1927,10 @@ run_n2k_druhy <- function(
       KOD_LOKAL, 
       DRUH
     ) %>%
-    # serazeni sestupne podle roku (pozor, v kodu je arrange(ROK), tedy vzestupne - od nejstarsich)
+    # serazeni vzestupne podle roku (od nejstarsich)
     dplyr::arrange(
       ROK
     ) %>%
-    #dplyr::filter(CILMON == 1 & is.na(POP_POCETMAX) == FALSE & is.infinite(POP_POCETMAX) == FALSE) %>%
     dplyr::reframe(
       # POP_ABUNDANCEREF: Prumerna abundance na zacatku sledovaneho obdobi (referencni stav)
       POP_ABUNDANCEREF = mean(head(na.omit(POP_ABUNDANCE), 3), na.rm = TRUE)
