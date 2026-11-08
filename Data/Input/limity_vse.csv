@@ -41,7 +41,7 @@ Bombina variegata,POP_POCET,info,NA,adulti,NA,lok
 Epidalea calamita,POP_POCET,info,NA,samci,NA,lok
 Epidalea calamita,POP_POCET,info,NA,jedinci,NA,lok
 Epidalea calamita,POP_POCET,info,NA,adulti,NA,lok
-Eriogaster catax,POP_POCET,info,NA,hnízda housenek,NA,lok
+Eriogaster catax,POP_POCET,min,30,hnízda housenek,ne,lok
 Euphydryas aurinia,POP_POCET,info,NA,hnízda housenek,NA,lok
 Euphydryas maturna,POP_POCET,info,NA,hnízda housenek,ne,lok
 Lissotriton montandoni,POP_POCET,info,NA,adulti,NA,lok
