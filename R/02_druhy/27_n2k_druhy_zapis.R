@@ -136,6 +136,32 @@ write_export_gz <- function(x, path, encoding, sep, quote) {
   invisible(path)
 }
 
+# Export urovne ("nal", "lok", "chu") ve dvou variantach:
+#   Windows-1250, oddelovac ",", uvozovky
+#   UTF-8 pro import do ISOP, oddelovac ";", bez uvozovek
+# Outputs/Data/druhy/n2k_druhy_<uroven>_<rok>_<YYYYMMDD>_<kodovani>.csv.gz
+zapis_exporty <- function(x, uroven, current_year) {
+  file_base <- paste0(
+    "Outputs/Data/druhy/n2k_druhy_", uroven, "_", current_year, "_", gsub("-", "", Sys.Date())
+  )
+  progress_line(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
+  if (!dir.exists("Outputs/Data/druhy/")) {
+    dir.create("Outputs/Data/druhy/", recursive = TRUE)
+  }
+  write_export_gz(x, paste0(file_base, "_Windows-1250.csv.gz"),
+                  encoding = "Windows-1250", sep = ",", quote = TRUE)
+  write_export_gz(x, paste0(file_base, "_UTF-8.csv.gz"),
+                  encoding = "UTF-8", sep = ";", quote = FALSE)
+}
+
+# Mezivysledek faze do Data/Temp/ (slozka je v .gitignore, na cistem klonu chybi).
+zapis_temp <- function(x, nazev) {
+  if (!dir.exists("Data/Temp/")) {
+    dir.create("Data/Temp/", recursive = TRUE)
+  }
+  readr::write_csv(x, paste0("Data/Temp/", nazev, ".csv"))
+}
+
 #----------------------------------------------------------#
 # Zapis dat nalez -----
 #----------------------------------------------------------#
@@ -150,11 +176,6 @@ nal_export <- function(
     n2k_oop,
     current_year = 2024
 ) {
-
-  # Zajisteni existence slozky pro docasne soubory
-  if (!dir.exists("Data/Temp/")) {
-    dir.create("Data/Temp/", recursive = TRUE)
-  }
 
   N_species <- length(species_list)
 
@@ -191,10 +212,7 @@ nal_export <- function(
 
   # Ulozeni mezivysledku 1
   progress_line("--- UKLADAM MEZIVYSLEDEK 1 DO TEMP ---")
-  readr::write_csv(
-    n2k_druhy,
-    paste0("Data/Temp/n2k_druhy", ".csv")
-  )
+  zapis_temp(n2k_druhy, "n2k_druhy")
 
   #----------------------------------------------------------#
   # 1b. Rada pocetnosti pro uroven uzemi (Tabulka 2 metodiky) -----
@@ -274,10 +292,7 @@ nal_export <- function(
       .groups = "drop"
     )
 
-  readr::write_csv(
-    pocetnost_uzemi,
-    paste0("Data/Temp/n2k_druhy_pocetnost", ".csv")
-  )
+  zapis_temp(pocetnost_uzemi, "n2k_druhy_pocetnost")
 
   #----------------------------------------------------------#
   # 2. Porovnani s limity -----
@@ -300,10 +315,7 @@ nal_export <- function(
   # Ulozeni mezivysledku 2 (take jako vstup pro lok_export, pokud se vola
   # samostatne / bez primeho predani objektu v pameti)
   progress_line("--- UKLADAM MEZIVYSLEDEK 2 DO TEMP ---")
-  readr::write_csv(
-    n2k_druhy_lim,
-    paste0("Data/Temp/n2k_druhy_lim", ".csv")
-  )
+  zapis_temp(n2k_druhy_lim, "n2k_druhy_lim")
 
   #----------------------------------------------------------#
   # 3. Propojeni s metadaty a serazeni sloupcu -----
@@ -383,45 +395,7 @@ nal_export <- function(
       dplyr::everything()
     )
 
-  #----------------------------------------------------------#
-  # 4. Export dat -----
-  #----------------------------------------------------------#
-
-  sep_isop <- ";"
-  quote_env_isop <- FALSE
-  encoding_isop <- "UTF-8"
-
-  sep <- ","
-  quote_env <- TRUE
-  encoding <- "Windows-1250"
-
-  date_stamp <- gsub("-", "", Sys.Date())
-  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_nal_", current_year, "_", date_stamp)
-
-  progress_line(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
-
-  if (!dir.exists("Outputs/Data/druhy/")) {
-    dir.create("Outputs/Data/druhy/", recursive = TRUE)
-  }
-
-  # Export 1: Windows-1250
-  write_export_gz(
-    n2k_druhy_lim_write,
-    paste0(file_base, "_", encoding, ".csv.gz"),
-    encoding = encoding,
-    sep = sep,
-    quote = quote_env
-  )
-
-  # Export 2: UTF-8
-  write_export_gz(
-    n2k_druhy_lim_write,
-    paste0(file_base, "_", encoding_isop, ".csv.gz"),
-    encoding = encoding_isop,
-    sep = sep_isop,
-    quote = quote_env_isop
-  )
-
+  zapis_exporty(n2k_druhy_lim_write, "nal", current_year)
   progress_line("--- HOTOVO (NAL_EXPORT) ---")
 
   return(list(nal_write = n2k_druhy_lim_write, druhy_lim = n2k_druhy_lim))
@@ -429,17 +403,6 @@ nal_export <- function(
 
 kuknal_raw <- nal_export(n2k_load, species_list, sites_subjects, limity, evl, rp_code, n2k_oop, current_year = current_year)
 kuknal <- kuknal_raw$nal_write
-
-#----------------------------------------------------------#
-# Zapis mapy indikatoru ----
-#----------------------------------------------------------#
-#source("R/0_Config/01_n2k_map_ind.R")
-#map <- build_indicator_map(
-#  n2k_druhy,
-#  limity,
-#  script = "R/2_druhy/21_n2k_druhy_akce.R",
-#  out_file = "Outputs/indicator_map_n2k.csv"
-#)
 
 #----------------------------------------------------------#
 # Zapis dat lok -----
@@ -494,19 +457,8 @@ lok_export <- function(
     return(NULL)
   }
 
-  # --- UKLADANI TEMP DAT ---
-  # Ulozeni mezivysledku pro dalsi funkce
   progress_line("--- UKLADAM MEZIVYSLEDEK DO TEMP ---")
-
-  # Ujistime se, ze existuje slozka (i kdyz pro cteni existovala)
-  if (!dir.exists("Data/Temp/")) {
-    dir.create("Data/Temp/", recursive = TRUE)
-  }
-
-  readr::write_csv(
-    n2k_druhy_lok,
-    paste0("Data/Temp/n2k_druhy_lok", ".csv")
-  )
+  zapis_temp(n2k_druhy_lok, "n2k_druhy_lok")
 
   #--------------------------------------------------#
   # 3. Propojeni s metadaty a serazeni sloupcu ----
@@ -588,45 +540,7 @@ lok_export <- function(
       -dplyr::any_of(c("CELKOVE_CILMON", "ROK_CILMON"))
     )
 
-  #--------------------------------------------------#
-  # 4. Export dat ----
-  #--------------------------------------------------#
-
-  sep_isop <- ";"
-  quote_env_isop <- FALSE
-  encoding_isop <- "UTF-8"
-
-  sep <- ","
-  quote_env <- TRUE
-  encoding <- "Windows-1250"
-
-  date_stamp <- gsub("-", "", Sys.Date())
-  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_lok_", current_year, "_", date_stamp)
-
-  progress_line(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
-
-  if (!dir.exists("Outputs/Data/druhy/")) {
-    dir.create("Outputs/Data/druhy/", recursive = TRUE)
-  }
-
-  # Export 1: Windows-1250
-  write_export_gz(
-    n2k_druhy_lok_write,
-    paste0(file_base, "_", encoding, ".csv.gz"),
-    encoding = encoding,
-    sep = sep,
-    quote = quote_env
-  )
-
-  # Export 2: UTF-8
-  write_export_gz(
-    n2k_druhy_lok_write,
-    paste0(file_base, "_", encoding_isop, ".csv.gz"),
-    encoding = encoding_isop,
-    sep = sep_isop,
-    quote = quote_env_isop
-  )
-
+  zapis_exporty(n2k_druhy_lok_write, "lok", current_year)
   progress_line("--- HOTOVO ---")
 
   return(list(lok_write = n2k_druhy_lok_write, druhy_lok = n2k_druhy_lok))
@@ -710,8 +624,7 @@ chu_export <- function(
   }
 
   progress_line("--- UKLADAM MEZIVYSLEDEK DO TEMP ---")
-  if (!dir.exists("Data/Temp/")) dir.create("Data/Temp/", recursive = TRUE)
-  readr::write_csv(n2k_druhy_uzemi, paste0("Data/Temp/n2k_druhy_chu", ".csv"))
+  zapis_temp(n2k_druhy_uzemi, "n2k_druhy_chu")
 
   progress_line("--- PRIPRAVA DAT PRO EXPORT (CHU) ---")
 
@@ -782,7 +695,7 @@ chu_export <- function(
       },
       by = "druh"
     ) %>%
-    # --- ZDE BYLA CHYBA: Pridano as.character() pro sjednoceni typu ---
+    # ind_id (cislo) i parametr_nazev (text) jako text, jinak coalesce() selze
     dplyr::mutate(
       parametr_nazev = dplyr::coalesce(as.character(ind_id), as.character(parametr_nazev)),
       pracoviste = gsub(",", "", pracoviste),
@@ -791,20 +704,7 @@ chu_export <- function(
     dplyr::select(-c(ind_id, ind_popis, ID_ND_AKCE, metodika_cis)) %>%
     dplyr::distinct()
 
-  sep_isop <- ";"
-  quote_env_isop <- FALSE
-  encoding_isop <- "UTF-8"
-  sep <- ","
-  quote_env <- TRUE
-  encoding <- "Windows-1250"
-  date_stamp <- gsub("-", "", Sys.Date())
-  file_base <- paste0("Outputs/Data/druhy/n2k_druhy_chu_", current_year, "_", date_stamp)
-
-  progress_line(paste0("--- EXPORTUJI SOUBORY DO: ", file_base, "... ---"))
-  if (!dir.exists("Outputs/Data/druhy/")) dir.create("Outputs/Data/druhy/", recursive = TRUE)
-  write_export_gz(n2k_druhy_chu_write, paste0(file_base, "_", encoding, ".csv.gz"), encoding = encoding, sep = sep, quote = quote_env)
-  write_export_gz(n2k_druhy_chu_write, paste0(file_base, "_", encoding_isop, ".csv.gz"), encoding = encoding_isop, sep = sep_isop, quote = quote_env_isop)
-
+  zapis_exporty(n2k_druhy_chu_write, "chu", current_year)
   progress_line("--- HOTOVO (CHU_EXPORT) ---")
   return(n2k_druhy_chu_write)
 }
