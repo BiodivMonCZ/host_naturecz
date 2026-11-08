@@ -15,7 +15,7 @@ run_n2k_druhy_lok <- function(
     n2k_druhy_lim,
     species_name,
     sites_subjects,
-    limity, # Ponechano pro budouci pouziti
+    limity, # ocekavane klicove indikatory (DRUHY_KLIC_Z_LIMITU, H-92)
     current_year = 2025,
     # Prepinac pro vnitrni, "cilenou" variantu behu - viz blok 6 na konci
     # funkce. Pri TRUE se vstup uz povazuje za omezeny na cileny monitoring a
@@ -326,7 +326,6 @@ run_n2k_druhy_lok <- function(
   
   # C. Spojeni detailu a celkoveho hodnoceni do finalni tabulky
   final_rows <- result_details %>%
-    # Zde byla opravena chyba syntaxe: nejprve prejmenujeme, pak selektujeme
     dplyr::rename(HOD_IND = HOD_IND_TEXT) %>%
     dplyr::select(
       -WINNING_CELKOVE, 
@@ -335,7 +334,7 @@ run_n2k_druhy_lok <- function(
       -HOD_IND_VAL
     ) %>%
     dplyr::bind_rows(result_summary) %>%
-    # Serazeni tak, aby celkove hodnoceni bylo na konci (nebo na zacatku dle preference, zde abecedne)
+    # Celkove hodnoceni jako prvni radek DP, ostatni indikatory abecedne
     dplyr::arrange(kod_chu, KOD_LOKAL, dplyr::desc(ID_IND == "CELKOVE_HODNOCENI"), ID_IND) %>%
     dplyr::distinct()
   
