@@ -1,3 +1,6 @@
+# Popisne sloupce, ktere se na urovni EVL slucuji do vyctu "a, b, c".
+META_CHU <- c("ROK", "POLE", "NAZEV_LOK", "ID_ND_AKCE", "ID_ND_LOK")
+
 run_n2k_druhy_uzemi <- function(
     n2k_druhy_lok,
     species_name,
@@ -80,11 +83,7 @@ run_n2k_druhy_uzemi <- function(
         DRUH
       ) %>%
       dplyr::reframe(
-        ROK = toString(unique(ROK)),
-        POLE = toString(unique(POLE)),
-        NAZEV_LOK = toString(unique(NAZEV_LOK)),
-        ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
-        ID_ND_LOK = toString(unique(ID_ND_LOK)),
+        dplyr::across(dplyr::all_of(META_CHU), ~ toString(unique(.x))),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
         # Zde staci pocitat radky s hodnocenim. Pole s neznamym celkovym
@@ -150,11 +149,7 @@ run_n2k_druhy_uzemi <- function(
         DRUH
       ) %>%
       dplyr::reframe(
-        ROK = toString(unique(ROK)), 
-        POLE = toString(unique(POLE)), 
-        NAZEV_LOK = toString(unique(NAZEV_LOK)), 
-        ID_ND_AKCE = toString(unique(ID_ND_AKCE)), 
-        ID_ND_LOK = toString(unique(ID_ND_LOK)),
+        dplyr::across(dplyr::all_of(META_CHU), ~ toString(unique(.x))),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
         POP_PRESENCE = dplyr::case_when(
@@ -218,7 +213,7 @@ run_n2k_druhy_uzemi <- function(
       )
     ) %>%
     tidyr::pivot_longer(
-      cols = -c(kod_chu, DRUH, ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU), 
+      cols = -c(kod_chu, DRUH, dplyr::all_of(META_CHU), CILMON_CHU),
       names_to = "ID_IND",
       values_to = "HOD_IND"
     ) %>%
@@ -234,7 +229,7 @@ run_n2k_druhy_uzemi <- function(
       by = c("DRUH" = "DRUH", "ID_IND" = "ID_IND")
     ) %>%
     dplyr::group_by(kod_chu, DRUH) %>%
-    tidyr::fill(ROK, POLE, NAZEV_LOK, ID_ND_AKCE, ID_ND_LOK, CILMON_CHU, .direction = "downup") %>%
+    tidyr::fill(dplyr::all_of(c(META_CHU, "CILMON_CHU")), .direction = "downup") %>%
     dplyr::ungroup() %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND) %>%
     dplyr::arrange(dplyr::desc(!is.na(HOD_IND)), HOD_IND) %>% 
@@ -324,11 +319,7 @@ run_n2k_druhy_uzemi <- function(
   n2k_druhy_chu_vypocet <- n2k_druhy_chu_pre %>%
     dplyr::group_by(kod_chu, DRUH, ID_IND, KLIC) %>%
     dplyr::reframe(
-      ROK = toString(unique(ROK)),
-      POLE = toString(unique(POLE)),
-      NAZEV_LOK = toString(unique(NAZEV_LOK)),
-      ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
-      ID_ND_LOK = toString(unique(ID_ND_LOK)),
+      dplyr::across(dplyr::all_of(META_CHU), ~ toString(unique(.x))),
       HOD_IND = toString(stats::na.omit(unique(HOD_IND))),        
       TYP_IND = unique(TYP_IND),
       LIM_IND = unique(LIM_IND),
@@ -490,11 +481,7 @@ run_n2k_druhy_uzemi <- function(
   metadata_chu <- n2k_druhy_chu_vypocet %>%
     dplyr::group_by(kod_chu, DRUH) %>%
     dplyr::summarise(
-      ROK = toString(unique(ROK)),
-      POLE = toString(unique(POLE)),
-      NAZEV_LOK = toString(unique(NAZEV_LOK)),
-      ID_ND_AKCE = toString(unique(ID_ND_AKCE)),
-      ID_ND_LOK = toString(unique(ID_ND_LOK)),
+      dplyr::across(dplyr::all_of(META_CHU), ~ toString(unique(.x))),
       UROVEN = "chu",
       CILMON_CHU = max(CILMON_CHU, na.rm = TRUE),
       STAV_IND = unique(CELKOVE) %>% max(na.rm = TRUE), 
