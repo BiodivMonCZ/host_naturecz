@@ -204,10 +204,7 @@ n2k_load <- n2k_export %>%
       KOD_LOKALITY == "amp334 (CZ_3)" ~ "CZ0523010_3",
       KOD_LOKALITY == "amp138 (CZ_2)" ~ "CZ0523010_2",
       KOD_LOKALITY == "amp335 (cz_1)" ~ "CZ0523010_1",
-      KOD_LOKALITY == "amp102" ~ "CZ0423215",
       KOD_LOKALITY == "amp116" ~ "CZ0513249",
-      KOD_LOKALITY == "amp101" ~ "CZ0423006",
-      KOD_LOKALITY == "amp15" ~ "CZ0213790",
       KOD_LOKALITY == "amp30" ~ "CZ0213077",
       KOD_LOKALITY == "amp314 (cz_2)" ~ "CZ0213064_2",
       KOD_LOKALITY == "amp316 (cz_3)" ~ "CZ0213064_3",
@@ -223,24 +220,16 @@ n2k_load <- n2k_export %>%
       KOD_LOKALITY == "amp340" ~ "CZ0213066_1",
       KOD_LOKALITY == "amp27" ~ "CZ0213058",
       KOD_LOKALITY == "amp226" ~ "CZ0724429_3",
-      KOD_LOKALITY %in% c("amp211", "amp211" , "amp211", "amp107", "amp99",
+      KOD_LOKALITY %in% c("amp211", "amp107", "amp99",
                           "amp53", "amp252", "amp281", "amp280", "amp22",
                           "amp81", "amp25", "CZ0813450", "CZ0713397") ~ NA_character_,
       kod_chu == "CZ0623367" ~ "CZ0623367",
       is.na(KOD_LOKALITY) == TRUE & SKUPINA != "Cévnaté rostliny" ~ kod_chu,
-      TRUE ~ NA_character_)
-  ) %>%
-  dplyr::mutate(
-    KOD_LOKAL = dplyr::case_when(
-      is.na(KOD_LOKAL) == TRUE ~ KOD_LOKALITY,
-      TRUE ~ KOD_LOKAL
-    )
-  ) %>%
-  dplyr::mutate(
-    KOD_LOKAL = dplyr::case_when(
-      is.na(KOD_LOKAL) == TRUE ~ LOKALITA,
-      TRUE ~ KOD_LOKAL
-    )
+      TRUE ~ NA_character_),
+    # Bez kodu z pravidel vyse: kod lokality NDOP, jinak nazev lokality.
+    # POZOR (nalez H-101): kody v seznamu "~ NA_character_" vyse tim dostanou
+    # zpet svuj KOD_LOKALITY - seznam jen preskoci pravidla pod nim.
+    KOD_LOKAL = dplyr::coalesce(KOD_LOKAL, KOD_LOKALITY, LOKALITA)
   ) %>%
   # identifikace dat cileneho monitoringu
   dplyr::mutate(
