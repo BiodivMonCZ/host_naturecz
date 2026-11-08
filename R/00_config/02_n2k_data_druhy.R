@@ -167,23 +167,25 @@ n2k_load <- n2k_export %>%
         )
       )
     ),
-    KOD_LOKRYB = readr::parse_character(
-      stringr::str_extract(
-        STRUKT_POZN,
-        "(?<=<naz_tok>).*(?=</naz_tok>)"
-      )
-    ),
     KOD_LOKAL = dplyr::case_when(
       SKUPINA == "Letouni" ~ LOKALITA,
       SKUPINA == "Mechy" ~ LOKALITA,
       SKUPINA == "Motýli" ~ substring(
-        KOD_LOKALITY, 
-        1, 
+        KOD_LOKALITY,
+        1,
         10
       ),
+      # Ryby a mihule: lokalita = nazev lokality NDOP (LOKALITA). Data ryb
+      # nemaji KOD_LOKALITY (0 % zaznamu monitoringu, u obojzivelniku 79 %)
+      # a drive pouzivany tag <naz_tok> nese nazev EVL nebo CHKO, takze
+      # se vsechny useky uzemi slevaly do jedne "lokality" (az 68 pruzkumu
+      # pod jednim klicem v roce). Rozhodnuti zadavatele 2026-11-05 ("just
+      # LOKALITA"), viz nalez H-71 v Metodiky/Ryby a mihule/harmonizace_registr.md.
+      # Varianty zapisu tehoz nazvu (pomlcka / en-dash, mezery, velikost
+      # pismen) sjednocuje blok "Ryby - sjednoceni zapisu nazvu lokality" nize.
       SKUPINA == "Ryby a mihule" &
-        is.na(KOD_LOKRYB) == FALSE 
-      ~ KOD_LOKRYB,
+        is.na(LOKALITA) == FALSE
+      ~ stringr::str_squish(as.character(LOKALITA)),
       KOD_LOKALITY == "amp216" ~ "CZ0723412",
       KOD_LOKALITY == "amp222" ~ "CZ0724089_9",
       KOD_LOKALITY == "amp231" ~ "CZ0724089_19",
@@ -234,9 +236,6 @@ n2k_load <- n2k_export %>%
       TRUE ~ KOD_LOKAL
     )
   ) %>%
-  dplyr::select(
-    -KOD_LOKRYB
-  )%>%
   dplyr::mutate(
     KOD_LOKAL = dplyr::case_when(
       is.na(KOD_LOKAL) == TRUE ~ LOKALITA,
@@ -246,7 +245,12 @@ n2k_load <- n2k_export %>%
   # identifikace dat cileneho monitoringu
   dplyr::mutate(
     CILMON = dplyr::case_when(
-      ZDROJ %in% CIS_CILMON ~ 1,
+      # Porovnava se se SLOUPCEM ZDROJ_NDOP, ne s tabulkou: `ZDROJ %in%
+      # CIS_CILMON` (tibble) se neshodoval nikdy, takze seznam zdroju
+      # cileneho monitoringu se neuplatnil u zadneho zaznamu - mj. 2 106
+      # zaznamu "Kolektiv autoru (2021) Sledovani stavu EVL - obojzivelnici."
+      # Viz nalez H-89 v Metodiky/Ryby a mihule/harmonizace_registr.md.
+      ZDROJ %in% CIS_CILMON$ZDROJ_NDOP ~ 1,
       PROJEKT == "Monitoring druhů ČR" ~ 1,
       DRUH %in% c(
         "Carabus menetriesi pacholei", 
@@ -255,6 +259,49 @@ n2k_load <- n2k_export %>%
       ~ 1,
       TRUE ~ 0)
   ) 
+
+#------------------------------------------#
+### Ryby - sjednoceni zapisu nazvu lokality ----
+#------------------------------------------#
+# Klicem lokality ryb je nazev lokality NDOP (H-71). Tentyz usek je ale
+# v datech zapsan ruznymi variantami - pomlcka x en-dash, mezery kolem
+# pomlcky, velka a mala pismena - a kazda varianta by byla samostatnou
+# lokalitou s kratsi casovou radou (od 2013 u monitoringu: Cottus gobio
+# 492 -> 425 lokalit, Lampetra planeri 367 -> 322, Misgurnus fossilis
+# 179 -> 175). Varianty se sjednoti na nejcastejsi zapis v ramci EVL;
+# kod lokality tak zustava citelny nazev. Prechodne reseni do zavedeni
+# kodu lokalit ryb (rozhodnuti Z-16, 2026-11-05; nalez H-71).
+normalizuj_lokalitu_ryb <- function(x) {
+  x <- stringr::str_replace_all(x, "[\u2013\u2014\u2212]", "-")
+  x <- stringr::str_squish(x)
+  x <- stringr::str_replace_all(x, " *- *", " - ")
+  tolower(x)
+}
+
+ryby_lok_kanon <- n2k_load %>%
+  dplyr::filter(SKUPINA == "Ryby a mihule", !is.na(LOKALITA)) %>%
+  dplyr::mutate(LOK_NORM = normalizuj_lokalitu_ryb(KOD_LOKAL)) %>%
+  dplyr::count(kod_chu, LOK_NORM, KOD_LOKAL) %>%
+  # nejcastejsi zapis; pri shode abecedne prvni (deterministicky)
+  dplyr::arrange(kod_chu, LOK_NORM, dplyr::desc(n), KOD_LOKAL) %>%
+  dplyr::distinct(kod_chu, LOK_NORM, .keep_all = TRUE) %>%
+  dplyr::select(kod_chu, LOK_NORM, KOD_LOKAL_KANON = KOD_LOKAL)
+
+n_pred_kanon <- nrow(n2k_load)
+n2k_load <- n2k_load %>%
+  dplyr::mutate(
+    LOK_NORM = dplyr::if_else(
+      SKUPINA == "Ryby a mihule" & !is.na(LOKALITA),
+      normalizuj_lokalitu_ryb(KOD_LOKAL),
+      NA_character_
+    )
+  ) %>%
+  dplyr::left_join(ryby_lok_kanon, by = c("kod_chu", "LOK_NORM"), na_matches = "never") %>%
+  dplyr::mutate(KOD_LOKAL = dplyr::coalesce(KOD_LOKAL_KANON, KOD_LOKAL)) %>%
+  dplyr::select(-LOK_NORM, -KOD_LOKAL_KANON)
+stopifnot(nrow(n2k_load) == n_pred_kanon)
+rm(ryby_lok_kanon, n_pred_kanon)
+
 #----------------------------------------------------------#
 # KONEC ----
 #----------------------------------------------------------#

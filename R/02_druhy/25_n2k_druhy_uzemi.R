@@ -32,6 +32,25 @@ run_n2k_druhy_uzemi <- function(
   #----------------------------------------------------------#
   # Vytvorime mapovaci tabulku: Lokalita+Rok -> Vysledek
   
+  # Zaloha pro pripad, ze uroven DP prisla ze starsiho souboru na disku, ktery
+  # sloupec CELKOVE_CILMON jeste neobsahuje (viz input_path v chu_export).
+  # Chovani je pak totozne se stavem pred nalezem H-69, proto varovani.
+  if (!"CELKOVE_CILMON" %in% names(n2k_druhy_lok)) {
+    warning(glue::glue(
+      "Druh {species_name}: uroven DP neobsahuje sloupec CELKOVE_CILMON - ",
+      "LOK_PROCDOBR se pocita ze zastaraleho filtru CILMON == 1 nad HOD_IND ",
+      "(viz nalez H-69). Prepoctete uroven DP aktualnim 24_n2k_druhy_lokality.R."
+    ))
+    n2k_druhy_lok <- n2k_druhy_lok %>%
+      dplyr::mutate(
+        CELKOVE_CILMON = ifelse(
+          ID_IND == "CELKOVE_HODNOCENI" & !is.na(CILMON) & CILMON == 1,
+          HOD_IND,
+          NA_character_
+        )
+      )
+  }
+
   hodnoceni_lokalit <- n2k_druhy_lok %>%
     dplyr::filter(ID_IND == "CELKOVE_HODNOCENI") %>%
     dplyr::select(
@@ -76,8 +95,11 @@ run_n2k_druhy_uzemi <- function(
         ID_ND_LOK = toString(unique(ID_ND_LOK)),
         CILMON_CHU = max(CILMON, na.rm = TRUE),
         
-        # Zde staci pocitat radky s hodnocenim
-        POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1, na.rm = TRUE),
+        # Zde staci pocitat radky s hodnocenim. Pole s neznamym celkovym
+        # stavem (neznamy klicovy indikator, H-90 / Z-12) se do jmenovatele
+        # nezapocitava - obdoba LOK_POCETSUM u lokalit.
+        POP_POCETPOLE1 = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 &
+                               HOD_IND %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
         
         POP_POCETPOLE1D = sum(
           ID_IND == "CELKOVE_HODNOCENI" & 
@@ -93,18 +115,46 @@ run_n2k_druhy_uzemi <- function(
         }
       ) %>%
       dplyr::mutate(
+        # Zadne hodnocene pole = neznamy podil (NA), ne 0 % (H-90 / Z-12).
+        # Drive POP_POCETPOLE1 == 0 nastavalo jen u EVL bez cileneho
+        # monitoringu, ktere export (27, CILMON_CHU) stejne vyrazuje.
         POP_PROCPOLE1D = dplyr::case_when(
-          POP_POCETPOLE1 == 0 ~ 0,
+          POP_POCETPOLE1 == 0 ~ NA_real_,
           TRUE ~ round(POP_POCETPOLE1D/POP_POCETPOLE1*100, 3)
         ),
         STA_HABPOKRYV = ifelse(is.na(STA_HABPOKRYVPRE) == TRUE, NA, STA_HABPOKRYVPRE*100)
       ) %>%
       dplyr::select(-STA_HABPOKRYVPRE)
     
-  } else { 
+  } else {
     # ----------------------------------------------#
     ## Logika pro LOKALITY / OSTATNI (HMYZ NE) ----
     # ----------------------------------------------#
+    # Migracni prostupnost EVL (ryby metodiky EVL 2026, nalez H-83). Metodika:
+    # dobra jen bez pricne prekazky vyssi nez limit v monitorovanych
+    # lokalitach. Vstupem je nejvyssi bariera (STA_MIGBARVYS, info radek DP)
+    # kazde hodnocene lokality v jejim reprezentativnim roce. Prazdny tag
+    # <pocet_bar> = neznamo (rozhodnuti 2026-11-05, Z-5), takze:
+    #   nektera lokalita s barierou nad limitem ... nejvyssi vyska (nesplneno)
+    #   vsechny lokality se znamou vyskou ........ nejvyssi vyska (splneno)
+    #   jinak ..................................... NA (neznamy)
+    lim_mig <- suppressWarnings(as.numeric(limity$LIM_IND[
+      limity$DRUH == species_name & limity$ID_IND == "STA_MIGPROSTUP" & limity$UROVEN %in% "chu"
+    ][1]))
+    mig_evl <- function(id, hod, celk_cilmon, lok) {
+      if (is.na(lim_mig)) return(NA_real_)
+      hodnocene <- unique(lok[id == "CELKOVE_HODNOCENI" & celk_cilmon %in% c("dobrý", "zhoršený", "špatný")])
+      if (length(hodnocene) == 0) return(NA_real_)
+      v <- suppressWarnings(as.numeric(hod))
+      vys <- vapply(hodnocene, function(l) {
+        x <- v[id == "STA_MIGBARVYS" & lok == l]
+        x <- x[!is.na(x)]
+        if (length(x) > 0) max(x) else NA_real_
+      }, numeric(1))
+      if (any(vys > lim_mig, na.rm = TRUE)) return(max(vys, na.rm = TRUE))
+      if (all(!is.na(vys))) return(max(vys))
+      NA_real_
+    }
     n2k_druhy_chu_temp <- n2k_druhy_aug %>%
       dplyr::filter(DRUH == species_name) %>%
       dplyr::group_by(
@@ -159,14 +209,26 @@ run_n2k_druhy_uzemi <- function(
         # Metodika: "Procento dobre hodnocenych dilcich ploch" = pocet DP v dobrem stavu /
         # pocet DP v dobrem, zhorsenem ci spatnem stavu * 100. DP s neznamym stavem se do
         # vypoctu (citatele ani jmenovatele) nezapocitavaji.
-        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
-        LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CILMON == 1 & HOD_IND == "dobrý", na.rm = TRUE),
+        #
+        # Pocita se ze sloupce CELKOVE_CILMON, ne z HOD_IND: je to tyz verdikt
+        # Tabulky 1, ale postaveny VYHRADNE na zaznamech s CILMON == 1 (viz blok
+        # 6 v 24_n2k_druhy_lokality.R). Puvodni podminka `CILMON == 1` nad HOD_IND
+        # filtrovala jen priznak DP, ne data pod nim - CILMON se totiz na urovni
+        # DP agreguje maximem, takze DP-rok, kde se potkal cileny monitoring s
+        # nahodilym nalezem, prosel jako CILMON = 1 i s prispevkem zaznamu
+        # CILMON = 0. CELKOVE_CILMON je NA u DP bez cileneho monitoringu, takze
+        # se takova DP do citatele ani jmenovatele nedostane - stejne jako drive.
+        # Nalez H-69; vecne rozhodnuti, zda se ma filtrovat vubec, zustava H-62.
+        LOK_POCETSUM = sum(ID_IND == "CELKOVE_HODNOCENI" & CELKOVE_CILMON %in% c("dobrý", "zhoršený", "špatný"), na.rm = TRUE),
+        LOK_POCETDOB = sum(ID_IND == "CELKOVE_HODNOCENI" & CELKOVE_CILMON == "dobrý", na.rm = TRUE),
         LOK_PROCDOBR = dplyr::case_when(is.na(LOK_POCETDOB) | is.na(LOK_POCETSUM) ~ NA_real_, LOK_POCETSUM == 0 ~ NA_real_, TRUE ~ round(LOK_POCETDOB / LOK_POCETSUM * 100, 3)),
         # Stejne pocty pod nazvy z ciselniku cis_indikatory_popis.csv (ind_id 130 / 131),
         # aby se pri exportu do ISOP (chu_export, viz 27_n2k_druhy_zapis.R) spravne
         # napojily na oficialni kod indikatoru misto surove textove hodnoty ID_IND.
         LOK_DILCDOBRE = LOK_POCETDOB,
         LOK_DILCPOCET = LOK_POCETSUM,
+        # Migracni prostupnost EVL (H-83) - mimo druhy s limitem NA.
+        STA_MIGPROSTUP = mig_evl(ID_IND, HOD_IND, CELKOVE_CILMON, KOD_LOKAL),
 
         STA_HABPOKRYVPRE = {
           k_chu <- unique(kod_chu)
@@ -355,6 +417,59 @@ run_n2k_druhy_uzemi <- function(
       )
     ) %>%
     dplyr::ungroup()
+
+  #----------------------------------------------------------#
+  # 5a. Ryby metodiky EVL 2026 - rozhodovaci tabulka EVL -----
+  #----------------------------------------------------------#
+  # Metodika, kap. 5.4 (nalezy H-81, H-82, H-83):
+  #   agregovane lokality dobre: >= 75 % hodnocenych lokalit v dobrem stavu,
+  #     pri TRECH hodnocenych lokalitach staci dve; pri 1-2 doslovne 75 %
+  #     (1/1, 2/2 - rozhodnuti 2026-11-05, Z-6); neznama lokalita se
+  #     nezapocitava, zadna hodnocena lokalita -> EVL neznama
+  #   | lokality | prostupnost | EVL      |
+  #   | dobre    | dobra       | dobry    |
+  #   | dobre    | spatna      | zhorseny |
+  #   | spatne   | -           | spatny   |
+  # Neznamou prostupnost metodika neresi; neznamy parametr do hodnoceni
+  # nevstupuje (kap. 5.3), EVL se tedy hodnoti jen podle lokalit.
+  # Puvodni aritmetika nad poctem klicovych indikatoru zde nedava "spatny"
+  # nikdy (H-81) a pri prazdnem LOK_PROCDOBR dava "dobry" (0 >= 0, H-82).
+  if (species_name %in% DRUHY_RYBY_2026 && !is_pole_druh) {
+    ryby_evl <- n2k_druhy_chu_temp %>%
+      dplyr::transmute(
+        kod_chu, DRUH,
+        n_lok = as.numeric(LOK_POCETSUM),
+        n_dob = as.numeric(LOK_POCETDOB),
+        mig = as.numeric(STA_MIGPROSTUP)
+      ) %>%
+      dplyr::mutate(
+        LOK_DOBRE = dplyr::case_when(
+          is.na(n_lok) | n_lok == 0 ~ NA,
+          n_lok == 3 ~ n_dob >= 2,
+          TRUE ~ n_dob / n_lok >= 0.75
+        ),
+        MIG_DOBRA = dplyr::if_else(is.na(mig) | is.na(lim_mig), NA, mig <= lim_mig),
+        CELKOVE_RYBY = dplyr::case_when(
+          is.na(LOK_DOBRE) ~ NA_real_,
+          !LOK_DOBRE ~ 0,
+          MIG_DOBRA %in% FALSE ~ 0.5,
+          TRUE ~ 1
+        )
+      ) %>%
+      dplyr::select(kod_chu, DRUH, LOK_DOBRE, CELKOVE_RYBY)
+
+    n2k_druhy_chu_vypocet <- n2k_druhy_chu_vypocet %>%
+      dplyr::left_join(ryby_evl, by = c("kod_chu", "DRUH")) %>%
+      dplyr::mutate(
+        # vyjimka "pri trech dve" se do limitu min 75 zapsat neda
+        STAV_IND = dplyr::if_else(
+          ID_IND == "LOK_PROCDOBR" & !is.na(LOK_DOBRE),
+          as.numeric(LOK_DOBRE), STAV_IND
+        ),
+        CELKOVE = CELKOVE_RYBY
+      ) %>%
+      dplyr::select(-LOK_DOBRE, -CELKOVE_RYBY)
+  }
 
   #----------------------------------------------------------#
   # 5b. Tabulka 2 metodiky - kombinace obou indikatoru uzemi -----

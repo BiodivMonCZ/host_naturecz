@@ -1,0 +1,1741 @@
+DRUH,kod_chu,KOD_LOKAL,R,ID_IND,pricina,let_any,let_ab,let_vit,pred_cil
+Cottus gobio,CZ0213814,Ledný potok - Zadní Bahna,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0213814,Ledný potok - Zadní Bahna,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Kublovský potok - spodní úsek,2015,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0214039,Kublovský potok - spodní úsek,2015,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0214039,Pařezový potok - Březová,2019,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,0
+Cottus gobio,CZ0214039,Pařezový potok - Březová,2019,POP_VITALITA3,C chybi delky,2,1,1,0
+Cottus gobio,CZ0214039,Pařezový potok - Březová - Andreska,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Pařezový potok - Březová - Andreska,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Stroupinský potok 3,2015,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0214039,Stroupinský potok 3,2015,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0214039,Stroupínský potok - Hředle,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Stroupínský potok - Hředle,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Stroupínský potok - Pod Hrází,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0214039,Stroupínský potok - Pod Hrází,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0313140,Závišínský potok – Záhrobí,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0313140,Závišínský potok – Záhrobí,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Blanice - Krejčovice,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Blanice - Krejčovice,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Blanice – Krečovice,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Blanice – Krečovice,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Boubínský potok - Dobišův Mlýn,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Boubínský potok - Dobišův Mlýn,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Horský potok - nad soutokem s Bukovým p.,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Horský potok - nad soutokem s Bukovým p.,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Horský potok – Pasečná,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Horský potok – Pasečná,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Hrádecký potok - Srní_Truhlářský mlýn,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Hrádecký potok - Srní_Truhlářský mlýn,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jedlový potok – Soumarské rašeliniště – úsek I.,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jedlový potok – Soumarské rašeliniště – úsek I.,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jelenka - Krotějov,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Jelenka - Krotějov,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Jelenka - Želiv,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Jelenka - Želiv,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok - Železná Ruda_nad soutokem s Řeznou,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok - Železná Ruda_nad soutokem s Řeznou,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok – Nová Pec u Krejzů,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok – Nová Pec u Krejzů,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok – Železná Ruda_pod viaduktem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Jezerní potok – Železná Ruda_pod viaduktem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Kaplický potok – Zátoň,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Kaplický potok – Zátoň,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Křemelná I - nad soutokem s Prášilským potokem,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Křemelná I - nad soutokem s Prášilským potokem,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Křemelná a Slatinný potok,2015,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0314024,Křemelná a Slatinný potok,2015,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0314024,Křemelná a Slatinný potok III - Gerlova Huť,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Křemelná a Slatinný potok III - Gerlova Huť,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Křemžský potok – Dobročkov II.,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Křemžský potok – Dobročkov II.,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Losenice – Popelná,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Losenice – Popelná,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Medvědí potok – Zadní Hamry,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Medvědí potok – Zadní Hamry,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Olšinka - Lenora,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Olšinka - Lenora,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostružná II - Nemilkov,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Ostružná II - Nemilkov,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Ostružná III - Čachrov,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostružná III - Čachrov,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostružná – Jesení,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostružná – Jesení,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostružná-Nemilkov,2016,POP_DYN,C chybi abundance (pocet / plocha),2,0,0,1
+Cottus gobio,CZ0314024,Ostružná-Nemilkov,2016,POP_VITALITA3,C chybi delky,2,0,0,1
+Cottus gobio,CZ0314024,Ostružná-Čachrov,2016,POP_DYN,C chybi abundance (pocet / plocha),2,0,0,1
+Cottus gobio,CZ0314024,Ostružná-Čachrov,2016,POP_VITALITA3,C chybi delky,2,0,0,1
+Cottus gobio,CZ0314024,Ostřice - Kovářov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostřice - Kovářov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostřice - Žlábek,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Ostřice - Žlábek,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Otovský potok – státní hranice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Otovský potok – státní hranice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Pestřice – Pod Pestřickým vrchem,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Pestřice – Pod Pestřickým vrchem,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Pestřice – Račín I.,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Pestřice – Račín I.,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Polecký potok - Polka_nad nádrží,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Polecký potok - Polka_nad nádrží,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Prášilský potok - Dolní Ždánidla,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Prášilský potok - Dolní Ždánidla,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Roklanský potok - Modrava U Hraběcího mostu,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Roklanský potok - Modrava U Hraběcího mostu,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Rýžovní potok - Velký Kozí Hřbet,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Rýžovní potok - Velký Kozí Hřbet,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Slatinný potok II - Slučí Tah,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Slatinný potok II - Slučí Tah,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Slatinný potok III - Gerlova Huť,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Slatinný potok III - Gerlova Huť,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Spůlka - Stachy - hřiště,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Spůlka - Stachy - hřiště,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Spůlka – Pucherský Mlýn,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Spůlka – Pucherský Mlýn,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Spůlka – Stachy,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Spůlka – Stachy,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Strážovský potok - Hořákov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Strážovský potok - Hořákov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Studená Vltava - Nové Údolí,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Studená Vltava - Nové Údolí,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Studená Vltava - Stožec_nad,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Studená Vltava - Stožec_nad,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Svinský potok - Hamerský Dvůr,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Svinský potok - Hamerský Dvůr,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Svinský potok – Gubrův Dvorec_soutok s Lomnicí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Svinský potok – Gubrův Dvorec_soutok s Lomnicí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Světlá - Nové Údolí,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Světlá - Nové Údolí,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Světlá – pod Lindou,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Světlá – pod Lindou,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava - Lenora,2022,POP_DYN,C chybi abundance (pocet / plocha),6,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava - Lenora,2022,POP_VITALITA3,C chybi delky,6,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava - přezimovací obůrka,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava - přezimovací obůrka,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava I - Polka,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava I - Polka,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava II - Borová Lada,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava II - Borová Lada,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok I - Polka,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok I - Polka,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok II - Borová Lada,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok II - Borová Lada,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok III - nad soutokem s TV,2015,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0314024,Teplá Vltava a Zelenohorský potok III - nad soutokem s TV,2015,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0314024,Vltava - Lenora,2020,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,0
+Cottus gobio,CZ0314024,Vltava - Lenora,2020,POP_VITALITA3,C chybi delky,2,1,1,0
+Cottus gobio,CZ0314024,Vltava - Smolná Pec,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Vltava - Smolná Pec,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Vltavský potok - Borová Lada_rybí líheň,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Vltavský potok - Borová Lada_rybí líheň,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Volšovka - Sterzmühle,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Volšovka - Sterzmühle,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Vydra - Modrava,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Vydra - Modrava,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Zelenohorský potok III - Pravětínská Lada,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Zelenohorský potok III - Pravětínská Lada,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Zelenský potok – Zelená Lhota,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Zelenský potok – Zelená Lhota,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok - Kašperské Hory,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok - Kašperské Hory,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok – Amálino údolí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok – Amálino údolí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok – Kašperské Hory (Amálino údolí),2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Zlatý potok – Kašperské Hory (Amálino údolí),2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314024,Úhlava – nad nádrží Hamry,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Úhlava – nad nádrží Hamry,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Červený potok - Červená,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Červený potok - Červená,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Řezná – Železná Ruda_pod soutokem s Jezerním p.,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314024,Řezná – Železná Ruda_pod soutokem s Jezerním p.,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Blanice – soutok Lesním potokem,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314123,Blanice – soutok Lesním potokem,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - Křenov_nad (Irův rybník),2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - Křenov_nad (Irův rybník),2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - Podvoří,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - Podvoří,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - nad cestou nad Irovo rybníky,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Boletický potok - nad cestou nad Irovo rybníky,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Chlumecký potok - Tisovka,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Chlumecký potok - Tisovka,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Chlumecký potok - Tisovka_nad rybníkem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Chlumecký potok - Tisovka_nad rybníkem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Křemžský potok (Křemešný) - Markov,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Křemžský potok (Křemešný) - Markov,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Olšina - býv. Vitěšovičtí Uhlíři,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Olšina - býv. Vitěšovičtí Uhlíři,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Polečnice - Javoří,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Polečnice - Javoří,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Polečnice - Polná,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Polečnice - Polná,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - Střemily_pod r. Okrouhlík,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - Střemily_pod r. Okrouhlík,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - U Decarlova mlýna,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - U Decarlova mlýna,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - pod cestou na Panský vrch,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Třebovický potok - pod cestou na Panský vrch,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Uhlíkovský potok - U Kokše,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Uhlíkovský potok - U Kokše,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314123,Špicák - pod býv. mlýnem Nový Špicák,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314123,Špicák - pod býv. mlýnem Nový Špicák,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314123,Špičák - pod býv. mlýnem Nový Špičák,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314123,Špičák - pod býv. mlýnem Nový Špičák,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Babický potok - Horní Chrášťany,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Babický potok - Horní Chrášťany,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Bezdrevský potok - Třešňový Újezdec,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Bezdrevský potok - Třešňový Újezdec,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chlumecký potok - Chlum,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chlumecký potok - Chlum,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chmelenský potok - Chlumeček,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chmelenský potok - Chlumeček,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chmelenský potok – Chlum,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chmelenský potok – Chlum,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chvalšinský potok - Křenov_PP Meandry CHP,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Chvalšinský potok - Křenov_PP Meandry CHP,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Hlučnice - Nové Dobrkovice,2023,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0314124,Hlučnice - Nové Dobrkovice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0314124,Hlučnice - Nové Dobrkovice_u železničního mostu,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Hlučnice - Nové Dobrkovice_u železničního mostu,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Kokotínský potok - Kokotín,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Kokotínský potok - Kokotín,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Křemže_MVE Čížek,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Křemže_MVE Čížek,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Třísovský Hamr,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Třísovský Hamr,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Vackův mlýn,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Kremžský potok - Vackův mlýn,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Křemže – Brložský potok – Hamr,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemže – Brložský potok – Hamr,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemže – HamrY,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Křemže – HamrY,2022,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Křemže – náhon na Cvrčkův mlýn,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemže – náhon na Cvrčkův mlýn,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Brloh_ČOV,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Brloh_ČOV,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Cvrčkův Mlýn,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Cvrčkův Mlýn,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Dívčí Kámen,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Dívčí Kámen,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Holubovský Mlýn,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Holubovský Mlýn,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Křemže,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Křemžský potok - Křemže,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Lhotecký potok - Lhotka,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Lhotecký potok - Lhotka,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Němý potok - Kroclov_U Cábů,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Němý potok - Kroclov_U Cábů,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Plešovický potok – Plešovice_U Rohana,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Plešovický potok – Plešovice_U Rohana,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Srnínský potok - Rájov,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Srnínský potok - Rájov,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Střemilský potok - Chvalšiny,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Střemilský potok - Chvalšiny,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0314124,Vltava - Boršov_jez U Rybů,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0314124,Vltava - Boršov_jez U Rybů,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0323812,Klabava II - Strašice_pod mostem,2017,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0323812,Klabava II - Strašice_pod mostem,2017,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0323812,Klabava II - most Strašice - Dobrív,2014,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0323812,Klabava II - most Strašice - Dobrív,2014,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0323825,Hadovka II - Strahov,2018,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0323825,Hadovka II - Strahov,2018,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0323825,Hadovka III - Zhořec,2018,POP_DYN,C chybi abundance (pocet / plocha),2,0,0,1
+Cottus gobio,CZ0323825,Hadovka III - Zhořec,2018,POP_VITALITA3,C chybi delky,2,0,0,1
+Cottus gobio,CZ0413195,Otročínský potok - Měchov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0413195,Otročínský potok - Měchov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0413195,Teplá - Bečov n. Teplou_horní,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0413195,Teplá - Bečov n. Teplou_horní,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0413195,Teplá - Bečov n. Teplou_spodní úsek,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0413195,Teplá - Bečov n. Teplou_spodní úsek,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0513256,Smědá,2014,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0513256,Smědá,2014,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0513256,Smědá - II_PR Meandry Smědé,2017,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0513256,Smědá - II_PR Meandry Smědé,2017,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0513256,Smědá - I_most Černousy-Boleslav,2014,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0513256,Smědá - I_most Černousy-Boleslav,2014,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0513256,Smědá I - most Černousy-Boleslav,2017,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0513256,Smědá I - most Černousy-Boleslav,2017,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Cottus gobio,CZ0513256,Smědá III - most Minkovice-Pousťka,2017,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0513256,Smědá III - most Minkovice-Pousťka,2017,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0514672,Jizera - Benešov u Semil_u golfu,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0514672,Jizera - Benešov u Semil_u golfu,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0514672,Jizera - Loukov_nad hřištěm,2018,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0514672,Jizera - Loukov_nad hřištěm,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0514672,Jizera a Kamenice I - Benešov u Semil,2016,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0514672,Jizera a Kamenice I - Benešov u Semil,2016,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0514672,Jizera a Kamenice II - Loukov,2016,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0514672,Jizera a Kamenice II - Loukov,2016,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0514672,Jizera a Kamenice III - Spálov,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0514672,Jizera a Kamenice III - Spálov,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Cottus gobio,CZ0514672,Kamenice - Spálov,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,1
+Cottus gobio,CZ0514672,Kamenice - Spálov,2023,POP_VITALITA3,C chybi delky,2,1,1,1
+Cottus gobio,CZ0523007,Dědina – Dobruška,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0523007,Dědina – Dobruška,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0523267,Divoka Orlice - Orlické Záhoří,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0523267,Divoka Orlice - Orlické Záhoří,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0523267,Divoká Orlice,2013,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0523267,Divoká Orlice,2013,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0523267,Divoká Orlice - Neratov,2020,POP_DYN,C chybi abundance (pocet / plocha),3,1,0,0
+Cottus gobio,CZ0523267,Divoká Orlice - Neratov,2020,POP_VITALITA3,C chybi delky,3,1,0,0
+Cottus gobio,CZ0523267,Divoká Orlice - Zelenka,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0523267,Divoká Orlice - Zelenka,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0523267,Divoká Orlice I - Zelenka,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0523267,Divoká Orlice I - Zelenka,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0523267,Divoká Orlice III - Nová Ves,2019,POP_DYN,C chybi abundance (pocet / plocha),2,0,0,1
+Cottus gobio,CZ0523267,Divoká Orlice III - Nová Ves,2019,POP_VITALITA3,C chybi delky,2,0,0,1
+Cottus gobio,CZ0523267,Hadinec - Vrchní Orlice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0523267,Hadinec - Vrchní Orlice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Bolkovský potok - Rudník_nad skluzem,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Bolkovský potok - Rudník_nad skluzem,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Bolkovský potok - Rudník_pod skluzem,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Bolkovský potok - Rudník_pod skluzem,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera - Rokytnice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera - Rokytnice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera - Vilémov_Prudký Ručej,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera - Vilémov_Prudký Ručej,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera – Rokytnice – žel. stanice,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera – Rokytnice – žel. stanice,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera – Vilémov_nad,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Jizera – Vilémov_nad,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Kalná - Dolní Sejfy_u koupaliště,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Kalná - Dolní Sejfy_u koupaliště,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Kalná - Mladé Buky,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0524044,Kalná - Mladé Buky,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0524044,Malé Labe - Jezerní Domky,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Malé Labe - Jezerní Domky,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Vejpalický potok - Hradsko,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Vejpalický potok - Hradsko,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0524044,Zlatý potok - Kalná Voda,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0524044,Zlatý potok - Kalná Voda,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0534053,Chrudimka - Slavice_pod VD Křižanovice,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0534053,Chrudimka - Slavice_pod VD Křižanovice,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0534053,Chrudimka – pod Pekelským mlýnem,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0534053,Chrudimka – pod Pekelským mlýnem,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0613004,Břevnický potok – Břevnice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0613004,Břevnický potok – Břevnice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0613333,Staviště - Lhotka,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0613333,Staviště - Lhotka,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0613333,Staviště III - Lhotka,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0613333,Staviště III - Lhotka,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0614131,Chvojnice - Sudice,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0614131,Chvojnice - Sudice,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0614131,Chvojnice – Sudice_Olšinský Mlýn,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0614131,Chvojnice – Sudice_Olšinský Mlýn,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0614131,Oslava – Ketkovský Mlýn,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0614131,Oslava – Ketkovský Mlýn,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0614131,Oslava – Kladeruby nad Oslavou,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0614131,Oslava – Kladeruby nad Oslavou,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0623324,Bobrůvka - Moravecké Janovice,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0623324,Bobrůvka - Moravecké Janovice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0623324,Bobrůvka - Skryje_brod,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0623324,Bobrůvka - Skryje_brod,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Bunkr 5/2299/C2,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Bunkr 5/2299/C2,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Hardegg_nadjezí,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Hardegg_nadjezí,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_Hubertka,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_Hubertka,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_brod,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_brod,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_lávka,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Zadní Hamry_lávka,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - hotel Grúber,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - hotel Grúber,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Čížov_JV od Braitavy,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje - Čížov_JV od Braitavy,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624096,Dyje – bunkr 5/2299/C,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624096,Dyje – bunkr 5/2299/C,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Jedovnický potok - Stará Huť,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Jedovnický potok - Stará Huť,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Jedovnický potok - Stará Huť_Matuškův Mlýn,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Jedovnický potok - Stará Huť_Matuškův Mlýn,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - Křtiny_PR U Výpustku,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - Křtiny_PR U Výpustku,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - pod Kostelíkem,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - pod Kostelíkem,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - soutok s Josefovským potokem,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok - soutok s Josefovským potokem,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok – U Kamenného kola,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Křtinský potok – U Kamenného kola,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Mokřad nad Ostrovem u Macochy,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Mokřad nad Ostrovem u Macochy,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Punkva - Blansko,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Punkva - Blansko,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,vývěr Jedovnického potoka - Josefov,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,vývěr Jedovnického potoka - Josefov,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Hornek nad PR Velký Hornek,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Hornek nad PR Velký Hornek,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Kaprálova studánka,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Kaprálova studánka,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Kaprálův mlýn,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Kaprálův mlýn,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Říčka - Mokrá pod Kaprál. Mlýnem,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0624130,Říčka - Mokrá pod Kaprál. Mlýnem,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Cottus gobio,CZ0624130,Říčka - nad Hornekem (vodárnou),2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka - nad Hornekem (vodárnou),2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka - pod Hornekem,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka - pod Hornekem,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Hádecká propadání,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Hádecká propadání,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Hádecké propadání,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Hádecké propadání,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Vápenice,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Říčka – Vápenice,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Cottus gobio,CZ0624130,Říčka – nad Muchovo boudou,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0624130,Říčka – nad Muchovo boudou,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0813456,Moravice – Velká Štáhle,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0813456,Moravice – Velká Štáhle,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Cottus gobio,CZ0813810,Odra - Jakubčovice n. Odrou,2018,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Cottus gobio,CZ0813810,Odra - Jakubčovice n. Odrou,2018,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0213009,Bořkovický potok - Smršťov_ústí do Blanice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Bořkovický potok - Smršťov_ústí do Blanice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Polánecký potok - Polánka_ústí do Blanice,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213009,Polánecký potok - Polánka_ústí do Blanice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213009,Polánecký potok I - Polánka_ústí,2014,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0213009,Polánecký potok I - Polánka_ústí,2014,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0213009,Polánecký potok I - Polánka_ústí do Blanice,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0213009,Pravětický potok - Smršťov,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Pravětický potok - Smršťov,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Hradiště,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Hradiště,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Ostrov,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Ostrov,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Šelmberk u silničního mostku,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice - Šelmberk u silničního mostku,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Kondrac,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Kondrac,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Louňovice p. Blaníkem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Louňovice p. Blaníkem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Mladá Vožice,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Mladá Vožice,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Nové mlýny – pod jezem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Nové mlýny – pod jezem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Polánka,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213009,Vlašimská Blanice – Polánka,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213009,Vlašmská Blanice - Šelmberk,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašmská Blanice - Šelmberk,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašímská Blanice - Louňovice p. Blaníkem_nad,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Vlašímská Blanice - Louňovice p. Blaníkem_nad,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Častrovický potok - Dub_u brodu,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213009,Častrovický potok - Dub_u brodu,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213042,Losinský potok - Chobotský Mlýn,2016,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,1
+Lampetra planeri,CZ0213042,Losinský potok - Chobotský Mlýn,2016,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0213042,Losinský potok – Zderadinky,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,2,2,1
+Lampetra planeri,CZ0213069,Sedlečský potok - Kralín,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Sedlečský potok - Kralín,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Sedlečský potok - Sedlečko_pod,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Sedlečský potok - Sedlečko_pod,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Sedlečský potok - Šipalky,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Sedlečský potok - Šipalky,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213069,Strašický potok - Libouň_nad mostem,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213069,Strašický potok - Libouň_nad mostem,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0213069,Strašický potok – Libouň,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0213069,Strašický potok – Libouň,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0213076,Štěpánovský potok I - Mařanův Mlýn,2014,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0213076,Štěpánovský potok I - Mařanův Mlýn,2014,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0213076,Štěpánovský potok II - Mařanův Mlýn_nad jízkem,2019,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0213076,Štěpánovský potok II - Mařanův Mlýn_nad jízkem,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0213817,Obecnický potok - Obecnice_nad ČOV,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,2,2,1
+Lampetra planeri,CZ0213817,Obecnický potok - Šachta_sp. hranice,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0213818,Obecnický potok - pod VN Obecnice,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0213818,Obecnický potok - pod VN Obecnice,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0214041,Kotelský a Nový potok,2015,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0214041,Kotelský a Nový potok,2015,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0214041,Kotelský potok - Hutě p. Tř._mezi Kotelským rybníkem a Obžerou,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0214041,Kotelský potok - Hutě p. Tř._mezi Kotelským rybníkem a Obžerou,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0214041,Kotelský potok - Věšín,2018,POP_DYN,B tataz mista pod jinym klicem,2,0,0,0
+Lampetra planeri,CZ0214041,Kotelský potok - Věšín,2018,POP_VITALITA3,C chybi delky,2,0,0,0
+Lampetra planeri,CZ0214041,Kotelský potok III - Hutě p. Třemšínem,2018,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0214041,Kotelský potok III - Hutě p. Třemšínem,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0313092,Bedrichovský potok - Bedřichov,2018,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0313092,Bedrichovský potok - Bedřichov,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok - Bedřichov,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0313092,Bedřichovský potok - Chlupatá Ves_nad mostkem,2018,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok - Chlupatá Ves_nad mostkem,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok - Filkův vrch,2022,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0313092,Bedřichovský potok - Filkův vrch,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0313092,Bedřichovský potok I. - Bedřichov - Filkův vrch,2015,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok I. - Bedřichov - Filkův vrch,2015,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok I. - Filkův vrch,2018,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok I. - Filkův vrch,2018,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok II - olšina,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok II - olšina,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok III. - Chlupatá Ves,2016,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok III. - Chlupatá Ves,2016,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0313092,Bedřichovský potok – Chlupatá Ves,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0313137,Veveřský potok - Veveří_nad,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0313137,Veveřský potok - na přítokem z r. Velký Blatouch,2022,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0313137,Veveřský potok - na přítokem z r. Velký Blatouch,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0313137,Veveřský potok - nad přítokem z r. Velký Blatouch,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0313137,Veveřský potok – nad Veveřím,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0313137,Veveřský potok – nad Veveřím,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Arnoštský potok - Solná Lhota,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Arnoštský potok - Solná Lhota,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Blanice - Krejčovice,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Blanice - Krejčovice,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Blanice - Spálenec - žel. st.,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Blanice - Spálenec - žel. st.,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Blanice – Arnoštov,2022,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Blanice – Blanický Mlýn,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Blanice – Krečovice,2023,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0314024,Blanice – Krečovice,2023,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Blanice – Řepešín,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Blanice – žel. stanice Spálenec,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,1,1,1
+Lampetra planeri,CZ0314024,Blanice – žel. stanice Spálenec,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Boubínský potok Dobišův Mlýn,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Boubínský potok Dobišův Mlýn,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Bukový potok – Výrovna,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Bukový potok – Výrovna,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Cikánský potok - Včelná,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Cikánský potok - Včelná,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Cikánský potok – Saladín,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Cikánský potok – Saladín,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Cikánský potok – Včelná (most),2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,1,1,1
+Lampetra planeri,CZ0314024,Cikánský potok – Včelná (most),2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Dešenický potok - Na Ovčím Vrchu,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Dešenický potok - Na Ovčím Vrchu,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Hamerský potok – Přední Zvonková,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Hamerský potok – Zadní Hamry,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Horský potok – Kaplické Chalupy,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Horský potok – Kaplické Chalupy,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Horský potok – Pasečná,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Horský potok – Pasečná,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Horský potok – Spáleniště,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Horský potok – Spáleniště,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Hrádecký potok - Srní_Truhlářský mlýn,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Hrádecký potok - Srní_Truhlářský mlýn,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jedlový potok – Soumarské rašeliniště – úsek I.,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Jedlový potok – Soumarské rašeliniště – úsek I.,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Jelenka - Krotějov,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0314024,Jelenka - Želiv,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314024,Jelenka - Želiv,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314024,Jelenka – Divišovice,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Jezerní potok - Zettlova hůrka,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok - Zettlova hůrka,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok - Železná Ruda_nad soutokem s Řeznou,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok - Železná Ruda_nad soutokem s Řeznou,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok – Nová Pec u Krejzů,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Jezerní potok – Nová Pec u Krejzů,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Jezerní potok – Železná Ruda,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok – Železná Ruda,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok – Železná Ruda_pod viaduktem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Jezerní potok – Železná Ruda_pod viaduktem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Kaplický potok – Zátoň,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Kaplický potok – Zátoň,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Kepelský potok – Puchverk,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Kepelský potok – Puchverk,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Křemelná - Zhůří,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná - Zhůří,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – Starý Brunst,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – Starý Brunst,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – Stodůlky_most,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – Stodůlky_most,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – nad soutokem se Slatinným potokem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – nad soutokem se Slatinným potokem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – nad Čeňkovou pilou,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemelná – nad Čeňkovou pilou,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Křemžský potok – Dobročkov II.,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Křemžský potok – Dobročkov II.,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Křemžský potok – Ktiš,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Losenice – Popelná,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Losenice – Popelná,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Losenice – Rejštejn,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Losenice – U Wágnera_PR Losenice,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Luční potok - Miletínky,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Medvědí potok – Zadní Hamry,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Medvědí potok – Zadní Hamry,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Mlýnský potok – Pasečná,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Mlýnský potok – Pasečná,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Novopecký potok - Nová Pec,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Novopecký potok - Nová Pec,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Olšinka - Lenora,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Olšinka - Lenora,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Ostružná II - Nemilkov,2022,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0314024,Ostružná II - Nemilkov,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Ostružná III - Čachrov,2022,POP_DYN,C chybi abundance (pocet / plocha),3,1,1,2
+Lampetra planeri,CZ0314024,Ostružná III - Čachrov,2022,POP_VITALITA3,C chybi delky,3,1,1,2
+Lampetra planeri,CZ0314024,Ostružná – Hamerské údolí,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Ostružná – Hamerské údolí,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Ostružná – Jesení,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Ostružná-Nemilkov,2020,POP_DYN,C chybi abundance (pocet / plocha),3,0,0,2
+Lampetra planeri,CZ0314024,Ostružná-Nemilkov,2020,POP_VITALITA3,C chybi delky,3,0,0,2
+Lampetra planeri,CZ0314024,Ostružná-Čachrov,2016,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,1
+Lampetra planeri,CZ0314024,Ostružná-Čachrov,2016,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0314024,Ostřice - Kovářov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Ostřice - Kovářov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Ostřice - Žlábek,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Ostřice - Žlábek,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Otava - Annín,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,0
+Lampetra planeri,CZ0314024,Otava - Annín,2020,POP_VITALITA3,C chybi delky,2,0,0,0
+Lampetra planeri,CZ0314024,Otovský potok – státní hranice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Otovský potok – státní hranice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Pestřice - Račín II,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Pestřice - Račín II,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Pestřice – Pod Pestřickým vrchem,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Pestřice – Pod Pestřickým vrchem,2023,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Pestřice – Račín I.,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Pestřice – Račín I.,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Pestřice – Račín II.,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,1,1,1
+Lampetra planeri,CZ0314024,Pestřice – Račín II.,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Polecký potok - Polka_nad nádrží,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Polecký potok - Polka_nad nádrží,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Pravětínský potok - Pravětín,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Pravětínský potok - Pravětín,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Prášilský potok - Prášily,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Prášilský potok - Prášily,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Račí potok - Račí,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Račí potok - Račí,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Rothovský potok - Nad PR Kozí stráň,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Rothovský potok - Nad PR Kozí stráň,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Rothovský potok – pod PR Kozí stráň,2022,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Rýžovní potok - Velký Kozí Hřbet,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Rýžovní potok - Velký Kozí Hřbet,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Slatinný potok - Gerlova Huť,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,2,2,0
+Lampetra planeri,CZ0314024,Smrčínský potok - silnice Nová Pec-Bližní Lhota,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Smrčínský potok - silnice Nová Pec-Bližní Lhota,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Spůlka – Pucherský Mlýn,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Spůlka – Pucherský Mlýn,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Spůlka – Stachy,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Spůlka – Stachy,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Strážovský potok - Hořákov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Strážovský potok - Hořákov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Studená Vltava - Stožec,2021,POP_DYN,C chybi abundance (pocet / plocha),3,1,1,0
+Lampetra planeri,CZ0314024,Studená Vltava - Stožec,2021,POP_VITALITA3,C chybi delky,3,1,1,0
+Lampetra planeri,CZ0314024,Svinský Potok - Dvorec,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Svinský Potok - Dvorec,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Svinský potok - Hamerský Dvůr,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314024,Svinský potok - Hamerský Dvůr,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314024,Svinský potok – Dvorce,2022,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0314024,Svinský potok – Gubrův Dvorec_soutok s Lomnicí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Svinský potok – Gubrův Dvorec_soutok s Lomnicí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Světlá – Rychnůvek,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Světlá – Rychnůvek,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Světlá – pod Lindou,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Světlá – pod Lindou,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Teplá Vltava - Lenora,2023,POP_DYN,C chybi abundance (pocet / plocha),4,2,2,2
+Lampetra planeri,CZ0314024,Teplá Vltava I - Polka,2018,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Teplá Vltava I - Polka,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Teplá Vltava II - Borová Lada,2018,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Teplá Vltava II - Borová Lada,2018,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0314024,Teplá Vltava – Františkov,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Teplá Vltava – Františkov,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Teplá Vltava – Polka,2021,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0314024,Teplá Vltava – Polka,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Teplá Vltava – Polka u MVE,2024,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Tetřívčí potok – Spálenec,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Tisovka - Miletínky,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Uhlíkovský potok - Záhvozdí,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Vltava - Smolná Pec,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Vltava - Smolná Pec,2023,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Vltava - Želnava,2023,POP_DYN,C chybi abundance (pocet / plocha),3,1,1,1
+Lampetra planeri,CZ0314024,Vltava - Želnava,2023,POP_VITALITA3,C chybi delky,3,1,1,1
+Lampetra planeri,CZ0314024,Vltava – Želnava_chaty,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Vltava – Želnava_chaty,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Vltavský potok - Borová Lada - rybí líheň,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Vltavský potok - Borová Lada - rybí líheň,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Vltavský potok - Borová Lada_rybí líheň,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0314024,Vltavský potok - Borová Lada_rybí líheň,2022,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0314024,Volarský potok - Planerův Dvůr_pod,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Volarský potok - Planerův Dvůr_pod,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Volatský potok - Planerův Dvůr_pod,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Volatský potok - Planerův Dvůr_pod,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Volyňka – Vimperk,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Volyňka – Vimperk,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Volyňka – soutok s Medvědím p.,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Volyňka – soutok s Medvědím p.,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Volšovka - Harmanice_Peklo,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,1,1,1
+Lampetra planeri,CZ0314024,Volšovka - Harmanice_Peklo,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Volšovka - Hartmanice_Peklo,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Volšovka - Hartmanice_Peklo,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314024,Volšovka – Františkova Ves,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Volšovka – Starzmühle,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Volšovka – Starzmühle,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Zelenohorský potok III - Pravětínská Lada,2018,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zelenohorský potok III - Pravětínská Lada,2018,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zelenský potok – Denkův Dvůr,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zelenský potok – Denkův Dvůr,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zelenský potok – Zelená Lhota,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zelenský potok – Zelená Lhota,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zlatý potok - Chroboly,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,1,2
+Lampetra planeri,CZ0314024,Zlatý potok - Chroboly,2023,POP_VITALITA3,C chybi delky,3,2,1,2
+Lampetra planeri,CZ0314024,Zlatý potok - Ovesné,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Zlatý potok - Záhoří_U Mlýna,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Zlatý potok – Amálino údolí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zlatý potok – Amálino údolí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Zlatý potok – Kašperské Hory (Amálino údolí),2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Zlatý potok – Kašperské Hory (Amálino údolí),2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Zlatý potok – Ovesné_býv. Ledrův Mlýn,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Záhvozdenský potok - Záhvozdí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Záhvozdenský potok - Záhvozdí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Úhlava - Hamry_U Chaláka,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Úhlava - Hamry_U Chaláka,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Úhlava - Přední Hamry,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Úhlava – Milence,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Úhlava – nad nádrží Hamry,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Úhlava – nad nádrží Hamry,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Úhlava – Úhlavské údolí,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Úhlava – Úhlavské údolí,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Častá - Strážný,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Častá - Strážný,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Černý potok - Blažejovice,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Červený potok - Červená,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Červený potok - Červená,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314024,Řasnice - Lenora,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Řasnice – Hliniště,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Řasnice – Vlčí Jámy,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314024,Řezná - Železná Ruda_nad,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314024,Řezná - Železná Ruda_nad,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314024,Řezná – Alžbětín,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Řezná – Alžbětín,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Řezná – Železná Ruda_pod soutokem s Jezerním p.,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314024,Řezná – Železná Ruda_pod soutokem s Jezerním p.,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Borová - Borová_nad,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314124,Borová - Červený Dvůr,2022,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0314124,Borová - Červený Dvůr,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314124,Chmelenský potok – Chlum,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Chmelenský potok – Chlum,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Kokotínský potok - Zlatá Koruna,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kokotínský potok - Zlatá Koruna,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Křemža_náhon MVE Čížek,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Křemža_náhon MVE Čížek,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Třísovský Hamr,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Třísovský Hamr,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Vackův mlýn,2019,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314124,Kremžský potok - Vackův mlýn,2019,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0314124,Křemžský potok - Brloh_ČOV,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,2,2,1
+Lampetra planeri,CZ0314124,Křemžský potok - Hamry,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Křemžský potok - Hamry,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Křemžský potok - PP Dobročkovské hadce,2022,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314124,Křemžský potok - U Bendelínů,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Křemžský potok - U Bendelínů,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Křemžský potok - Vackův Mlýn,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314124,Křemžský potok - Vackův Mlýn,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314124,Křenovský potok - Křenov,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Křenovský potok - Křenov,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Polečnice - Kájov,2022,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0314124,Polečnice – Kájovský potok – Kájov II.,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314124,Polečnice – Kájovský potok – Kájov II.,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0314124,Polečnice – Nové Dobrkovice,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0314124,Polečnice – Nové Dobrkovice,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0314124,Vltava – U Mašků,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0314124,Vltava – U Mašků,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0323165,Radbuza - Roudná,2022,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0323165,Radbuza - Srby,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,1
+Lampetra planeri,CZ0323165,Radbuza - Srby,2020,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0323165,Radbuza - Svinná,2024,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0323165,Radbuza - Svinná,2024,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0323165,Radbuza - Svržno,2024,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0323165,Radbuza - Svržno,2024,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0323165,Radbuza I - Roudná,2018,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Lampetra planeri,CZ0323165,Radbuza I - Roudná,2018,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Lampetra planeri,CZ0323824,Ostružná - Nemilkov_ústí Radvanického p.,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0323824,Ostružná - Velhartice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,1
+Lampetra planeri,CZ0323824,Ostružná - Velhartice,2020,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0323824,Ostružná – Cihelna,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0323824,Ostružná – Cihelna,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0323824,Ostružná – Hrádek,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0323824,Ostružná – Hrádek,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0323824,Ostružná – Nemilkov – ústí Radvanického potoka,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0323824,Ostružná – Nemilkov – ústí Radvanického potoka,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0324026,Nemanický potok - Lískovec,2019,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0324026,Nemanický potok - Lískovec,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0324026,Nemanický potok - Mýtnice,2022,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0324026,Nemanický potok - Mýtnice,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0324026,Nemanický potok – Křížová Huť,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,2,2,1
+Lampetra planeri,CZ0424031,Brtnický potok – Zadní Doubice_Brtnický most,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Brtniký potok - Zadní Doubice,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0424031,Brtniký potok - Zadní Doubice,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0424031,Chřibská Kamenice - Všemily_PP Meandry Ch. Kamenice,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,2,2,1
+Lampetra planeri,CZ0424031,Chřibská Kamenice - Všemily_soutok,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Chřibská Kamenice – Dolní Chřibská - Na Potokách,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,Chřibská Kamenice – Dolní Chřibská - Na Potokách,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,Chřibská Kamenice – PR Meandry Ch. Kamenice,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0424031,Chřibská Kamenice – PR Meandry Ch. Kamenice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0424031,Jetřichovická Bělá – Dolský Mlýn_nad mostem,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Kamenice - Dolský Mlýn,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Kamenice - nad soutokem s Chřibskou,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0424031,Kamenice - nad soutokem s Chřibskou,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0424031,Kamenice - nad soutokem s Chřibskou Kamenicí,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Křinice - Zadní Doubice,2022,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Křinice - Zadní Doubice_horní úsek meandrů,2022,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Křinice - Zadní Doubice_nad meandry,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,Křinice - Zadní Doubice_nad meandry,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,Křinice - Zadní Doubice_nad soutokem s Brtnickým p.,2022,POP_DYN,B tataz mista pod jinym klicem,2,2,2,1
+Lampetra planeri,CZ0424031,Křinice - Zadní Jetřichovice,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,Křinice - Zadní Jetřichovice,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,náhon u Chřibské Kamenice - Všemily,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0424031,náhon u Chřibské Kamenice - Všemily,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0513254,Luční potok - Horní Podlesí_horní,2013,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0513254,Luční potok - Horní Podlesí_horní,2013,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0513254,Luční potok - Vesec_spodní,2022,POP_DYN,B tataz mista pod jinym klicem,2,0,0,1
+Lampetra planeri,CZ0513254,Luční potok - Vesec_spodní,2022,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0513256,Smědá - III_most Minkovice-Poustka,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0513256,Smědá - III_most Minkovice-Poustka,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Lampetra planeri,CZ0513256,Smědá - II_PR Meandry Smědé,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0513256,Smědá - II_PR Meandry Smědé,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0513256,Smědá - I_most Černousy-Boleslav,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0513256,Smědá - I_most Černousy-Boleslav,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0513256,Smědá - Víska,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,2,2,1
+Lampetra planeri,CZ0513256,Smědá - Černousy_most,2023,POP_DYN,B tataz mista pod jinym klicem,2,2,1,1
+Lampetra planeri,CZ0513256,Smědá - Černousy_most,2023,POP_VITALITA3,C chybi delky,2,2,1,1
+Lampetra planeri,CZ0513256,Smědá I - most Černousy-Boleslav,2017,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0513256,Smědá I - most Černousy-Boleslav,2017,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0513256,Smědá – Minkovice – Víska,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0513256,Smědá – Minkovice – Víska,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0513256,Smědá – Černousy – most,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0513256,Smědá – Černousy – most,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0513509,Svitavka I - Lindava_spodní,2022,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0513509,Svitavka I - Lindava_spodní,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523007,Dědina - Strakov,2021,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0523007,Dědina - Strakov,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0523007,Dědina - Strakov_pod brodem,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0523007,Dědina – Dobruška,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523007,Dědina – Dobruška,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523007,Dědina – Mělčany,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0523007,Dědina – Podbřezí I,2021,POP_DYN,B tataz mista pod jinym klicem,2,1,1,1
+Lampetra planeri,CZ0523007,Dědina – Podbřezí I,2021,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0523007,Dědina – Podbřezí II,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0523280,Dřevíč - Dolní Vernéřovice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Dolní Vernéřovice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Horní Dřevíč,2013,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Horní Dřevíč,2013,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Horní Dřevíč_mlýn Dřevíček,2020,POP_DYN,B tataz mista pod jinym klicem,2,0,0,1
+Lampetra planeri,CZ0523280,Dřevíč - Horní Dřevíč_mlýn Dřevíček,2020,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0523280,Dřevíč - Stárkov,2013,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Stárkov,2013,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč - Velký Dřevíč,2020,POP_DYN,C chybi abundance (pocet / plocha),3,0,0,2
+Lampetra planeri,CZ0523280,Dřevíč - Velký Dřevíč,2020,POP_VITALITA3,C chybi delky,3,0,0,2
+Lampetra planeri,CZ0523280,Dřevíč I - Velký Dřevíč,2016,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč I - Velký Dřevíč,2016,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč II - mlýn Dřevíček,2016,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč II - mlýn Dřevíček,2016,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč III - Stárkov,2016,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Dřevíč III - Stárkov,2016,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0523280,Metuje - Maršov n. Metují,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523280,Metuje - Maršov n. Metují,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Lampetra planeri,CZ0523280,Metuje – Petrovičky,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0533301,Chrudimka I - osada Lány,2018,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",2,0,0,1
+Lampetra planeri,CZ0533301,Chrudimka I - osada Lány,2018,POP_VITALITA3,C chybi delky,2,0,0,1
+Lampetra planeri,CZ0533301,Chrudimka II - u ČOV obce Kameničky,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533301,Chrudimka II - u ČOV obce Kameničky,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Dolní Orlice,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Dolní Orlice,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Horní Lipka,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Horní Lipka,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Jamné,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Jamné,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Kunčice,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0533314,Tichá Orlice - Kunčice,2022,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0533314,Tichá Orlice - Mladkov,2022,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,1
+Lampetra planeri,CZ0533314,Tichá Orlice - Mladkov_nad,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Mladkov_nad,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Těchonín_pod voj. nemocnicí,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice - Těchonín_pod voj. nemocnicí,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice I - Mladkov,2023,POP_DYN,C chybi abundance (pocet / plocha),3,1,1,2
+Lampetra planeri,CZ0533314,Tichá Orlice I - Mladkov,2023,POP_VITALITA3,C chybi delky,3,1,1,2
+Lampetra planeri,CZ0533314,Tichá Orlice – Králíky_ČOV,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,2
+Lampetra planeri,CZ0533314,Tichá Orlice – Těchonín pod voj. nemocnicí,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0533314,Tichá Orlice – Těchonín pod voj. nemocnicí,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0533314,Tichá Orlice – Těchonín_most,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0533314,Tichá Orlice – Těchonín_most,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0713374,Morava - Chromeč,2023,POP_DYN,C chybi abundance (pocet / plocha),4,2,2,2
+Lampetra planeri,CZ0713374,Morava – Bludov Habrmannův mlýn,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0713374,Morava – Bludov Habrmannův mlýn,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0713374,Morava – Bludov_Habrmanův Mlýn,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0713374,Morava – Bludov_Habrmanův Mlýn,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Lampetra planeri,CZ0813456,Moravice - Břidličná,2023,POP_DYN,C chybi abundance (pocet / plocha),3,2,2,1
+Lampetra planeri,CZ0813456,Moravice - Dolní Moravice,2018,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,0,0,0
+Lampetra planeri,CZ0813456,Moravice - Dolní Moravice,2018,POP_VITALITA3,C chybi delky,2,0,0,0
+Lampetra planeri,CZ0813456,Moravice – Velká Štáhle,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),2,1,1,1
+Lampetra planeri,CZ0813456,Moravice – Velká Štáhle,2020,POP_VITALITA3,C chybi delky,2,1,1,1
+Lampetra planeri,CZ0813516,Olše – Karpetná,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Lampetra planeri,CZ0813516,Olše – Karpetná,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovké tůně I - Dráchov_jižní,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovké tůně I - Dráchov_jižní,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně I - Dráchov,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně I - Dráchov,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně II - Dráchov,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně II - Dráchov,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně II - Dráchov_západ,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně II - Dráchov_západ,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně III - Dráchov,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně III - Dráchov,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně III - Dráchov_západ,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně III - Dráchov_západ,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně IV - Dráchov_Obecní touň,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně IV - Dráchov_Obecní touň,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůně IV - Dráchov_sever,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,2,1
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě - Dráchov_I,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě - Dráchov_I,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě II - Dráchov,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě II - Dráchov,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě III - Dráchov,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě III - Dráchov,2022,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě V - Dráchov - Kalcova touň,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Dráchovské tůňě V - Dráchov - Kalcova touň,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - Zadní Dvůr,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - Zadní Dvůr,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - Zadní Dvůr II,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - Zadní Dvůr II,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň 2,2019,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň 2,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň 3,2019,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň 3,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň1,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - nad Spáleným mostem_tůň1,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Hamr,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Hamr,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Hamr II,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Hamr II,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Vyšné I,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Vyšné I,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Vyšné II,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň Vyšné II,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň nad Spáleným mostem,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,2,1
+Misgurnus fossilis,CZ0313106,Nežárka - tůň v Podsedku,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka - tůň v Podsedku,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0313106,Nežárka _ tůň Vyšné II,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0313106,Nežárka _ tůň Vyšné II,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,Kosovská tůň - Majdalena,2023,POP_DYN,C chybi abundance (pocet / plocha),2,0,1,1
+Misgurnus fossilis,CZ0314023,Kosovská tůň - Majdalena,2023,POP_VITALITA3,C chybi delky,2,0,1,1
+Misgurnus fossilis,CZ0314023,Lužnice - Holičky_slepé rameno U Dušáků,2023,POP_DYN,C chybi abundance (pocet / plocha),3,1,2,2
+Misgurnus fossilis,CZ0314023,Lužnice - Majdalena_tůň U Soukupů,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,Lužnice - Majdalena_tůň U Soukupů,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,Lužnice - tůň v PR Krabonošská niva,2023,POP_DYN,C chybi abundance (pocet / plocha),3,1,2,2
+Misgurnus fossilis,CZ0314023,Lužnice II - Tůň u třešně,2018,POP_DYN,C chybi abundance (pocet / plocha),2,0,0,1
+Misgurnus fossilis,CZ0314023,Lužnice II - Tůň u třešně,2018,POP_VITALITA3,C chybi delky,2,0,0,1
+Misgurnus fossilis,CZ0314023,Mrtvé rameno Lužnice - Majdalena,2021,POP_DYN,C chybi abundance (pocet / plocha),2,0,1,0
+Misgurnus fossilis,CZ0314023,Mrtvé rameno Lužnice - Majdalena,2021,POP_VITALITA3,C chybi delky,2,0,1,0
+Misgurnus fossilis,CZ0314023,Novořecké močály - laguny u Novořecké Bašty,2023,POP_DYN,C chybi abundance (pocet / plocha),4,1,2,2
+Misgurnus fossilis,CZ0314023,býv. Sousedský rybník - Lutová,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,býv. Sousedský rybník - Lutová,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,rameno Lužnice - Majdalena,2023,POP_DYN,C chybi abundance (pocet / plocha),2,0,1,1
+Misgurnus fossilis,CZ0314023,rameno Lužnice - Majdalena,2023,POP_VITALITA3,C chybi delky,2,0,1,1
+Misgurnus fossilis,CZ0314023,tůň Lužnice - Dvory n. Lužnicí,2021,POP_DYN,C chybi abundance (pocet / plocha),2,0,2,1
+Misgurnus fossilis,CZ0314023,tůň Lužnice - Holičky,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,tůň Lužnice - Holičky,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0314023,tůň U Jandů - Halámky,2023,POP_DYN,C chybi abundance (pocet / plocha),2,0,1,1
+Misgurnus fossilis,CZ0314023,tůň U Jandů - Halámky,2023,POP_VITALITA3,C chybi delky,2,0,1,1
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_spojovací kanál II,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_spojovací kanál II,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_u silnice,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_u silnice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_východní kanál II,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran - Drnholec_východní kanál II,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran_Drnholec_střed,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623022,Pokran_Drnholec_střed,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,Anšovská deprese,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,Anšovská deprese,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,Anšovské rameno,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0623046,Anšovské rameno,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávní Dvůr,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávní Dvůr,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávní Dvůr_pod výtokem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávní Dvůr_pod výtokem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávního Dvůr,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hrabětický potok - Trávního Dvůr,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hraniční potok - Hrabětice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hraniční potok - Hrabětice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hraniční potok - Hrabětice II,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,Hraniční potok - Hrabětice II,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0623046,rameno Za dráhou,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,rameno Za dráhou,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,tůň Maňasova špice - Hrabětice,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0623046,tůň Maňasova špice - Hrabětice,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624068,Medvídka - nátok,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624068,Medvídka - nátok,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624068,Medvídka/Dolec_horní - Petrov,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,Medvídka/Dolec_horní - Petrov,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,Věžka - Strážnice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,Věžka - Strážnice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,horní rameno Moravy Lebeďák - Rohatec,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,horní rameno Moravy Lebeďák - Rohatec,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,kanál pod horním ramenem - Klokov,2022,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624068,kanál pod horním ramenem - Klokov,2022,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624068,rameno Moravy - Kamenné_PP Osypané břehy,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,rameno Moravy - Kamenné_PP Osypané břehy,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624068,spodní rameno Dolec - Petrov,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,1
+Misgurnus fossilis,CZ0624068,spodní rameno Dolec - Petrov,2023,POP_VITALITA3,C chybi delky,2,1,1,1
+Misgurnus fossilis,CZ0624099,Kančí - kanál u Janohradu,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624099,Kančí - kanál u Janohradu,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624099,Kančí obora - kanál u Janohradu,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,Kančí obora - kanál u Janohradu,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,Křivé jezero - Milovice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Misgurnus fossilis,CZ0624099,Křivé jezero - Milovice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko - Lednice_dlouhá deprese,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko - Lednice_dlouhá deprese,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko - Lednice_hlavní jezero_jih,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko - Lednice_hlavní jezero_jih,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko IV- Lednice,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko IV- Lednice,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice II,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice II,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice III,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice III,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice IV,2020,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice IV,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice V,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,NPP Pastvisko u Lednice V,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,Obelisk - deprese nad Čapkovým,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Obelisk - deprese nad Čapkovým,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Palachy dolní / kanál -Srará Břeclav,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Palachy dolní / kanál -Srará Břeclav,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Palachy kanál k silnici,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Palachy kanál k silnici,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko - kanál na loukách,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko - kanál na loukách,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko - výtok do Dyje,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko - výtok do Dyje,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko u Lednice - jezero,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko u Lednice - jezero,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko u Lednice - kanál za rozhlednou,2022,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,Pastvisko u Lednice - kanál za rozhlednou,2022,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,kanál na Ladenské cestě - Ladná,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,kanál na Ladenské cestě - Ladná,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624099,kanál pod Novými Mlýny - Milovice,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0624099,kanál pod Novými Mlýny - Milovice,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk - Květné jezero,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk - Květné jezero,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk - nad Čapkovým jezerem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk - nad Čapkovým jezerem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk Jamborovy jámy - Podivín,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,obora Obelisk Jamborovy jámy - Podivín,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,tůň Kančí obora - Charvátská Nová Ves,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,tůň Kančí obora - Charvátská Nová Ves,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,tůň pod Loveckým zámečkem,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,tůň pod Loveckým zámečkem,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624099,tůň u Ladenské cesty - Ladná,2023,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624099,tůň u Ladenské cesty - Ladná,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0624119,Andryáš,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,Andryáš,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,Bornova jáma - zámek Lány,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Bornova jáma - zámek Lány,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Cahnov louka - Ruské Domy,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Cahnov louka - Ruské Domy,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - Kopánky_kanál u výhonů,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - Kopánky_kanál u výhonů,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - Kopánky_výhony,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - Kopánky_výhony,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - tůň u výhonů,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Dyje - tůň u výhonů,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Dědova pískovna,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dědova pískovna,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dědova pískovna - hlavní část,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Dědova pískovna - hlavní část,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Košárský kanál nad Vlčím ramenem,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,Košárský kanál nad Vlčím ramenem,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,Melabon,2021,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,Melabon,2021,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,Melambon,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Melambon,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Mlýnský náhon - Břeclav_u cesty,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Mlýnský náhon - Břeclav_u cesty,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Mlýnský náhon - Břeclav_u železnice,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Mlýnský náhon - Břeclav_u železnice,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Pohansko - kanál z Lázničkovy louky,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Pohansko - kanál z Lázničkovy louky,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Pohanský kanál - Pohansko_pod mostkem,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Pohanský kanál - Pohansko_pod mostkem,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Ranšpurk - malá tůň u Doubravenské cest,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Ranšpurk - malá tůň u Doubravenské cest,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Ranšpurk - velká tůň,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Ranšpurk - velká tůň,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Vlčí strouha - Doubravenská cesta_pod,2023,POP_VITALITA3,C chybi delky,2,2,1,1
+Misgurnus fossilis,CZ0624119,Zaječí jezero,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,Zaječí jezero,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - horní,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - horní,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - prostřední,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - prostřední,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - spodní,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,Zemník na Košárských loukách - spodní,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,deprese na křížovatce Anglické a Kozúbkově cesty,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,deprese na křížovatce Anglické a Kozúbkově cesty,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,deprese nad Doubravenskou cestou,2023,POP_VITALITA3,C chybi delky,2,2,1,1
+Misgurnus fossilis,CZ0624119,deprese u Veřejné cesty,2022,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,deprese u Veřejné cesty,2022,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál k Andryáši,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál k Andryáši,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál ke Krásné lípě,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál ke Krásné lípě,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál pod Farkovým mořem,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál pod Farkovým mořem,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál u Anglické cesty - Pohansko,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál u Anglické cesty - Pohansko,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,kanál u Císařských luk,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,kanál u Císařských luk,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Misgurnus fossilis,CZ0624119,louže na Košárském kanále,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,0,0
+Misgurnus fossilis,CZ0624119,louže na Košárském kanále,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,0,0
+Misgurnus fossilis,CZ0624119,rameno Dyje - Břeclav_nad železnicí,2020,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,rameno Dyje - Břeclav_nad železnicí,2020,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,rameno Dyje - Břeclav_pod železnicí,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,rameno Dyje - Břeclav_pod železnicí,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,rameno U krásné lípy - Pohansko,2020,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,rameno U krásné lípy - Pohansko,2020,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,1,0
+Misgurnus fossilis,CZ0624119,rozliv Kyjovky pod Hrázovou cestou,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,rozliv Kyjovky pod Hrázovou cestou,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,tůň svatého Huberta - Mirafeldy,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,tůň svatého Huberta - Mirafeldy,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,tůň v Košárském kanále,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,tůň v Košárském kanále,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0624119,výtok z Bornovy jamy - Lány,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,výtok z Bornovy jamy - Lány,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,zaplavená louka mezi Dyjí a Kyjovkou,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,zaplavená louka mezi Dyjí a Kyjovkou,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,zemník Spáleňák - Kopánky,2020,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,zemník Spáleňák - Kopánky,2020,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,zemník U Ruských domků,2022,POP_VITALITA3,C chybi delky,2,2,1,1
+Misgurnus fossilis,CZ0624119,Špicmaus - Lány,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Špicmaus - Lány,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Štrosflek,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0624119,Štrosflek,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0813439,nad rybníkem Štěpán,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0813439,nad rybníkem Štěpán,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0813439,naháněcí stoka r. Štěpán,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0813439,naháněcí stoka r. Štěpán,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0813439,rybník Štepan - stoka pod rybníkem,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0813439,rybník Štepan - stoka pod rybníkem,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0813439,Štepan - strouha_nad,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0813439,Štepan - strouha_nad,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,Bílovka (staré říční koryto) - Velká Košatka,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,Bílovka (staré říční koryto) - Velká Košatka,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,Bílovka - Petřvaldík,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,Bílovka - Petřvaldík,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,Gelnarovo jezero - Petřvald,2023,POP_DYN,C chybi abundance (pocet / plocha),3,1,3,2
+Misgurnus fossilis,CZ0814092,Niva Odry - Tůň Pastvina,2016,POP_DYN,B tataz mista pod jinym klicem,1,0,0,0
+Misgurnus fossilis,CZ0814092,Niva Odry - Tůň Pastvina,2016,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,0,0
+Misgurnus fossilis,CZ0814092,Niva Odry - Tůň pod Mládežnickým revírem,2015,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Misgurnus fossilis,CZ0814092,Niva Odry - Tůň pod Mládežnickým revírem,2015,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Misgurnus fossilis,CZ0814092,Obora Kunín,2019,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,0
+Misgurnus fossilis,CZ0814092,Obora Kunín,2019,POP_VITALITA3,C chybi delky,2,1,1,0
+Misgurnus fossilis,CZ0814092,Pohádka - Hladké Životice,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,Pohádka - Hladké Životice,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,Pustějovský potok - Pustějov,2019,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,0
+Misgurnus fossilis,CZ0814092,Pustějovský potok - Pustějov,2019,POP_VITALITA3,C chybi delky,2,1,1,0
+Misgurnus fossilis,CZ0814092,Zimní rybník - Dolní Polánka,2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,Zimní rybník - Dolní Polánka,2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,příkop nad Nádražním rybníkem - Polanka nad Odrou,2019,POP_DYN,C chybi abundance (pocet / plocha),2,1,1,0
+Misgurnus fossilis,CZ0814092,příkop nad Nádražním rybníkem - Polanka nad Odrou,2019,POP_VITALITA3,C chybi delky,2,1,1,0
+Misgurnus fossilis,CZ0814092,příkop nad Nádražním rybníkem - Polanka nad Odrou (EVL Poodří),2021,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,příkop nad Nádražním rybníkem - Polanka nad Odrou (EVL Poodří),2021,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,přítok Pustějovského potoka - Pustějov,2023,POP_DYN,C chybi abundance (pocet / plocha),3,0,2,2
+Misgurnus fossilis,CZ0814092,přítok jezera Kaménka - Pustějov,2021,POP_DYN,C chybi abundance (pocet / plocha),3,1,2,1
+Misgurnus fossilis,CZ0814092,přítok jezera Kaménka Pustějov,2023,POP_DYN,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0814092,přítok jezera Kaménka Pustějov,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,0,1,0
+Misgurnus fossilis,CZ0814092,rameno Odry - Na Rybníkách,2019,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,rameno Odry - Na Rybníkách,2019,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,rybník Kačírek - Stará Bělá,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,rybník Kačírek - Stará Bělá,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,slepé rameno v oboře Kunín - Kunín,2023,POP_DYN,C chybi abundance (pocet / plocha),3,0,2,1
+Misgurnus fossilis,CZ0814092,tůň Odry u Oderského Váčku - Dolní Polánka,2023,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň Odry u Oderského Váčku - Dolní Polánka,2023,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň pod Pustějovským potokem - Pustějov,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,2,1
+Misgurnus fossilis,CZ0814092,tůň pod r. Bažantula - Petřvaldík,2023,POP_DYN,C chybi abundance (pocet / plocha),2,1,2,1
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky,2021,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky,2021,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),1,0,1,0
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky II,2019,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky II,2019,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky III,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň u r. Kotvice - Albrechtičky III,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň vedle Nádražního rybníka - Polanka nad Odrou,2023,POP_DYN,B tataz mista pod jinym klicem,1,1,1,0
+Misgurnus fossilis,CZ0814092,tůň vedle Nádražního rybníka - Polanka nad Odrou,2023,POP_VITALITA3,B tataz mista pod jinym klicem,1,1,1,0
+Bombina bombina,CZ0213001,CZ0213001,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,6,0,3
+Bombina bombina,CZ0213017,CZ0213017,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,5,4,0,0
+Bombina bombina,CZ0213047,CZ0213047_1,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0213047,CZ0213047_2,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0213061,CZ0213061_11,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0213061,CZ0213061_12,2022,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0213061,CZ0213061_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0213061,CZ0213061_6,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0213061,CZ0213061_7,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0213066,CZ0213066,2018,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,4
+Bombina bombina,CZ0213066,CZ0213066_3,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0213066,amp19a,2019,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0213066,amp19b,2019,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0213784,amp25,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Bombina bombina,CZ0213785,CZ0213785,2016,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),2,2,0,0
+Bombina bombina,CZ0213789,CZ0213789,2018,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,4
+Bombina bombina,CZ0213789,amp22,2021,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0313134,amp51,2019,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0313138,amp42,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_10,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_12,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_14,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_19,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_23,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_31,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_32,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_34,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0314023,CZ0314023_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0413196,amp80,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127100,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0414127,CZ0414127102,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127103,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127104,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127105,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127106,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127107,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,2,0,3
+Bombina bombina,CZ0414127,CZ0414127200,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_1,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_14,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_17,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_21,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_22,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_23,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_24,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_25,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_28,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_29,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_30,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_36,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_38,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_4,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_40,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_41,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_43,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_44,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_45,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_46,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_47,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_48,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_49,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_5,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_50,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_54,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_55,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_56,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_57,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_58,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_59,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_60,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_61,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_62,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_63,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_64,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_65,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_66,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0414127,CZ0414127_67,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_68,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_69,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_70,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_71,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_72,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_74,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_77,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_78,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_79,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_80,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_81,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_82,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_86,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_87,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_88,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0414127,CZ0414127_89,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_9,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_90,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_91,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_92,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_93,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_94,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_95,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_96,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_97,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_98,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0414127,CZ0414127_99,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0414127,CZ0424125_50,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0423216,CZ0423216_18,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,2,0,4
+Bombina bombina,CZ0423216,CZ0423216_5,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0423216,CZ0423216_7,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_1,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_12,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_15,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_16,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_25,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_26,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_27,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_29,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_31,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_36,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_39,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0424125,CZ0424125_4,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_40,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_41,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_43,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_46,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_47,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_48,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_49,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_51,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_52,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_53,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_55,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_56,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_57,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_58,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_59,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_61,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,CZ0424125_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0424125,amp107,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0513237,CZ0513237_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0513237,CZ0513237_3,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0513238,CZ0513238,2023,POP_ZMENARAD,B tataz mista pod jinym klicem,6,3,0,0
+Bombina bombina,CZ0513238,CZ0513238_3,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Bombina bombina,CZ0513244,CZ0513244_4,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0513244,CZ0513244_5,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0513257,CZ0513257_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0513257,CZ0513257_3,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0523002,amp136,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0523003,amp139,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0523005,CZ0523005,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,4,0,1
+Bombina bombina,CZ0523005,CZ0523005_1,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0523005,CZ0523005_2,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0523005,CZ0523005_3,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0523265,CZ0523265,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,6,0,5
+Bombina bombina,CZ0523268,CZ0523268,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,3
+Bombina bombina,CZ0524048,CZ0524048_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0524050,CZ0524050,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),4,1,0,0
+Bombina bombina,CZ0524050,CZ0524050_1,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0524050,CZ0524050_2,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0533302,CZ053322_5,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533302,CZ0533302_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0533302,CZ0533302_5,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0533308,CZ053308_24,2022,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_1,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0533308,CZ0533308_12,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_13,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_14,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_15,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_16,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_17,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_19,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0533308,CZ0533308_23,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0533696,amp287,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0613003,CZ0613003,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,12,8,0,0
+Bombina bombina,CZ0613003,CZ0613003_1,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0613003,CZ0613003_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0613013,CZ0613013,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",5,2,0,0
+Bombina bombina,CZ0613335,CZ0613335_01,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613335,CZ0613335_02,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613336,CZ0613336_1,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0613336,CZ0613336_2,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0613338,CZ0613338,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,7,7,0,0
+Bombina bombina,CZ0613338,CZ0613338_10,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613338,CZ0613338_11,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613338,CZ0613338_9,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613809,CZ0613809_5,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0613809,CZ0613809_6,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0613809,CZ0613809_7,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0614058,CZ0614058_2,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0614058,CZ0614058_3,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0614058,CZ0614058_4,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623010,CZ0623010,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,3,0,3
+Bombina bombina,CZ0623027,CZ0623027,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),3,3,0,0
+Bombina bombina,CZ0623030,CZ0623030,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),8,6,0,3
+Bombina bombina,CZ0623031,CZ0623031,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,8,2,0,0
+Bombina bombina,CZ0623031,CZ0623031_01,2023,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_02,2023,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_03,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_04,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_05,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_06,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Bombina bombina,CZ0623031,CZ0623031_07,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_08,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_09,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_10,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_11,2022,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_12,2022,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_13,2022,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_v1,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0623031,CZ0623031_v10,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623031,CZ0623031_v2,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0623031,CZ0623031_v3,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0623031,CZ0623031_v4,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_v5,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623031,CZ0623031_v6,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Bombina bombina,CZ0623031,CZ0623031_v7,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623031,CZ0623031_v8,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623031,CZ0623031_v9,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0623046,CZ0623046_1,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623046,CZ0623046_3,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623046,CZ0623046_5,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623046,CZ0623046_6,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623046,CZ0623046_7,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,0,0,1
+Bombina bombina,CZ0623046,CZ0623046_8,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623046,CZ0623046_9,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623348,CZ0623348_1,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,0,0,1
+Bombina bombina,CZ0623348,CZ0623348_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623359,CZ0623359,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),11,8,0,1
+Bombina bombina,CZ0623365,CZ0623365_1,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0623365,CZ0623365_10,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623365,CZ0623365_2,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0623365,CZ0623365_3,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0623365,CZ0623365_4,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0623365,CZ0623365_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0623365,CZ0623365_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0623799,CZ0623799_12,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Bombina bombina,CZ0623799,CZ0623799_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0623800,CZ0623800,2018,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,5
+Bombina bombina,CZ0623800,amp181,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,1,0,6
+Bombina bombina,CZ0623801,CZ0623801_1,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623801,CZ0623801_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0623801,CZ0623801_3,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_12,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_15,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_16,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_17,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_19,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_42,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_44,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_45,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_46,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_50,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_52,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624070,CZ0624070_54,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0624070,CZ0624070_55,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0624070,CZ0624070_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624099,CZ0624099,2015,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0624099,CZ0624099_7,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0624099,CZ0624099_8,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0624119,CZ0624119_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624119,CZ0624119_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624119,CZ0624119_13,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0624119,CZ0624119_14,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0624119,CZ0624119_16,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624119,CZ0624119_21,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624119,CZ0624119_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0624119,CZ0624119_9,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0714073,CZ0714073_1,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714073,CZ0714073_2,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714073,CZ0714073_3,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714073,CZ0714073_4,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714073,CZ0714073_6,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714073,CZ0714073_8,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0714073,amp336,2026,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0714082,CZ0714082_1,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0714082,CZ0714082_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0723423,CZ0723423_4,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0723423,CZ0723423_8,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Bombina bombina,CZ0813439,CZ0813439_6,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0813460,CZ0813460,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0813460,CZ0813460_5,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0814092,CZ0814092_10,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Bombina bombina,CZ0814092,CZ0814092_11,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Bombina bombina,CZ0814092,CZ0814092_15,2023,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Bombina bombina,CZ0814092,CZ0814092_19,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0814092,CZ0814092_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0814092,CZ0814092_3,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,3,0,4
+Bombina bombina,CZ0814092,CZ0814092_5,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Bombina bombina,CZ0814092,CZ0814092_7,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,1,0,3
+Bombina bombina,CZ0814092,amp296,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Bombina bombina,CZ0814092,amp297,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,0,0,1
+Bombina bombina,CZ0814092,amp298,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Bombina bombina,CZ0814092,amp348,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Bombina bombina,CZ0814092,amp354,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0213029,CZ0213029_3,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0213029,amp8,2020,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Triturus cristatus,CZ0213038,CZ0213038_1,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213038,CZ0213038_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213038,CZ0213038_4,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213064,CZ0213064_5,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0213064,amp315,2021,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0213082,CZ0213082_1,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213086,CZ0213086_13,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0213086,CZ0213086_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213086,CZ0213086_3,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0213794,CZ0213794,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),10,9,0,5
+Triturus cristatus,CZ0214006,CZ0214006_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,3,0,4
+Triturus cristatus,CZ0214007,CZ0214007_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0214007,CZ0214007_16,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0313097,CZ0313097_1,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0313097,CZ0313097_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0313097,CZ0313097_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0313098,CZ0313098_4,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0323160,CZ0323160,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),8,4,0,4
+Triturus cristatus,CZ0323169,amp70/ab,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/an,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/ap,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/at,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/bb,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/bd,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/bh,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/bl,2021,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0323169,amp70/bm,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/bp,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/by,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/co,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0323169,amp70/cq,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/cv,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/cw,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/cx,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/cy,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/cz,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/da,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/db,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/de,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0323169,amp70/dj,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/f,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/g,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0323169,amp70/vs,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0323169,amp70/x,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0413174,CZ0413174,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,3
+Triturus cristatus,CZ0413174,amp75,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,0,0,2
+Triturus cristatus,CZ0413184,CZ0413184_05,2024,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0413184,CZ0413184_05,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0413184,CZ0413184_06,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0413184,CZ0413184_07,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0413184,CZ0413184_10,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0413184,amp325,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0413190,CZ0413190_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0413190,CZ0413190_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0413190,CZ0413190_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0413190,CZ0413190_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0413193,CZ0413193_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,0,0,1
+Triturus cristatus,CZ0414127,CZ0414127100,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127101,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,1,0,3
+Triturus cristatus,CZ0414127,CZ0414127102,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127103,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127104,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127105,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127106,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127107,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127108,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127109,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_1,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_12,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0414127,CZ0414127_14,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_15,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0414127,CZ0414127_16,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,1,0,3
+Triturus cristatus,CZ0414127,CZ0414127_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_21,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_22,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_23,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_24,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_25,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_27,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_28,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_29,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_30,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_31,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_33,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_34,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,2,0,3
+Triturus cristatus,CZ0414127,CZ0414127_35,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_36,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_37,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_38,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_4,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_40,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_41,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_42,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0414127,CZ0414127_43,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_44,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_45,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,1,0,2
+Triturus cristatus,CZ0414127,CZ0414127_46,2021,POP_REPROPERIOD3,D jine,1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_46,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_47,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_48,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_49,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_5,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_50,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_51,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Triturus cristatus,CZ0414127,CZ0414127_54,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_55,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_56,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_57,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_61,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_62,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_63,2021,POP_REPROPERIOD3,D jine,1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_63,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_64,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_65,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_66,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,1,0,4
+Triturus cristatus,CZ0414127,CZ0414127_67,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_70,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_71,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_72,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_74,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_75,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,0,0,2
+Triturus cristatus,CZ0414127,CZ0414127_76,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_77,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_78,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_79,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_80,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_81,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_82,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_83,2023,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0414127,CZ0414127_85,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0414127,CZ0414127_86,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_87,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_88,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_89,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_9,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_90,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_91,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_92,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_93,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_94,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_95,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_96,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0414127,CZ0414127_97,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_98,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0414127,CZ0414127_99,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Triturus cristatus,CZ0414127,CZ0424125_50,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0423202,CZ0423202,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),4,2,0,0
+Triturus cristatus,CZ0423202,CZ0423202_3,2022,POP_REPROPERIOD3,D jine,3,2,0,2
+Triturus cristatus,CZ0423202,CZ0423202_3,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0423206,CZ0423206,2023,POP_ZMENARAD,B tataz mista pod jinym klicem,4,4,0,0
+Triturus cristatus,CZ0423216,CZ0423216,2015,POP_REPROPERIOD3,D jine,3,3,0,2
+Triturus cristatus,CZ0423216,CZ0423216_8,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0424125,CZ0424125_1,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_11,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_12,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_13,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_14,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0424125,CZ0424125_15,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_16,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_21,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0424125,CZ0424125_22,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0424125,CZ0424125_23,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0424125,CZ0424125_25,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_26,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_27,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_28,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0424125,CZ0424125_29,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_31,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,0,0,0
+Triturus cristatus,CZ0424125,CZ0424125_32,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_34,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_35,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0424125,CZ0424125_36,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_37,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_39,2022,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),2,1,0,1
+Triturus cristatus,CZ0424125,CZ0424125_4,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_40,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_41,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_42,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,2,0,3
+Triturus cristatus,CZ0424125,CZ0424125_43,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_44,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_46,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_47,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_48,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_49,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_51,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_52,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_53,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_54,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,3,0,4
+Triturus cristatus,CZ0424125,CZ0424125_55,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_56,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_57,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_58,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_59,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_60,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,1,0,2
+Triturus cristatus,CZ0424125,CZ0424125_7,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_8,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0424125,CZ0424125_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0520178,CZ0520178,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,5,0,4
+Triturus cristatus,CZ0523010,CZ0523010_3,2021,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0523010,CZ0523010_3,2021,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0523010,CZ0523010_4,2021,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0523010,CZ0523010_4,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0523010,amp,2022,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0523010,amp138,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,5
+Triturus cristatus,CZ0523276,amp118,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0533012,CZ0533012,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,5,3,0,0
+Triturus cristatus,CZ0533696,CZ0533696,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),10,7,0,4
+Triturus cristatus,CZ0533696,amp287,2025,POP_REPROPERIOD3,D jine,1,0,0,0
+Triturus cristatus,CZ0533696,amp287,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0613319,CZ0613319,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),11,9,0,5
+Triturus cristatus,CZ0613322,amp292,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,1,0,4
+Triturus cristatus,CZ0623365,CZ0623365_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_1,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_10,2021,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_10,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_11,2022,POP_REPROPERIOD3,D jine,2,2,0,1
+Triturus cristatus,CZ0624064,CZ0624064_12,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_16,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_17,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_18,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_22,2021,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_22,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_23,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_24,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_25,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_26,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_28,2021,POP_REPROPERIOD3,D jine,1,0,0,0
+Triturus cristatus,CZ0624064,CZ0624064_28,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,0,0,0
+Triturus cristatus,CZ0624064,CZ0624064_29,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_30,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_31,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_32,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_33,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_34,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_35,2022,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_36,2022,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_4,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),3,2,0,2
+Triturus cristatus,CZ0624064,CZ0624064_6,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_7,2021,POP_REPROPERIOD3,D jine,1,1,0,0
+Triturus cristatus,CZ0624064,CZ0624064_7,2021,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",1,1,0,0
+Triturus cristatus,CZ0624129,CZ0624129_2,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624129,CZ0624129_3,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624129,CZ0624129_4,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624129,CZ0624129_5,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0624129,CZ0624129_6,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0713008,CZ0713008,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,5,0,4
+Triturus cristatus,CZ0714073,CZ0714073,2018,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,1,0,1
+Triturus cristatus,CZ0714073,CZ0714073_2,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_1,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_2,2024,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_3,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_4,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_5,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0723409,CZ0723409_6,2024,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0813438,CZ0813438_1,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,4,0,5
+Triturus cristatus,CZ0813438,CZ0813438_3,2022,POP_REPROPERIOD3,D jine,1,0,0,0
+Triturus cristatus,CZ0813438,CZ0813438_3,2022,POP_ZMENARAD,B tataz mista pod jinym klicem,1,0,0,0
+Triturus cristatus,CZ0813438,amp304,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,5,0,6
+Triturus cristatus,CZ0813438,amp305,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),7,6,0,6
+Triturus cristatus,CZ0813444,CZ0813444,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),5,3,0,0
+Triturus cristatus,CZ0813472,CZ0813472,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),12,8,0,7
+Triturus cristatus,CZ0813472,amp268,2022,POP_REPROPERIOD3,D jine,3,3,0,2
+Triturus cristatus,CZ0813475,CZ0813475,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),10,6,0,4
+Triturus cristatus,CZ0814092,CZ0814092_12,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),4,3,0,3
+Triturus cristatus,CZ0814092,CZ0814092_13,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0814092,CZ0814092_14,2023,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0814092,CZ0814092_15,2023,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0814092,CZ0814092_16,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0814092,CZ0814092_19,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0814092,CZ0814092_2,2025,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),5,4,0,4
+Triturus cristatus,CZ0814092,CZ0814092_9,2021,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0814092,amp298,2024,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),6,2,0,5
+Triturus cristatus,CZ0814092,amp348,2025,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),1,1,0,0
+Triturus cristatus,CZ0814092,amp353,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0
+Triturus cristatus,CZ0814092,amp354,2025,POP_ZMENARAD,B tataz mista pod jinym klicem,1,1,0,0

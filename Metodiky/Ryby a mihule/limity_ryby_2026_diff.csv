@@ -1,0 +1,43 @@
+DRUH,UROVEN,ID_IND,zmena,puvodni,novy,nalez,pozn
+Cottus gobio,chu,LOK_PROCDOBR,přidáno,,min | 75 | % lokalit v dobrém stavu | ano,H-81,
+Cottus gobio,chu,STA_MIGPROSTUP,přidáno,,max | 10 | cm | ano,H-83,
+Cottus gobio,lok,POP_DYN,beze změny,min | 50 | % | ano,min | 50 | % | ano,"H-72, H-73, H-47",limit beze změny; mění se výpočet v 21_1
+Cottus gobio,lok,POP_POCET,odebráno,info | NA | jedinci | NA,,pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1,
+Cottus gobio,lok,POP_PRESENCE,změněno,val | ano | přítomnost druhu | ano,info | NA | přítomnost druhu | NA,H-80,
+Cottus gobio,lok,POP_VITALITA,odebráno,min | 3 | NA | ano,,H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky,
+Cottus gobio,lok,POP_VITALITA3,přidáno,,min | 2 | průzkumy se všemi délkovými skupinami | ano,H-79,
+Cottus gobio,lok,STA_DNO,odebráno,val | balvany | NA | ne || val | kameny | NA | ne || val | štěrk | NA | ne,,H-76 - metodika nezna (C: soucet pokryvnosti; M: podil bahna a pisku),
+Cottus gobio,lok,STA_DNOPOCET,odebráno,min | 3 | NA | ne,,H-77 - sirotek bez opory v metodice,
+Cottus gobio,lok,STA_DNOPREF,odebráno,val | kameny | NA | ne || val | písek | NA | ne || val | štěrk | NA | ne,,H-76 - metodika nezna,
+Cottus gobio,lok,STA_DNOTYPSOUCETPROCENT,beze změny,min | 50 | % | ne,min | 50 | % | ne,"H-76, H-77",dosud sirotek; výpočet nově v 21_1
+Cottus gobio,lok,STA_MIGBARPOCET,odebráno,max | 1 | NA | ne,,H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky,
+Cottus gobio,lok,STA_MIGBARVYS,změněno,max | 10 | cm | ne,info | NA | cm | NA,H-83,
+Cottus gobio,lok,STA_PROUD,odebráno,val | mírný | NA | ne || val | peřeje | NA | ne || val | tůně | NA | ne,,H-76 - metodika nezna,
+Cottus gobio,lok,STA_PROUDPOCETTYPU,odebráno,min | 2 | NA | ne,,H-76 - metodika nezna,
+Lampetra planeri,chu,LOK_PROCDOBR,změněno,min | 50 | % lokalit v dobrém stavu | ano,min | 75 | % lokalit v dobrém stavu | ano,H-81,
+Lampetra planeri,chu,STA_MIGPROSTUP,přidáno,,max | 5 | cm | ano,H-83,
+Lampetra planeri,lok,POP_DYN,beze změny,min | 50 | % | ano,min | 50 | % | ano,"H-72, H-73, H-47",limit beze změny; mění se výpočet v 21_1
+Lampetra planeri,lok,POP_POCET,odebráno,info | NA | jedinci | NA || info | NA | larvy | NA,,pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1,
+Lampetra planeri,lok,POP_PRESENCE,změněno,val | ano | přítomnost druhu | ano,info | NA | přítomnost druhu | NA,H-80,
+Lampetra planeri,lok,POP_VITALITA,odebráno,min | 3 | kategorie | ano,,H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky,
+Lampetra planeri,lok,POP_VITALITA3,přidáno,,min | 2 | průzkumy se všemi délkovými skupinami | ano,H-79,
+Lampetra planeri,lok,STA_DNOTYP,odebráno,val | kompaktní jílové dno | NA | ne,,"H-45, H-76 - metodika nezna",
+Lampetra planeri,lok,STA_MIGBARPOCET,odebráno,max | 1 | NA | ne,,H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky,
+Lampetra planeri,lok,STA_MIGBARVYS,změněno,max | 5 | cm | ne,info | NA | cm | NA,H-83,
+Lampetra planeri,lok,STA_ODHADCELKOVEPLOCHYJEMNYCHNAPLAVUVHODNYCHPROVYVOJLAREV,změněno,val | 10 | m2 | ne,min | 10 | m2 na 100 m toku | ne,"H-76, H-77, H-54",dosud sirotek; výpočet nově v 21_1 (na 100 m toku)
+Lampetra planeri,lok,STA_ODHADCELKOVEPLOCHYPROUDNYCHUSEKUSESTERKOPISKOVYMDNEMVHODNYCHPROTRENI,změněno,val | 10 | m2 | ne,min | 10 | m2 na 100 m toku | ne,"H-76, H-77, H-54",dosud sirotek; výpočet nově v 21_1 (na 100 m toku)
+Misgurnus fossilis,chu,LOK_PROCDOBR,přidáno,,min | 75 | % lokalit v dobrém stavu | ano,H-81,
+Misgurnus fossilis,chu,STA_MIGPROSTUP,přidáno,,max | 10 | cm | ano,H-83,
+Misgurnus fossilis,lok,POP_DYN,beze změny,min | 50 | % | ano,min | 50 | % | ano,"H-72, H-73, H-47",limit beze změny; mění se výpočet v 21_1
+Misgurnus fossilis,lok,POP_POCET,odebráno,info | NA | jedinci | NA,,pokyn 2026-11-05 - export jen indikatoru metodiky; jednotky POCET v 21_1,
+Misgurnus fossilis,lok,POP_PRESENCE,změněno,val | ano | přítomnost druhu | ano,info | NA | přítomnost druhu | NA,H-80,
+Misgurnus fossilis,lok,POP_VITALITA,odebráno,min | 3 | kategorie | ano,,H-79 - nahrazeno POP_VITALITA3; pokyn 2026-11-05 - export jen indikatoru metodiky,
+Misgurnus fossilis,lok,POP_VITALITA3,přidáno,,min | 2 | průzkumy se všemi délkovými skupinami | ano,H-79,
+Misgurnus fossilis,lok,STA_DNO,odebráno,val | bahno | NA | ne || val | písek | NA | ne,,H-76 - metodika nezna (C: soucet pokryvnosti; M: podil bahna a pisku),
+Misgurnus fossilis,lok,STA_DNOPOCETTYPU,odebráno,min | 2 | NA | ne,,H-76 - metodika nezna,
+Misgurnus fossilis,lok,STA_DNOTYPSOUCETPROCENT,přidáno,,min | 50 | % | ne,H-76,
+Misgurnus fossilis,lok,STA_MIGBARPOCET,odebráno,max | 1 | NA | ne,,H-83 - pokyn 2026-11-05 - export jen indikatoru metodiky,
+Misgurnus fossilis,lok,STA_MIGBARVYS,změněno,max | 10 | cm | ne,info | NA | cm | NA,H-83,
+Misgurnus fossilis,lok,STA_POKRVEGSUBMERZ,přidáno,,val | běžný | pásmo pokryvnosti | ne || val | dominantní | pásmo pokryvnosti | ne || val | hojný | pásmo pokryvnosti | ne || val | převažující | pásmo pokryvnosti | ne || val | velmi hojný | pásmo pokryvnosti | ne,H-76,
+Misgurnus fossilis,lok,STA_PROUD,odebráno,val | kaskády | NA | ne || val | mírný | NA | ne || val | peřeje | NA | ne || val | tůně | NA | ne,,H-76 - metodika nezna,
+Misgurnus fossilis,lok,STA_VEGETACE,odebráno,val | submerzní | NA | ne,,H-76 - nahrazeno STA_POKRVEGSUBMERZ,

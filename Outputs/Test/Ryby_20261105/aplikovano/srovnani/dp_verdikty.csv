@@ -1,0 +1,12 @@
+DRUH,beh,dobrý,zhoršený,špatný,neznámý,nehodnoceno,DP
+Bombina bombina,aplikovano,136,49,224,374,0,783
+Cottus gobio,pred,158,12,200,0,0,370
+Cottus gobio,po_patch,659,42,173,0,0,874
+Cottus gobio,aplikovano,53,2,177,557,0,789
+Lampetra planeri,pred,97,19,137,0,0,253
+Lampetra planeri,po_patch,376,95,92,0,0,563
+Lampetra planeri,aplikovano,5,1,51,453,0,510
+Misgurnus fossilis,pred,33,0,80,0,0,113
+Misgurnus fossilis,po_patch,276,79,35,0,0,390
+Misgurnus fossilis,aplikovano,0,0,13,371,0,384
+Triturus cristatus,aplikovano,54,18,176,304,0,552

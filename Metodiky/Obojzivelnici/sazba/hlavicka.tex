@@ -1,0 +1,44 @@
+% Doplnky preambule pro sazbu metodiky do PDF s cislovanymi radky.
+% Vklada se pres pandoc --include-in-header ze skriptu
+% R/05_metodiky/53_metodika_md_pdf.R.
+%
+% Soubor je urceny k rucnim upravam - je to misto, kde se ladi vzhled
+% recenzniho PDF (okraje resi skript pres -V geometry).
+
+% --- Cislovani radku --------------------------------------------------------
+% Balicek lineno cisluje kazdy vysazeny radek textu a cislo vysazi do leveho
+% okraje. Prave na tato cisla se odkazuje pri komentovani metodiky.
+\usepackage[left]{lineno}
+\setlength{\linenumbersep}{1.4em}
+\renewcommand\linenumberfont{\normalfont\tiny\sffamily\color[gray]{0.45}}
+\linenumbers
+
+% Dlouhe tabulky: lineno a longtable si navzajem prekazi (cislovani se uvnitr
+% tabulky rozjede, nebo sazba spadne). V tabulkach se proto cislovani vypina
+% a hned za nimi zapina - cislovani tedy bezi jen v textu, ktery se komentuje.
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\nolinenumbers}
+\AtEndEnvironment{longtable}{\linenumbers}
+
+% --- Podtrzeni -------------------------------------------------------------
+% Metodika pouziva podtrzeni jako zvyrazneni klicovych formulaci (v .docx
+% podtrzeni, v Markdownu <u>). \uline z balicku ulem zvlada zlom radku,
+% zakladni \underline ne. Prevod <u> -> \uline resi filtr html_inline.lua.
+\usepackage[normalem]{ulem}
+
+% --- Nizsi urovne nadpisu ---------------------------------------------------
+% Nadpisy 4. a 5. urovne (mezinadpisy jako "Stav populace" nebo nazvy druhu)
+% sazi LaTeX ve vychozim stavu "do textu" - nadpis zacne na stejnem radku jako
+% nasledujici odstavec. V metodice je takovych mezinadpisu hodne a spatne se
+% v nich hleda, proto se sazi jako samostatny radek.
+\usepackage{titlesec}
+\titleformat{\paragraph}[hang]{\normalfont\bfseries}{}{0pt}{}
+\titlespacing*{\paragraph}{0pt}{2.2ex plus 0.6ex minus .2ex}{0.9ex plus .2ex}
+\titleformat{\subparagraph}[hang]{\normalfont\bfseries\itshape}{}{0pt}{}
+\titlespacing*{\subparagraph}{0pt}{2ex plus 0.5ex minus .2ex}{0.8ex plus .2ex}
+
+% --- Obrazky ---------------------------------------------------------------
+% Rozhodovaci stromy jsou siroke; [H] je drzi na miste, kde jsou v textu,
+% aby se komentar k obrazku nerozesel s cislem radku.
+\usepackage{float}
+\floatplacement{figure}{H}

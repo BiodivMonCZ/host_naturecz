@@ -1,0 +1,3 @@
+# Patch obsahuje zamerne smisene konce radku (soubory R/ jsou v repozitari
+# ulozeny zcasti s CRLF, zcasti s LF) - git je nesmi normalizovat.
+*.patch -text

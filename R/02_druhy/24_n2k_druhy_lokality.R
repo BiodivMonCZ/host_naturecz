@@ -3,7 +3,11 @@ run_n2k_druhy_lok <- function(
     species_name,
     sites_subjects,
     limity, # Ponechano pro budouci pouziti
-    current_year = 2025
+    current_year = 2025,
+    # Prepinac pro vnitrni, "cilenou" variantu behu - viz blok 6 na konci
+    # funkce. Pri TRUE se vstup uz povazuje za omezeny na cileny monitoring a
+    # funkce jen vrati verdikty, bez dalsiho zanoreni.
+    cilmon_only = FALSE
 ) {
   
   #----------------------------------------------------------#
@@ -23,7 +27,7 @@ run_n2k_druhy_lok <- function(
     dplyr::pull(ID_IND) %>%
     unique()
   
-  if (length(bad_groups) > 0) {
+  if (length(bad_groups) > 0 && !cilmon_only) {
     warning(glue::glue("Druh {species_name}: Indikatory s nekonzistentnimi metadaty: {paste(bad_groups, collapse = ', ')}"))
   }
   
@@ -122,6 +126,27 @@ run_n2k_druhy_lok <- function(
   # 3. Vypocet CELKOVE_HODNOCENI ----
   #----------------------------------------------------------#
   
+  # Interni kod neznameho celkoveho stavu (H-90) - viz blok CELKOVE nize.
+  CELKOVE_NEZNAMY <- -1
+
+  # Ocekavane klicove indikatory z TABULKY LIMITU druhu, ne z radku DP
+  # (nalez H-92, otazka Z-24). Pocet z radku nezachyti klicovy indikator,
+  # pro ktery radek vubec nevznikl (sirotek, chybejici sloupec) - DP pak
+  # vyjde "dobra" bez hodnoceni. ZATIM JEN PRO DRUHY NIZE (pokyn zadavatele
+  # 2026-11-05: "test only misgurnus and lampetra planeri, now"); ostatni
+  # druhy dal pocitaji klicove indikatory z radku.
+  DRUHY_KLIC_Z_LIMITU <- c("Lampetra planeri", "Misgurnus fossilis")
+  klic_z_limitu <- NULL
+  if (species_name %in% DRUHY_KLIC_Z_LIMITU && !is.null(limity)) {
+    klic_z_limitu <- limity %>%
+      dplyr::filter(
+        DRUH == species_name, KLIC %in% "ano", UROVEN %in% "lok",
+        TYP_IND %in% c("min", "max", "val"), !is.na(LIM_IND)
+      ) %>%
+      dplyr::pull(ID_IND) %>%
+      unique()
+  }
+
   # Nastaveni seskupovacich promennych
   group_vars <- c("kod_chu", "DRUH", "KOD_LOKAL", "ROK")
   
@@ -179,6 +204,17 @@ run_n2k_druhy_lok <- function(
       # indikator s limitem zustal nevyhodnocen. Viz nalez H-21 v
       # Metodiky/Obojzivelnici/harmonizace_registr.md.
       N_KEY_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ano" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
+      # Pocet klicovych indikatoru s limitem, ktere pro DP a rok EXISTUJI
+      # (21_2 vytvori radek pro kazdy indikator s limitem, i kdyz hodnota
+      # chybi) - bez ohledu na to, zda byly vyhodnoceny. Rozdil proti
+      # N_KEY_EXPECTED = klicove indikatory s neznamou hodnotou (H-90).
+      # `%in%` misto `==`: KLIC/UROVEN = NA nesmi do n_distinct() pridat NA
+      # (stejna past jako u N_KEY_PASSED, H-21).
+      N_KEY_DEFINED = if (is.null(klic_z_limitu)) {
+        dplyr::n_distinct(ID_IND[KLIC %in% "ano" & UROVEN %in% "lok" & !is.na(LIM_IND) & LIM_IND != ""])
+      } else {
+        length(klic_z_limitu)
+      },
       N_OTH_PASSED = dplyr::n_distinct(ID_IND[KLIC == "ne" & UROVEN == "lok" & !is.na(LIM_IND) & LIM_IND != "" & !is.na(STAV_IND) & STAV_IND == 1]),
       
       # Metadata pro razeni nejlepsi navstevy
@@ -195,13 +231,39 @@ run_n2k_druhy_lok <- function(
       #   min 1                                | -                                              | spatny
       # Tzn. "spatny" muze zpusobit jen selhani klicoveho (populacniho) indikatoru; sebevic
       # spatnych stanovistnich indikatoru samo o sobe vede nejvyse na "zhorseny".
+      #
+      # RYBY METODIKY EVL 2026 (Cottus gobio, Lampetra planeri, Misgurnus
+      # fossilis; kap. 5.3): "zhorseny", nevyhovi-li ALESPON JEDEN stanovistni
+      # parametr - prah je 1, ne 2 (nalez H-75). DRUHY_RYBY_2026 je v 21_1.
+      #
+      # NEZNAMY KLICOVY INDIKATOR => NEZNAMY CELKOVY STAV (nalez H-90,
+      # rozhodnuti Z-12 z 2026-11-05, plati pro VSECHNY skupiny): dobry ani
+      # zhorseny stav nelze vyhlasit, neni-li hodnocen kazdy klicovy indikator
+      # (ryby kap. 5.1: "Oba parametry ... musi byt hodnoceny jako dobre").
+      # Drive se nehodnoceny klicovy indikator jen vynechal, takze DP bez
+      # jedineho hodnoceneho klicoveho indikatoru vysla "dobra" (u ryb 616 z 659
+      # dobrych DP Cottus gobio). Poradi pravidel: NEZNAMY MA PREDNOST pred
+      # spatnym - doslovne "alespon jeden neznamy klicovy indikator => neznamy
+      # celkovy stav", i kdyz jiny klicovy indikator selhal. Shodne s
+      # rozhodnutim pro cevnate rostliny (H-23 v Metodiky/Cevnate/
+      # harmonizace_registr.md, 2026-10-28: "spatny nema prednost"). Dusledek:
+      # DP s nesplnenym a soucasne nehodnocenym klicovym indikatorem je
+      # "neznama", ne "spatna" (pocty viz H-90 v registru ryb).
+      # Neznamy stav nese interne kod CELKOVE_NEZNAMY (-1) - lisi se tak od NA
+      # (DP bez CILMON, "nehodnoceno"); ve vystupu je STAV_IND = NA a HOD_IND
+      # "neznamy". Na urovni EVL se neznama DP nezapocitava (25: LOK_POCETSUM,
+      # POP_POCETPOLE1).
       N_OTH_FAIL = N_OTH_EXPECTED - N_OTH_PASSED,
+      N_KEY_UNKNOWN = N_KEY_DEFINED - N_KEY_EXPECTED,
+      PRAH_ZHORSENY = if (species_name %in% DRUHY_RYBY_2026) 1L else 2L,
       CELKOVE = dplyr::case_when(
         is.na(MAX_CILMON) ~ NA_real_,
+        # Alespon 1 klicovy indikator nehodnocen = neznamy (prednost, H-90 / Z-12)
+        N_KEY_UNKNOWN > 0 ~ CELKOVE_NEZNAMY,
         # Alespon 1 spatne hodnoceny klicovy (populacni) indikator = spatny
         N_KEY_EXPECTED > 0 & N_KEY_PASSED < N_KEY_EXPECTED ~ 0,
-        # 0 spatnych klicovych indikatoru, ale >=2 spatne stanovistni indikatory = zhorseny
-        N_OTH_FAIL >= 2 ~ 0.5,
+        # 0 spatnych klicovych indikatoru, ale >= PRAH_ZHORSENY spatnych stanovistnich = zhorseny
+        N_OTH_FAIL >= PRAH_ZHORSENY ~ 0.5,
         # 0 spatnych klicovych indikatoru a max 1 spatny stanovistni indikator = dobry
         TRUE ~ 1
       )
@@ -244,9 +306,10 @@ run_n2k_druhy_lok <- function(
     dplyr::ungroup() %>%
     dplyr::mutate(
       ID_IND = "CELKOVE_HODNOCENI",
-      STAV_IND = WINNING_CELKOVE,
+      STAV_IND = dplyr::if_else(WINNING_CELKOVE %in% CELKOVE_NEZNAMY, NA_real_, WINNING_CELKOVE),
       # Prevod ciselneho skore na textove hodnoceni
       HOD_IND = dplyr::case_when(
+        WINNING_CELKOVE %in% CELKOVE_NEZNAMY ~ "neznámý",
         WINNING_CELKOVE == 0   ~ "špatný",
         WINNING_CELKOVE == 0.5 ~ "zhoršený",
         WINNING_CELKOVE == 1   ~ "dobrý",
@@ -277,5 +340,74 @@ run_n2k_druhy_lok <- function(
     dplyr::arrange(kod_chu, KOD_LOKAL, dplyr::desc(ID_IND == "CELKOVE_HODNOCENI"), ID_IND) %>%
     dplyr::distinct()
   
+  #----------------------------------------------------------#
+  # 6. Verdikt postaveny VYHRADNE na cilenem monitoringu ----
+  #----------------------------------------------------------#
+  # Sloupec CELKOVE_CILMON nese tyz verdikt Tabulky 1, ale spocteny jen ze
+  # zaznamu s CILMON == 1. Slouzi vyhradne jako vstup pro LOK_POCETSUM /
+  # LOK_POCETDOB / LOK_PROCDOBR na urovni EVL (25_n2k_druhy_uzemi.R) - do
+  # exportu DP nevstupuje (27_n2k_druhy_zapis.R jej zahazuje).
+  #
+  # PROC TO NESTACILO RESIT FILTREM `CILMON == 1` AZ NA UROVNI EVL: CILMON se
+  # na urovni DP agreguje maximem (blok 2 vyse a 21_1 "lokpop"), takze DP-rok,
+  # ve kterem se potkal cileny monitoring s nahodilym nalezem, dostane
+  # CILMON = 1 a do procenta dobre hodnocenych DP pak vstoupi verdikt, do
+  # jehoz vypoctu se zapocitaly i zaznamy s CILMON = 0. Filtr na urovni EVL to
+  # nemel jak poznat - nalez H-62 / H-69.
+  #
+  # Pocita se rekurzi pres tutez funkci, aby se logika Tabulky 1 nemusela
+  # duplikovat a nemohla se obe vetve rozejit.
+  if (!cilmon_only) {
+
+    lim_cilmon <- n2k_druhy_lim %>%
+      dplyr::filter(DRUH == species_name, !is.na(CILMON), CILMON == 1)
+
+    verdikt_cilmon <- NULL
+
+    if (nrow(lim_cilmon) > 0) {
+      verdikt_cilmon <- run_n2k_druhy_lok(
+        n2k_druhy_lim = lim_cilmon,
+        species_name = species_name,
+        sites_subjects = sites_subjects,
+        limity = limity,
+        current_year = current_year,
+        cilmon_only = TRUE
+      )
+    }
+
+    # Klic je DP (pripadne DP x POLE u druhu vazanych na transekt), NE rok:
+    # kazdy z obou behu si vybira vlastni reprezentativni navstevu a nemusi
+    # dojit ke stejnemu roku.
+    klic_dp <- c("kod_chu", "DRUH", "KOD_LOKAL")
+    if (is_pole_druh) klic_dp <- c(klic_dp, "POLE")
+
+    if (!is.null(verdikt_cilmon) && nrow(verdikt_cilmon) > 0) {
+      verdikt_cilmon <- verdikt_cilmon %>%
+        dplyr::filter(ID_IND == "CELKOVE_HODNOCENI") %>%
+        dplyr::select(
+          dplyr::all_of(klic_dp),
+          CELKOVE_CILMON = HOD_IND,
+          ROK_CILMON = ROK
+        ) %>%
+        dplyr::distinct()
+
+      final_rows <- final_rows %>%
+        dplyr::left_join(verdikt_cilmon, by = klic_dp)
+    } else {
+      final_rows <- final_rows %>%
+        dplyr::mutate(
+          CELKOVE_CILMON = NA_character_,
+          ROK_CILMON = NA_integer_
+        )
+    }
+
+    # Verdikt z cileneho monitoringu dava smysl jen na souhrnnem radku DP.
+    final_rows <- final_rows %>%
+      dplyr::mutate(
+        CELKOVE_CILMON = ifelse(ID_IND == "CELKOVE_HODNOCENI", CELKOVE_CILMON, NA_character_),
+        ROK_CILMON = ifelse(ID_IND == "CELKOVE_HODNOCENI", ROK_CILMON, NA_integer_)
+      )
+  }
+
   return(final_rows)
-}
+}

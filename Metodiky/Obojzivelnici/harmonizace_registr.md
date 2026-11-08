@@ -2135,6 +2135,218 @@ všechny byly čistě zobrazovací. `STAV_IND` se navíc počítá výhradně z
 
 ---
 
+# Rozbor příčin selhávání `POP_POCETPRUM3` (2026-09-11)
+
+Podklad: běh [`../../Outputs/Test/TC_BV_20260909/`](../../Outputs/Test/TC_BV_20260909/),
+rozbor [`analyza/README.md`](../../Outputs/Test/TC_BV_20260909/analyza/README.md),
+data `priciny_pop_pocetprum3.csv` a `pop_pocetprum3_detail.csv`, skripty
+`05_analyza_prum3_detail.R` a `06_jednotky.R`.
+
+### H-68 ⚠⚠ — `POP_POCETPRUM3` selhává u 70 z 83 hodnocených EVL; tři čtvrtiny selhání jsou nedosažitelné cílové stavy
+- **Závažnost:** vysoká · **Typ:** DATA / METODIKA · **Stav:** **zaznamenáno**
+- **Rozsah:** indikátor („průměrná početnost za poslední tři hodnocené roky")
+  selhává u **51 z 62** hodnocených EVL u *Triturus cristatus* a u **19 z 21**
+  u *Bombina variegata*.
+- **Příčiny jsou čtyři a mají velmi nerovnou váhu.** Řazeno podle váhy:
+
+**1. Cílový stav nebyl za celé dvanáctileté okno nikdy dosažen — dominantní.**
+
+  | druh | selhává | z toho cíl **nikdy** nedosažen | medián „nejlepší rok / cíl" |
+  |---|---|---|---|
+  | *Triturus cristatus* | 51 | **38** (75 %) | 0,40 |
+  | *Bombina variegata* | 19 | **16** (84 %) | 0,22 |
+
+  U tří čtvrtin selhání nemůže indikátor na současných datech projít **bez
+  ohledu na způsob výpočtu**: ani nejlepší rok z celého okna cíle nedosáhl.
+  U *B. variegata* stačil medián nejlepšího roku na 22 % cíle.
+
+**2. Cíl je řádově jinde než měření — selhání sleduje velikost cíle, ne intenzitu monitoringu.**
+
+  | druh | stav | medián cíle | medián hodnoty | medián počtu DP (`CILMON = 1`) |
+  |---|---|---|---|---|
+  | TC | dobrý | 6 | 19,7 | 2 |
+  | TC | špatný | **55** | 6,3 | 3 |
+  | BV | dobrý | 16 | 25,7 | 52 |
+  | BV | špatný | **64** | 7,0 | 2 |
+
+  U *T. cristatus* jsou počty monitorovaných DP u „dobrý" i „špatný"
+  prakticky stejné (2 vs 3), zatímco cíl se liší devítinásobně (6 vs 55).
+  Rozdíl mezi cílem a naměřenou hodnotou je u selhávajících EVL zhruba
+  **9–10×**. Jde o tutéž třídu problému jako **S-4** (expertní revize
+  cílových stavů) — cílové stavy z SDO nejsou v měřítku toho, co monitoring
+  kdy zaznamenal.
+
+**3. Devatenáct EVL má průměr 0 — jde o skutečné nepřítomnosti, ne o chybějící data.**
+
+  Příklad `CZ0413185` (TC): **54 záznamů** z cíleného monitoringu, všech 54 má
+  `POP_POCET = 0` a všech 54 kategorii početnosti 0. Stejně `CZ0214015`
+  (BV, 37/37), `CZ0623365` (TC, 89/89), `CZ0814093` (BV, 32/32). Druh byl
+  hledán a nenalezen; indikátor se chová správně a nula je nález.
+
+**4. Jednotky jsou nesourodé (H-64) a vychýlení jde vždy ve prospěch selhání.**
+
+  Jednotka (`POCITANO`) u záznamů vstupujících do průměru:
+
+  | druh | bez jednotky | adulti | samci | samice | jedinci | nedospělá stadia |
+  |---|---|---|---|---|---|---|
+  | *T. cristatus* | **61,4 %** | 18,3 % | 6,9 % | 7,9 % | 3,9 % | 1,7 % |
+  | *B. variegata* | **64,3 %** | 25,1 % | 1,8 % | — | 8,8 % | — |
+
+  Tři vady v jednom: (a) dvě třetiny záznamů nemají jednotku vůbec, takže
+  nelze ověřit, co se sčítá; (b) maximum za DP a rok se bere **přes smíšené
+  jednotky** — `max(15 samců, 20 adultů)` není definovaná veličina; (c)
+  výsledek se porovnává s cílem vedeným v jedincích, a počet jednoho pohlaví
+  je z principu nižší než počet jedinců. U TC navíc do součtu vstupují
+  `larvy`, `subadulti`, `snůšky` a `juvenilové` (dohromady 1,7 %), ačkoli
+  metodika připouští jen dospělce. Toto je kvantifikace otevřeného **H-64**.
+
+- **Co se jako příčina vylučuje:**
+
+  | hypotéza | výsledek |
+  |---|---|
+  | průměr stojí na méně než třech letech | **ne** — 47 z 51 selhání u TC má plné 3 roky |
+  | vstupní roky jsou staré | **ne** — medián stáří nejnovějšího vstupního roku **0 let**, maximum 1 rok |
+  | málo monitorovaných DP | **ne** — viz tabulka v bodě 2 |
+
+- **Závěr:** oprava jednotek (**H-64**) je potřebná a odstraní systematické
+  vychýlení, ale **sama verdikty neobrátí** — u 75–84 % selhání chybí k cíli
+  násobky, ne procenta. Rozhodnutí patří autorům metodiky: buď revidovat
+  cílové stavy (**S-4**), nebo přijmout, že indikátor je v současné podobě
+  převážně negativní.
+
+---
+
+# Uplatnění `CILMON` na úrovni EVL (2026-09-11)
+
+Podklad: běh [`../../Outputs/Test/TC_BV_20260911_cilmon/`](../../Outputs/Test/TC_BV_20260911_cilmon/).
+Zadání znělo „zajistit, aby `CILMON = 0` nepřispívalo do `LOK_POCETSUM` a
+`LOK_PROCDOBR`, a znovu rozebrat příčiny neznámých EVL".
+
+### H-69 ✅ — filtr `CILMON == 1` filtroval příznak DP, ne data pod ním
+- **Závažnost:** střední · **Typ:** BUG · **Stav:** **opraveno 2026-09-11**
+- **Zjištění:** `LOK_POCETSUM` a `LOK_POCETDOB` počítaly řádky
+  `CELKOVE_HODNOCENI` s `CILMON == 1`. Jenže `CILMON` se na úrovni DP agreguje
+  **maximem** ([`24:65`](../../R/02_druhy/24_n2k_druhy_lokality.R#L65) a blok
+  „lokpop" ve [`21_1`](../../R/02_druhy/21_1_n2k_druhy_akce.R)), takže DP-rok,
+  ve kterém se potkal cílený monitoring s nahodilým nálezem, prošel jako
+  `CILMON = 1` — **i s příspěvkem záznamů `CILMON = 0`**, které do verdiktu
+  Tabulky 1 vstoupily. Filtr na úrovni EVL to nemohl rozeznat: viděl jen
+  výsledný příznak, ne data pod ním.
+- **Rozsah v datech:** z **3 210** dvojic DP × rok jich **176** míchá `CILMON`
+  0 i 1 (116 u *T. cristatus*, 60 u *B. variegata*), dohromady **40 324**
+  záznamů.
+- **Oprava:** nový sloupec `CELKOVE_CILMON`
+  ([`24`](../../R/02_druhy/24_n2k_druhy_lokality.R#L285), blok 6) nese týž
+  verdikt Tabulky 1, ale spočtený **výhradně ze záznamů `CILMON = 1`**.
+  Počítá se **rekurzí přes tutéž funkci**, takže se logika Tabulky 1
+  neduplikuje a obě větve se nemohou rozejít.
+  [`25:191`](../../R/02_druhy/25_n2k_druhy_uzemi.R#L191) z něj staví
+  `LOK_POCETSUM` i `LOK_POCETDOB`. Do exportu DP sloupec nevstupuje
+  ([`27`](../../R/02_druhy/27_n2k_druhy_zapis.R) jej zahazuje); pro starší
+  soubor na disku bez tohoto sloupce je v `25` záloha s varováním.
+- **Měřený dopad (fáze 3–4, TC + BV):**
+
+  | | base | fix |
+  |---|---|---|
+  | řádků úrovně DP | 18 920 | 18 920 |
+  | úroveň DP | — | **bajtově shodná** |
+  | změněné indikátory EVL | — | **9 řádků / 4 EVL** |
+  | změněné verdikty EVL | — | **1** (`CZ0624129`, TC: dobrý → zhoršený) |
+  | neznámých EVL | 88 TC / 33 BV | **88 TC / 33 BV** |
+
+  Ze 756 DP s cíleným verdiktem se plný a cílený verdikt liší u **čtyř** — a
+  všechny čtyři jdou **dolů** (3× dobrý → špatný, 1× zhoršený → špatný). Je to
+  očekávané: nahodilý nález přidá pozorování, ale nikdy nepřidá důvod k horšímu
+  hodnocení, takže jeho příspěvek vychyloval verdikty **vždy nahoru**.
+- **Co oprava nemění:** samotné **rozhodnutí, zda se má na úrovni EVL filtrovat
+  vůbec**, zůstává otevřené jako **H-62**. H-69 jen zajišťuje, že dnes
+  předepsaný filtr dělá to, co říká.
+
+### H-70 ⚠ — deduplikace u druhů nevázaných na pole zahazuje celou druhou návštěvu, a s ní i příznak `CILMON`
+- **Závažnost:** střední · **Typ:** BUG · **Stav:** **zaznamenáno**
+- **Zjištění:** u druhů, které nejsou vázané na transekt (tedy u všech
+  obojživelníků), sjednocuje [`24:138`](../../R/02_druhy/24_n2k_druhy_lokality.R#L138)
+  řádky lišící se jen hodnotou `POLE`:
+
+  ```r
+  dplyr::group_by(across(all_of(c(group_vars, "ID_IND")))) %>%
+    dplyr::mutate(POLE = paste(unique(POLE), collapse = ", ")) %>%
+    dplyr::slice(1)
+  ```
+
+  Názvy polí se sloučí do řetězce, ale **hodnoty se převezmou z jediného
+  řádku** — z toho, který je v daném pořadí první. Druhá návštěva se
+  zahazuje celá, včetně `HOD_IND`, `STAV_IND` a `CILMON`.
+- **Doklad:** z **52 514** skupin DP × rok × indikátor jich **2 646** obsahuje
+  více než jedno `POLE`; u **656** z nich se zahazovaný řádek liší přímo
+  v `CILMON` (476 TC, 180 BV). Dotčeno je **40 dvojic DP × rok** na **14 DP**.
+- **Důsledek:** návštěva z **cíleného monitoringu** může být vytlačena
+  nahodilým nálezem z téhož roku. Příklad `CZ0624129` (*T. cristatus*, 2022):
+  DP má 19 záznamů `CILMON = 1` pod `POLE = 89,"6666c"` a 36 záznamů
+  `CILMON = 0` pod `POLE = 6666c`; po `slice(1)` zůstaly ty druhé, `MAX_CILMON`
+  vyšel 0 a výběr reprezentativní návštěvy
+  ([`24:222`](../../R/02_druhy/24_n2k_druhy_lokality.R#L222), řadí podle
+  `desc(MAX_CILMON)`) pak dal přednost roku 2025 bez cíleného monitoringu.
+  Celá DP tím z `LOK_PROCDOBR` **vypadla**, ačkoli cílený monitoring měla.
+- **Vztah k H-69:** oprava H-69 tento případ na úrovni EVL obchází — v cílené
+  větvi žádné řádky `CILMON = 0` nejsou, takže nemají co vytlačit. Proto tři
+  DP do jmenovatele nově **přibyly**. Na úrovni DP ale vada trvá: verdikt DP
+  i její příznak `CILMON` mohou pocházet z nahodilé návštěvy, zatímco cílená
+  se ze stejného roku zahodila.
+- **Proč se to neopravuje rovnou:** správné pořadí (`desc(CILMON)` před
+  `slice(1)`, nebo agregace obou návštěv místo výběru jedné) mění, které
+  hodnoty se ponechají u **všech** indikátorů, ne jen u `CILMON` — a dotýká se
+  i ryb, hmyzu, savců a rostlin. Je to tatáž třída rozhodnutí jako **H-43**
+  a **H-52** („bere se první, ne nejlepší"). Vyžaduje potvrzení zadavatele.
+
+---
+
+# Změny ve sdíleném kódu z revize ryb (2026-11-05)
+
+Revize ryb a mihulí ([../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>),
+větev `ryby-metodika-2026`) změnila po rozhodnutí zadavatele sdílený kód. Pro obojživelníky se mění
+tři věci; dopad změřen během *Triturus cristatus* + *Bombina bombina*
+([`Outputs/Test/TC_BB_20261105_cilmon/`](../../Outputs/Test/TC_BB_20261105_cilmon/README.md)).
+
+| Změna | Nález | Commit | Dopad na obojživelníky |
+|---|---|---|---|
+| `CILMON` ze seznamu `cil_mon_zdroj.csv` se poprvé uplatní (`ZDROJ %in% CIS_CILMON$ZDROJ_NDOP`) | H-89 | `433b610` | 2 106 záznamů „Kolektiv autorů (2021) Sledování stavu EVL - obojživelníci." nově cílený monitoring; DP s cíleným monitoringem *B. bombina* 629 → 795, *T. cristatus* 428 → 584; EVL *B. bombina* 2× dobrý → zhoršený, 1× zhoršený → špatný, *T. cristatus* beze změny; medián `LOK_PROCDOBR` *T. cristatus* 33,3 → 25,0 % |
+| párový filtr druh × EVL i na úrovni DP | H-85 | `433b610` | od 2013 vyřazeno 4 180 záznamů (17,2 %, z toho 964 z monitoringu: *B. bombina* 474, *T. cristatus* 334) — DP z EVL, kde druh předmětem ochrany není; v běhu DP *B. bombina* 994 → 783, *T. cristatus* 724 → 552 |
+| neznámý klíčový indikátor ⇒ neznámý celkový stav DP, přednost před špatným | H-90 | `27b2510` | DP d / z / š / ? *B. bombina* 472 / 88 / 434 / 0 → 136 / 49 / 224 / **374**, *T. cristatus* 318 / 32 / 374 / 0 → 54 / 18 / 176 / **304**; neznámý téměř vždy kvůli `POP_ZMENARAD`; 178 a 180 neznámých DP má jiný klíčový indikátor nesplněný; EVL *B. bombina* 9 / 0 / 46 / 38 → 8 / 9 / 39 / 37 (d / ? / z / š), *T. cristatus* 2 / 0 / 22 / 39 → 1 / 7 / 19 / 36 |
+
+**Rozpor s metodikou (H-91 registru ryb):** kap. 2.1 (ř. 242) „Indikátor se hodnotí pouze, jsou–li
+dostupné informace k jeho hodnocení." Pravidlo H-90 platí na větvi napříč skupinami podle rozhodnutí
+Z-12; u obojživelníků je s tímto zněním v rozporu a v exportu plného běhu 2026-08-28 by udělalo
+neznámými 1 324 z 2 168 DP (dobrý 1 006 → 299). Rozhodnutí o rozsahu je otázka **Z-19**.
+
+**Hodnocení od roku 2024** (pokyn zadavatele: „pokud to významně nemění hodnocení od 2024, není to
+problém"; [`Outputs/Test/Cevnate_4sp_20261105/`](../../Outputs/Test/Cevnate_4sp_20261105/README.md)):
+DP s hodnocenou návštěvou 2024+ — *B. bombina* 133 z 484 změněno (dobrý 207 → 121), *T. cristatus*
+104 z 312 (dobrý 97 → 42); verdikt z cíleného monitoringu 109 z 457 a 92 z 299. **Mění tedy
+významně.** Příčina u DP-roků 2024+ s neznámým `POP_ZMENARAD`
+([`21_1:1982-2013`](../../R/02_druhy/21_1_n2k_druhy_akce.R#L1982-L2013)):
+
+| Případ | *B. bombina* | *T. cristatus* |
+|---|---|---|
+| a) žádný předchozí rok s cíleným monitoringem | 89 | 74 |
+| b) v hodnoceném roce chybí kategorie početnosti | 59 | 55 |
+| c) poslední předchozí rok kategorii nemá, starší ano — **volba kódu** | 30 | 18 |
+| d) žádný předchozí rok s kategorií | 14 | 9 |
+
+Případ c) lze řešit referencí „poslední předchozí rok s cíleným monitoringem **a s kategorií
+početnosti**" (otázka **Z-23** registru ryb; zadavatel 2026-11-05: „teď to není problém").
+
+**Rozhodnutí 2026-11-05 (Z-19):** pravidlo H-90 platí pro všechny roky i skupiny. **Audit neznámých**
+([`Outputs/Test/Audit_nezname_20261105/`](../../Outputs/Test/Audit_nezname_20261105/README.md), nález
+H-95 registru ryb): z neznámých `POP_ZMENARAD` u verdiktů z cíleného monitoringu je první průzkum
+místa 51 / 57 % (*B. bombina* / *T. cristatus*; hlavně DP kampaně 2021 „Sledování stavu EVL", které
+monitoring 2022–2025 znovu nenavštívil), **jiný klíč téhož místa do 100 m 24 / 21 %** (záznamy bez
+`KOD_LOKALITY` s klíčem = kód EVL, přechod `amp…` → `CZ…_n`, přečíslování DP) a chybějící kategorie
+početnosti 25 / 21 % (jednotky `adulti`, `subadulti`, `larvy` — srov. H-64). Návrh propojení řad
+podle souřadnic je otázka **Z-25**.
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -2179,7 +2391,13 @@ všechny byly čistě zobrazovací. `STAV_IND` se navíc počítá výhradně z
 | 43 | **H-66** — má „nelze vyloučit" u tlaku ryb platit za nepříznivý stav, nebo za neznámý? Nové znění metodiky kategorii definuje jako **důvodné podezření na působení ryb**, dnes je vedena jako příznivá | autoři metodiky |
 | 37 | **H-61** — rozhodnout, zda se hodnocení má omezit na EVL a DP z Přílohy 2 (66 EVL / 192 DP), nebo pokrývat všechna území, kde je druh předmětem ochrany (dnes 191 EVL / 724 DP) | zadavatel + autoři metodiky |
 | 38 | **H-61b** — vyjasnit dvě EVL z Přílohy 2, které nejsou v seznamu předmětů ochrany: `CZ0213008`, `CZ0523287` | zadavatel |
-| 39 | **H-62** — sjednotit uplatnění `CILMON` mezi úrovní DP a EVL; hlavní příčina 88 neznámých EVL | autoři metodiky |
+| 39 | **H-62 — nadále jediná příčina všech 121 neznámých EVL:** rozhodnout, zda se `CILMON` má uplatňovat na úrovni EVL, když na úrovni DP se neuplatňuje. Ověřeno znovu po opravě H-69 (2026-09-11): počet neznámých se nezměnil (88 TC / 33 BV), všech 121 má `LOK_DILCPOCET = 0` a **ani jednu** DP z cíleného monitoringu; zahazuje se 92 + 36 verdiktů DP. Kódem to řešit nelze | autoři metodiky |
 | 40 | **H-63** — vyřadit `amplexus` z jednotek `POP_REPRO`? Metodika jmenuje snůšky, pulce, larvy a juvenilní jedince | autoři metodiky |
 | 41 | **H-64** — zúžit jednotky `POP_POCET` na `adulti` (a `samci` jen u *B. bombina*) | autoři metodiky |
 | 44 | **H-67** — `POP_POCETMIN` a `POP_POCETMAX` (14 řádků) zůstávají bez jednotky: odvozují se z `POP_POCET`, jehož jednotka se liší záznam od záznamu. Řeší se týmž mechanismem jako **H-43** (nést jednotku z `POCITANO`), nikoli zápisem do tabulky limitů | zadavatel |
+| 45 | **H-68** — rozhodnout o `POP_POCETPRUM3`: revidovat cílové stavy (viz S-4), nebo přijmout, že indikátor selhává u 70 z 83 hodnocených EVL. Oprava H-64 je nutná, ale u 75–84 % selhání chybí k cíli násobky, ne procenta | autoři metodiky |
+| 46 | ~~**H-69** — `CILMON = 0` přispívalo do `LOK_PROCDOBR` přes verdikt DP~~ — **hotovo 2026-09-11**, sloupec `CELKOVE_CILMON`; 1 změněný verdikt EVL, úroveň DP beze změny |  |
+| 47 | **H-70** — potvrdit opravu deduplikace u druhů nevázaných na pole: `slice(1)` zahazuje celou druhou návštěvu téhož roku včetně `CILMON` (656 skupin, 14 DP). Zásah se dotkne i ryb, hmyzu, savců a rostlin — tatáž třída jako H-43 a H-52 | zadavatel |
+| 48 | **Ryby a mihule** — stav nálezů H-38 … H-58 podle metodiky EVL 2026 (*Cottus gobio*, *Lampetra planeri*, *Misgurnus fossilis*) a navazující nálezy **H-71 …** vedeny v [../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>) a [revize_metodika_ryby.md](<../Ryby a mihule/revize_metodika_ryby.md>) (2026-11-05) | zadavatel / autoři metodiky ryb |
+| 49 | **H-91 / Z-19** (registr ryb) — pravidlo „neznámý klíčový indikátor ⇒ neznámý stav DP" je na větvi `ryby-metodika-2026` zavedeno pro všechny skupiny; u obojživelníků odporuje kap. 2.1 („Indikátor se hodnotí pouze, jsou–li dostupné informace") a dělá neznámými 61 % DP (`POP_ZMENARAD`); hodnocení od 2024 mění u 27–33 % DP. Rozhodnout rozsah; s tím Z-23 (reference `POP_ZMENARAD` s kategorií) | zadavatel |
+| 50 | **H-89** (registr ryb, = H-14 cévnatých) — `cil_mon_zdroj.csv` se poprvé uplatní; zdroj 2021 „Sledování stavu EVL - obojživelníci" je nově cílený monitoring. Dopad změřen (viz oddíl výše); potvrdit, že zdroj do cíleného monitoringu patří | zadavatel |

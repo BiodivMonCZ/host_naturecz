@@ -1,0 +1,27 @@
+SKUPINA,DRUH,obdobi,dp,zmeneno,dobry_bez,dobry_s,spatny_bez,spatny_s,neznamy_s
+Cévnaté rostliny,Campanula bohemica,2020-2023,195,0,195,195,0,0,0
+Cévnaté rostliny,Campanula bohemica,2024+,132,0,132,132,0,0,0
+Cévnaté rostliny,Campanula bohemica,do 2019,33,0,33,33,0,0,0
+Cévnaté rostliny,Cypripedium calceolus,2020-2023,113,0,95,95,0,0,0
+Cévnaté rostliny,Cypripedium calceolus,2024+,20,0,16,16,0,0,0
+Cévnaté rostliny,Cypripedium calceolus,do 2019,5,0,5,5,0,0,0
+Cévnaté rostliny,Klasea lycopifolia,2020-2023,11,0,11,11,0,0,0
+Cévnaté rostliny,Klasea lycopifolia,2024+,5,0,5,5,0,0,0
+Cévnaté rostliny,Klasea lycopifolia,do 2019,6,0,6,6,0,0,0
+Cévnaté rostliny,Pulsatilla grandis,2020-2023,115,0,115,115,0,0,0
+Cévnaté rostliny,Pulsatilla grandis,2024+,85,0,85,85,0,0,0
+Cévnaté rostliny,Pulsatilla grandis,do 2019,24,0,24,24,0,0,0
+Obojživelníci,Bombina bombina,2020-2023,251,198,44,13,189,34,198
+Obojživelníci,Bombina bombina,2024+,457,109,180,119,208,187,109
+Obojživelníci,Bombina bombina,do 2019,17,8,11,4,6,5,8
+Obojživelníci,Triturus cristatus,2020-2023,214,181,43,5,163,24,181
+Obojživelníci,Triturus cristatus,2024+,299,92,84,41,193,153,92
+Obojživelníci,Triturus cristatus,do 2019,11,2,9,8,2,1,2
+Ryby a mihule,Cottus gobio,2020-2023,365,136,163,53,177,174,136
+Ryby a mihule,Cottus gobio,2024+,3,0,0,0,3,3,0
+Ryby a mihule,Cottus gobio,do 2019,60,60,54,0,0,0,60
+Ryby a mihule,Lampetra planeri,2020-2023,281,224,108,5,114,51,224
+Ryby a mihule,Lampetra planeri,2024+,3,3,1,0,1,0,3
+Ryby a mihule,Lampetra planeri,do 2019,38,38,38,0,0,0,38
+Ryby a mihule,Misgurnus fossilis,2020-2023,158,145,49,0,35,13,145
+Ryby a mihule,Misgurnus fossilis,do 2019,17,17,13,0,0,0,17

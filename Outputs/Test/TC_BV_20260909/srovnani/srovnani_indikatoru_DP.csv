@@ -1,0 +1,21 @@
+﻿"ID_IND","POPIS","JEN_U","LIM_TC","LIM_BV","KLIC_TC","KLIC_BV","TC_ZAZNAMU","TC_DP","TC_EVL","TC_S_HODNOTOU","TC_SPLNENO","TC_CASTECNE","TC_NESPLNENO","TC_NEHODNOCEN","TC_PODIL_SPLNENO","BV_ZAZNAMU","BV_DP","BV_EVL","BV_S_HODNOTOU","BV_SPLNENO","BV_CASTECNE","BV_NESPLNENO","BV_NEHODNOCEN","BV_PODIL_SPLNENO"
+"CELKOVE_HODNOCENI","celkové hodnocení","",NA,NA,NA,NA,724,724,191,724,318,32,374,0,43.9,368,368,63,368,166,1,201,0,45.1
+"CELKOVE_SUM",NA,"",NA,NA,NA,NA,724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"POP_POCET",NA,"","","","","",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"POP_POCETMAX","maximální odhadovaná velikost populace","","","","ne","ne",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"POP_POCETMIN","minimální odhadovaná velikost populace","","","","ne","ne",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"POP_POCETSUM",NA,"jen Triturus cristatus","",NA,"",NA,724,724,191,724,0,0,0,724,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"POP_PRESENCE","přítomnost druhu","","ano","ano","ano","ano",724,724,191,724,400,0,324,0,55.2,368,368,63,368,237,0,131,0,64.4
+"POP_REPRO","rozmnožování druhu","","","","","",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"POP_REPROPERIOD3","rozmnožování alespoň 1x za 3 roky","","1","1","ano","ano",724,724,191,724,291,0,339,94,46.2,368,368,63,368,129,0,189,50,40.6
+"POP_ZMENARAD","vývoj početnosti populace","","-1","-1","ano","ano",724,724,191,724,232,0,8,484,96.7,368,368,63,368,189,0,1,178,99.5
+"STA_MANIPULACE","manipulace s vodní hladinou","jen Triturus cristatus","ne",NA,"ne",NA,724,724,191,724,444,0,16,264,96.5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"STA_PLOCHA50CM","plocha s hloubkou menší než 50 cm","","25","75","ne","ne",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"STA_POKRVEGETACE","pokryvnost vodní vegetace","","1 | 1-10 % | 11-25 % | 26-50 % | 51-75 % | 75","0 | 0-25 % | 0 % | 1-10 % | 1-25 % | 11-25 % | 26-50 % | 50","ne","ne",724,724,191,724,337,0,164,223,67.3,368,368,63,368,131,0,109,128,54.6
+"STA_PRUHLEDNOSTVODA","průhlednost vody","jen Triturus cristatus","50 | až na dno | nad 50 cm",NA,"ne",NA,724,724,191,724,148,0,246,330,37.6,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"STA_RYBY","nadměrný tlak ryb","","ne | nelze vyloučit","ne | nelze vyloučit","ne","ne",724,724,191,724,211,0,49,464,81.2,368,368,63,368,183,0,0,185,100
+"STA_UHYNOBOJZIVELNIK","úhyn obojživelníků","","ne","ne","ne","ne",724,724,191,724,339,0,0,385,100,368,368,63,368,219,0,0,149,100
+"STA_VYSYCHANI","vysychání vodních ploch","","","","ne","ne",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA
+"STA_VYSYCHANIPERIOD3","vysychání ve všech třech letech po sobě","","2","2","ne","ne",724,724,191,724,519,0,2,203,99.6,368,368,63,368,268,0,1,99,99.6
+"STA_ZASTINENILITORAL","zastínění litorálu okolní vegetací","jen Bombina variegata",NA,"0-25 % | 26-50 % | 51-75 % | 75",NA,"ne",NA,NA,NA,NA,NA,NA,NA,NA,NA,368,368,63,368,174,0,14,180,92.6
+"VLV_VLIVY",NA,"","","","ne","ne",724,724,191,724,0,0,0,724,NA,368,368,63,368,0,0,0,368,NA

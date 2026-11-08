@@ -1,0 +1,15 @@
+﻿"UROVEN","DRUH","VERDIKT","POCET"
+"DP","Bombina variegata","dobrý",166
+"DP","Bombina variegata","zhoršený",1
+"DP","Bombina variegata","špatný",201
+"DP","Triturus cristatus","dobrý",318
+"DP","Triturus cristatus","zhoršený",32
+"DP","Triturus cristatus","špatný",374
+"EVL","Bombina variegata","dobrý",6
+"EVL","Bombina variegata","neznámý",33
+"EVL","Bombina variegata","zhoršený",12
+"EVL","Bombina variegata","špatný",12
+"EVL","Triturus cristatus","dobrý",35
+"EVL","Triturus cristatus","neznámý",88
+"EVL","Triturus cristatus","zhoršený",29
+"EVL","Triturus cristatus","špatný",39

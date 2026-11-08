@@ -1,0 +1,550 @@
+DRUH,UROVEN,ID_IND,ID_puvodni,zmena,puvodni,novy
+Aconitum firmum subsp. moravicum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Aconitum firmum subsp. moravicum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Aconitum firmum subsp. moravicum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Aconitum firmum subsp. moravicum,lok,POP_POCET,,zmìnìno,min | 50 | poèet prýtù | ano,info | NA | prýty | NA
+Aconitum firmum subsp. moravicum,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Aconitum firmum subsp. moravicum,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Aconitum firmum subsp. moravicum,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní prýty | NA
+Aconitum firmum subsp. moravicum,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodné prýty | ne || info | NA | sterilní prýty | ne,info | NA | kvetoucí a plodné prýty | NA || info | NA | plodné prýty | NA || info | NA | sterilní prýty | NA
+Aconitum firmum subsp. moravicum,lok,POP_POCETVITAL,,pøidáno,,info | NA | kvetoucí a plodné prýty | NA || info | NA | plodné prýty | NA
+Aconitum firmum subsp. moravicum,lok,POP_POSKPERC,,zmìnìno,max | 2 | procenta poètu prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Aconitum firmum subsp. moravicum,lok,POP_POSKPOC,,odebráno,max | 3 | poèet typù poškození rostlin | ne,
+Aconitum firmum subsp. moravicum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Aconitum firmum subsp. moravicum,lok,POP_VITAL,,zmìnìno,info | NA | kvetoucí a plodné prýty | NA || min | 30 | % poèet prýtù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Aconitum firmum subsp. moravicum,lok,STA_HYDRPOMERY,STA_HYDROPOMERY,zmìnìno,val | dobré | NA | ne || val | zhoršené | NA | ne,val | dobré | NA | info || val | zhoršené | NA | info
+Aconitum firmum subsp. moravicum,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | 50-75 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 5 % | NA | info
+Aconitum firmum subsp. moravicum,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | 50-75 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 5 % | NA | info
+Aconitum firmum subsp. moravicum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Aconitum firmum subsp. moravicum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Adenophora liliifolia,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Adenophora liliifolia,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Adenophora liliifolia,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Adenophora liliifolia,lok,POP_POCET,,zmìnìno,min | 80 | trsù | ano,info | NA | trsy | NA
+Adenophora liliifolia,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Adenophora liliifolia,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Adenophora liliifolia,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Adenophora liliifolia,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodné trsy | ne || info | NA | sterilní trsy | ne,info | NA | kvetoucí a plodné trsy | NA || info | NA | sterilní trsy | NA
+Adenophora liliifolia,lok,POP_POCETSUMLOD,,odebráno,info | NA | kvetoucí a plodné lodyhy | ne || info | NA | sterilní lodyhy | ne,
+Adenophora liliifolia,lok,POP_POCETVITAL,,beze zmìny,info | NA | kvetoucí a plodné trsy | NA,info | NA | kvetoucí a plodné trsy | NA
+Adenophora liliifolia,lok,POP_POSKPERC,,zmìnìno,max | 2 | poèet lodyh | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Adenophora liliifolia,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Adenophora liliifolia,lok,POP_VITAL,,zmìnìno,min | 20 | % plotných trsù | ano,min | 20 | % kvetoucích a plodných ze sterilních jednotek | ne
+Adenophora liliifolia,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Adenophora liliifolia,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Adenophora liliifolia,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0% | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Adenophora liliifolia,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | do 5 % | NA | info
+Angelica palustris,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Angelica palustris,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Angelica palustris,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Angelica palustris,lok,POP_POCET,,zmìnìno,min | 100 | poèet prýtù | ano,info | NA | prýty | NA
+Angelica palustris,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Angelica palustris,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Angelica palustris,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní prýty | NA
+Angelica palustris,lok,POP_POCETSUM,,beze zmìny,info | NA | kvetoucí a plodné prýty | NA || info | NA | sterilní prýty | NA,info | NA | kvetoucí a plodné prýty | NA || info | NA | sterilní prýty | NA
+Angelica palustris,lok,POP_POCETVITAL,,beze zmìny,info | NA | kvetoucí a plodné prýty | NA,info | NA | kvetoucí a plodné prýty | NA
+Angelica palustris,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Angelica palustris,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Angelica palustris,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Angelica palustris,lok,POP_VITAL,,zmìnìno,min | 20 | % poètu prýtù | ano,min | 20 | % kvetoucích a plodných ze sterilních jednotek | ne
+Angelica palustris,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Angelica palustris,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Angelica palustris,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Angelica palustris,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Artemisia pancicii,chu,LOK_PROCDOBR,,pøidáno,,min | 50 | % lokalit v dobrém stavu | ano
+Artemisia pancicii,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Artemisia pancicii,chu,POP_PROCDOB,,pøidáno,,min | 75 | % populace v dobrém stavu | ano
+Artemisia pancicii,lok,POP_POCET,,pøidáno,,info | NA | prýty | NA
+Artemisia pancicii,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Artemisia pancicii,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Artemisia pancicii,lok,POP_POCETSUM,,pøidáno,,info | NA | kvetoucí a plodné prýty | NA || info | NA | sterilní prýty | NA
+Artemisia pancicii,lok,POP_POSKPERC,,pøidáno,,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Artemisia pancicii,lok,POP_TREND,,pøidáno,,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Artemisia pancicii,lok,STA_POKRDREV,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Artemisia pancicii,lok,STA_POKRSTAR,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Artemisia pancicii,lok,STA_POKRYVNOSTE1,,pøidáno,,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Artemisia pancicii,lok,STA_POKRYVNOSTEXPANZNI,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Artemisia pancicii,lok,STA_POKRYVNOSTINVAZNI,,pøidáno,,val | 0 | NA | info
+Asplenium adulterinum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Asplenium adulterinum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Asplenium adulterinum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Asplenium adulterinum,lok,POP_POCET,,zmìnìno,min | 25 | poèet trsù | ano,info | NA | trsy | NA
+Asplenium adulterinum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Asplenium adulterinum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Asplenium adulterinum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Asplenium adulterinum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Asplenium adulterinum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Asplenium adulterinum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Asplenium adulterinum,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Asplenium adulterinum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Asplenium adulterinum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Asplenium adulterinum,lok,STA_ZASTINENICELK,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Campanula bohemica,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Campanula bohemica,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Campanula bohemica,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Campanula bohemica,lok,POP_POCET,,zmìnìno,min | 100 | kvetoucí a plodné trsy | ano,info | NA | kvetoucí a plodné trsy | NA
+Campanula bohemica,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Campanula bohemica,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Campanula bohemica,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Campanula bohemica,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Campanula bohemica,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Campanula bohemica,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Campanula bohemica,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Campanula bohemica,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Campanula bohemica,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Campanula gelida,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Campanula gelida,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Campanula gelida,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Campanula gelida,lok,POP_POCET,,zmìnìno,min | 60 | poèet trsù | ano,info | NA | trsy | NA
+Campanula gelida,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Campanula gelida,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Campanula gelida,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Campanula gelida,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Campanula gelida,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Campanula gelida,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Campanula gelida,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cerastium alsinifolium,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Cerastium alsinifolium,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Cerastium alsinifolium,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Cerastium alsinifolium,lok,POP_PLOCHA,,odebráno,min | 100 | dm2 | ano,
+Cerastium alsinifolium,lok,POP_POCET,,pøidáno,,info | NA | m2 | NA
+Cerastium alsinifolium,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Cerastium alsinifolium,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Cerastium alsinifolium,lok,POP_POSKPERC,,zmìnìno,max | 1 | èisté plochy populace | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Cerastium alsinifolium,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Cerastium alsinifolium,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menší plochou než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Cerastium alsinifolium,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cerastium alsinifolium,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cerastium alsinifolium,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cerastium alsinifolium,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Cerastium alsinifolium,lok,STA_ZASTINENICELK,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cirsium brachycephalum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Cirsium brachycephalum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Cirsium brachycephalum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Cirsium brachycephalum,lok,POP_POCET,,zmìnìno,min | 100 | kvetoucí a plodní jedinci | ano,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Cirsium brachycephalum,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Cirsium brachycephalum,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Cirsium brachycephalum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Cirsium brachycephalum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Cirsium brachycephalum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem kvetoucích a plodných jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Cirsium brachycephalum,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cirsium brachycephalum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cirsium brachycephalum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cirsium brachycephalum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Cirsium brachycephalum,lok,STA_POKRYVNOSTVOLNAPUDA,STA_POKRVOLPUD,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 25-50 % | NA | info || val | 50-75 % | NA | info || val | 75-100 % | NA | info
+Coleanthus subtilis,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Coleanthus subtilis,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Coleanthus subtilis,chu,POP_PROCDOB,,odebráno,min | 50 | % populace v dobrém stavu | ano,
+Coleanthus subtilis,lok,POP_DELKAABSENCE,,pøidáno,,max | 5 | let | ano
+Coleanthus subtilis,lok,POP_POCET,,pøidáno,,info | NA | jedinci | NA
+Coleanthus subtilis,lok,POP_POCETNOST,,odebráno,min | 4 | kategorie relativní poèetnosti | ano,
+Coleanthus subtilis,lok,POP_POSKPERC,,pøidáno,,max | 40 | % populaèních jednotek (souèet typù poškození) | info
+Coleanthus subtilis,lok,POP_REPROUSP,,zmìnìno,val | 0% | NA | ano || val | 11-50 % | NA | ano || val | do 10 % | NA | ano,val | dostateèná | NA | ano
+Coleanthus subtilis,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Coleanthus subtilis,lok,STA_POKLESHLAD,,zmìnìno,val | NA | NA | ne,val | èásteènì dostateèná | NA | info || val | dostateèná | NA | info
+Coleanthus subtilis,lok,STA_POKRDNO,,zmìnìno,val | 51-100 % | NA | ne,val | 11-50 % | NA | info || val | 51-100 % | NA | info
+Coleanthus subtilis,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Coleanthus subtilis,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Crambe tataria,chu,LOK_PROCDOBR,,pøidáno,,min | 50 | % lokalit v dobrém stavu | ano
+Crambe tataria,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Crambe tataria,chu,POP_PROCDOB,,pøidáno,,min | 75 | % populace v dobrém stavu | ano
+Crambe tataria,lok,POP_POCET,,pøidáno,,info | NA | jedinci | NA
+Crambe tataria,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Crambe tataria,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Crambe tataria,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní jedinci | NA
+Crambe tataria,lok,POP_POCETSUM,,pøidáno,,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA || info | NA | sterilní jedinci | NA
+Crambe tataria,lok,POP_POCETVITAL,,pøidáno,,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Crambe tataria,lok,POP_POSKPERC,,pøidáno,,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Crambe tataria,lok,POP_TREND,,pøidáno,,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Crambe tataria,lok,POP_VITAL,,pøidáno,,min | 5 | % kvetoucích a plodných ze sterilních jednotek | ne
+Crambe tataria,lok,STA_POKRDREV,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Crambe tataria,lok,STA_POKRSTAR,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Crambe tataria,lok,STA_POKRYVNOSTEXPANZNI,,pøidáno,,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Crambe tataria,lok,STA_POKRYVNOSTINVAZNI,,pøidáno,,val | 0 | NA | info
+Cypripedium calceolus,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Cypripedium calceolus,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Cypripedium calceolus,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Cypripedium calceolus,lok,POP_POCET,,zmìnìno,min | 6 | trsy | ano,info | NA | trsy | NA
+Cypripedium calceolus,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Cypripedium calceolus,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Cypripedium calceolus,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Cypripedium calceolus,lok,POP_POCETSUM,,beze zmìny,info | NA | kvetoucí a plodné trsy | NA || info | NA | sterilní trsy | NA,info | NA | kvetoucí a plodné trsy | NA || info | NA | sterilní trsy | NA
+Cypripedium calceolus,lok,POP_POCETVITAL,,zmìnìno,NA | 40 | kvetoucí a plodné trsy | NA,info | NA | kvetoucí a plodné trsy | NA
+Cypripedium calceolus,lok,POP_POSKPERC,,zmìnìno,max | 1 | kategorie relativní poèetnosti | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Cypripedium calceolus,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Cypripedium calceolus,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Cypripedium calceolus,lok,POP_VITAL,,zmìnìno,min | 40 | % poètu trsù | ano,min | 40 | % kvetoucích a plodných ze sterilních jednotek | ne
+Cypripedium calceolus,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cypripedium calceolus,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cypripedium calceolus,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Cypripedium calceolus,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Dianthus arenarius subsp. bohemicus,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Dianthus arenarius subsp. bohemicus,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Dianthus arenarius subsp. bohemicus,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Dianthus arenarius subsp. bohemicus,lok,POP_POCET,,zmìnìno,min | 5000 | trsy | ano,info | NA | trsy | NA
+Dianthus arenarius subsp. bohemicus,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Dianthus arenarius subsp. bohemicus,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Dianthus arenarius subsp. bohemicus,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Dianthus arenarius subsp. bohemicus,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodné trsy | ne || info | NA | sterilní trsy | ne,info | NA | kvetoucí a plodné trsy | NA || info | NA | kvetoucí trsy | NA || info | NA | plodné trsy | NA || info | NA | sterilní trsy | NA
+Dianthus arenarius subsp. bohemicus,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodné trsy | ano || info | NA | kvetoucí a plodné trsy | NA,info | NA | kvetoucí a plodné trsy | NA || info | NA | kvetoucí trsy | NA || info | NA | plodné trsy | NA
+Dianthus arenarius subsp. bohemicus,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Dianthus arenarius subsp. bohemicus,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Dianthus arenarius subsp. bohemicus,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Dianthus arenarius subsp. bohemicus,lok,POP_VITAL,,zmìnìno,min | 30 | % plodných trsù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRDREV,,odebráno,val | 0 | NA | ne || val | do 5 % | NA | ne,
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRDREVNIZ,,pøidáno,,val | 0 | NA | info || val | do 5 % | NA | info
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRYVNOSTE0,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRYVNOSTE1,,odebráno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | do 5 % | NA | info
+Dianthus arenarius subsp. bohemicus,lok,STA_POKRYVNOSTVOLNAPUDA,STA_POKRPUDA,zmìnìno,val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | 50-75 % | NA | ne || val | 75-100 | NA | ne,val | 25-50 % | NA | info || val | 50-75 % | NA | info || val | 75-100 % | NA | info
+Dianthus lumnitzeri,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Dianthus lumnitzeri,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Dianthus lumnitzeri,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Dianthus lumnitzeri,lok,POP_POCET,,zmìnìno,min | 25 | kvetoucích a plodných trsù | ano,info | NA | kvetoucí a plodné trsy | NA
+Dianthus lumnitzeri,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Dianthus lumnitzeri,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Dianthus lumnitzeri,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Dianthus lumnitzeri,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Dianthus lumnitzeri,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Dianthus lumnitzeri,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus lumnitzeri,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus lumnitzeri,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus lumnitzeri,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Dianthus moravicus,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Dianthus moravicus,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Dianthus moravicus,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Dianthus moravicus,lok,POP_POCET,,zmìnìno,min | 100 | kvetoucích a plodných trsù | ano,info | NA | kvetoucí a plodné trsy | NA
+Dianthus moravicus,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Dianthus moravicus,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Dianthus moravicus,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Dianthus moravicus,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Dianthus moravicus,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Dianthus moravicus,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus moravicus,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus moravicus,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Dianthus moravicus,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Dracocephalum austriacum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Dracocephalum austriacum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Dracocephalum austriacum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Dracocephalum austriacum,lok,POP_POCET,,zmìnìno,min | 25 | poèet trsù | ano,info | NA | trsy | NA
+Dracocephalum austriacum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Dracocephalum austriacum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Dracocephalum austriacum,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Dracocephalum austriacum,lok,POP_POCETSUM,,beze zmìny,info | NA | kvetoucí a plodné trsy | NA || info | NA | sterilní trsy | NA,info | NA | kvetoucí a plodné trsy | NA || info | NA | sterilní trsy | NA
+Dracocephalum austriacum,lok,POP_POCETVITAL,,pøidáno,,info | NA | kvetoucí a plodné trsy | NA
+Dracocephalum austriacum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Dracocephalum austriacum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Dracocephalum austriacum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Dracocephalum austriacum,lok,POP_VITAL,,zmìnìno,info | NA | kvetoucí a plodné trsy | NA || min | 30 | % poèet jedincù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Dracocephalum austriacum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dracocephalum austriacum,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dracocephalum austriacum,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dracocephalum austriacum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Dracocephalum austriacum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info
+Echium maculatum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Echium maculatum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Echium maculatum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Echium maculatum,lok,POP_POCET,,zmìnìno,min | 25 | poèet jedincù | ano,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Echium maculatum,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Echium maculatum,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Echium maculatum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Echium maculatum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Echium maculatum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Echium maculatum,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Echium maculatum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Echium maculatum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Echium maculatum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Galium sudeticum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Galium sudeticum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Galium sudeticum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Galium sudeticum,lok,POP_PLOCHA,,odebráno,min | 10 | dm2 | ano,
+Galium sudeticum,lok,POP_POCET,,pøidáno,,info | NA | m2 | NA
+Galium sudeticum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Galium sudeticum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Galium sudeticum,lok,POP_POSKPERC,,zmìnìno,max | 1 | èisté plochy populace | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Galium sudeticum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Galium sudeticum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menší plochou než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Galium sudeticum,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Galium sudeticum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Galium sudeticum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Gentianella praecox subsp. bohemica,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Gentianella praecox subsp. bohemica,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Gentianella praecox subsp. bohemica,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Gentianella praecox subsp. bohemica,lok,POP_POCET,,zmìnìno,min | 25 | kvetoucí a plodní jedinci | ano,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Gentianella praecox subsp. bohemica,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Gentianella praecox subsp. bohemica,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Gentianella praecox subsp. bohemica,lok,POP_POSKPERC,,zmìnìno,max | 1 | jedinci | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Gentianella praecox subsp. bohemica,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Gentianella praecox subsp. bohemica,lok,STA_POKRYVNOSTE0,,zmìnìno,val | 0% | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Gentianella praecox subsp. bohemica,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 5 % | NA | info
+Gentianella praecox subsp. bohemica,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0% | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Gentianella praecox subsp. bohemica,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0% | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Gentianella praecox subsp. bohemica,lok,STA_STUPENZACH,,zmìnìno,val | dobrý | NA | ne || val | støední | NA | ne,val | dobrý | NA | info || val | støední | NA | info
+Gentianella praecox subsp. bohemica,lok,STA_ZAPOJENICELK,,odebráno,val | øídký nezapojený | NA | ne || val | støednì zapojený | NA | ne,
+Gladiolus palustris,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Gladiolus palustris,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Gladiolus palustris,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Gladiolus palustris,lok,POP_POCET,,zmìnìno,min | 5 | poèet kvetoucích a plodných jedincù | ano,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Gladiolus palustris,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Gladiolus palustris,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Gladiolus palustris,lok,POP_POCETSPEC,,odebráno,min | 800 | poèet kvetoucích a plodných jedincù | ano,
+Gladiolus palustris,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Gladiolus palustris,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Gladiolus palustris,lok,POP_TREND,,zmìnìno,min | 1 | posledních dvou let s vyšším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Gladiolus palustris,lok,STA_POKRDREVNIZ,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Gladiolus palustris,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Gladiolus palustris,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Gladiolus palustris,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Gladiolus palustris,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Himantoglossum adriaticum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Himantoglossum adriaticum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Himantoglossum adriaticum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Himantoglossum adriaticum,lok,POP_POCET,,zmìnìno,min | 12 | poèet jedincù | ano,info | NA | jedinci | NA
+Himantoglossum adriaticum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Himantoglossum adriaticum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Himantoglossum adriaticum,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní jedinci | NA
+Himantoglossum adriaticum,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodní jedinci | NA || info | NA | sterilní jedinci | NA,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA || info | NA | sterilní jedinci | NA
+Himantoglossum adriaticum,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodní jedinci | NA,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Himantoglossum adriaticum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Himantoglossum adriaticum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Himantoglossum adriaticum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Himantoglossum adriaticum,lok,POP_VITAL,,zmìnìno,min | 30 | poètu jedincù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Himantoglossum adriaticum,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Himantoglossum adriaticum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Himantoglossum adriaticum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Himantoglossum adriaticum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Iris arenaria,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Iris arenaria,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Iris arenaria,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Iris arenaria,lok,POP_POCET,,zmìnìno,min | 150 | poèet prýtù | ano,info | NA | prýty | NA
+Iris arenaria,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Iris arenaria,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Iris arenaria,lok,POP_POSKPERC,,zmìnìno,max | 1 | poètu prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Iris arenaria,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Iris arenaria,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem prýtù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Iris arenaria,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Iris arenaria,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Iris arenaria,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Iris arenaria,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Iris arenaria,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Jurinea cyanoides,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Jurinea cyanoides,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Jurinea cyanoides,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Jurinea cyanoides,lok,POP_POCET,,zmìnìno,min | 100 | poèet prýtù | ano,info | NA | prýty | NA
+Jurinea cyanoides,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Jurinea cyanoides,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Jurinea cyanoides,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní prýty | NA
+Jurinea cyanoides,lok,POP_POCETSUM,,pøidáno,,info | NA | kvetoucí a plodné prýty | NA || info | NA | sterilní prýty | NA
+Jurinea cyanoides,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodné trsy | NA,info | NA | kvetoucí a plodné prýty | NA
+Jurinea cyanoides,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Jurinea cyanoides,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Jurinea cyanoides,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem prýtù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Jurinea cyanoides,lok,POP_VITAL,,zmìnìno,min | 30 | % plodných prýtù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Jurinea cyanoides,lok,STA_POKRDREVNIZ,,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | do 5 % | NA | info
+Jurinea cyanoides,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Jurinea cyanoides,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Jurinea cyanoides,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Jurinea cyanoides,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Jurinea cyanoides,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Jurinea cyanoides,lok,STA_POKRYVNOSTVOLNAPUDA,STA_POKRVOLPUD,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 25-50 % | NA | info || val | 50-75 % | NA | info || val | 75-100 % | NA | info
+Klasea lycopifolia,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Klasea lycopifolia,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Klasea lycopifolia,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Klasea lycopifolia,lok,POP_POCET,,pøidáno,,info | NA | m2 | NA
+Klasea lycopifolia,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Klasea lycopifolia,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Klasea lycopifolia,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní prýty | NA
+Klasea lycopifolia,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodné prýty | ano,info | NA | kvetoucí a plodné prýty | NA
+Klasea lycopifolia,lok,POP_POPULACE,,odebráno,min | 100 | m2 | ano,
+Klasea lycopifolia,lok,POP_POSKPERC,,zmìnìno,max | 1 | poètu prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Klasea lycopifolia,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Klasea lycopifolia,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Klasea lycopifolia,lok,POP_VITAL,,zmìnìno,min | 30 | podíl kvetoucích a plodných prýtù a plochy populace | ano,min | 20 | % kvetoucích a plodných ze sterilních jednotek | ne
+Klasea lycopifolia,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Klasea lycopifolia,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Klasea lycopifolia,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Klasea lycopifolia,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Ligularia sibirica,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Ligularia sibirica,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Ligularia sibirica,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Ligularia sibirica,lok,POP_POCET,,zmìnìno,min | 150 | jedinci | ano,info | NA | jedinci | NA
+Ligularia sibirica,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Ligularia sibirica,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Ligularia sibirica,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní jedinci | NA
+Ligularia sibirica,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodní jedinci | ne || info | NA | sterilní jedinci | ne,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA || info | NA | sterilní jedinci | NA
+Ligularia sibirica,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodní jedinci | NA,info | NA | kvetoucí a plodní jedinci | NA || info | NA | kvetoucí jedinci | NA
+Ligularia sibirica,lok,POP_POSKPERC,,zmìnìno,max | 1 | procenta poètu jedincù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Ligularia sibirica,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Ligularia sibirica,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Ligularia sibirica,lok,POP_VITAL,,zmìnìno,min | 25 | % poèet jedincù | ano,min | 25 | % kvetoucích a plodných ze sterilních jednotek | ne
+Ligularia sibirica,lok,STA_HYDRPOMERY,STA_HYDROPOMERY,zmìnìno,val | dobré | NA | ne || val | zhoršené | NA | ne,val | dobré | NA | info || val | zhoršené | NA | info
+Ligularia sibirica,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Ligularia sibirica,lok,STA_POKRRAKOS,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Ligularia sibirica,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Ligularia sibirica,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Ligularia sibirica,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Liparis loeselii,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Liparis loeselii,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Liparis loeselii,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Liparis loeselii,lok,POP_POCET,,zmìnìno,min | 50 | jedinci | ano,info | NA | jedinci | NA
+Liparis loeselii,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Liparis loeselii,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Liparis loeselii,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní jedinci | NA
+Liparis loeselii,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodní jedinci | ne || info | NA | sterilní jedinci | ne,info | NA | kvetoucí a plodní jedinci | NA || info | NA | sterilní jedinci | NA
+Liparis loeselii,lok,POP_POCETVITAL,,beze zmìny,info | NA | kvetoucí a plodní jedinci | NA,info | NA | kvetoucí a plodní jedinci | NA
+Liparis loeselii,lok,POP_POSKPERC,,zmìnìno,max | 1 | kvetoucí a plodní jedinci | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Liparis loeselii,lok,POP_POSKPOC,,odebráno,max | 2 | poèet poškození | ne,
+Liparis loeselii,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Liparis loeselii,lok,POP_VITAL,,zmìnìno,min | 30 | % plodných jedincù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Liparis loeselii,lok,STA_HYDRPOMERY,STA_HYDROPOMERY,zmìnìno,val | dobré | NA | ne || val | zhoršené | NA | ne,val | dobré | NA | info || val | zhoršené | NA | info
+Liparis loeselii,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Liparis loeselii,lok,STA_POKRRAKOS,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Liparis loeselii,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Liparis loeselii,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Liparis loeselii,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Luronium natans,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Luronium natans,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Luronium natans,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Luronium natans,lok,POP_POCET,,zmìnìno,min | 1000 | poèet rùžic | ano,info | NA | rùžice | NA
+Luronium natans,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Luronium natans,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Luronium natans,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Luronium natans,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Luronium natans,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem rùžic než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Luronium natans,lok,STA_POC_OST_NATASUB_DRH,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Luronium natans,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Luronium natans,lok,STA_STUPENZACH,,zmìnìno,val | dobrý | NA | ne || val | støední | NA | ne,val | dobrý | NA | info || val | støední | NA | info
+Minuartia smejkalii,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Minuartia smejkalii,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Minuartia smejkalii,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Minuartia smejkalii,lok,POP_POCET,,zmìnìno,min | 100 | poèet trsù | ano,info | NA | trsy | NA
+Minuartia smejkalii,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Minuartia smejkalii,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Minuartia smejkalii,lok,POP_POCETVITAL,,odebráno,info | NA | kvetoucí a plodné trsy | NA,
+Minuartia smejkalii,lok,POP_POSKPERC,,zmìnìno,max | 1 | èisté plochy populace | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Minuartia smejkalii,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Minuartia smejkalii,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem trsù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Minuartia smejkalii,lok,POP_VITAL,,odebráno,min | 40 | % kvetoucích a plodných trsù | ano,
+Minuartia smejkalii,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Minuartia smejkalii,lok,STA_POKRYVNOSTE0,,zmìnìno,val | 0% | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Minuartia smejkalii,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Minuartia smejkalii,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Minuartia smejkalii,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Minuartia smejkalii,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Pedicularis sudetica,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Pedicularis sudetica,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Pedicularis sudetica,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Pedicularis sudetica,lok,POP_POCET,,zmìnìno,min | 10 | poèet kvetoucích a plodných lodyh | ano,info | NA | kvetoucí a plodné lodyhy | NA
+Pedicularis sudetica,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Pedicularis sudetica,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Pedicularis sudetica,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných lodyh | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Pedicularis sudetica,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Pedicularis sudetica,lok,POP_TREND,,zmìnìno,max | 1 | poèet kvetoucích a plodných lodyh | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Pedicularis sudetica,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pedicularis sudetica,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pedicularis sudetica,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pedicularis sudetica,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Poa riphaea,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Poa riphaea,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Poa riphaea,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Poa riphaea,lok,POP_POCET,,zmìnìno,min | 150 | poèet trsù | ano,info | NA | trsy | NA
+Poa riphaea,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Poa riphaea,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Poa riphaea,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Poa riphaea,lok,POP_POCETVITAL,,zmìnìno,info | NA | poèet stébel\poèet trsù | NA,info | NA | kvetoucí a plodné trsy | NA
+Poa riphaea,lok,POP_POSKPERC,,zmìnìno,max | 1 | poètu trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Poa riphaea,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Poa riphaea,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem trsù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Poa riphaea,lok,POP_VITAL,,zmìnìno,min | 15 | poèet stébel\poèet trsù | ano,min | 15 | % kvetoucích a plodných ze sterilních jednotek | ne
+Poa riphaea,lok,STA_STUPENZACH,,zmìnìno,val | dobrý | NA | ne || val | støední | NA | ne,val | dobrý | NA | info || val | støední | NA | info
+Pulsatilla grandis,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Pulsatilla grandis,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Pulsatilla grandis,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Pulsatilla grandis,lok,POP_POCET,,zmìnìno,min | 100 | kvetoucí a plodné trsy | ano,info | NA | kvetoucí a plodné trsy | NA || info | NA | kvetoucí trsy | NA
+Pulsatilla grandis,lok,POP_POCETCIL,,pøidáno,,min | 75 | % cílové poèetnosti | ne
+Pulsatilla grandis,lok,POP_POCETMINPRIP,,pøidáno,,min | 50 | % cílové poèetnosti | ano
+Pulsatilla grandis,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet kvetoucích a plodných trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Pulsatilla grandis,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Pulsatilla grandis,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Pulsatilla grandis,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla grandis,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla grandis,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla grandis,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Pulsatilla grandis,lok,STA_POKRYVNOSTVOLNAPUDA,,pøidáno,,val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | 75-100 % | NA | info
+Pulsatilla patens,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Pulsatilla patens,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Pulsatilla patens,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Pulsatilla patens,lok,POP_POCET,,zmìnìno,min | 70 | trsù | ano,info | NA | trsy | NA
+Pulsatilla patens,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Pulsatilla patens,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Pulsatilla patens,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní trsy | NA
+Pulsatilla patens,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodné trsy | ne || info | NA | sterilní trsy | ne,info | NA | kvetoucí a plodné trsy | NA || info | NA | kvetoucí trsy | NA || info | NA | sterilní trsy | NA
+Pulsatilla patens,lok,POP_POCETVITAL,,zmìnìno,info | NA | kvetoucí a plodné trsy | NA,info | NA | kvetoucí a plodné trsy | NA || info | NA | kvetoucí trsy | NA
+Pulsatilla patens,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Pulsatilla patens,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Pulsatilla patens,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Pulsatilla patens,lok,POP_VITAL,,zmìnìno,min | 30 | % poètu trsù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Pulsatilla patens,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla patens,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla patens,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | 5-25 % | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 5 % | NA | info
+Pulsatilla patens,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne || val | do 5 % | NA | ne,val | 0 | NA | info
+Pulsatilla patens,lok,STA_POKRYVNOSTVOLNAPUDA,STA_POKRPUDA,zmìnìno,val | 25-50 % | NA | ne || val | 5-25 % | NA | ne || val | 50-75 % | NA | ne || val | 75-100 % | NA | ne,val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | 75-100 % | NA | info
+Stipa glabrata,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Stipa glabrata,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Stipa glabrata,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Stipa glabrata,lok,POP_POCET,,zmìnìno,min | 25 | poèet trsù | ano,info | NA | trsy | NA
+Stipa glabrata,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Stipa glabrata,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Stipa glabrata,lok,POP_POSKPERC,,zmìnìno,max | 1 | poètu trsù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Stipa glabrata,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Stipa glabrata,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem trsù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Stipa glabrata,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Stipa glabrata,lok,STA_POKRYVNOSTE1,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | 50-75 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | 50-75 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Stipa glabrata,lok,STA_POKRYVNOSTE2E3,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Stipa glabrata,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Stipa glabrata,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Tephroseris longifolia subsp. moravica,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Tephroseris longifolia subsp. moravica,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Tephroseris longifolia subsp. moravica,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Tephroseris longifolia subsp. moravica,lok,POP_POCET,,zmìnìno,min | 300 | jedinci | ano,info | NA | jedinci | NA
+Tephroseris longifolia subsp. moravica,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Tephroseris longifolia subsp. moravica,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Tephroseris longifolia subsp. moravica,lok,POP_POCETSTERIL,,pøidáno,,info | NA | sterilní jedinci | NA
+Tephroseris longifolia subsp. moravica,lok,POP_POCETSUM,,zmìnìno,info | NA | kvetoucí a plodní jedinci | ne || info | NA | sterilní jedinci | ne,info | NA | kvetoucí a plodní jedinci | NA || info | NA | sterilní jedinci | NA
+Tephroseris longifolia subsp. moravica,lok,POP_POCETVITAL,,beze zmìny,info | NA | kvetoucí a plodní jedinci | NA,info | NA | kvetoucí a plodní jedinci | NA
+Tephroseris longifolia subsp. moravica,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Tephroseris longifolia subsp. moravica,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Tephroseris longifolia subsp. moravica,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Tephroseris longifolia subsp. moravica,lok,POP_VITAL,,zmìnìno,min | 30 | % poèet jedincù | ano,min | 30 | % kvetoucích a plodných ze sterilních jednotek | ne
+Tephroseris longifolia subsp. moravica,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | 25-50 % | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 25-50 % | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Tephroseris longifolia subsp. moravica,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Tephroseris longifolia subsp. moravica,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Tephroseris longifolia subsp. moravica,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Thesium ebracteatum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Thesium ebracteatum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Thesium ebracteatum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Thesium ebracteatum,lok,POP_POCET,,zmìnìno,min | 17000 | prýty | ano,info | NA | prýty | NA
+Thesium ebracteatum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Thesium ebracteatum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Thesium ebracteatum,lok,POP_POCETSUM,,pøidáno,,info | NA | kvetoucí a plodné prýty | NA || info | NA | sterilní prýty | NA
+Thesium ebracteatum,lok,POP_POSKPERC,,zmìnìno,max | 1 | poèet prýtù | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Thesium ebracteatum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Thesium ebracteatum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menším poètem jedincù než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Thesium ebracteatum,lok,STA_POKRDREV,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Thesium ebracteatum,lok,STA_POKRSTAR,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Thesium ebracteatum,lok,STA_POKRYVNOSTEXPANZNI,,zmìnìno,val | 0 | NA | ne || val | do 25 % | NA | ne,val | 0 | NA | info || val | 5-25 % | NA | info || val | do 25 % | NA | info || val | do 5 % | NA | info
+Thesium ebracteatum,lok,STA_POKRYVNOSTINVAZNI,,zmìnìno,val | 0 | NA | ne,val | 0 | NA | info
+Trichomanes speciosum,chu,LOK_PROCDOBR,,beze zmìny,min | 50 | % lokalit v dobrém stavu | ano,min | 50 | % lokalit v dobrém stavu | ano
+Trichomanes speciosum,chu,POP_CILSTAVPROC,,pøidáno,,min | 100 | % cílového stavu území | ano
+Trichomanes speciosum,chu,POP_PROCDOB,,zmìnìno,min | 50 | % populace v dobrém stavu | ano,min | 75 | % populace v dobrém stavu | ano
+Trichomanes speciosum,lok,POP_PLOCHA,,odebráno,min | 10 | cm2 | ano,
+Trichomanes speciosum,lok,POP_POCET,,pøidáno,,info | NA | cm2 | NA
+Trichomanes speciosum,lok,POP_POCETCIL,,pøidáno,,min | 80 | % cílové poèetnosti | ne
+Trichomanes speciosum,lok,POP_POCETMINPRIP,,pøidáno,,min | 60 | % cílové poèetnosti | ano
+Trichomanes speciosum,lok,POP_POSKPERC,,zmìnìno,max | 1 | èisté plochy populace | ne,max | 40 | % populaèních jednotek (souèet typù poškození) | ne
+Trichomanes speciosum,lok,POP_POSKPOC,,odebráno,max | 2 | poèet typù poškození rostlin | ne,
+Trichomanes speciosum,lok,POP_TREND,,zmìnìno,max | 1 | posledních dvou let s menší hodnotou èisté populace než je referenèní hodnota | ano,val | pozitivní | NA | ne || val | setrvalý | NA | ne
+Trichomanes speciosum,lok,STA_STUPENZACH,,zmìnìno,val | dobrý | NA | ne || val | støední | NA | ne,val | dobrý | NA | info || val | støední | NA | info
+Trichomanes speciosum,lok,STA_VLHPOM,,zmìnìno,val | dobré | NA | ne || val | støední | NA | ne,val | dobré | NA | info || val | zhoršené | NA | info

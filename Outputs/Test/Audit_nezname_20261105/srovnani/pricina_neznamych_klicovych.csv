@@ -1,0 +1,34 @@
+DRUH,ID_IND,pricina,n,podil
+Bombina bombina,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),161,51
+Bombina bombina,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",29,9
+Bombina bombina,POP_ZMENARAD,B tataz mista pod jinym klicem,47,15
+Bombina bombina,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),78,25
+Cottus gobio,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),114,59
+Cottus gobio,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",28,15
+Cottus gobio,POP_DYN,B tataz mista pod jinym klicem,42,22
+Cottus gobio,POP_DYN,C chybi abundance (pocet / plocha),9,5
+Cottus gobio,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),114,59
+Cottus gobio,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",28,15
+Cottus gobio,POP_VITALITA3,B tataz mista pod jinym klicem,42,22
+Cottus gobio,POP_VITALITA3,C chybi delky,9,5
+Lampetra planeri,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),118,45
+Lampetra planeri,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",28,11
+Lampetra planeri,POP_DYN,B tataz mista pod jinym klicem,68,26
+Lampetra planeri,POP_DYN,C chybi abundance (pocet / plocha),49,19
+Lampetra planeri,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),88,44
+Lampetra planeri,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",21,10
+Lampetra planeri,POP_VITALITA3,B tataz mista pod jinym klicem,41,20
+Lampetra planeri,POP_VITALITA3,C chybi delky,50,25
+Misgurnus fossilis,POP_DYN,A1 jediny pruzkum mista (skutecne prvni),66,44
+Misgurnus fossilis,POP_DYN,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",10,7
+Misgurnus fossilis,POP_DYN,B tataz mista pod jinym klicem,52,35
+Misgurnus fossilis,POP_DYN,C chybi abundance (pocet / plocha),21,14
+Misgurnus fossilis,POP_VITALITA3,A1 jediny pruzkum mista (skutecne prvni),66,47
+Misgurnus fossilis,POP_VITALITA3,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",10,7
+Misgurnus fossilis,POP_VITALITA3,B tataz mista pod jinym klicem,52,37
+Misgurnus fossilis,POP_VITALITA3,C chybi delky,12,9
+Triturus cristatus,POP_REPROPERIOD3,D jine,15,100
+Triturus cristatus,POP_ZMENARAD,A1 jediny pruzkum mista (skutecne prvni),155,57
+Triturus cristatus,POP_ZMENARAD,"A2 jediny pruzkum, misto pozdeji pod jinym klicem",20,7
+Triturus cristatus,POP_ZMENARAD,B tataz mista pod jinym klicem,39,14
+Triturus cristatus,POP_ZMENARAD,C chybi kategorie pocetnosti (v roce nebo v referenci),58,21

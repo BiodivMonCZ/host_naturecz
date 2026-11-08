@@ -169,11 +169,17 @@ nal_export <- function(
   # tabulky vsech druhu. run_n2k_druhy si stejne filtry aplikuje znovu uvnitr,
   # coz je na jiz vyfiltrovanych datech neskodne (idempotentni), takze vysledek
   # zustava identicky - jen se pocita jednou navic misto N-krat.
+  # Pevne okno 12 let jen mimo cevnate rostliny z cis_cevky_frekvence - ty si
+  # hodnocene obdobi vybiraji podle lokalit samy (vyber_obdobi_cevky v 21_1)
+  # a potrebuji celou historii (cilova pocetnost z prvnich tri monitoringu).
+  druhy_okno_lokalit <- if (exists("cis_cevky_frekvence")) cis_cevky_frekvence$DRUH else character(0)
   n2k_load_valid <- n2k_load %>%
-    dplyr::filter(ROK >= current_year - 12) %>%
+    dplyr::filter(ROK >= current_year - 12 | DRUH %in% druhy_okno_lokalit) %>%
+    # Parove druh x EVL, shodne s 21_1 (nalez H-85 v
+    # Metodiky/Ryby a mihule/harmonizace_registr.md).
     dplyr::filter(
       DRUH %in% c("Eriogaster catax", "Euphydryas aurinia") |
-        (DRUH %in% sites_subjects$nazev_lat & kod_chu %in% sites_subjects$site_code)
+        paste(DRUH, kod_chu) %in% paste(sites_subjects$nazev_lat, sites_subjects$site_code)
     )
   n2k_load_split <- split(n2k_load_valid, as.character(n2k_load_valid$DRUH))
 
@@ -574,7 +580,12 @@ lok_export <- function(
       STAV_IND,
 
       # Zbytek
-      dplyr::everything()
+      dplyr::everything(),
+
+      # Pracovni sloupce z bloku 6 v 24_n2k_druhy_lokality.R: verdikt DP
+      # postaveny jen na cilenem monitoringu je vstupem pro LOK_PROCDOBR na
+      # urovni EVL, do exportu DP nepatri (nalez H-69).
+      -dplyr::any_of(c("CELKOVE_CILMON", "ROK_CILMON"))
     )
 
   #--------------------------------------------------#
