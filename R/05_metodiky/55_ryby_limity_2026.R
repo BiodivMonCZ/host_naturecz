@@ -76,11 +76,13 @@ z_gitu <- function(cesta) {
   f
 }
 
+# Slozka s exportem NDOP: z configu, jinak sousedni host_data (shodne s 54).
+if (!exists("slozka_lokal")) slozka_lokal <- "../host_data/"
 VSTUP <- list(
   limity = z_gitu("Data/Input/limity_ryby.csv"),
   delky  = z_gitu("Data/Input/cis_ryby_delky_strukt.csv"),
   popis  = "Data/Input/cis_indikatory_popis.csv",
-  export = "C:/Users/jonas.gaigr/Documents/host_data/export_data_evl.csv"
+  export = paste0(slozka_lokal, "export_data_evl.csv")
 )
 VYSTUP <- list(
   limity   = "Data/Input/limity_ryby.csv",
