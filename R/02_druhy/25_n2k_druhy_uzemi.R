@@ -5,28 +5,20 @@ run_n2k_druhy_uzemi <- function(
     limity,
     biotop_evd,
     n2k_druhy_obdobi_chu,
-    n2k_druhy_posledni_chu,
     cilove_stavy = NULL,
     pocetnost_uzemi = NULL,
     current_year = 2025
 ) {
   
-  #----------------------------------------------------------#
-  # 1. Validace a nacteni skupiny ----
-  #----------------------------------------------------------#
-  skupina_druhu <- n2k_druhy_lok %>% 
-    dplyr::filter(DRUH == species_name) %>% 
-    dplyr::pull(SKUPINA) %>% 
-    unique() %>% 
-    stats::na.omit() %>% 
-    dplyr::first()
-  
-  pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
-  is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
-  if(species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
-    is_pole_druh <- FALSE
+  # Druh vazany na mapovaci pole - je_druh_pole() v 24 (POZOR, nalez H-97).
+  is_pole_druh <- je_druh_pole(species_name, sites_subjects)
+
+  # Podil vymery EVL s preferovanymi biotopy druhu (biotopy_evd_hmyz.csv).
+  habpokryv_evl <- function(k_chu) {
+    x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
+    if (length(x) == 0) NA_real_ else unique(x)
   }
-  
+
   #----------------------------------------------------------#
   # 2. Priprava kontextu (CELKOVE jako sloupec) ----
   #----------------------------------------------------------#
@@ -108,11 +100,7 @@ run_n2k_druhy_uzemi <- function(
             CILMON == 1, 
           na.rm = TRUE
         ),
-        STA_HABPOKRYVPRE = {
-          k_chu <- unique(kod_chu)
-          x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
-          if (length(x) == 0) NA_real_ else unique(x)
-        }
+        STA_HABPOKRYVPRE = habpokryv_evl(unique(kod_chu))
       ) %>%
       dplyr::mutate(
         # Zadne hodnocene pole = neznamy podil (NA), ne 0 % (H-90 / Z-12).
@@ -175,37 +163,18 @@ run_n2k_druhy_uzemi <- function(
           TRUE ~ NA_character_
         ), 
         
-        POP_POCETMAX = sum(dplyr::case_when(ID_IND == "POP_POCETMAX" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETMIN = sum(dplyr::case_when(ID_IND == "POP_POCETMIN" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
         POP_POCETSUM = sum(dplyr::case_when(ID_IND == "POP_POCET" & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE) %>% max(na.rm = TRUE),
         
         # Nyni pouzijeme sloupec "CELKOVE_CTX", ktery jsme pripojili na zacatku
         POP_POCETDOB = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX == 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE) %>% max(na.rm = TRUE),
-        POP_POCETOST = sum(dplyr::case_when(ID_IND == "POP_POCET" & CELKOVE_CTX != 1 & CILMON == 1 ~ as.numeric(HOD_IND), TRUE ~ 0), na.rm = TRUE),
-        
         POP_PROCDOB = dplyr::case_when(is.na(POP_POCETDOB) | is.na(POP_POCETSUM) ~ NA_real_, POP_POCETSUM == 0 ~ 0, TRUE ~ round(POP_POCETDOB / POP_POCETSUM * 100, 3)),
-        
-        POP_POCETZIM = sum(dplyr::case_when(ID_IND == "POP_POCETZIM" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETZIM1 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETZIM2 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETZIM3 = sum(dplyr::case_when(ID_IND == "POP_POCETZIM3" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETZIMREF = mean(c(POP_POCETZIM1, POP_POCETZIM2, POP_POCETZIM3), na.rm = TRUE),
-        POP_VITALZIM = ifelse(POP_POCETZIMREF == 0 | is.na(POP_POCETZIMREF), NA_real_, round(POP_POCETZIM/POP_POCETZIMREF, 3)),
-        
-        POP_POCETLETS1 = sum(dplyr::case_when(ID_IND == "POP_POCETLETS1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETLETS2 = sum(dplyr::case_when(ID_IND == "POP_POCETLETS2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE),
-        POP_POCETLET = sum(dplyr::case_when(ID_IND == "POP_POCETLET" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET1 = sum(dplyr::case_when(ID_IND == "POP_POCETLET1" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET2 = sum(dplyr::case_when(ID_IND == "POP_POCETLET2" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLET3 = sum(dplyr::case_when(ID_IND == "POP_POCETLET3" ~ as.numeric(HOD_IND), TRUE ~ NA), na.rm = TRUE), 
-        POP_POCETLETREF = mean(c(POP_POCETLET1, POP_POCETLET2, POP_POCETLET3), na.rm = TRUE),
-        POP_VITALLET = ifelse(POP_POCETLETREF == 0 | is.na(POP_POCETLETREF), NA_real_, round(POP_POCETLET/POP_POCETLETREF, 3)),
-        
-        POP_REPROCHI = dplyr::case_when(
-          POP_POCETLETS1 == 0 ~ NA_real_, 
-          TRUE ~ round(POP_POCETLETS2/POP_POCETLETS1, 3)
-        ),
-        
+
+        # Zimni a letni pocty letounu se zde drive scitaly z radku DP
+        # POP_POCETZIM*, POP_POCETLET* - ty ale uroven DP nema (nejsou v limitech
+        # lok), soucty byly vzdy 0 a zadny limit chu je necetl. Indikatory
+        # letounu podle limitu (POP_DIFZIM, POP_DIFLET, POP_PRESENCEZIM,
+        # POP_PRESENCELET, POP_REPROVAL) se nepocitaji - nalez H-99.
+
         # Metodika: "Procento dobre hodnocenych dilcich ploch" = pocet DP v dobrem stavu /
         # pocet DP v dobrem, zhorsenem ci spatnem stavu * 100. DP s neznamym stavem se do
         # vypoctu (citatele ani jmenovatele) nezapocitavaji.
@@ -230,11 +199,7 @@ run_n2k_druhy_uzemi <- function(
         # Migracni prostupnost EVL (H-83) - mimo druhy s limitem NA.
         STA_MIGPROSTUP = mig_evl(ID_IND, HOD_IND, CELKOVE_CILMON, KOD_LOKAL),
 
-        STA_HABPOKRYVPRE = {
-          k_chu <- unique(kod_chu)
-          x <- biotop_evd$BIOTOP_PROCENTO[biotop_evd$SITECODE == k_chu & biotop_evd$DRUH == species_name]
-          if (length(x) == 0) NA_real_ else unique(x)
-        }
+        STA_HABPOKRYVPRE = habpokryv_evl(unique(kod_chu))
       ) %>%
       dplyr::mutate(
         STA_HABPOKRYV = ifelse(is.na(STA_HABPOKRYVPRE) == TRUE, NA, STA_HABPOKRYVPRE*100)
@@ -295,6 +260,8 @@ run_n2k_druhy_uzemi <- function(
       IND_GRP = dplyr::case_when(
         TYP_IND %in% c("min", "max") ~ "minmax",
         TRUE ~ TYP_IND),
+      # Nezjisteny klicovy indikator uzemi se do verdiktu nepocita (obdoba
+      # pravidla H-90 na urovni EVL je otevrena otazka Z-20).
       KLIC = dplyr::case_when(
         is.na(HOD_IND) == TRUE ~ "ne",
         TRUE ~ KLIC
@@ -302,18 +269,7 @@ run_n2k_druhy_uzemi <- function(
     ) %>%
     dplyr::distinct() %>%
     dplyr::select(-dplyr::starts_with("..."))
-  
-  #----------------------------------------------------------#
-  # 5. Konsolidace a finalni hodnoceni uzemi (CHU) -----
-  #----------------------------------------------------------#
-  # POZNAMKA (obojzivelnici, Tabulka 2 metodiky): hodnoceni stavu druhu na urovni EVL
-  # kombinuje DVA indikatory - (1) "% dobre hodnocenych DP" (LOK_PROCDOBR, limit min 70,
-  # viz limity_vse.csv) a (2) "pocetnost populace" jako klouzavy prumer za posledni 3 roky
-  # porovnany s revidovanym cilovym stavem evidovanym v ISOP (u EVL) resp. planu pece (u MZCHU).
-  # Indikator (1) je nize implementovan pres generickou minmax logiku. Indikator (2) NENI
-  # implementovan - repozitar aktualne neobsahuje zdroj dat s per-lokalitnim cilovym stavem
-  # (viz Data/Input/). Bez nej CELKOVE hodnoceni uzemi vychazi jen z indikatoru (1), coz
-  # neodpovida plne Tabulce 2 metodiky.
+
   #----------------------------------------------------------#
   # 4b. Druhy indikator Tabulky 2 - pocetnost vs. cilovy stav -----
   #----------------------------------------------------------#

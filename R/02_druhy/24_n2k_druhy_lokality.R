@@ -1,3 +1,16 @@
+# Druh vazany na mapovaci pole (hmyz): DP se hodnoti zvlast po POLE a na
+# urovni EVL se pocita podil poli v dobrem stavu (POP_PROCPOLE1D, 25).
+# POZOR (nalez H-97): sites_subjects nema sloupce DRUH ani SKUPINA, takze
+# funkce vraci FALSE u vsech druhu a vetve pro pole se neuplatni. Opravu
+# (skupina ze SKUPINA dat) ponechava rozhodnuti zadavatele - meni vysledky.
+je_druh_pole <- function(species_name, sites_subjects) {
+  if (species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
+    return(FALSE)
+  }
+  pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
+  species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
+}
+
 run_n2k_druhy_lok <- function(
     n2k_druhy_lim,
     species_name,
@@ -31,21 +44,7 @@ run_n2k_druhy_lok <- function(
     warning(glue::glue("Druh {species_name}: Indikatory s nekonzistentnimi metadaty: {paste(bad_groups, collapse = ', ')}"))
   }
   
-  # Identifikace skupiny druhu (napr. Rostliny, Bezobratli)
-  skupina_druhu <- n2k_druhy_lim %>% 
-    dplyr::filter(DRUH == species_name) %>% 
-    dplyr::pull(SKUPINA) %>% 
-    unique() %>% 
-    stats::na.omit() %>% 
-    head(1)
-  
-  pole_skupiny <- c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")
-  
-  # Zjisteni, zda se ma filtrovat podle POLE (zda je druh vazany na transekt nebo plochu)
-  is_pole_druh <- species_name %in% sites_subjects$DRUH[sites_subjects$SKUPINA %in% pole_skupiny]
-  if(species_name %in% c("Eriogaster catax", "Euphydryas aurinia", "Euphydryas maturna")) {
-    is_pole_druh <- FALSE
-  }
+  is_pole_druh <- je_druh_pole(species_name, sites_subjects)
   
   #----------------------------------------------------------#
   # 2. Agregace dilcich indikatoru ----
