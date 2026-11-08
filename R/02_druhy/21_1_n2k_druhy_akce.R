@@ -648,10 +648,16 @@ run_n2k_druhy <- function(
     )
   }
 
-  # Kontrola limitu pro pocet (POP_POCET)
-  # Pokud limit pro dany druh neexistuje, vypise se varovani a POP_POCET bude NA.
-  # V opacnem pripade se vypise potvrzeni, ze limit byl nalezen.
-  lim_pocet <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCET") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+  # Jednotky (POCITANO), ktere radky limitu druhu uznavaji pro dany indikator.
+  # Radky bez limitu (info) urcuji, co se do indikatoru vubec zapocita.
+  jednotky_limitu <- function(id) {
+    limity %>%
+      dplyr::filter(DRUH == species_name & ID_IND == id) %>%
+      dplyr::pull(JEDNOTKA) %>%
+      unique() %>%
+      stringr::str_squish()
+  }
+  lim_pocet <- jednotky_limitu("POP_POCET")
   # Ryby metodiky EVL 2026: POP_POCET neni v limitech (neni indikatorem
   # metodiky), jednotky poctu jsou v JEDNOTKY_POCET_RYBY_2026.
   if (species_name %in% DRUHY_RYBY_2026 && length(lim_pocet) == 0) {
@@ -659,33 +665,21 @@ run_n2k_druhy <- function(
   }
   # plosna populacni jednotka druhu (NA, neni-li jednotkou plocha) - viz koef_plochy
   cil_plocha <- intersect(lim_pocet, names(PLOCHA_M2))[1]
-  if (length(lim_pocet) == 0) {
-    warning(glue::glue("No 'POP_POCET' limit for species — POP_POCET will be NA for all observations."))
-  } else {
-    warning(glue::glue("'POP_POCET' limit for species found"))
-  }
-  
-  # Kontrola limitu pro sumu poctu (POP_POCETSUM)
-  # Stejna logika jako vyse - kontrola existence limitu a varovani pri absenci.
-  lim_pocetsum <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSUM") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
-  if (length(lim_pocetsum) == 0) {
-    warning(glue::glue("No 'POP_POCETSUM' limit for species — POP_POCETSUM will be NA for all observations."))
-  } else {
-    warning(glue::glue("'POP_POCETSUM' limit for species found"))
-  }
-  
-  # Kontrola limitu pro reprodukci (POP_REPRO)
-  # Stejna logika jako vyse - kontrola existence limitu a varovani pri absenci.
-  lim_repro <- limity %>% filter(DRUH == species_name & ID_IND == "POP_REPRO") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
-  if (length(lim_repro) == 0) {
-    warning(glue::glue("No 'POP_REPRO' limit for species — POP_REPRO will be NA for all observations."))
-  } else {
-    warning(glue::glue("'POP_REPRO' limit for species found"))
-  }
+  lim_pocetsum <- jednotky_limitu("POP_POCETSUM")
+  lim_repro <- jednotky_limitu("POP_REPRO")
+  # kvetouci / sterilni casti pro vitalitu (vitalita_cevky)
+  lim_vital <- jednotky_limitu("POP_POCETVITAL")
+  lim_steril <- jednotky_limitu("POP_POCETSTERIL")
+  lim_plocha <- jednotky_limitu("POP_PLOCHA")
+  lim_lodyhy <- jednotky_limitu("POP_POCETSUMLOD")
 
-  # Jednotky kvetoucich a sterilnich casti pro vitalitu (vitalita_cevky).
-  lim_vital <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETVITAL") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
-  lim_steril <- limity %>% filter(DRUH == species_name & ID_IND == "POP_POCETSTERIL") %>% pull(JEDNOTKA) %>% unique() %>% stringr::str_squish()
+  # Bez jednotek limitu zustane indikator NA u vsech zaznamu druhu.
+  bez_jednotek <- lengths(list(
+    POP_POCET = lim_pocet, POP_POCETSUM = lim_pocetsum, POP_REPRO = lim_repro
+  )) == 0
+  for (id in names(bez_jednotek)[bez_jednotek]) {
+    warning(glue::glue("Druh {species_name}: limity neuvadeji jednotky {id} - indikator bude NA."))
+  }
 
   # Hodnocene obdobi: cevnate rostliny podle lokalit (vyber_obdobi_cevky),
   # ostatni skupiny pevne 12 let.
@@ -802,7 +796,7 @@ run_n2k_druhy <- function(
     # Pouze pokud jednotka (POCITANO_CLEAN) odpovida limitum pro POP_PLOCHA.
     POP_PLOCHA = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_PLOCHA"] ~ POCET,
+      POCITANO_CLEAN %in% lim_plocha ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_REPRO: Indikator reprodukce ("ano"/"ne")
@@ -1292,13 +1286,13 @@ run_n2k_druhy <- function(
     # POP_POCETLODYH: Pocet lodyh, pokud je druh pritomen a jednotka odpovida
     POP_POCETLODYH = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
+      POCITANO_CLEAN %in% lim_lodyhy ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_POCETVITAL: Pocet vitalnich casti, pokud jednotka odpovida
     POP_POCETVITAL = dplyr::case_when(
       POP_PRESENCE == "ne" ~ 0,
-      POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & limity$ID_IND %in% "POP_POCETVITAL"] ~ POCET,
+      POCITANO_CLEAN %in% lim_vital ~ POCET,
       TRUE ~ NA_real_
     ),
     # POP_POCETSTERIL: Pocet sterilnich casti (jmenovatel vitality). Jen
@@ -1429,8 +1423,7 @@ run_n2k_druhy <- function(
       # POP_POCETPLOD: Pocet plodnych casti, pokud jednotka odpovida
       POP_POCETPLOD = dplyr::case_when(
         POP_PRESENCE == "ne" ~ 0,
-        POCITANO_CLEAN %in% limity$JEDNOTKA[limity$DRUH %in% DRUH & 
-                                        limity$ID_IND %in% "POP_POCETSUMLOD"] ~ POCET,
+        POCITANO_CLEAN %in% lim_lodyhy ~ POCET,
         TRUE ~ NA_real_
       ),
       # POP_VITAL: kvetouci a plodne / sterilni * 100 za celou akci
