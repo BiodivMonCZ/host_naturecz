@@ -369,6 +369,11 @@ stav_vody_slovni <- function(x) {
   )
 }
 
+# Zimni sezona roku y (rijen-prosinec roku y - 1 a leden-duben roku y) a letni
+# sezona (kveten-zari roku y) - pocty letounu v 21_1 (POP_POCETZIM*, POP_POCETLET*).
+zima_y <- function(rok, mesic, y) (rok == y & mesic < 5) | (rok == y - 1 & mesic > 9)
+leto_y <- function(rok, mesic, y) rok == y & mesic >= 5 & mesic <= 9
+
 # Klouzavy soucet pres POSLEDNI TRI MONITOROVANE SEZONY VCETNE aktualniho radku.
 # Vstupem je vektor serazeny vzestupne podle roku v ramci jedne DP a druhu.
 # Metodika pracuje se "tremi poslednimi sezonami s monitoringem dane DP", nikoli
@@ -780,13 +785,8 @@ run_n2k_druhy <- function(
       POCITANO_CLEAN %in% lim_pocetsum ~ POCET,
       TRUE ~ NA_real_
     ),
-    # POP_POCETSUM: Inicializace promenne pro sumu
-    # Zatim obsahuje jen hodnotu pro dany radek (pokud odpovida limitu), pozdeji bude agregovana.
-    POP_POCETSUM = dplyr::case_when(
-      POP_PRESENCE == "ne" ~ 0,
-      POCITANO_CLEAN %in% lim_pocetsum ~ POCET,
-      TRUE ~ NA_real_
-    ),
+    # POP_POCETSUM: zatim hodnota radku, za akci se secte nize
+    POP_POCETSUM = POP_POCETSUM_PART,
     # POP_PLOCHA: Hodnota populace vyjadrena plochou
     # Pouze pokud jednotka (POCITANO_CLEAN) odpovida limitum pro POP_PLOCHA.
     POP_PLOCHA = dplyr::case_when(
@@ -1636,104 +1636,30 @@ run_n2k_druhy <- function(
       # ------------------------------------------#
       ### Savci ----- 
       # ------------------------------------------#
-      # POP_POCETZIM: Maximalni zimni pocet (listopad-duben aktualniho roku)
-      POP_POCETZIM = max(
-        POP_POCET[(ROK == current_year & 
-                     MESIC < 5) |
-                    (ROK == current_year - 1 & 
-                       MESIC > 9)
-        ],
-        na.rm = TRUE
-      ), 
-      # POP_POCETZIM1/2/3: Zimni pocty v predchozich letech
-      POP_POCETZIM1 = max(
-        POP_POCET[(ROK == current_year - 1 & 
-                     MESIC < 5) |
-                    (ROK == current_year - 2 &
-                       MESIC > 9)
-        ],
-        na.rm = TRUE
-      ),
-      POP_POCETZIM2 = max(
-        POP_POCET[(ROK == current_year - 2 &
-                     MESIC < 5) |
-                    (ROK == current_year - 3 &
-                       MESIC > 9)
-        ],
-        na.rm = TRUE
-      ),
-      POP_POCETZIM3 = max(
-        POP_POCET[(ROK == current_year - 3 & 
-                     MESIC < 5) |
-                    (ROK == current_year - 4 &
-                       MESIC > 9)], 
-        na.rm = TRUE
-      ),
-      # POP_POCETZIMREF: Prumer zimnich poctu z minulych 3 let (referencni)
-      POP_POCETZIMREF = mean(
-        POP_POCETZIM1, 
-        POP_POCETZIM2, 
-        POP_POCETZIM3, 
-        na.rm = TRUE
-      ),
-      # POP_VITALZIM: Pomer aktualniho zimniho poctu k referencnimu
+      # Letouni: maxima POP_POCET v zime (rijen-duben, zima_y) a v lete
+      # (kveten-zari, leto_y) hodnoceneho roku a tri predchozich. Indikatory
+      # letounu z limitu se z nich nepocitaji (nalez H-99). POZOR: mean(a, b,
+      # c, na.rm = TRUE) bere jen prvni hodnotu (b je `trim`) - ponechano, H-99.
+      POP_POCETZIM  = max(POP_POCET[zima_y(ROK, MESIC, current_year)], na.rm = TRUE),
+      POP_POCETZIM1 = max(POP_POCET[zima_y(ROK, MESIC, current_year - 1)], na.rm = TRUE),
+      POP_POCETZIM2 = max(POP_POCET[zima_y(ROK, MESIC, current_year - 2)], na.rm = TRUE),
+      POP_POCETZIM3 = max(POP_POCET[zima_y(ROK, MESIC, current_year - 3)], na.rm = TRUE),
+      POP_POCETZIMREF = mean(POP_POCETZIM1, POP_POCETZIM2, POP_POCETZIM3, na.rm = TRUE),
       POP_VITALZIM = POP_POCETZIM/POP_POCETZIMREF,
-      # POP_POCETLETS1/2: Letni pocty v specifickych obdobich
-      POP_POCETLETS1 = max(
-        POP_POCET[(ROK == current_year & 
-                     ((MESIC == 5 & 
-                         DEN >= 15) |
-                        (MESIC == 6 & 
-                           DEN <= 15)
-                     )
-        )
-        ],
-        na.rm = TRUE),
-      POP_POCETLETS2 = max(
-        POP_POCET[(ROK == current_year &
-                     (
-                       (MESIC == 6 & 
-                          DEN > 15
-                       ) | 
-                         (
-                           MESIC %in% c(7, 8, 9)
-                         )
-                     )
-        )
-        ], 
-        na.rm = TRUE),
-      # POP_POCETLET: Maximalni letni pocet (kveten-zari)
-      POP_POCETLET = max(
-        POP_POCET[(ROK == current_year & 
-                     MESIC >= 5 & 
-                     MESIC <= 9)], 
-        na.rm = TRUE
-      ), 
-      # POP_POCETLET1/2/3: Letni pocty v minulych letech
-      POP_POCETLET1 = max(
-        POP_POCET[(ROK == current_year - 1 & 
-                     MESIC >= 5 & 
-                     MESIC <= 9)], 
-        na.rm = TRUE
-      ), 
-      POP_POCETLET2 = max(POP_POCET[(ROK == current_year - 2 & 
-                                       MESIC >= 5 & 
-                                       MESIC <= 9)], 
-                          na.rm = TRUE), 
-      POP_POCETLET3 = max(POP_POCET[(ROK == current_year - 3 & 
-                                       MESIC >= 5 & 
-                                       MESIC <= 9)], 
-                          na.rm = TRUE), 
-      # POP_POCETLETREF: Prumer letnich poctu z minulych 3 let
-      POP_POCETLETREF = mean(
-        POP_POCETLET1, 
-        POP_POCETLET2, 
-        POP_POCETLET3, 
-        na.rm = TRUE
-      ),
-      # POP_VITALLET: Pomer aktualniho letniho poctu k referencnimu
+      # cast leta: 15. 5. - 15. 6. a 16. 6. - 30. 9. hodnoceneho roku
+      POP_POCETLETS1 = max(POP_POCET[ROK == current_year &
+                                       ((MESIC == 5 & DEN >= 15) | (MESIC == 6 & DEN <= 15))],
+                           na.rm = TRUE),
+      POP_POCETLETS2 = max(POP_POCET[ROK == current_year &
+                                       ((MESIC == 6 & DEN > 15) | (MESIC %in% c(7, 8, 9)))],
+                           na.rm = TRUE),
+      POP_POCETLET  = max(POP_POCET[leto_y(ROK, MESIC, current_year)], na.rm = TRUE),
+      POP_POCETLET1 = max(POP_POCET[leto_y(ROK, MESIC, current_year - 1)], na.rm = TRUE),
+      POP_POCETLET2 = max(POP_POCET[leto_y(ROK, MESIC, current_year - 2)], na.rm = TRUE),
+      POP_POCETLET3 = max(POP_POCET[leto_y(ROK, MESIC, current_year - 3)], na.rm = TRUE),
+      POP_POCETLETREF = mean(POP_POCETLET1, POP_POCETLET2, POP_POCETLET3, na.rm = TRUE),
       POP_VITALLET = POP_POCETLET/POP_POCETLETREF,
-      # POP_REPROCHI: Reprodukcni index (pomer pozdniho a raneho leta)
+      # reprodukcni index: pozdni / rane leto
       POP_REPROCHI = POP_POCETLETS2/POP_POCETLETS1
     ) %>%
     dplyr::ungroup()
