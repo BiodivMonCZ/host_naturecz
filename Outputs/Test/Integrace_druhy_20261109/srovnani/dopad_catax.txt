@@ -1,0 +1,44 @@
+
+== n2k_druhy_lok.csv : radku pred 2128 po 2128 
+CELKOVE_HODNOCENI pred:
+
+ dobrý špatný 
+    27    277 
+CELKOVE_HODNOCENI po:
+
+ dobrý špatný 
+    27    277 
+prechody:
+# A tibble: 2 × 3
+  pred   po         n
+  <chr>  <chr>  <int>
+1 dobrý  dobrý     27
+2 špatný špatný   277
+POP_POCET pred: 304 radku; po: 304 radku; STAV_IND po:
+
+   0    1 <NA> 
+ 234    5   65 
+STA_HABPOKRYV pred: 0 radku; po: 0 radku; STAV_IND po:
+< table of extent 0 >
+
+== n2k_druhy_chu.csv : radku pred 70 po 93 
+CELKOVE_HODNOCENI pred:
+
+   dobrý zhoršený 
+      20        3 
+CELKOVE_HODNOCENI po:
+
+   dobrý zhoršený 
+      20        3 
+prechody:
+# A tibble: 2 × 3
+  pred     po           n
+  <chr>    <chr>    <int>
+1 dobrý    dobrý       20
+2 zhoršený zhoršený     3
+POP_POCET pred: 0 radku; po: 0 radku; STAV_IND po:
+< table of extent 0 >
+STA_HABPOKRYV pred: 0 radku; po: 23 radku; STAV_IND po:
+
+neznámý 
+     23 

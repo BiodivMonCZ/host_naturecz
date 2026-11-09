@@ -1,0 +1,10 @@
+== temp/n2k_druhy_chu.csv: A 2703 x 18, B 2726 x 18
+   [1] x[FALSE, ] DRUH       jen_B     
+   <0 rows> (or 0-length row.names)
+== temp/n2k_druhy_lim.csv: A 644168 x 37, B 644400 x 37
+                DRUH jen_A jen_B
+    Eriogaster catax   659   891
+== temp/n2k_druhy_lok.csv: A 116068 x 23, B 116068 x 23
+                DRUH jen_A jen_B
+    Eriogaster catax   308   308
+   radkove parovani - lisici se sloupce: TYP_IND=304, KLIC=304, IND_GRP=304, LIM_IND=304, LIM_INDLIST=304, STAV_IND=239, HOD_IND=4

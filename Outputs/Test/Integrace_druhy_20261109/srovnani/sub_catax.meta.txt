@@ -1,0 +1,7 @@
+commit: aaf639dc9f98285b264fb92ae4adb2767bd64531
+dirty: 
+druhy: Triturus cristatus|Bombina variegata|Bombina bombina|Cottus gobio|Lampetra planeri|Misgurnus fossilis|Cobitis elongatoides|Pulsatilla grandis|Campanula bohemica|Cypripedium calceolus|Klasea lycopifolia|Eriogaster catax|Euphydryas aurinia|Lucanus cervus|Ophiogomphus cecilia|Myotis myotis|Barbastella barbastellus
+n_druhu_species_list: 17
+datum_behu: 2026-11-08
+datum_behu_konec: 2026-11-09
+cas_min: 36.6

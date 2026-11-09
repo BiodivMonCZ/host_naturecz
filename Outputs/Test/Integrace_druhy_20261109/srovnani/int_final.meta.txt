@@ -1,0 +1,7 @@
+commit: 22a6ee12c3c2fdba18cade929bbc8c12093e283b
+dirty: 
+druhy: ALL
+n_druhu_species_list: 82
+datum_behu: 2026-11-09
+datum_behu_konec: 2026-11-09
+cas_min: 47.7
