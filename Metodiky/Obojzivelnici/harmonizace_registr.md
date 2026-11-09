@@ -2358,14 +2358,14 @@ registru (hmyz, letouni); registry ryb a cévnatých rostlin na tento oddíl odk
 
 ### H-96 — *Eriogaster catax*: limity z větve `eriogaster-catax-2025-01`
 - **Závažnost:** střední · **Typ:** DATA (limity) · **Stav:** **provedeno** (`9350260`, `aaf639d`), otázka **Z-26**
-- Větev (leden 2026) přepsala celý `limity_vse.csv` (kódování, konce řádků, pořadí řádků);
-  proti své základně měnila u *E. catax* jediný řádek: `POP_POCET` `NA` → `min 30`.
+- Větev (leden 2026) přeřadila řádky celého `limity_vse.csv` (kódování Windows-1250 i CRLF beze
+  změny); proti své základně měnila jediný řádek, u *E. catax*: `POP_POCET` `NA` → `min 30`.
   Ostatní řádky *catax* jsou v `main` novější (`91dce53` nahradil `POP_POCETPOLE1`
   řádkem `LOK_PROCDOBR`, H-33 zavedl `info`, H-67 doplnil `JEDNOTKA`) — převzetí celých
   řádků by tyto změny vrátilo, proto nepřevzaty.
 - **`STA_HABPOKRYV`:** `UROVEN` `NA` → `chu` (`9350260`). Prázdnou `UROVEN` zavedl
   `91dce53`; kontrola z H-53 ji hlásí („Co zbývá" č. 33). Větev i její základna mají `chu`,
-  stejně jako čtyři další druhy hmyzu po H-53. *Euphydryas aurinia* má tutéž prázdnou
+  stejně jako všech 18 ostatních druhů hmyzu s tímto řádkem. *Euphydryas aurinia* má tutéž prázdnou
   `UROVEN` a zůstává beze změny (větev se jí netýká).
 - **`POP_POCET` `min 30` hnízd** (`aaf639d`): ve větvi s `KLIC = NA`, tj. fantomový klíčový
   indikátor podle H-53 (nesplněný srazí DP na „špatný"). Převedeno s `KLIC = ne`:
@@ -2389,7 +2389,8 @@ registru (hmyz, letouni); registry ryb a cévnatých rostlin na tento oddíl odk
 - **Důsledky:** (1) `24` nehodnotí DP hmyzu zvlášť po poli; (2) `25` nikdy nepočítá
   `POP_POCETPOLE1` ani **`POP_PROCPOLE1D`** — klíčový indikátor úrovně EVL (`min 50`, `KLIC = ano`),
   který limity mají u **20 druhů hmyzu**; v obecné větvi zůstane `NA`, `KLIC` se změní na `ne`
-  a EVL se hodnotí bez něj. U 16 druhů je příčinou tato vada; *E. catax*, *E. aurinia*
+  a EVL se hodnotí bez něj. U 16 druhů je příčinou tato vada (z nich *Phengaris nausithous*
+  a *P. teleius* nemají kvůli H-103 výstup vůbec, oprava by se tedy projevila u 14); *E. catax*, *E. aurinia*
   a *E. maturna* jsou z větve pro pole vyjmuty výslovně (pak se jejich `POP_PROCPOLE1D`
   nepočítá nikdy) a *Bolbelamus* se nehodnotí vůbec (H-98); (3) pravidlo Z-12 pro hmyz („neznámé pole mimo jmenovatel", `27b2510`) leží
   v mrtvé větvi a nemá účinek.
@@ -2453,18 +2454,18 @@ registru (hmyz, letouni); registry ryb a cévnatých rostlin na tento oddíl odk
   metodika hmyzu v repozitáři — mají v plném běhu **0 lokalit** a žádný výstup DP ani EVL.
   Nepárový filtr před H-85 je vyřazoval stejně (`DRUH %in% nazev_lat`).
 - V plném běhu je bez DP celkem 14 z 82 druhů seznamu; kromě *Phengaris* jde o známé
-  případy jmen (H-32 rostliny, H-40 ryby, S-1 *Lissotriton montandoni*) a druhy bez dat
+  případy jmen (H-32 registru cévnatých rostlin, H-40 ryby, S-1 *Lissotriton montandoni*) a druhy bez dat
   v posledních 12 letech.
 - **Návrh:** jedna sdílená tabulka synonym (rozšířit `cis_druhy_nazvy.csv`, dnes jen
-  cévnaté rostliny) uplatněná na `sites_subjects` v `00_n2k_config.R` — návrh H-32.
+  cévnaté rostliny) uplatněná na `sites_subjects` v `00_n2k_config.R` — návrh H-32 registru cévnatých rostlin.
 
 ### Otázky pro zadavatele (integrace 2026-11-09)
 
 | # | Otázka | Možnosti | Doporučení | Nález |
 |---|---|---|---|---|
 | Z-26 | *E. catax* `POP_POCET` `min 30` hnízd: je limit platný a má být klíčový? | ponechat `KLIC = ne` / `ano` / limit zrušit (`info`) | `ne` — klíčovým populačním indikátorem je `POP_POCETSUMLOKAL` | H-96 |
-| Z-27 | Opravit rozpoznání druhů vázaných na mapovací pole (hmyz)? | opravit (skupina z dat) a změřit / ponechat | opravit po testovacím běhu hmyzu — mění DP i EVL u 16 druhů | H-97 |
-| Z-28 | Jedna sdílená tabulka synonym názvů (seznam předmětů ochrany × NDOP × limity) pro celou kaskádu? | tabulka synonym / přejmenovat v limitech / ponechat | tabulka synonym (rozšířit `cis_druhy_nazvy.csv`) — řeší H-32, H-40, H-98, H-103, S-1 | H-98, H-103 |
+| Z-27 | Opravit rozpoznání druhů vázaných na mapovací pole (hmyz)? | opravit (skupina z dat) a změřit / ponechat | opravit po testovacím běhu hmyzu — mění DP i EVL u 14 druhů s daty | H-97 |
+| Z-28 | Jedna sdílená tabulka synonym názvů (seznam předmětů ochrany × NDOP × limity) pro celou kaskádu? | tabulka synonym / přejmenovat v limitech / ponechat | tabulka synonym (rozšířit `cis_druhy_nazvy.csv`) — řeší cévnaté H-32, H-40, H-98, H-103, S-1 | H-98, H-103 |
 | Z-29 | Seskupovat lokalitu ve `21_1` i podle `kod_chu`? | ano / ne | ano, po změření | H-100 |
 | Z-30 | Hodnocené období v exportu podle hodnoceného okna? | okno hodnocení / ponechat rozpětí všech záznamů | okno hodnocení | H-102 |
 
@@ -2526,7 +2527,7 @@ registru (hmyz, letouni); registry ryb a cévnatých rostlin na tento oddíl odk
 | 50 | **H-89** (registr ryb, = H-14 cévnatých) — `cil_mon_zdroj.csv` se poprvé uplatní; zdroj 2021 „Sledování stavu EVL - obojživelníci" je nově cílený monitoring. Dopad změřen (viz oddíl výše); potvrdit, že zdroj do cíleného monitoringu patří | zadavatel |
 | 51 | **H-96 / Z-26** — *Eriogaster catax*: platnost a klíčovost limitu `POP_POCET` `min 30` hnízd (přeneseno z větve `eriogaster-catax-2025-01` s `KLIC = ne`); *Euphydryas aurinia* má stále prázdnou `UROVEN` u `STA_HABPOKRYV` (č. 33) | zadavatel |
 | 52 | **H-97 / Z-27** — druhy vázané na mapovací pole se nerozpoznají; `POP_PROCPOLE1D` se nepočítá u žádného z 20 druhů hmyzu | zadavatel |
-| 53 | **H-98, H-103 / Z-28** — názvy druhů: *Phengaris nausithous* a *P. teleius* (seznam vede *Maculinea*) a `Bolbelamus unicornis` se nehodnotí; společně s H-32, H-40, S-1 | zadavatel |
+| 53 | **H-98, H-103 / Z-28** — názvy druhů: *Phengaris nausithous* a *P. teleius* (seznam vede *Maculinea*) a `Bolbelamus unicornis` se nehodnotí; společně s cévnatými H-32, H-40, S-1 | zadavatel |
 | 54 | **H-99** — letouni: klíčové indikátory z limitů (`POP_DIFZIM`, `POP_DIFLET`, `POP_PRESENCEZIM`, `POP_PRESENCELET`, `POP_REPROVAL`) nemají výpočet | autoři metodiky letounů |
 | 55 | **H-100 / Z-29** — `21_1` agreguje lokalitu bez `kod_chu` | zadavatel / provoz |
 | 56 | **H-101** — seznam kódů `amp…` → `NA` v `02_n2k_data_druhy.R`: co měl dělat? | zadavatel |
