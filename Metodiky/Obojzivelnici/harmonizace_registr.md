@@ -2347,6 +2347,129 @@ podle souřadnic je otázka **Z-25**.
 
 ---
 
+# Integrace a revize kódu druhů (2026-11-09)
+
+Větev `druhy-integrace-202611` sloučila `ryby-metodika-2026` (s `cevnate-metodika-2026`
+a `druhy-202609`) do `main`, přenesla řádky *Eriogaster catax* z větve
+`eriogaster-catax-2025-01` a kód druhů sjednotila beze změny výsledků. Zpráva, srovnání
+běhů a příkazy k opakování: [`Outputs/Test/Integrace_druhy_20261109/`](../../Outputs/Test/Integrace_druhy_20261109/README.md).
+Nálezy revize jsou zde, protože se týkají sdíleného kódu nebo skupin bez vlastního
+registru (hmyz, letouni); registry ryb a cévnatých rostlin na tento oddíl odkazují.
+
+### H-96 — *Eriogaster catax*: limity z větve `eriogaster-catax-2025-01`
+- **Závažnost:** střední · **Typ:** DATA (limity) · **Stav:** **provedeno** (`9350260`, `aaf639d`), otázka **Z-26**
+- Větev (leden 2026) přepsala celý `limity_vse.csv` (kódování, konce řádků, pořadí řádků);
+  proti své základně měnila u *E. catax* jediný řádek: `POP_POCET` `NA` → `min 30`.
+  Ostatní řádky *catax* jsou v `main` novější (`91dce53` nahradil `POP_POCETPOLE1`
+  řádkem `LOK_PROCDOBR`, H-33 zavedl `info`, H-67 doplnil `JEDNOTKA`) — převzetí celých
+  řádků by tyto změny vrátilo, proto nepřevzaty.
+- **`STA_HABPOKRYV`:** `UROVEN` `NA` → `chu` (`9350260`). Prázdnou `UROVEN` zavedl
+  `91dce53`; kontrola z H-53 ji hlásí („Co zbývá" č. 33). Větev i její základna mají `chu`,
+  stejně jako čtyři další druhy hmyzu po H-53. *Euphydryas aurinia* má tutéž prázdnou
+  `UROVEN` a zůstává beze změny (větev se jí netýká).
+- **`POP_POCET` `min 30` hnízd** (`aaf639d`): ve větvi s `KLIC = NA`, tj. fantomový klíčový
+  indikátor podle H-53 (nesplněný srazí DP na „špatný"). Převedeno s `KLIC = ne`:
+  klíčovým populačním indikátorem *catax* je `POP_POCETSUMLOKAL` (`min 10`, `ano`).
+  Opora v metodice v repozitáři není (metodika hmyzu řeší jen *Phengaris*).
+- **Dopad** (plný běh, `aaf639d` proti `fedd237`; jiný druh se nezměnil): na úrovni DP se
+  `POP_POCET` nově hodnotí u 304 DP (234 nesplněno, 5 splněno, 65 neznámý); jako neklíčový
+  žádný verdikt nezměnil (27 dobrý, 277 špatný — beze změny). Na úrovni EVL přibylo 23 řádků
+  `STA_HABPOKRYV` „neznámý" (`biotopy_evd_hmyz.csv` pro *catax* nemá data), z toho 6 v exportu
+  do ISOP; verdikty 23 EVL beze změny (20 dobrý, 3 zhoršený).
+- **Otázka Z-26:** viz Otázky níže.
+
+### H-97 ⚠ — Druhy vázané na mapovací pole se nerozpoznají: větev pro pole v `24` a `25` je mrtvá
+- **Závažnost:** vysoká · **Typ:** BUG · **Stav:** **zaznamenáno, otázka Z-27** (oprava mění výsledky)
+- `je_druh_pole()` ([`24`](../../R/02_druhy/24_n2k_druhy_lokality.R), dříve kopie v `24` i `25`)
+  testuje `sites_subjects$DRUH[sites_subjects$SKUPINA %in% c("Brouci", "Motýli", "Vážky", "Rovnokřídlí")]`.
+  `sites_subjects` (seznam předmětů ochrany, `00_n2k_config.R`) ale sloupce `DRUH` ani
+  `SKUPINA` nemá (`site_code`, …, `nazev_lat`) — výraz je `NULL` a funkce vrací **FALSE
+  u všech druhů**. Nepoužitá proměnná `skupina_druhu` naznačuje, že záměr byl
+  `skupina_druhu %in% pole_skupiny`.
+- **Důsledky:** (1) `24` nehodnotí DP hmyzu zvlášť po poli; (2) `25` nikdy nepočítá
+  `POP_POCETPOLE1` ani **`POP_PROCPOLE1D`** — klíčový indikátor úrovně EVL (`min 50`, `KLIC = ano`),
+  který limity mají u **20 druhů hmyzu**; v obecné větvi zůstane `NA`, `KLIC` se změní na `ne`
+  a EVL se hodnotí bez něj. U 16 druhů je příčinou tato vada; *E. catax*, *E. aurinia*
+  a *E. maturna* jsou z větve pro pole vyjmuty výslovně (pak se jejich `POP_PROCPOLE1D`
+  nepočítá nikdy) a *Bolbelamus* se nehodnotí vůbec (H-98); (3) pravidlo Z-12 pro hmyz („neznámé pole mimo jmenovatel", `27b2510`) leží
+  v mrtvé větvi a nemá účinek.
+- **Návrh:** skupinu brát z dat (`SKUPINA` v `n2k_druhy_lim`), výjimky *E. catax*,
+  *E. aurinia*, *E. maturna* ponechat. Před nasazením změřit (testovací běh hmyzu).
+
+### H-98 — `Bolbelamus unicornis` v `limity_vse.csv`: překlep, druh se nehodnotí
+- **Závažnost:** nízká (2 záznamy NDOP, 1 od roku 2013) · **Typ:** DATA · **Stav:** **zaznamenáno, otázka Z-28**
+- Šest řádků limitů má `Bolbelamus`; NDOP, `cis_metodika.csv`, `cis_evd_perioda.csv` i pravidlo
+  `CILMON` v `02_n2k_data_druhy.R` mají `Bolbelasmus unicornis`. `27` hodnotí jen průnik
+  názvů z limitů a NDOP, takže druh vypadne. Táž třída jako H-39 / H-40 (zadavatel tehdy
+  potvrdil jen *Cobitis*).
+
+### H-99 ⚠ — Letouni: klíčové indikátory z limitů se nepočítají
+- **Závažnost:** vysoká · **Typ:** GAP + BUG · **Stav:** **zaznamenáno** (souvisí se Z-24)
+- Limity letounů (5 druhů) mají klíčové `POP_DIFZIM`, `POP_DIFLET`, `POP_PRESENCEZIM`,
+  `POP_PRESENCELET`, `POP_REPROVAL` na úrovni `lok` i `chu`. `21_1` počítá jinak pojmenované
+  sloupce (`POP_VITALZIM`, `POP_VITALLET`, `POP_PRESENCE_ZIMNI`, `POP_PRESENCE_LETNI`,
+  `POP_REPROCHI`), takže se s limity nespárují (sirotci, srov. H-38, H-92) a letouni se
+  hodnotí jen podle zbylých indikátorů. Navíc:
+  - `POP_PRESENCE_ZIMNI` / `_LETNI`: podmínka `ROK == ROK - 1` neplatí nikdy a výraz běží
+    bez seskupení (maximum přes celý druh);
+  - `POP_POCETZIMREF` / `POP_POCETLETREF`: `mean(a, b, c, na.rm = TRUE)` průměruje jen `a`
+    (`b` je argument `trim`, `c` se zahodí) — ponecháno, sloupce do hodnocení nevstupují;
+  - `25` sčítal řádky `POP_POCETZIM*` / `POP_POCETLET*`, které úroveň DP nemá (vždy 0,
+    žádný limit `chu` je nečetl) — mrtvý výpočet odstraněn (`440480c`).
+- **Návrh:** definovat výpočet podle metodiky letounů (v repozitáři není) a pojmenovat
+  sloupce podle limitů; do té doby zvážit Z-24 (očekávané klíčové indikátory z limitů ⇒ DP neznámé).
+
+### H-100 — `21_1` agreguje lokalitu bez `kod_chu`
+- **Závažnost:** střední · **Typ:** BUG (identita lokality, srov. H-71) · **Stav:** **zaznamenáno**
+- `n2k_druhy_lokpop` a navazující tabulky (`POP_ZMENARAD`, `*PERIOD3`, trendy, `POP_DYN`
+  ryb) se seskupují `KOD_LOKAL × DRUH (× ROK)`, kdežto `24` a `25` `kod_chu × KOD_LOKAL`.
+  Lokality se stejným kódem v různých EVL (krátké kódy „1", „2", názvy) se ve fázi 1 slijí;
+  `27` uvádí 224 kombinací druh × `KOD_LOKAL` ve více EVL. U ryb změřeno „bez dopadu"
+  (H-71), u ostatních skupin neměřeno.
+- **Návrh:** přidat `kod_chu` do klíčů ve `21_1`; změřit na plném běhu.
+
+### H-101 — Seznam kódů `amp…` → `NA` v `02_n2k_data_druhy.R` nic nevyřazuje
+- **Závažnost:** nízká · **Typ:** BUG? (záměr neznámý) · **Stav:** **zaznamenáno**
+- `KOD_LOKALITY %in% c("amp211", "amp107", …, "CZ0813450", "CZ0713397") ~ NA_character_`;
+  následné doplnění (`coalesce(KOD_LOKAL, KOD_LOKALITY, LOKALITA)`) jim vrátí jejich vlastní
+  `KOD_LOKALITY`. Seznam tak jen přeskočí dvě pravidla pod sebou. Pokud měl lokality
+  vyřadit nebo sloučit, nedělá to.
+
+### H-102 — Hodnocené období v exportu je rozpětí všech záznamů, ne hodnocené okno
+- **Závažnost:** střední (export, verdikty beze změny) · **Typ:** BUG · **Stav:** **zaznamenáno** · **Odkazy:** H-86, cévnaté H-09, H-22
+- `22_n2k_obdobi.R` počítá `HODNOCENE_OBDOBI_OD/DO` jako min / max `DATUM` přes celý
+  `n2k_load` — všechny roky i záznamy z EVL, kde druh není předmětem ochrany. Hodnocení ale
+  pracuje s posledními 12 lety (cévnaté rostliny s oknem lokalit). V exportu úrovně EVL
+  (plný běh `fedd237`) je `hodnocene_obdobi_od` před rokem 2013 u **1 905 z 1 951** řádků,
+  nejstarší rok **1800**. H-86 popisuje jen chybějící horní mez.
+- **Návrh:** počítat období ze záznamů, které ve `21_1` vstupují do hodnocení (stejné okno
+  a párový filtr), nebo ho odvodit z `n2k_druhy_lim`.
+
+### H-103 ⚠ — *Phengaris nausithous* a *P. teleius* se nehodnotí: seznam předmětů ochrany vede *Maculinea*
+- **Závažnost:** vysoká · **Typ:** BUG (názvy, táž třída jako H-32, H-40, S-1) · **Stav:** **zaznamenáno, otázka Z-28**
+- Párový filtr druh × EVL (H-85, ve `21_1` i `27`) porovnává `DRUH` z NDOP s `nazev_lat`
+  seznamu předmětolokalit. Ten vede `Maculinea nausithous` a `Maculinea teleius`, NDOP
+  `Phengaris …` (export 2026-05-10: 4 083 a 2 591 záznamů, od roku 2013 2 538 a 1 122). Oba druhy — právě ty, pro které je psaná
+  metodika hmyzu v repozitáři — mají v plném běhu **0 lokalit** a žádný výstup DP ani EVL.
+  Nepárový filtr před H-85 je vyřazoval stejně (`DRUH %in% nazev_lat`).
+- V plném běhu je bez DP celkem 14 z 82 druhů seznamu; kromě *Phengaris* jde o známé
+  případy jmen (H-32 rostliny, H-40 ryby, S-1 *Lissotriton montandoni*) a druhy bez dat
+  v posledních 12 letech.
+- **Návrh:** jedna sdílená tabulka synonym (rozšířit `cis_druhy_nazvy.csv`, dnes jen
+  cévnaté rostliny) uplatněná na `sites_subjects` v `00_n2k_config.R` — návrh H-32.
+
+### Otázky pro zadavatele (integrace 2026-11-09)
+
+| # | Otázka | Možnosti | Doporučení | Nález |
+|---|---|---|---|---|
+| Z-26 | *E. catax* `POP_POCET` `min 30` hnízd: je limit platný a má být klíčový? | ponechat `KLIC = ne` / `ano` / limit zrušit (`info`) | `ne` — klíčovým populačním indikátorem je `POP_POCETSUMLOKAL` | H-96 |
+| Z-27 | Opravit rozpoznání druhů vázaných na mapovací pole (hmyz)? | opravit (skupina z dat) a změřit / ponechat | opravit po testovacím běhu hmyzu — mění DP i EVL u 16 druhů | H-97 |
+| Z-28 | Jedna sdílená tabulka synonym názvů (seznam předmětů ochrany × NDOP × limity) pro celou kaskádu? | tabulka synonym / přejmenovat v limitech / ponechat | tabulka synonym (rozšířit `cis_druhy_nazvy.csv`) — řeší H-32, H-40, H-98, H-103, S-1 | H-98, H-103 |
+| Z-29 | Seskupovat lokalitu ve `21_1` i podle `kod_chu`? | ano / ne | ano, po změření | H-100 |
+| Z-30 | Hodnocené období v exportu podle hodnoceného okna? | okno hodnocení / ponechat rozpětí všech záznamů | okno hodnocení | H-102 |
+
+---
+
 # Co zbývá
 
 | # | Položka | Kdo |
@@ -2401,3 +2524,10 @@ podle souřadnic je otázka **Z-25**.
 | 48 | **Ryby a mihule** — stav nálezů H-38 … H-58 podle metodiky EVL 2026 (*Cottus gobio*, *Lampetra planeri*, *Misgurnus fossilis*) a navazující nálezy **H-71 …** vedeny v [../Ryby a mihule/harmonizace_registr.md](<../Ryby a mihule/harmonizace_registr.md>) a [revize_metodika_ryby.md](<../Ryby a mihule/revize_metodika_ryby.md>) (2026-11-05) | zadavatel / autoři metodiky ryb |
 | 49 | **H-91 / Z-19** (registr ryb) — pravidlo „neznámý klíčový indikátor ⇒ neznámý stav DP" je na větvi `ryby-metodika-2026` zavedeno pro všechny skupiny; u obojživelníků odporuje kap. 2.1 („Indikátor se hodnotí pouze, jsou–li dostupné informace") a dělá neznámými 61 % DP (`POP_ZMENARAD`); hodnocení od 2024 mění u 27–33 % DP. Rozhodnout rozsah; s tím Z-23 (reference `POP_ZMENARAD` s kategorií) | zadavatel |
 | 50 | **H-89** (registr ryb, = H-14 cévnatých) — `cil_mon_zdroj.csv` se poprvé uplatní; zdroj 2021 „Sledování stavu EVL - obojživelníci" je nově cílený monitoring. Dopad změřen (viz oddíl výše); potvrdit, že zdroj do cíleného monitoringu patří | zadavatel |
+| 51 | **H-96 / Z-26** — *Eriogaster catax*: platnost a klíčovost limitu `POP_POCET` `min 30` hnízd (přeneseno z větve `eriogaster-catax-2025-01` s `KLIC = ne`); *Euphydryas aurinia* má stále prázdnou `UROVEN` u `STA_HABPOKRYV` (č. 33) | zadavatel |
+| 52 | **H-97 / Z-27** — druhy vázané na mapovací pole se nerozpoznají; `POP_PROCPOLE1D` se nepočítá u žádného z 20 druhů hmyzu | zadavatel |
+| 53 | **H-98, H-103 / Z-28** — názvy druhů: *Phengaris nausithous* a *P. teleius* (seznam vede *Maculinea*) a `Bolbelamus unicornis` se nehodnotí; společně s H-32, H-40, S-1 | zadavatel |
+| 54 | **H-99** — letouni: klíčové indikátory z limitů (`POP_DIFZIM`, `POP_DIFLET`, `POP_PRESENCEZIM`, `POP_PRESENCELET`, `POP_REPROVAL`) nemají výpočet | autoři metodiky letounů |
+| 55 | **H-100 / Z-29** — `21_1` agreguje lokalitu bez `kod_chu` | zadavatel / provoz |
+| 56 | **H-101** — seznam kódů `amp…` → `NA` v `02_n2k_data_druhy.R`: co měl dělat? | zadavatel |
+| 57 | **H-102 / Z-30** — hodnocené období v exportu je rozpětí všech záznamů (od roku 1800) | zadavatel |

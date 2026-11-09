@@ -1054,3 +1054,23 @@ indikátorech EVL proti běhu `abundance_pocet`.
 | P-03 | Taxonomie | v exportu není *Cottus* sp., *C. poecilopus*, kříženec, *Lampetra* sp. ani Petromyzontidae; *Eudontomyzon mariae* (22) má vlastní název i řádky číselníku — záměna nedoložena, problém hybridizace nelze z dat ověřit |
 | P-04 | `slice(1)` přes `POLE` v `24` (H-70) | u tří druhů mění verdikt jediné lokality (*Lampetra*) |
 | P-05 | Hranice `max 10` / `max 5` cm | `<=` odpovídá „vyšší než 10 cm" ⇒ nesplněno až nad 10 cm |
+
+---
+
+# Integrace kódu druhů (2026-11-09)
+
+Větev `druhy-integrace-202611` sloučila `ryby-metodika-2026` do `main` (merge `960b4ab`, bez
+squashe — hashe citované výše platí) a kód druhů sjednotila **beze změny výsledků**
+([`Outputs/Test/Integrace_druhy_20261109/`](../../Outputs/Test/Integrace_druhy_20261109/README.md)).
+Nové nálezy H-96 … H-103 jsou v [registru obojživelníků](../Obojzivelnici/harmonizace_registr.md#integrace-a-revize-kódu-druhů-2026-11-09). Ryb se týkají:
+
+| Nález | Ryby |
+|---|---|
+| H-100 | `21_1` seskupuje lokalitu bez `kod_chu` — u ryb dříve změřeno bez dopadu (H-71), u ostatních skupin otevřené |
+| H-102 | hodnocené období v exportu je rozpětí všech záznamů, ne okno 12 let (rozšíření H-86) |
+| H-98, H-103 | táž třída jako H-40 (názvy druhů) — otázka Z-28 na sdílenou tabulku synonym |
+
+Z-19 a Z-20 zůstávají beze změny kódu. Větev `ryby-indikatory` (leden 2026) nepřinesla nic
+chybějícího: tagy jsou ve `21_1` (u `<odhad_p_u>` měla větev překlep `ohad_p_u`, v datech
+neexistuje); `<prit_host_mlz>` → `STA_DALSIPARAMETRY` *Rhodeus amarus* čeká na H-46.
+`55_ryby_limity_2026.R` čte export NDOP přes `slozka_lokal` (`88ba11a`).

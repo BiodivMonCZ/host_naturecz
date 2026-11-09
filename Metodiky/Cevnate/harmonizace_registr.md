@@ -1070,3 +1070,16 @@ nejsou verdikty DP rostlin na větvi použitelné. Návrh brát očekávané kl�
 a 2025.“ (303 záznamů, 2024–2025, bohatá `STRUKT_POZN`) **není** v `cil_mon_zdroj.csv` a doplněn
 nebyl: metodika rostlin připouští jako cílený monitoring jen projekt *Monitoring druhů ČR*
 (PR-01, R-15). Eviduje se zde pro případné rozhodnutí v rámci revize cévnatých.
+
+## Integrace kódu druhů (2026-11-09)
+
+Větev `druhy-integrace-202611` sloučila `ryby-metodika-2026` (a s ní tuto větev) do `main`
+a kód sjednotila beze změny výsledků
+([`Outputs/Test/Integrace_druhy_20261109/`](../../Outputs/Test/Integrace_druhy_20261109/README.md)).
+Nové nálezy H-96 … H-103 jsou v [registru obojživelníků](../Obojzivelnici/harmonizace_registr.md#integrace-a-revize-kódu-druhů-2026-11-09). Cévnatých rostlin se týkají:
+
+| Nález | Cévnaté rostliny |
+|---|---|
+| H-102 | hodnocené období v exportu je rozpětí všech záznamů, ne okno lokalit (srov. H-09, H-22) |
+| H-103 / Z-28 | táž třída jako H-32 — otázka na sdílenou tabulku synonym (rozšířit `cis_druhy_nazvy.csv`) |
+| H-15 | `25` měl parametr `n2k_druhy_posledni_chu`, který `27` nikdy nepředával — odstraněn (`440480c`); `23` přebírá poslední nález z `22` (`3e1856b`), výsledky beze změny |
