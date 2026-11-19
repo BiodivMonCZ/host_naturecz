@@ -238,7 +238,7 @@ indikatory_id <- readr::read_csv(
 #--------------------------------------------------#
 cis_evd_perioda <- readr::read_csv(
   "Data/Input/cis_evd_perioda.csv", 
-  locale = readr::locale(encoding = "Windows-1250")
+  locale = readr::locale(encoding = "UTF-8")
 ) %>%
   dplyr::select(
     TAXON, 
