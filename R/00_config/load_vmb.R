@@ -27,6 +27,12 @@
 #' @param clean Logical. Pokud je \code{TRUE} (výchozí), funkce odstraní z paměti 
 #' pomocné objekty vzniklé během načítání a vrátí pouze finální vyčištěný list.
 #'
+#' @param wkt_filter Jeden textový řetězec (typ \code{character} délky 1)
+#'   obsahující obdélníkovou obálku území (bounding box) zapsanou jako WKT
+#'   \code{POLYGON} v souřadnicovém systému S-JTSK / Krovak East North (EPSG:5514).
+#'   Obálku v tomto formátu vrací funkce \code{make_wkt_site()}.
+#'   Při výchozí hodnotě \code{character(0)} se načte celá zvolená verze VMB.
+#'
 #' @return Named list (seznam) obsahující `sf` objekty a dataframy. 
 #' Obsah listu se liší podle zvoleného parametru \code{vmb_x}:
 #' 
@@ -65,7 +71,43 @@
 #' # Příklad 2: Načtení aktuální vrstvy bez čištění paměti
 #' data_akt <- load_vmb(vmb_x = 0, clean = FALSE)
 #' }
-load_vmb <- function(vmb_x = 1, clean = TRUE) {
+load_vmb <- function(vmb_x = 1, clean = TRUE, wkt_filter = base::character(0)) {
+  
+  # Jeden dotaz SQLite na každou DBF; do R přijdou pouze řádky vybraných segmentů.
+  read_dbf <- function(path, segment_ids) {
+    if (base::length(wkt_filter) == 0L) {
+      return(sf::st_read(path, options = "ENCODING=WINDOWS-1250"))
+    }
+    
+    layer <- tools::file_path_sans_ext(base::basename(path))
+    ids <- base::unique(stats::na.omit(segment_ids))
+    where <- "1 = 0"
+    if (base::length(ids)) {
+      values <- base::paste(base::sprintf("%.0f", ids), collapse = ",")
+      # Unární plus ponechá vyhodnocení IN na SQLite při průchodu DBF.
+      where <- base::sprintf("+SEGMENT_ID IN (%s)", values)
+    }
+    if (base::anyNA(segment_ids)) where <- base::paste(where, "OR SEGMENT_ID IS NULL")
+    sql <- base::sprintf('SELECT * FROM "%s" WHERE %s', layer, where)
+    
+    # VRT předá GDAL SQL dialekt i kódování zdrojové DBF.
+    # Obsahuje jen cestu a dotaz. Po načtení se dočasný soubor odstraní.
+    vrt <- base::tempfile(fileext = ".vrt")
+    base::on.exit(base::unlink(vrt), add = TRUE)
+    src <- base::normalizePath(path, winslash = "/", mustWork = TRUE)
+    src <- base::gsub("&", "&amp;", src, fixed = TRUE)
+    src <- base::gsub("<", "&lt;", src, fixed = TRUE)
+    src <- base::gsub(">", "&gt;", src, fixed = TRUE)
+    xml <- base::c(
+      '<OGRVRTDataSource><OGRVRTLayer name="vyber">',
+      base::sprintf("<SrcDataSource>%s</SrcDataSource>", src),
+      '<OpenOptions><OOI key="ENCODING">WINDOWS-1250</OOI></OpenOptions>',
+      base::sprintf('<SrcSQL dialect="SQLite">%s</SrcSQL>', sql),
+      '</OGRVRTLayer></OGRVRTDataSource>'
+    )
+    base::writeLines(base::enc2utf8(xml), vrt, useBytes = TRUE)
+    sf::st_read(vrt, layer = "vyber", quiet = TRUE)
+  }
   
   # Inicializace výstupního listu
   output <- list()
@@ -79,22 +121,23 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     vmb_shp_sjtsk_akt_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Aktualni_Segment.shp", 
+        wkt_filter = wkt_filter,
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_hab_dbf_akt <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/HAB_BIOTOP.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/HAB_BIOTOP.dbf",
+        vmb_shp_sjtsk_akt_read$SEGMENT_ID
       )
     vmb_pb_dbf_akt <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/PB_BIOTOP.dbf",
+        vmb_shp_sjtsk_akt_read$SEGMENT_ID
       ) 
     vmb_x_dbf_akt <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_AKTUALNI/Biotop/X_biotop.dbf",
+        vmb_shp_sjtsk_akt_read$SEGMENT_ID
       )
     
     # Zpracování PB a X biotopů
@@ -183,17 +226,18 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     vmb_shp_sjtsk_orig_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/20060501_Segment.shp", 
+        wkt_filter = wkt_filter,
         options = "ENCODING=WINDOWS-1250"
       )
     vmb_hab_dbf_orig <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/HAB20060501_BIOTOP.dbf",
+        vmb_shp_sjtsk_orig_read$SEGMENT_ID
       )
     vmb_pb_dbf_orig <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/PB20060501_BIOTOP.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_20060501/Biotop/PB20060501_BIOTOP.dbf",
+        vmb_shp_sjtsk_orig_read$SEGMENT_ID
       ) %>%
       dplyr::filter(
         !OBJECTID %in% vmb_hab_dbf_orig$OBJECTID
@@ -254,19 +298,20 @@ load_vmb <- function(vmb_x = 1, clean = TRUE) {
     vmb_shp_sjtsk_a1_read <- 
       sf::st_read(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Aktualizace1_Segment.shp", 
+        wkt_filter = wkt_filter,
         options = "ENCODING=WINDOWS-1250"
       )
     
     vmb_hab_dbf_a1 <- 
-      sf::st_read(
-        "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Hab_biotop.dbf", 
-        options = "ENCODING=WINDOWS-1250"
+      read_dbf(
+        "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Hab_biotop.dbf",
+        vmb_shp_sjtsk_a1_read$SEGMENT_ID
       )
     
     vmb_pb_dbf_a1 <-
-      sf::st_read(
+      read_dbf(
         "//bali.nature.cz/du/Mapovani/Biotopy/CR_Aktualizace1/Biotop/Aktualizace1_Biotop.dbf",
-        options = "ENCODING=WINDOWS-1250"
+        vmb_shp_sjtsk_a1_read$SEGMENT_ID
       )
     
     vmb_x_dbf_a1 <-
