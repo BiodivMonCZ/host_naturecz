@@ -138,6 +138,7 @@ stanoviste_druhy <- function(
   
   invaders_all <- sf::st_intersection(invasive_target, vmb_target) |>
     sf::st_drop_geometry() |>
+    dplyr::filter(DATUM_OD >= DATUM) |>
     dplyr::group_by(VMB_OBJECTID, DRUH) |>
     dplyr::slice(base::which.max(DATUM_OD)) |>
     dplyr::filter(NEGATIVNI == 0) |>
@@ -170,6 +171,7 @@ stanoviste_druhy <- function(
     dplyr::filter(POKRYVN %in% c("3", "4", "5")) |>
     sf::st_intersection(vmb_target) |>
     sf::st_drop_geometry() |>
+    dplyr::filter(DATUM_OD >= DATUM) |>
     dplyr::group_by(VMB_OBJECTID, DRUH) |>
     dplyr::slice(base::which.max(DATUM_OD)) |>
     dplyr::filter(NEGATIVNI == 0) |>
