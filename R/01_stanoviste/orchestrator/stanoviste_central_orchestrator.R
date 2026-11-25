@@ -342,7 +342,6 @@ stanoviste_eval <- function(
       MOZAIKA_VNEJSI,
       MOZAIKA_VNITRNI,
       MOZAIKA_FIN,
-      VYPLNENOST_MOZAIKA,
       PERC_SPAT
     )
   
