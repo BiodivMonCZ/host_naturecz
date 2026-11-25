@@ -154,14 +154,15 @@ habitat_areas_a1 <-
 #--------------------------------------------------#
 ## Stažení hranice CR ---- 
 #--------------------------------------------------#
-czechia <- sf::st_read("Data/Input/HraniceCR.shp")
+czechia <- sf::st_read("Data/Input/VMB_HraniceCR.shp")
 czechia_line <- sf::st_cast(czechia, "LINESTRING")
 
 #--------------------------------------------------#
 ## Aktualizaceni okrsky mapovani biotopu ---- 
 #--------------------------------------------------#
-akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
-  dplyr::rename(SITECODE = kod)
+
+# akt_okrsky <- sf::st_read("Data/Input/AktualizacniOkrsky.shp") %>%
+#   dplyr::rename(SITECODE = kod)
 
 #------------------------------------------------------#
 ## RL druhy ----
