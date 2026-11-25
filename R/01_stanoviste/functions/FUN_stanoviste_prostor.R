@@ -58,7 +58,8 @@ stanoviste_prostor <- function(
     "RB",
     "BIOTOP",
     "FSB_EVAL",
-    "BIOTOP_SEZ"
+    "BIOTOP_SEZ",
+    "SEGMENT_ID"
   )
   
   missing_vmb_cols <- base::setdiff(required_vmb_cols, base::names(vmb))
@@ -365,12 +366,18 @@ stanoviste_prostor <- function(
       dist = 500
     )
     
+    target_segment_ids <- vmb_spat |>
+      sf::st_drop_geometry() |>
+      dplyr::pull(SEGMENT_ID) |>
+      base::unique()
+
     vmb_natural <- vmb |>
       sf::st_filter(site_buffer) |>
       dplyr::filter(
         !base::is.na(FSB_EVAL),
         !FSB_EVAL %in% base::c("X", "-", "-1"),
-        base::is.na(.data[[habitat_col]]) | .data[[habitat_col]] != hab_code
+        base::is.na(.data[[habitat_col]]) | .data[[habitat_col]] != hab_code,
+        base::is.na(SEGMENT_ID) | !SEGMENT_ID %in% target_segment_ids
       ) |>
       sf::st_make_valid() |>
       sf::st_collection_extract("POLYGON", warn = FALSE)
@@ -405,13 +412,11 @@ stanoviste_prostor <- function(
       units::drop_units() |>
       base::sum(na.rm = TRUE)
     
+    # Hranici shodnou se statni hranici nelze klasifikovat primo. Jeji
+    # prirodni/neprirodni charakter se proto odhaduje podle podilu na zname
+    # (nestatni) casti hranice. Tento podil se dale nenasobi vyplnenosti obvodu,
+    # protoze by se tim statni hranice chybne zapocetla jako neprirodni.
     known_border <- base::max(border_all - border_hsl, 0)
-    
-    if (border_all > 0) {
-      mozaika_border_fill <- known_border / border_all
-    } else {
-      mozaika_border_fill <- NA_real_
-    }
     
     if (base::nrow(vmb_natural) > 0 && known_border > 0) {
       
@@ -428,7 +433,8 @@ stanoviste_prostor <- function(
         units::drop_units() |>
         base::sum(na.rm = TRUE)
       
-      mozaika_vnejsi <- border_nat / known_border * 100
+      natural_border_share <- border_nat / known_border
+      mozaika_vnejsi <- natural_border_share * 100
       mozaika_vnejsi <- base::min(base::max(mozaika_vnejsi, 0), 100)
       
     } else if (known_border > 0) {
@@ -439,7 +445,6 @@ stanoviste_prostor <- function(
     
   } else {
     mozaika_vnejsi <- NA_real_
-    mozaika_border_fill <- NA_real_
   }
   
   # Finalni mozaika -----------------------------------------------------------
@@ -465,7 +470,6 @@ stanoviste_prostor <- function(
     MOZAIKA_VNEJSI = mozaika_vnejsi,
     MOZAIKA_VNITRNI = mozaika_vnitrni,
     MOZAIKA_FIN = mozaika_fin,
-    VYPLNENOST_MOZAIKA = mozaika_border_fill,
     PERC_SPAT = perc_spat
   ) |>
     dplyr::distinct()
